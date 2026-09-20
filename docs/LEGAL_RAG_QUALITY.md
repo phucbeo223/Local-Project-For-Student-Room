@@ -43,6 +43,10 @@ docker compose --profile tools run --rm legal-indexer --data-dir /data
 ```
 
 Indexer áp migration 94 và 98, xử lý lại bản trích xuất cũ và tạo embedding mới.
+Dùng `INSTALL_ML=true` trong `.env` rồi build API để bật tìm kiếm vector. API và
+indexer trong cấu hình Compose mặc định dùng chung volume cache mô hình; nếu có
+file override cục bộ, hai dịch vụ cần cùng volume và cùng đường dẫn cache. API
+không có thư viện ML hoặc cache vẫn dùng được tìm kiếm từ khóa.
 Dùng `--category electricity` để chỉ xử lý nhóm điện; `--source` có thể lặp lại
 để chọn các đường dẫn tương đối mà vẫn giữ đúng danh tính tài liệu:
 

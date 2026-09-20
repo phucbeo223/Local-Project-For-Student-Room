@@ -49,6 +49,8 @@ services:
       CRAWLER_ENABLED: ${CRAWLER_ENABLED:-false}
       ORS_API_KEY: ${ORS_API_KEY:-}
       CHATBOT_EMBEDDING_MODEL: ${CHATBOT_EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
+      HF_HOME: /models
+      TRANSFORMERS_CACHE: /models/hub
       CHATBOT_CONFIDENCE_THRESHOLD: ${CHATBOT_CONFIDENCE_THRESHOLD:-0.65}
       CHATBOT_MAX_RESULTS: ${CHATBOT_MAX_RESULTS:-5}
       CHATBOT_LLM_PROVIDER: ${CHATBOT_LLM_PROVIDER:-auto}
@@ -67,6 +69,8 @@ services:
       GEMINI_BASE_URL: ${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}
       RISK_AUTO_ASSESS: ${RISK_AUTO_ASSESS:-true}
       RISK_AUTO_ASSESS_LIMIT: ${RISK_AUTO_ASSESS_LIMIT:-1000}
+    volumes:
+      - legal-model-cache:/models
     ports:
       - "8000:8000"
     depends_on:
