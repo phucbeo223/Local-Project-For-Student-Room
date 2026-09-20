@@ -70,14 +70,18 @@ class ListingOut(BaseModel):
     images: list[str] = Field(default_factory=list)
     source: str
     source_url: str | None = None
+    posted_by: int | None = None
     risk_score: float | None = None
+    risk_reasons: list[str] = Field(default_factory=list)
     risk_level: str = "unknown"
+    risk_status: str = "not_evaluated"
     geocode_confidence: str | None = None
     freshness_score: float | None = None
     freshness_label: str = ""
     quality_score: float | None = None
     last_seen: datetime | None = None
     route_time_campus: list[float] | None = None  # [khuI, khuII, khuIII] phút, None = chưa route
+    report_count: int = 0
 
 
 class SearchResult(BaseModel):
@@ -90,22 +94,22 @@ class SearchResult(BaseModel):
 class ListingCreate(BaseModel):
     """Payload đăng tin UGC (FR-3.1)."""
 
-    title: str = Field(min_length=1)
-    price: int | None = None
-    area: float | None = None
-    address: str | None = None
-    district: str | None = None
-    description: str | None = None
-    images: list[str] = Field(default_factory=list)
+    title: str = Field(min_length=5, max_length=200)
+    price: int | None = Field(default=None, ge=0, le=100_000_000)
+    area: float | None = Field(default=None, gt=0, le=10_000)
+    address: str | None = Field(default=None, max_length=500)
+    district: str | None = Field(default=None, max_length=80)
+    description: str | None = Field(default=None, max_length=10_000)
+    images: list[str] = Field(default_factory=list, max_length=20)
 
 
 class ListingUpdate(BaseModel):
     """Payload sửa tin UGC — mọi field optional (partial update)."""
 
-    title: str | None = None
-    price: int | None = None
-    area: float | None = None
-    address: str | None = None
-    district: str | None = None
-    description: str | None = None
-    images: list[str] | None = None
+    title: str | None = Field(default=None, min_length=5, max_length=200)
+    price: int | None = Field(default=None, ge=0, le=100_000_000)
+    area: float | None = Field(default=None, gt=0, le=10_000)
+    address: str | None = Field(default=None, max_length=500)
+    district: str | None = Field(default=None, max_length=80)
+    description: str | None = Field(default=None, max_length=10_000)
+    images: list[str] | None = Field(default=None, max_length=20)

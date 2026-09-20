@@ -1,4 +1,6 @@
-from .router import init_listings
-from .router import router as listings_router
+"""Listing package.
 
-__all__ = ["listings_router", "init_listings"]
+Import the router explicitly from ``app.listings.router``. Keeping package
+initialization side-effect free lets schemas and repositories be reused by
+offline evaluation without importing crawler-only dependencies.
+"""

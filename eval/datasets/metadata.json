@@ -1,0 +1,13 @@
+{
+  "dataset_version": "ctu-housing-chatbot-v1.0.0",
+  "seed": 2026,
+  "listing_count": 1000,
+  "question_count": 200,
+  "generator": "scripts/generate_fake_listings.py",
+  "purpose": "Development and reproducible offline evaluation only",
+  "ground_truth_protocol": "Expected listing IDs are deterministically derived from documented business filters. A manually reviewed golden subset must be recorded before publication.",
+  "research_sources": [
+    "10.18653/v1/2024.eacl-demo.16",
+    "10.5555/3495724.3496517"
+  ]
+}

@@ -28,7 +28,7 @@ const config: Config = {
         tint: "#f0f4f9",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        sans: ["Segoe UI", "Arial", ...defaultTheme.fontFamily.sans],
       },
     },
   },

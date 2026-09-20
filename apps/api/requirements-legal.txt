@@ -1,0 +1,6 @@
+# Optional offline legal-document ingestion worker.
+-r requirements-ml.txt
+PyMuPDF==1.25.1
+Pillow==11.1.0
+pytesseract==0.3.13
+

@@ -16,3 +16,8 @@ COPY migrations/50_route_time.sql /docker-entrypoint-initdb.d/50-route-time.sql
 COPY migrations/50_ugc.sql /docker-entrypoint-initdb.d/50-ugc.sql
 COPY migrations/60_data_cleaning.sql /docker-entrypoint-initdb.d/60-data-cleaning.sql
 COPY migrations/70_listing_classify.sql /docker-entrypoint-initdb.d/70-listing-classify.sql
+COPY migrations/90_chatbot.sql /docker-entrypoint-initdb.d/90-chatbot.sql
+COPY migrations/91_room_service_risk.sql /docker-entrypoint-initdb.d/91-room-service-risk.sql
+COPY migrations/92_reports_moderation.sql /docker-entrypoint-initdb.d/92-reports-moderation.sql
+COPY migrations/93_ai_product_features.sql /docker-entrypoint-initdb.d/93-ai-product-features.sql
+COPY migrations/94_legal_knowledge.sql /docker-entrypoint-initdb.d/94-legal-knowledge.sql

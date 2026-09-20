@@ -4,5 +4,6 @@ scikit-learn>=1.4
 datasketch>=1.6
 sentence-transformers>=3.0
 ragas>=0.2
+datasets>=3.0
 jupyterlab>=4.0
 matplotlib>=3.8

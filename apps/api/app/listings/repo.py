@@ -13,8 +13,10 @@ from .schemas import (
 _COLS = (
     "id, title, price, area, address, district, description, "
     "ST_Y(geom) AS lat, ST_X(geom) AS lng, distance_to_ctu, images, "
-    "source, source_url, risk_score, geocode_confidence, freshness_score, "
-    "quality_score, last_seen, route_time_campus"
+    "source, source_url, posted_by, risk_score, risk_reasons, risk_status, geocode_confidence, freshness_score, "
+    "quality_score, last_seen, route_time_campus, "
+    "(SELECT count(*) FROM reports r WHERE r.listing_id = aggregated_listings.id "
+    "AND r.status IN ('pending', 'reviewed')) AS report_count"
 )
 
 _SORT_SQL = {
@@ -71,7 +73,11 @@ def build_filters(p: SearchParams) -> tuple[str, dict]:
 def _to_out(row) -> ListingOut:
     d = dict(row)
     d["images"] = d.get("images") or []
+    d["risk_reasons"] = d.get("risk_reasons") or []
     d["risk_level"] = risk_level(d.get("risk_score"))
+    d["risk_status"] = d.get("risk_status") or (
+        "evaluated" if d.get("risk_score") else "not_evaluated"
+    )
     d["freshness_label"] = freshness_label(d.get("last_seen"))
     return ListingOut(**d)
 
@@ -161,14 +167,15 @@ _INSERT_UGC = text(
         (title, price, area, address, district, images, description,
          source, source_url, source_id, posted_by,
          geom, distance_to_ctu, geocode_confidence,
-         status, first_seen, last_seen, updated_at)
+         status, cleaning_status, listing_type, quality_score,
+         first_seen, last_seen, updated_at)
     VALUES
         (:title, :price, :area, :address, :district, :images, :description,
          'user', NULL, NULL, :posted_by,
          CASE WHEN CAST(:lat AS DOUBLE PRECISION) IS NULL THEN NULL
               ELSE ST_SetSRID(ST_MakePoint(CAST(:lng AS DOUBLE PRECISION), CAST(:lat AS DOUBLE PRECISION)), 4326) END,
          CAST(:distance_to_ctu AS REAL), :geocode_confidence,
-         'active', now(), now(), now())
+         'active', 'cleaned', 'phong_tro', 0.60, now(), now(), now())
     RETURNING id
     """
 )
@@ -215,17 +222,24 @@ class ListingWriteRepo:
         set_clauses = [f"{col} = :{col}" for col in fields if col in _UPDATABLE_COLS]
         params: dict = {**fields, "id": listing_id}
 
-        if "address" in fields and lat is not None and lng is not None:
-            set_clauses.append(
-                "geom = ST_SetSRID(ST_MakePoint(CAST(:lng AS DOUBLE PRECISION), "
-                "CAST(:lat AS DOUBLE PRECISION)), 4326)"
-            )
-            set_clauses.append("distance_to_ctu = CAST(:distance_to_ctu AS REAL)")
-            set_clauses.append("geocode_confidence = :geocode_confidence")
-            params["lat"] = lat
-            params["lng"] = lng
-            params["distance_to_ctu"] = dist
-            params["geocode_confidence"] = conf
+        if "address" in fields:
+            # Never retain geometry/route belonging to the previous address.
+            set_clauses.append("route_time_campus = NULL")
+            if lat is not None and lng is not None:
+                set_clauses.append(
+                    "geom = ST_SetSRID(ST_MakePoint(CAST(:lng AS DOUBLE PRECISION), "
+                    "CAST(:lat AS DOUBLE PRECISION)), 4326)"
+                )
+                set_clauses.append("distance_to_ctu = CAST(:distance_to_ctu AS REAL)")
+                set_clauses.append("geocode_confidence = :geocode_confidence")
+                params["lat"] = lat
+                params["lng"] = lng
+                params["distance_to_ctu"] = dist
+                params["geocode_confidence"] = conf
+            else:
+                set_clauses.extend(
+                    ["geom = NULL", "distance_to_ctu = NULL", "geocode_confidence = NULL"]
+                )
 
         if not set_clauses:
             return
@@ -241,6 +255,17 @@ class ListingWriteRepo:
             conn.execute(
                 text("UPDATE aggregated_listings SET route_time_campus = :t WHERE id = :id"),
                 {"t": times, "id": listing_id},
+            )
+
+    def flag_suspicious_ugc(self, listing_id: int) -> None:
+        """Hold a suspicious user post for admin review without deleting it."""
+        with self.engine.begin() as conn:
+            conn.execute(
+                text(
+                    "UPDATE aggregated_listings SET status = 'flagged', updated_at = now() "
+                    "WHERE id = :id AND source = 'user' AND status = 'active'"
+                ),
+                {"id": listing_id},
             )
 
     def soft_delete(self, listing_id: int) -> None:

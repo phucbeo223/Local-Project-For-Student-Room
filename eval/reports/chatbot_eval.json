@@ -1,0 +1,28 @@
+{
+  "dataset_version": "ctu-housing-chatbot-v1.0.0",
+  "evaluation_scope": "deterministic_offline_parser_and_retrieval_simulation",
+  "dataset_cases": 200,
+  "answer_cases": 150,
+  "metrics": {
+    "recall_at_5": 1.0,
+    "precision_at_5": 1.0,
+    "no_answer_accuracy": 1.0,
+    "citation_accuracy": null,
+    "filter_accuracy": 1.0,
+    "intent_accuracy": 1.0,
+    "query_understanding_accuracy": 1.0,
+    "faithfulness_groundedness": null,
+    "p95_latency_ms": 1.174
+  },
+  "thresholds": {
+    "recall_at_5": 0.7,
+    "precision_at_5": 0.7,
+    "no_answer_accuracy": 0.9,
+    "citation_accuracy": 1.0,
+    "filter_accuracy": 0.9,
+    "query_understanding_accuracy": 0.9,
+    "faithfulness_groundedness": 0.7,
+    "p95_latency_ms_max": 5000
+  },
+  "failures": []
+}

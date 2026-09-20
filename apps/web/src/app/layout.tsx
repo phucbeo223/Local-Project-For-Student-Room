@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import ChatClient from "./chat/ChatClient";
 import "./globals.css";
-
-const beVietnamPro = Be_Vietnam_Pro({
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: "Trọ CTU — Tìm phòng trọ gần ĐH Cần Thơ",
@@ -19,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={beVietnamPro.variable}>
-      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
+    <html lang="vi">
+      <body className="bg-paper font-sans text-ink antialiased">
+        {children}
+        <ChatClient />
+      </body>
     </html>
   );
 }
