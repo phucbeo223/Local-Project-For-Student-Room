@@ -1,6 +1,7 @@
 import json
 
 import httpx
+import pytest
 
 from app.room_service.chatbot.parser import merge_filters, parse_query
 from app.room_service.chatbot.providers import (
@@ -176,6 +177,8 @@ def test_ollama_qwen_generator_uses_local_chat_api():
         assert request.url.path == "/api/chat"
         payload = json.loads(request.content)
         assert payload["model"] == "qwen2.5:7b"
+        assert payload["think"] is False
+        assert payload["options"]["num_ctx"] == 8192
         assert "CONTEXT LISTING" in payload["messages"][1]["content"]
         return httpx.Response(
             200,
@@ -235,3 +238,39 @@ def test_provider_chain_falls_back_to_grounded_template():
     assert result.provider == "template"
     assert "Phòng trọ gần CTU" in result.text
     assert result.degraded_reasons
+
+
+def test_legal_fallback_is_short_and_does_not_dump_or_interpret_law():
+    contexts = [dict(rank=i, title="Văn bản", content="Nội dung luật dài. " * 500) for i in range(1, 6)]
+    result = GroundedTemplateGenerator().generate("Tiền điện?", contexts, context_kind="legal")
+    assert len(result.text) < 500
+    assert "chưa tổng hợp được kết luận" in result.text
+    assert "Nội dung luật dài" not in result.text
+    assert all(f"[{i}]" in result.text for i in range(1, 6))
+
+
+@pytest.mark.parametrize("message,reason", [({"content": "Kết luận bị cắt [1]"}, "length"), ({"thinking": "private reasoning", "content": ""}, "stop")])
+def test_local_incomplete_or_thinking_only_output_uses_safe_fallback(message, reason):
+    generator = FallbackResponseGenerator([OllamaQwenGenerator(
+        "http://ollama.test", "qwen3.5:4b",
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, json={"message": message, "done_reason": reason})),
+    )])
+    result = generator.generate("Tìm trọ", [_listing()])
+    assert result.provider == "template"
+    assert result.degraded_reasons
+    assert "private reasoning" not in result.text
+    assert "Kết luận bị cắt" not in result.text
+
+
+def test_qwen35_configurable_context_and_final_answer_only():
+    def handler(request):
+        payload = json.loads(request.content)
+        assert payload["model"] == "qwen3.5:4b"
+        assert payload["think"] is False
+        assert payload["options"]["num_ctx"] == 4096
+        assert payload["stream"] is False
+        return httpx.Response(200, json={"done_reason": "stop", "message": {"thinking": "private reasoning", "content": "Phòng phù hợp [1]."}})
+    result = OllamaQwenGenerator("http://ollama.test", "qwen3.5:4b", context_length=4096,
+        transport=httpx.MockTransport(handler)).generate("Tìm trọ", [_listing()])
+    assert result.text == "Phòng phù hợp [1]."
+    assert result.model == "qwen3.5:4b"

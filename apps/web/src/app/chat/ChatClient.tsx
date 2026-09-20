@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ChatAnswer from "./ChatAnswer";
 import { usePathname } from "next/navigation";
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 
@@ -19,6 +20,7 @@ type Source = {
   page_from: number | null;
   page_to: number | null;
   heading: string | null;
+  excerpt?: string | null;
 };
 
 type Listing = {
@@ -142,7 +144,8 @@ export default function ChatClient() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const latestTurnRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -150,8 +153,15 @@ export default function ChatClient() {
   }, [pathname]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [turns, loading]);
+    const container = scrollRef.current;
+    const latest = latestTurnRef.current;
+    if (!container) return;
+    const assistant = turns[turns.length - 1]?.role === "assistant";
+    const top = assistant && latest
+      ? latest.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop - 12
+      : container.scrollHeight;
+    container.scrollTo({ top, behavior: "auto" });
+  }, [turns.length, loading]);
 
   useEffect(() => {
     if (mode !== "closed") window.setTimeout(() => inputRef.current?.focus(), 180);
@@ -166,7 +176,7 @@ export default function ChatClient() {
     const history = turns
       .filter((turn) => turn.key !== "welcome")
       .slice(-10)
-      .map((turn) => ({ role: turn.role, content: turn.content }));
+      .map((turn) => ({ role: turn.role, content: turn.content.slice(0, 2000) }));
     setTurns((items) => [
       ...items,
       { key: `user-${Date.now()}`, role: "user", content: cleanText },
@@ -245,7 +255,7 @@ export default function ChatClient() {
       <button
         type="button"
         onClick={() => setMode("compact")}
-        className="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-[#005baa] p-3.5 text-white shadow-[0_12px_35px_rgba(0,74,143,0.38)] transition hover:-translate-y-1 hover:bg-[#004a8f] focus:outline-none focus:ring-4 focus:ring-blue-200 sm:px-5"
+        className="group fixed bottom-5 right-5 z-[1200] flex items-center gap-3 rounded-full bg-[#005baa] p-3.5 text-white shadow-[0_12px_35px_rgba(0,74,143,0.38)] transition hover:-translate-y-1 hover:bg-[#004a8f] focus:outline-none focus:ring-4 focus:ring-blue-200 sm:px-5"
         aria-label="Mở Trợ lý Trọ CTU"
       >
         <span className="relative grid h-7 w-7 place-items-center">
@@ -261,14 +271,14 @@ export default function ChatClient() {
   return (
     <section
       aria-label="Trợ lý tìm nhà trọ CTU"
-      className={`fixed z-50 flex overflow-hidden border border-blue-100 bg-white shadow-[0_24px_70px_rgba(15,45,80,0.28)] transition-all duration-300 ${
+      className={`fixed z-[1200] flex overflow-hidden border border-blue-100 bg-white shadow-[0_24px_70px_rgba(15,45,80,0.28)] transition-all duration-300 ${
         expanded
           ? "inset-0 rounded-none sm:inset-5 sm:rounded-3xl"
-          : "bottom-3 right-3 h-[min(680px,calc(100vh-1.5rem))] w-[min(400px,calc(100vw-1.5rem))] rounded-3xl"
+          : "bottom-3 right-3 h-[min(680px,calc(100dvh-1.5rem))] w-[min(400px,calc(100vw-1.5rem))] rounded-3xl"
       }`}
     >
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="relative overflow-hidden bg-gradient-to-br from-[#0068b7] via-[#005baa] to-[#003f7d] px-4 py-3.5 text-white">
+        <header className="relative shrink-0 overflow-hidden bg-gradient-to-br from-[#0068b7] via-[#005baa] to-[#003f7d] px-4 py-3.5 text-white">
           <div className="absolute -right-10 -top-14 h-36 w-36 rounded-full border border-white/10 bg-white/5" />
           <div className="relative flex items-center gap-3">
             <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-[#005baa] shadow-sm">
@@ -278,7 +288,7 @@ export default function ChatClient() {
               <h2 className="truncate font-bold">Trợ lý Trọ CTU</h2>
               <p className="flex items-center gap-1.5 text-xs text-blue-100">
                 <span className="h-2 w-2 rounded-full bg-emerald-300" />
-                Qwen local · Gemini tùy chọn · Ngữ cảnh 5 lượt ở trình duyệt
+                Tìm phòng · Hỏi đáp thuê trọ
               </p>
             </div>
             <button type="button" onClick={resetConversation} title="Cuộc trò chuyện mới" className="rounded-xl p-2 text-blue-100 transition hover:bg-white/15 hover:text-white">
@@ -293,22 +303,24 @@ export default function ChatClient() {
           </div>
         </header>
 
-        <div className="min-h-0 flex-1 overflow-y-auto bg-[#f4f8fc] px-3 py-4 sm:px-4">
+        <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-[#f4f8fc] px-3 py-4 sm:px-4">
           <div className={`mx-auto space-y-4 ${expanded ? "max-w-5xl" : "max-w-full"}`}>
-            {turns.map((turn) => (
-              <article key={turn.key} className={turn.role === "user" ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}>
+            {turns.map((turn, index) => (
+              <article key={turn.key} ref={index === turns.length - 1 ? latestTurnRef : undefined} className={turn.role === "user" ? "ml-auto max-w-[85%] break-words [overflow-wrap:anywhere]" : "mr-auto min-w-0 max-w-full"}>
                 <div
                   className={
                     turn.role === "user"
                       ? "ml-auto w-fit rounded-2xl rounded-br-md bg-[#005baa] px-4 py-2.5 text-sm leading-6 text-white shadow-sm"
-                      : "w-fit whitespace-pre-line rounded-2xl rounded-bl-md border border-blue-50 bg-white px-4 py-3 text-sm leading-6 text-slate-700 shadow-sm"
+                      : "max-w-full rounded-2xl rounded-bl-md border border-blue-50 bg-white px-4 py-3 text-sm leading-6 text-slate-700 shadow-sm"
                   }
                 >
-                  {turn.content}
+                  {turn.role === "assistant" ? <ChatAnswer content={turn.content} sources={turn.sources} /> : turn.content}
                 </div>
                 {turn.degraded && (
                   <p className="mt-1.5 px-2 text-[11px] text-amber-700">
-                    Vector chưa sẵn sàng, hệ thống đang dùng BM25 và bộ lọc dữ liệu.
+                    {turn.generationProvider === "template"
+                      ? "Chưa có câu trả lời AI đáng tin cậy; đang hiển thị thông tin theo nguồn."
+                      : "Một phần xử lý đang dùng phương án dự phòng. Hãy đối chiếu nguồn."}
                   </p>
                 )}
                 {turn.role === "assistant" && turn.generationProvider && (
@@ -362,18 +374,6 @@ export default function ChatClient() {
                     })}
                   </div>
                 )}
-                {turn.sources && turn.sources.length > 0 && (
-                  <div className="mt-2 space-y-1 px-2 text-[10px] text-slate-500">
-                    <p className="font-semibold uppercase tracking-wide text-slate-400">Nguồn đối chiếu</p>
-                    {turn.sources.map((source) => (
-                      <p key={`${source.kind}-${source.chunk_id ?? source.listing_id}-${source.rank}`}>
-                        [{source.rank}] {source.kind === "legal_document" ? source.title : source.source}
-                        {source.heading ? ` · ${source.heading}` : ""}
-                        {source.page_from ? ` · trang ${source.page_from}${source.page_to && source.page_to !== source.page_from ? `–${source.page_to}` : ""}` : ""}
-                      </p>
-                    ))}
-                  </div>
-                )}
               </article>
             ))}
 
@@ -388,15 +388,15 @@ export default function ChatClient() {
             )}
 
             {loading && (
-              <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-md border border-blue-50 bg-white px-4 py-3 shadow-sm" aria-label="Đang tìm phòng">
+              <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-md border border-blue-50 bg-white px-4 py-3 shadow-sm" role="status" aria-label="Đang xử lý câu hỏi">
                 {[0, 1, 2].map((index) => <span key={index} className="h-2 w-2 animate-bounce rounded-full bg-[#005baa]" style={{ animationDelay: `${index * 120}ms` }} />)}
+                <span className="ml-2 text-xs text-slate-500">Đang đọc nguồn và trả lời…</span>
               </div>
             )}
-            <div ref={bottomRef} />
           </div>
         </div>
 
-        <form onSubmit={submit} className="border-t border-blue-100 bg-white p-3">
+        <form onSubmit={submit} className="shrink-0 border-t border-blue-100 bg-white p-3">
           <div className={`mx-auto ${expanded ? "max-w-5xl" : "max-w-full"}`}>
             {error && <p className="mb-2 rounded-lg bg-rose-50 px-3 py-2 text-xs text-rose-700">{error}</p>}
             <div className="flex items-end gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-1.5 focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-100">
@@ -414,7 +414,7 @@ export default function ChatClient() {
                 <Icon name="send" />
               </button>
             </div>
-            <p className="mt-1.5 text-center text-[10px] text-slate-400">Nội dung chỉ tồn tại trong cửa sổ đang mở; hệ thống chỉ lưu metric ẩn danh để đánh giá nghiên cứu.</p>
+            <p className="mt-1.5 text-center text-[10px] text-slate-400">Trò chuyện chỉ giữ trong cửa sổ này. Kiểm tra thông tin trước khi đặt cọc.</p>
           </div>
         </form>
       </div>

@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
 import { createListing, type ApiError, type ListingInput } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function POST(req: Request) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
-
   let body: Partial<ListingInput>;
   try {
     body = await req.json();
@@ -20,7 +15,9 @@ export async function POST(req: Request) {
   }
 
   try {
-    const listing = await createListing(token, body as ListingInput);
+    const listing = await withAccessToken((token) =>
+      createListing(token, body as ListingInput),
+    );
     return NextResponse.json(listing, { status: 201 });
   } catch (e) {
     const err = e as ApiError;

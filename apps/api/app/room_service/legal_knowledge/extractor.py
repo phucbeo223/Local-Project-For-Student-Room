@@ -120,10 +120,18 @@ def _extract_docx(path: Path) -> list[ExtractedPage]:
     # small and preserves paragraph boundaries needed by the legal chunker.
     try:
         with zipfile.ZipFile(path) as archive:
-            xml = archive.read("word/document.xml")
-    except (zipfile.BadZipFile, KeyError) as exc:
+            # Some Windows-exported documents use backslashes inside the ZIP.
+            # Read in place: do not rewrite signed sources or extract paths to disk.
+            parts = [
+                part for part in archive.infolist()
+                if part.filename.replace("\\", "/") == "word/document.xml"
+            ]
+            if len(parts) != 1:
+                raise KeyError("Missing or ambiguous Word document part")
+            xml = archive.read(parts[0])
+        root = ElementTree.fromstring(xml)
+    except (zipfile.BadZipFile, KeyError, ElementTree.ParseError) as exc:
         raise RuntimeError(f"DOCX không hợp lệ: {path.name}") from exc
-    root = ElementTree.fromstring(xml)
     namespace = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
     paragraphs: list[str] = []
     for paragraph in root.iter(f"{namespace}p"):

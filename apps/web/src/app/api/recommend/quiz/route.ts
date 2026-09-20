@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
 import { apiFetch, type ApiError } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 export async function POST(req: Request) {
-  const token = getAccessToken();
-  if (!token)
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
   try {
+    const body = await req.json();
     return NextResponse.json(
-      await apiFetch("/recommend/quiz", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: JSON.stringify(await req.json()),
-      }),
+      await withAccessToken((token) =>
+        apiFetch("/recommend/quiz", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` },
+          body: JSON.stringify(body),
+        }),
+      ),
     );
   } catch (e) {
     const err = e as ApiError;

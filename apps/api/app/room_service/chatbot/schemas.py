@@ -77,6 +77,7 @@ class ChatSource(BaseModel):
     page_from: int | None = None
     page_to: int | None = None
     heading: str | None = None
+    excerpt: str | None = Field(default=None, max_length=1801)
 
 
 class ChatEvaluationContext(BaseModel):

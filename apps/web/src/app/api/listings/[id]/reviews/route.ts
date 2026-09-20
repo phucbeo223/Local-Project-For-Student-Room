@@ -4,7 +4,7 @@ import {
   getListingReviews,
   type ApiError,
 } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 
 export async function GET(
@@ -30,11 +30,6 @@ export async function POST(
   req: Request,
   { params }: { params: { id: string } },
 ) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
-
   let body: { rating?: number; comment?: string };
   try {
     body = await req.json();
@@ -50,10 +45,12 @@ export async function POST(
   }
 
   try {
-    const review = await createReview(token, params.id, {
-      rating: body.rating as number,
-      comment: body.comment.trim(),
-    });
+    const review = await withAccessToken((token) =>
+      createReview(token, params.id, {
+        rating: body.rating as number,
+        comment: body.comment!.trim(),
+      }),
+    );
     return NextResponse.json(review, { status: 201 });
   } catch (error) {
     const apiError = error as ApiError;

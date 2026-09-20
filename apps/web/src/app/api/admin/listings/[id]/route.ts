@@ -4,13 +4,9 @@ import {
   type AdminListingStatus,
   type ApiError,
 } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
   let body: { status?: AdminListingStatus };
   try {
     body = await req.json();
@@ -21,7 +17,11 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     return NextResponse.json({ detail: "Thiếu trạng thái bài tin" }, { status: 400 });
   }
   try {
-    return NextResponse.json(await updateAdminListingStatus(token, params.id, body.status));
+    return NextResponse.json(
+      await withAccessToken((token) =>
+        updateAdminListingStatus(token, params.id, body.status as AdminListingStatus),
+      ),
+    );
   } catch (error) {
     const err = error as ApiError;
     return NextResponse.json(

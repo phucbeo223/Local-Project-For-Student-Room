@@ -56,7 +56,8 @@ docker compose up -d db
 & .\.venv\Scripts\python.exe scripts\apply_room_services.py
 ```
 
-Migration mới là `93_ai_product_features.sql`. Database mới sẽ tự áp 90–93 từ image.
+Script áp tuần tự migration 90–96, gồm chatbot/risk, kiểm duyệt, kho pháp lý,
+vòng đời tài khoản và đánh giá cảm xúc. Database mới cũng tự áp 90–96 từ image.
 
 ## Kiểm chứng
 

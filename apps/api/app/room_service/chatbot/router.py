@@ -37,6 +37,7 @@ def init_chatbot(engine: Engine) -> None:
                 settings.ollama_base_url,
                 settings.ollama_model,
                 settings.chatbot_llm_timeout_seconds,
+                context_length=settings.ollama_context_length,
             )
         )
 

@@ -105,14 +105,17 @@ docker compose up -d db
 & .\.venv\Scripts\python.exe scripts\apply_room_services.py
 ```
 
-Bốn migration được áp:
+Bảy migration cộng thêm được áp theo thứ tự 90–96:
 
 - `90_chatbot.sql`: metadata embedding và index candidate.
 - `91_room_service_risk.sql`: model/thời điểm đánh giá risk và index pending.
 - `92_reports_moderation.sql`: báo cáo cộng đồng và kiểm duyệt.
 - `93_ai_product_features.sql`: feedback/telemetry, lịch sử risk, favorites, saved search, notifications và evaluation runs.
+- `94_legal_knowledge.sql`: kho văn bản và đoạn trích pháp lý.
+- `95_fr_delivery.sql`: vòng đời tài khoản, phiên refresh và cấu hình gợi ý.
+- `96_reviews_sentiment.sql`: đánh giá sao và hàng chờ kiểm duyệt cảm xúc.
 
-Database tạo mới từ image sẽ tự chạy hai migration trên. Không dùng `docker compose down -v` trừ khi thực sự muốn xóa toàn bộ dữ liệu.
+Database tạo mới từ image tự chạy toàn bộ migration. Không dùng `docker compose down -v` trừ khi thực sự muốn xóa toàn bộ dữ liệu.
 
 ## 6. Chạy hệ thống hợp nhất
 

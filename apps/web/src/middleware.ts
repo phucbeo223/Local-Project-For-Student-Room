@@ -56,8 +56,7 @@ export const config = {
     "/me/:path*",
     "/dashboard/:path*",
     "/admin/:path*",
-    "/listings/new",
-    "/listings/mine",
-    "/listings/:id/edit",
+    "/listings/:path*",
+    "/map",
   ],
 };

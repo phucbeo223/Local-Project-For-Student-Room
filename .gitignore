@@ -38,6 +38,8 @@ Thumbs.db
 
 # ── Docker volumes / runtime ──
 pgdata/
+backups/
+docker-compose.override.yml
 
 # ── Temporary & sensitive files ──
 .tmp-map*.png

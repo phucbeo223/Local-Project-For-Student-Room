@@ -1,12 +1,8 @@
 import { NextResponse } from "next/server";
 import { moderateReport, type ApiError, type ModerationAction } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
   let body: { action?: ModerationAction; note?: string | null };
   try {
     body = await req.json();
@@ -17,10 +13,12 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     return NextResponse.json({ detail: "Thiếu hành động kiểm duyệt" }, { status: 400 });
   }
   try {
-    const result = await moderateReport(token, params.id, {
-      action: body.action,
-      note: body.note,
-    });
+    const result = await withAccessToken((token) =>
+      moderateReport(token, params.id, {
+        action: body.action as ModerationAction,
+        note: body.note,
+      }),
+    );
     return NextResponse.json(result);
   } catch (error) {
     const err = error as ApiError;

@@ -14,6 +14,7 @@ from .room_service import chatbot_router, init_chatbot, init_risk, risk_router
 from .room_service.risk.repo import RiskRepository
 from .room_service.risk.service import RiskService
 from .reports import init_reports, reports_router
+from .reviews import init_reviews, reviews_router
 from .engagement.router import init_engagement, router as engagement_router
 
 log = logging.getLogger("app.main")
@@ -27,6 +28,7 @@ init_auth_deps(AuthRepo(engine))
 init_chatbot(engine)
 init_risk(engine)
 init_reports(engine)
+init_reviews(engine)
 init_engagement(engine)
 
 
@@ -49,6 +51,7 @@ app.include_router(auth_router)
 app.include_router(chatbot_router)
 app.include_router(risk_router)
 app.include_router(reports_router)
+app.include_router(reviews_router)
 app.include_router(engagement_router)
 
 
@@ -70,13 +73,17 @@ def health_deps():
         checks["postgres"] = "ok"
         checks["postgis"] = postgis or "missing"
         checks["pgvector"] = "ok" if has_vector else "missing"
-    except Exception as exc:  # surface the failing dep instead of 500
-        checks["postgres"] = f"error: {exc}"
+    except Exception:
+        log.exception("postgres dependency health check failed")
+        checks["postgres"] = "error"
+        checks["postgis"] = "unknown"
+        checks["pgvector"] = "unknown"
 
     try:
         checks["redis"] = "ok" if redis_client.ping() else "down"
-    except Exception as exc:
-        checks["redis"] = f"error: {exc}"
+    except Exception:
+        log.exception("redis dependency health check failed")
+        checks["redis"] = "error"
 
     return checks
 

@@ -1,0 +1,67 @@
+# Copy to docker-compose.override.yml for LOCAL development only.
+# Requires Docker Compose 2.24.4+ for !override. Do not expose Mailpit publicly.
+services:
+  db:
+    restart: unless-stopped
+    ports: !override []
+  redis:
+    restart: unless-stopped
+    ports: !override []
+  api:
+    restart: unless-stopped
+    build:
+      args:
+        INSTALL_ML: "true"
+    environment:
+      REFRESH_TOKEN_TTL_DAYS: "7"
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_STARTTLS: "false"
+      SMTP_USER: ""
+      SMTP_PASSWORD: ""
+      SMTP_FROM: no-reply@timtrosv.local
+      WEB_PUBLIC_URL: http://localhost:3000
+      CHATBOT_LLM_PROVIDER: qwen
+      CHATBOT_LLM_TIMEOUT_SECONDS: "60"
+      OLLAMA_MODEL: qwen3.5:4b
+      OLLAMA_CONTEXT_LENGTH: ${OLLAMA_CONTEXT_LENGTH:-8192}
+      HF_HOME: /models
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      TOKENIZERS_PARALLELISM: "false"
+    volumes:
+      - chat-model-cache:/models
+    ports: !override
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      mailpit:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 6
+  web:
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports: !override
+      - "127.0.0.1:3000:3000"
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8025:8025"
+  legal-indexer:
+    environment:
+      HF_HOME: /models
+      TRANSFORMERS_CACHE: /models/hub
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      TOKENIZERS_PARALLELISM: "false"
+    volumes:
+      - chat-model-cache:/models
+volumes:
+  chat-model-cache:

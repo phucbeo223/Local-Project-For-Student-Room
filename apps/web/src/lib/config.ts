@@ -8,6 +8,6 @@ export const API_URL =
 export const ACCESS_COOKIE = "access_token";
 export const REFRESH_COOKIE = "refresh_token";
 
-// TTL khớp backend (config.py: access 15min, refresh 30 ngày).
+// TTL khớp backend mặc định (config.py: access 15 phút, refresh 7 ngày).
 export const ACCESS_MAX_AGE = 15 * 60;
 export const REFRESH_MAX_AGE = 7 * 24 * 60 * 60;

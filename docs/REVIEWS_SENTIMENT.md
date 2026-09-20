@@ -26,4 +26,7 @@ Review tiêu cực chuyển sang `moderation_status = 'flagged'`. Hệ thống k
 | GET | `/admin/reviews/flagged` | Admin | Hàng chờ review bị AI gắn cờ |
 | PATCH | `/admin/reviews/{id}` | Admin | Duyệt (`approve`) hoặc ẩn (`hide`) |
 
-Database mới cần áp dụng migration `infra/db/migrations/96_reviews_sentiment.sql`. Với database đã có volume, chạy migration này thủ công; database mới sẽ tự chạy qua Docker init.
+Database mới tự chạy migration `infra/db/migrations/96_reviews_sentiment.sql`
+qua Docker init. Với database đã có volume, dùng `scripts/start_all.ps1` hoặc
+`scripts/apply_room_services.py`; cả hai script đều áp migration 95 và 96 theo
+kiểu cộng thêm, không xóa dữ liệu.

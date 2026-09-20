@@ -1,12 +1,8 @@
 import { NextResponse } from "next/server";
 import { createReport, type ApiError, type ReportReason } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function POST(req: Request, { params }: { params: { id: string } }) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
   let body: { reason?: ReportReason; note?: string | null };
   try {
     body = await req.json();
@@ -17,10 +13,12 @@ export async function POST(req: Request, { params }: { params: { id: string } })
     return NextResponse.json({ detail: "Vui lòng chọn lý do" }, { status: 400 });
   }
   try {
-    const report = await createReport(token, params.id, {
-      reason: body.reason,
-      note: body.note,
-    });
+    const report = await withAccessToken((token) =>
+      createReport(token, params.id, {
+        reason: body.reason as ReportReason,
+        note: body.note,
+      }),
+    );
     return NextResponse.json(report, { status: 201 });
   } catch (error) {
     const err = error as ApiError;

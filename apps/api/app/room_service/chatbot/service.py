@@ -157,6 +157,8 @@ class ChatService:
                 page_from=item.get("page_from"),
                 page_to=item.get("page_to"),
                 heading=item.get("heading"),
+                excerpt=(str(item.get("content") or "")[:1800]
+                         + ("…" if len(str(item.get("content") or "")) > 1800 else "")),
             )
             for item in chunks
         ]

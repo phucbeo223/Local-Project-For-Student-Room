@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import { getFavorites, type ApiError } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function GET() {
-  const token = getAccessToken();
-  if (!token) return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
   try {
-    return NextResponse.json(await getFavorites(token));
+    return NextResponse.json(await withAccessToken(getFavorites));
   } catch (error) {
     const value = error as ApiError;
     return NextResponse.json({ detail: value.detail }, { status: value.status ?? 500 });

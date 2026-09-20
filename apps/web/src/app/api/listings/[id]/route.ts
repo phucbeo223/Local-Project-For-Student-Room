@@ -6,7 +6,7 @@ import {
   type ApiError,
   type ListingInput,
 } from "@/lib/api";
-import { getAccessToken } from "@/lib/session";
+import { withAccessToken } from "@/lib/authenticated-api";
 
 export async function GET(
   _req: Request,
@@ -27,11 +27,6 @@ export async function PUT(
   req: Request,
   { params }: { params: { id: string } },
 ) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
-
   let body: Partial<ListingInput>;
   try {
     body = await req.json();
@@ -40,7 +35,9 @@ export async function PUT(
   }
 
   try {
-    const listing = await updateListing(token, params.id, body);
+    const listing = await withAccessToken((token) =>
+      updateListing(token, params.id, body),
+    );
     return NextResponse.json(listing);
   } catch (e) {
     const err = e as ApiError;
@@ -55,13 +52,8 @@ export async function DELETE(
   _req: Request,
   { params }: { params: { id: string } },
 ) {
-  const token = getAccessToken();
-  if (!token) {
-    return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
-  }
-
   try {
-    await deleteListing(token, params.id);
+    await withAccessToken((token) => deleteListing(token, params.id));
     return new NextResponse(null, { status: 204 });
   } catch (e) {
     const err = e as ApiError;
