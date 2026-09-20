@@ -28,6 +28,7 @@ services:
       - ./apps/api/tests:/app/tests:ro
       - ./scripts:/workspace/scripts:ro
       - ./eval:/workspace/eval:ro
+      - ./infra/db/seeds:/workspace/infra/db/seeds:ro
     depends_on:
       db:
         condition: service_healthy

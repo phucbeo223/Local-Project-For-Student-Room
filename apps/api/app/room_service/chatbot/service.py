@@ -31,6 +31,8 @@ def rewrite_query(message: str, history: list[ChatHistoryMessage | dict]) -> str
     """Resolve short follow-ups from at most five client-side turns."""
     if not history:
         return message
+    if parse_query(message).intent in {"out_of_scope", "legal_question"}:
+        return message
     normalized = message.strip().lower()
     is_follow_up = len(normalized.split()) <= 8 or any(
         marker in normalized for marker in FOLLOW_UP_MARKERS
@@ -217,8 +219,18 @@ class ChatService:
             filters = ChatFilters()
             for turn in body.conversation_history[-10:]:
                 if turn.role == "user":
-                    filters = merge_filters(filters, parse_query(turn.content).filters)
-            filters = merge_filters(filters, parse_query(body.message).filters)
+                    incoming = parse_query(turn.content).filters
+                    if incoming.min_price is not None or incoming.max_price is not None:
+                        filters = filters.model_copy(
+                            update={"min_price": None, "max_price": None}
+                        )
+                    filters = merge_filters(filters, incoming)
+            incoming = parse_query(body.message).filters
+            if incoming.min_price is not None or incoming.max_price is not None:
+                filters = filters.model_copy(
+                    update={"min_price": None, "max_price": None}
+                )
+            filters = merge_filters(filters, incoming)
         filters = merge_filters(filters, body.filters)
 
         degraded_reasons: list[str] = []

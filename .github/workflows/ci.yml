@@ -28,6 +28,7 @@ jobs:
           docker cp apps/api/tests $API_CID:/app/tests
           docker cp scripts $API_CID:/app/scripts
           docker cp eval $API_CID:/app/eval
+          docker cp infra $API_CID:/app/infra
 
       - name: Run tests
         run: docker compose exec -T -e PROJECT_ROOT=/app -e RUN_DB_TESTS=1 api python -m pytest -v

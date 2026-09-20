@@ -250,6 +250,14 @@ class AccountLifecycle:
     def tokens(self, user: dict, previous: str | None = None):
         refresh = make_refresh_token(user["id"])
         with self.engine.begin() as conn:
+            version = conn.execute(
+                text("SELECT auth_version FROM users WHERE id=:id FOR UPDATE"),
+                {"id": user["id"]},
+            ).scalar_one()
+            if version != user.get("auth_version", 0):
+                raise HTTPException(
+                    401, "Tài khoản vừa đổi thông tin xác thực, vui lòng đăng nhập lại"
+                )
             if previous:
                 used = conn.execute(
                     text(

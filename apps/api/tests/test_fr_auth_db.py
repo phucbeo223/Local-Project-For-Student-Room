@@ -146,3 +146,81 @@ def test_lockout_and_reset_revoke_sessions(account):
         ).status_code
         == 200
     )
+
+
+def test_sql_contracts_search_recommendation_risk_and_feedback(account):
+    from sqlalchemy import text
+    from app.room_service.risk.repo import RiskRepository
+    from app.room_service.risk.service import RiskService
+    from app.room_service.chatbot.repo import ChatRepository
+
+    client, engine, _, _ = account
+    pair, _ = register_verified(account)
+    headers = {"Authorization": f"Bearer {pair['access_token']}"}
+    uid = client.get("/auth/me", headers=headers).json()["id"]
+    with engine.begin() as conn:
+        lid = conn.execute(
+            text(
+                "INSERT INTO aggregated_listings(title,price,area,address,district,ward,source,status,cleaning_status,listing_type,distance_to_ctu,parsed_amenities,posted_by) VALUES ('Test FR room',1500000,20,'Đường test','Ninh Kiều','TestWard','user','active','cleaned','phong_tro',500,CAST(:amenities AS jsonb),:uid) RETURNING id"
+            ),
+            {"amenities": '{"wifi":true}', "uid": uid},
+        ).scalar_one()
+    result = client.get(
+        "/listings", params={"ward": "TestWard", "max_area": 25, "amenities": "wifi"}
+    )
+    assert result.status_code == 200, result.text
+    assert any(
+        item["id"] == lid and item["parsed_amenities"]["wifi"]
+        for item in result.json()["items"]
+    )
+    result = client.post(
+        "/recommend/quiz",
+        headers=headers,
+        json={"max_price": 2000000, "max_distance_ctu": 1000, "amenities": ["wifi"]},
+    )
+    assert result.status_code == 200, result.text
+    result = client.get("/recommend/for-you", headers=headers)
+    assert result.status_code == 200, result.text
+    assert not result.json()["cold_start"]
+    assert any(item["listing"]["id"] == lid for item in result.json()["items"])
+    with engine.connect() as conn:
+        assert (
+            conn.execute(
+                text("SELECT vector_dims(preference_vector) FROM users WHERE id=:id"),
+                {"id": uid},
+            ).scalar_one()
+            == 384
+        )
+    risk = RiskService(RiskRepository(engine))
+    assert risk.assess(lid, persist=True).statistical_status == "insufficient_cohort"
+    risk.override(lid, 0.1, "Kiểm tra thủ công", uid)
+    assert risk.assess(lid, persist=True).model_version == "manual-override"
+    event = ChatRepository(engine).record_event(
+        {
+            "intent": "find_listing",
+            "confidence": 0.8,
+            "no_answer": False,
+            "degraded": False,
+            "retrieval_mode": "hybrid",
+            "generation_provider": "template",
+            "result_count": 1,
+            "latency_ms": 10,
+        }
+    )
+    assert (
+        client.post(
+            "/chat/feedback", headers=headers, json={"event_id": event, "rating": 1}
+        ).status_code
+        == 404
+    )
+    with engine.begin() as conn:
+        conn.execute(
+            text("UPDATE chatbot_events SET user_id=:uid WHERE id=:id"),
+            {"uid": uid, "id": event},
+        )
+    assert (
+        client.post(
+            "/chat/feedback", headers=headers, json={"event_id": event, "rating": 1}
+        ).status_code
+        == 201
+    )

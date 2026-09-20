@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import SiteHeader from "../SiteHeader";
 import type { ListingOut } from "@/lib/api";
 import { readCompared } from "@/lib/compare";
+import { AMENITY_LABELS } from "@/lib/amenities";
 import {
   formatArea,
   formatDistance,
@@ -14,6 +15,8 @@ import {
 
 export default function ComparePage() {
   const [items, setItems] = useState<ListingOut[]>([]);
+  const [error,setError] = useState("");
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     const ids = readCompared();
@@ -24,16 +27,16 @@ export default function ComparePage() {
       }),
     ).then((values) =>
       setItems(values.filter((value): value is ListingOut => value !== null)),
-    );
+    ).catch(()=>setError("Không tải được bảng so sánh. Vui lòng tải lại trang.")).finally(()=>setLoading(false));
   }, []);
 
   function remove(id: number) {
     const next = items.filter((item) => item.id !== id);
     setItems(next);
-    localStorage.setItem(
+    try { localStorage.setItem(
       "compare-listings",
       JSON.stringify(next.map((item) => item.id)),
-    );
+    ); } catch { setError("Không lưu được thay đổi vào trình duyệt."); }
   }
 
   return (
@@ -44,6 +47,9 @@ export default function ComparePage() {
         <p className="mt-2 text-sm text-ink-muted">
           So sánh tối đa 3 phòng theo giá, vị trí, chất lượng và rủi ro.
         </p>
+        {error && <p role="alert" className="mt-4 text-red-700">{error}</p>}
+        {loading && <p role="status">Đang tải...</p>}
+        {!loading && items.length === 1 && <p className="mt-3">Thêm ít nhất một phòng nữa để so sánh.</p>}
         {!items.length ? (
           <p className="mt-8 rounded-2xl border border-line bg-white p-8 text-center">
             Chưa có phòng để so sánh.{" "}
@@ -60,6 +66,7 @@ export default function ComparePage() {
                   <th className="p-4">Giá</th>
                   <th className="p-4">Diện tích</th>
                   <th className="p-4">Khoảng cách</th>
+                  <th className="p-4">Tiện ích</th>
                   <th className="p-4">Risk</th>
                   <th className="p-4"></th>
                 </tr>
@@ -87,6 +94,7 @@ export default function ComparePage() {
                       <td className="p-4">
                         {formatDistance(item.distance_to_ctu)}
                       </td>
+                      <td className="p-4">{Object.entries(item.parsed_amenities || {}).filter(([,v])=>v).map(([key])=>AMENITY_LABELS[key] || key).join(', ') || 'Chưa có dữ liệu'}</td>
                       <td className="p-4">
                         <span
                           className={`rounded-full px-2 py-1 text-xs ${badge.className}`}

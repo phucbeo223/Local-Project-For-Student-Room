@@ -157,6 +157,26 @@ def test_chat_invalid_citations_fall_back_to_grounded_answer():
     assert response.generation_provider == "template" and response.degraded
 
 
+def test_new_budget_replaces_old_range_and_topic_switch_drops_history():
+    repo = ChatRepo()
+    service = ChatService(
+        repo, DeterministicFakeEmbedder(), GroundedTemplateGenerator()
+    )
+    history = [
+        {"role": "user", "content": "Tìm phòng Ninh Kiều từ 2 triệu đến 3 triệu"}
+    ]
+    service.ask(
+        ChatAskRequest(message="Dưới 1 triệu thôi", conversation_history=history)
+    )
+    assert repo.filters.min_price is None and repo.filters.max_price == 1000000
+    response = service.ask(
+        ChatAskRequest(
+            message="Dự báo thời tiết ngày mai", conversation_history=history
+        )
+    )
+    assert response.intent == "out_of_scope" and response.no_answer
+
+
 def test_risk_new_layers_are_explainable():
     result = score_listing(
         {
