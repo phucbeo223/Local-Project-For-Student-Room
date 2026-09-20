@@ -5,6 +5,7 @@ from ..auth import get_current_user, require_admin
 from ..auth.schemas import UserOut
 from ..room_service.risk.repo import RiskRepository
 from ..room_service.risk.service import RiskService
+from ..reviews import init_reviews, reviews_router
 from .repo import ReportRepository
 from .schemas import (
     AdminDashboardSummary,
@@ -29,6 +30,7 @@ _service: ReportService | None = None
 def init_reports(engine: Engine) -> None:
     global _service
     _service = ReportService(ReportRepository(engine), RiskService(RiskRepository(engine)))
+    init_reviews(engine)
 
 
 def get_service() -> ReportService:
@@ -117,3 +119,7 @@ def admin_users(
     service: ReportService = Depends(get_service),
 ):
     return service.users(q, page, size)
+
+
+# Reviews share the community-feedback surface and the existing app router.
+router.include_router(reviews_router)

@@ -4,9 +4,11 @@ import ListingCard from "@/app/ListingCard";
 import SiteHeader from "@/app/SiteHeader";
 import {
   getListing,
+  getListingReviews,
   searchListings,
   type ApiError,
   type ListingOut,
+  type ReviewList,
 } from "@/lib/api";
 import { getCurrentUser } from "@/lib/current-user";
 import {
@@ -19,6 +21,7 @@ import DeleteListingButton from "./DeleteListingButton";
 import ListingActions from "./ListingActions";
 import ListingGallery from "./ListingGallery";
 import ReportButton from "./ReportButton";
+import ReviewSection from "./ReviewSection";
 import RiskDetails from "./RiskDetails";
 
 export const dynamic = "force-dynamic";
@@ -96,7 +99,15 @@ export default async function ListingDetailPage({
     throw error;
   }
 
-  const [user, similarResult] = await Promise.all([
+  const emptyReviews: ReviewList = {
+    summary: {
+      average_rating: null,
+      total: 0,
+      rating_counts: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+    },
+    items: [],
+  };
+  const [user, similarResult, reviews] = await Promise.all([
     getCurrentUser(),
     searchListings({
       district: listing.district ?? undefined,
@@ -104,6 +115,7 @@ export default async function ListingDetailPage({
       size: 6,
       sort: "newest",
     }).catch(() => null),
+    getListingReviews(listing.id).catch(() => emptyReviews),
   ]);
 
   const canManage =
@@ -111,6 +123,7 @@ export default async function ListingDetailPage({
     (user?.role === "admin" ||
       (listing.source === "user" && listing.posted_by === user?.id));
   const canReport = Boolean(user) && listing.posted_by !== user?.id;
+  const canReview = Boolean(user) && listing.posted_by !== user?.id;
   const badge = riskBadge(listing.risk_level);
   const amenities = amenitiesFrom(listing);
   const similar = (similarResult?.items ?? [])
@@ -424,7 +437,27 @@ export default async function ListingDetailPage({
               id="phan-hoi"
               className="scroll-mt-4 rounded-[20px] border border-line bg-white p-5 sm:p-7"
             >
-              <h2 className="text-xl font-bold text-ink">Phản hồi cộng đồng</h2>
+              <h2 className="text-xl font-bold text-ink">
+                Đánh giá &amp; phản hồi cộng đồng
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-ink-muted">
+                Xem trải nghiệm thực tế, chấm từ 1 đến 5 sao và để lại bình
+                luận về phòng trọ.
+              </p>
+              <div className="mt-5">
+                <ReviewSection
+                  listingId={listing.id}
+                  initialData={reviews}
+                  loggedIn={Boolean(user)}
+                  canReview={canReview}
+                />
+              </div>
+
+              <div className="mt-7 border-t border-line-soft pt-6">
+                <h3 className="font-bold text-ink">
+                  Báo cáo thông tin bất thường
+                </h3>
+              </div>
               <RiskDetails reasons={listing.risk_reasons} />
               <p className="mt-2 text-sm leading-6 text-ink-muted">
                 Góp ý của bạn giúp hệ thống phát hiện tin sai, tin đã hết hoặc

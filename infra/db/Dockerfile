@@ -22,3 +22,4 @@ COPY migrations/92_reports_moderation.sql /docker-entrypoint-initdb.d/92-reports
 COPY migrations/93_ai_product_features.sql /docker-entrypoint-initdb.d/93-ai-product-features.sql
 COPY migrations/94_legal_knowledge.sql /docker-entrypoint-initdb.d/94-legal-knowledge.sql
 COPY migrations/95_fr_delivery.sql /docker-entrypoint-initdb.d/95-fr-delivery.sql
+COPY migrations/96_reviews_sentiment.sql /docker-entrypoint-initdb.d/96-reviews-sentiment.sql

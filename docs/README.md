@@ -6,6 +6,7 @@
 - `GOTCHAS.md` — bẫy kỹ thuật đã dính
 - `AI_CHAT_RISK_INTEGRATION.md` — cấu hình Qwen local, Gemini, risk và chạy stack hợp nhất
 - `REPORT_RISK_MODERATION.md` — quy trình User báo cáo, Risk cộng điểm và Admin kiểm duyệt
+- `REVIEWS_SENTIMENT.md` — đánh giá sao, bình luận và ML gắn cờ cảm xúc tiêu cực
 - `AI_PRODUCT_FEATURES.md` — phạm vi chức năng AI/nghiệp vụ đã triển khai ngoài crawler
 
 ## Thư mục

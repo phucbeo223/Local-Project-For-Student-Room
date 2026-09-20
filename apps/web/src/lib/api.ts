@@ -223,6 +223,59 @@ export function deleteListing(
   });
 }
 
+// ---- Star reviews + AI sentiment moderation ----
+
+export type ReviewSentiment = "positive" | "neutral" | "negative";
+export type ReviewModerationStatus = "published" | "flagged" | "hidden";
+
+export type ReviewOut = {
+  id: number;
+  listing_id: number;
+  user_id: number;
+  author_name: string;
+  author_avatar_url: string | null;
+  rating: number;
+  comment: string;
+  sentiment_label: ReviewSentiment;
+  negative_score: number;
+  is_flagged: boolean;
+  moderation_status: ReviewModerationStatus;
+  model_version: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ReviewList = {
+  summary: {
+    average_rating: number | null;
+    total: number;
+    rating_counts: Record<number, number>;
+  };
+  items: ReviewOut[];
+};
+
+export function getListingReviews(
+  listingId: number | string,
+  page = 1,
+  size = 20,
+): Promise<ReviewList> {
+  return apiFetch<ReviewList>(
+    `/listings/${listingId}/reviews${buildQuery({ page, size })}`,
+  );
+}
+
+export function createReview(
+  token: string,
+  listingId: number | string,
+  data: { rating: number; comment: string },
+): Promise<ReviewOut> {
+  return apiFetch<ReviewOut>(`/listings/${listingId}/reviews`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body: JSON.stringify(data),
+  });
+}
+
 // ---- Engagement, saved search and recommendation ----
 
 export type InteractionType =
