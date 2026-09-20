@@ -6,12 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 
-const registerSchema = z.object({
-  name: z.union([z.string().max(100), z.literal("")]).optional(),
-  email: z.string().email("Email không hợp lệ"),
-  password: z.string().min(8, "Mật khẩu tối thiểu 8 ký tự"),
-  confirm: z.string(),
-}).refine(data=>data.password === data.confirm,{message:"Mật khẩu nhập lại chưa khớp",path:["confirm"]});
+const registerSchema = z
+  .object({
+    name: z.union([z.string().max(100), z.literal("")]).optional(),
+    email: z.string().email("Email không hợp lệ"),
+    password: z.string().min(8, "Mật khẩu tối thiểu 8 ký tự"),
+    confirm: z.string(),
+  })
+  .refine((data) => data.password === data.confirm, {
+    message: "Mật khẩu nhập lại chưa khớp",
+    path: ["confirm"],
+  });
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
@@ -188,7 +193,18 @@ export default function RegisterForm() {
         )}
       </div>
 
-      <label className="block text-sm font-medium text-slate-700">Nhập lại mật khẩu<input type="password" autoComplete="new-password" className="mt-1 w-full rounded border border-slate-300 px-3 py-2" {...register("confirm")}/>{errors.confirm && <span className="text-red-600">{errors.confirm.message}</span>}</label>
+      <label className="block text-sm font-medium text-slate-700">
+        Nhập lại mật khẩu
+        <input
+          type="password"
+          autoComplete="new-password"
+          className="mt-1 w-full rounded border border-slate-300 px-3 py-2"
+          {...register("confirm")}
+        />
+        {errors.confirm && (
+          <span className="text-red-600">{errors.confirm.message}</span>
+        )}
+      </label>
       <button
         type="submit"
         disabled={isSubmitting}

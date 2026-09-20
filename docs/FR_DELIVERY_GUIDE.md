@@ -108,6 +108,14 @@
 
 ## Kiểm thử và nghiệm thu
 
+### Kết quả đã xác minh (20/09/2026)
+
+- Commit `a904418`: **145/145 test backend passed**, gồm PostgreSQL integration, OTP/refresh/reset, search/quiz/vector/risk/feedback ownership; không skip trong CI.
+- Frontend type-check và production build thành công cả local và GitHub Actions.
+- Bằng chứng: [CI run 35489504367](https://github.com/phucbeo223/Local-Project-For-Student-Room/actions/runs/35489504367).
+- Docker Engine trên máy làm việc chưa sẵn sàng; kiểm thử database thật được thực hiện trên CI, không trên database cá nhân. Email trong test được bắt bằng mock, chưa xác nhận nhà cung cấp SMTP/OAuth thực tế.
+- Các thay đổi UI/tài liệu sau commit trên phải có Actions xanh của commit cuối cùng trước merge; không diễn giải 145 test này thành chứng nhận chất lượng dữ liệu/AI production.
+
 ```powershell
 # Database test riêng, không mở cổng, không dùng volume dữ liệu ứng dụng:
 docker compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from api

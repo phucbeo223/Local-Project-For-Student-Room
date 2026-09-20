@@ -19,6 +19,7 @@ import DeleteListingButton from "./DeleteListingButton";
 import ListingActions from "./ListingActions";
 import ListingGallery from "./ListingGallery";
 import ReportButton from "./ReportButton";
+import RiskDetails from "./RiskDetails";
 
 export const dynamic = "force-dynamic";
 
@@ -424,6 +425,7 @@ export default async function ListingDetailPage({
               className="scroll-mt-4 rounded-[20px] border border-line bg-white p-5 sm:p-7"
             >
               <h2 className="text-xl font-bold text-ink">Phản hồi cộng đồng</h2>
+              <RiskDetails reasons={listing.risk_reasons} />
               <p className="mt-2 text-sm leading-6 text-ink-muted">
                 Góp ý của bạn giúp hệ thống phát hiện tin sai, tin đã hết hoặc
                 dấu hiệu lừa đảo. Nội dung phản hồi chỉ được gửi tới quản trị
