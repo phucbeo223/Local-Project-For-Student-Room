@@ -15,6 +15,12 @@ class FakeListingRepo:
 
 
 class FakeRepo:
+    def preferences(self, user_id):
+        return None
+
+    def save_vector(self, user_id, vector):
+        self.vector = vector
+
     def __init__(self):
         self.interactions = []
         self.favorite_data = []
@@ -114,8 +120,11 @@ def test_personalized_recommendation_explains_ranking_and_penalizes_risk():
     assert result.cold_start is False
     assert result.profile_evidence == 3
     assert result.items[0].listing.id == 1
-    assert result.items[0].score > result.items[1].score
-    assert "Đúng khu vực Ninh Kiều" in result.items[0].reasons
+    assert (
+        len(result.items) == 1
+    )  # high-risk candidates are excluded, including exploration
+    assert result.items[0].score > 0
+    assert "Tương đồng" in result.items[0].reasons[0]
 
 
 def test_notification_can_only_be_marked_read_when_owned():

@@ -4,7 +4,18 @@ import { ACCESS_COOKIE, REFRESH_COOKIE } from "@/lib/config";
 // Gate nhẹ theo sự tồn tại của cookie (không verify chữ ký ở đây — page tự
 // gọi /me để xác thực thật). Chỉ chặn trang cần đăng nhập khi hoàn toàn thiếu
 // token. Không chặn /login hoặc /register vì cookie có thể đã hết hạn/hỏng.
-const PROTECTED = ["/me", "/dashboard", "/admin", "/listings/new", "/listings/mine"];
+const PROTECTED = [
+  "/me",
+  "/dashboard",
+  "/admin",
+  "/listings/new",
+  "/listings/mine",
+  "/compare",
+  "/onboarding",
+  "/recommendations",
+  "/favorites",
+  "/chat",
+];
 
 // Route dynamic /listings/[id]/edit không match được bằng startsWith cố định
 // vì id nằm giữa path — check riêng bằng regex.
@@ -12,11 +23,17 @@ const EDIT_LISTING_RE = /^\/listings\/[^/]+\/edit(\/|$)/;
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  if (!req.cookies.has(ACCESS_COOKIE) && req.cookies.has(REFRESH_COOKIE)) {
+    const url = new URL("/api/auth/renew", req.url);
+    url.searchParams.set("next", pathname + req.nextUrl.search);
+    return NextResponse.redirect(url);
+  }
   const hasSession =
     req.cookies.has(ACCESS_COOKIE) || req.cookies.has(REFRESH_COOKIE);
 
   const isProtected =
-    PROTECTED.some((p) => pathname.startsWith(p)) || EDIT_LISTING_RE.test(pathname);
+    PROTECTED.some((p) => pathname.startsWith(p)) ||
+    EDIT_LISTING_RE.test(pathname);
 
   if (isProtected && !hasSession) {
     const url = req.nextUrl.clone();
@@ -30,6 +47,12 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
+    "/compare",
+    "/onboarding",
+    "/recommendations",
+    "/favorites",
+    "/chat",
+    "/",
     "/me/:path*",
     "/dashboard/:path*",
     "/admin/:path*",

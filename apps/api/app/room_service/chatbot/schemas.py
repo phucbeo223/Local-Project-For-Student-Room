@@ -30,7 +30,9 @@ class ChatAskRequest(BaseModel):
 
     message: str = Field(min_length=2, max_length=2000)
     filters: ChatFilters | None = None
-    conversation_history: list["ChatHistoryMessage"] = Field(default_factory=list, max_length=10)
+    conversation_history: list["ChatHistoryMessage"] = Field(
+        default_factory=list, max_length=10
+    )
     include_evaluation_contexts: bool = False
 
 
@@ -86,7 +88,7 @@ class ChatEvaluationContext(BaseModel):
 
 
 class ChatFeedbackCreate(BaseModel):
-    event_id: int | None = Field(default=None, gt=0)
+    event_id: int = Field(gt=0)
     rating: Literal[-1, 1]
     reason: str | None = Field(default=None, max_length=80)
     comment: str | None = Field(default=None, max_length=1000)

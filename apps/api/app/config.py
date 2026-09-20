@@ -15,7 +15,14 @@ class Settings(BaseSettings):
     jwt_secret: str = "dev-insecure-change-me"
     jwt_algorithm: str = "HS256"
     access_token_ttl_min: int = 15
-    refresh_token_ttl_days: int = 30
+    refresh_token_ttl_days: int = 7
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    smtp_starttls: bool = True
+    smtp_from: str = "no-reply@localhost"
+    web_public_url: str = "http://localhost:3000"
     google_client_id: str = ""  # bắt buộc khi dùng Google login
 
     ors_api_key: str = ""  # OpenRouteService — route time/geometry; rỗng = tắt routing
@@ -25,7 +32,7 @@ class Settings(BaseSettings):
     chatbot_confidence_threshold: float = 0.65
     chatbot_max_results: int = 5
     chatbot_llm_provider: Literal["auto", "qwen", "gemini", "template"] = "auto"
-    chatbot_llm_timeout_seconds: float = 120.0
+    chatbot_llm_timeout_seconds: float = 4.0
 
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"

@@ -9,7 +9,14 @@ from ..config import settings
 from ..crawler.geocode import Geocoder, haversine_m, CTU_LAT, CTU_LNG
 from .repo import ListingQueryRepo, ListingWriteRepo
 from .routing import CAMPUSES, matrix_minutes, route_geometry
-from .schemas import ListingCreate, ListingOut, ListingUpdate, SearchParams, SearchResult, SortBy
+from .schemas import (
+    ListingCreate,
+    ListingOut,
+    ListingUpdate,
+    SearchParams,
+    SearchResult,
+    SortBy,
+)
 
 log = logging.getLogger("listings.router")
 
@@ -42,7 +49,11 @@ async def _geocode_address(address: str | None):
         return None, None, None, None
     async with Geocoder() as g:
         lat, lng, conf = await g.geocode(address)
-    dist = haversine_m(lat, lng, CTU_LAT, CTU_LNG) if lat is not None and lng is not None else None
+    dist = (
+        haversine_m(lat, lng, CTU_LAT, CTU_LNG)
+        if lat is not None and lng is not None
+        else None
+    )
     return lat, lng, conf, dist
 
 
@@ -69,7 +80,11 @@ def _assess_risk(listing_id: int) -> str | None:
         from ..room_service.risk.repo import RiskRepository
         from ..room_service.risk.service import RiskService
 
-        return RiskService(RiskRepository(_engine)).assess(listing_id, persist=True).risk_level
+        return (
+            RiskService(RiskRepository(_engine))
+            .assess(listing_id, persist=True)
+            .risk_level
+        )
     except Exception as exc:  # noqa: BLE001
         log.warning("risk assess listing=%s fail: %s", listing_id, exc)
         return None
@@ -78,9 +93,11 @@ def _assess_risk(listing_id: int) -> str | None:
 @router.get("", response_model=SearchResult)
 def search_listings(
     q: str | None = None,
-    min_price: int | None = None,
-    max_price: int | None = None,
-    min_area: float | None = None,
+    min_price: int | None = Query(None, ge=0),
+    max_price: int | None = Query(None, ge=0),
+    min_area: float | None = Query(None, ge=0),
+    max_area: float | None = Query(None, gt=0),
+    ward: str | None = Query(None, max_length=80),
     district: str | None = None,
     amenities: list[str] = Query(default_factory=list),
     max_distance_ctu: float | None = None,
@@ -90,10 +107,23 @@ def search_listings(
     repo: ListingQueryRepo = Depends(get_repo),
 ):
     """Tìm kiếm + lọc + sắp xếp + phân trang (FR-2.1/2.2/2.3). Ẩn tin expired."""
+    if min_price is not None and max_price is not None and min_price > max_price:
+        raise HTTPException(422, "Khoảng giá không hợp lệ")
+    if min_area is not None and max_area is not None and min_area > max_area:
+        raise HTTPException(422, "Khoảng diện tích không hợp lệ")
     params = SearchParams(
-        q=q, min_price=min_price, max_price=max_price, min_area=min_area,
-        district=district, amenities=amenities, max_distance_ctu=max_distance_ctu,
-        sort=sort, page=page, size=size,
+        q=q,
+        min_price=min_price,
+        max_price=max_price,
+        min_area=min_area,
+        max_area=max_area,
+        ward=ward,
+        district=district,
+        amenities=amenities,
+        max_distance_ctu=max_distance_ctu,
+        sort=sort,
+        page=page,
+        size=size,
     )
     total, items = repo.search(params)
     return SearchResult(total=total, page=page, size=size, items=items)
@@ -101,8 +131,8 @@ def search_listings(
 
 @router.get("/nearby", response_model=list[ListingOut])
 def nearby_listings(
-    lat: float,
-    lng: float,
+    lat: float = Query(..., ge=-90, le=90),
+    lng: float = Query(..., ge=-180, le=180),
     radius: float = Query(2000, gt=0, le=20000),
     repo: ListingQueryRepo = Depends(get_repo),
 ):

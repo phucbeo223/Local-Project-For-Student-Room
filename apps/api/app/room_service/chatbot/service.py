@@ -4,7 +4,7 @@ import re
 import time
 
 from .parser import merge_filters, parse_query
-from .providers import EmbeddingProvider, ResponseGenerator
+from .providers import EmbeddingProvider, ResponseGenerator, GroundedTemplateGenerator
 from .repo import ChatRepository
 from .schemas import (
     ChatAskRequest,
@@ -14,7 +14,6 @@ from .schemas import (
     ChatListing,
     ChatSource,
 )
-
 
 FOLLOW_UP_MARKERS = (
     "còn phòng nào",
@@ -33,18 +32,24 @@ def rewrite_query(message: str, history: list[ChatHistoryMessage | dict]) -> str
     if not history:
         return message
     normalized = message.strip().lower()
-    is_follow_up = len(normalized.split()) <= 8 or any(marker in normalized for marker in FOLLOW_UP_MARKERS)
+    is_follow_up = len(normalized.split()) <= 8 or any(
+        marker in normalized for marker in FOLLOW_UP_MARKERS
+    )
     if not is_follow_up:
         return message
     previous_users: list[str] = []
     for item in history[-10:]:
         role = item.role if isinstance(item, ChatHistoryMessage) else item.get("role")
-        content = item.content if isinstance(item, ChatHistoryMessage) else item.get("content")
+        content = (
+            item.content
+            if isinstance(item, ChatHistoryMessage)
+            else item.get("content")
+        )
         if role == "user" and content:
             previous_users.append(str(content))
     if not previous_users:
         return message
-    return f"{previous_users[-1]}. Yêu cầu tiếp theo: {message}"
+    return f"{' . '.join(previous_users[-5:])}. Yêu cầu tiếp theo: {message}"
 
 
 def _risk_level(item: dict) -> str:
@@ -70,7 +75,9 @@ def _citation_accuracy(answer: str, listings: list[dict]) -> float:
 
 def _evaluation_context(item: dict) -> str:
     amenities = ", ".join(
-        key for key, enabled in (item.get("parsed_amenities") or {}).items() if enabled is True
+        key
+        for key, enabled in (item.get("parsed_amenities") or {}).items()
+        if enabled is True
     )
     return " | ".join(
         str(value)
@@ -113,15 +120,26 @@ class ChatService:
         embedded = self.embedder.embed_query(query)
         if embedded.degraded_reason:
             degraded_reasons.append(embedded.degraded_reason)
-        chunks = self.repo.retrieve_legal(query, embedded.vector, limit=self.max_results)
-        retrieval_mode = "legal_hybrid" if embedded.vector is not None else "legal_lexical"
+        chunks = self.repo.retrieve_legal(
+            query, embedded.vector, limit=self.max_results
+        )
+        retrieval_mode = (
+            "legal_hybrid" if embedded.vector is not None else "legal_lexical"
+        )
         top_score = float(chunks[0]["similarity_score"]) if chunks else 0.0
         confidence = min(0.97, 0.22 + 0.75 * top_score) if chunks else 0.0
         # Legal BM25 scores are normalized inside the candidate corpus and should
         # not inherit the stricter listing recommendation threshold.
-        if confidence < min(self.confidence_threshold, 0.42):
+        if confidence < self.confidence_threshold:
             chunks = []
         generated = self.generator.generate(query, chunks, context_kind="legal")
+        if not chunks or _citation_accuracy(generated.text, chunks) < 1:
+            generated = GroundedTemplateGenerator().generate(
+                query, chunks, context_kind="legal"
+            )
+            degraded_reasons.append(
+                "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+            )
         degraded_reasons.extend(generated.degraded_reasons)
         sources = [
             ChatSource(
@@ -190,7 +208,18 @@ class ChatService:
         parsed = parse_query(query)
         if parsed.intent == "legal_question":
             return self._ask_legal(query, body, started)
-        filters = merge_filters(parsed.filters, body.filters)
+        # Parse each turn separately so a newer budget replaces the older budget.
+        # Assistant text is never treated as a source of user preferences.
+        filters = parsed.filters
+        if query != body.message:
+            from .schemas import ChatFilters
+
+            filters = ChatFilters()
+            for turn in body.conversation_history[-10:]:
+                if turn.role == "user":
+                    filters = merge_filters(filters, parse_query(turn.content).filters)
+            filters = merge_filters(filters, parse_query(body.message).filters)
+        filters = merge_filters(filters, body.filters)
 
         degraded_reasons: list[str] = []
         listings: list[dict] = []
@@ -212,9 +241,12 @@ class ChatService:
             listings = self.repo.retrieve(
                 query, filters, embedded.vector, limit=self.max_results
             )
-            retrieval_mode = "hybrid" if embedded.vector is not None else "lexical_structured"
+            retrieval_mode = (
+                "hybrid" if embedded.vector is not None else "lexical_structured"
+            )
             filter_count = sum(
-                value not in (None, [], "phong_tro") for value in filters.model_dump().values()
+                value not in (None, [], "phong_tro")
+                for value in filters.model_dump().values()
             )
             top_score = listings[0]["similarity_score"] if listings else 0.0
             second_score = listings[1]["similarity_score"] if len(listings) > 1 else 0.0
@@ -234,6 +266,11 @@ class ChatService:
             if confidence < self.confidence_threshold:
                 listings = []
             generated = self.generator.generate(query, listings)
+            if not listings or _citation_accuracy(generated.text, listings) < 1:
+                generated = GroundedTemplateGenerator().generate(query, listings)
+                degraded_reasons.append(
+                    "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+                )
             answer = generated.text
             generation_provider = generated.provider
             generation_model = generated.model

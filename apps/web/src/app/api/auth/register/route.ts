@@ -12,16 +12,21 @@ export async function POST(req: Request) {
 
   const { email, password, name } = body;
   if (!email || !password) {
-    return NextResponse.json({ detail: "Thiếu email hoặc mật khẩu" }, { status: 400 });
+    return NextResponse.json(
+      { detail: "Thiếu email hoặc mật khẩu" },
+      { status: 400 },
+    );
   }
   if (password.length < 8) {
-    return NextResponse.json({ detail: "Mật khẩu tối thiểu 8 ký tự" }, { status: 400 });
+    return NextResponse.json(
+      { detail: "Mật khẩu tối thiểu 8 ký tự" },
+      { status: 400 },
+    );
   }
 
   try {
-    const tokens = await register(email, password, name);
-    setAuthCookies(tokens.access_token, tokens.refresh_token);
-    return NextResponse.json({ ok: true });
+    const result = await register(email, password, name);
+    return NextResponse.json(result, { status: 202 });
   } catch (e) {
     const err = e as ApiError;
     return NextResponse.json(

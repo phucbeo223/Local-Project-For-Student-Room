@@ -6,6 +6,7 @@ import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { getListingRoute, type ListingOut } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
+import { CAMPUSES } from "./campuses";
 
 // react-leaflet đụng window ngay khi import → phải tắt SSR, nếu không build
 // Next lỗi "window is not defined" lúc render phía server.
@@ -27,20 +28,27 @@ export default function MapScreen({
   items,
   radius,
   error,
+  center,
+  initialCampus,
 }: {
   items: ListingOut[];
   radius: number;
   error: string | null;
+  center: [number, number];
+  initialCampus: number;
 }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [campus, setCampus] = useState(1); // mặc định khu II (FR-M.3)
+  const [campus, setCampus] = useState(initialCampus);
   const [radiusDraft, setRadiusDraft] = useState(radius);
   const [selected, setSelected] = useState<ListingWithCoords | null>(null);
   const [route, setRoute] = useState<[number, number][] | null>(null);
 
   const withCoords = useMemo(
-    () => items.filter((l): l is ListingWithCoords => l.lat != null && l.lng != null),
+    () =>
+      items.filter(
+        (l): l is ListingWithCoords => l.lat != null && l.lng != null,
+      ),
     [items],
   );
 
@@ -64,11 +72,21 @@ export default function MapScreen({
     setCampus(idx);
     setRoute(null);
     if (selected) void drawRoute(selected, idx);
+    searchAt([CAMPUSES[idx].lat, CAMPUSES[idx].lng], idx);
+  }
+
+  function searchAt(point: [number, number], campusIdx = campus) {
+    startTransition(() =>
+      router.replace(
+        `/map?radius=${radiusDraft}&lat=${point[0]}&lng=${point[1]}&campus=${campusIdx}`,
+        { scroll: false },
+      ),
+    );
   }
 
   function commitRadius() {
     if (radiusDraft !== radius) {
-      startTransition(() => router.replace(`/map?radius=${radiusDraft}`, { scroll: false }));
+      searchAt(center);
     }
   }
 
@@ -84,7 +102,8 @@ export default function MapScreen({
       <aside className="flex min-h-0 flex-1 flex-col border-t border-line bg-white lg:border-r lg:border-t-0">
         <div className="border-b border-line-soft px-5 py-4">
           <h1 className="text-[17px] font-bold text-ink">
-            {withCoords.length} tin trong bán kính {(radius / 1000).toFixed(1)} km
+            {withCoords.length} tin trong bán kính {(radius / 1000).toFixed(1)}{" "}
+            km
           </h1>
           <div className="mt-3 flex gap-1.5 rounded-[11px] bg-tint p-1">
             {CAMPUS_LABELS.map((label, i) => (
@@ -103,12 +122,16 @@ export default function MapScreen({
             ))}
           </div>
           <p className="mt-2.5 text-[13px] text-ink-muted">
-            Bấm một tin để vẽ đường đi từ {CAMPUS_LABELS[campus].toLowerCase()} tới phòng.
+            Bấm nền bản đồ để tìm quanh điểm bất kỳ. Tối đa 300 kết quả gần
+            nhất. Bấm một tin để vẽ đường đi từ{" "}
+            {CAMPUS_LABELS[campus].toLowerCase()} tới phòng.
           </p>
         </div>
 
         {error && (
-          <p className="mx-3 mt-3 rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-600">{error}</p>
+          <p className="mx-3 mt-3 rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-600">
+            {error}
+          </p>
         )}
         {!error && withCoords.length === 0 && (
           <p className="mt-10 px-4 text-center text-ink-muted">
@@ -159,7 +182,11 @@ export default function MapScreen({
                   <span className="text-base font-bold text-primary">
                     {formatPrice(listing.price)}
                   </span>
-                  {meta && <span className="truncate text-[13px] text-ink-muted">{meta}</span>}
+                  {meta && (
+                    <span className="truncate text-[13px] text-ink-muted">
+                      {meta}
+                    </span>
+                  )}
                 </span>
               </button>
             );
@@ -170,6 +197,8 @@ export default function MapScreen({
       {/* Bản đồ + các control nổi */}
       <div className="relative h-[52vh] min-h-0 lg:h-auto">
         <MapCanvas
+          center={center}
+          onCenterChange={searchAt}
           items={withCoords}
           campus={campus}
           radius={radius}
@@ -225,16 +254,23 @@ export default function MapScreen({
             <p className="mt-2.5 line-clamp-2 text-[14.5px] font-semibold leading-tight text-ink">
               {selected.title}
             </p>
-            <p className="mt-1 text-[17px] font-bold text-primary">{formatPrice(selected.price)}</p>
+            <p className="mt-1 text-[17px] font-bold text-primary">
+              {formatPrice(selected.price)}
+            </p>
             {selected.address && (
-              <p className="mt-1 line-clamp-2 text-[13px] text-ink-muted">{selected.address}</p>
+              <p className="mt-1 line-clamp-2 text-[13px] text-ink-muted">
+                {selected.address}
+              </p>
             )}
             <p className="mt-1 text-[13px] text-ink-muted">
               {minutesLabel(selected) ?? "Chưa có thời gian di chuyển"}
             </p>
-            {selected.geocode_confidence && selected.geocode_confidence !== "high" && (
-              <p className="mt-1 text-xs text-ink-faint">Vị trí tương đối (chính xác tới cấp đường)</p>
-            )}
+            {selected.geocode_confidence &&
+              selected.geocode_confidence !== "high" && (
+                <p className="mt-1 text-xs text-ink-faint">
+                  Vị trí tương đối (chính xác tới cấp đường)
+                </p>
+              )}
             <Link
               href={`/listings/${selected.id}`}
               className="mt-2.5 block rounded-[9px] bg-primary py-2.5 text-center text-sm font-semibold text-white transition hover:bg-navy"

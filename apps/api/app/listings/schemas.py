@@ -48,9 +48,11 @@ class SearchParams(BaseModel):
     min_price: int | None = None
     max_price: int | None = None
     min_area: float | None = None
+    max_area: float | None = None
+    ward: str | None = None
     district: str | None = None
     amenities: list[str] = Field(default_factory=list)
-    max_distance_ctu: float | None = None        # mét
+    max_distance_ctu: float | None = None  # mét
     sort: SortBy = SortBy.newest
     page: int = Field(default=1, ge=1)
     size: int = Field(default=20, ge=1, le=100)
@@ -63,6 +65,8 @@ class ListingOut(BaseModel):
     area: float | None = None
     address: str | None = None
     district: str | None = None
+    ward: str | None = None
+    parsed_amenities: dict[str, bool] = Field(default_factory=dict)
     lat: float | None = None
     lng: float | None = None
     distance_to_ctu: float | None = None
@@ -80,7 +84,9 @@ class ListingOut(BaseModel):
     freshness_label: str = ""
     quality_score: float | None = None
     last_seen: datetime | None = None
-    route_time_campus: list[float] | None = None  # [khuI, khuII, khuIII] phút, None = chưa route
+    route_time_campus: list[float] | None = (
+        None  # [khuI, khuII, khuIII] phút, None = chưa route
+    )
     report_count: int = 0
 
 

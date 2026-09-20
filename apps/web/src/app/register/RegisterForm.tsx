@@ -17,6 +17,37 @@ type RegisterFormValues = z.infer<typeof registerSchema>;
 export default function RegisterForm() {
   const router = useRouter();
   const [formError, setFormError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [notice, setNotice] = useState("");
+  async function verify(resend = false) {
+    setBusy(true);
+    setFormError(null);
+    setNotice("");
+    try {
+      const res = await fetch(
+        `/api/auth/${resend ? "resend-otp" : "verify-email"}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, code }),
+        },
+      );
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.detail || "Xác thực thất bại");
+      if (resend)
+        setNotice("Đã gửi mã mới. Đợi ít nhất 60 giây trước khi gửi lại.");
+      else {
+        router.push("/onboarding");
+        router.refresh();
+      }
+    } catch (e) {
+      setFormError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
 
   const {
     register,
@@ -36,8 +67,7 @@ export default function RegisterForm() {
       });
 
       if (res.ok) {
-        router.push("/");
-        router.refresh();
+        setEmail(data.email);
         return;
       }
 
@@ -50,6 +80,48 @@ export default function RegisterForm() {
     }
   };
 
+  if (email)
+    return (
+      <form
+        className="space-y-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          void verify();
+        }}
+      >
+        <p>
+          Mã OTP 6 số đã gửi đến {email}, có hiệu lực 5 phút, tối đa 3 lần thử.
+        </p>
+        <label className="block">
+          Mã xác thực
+          <input
+            className="mt-2 w-full rounded border p-3"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="[0-9]{6}"
+            maxLength={6}
+            required
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+        </label>
+        <p role="status">{formError || notice}</p>
+        <button
+          disabled={busy}
+          className="rounded bg-emerald-700 p-3 text-white"
+        >
+          Xác thực
+        </button>
+        <button
+          type="button"
+          disabled={busy}
+          className="ml-4 underline"
+          onClick={() => void verify(true)}
+        >
+          Gửi lại OTP
+        </button>
+      </form>
+    );
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {formError && (
@@ -59,7 +131,10 @@ export default function RegisterForm() {
       )}
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-slate-700"
+        >
           Họ tên (tùy chọn)
         </label>
         <input
@@ -75,7 +150,10 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-slate-700"
+        >
           Email
         </label>
         <input
@@ -91,7 +169,10 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-slate-700"
+        >
           Mật khẩu
         </label>
         <input

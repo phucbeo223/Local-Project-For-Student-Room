@@ -11,7 +11,7 @@ from .schemas import (
 
 # cột select chung; geom → tách lat/lng qua ST_X/ST_Y
 _COLS = (
-    "id, title, price, area, address, district, description, "
+    "id, title, price, area, address, district, ward, parsed_amenities, description, "
     "ST_Y(geom) AS lat, ST_X(geom) AS lng, distance_to_ctu, images, "
     "source, source_url, posted_by, risk_score, risk_reasons, risk_status, geocode_confidence, freshness_score, "
     "quality_score, last_seen, route_time_campus, "
@@ -55,6 +55,12 @@ def build_filters(p: SearchParams) -> tuple[str, dict]:
     if p.min_area is not None:
         clauses.append("area >= :min_area")
         params["min_area"] = p.min_area
+    if p.max_area is not None:
+        clauses.append("area <= :max_area")
+        params["max_area"] = p.max_area
+    if p.ward:
+        clauses.append("ward ILIKE :ward")
+        params["ward"] = f"%{p.ward}%"
     if p.district:
         clauses.append("district ILIKE :district")
         params["district"] = f"%{p.district}%"
@@ -73,6 +79,11 @@ def build_filters(p: SearchParams) -> tuple[str, dict]:
 def _to_out(row) -> ListingOut:
     d = dict(row)
     d["images"] = d.get("images") or []
+    d["parsed_amenities"] = {
+        k: v
+        for k, v in (d.get("parsed_amenities") or {}).items()
+        if isinstance(v, bool)
+    }
     d["risk_reasons"] = d.get("risk_reasons") or []
     d["risk_level"] = risk_level(d.get("risk_score"))
     d["risk_status"] = d.get("risk_status") or (
@@ -97,72 +108,101 @@ class ListingQueryRepo:
             total = conn.execute(
                 text(f"SELECT count(*) FROM aggregated_listings WHERE {where}"), params
             ).scalar_one()
-            rows = conn.execute(
-                text(
-                    f"SELECT {_COLS} FROM aggregated_listings WHERE {where} "
-                    f"ORDER BY {order} LIMIT :limit OFFSET :offset"
-                ),
-                {**params, "limit": p.size, "offset": offset},
-            ).mappings().all()
+            rows = (
+                conn.execute(
+                    text(
+                        f"SELECT {_COLS} FROM aggregated_listings WHERE {where} "
+                        f"ORDER BY {order} LIMIT :limit OFFSET :offset"
+                    ),
+                    {**params, "limit": p.size, "offset": offset},
+                )
+                .mappings()
+                .all()
+            )
         return total, [_to_out(r) for r in rows]
 
     def get(self, listing_id: int) -> ListingOut | None:
         with self.engine.connect() as conn:
-            row = conn.execute(
-                text(f"SELECT {_COLS} FROM aggregated_listings WHERE id = :id"),
-                {"id": listing_id},
-            ).mappings().first()
+            row = (
+                conn.execute(
+                    text(f"SELECT {_COLS} FROM aggregated_listings WHERE id = :id"),
+                    {"id": listing_id},
+                )
+                .mappings()
+                .first()
+            )
         return _to_out(row) if row else None
 
     def by_owner(self, user_id: int) -> list[ListingOut]:
         """Tin do 1 user tự đăng (trang "Tin của tôi"). Ẩn tin đã xoá mềm ('hidden')."""
         with self.engine.connect() as conn:
-            rows = conn.execute(
-                text(
-                    f"SELECT {_COLS} FROM aggregated_listings "
-                    "WHERE posted_by = :uid AND status <> 'hidden' "
-                    "ORDER BY last_seen DESC"
-                ),
-                {"uid": user_id},
-            ).mappings().all()
+            rows = (
+                conn.execute(
+                    text(
+                        f"SELECT {_COLS} FROM aggregated_listings "
+                        "WHERE posted_by = :uid AND status <> 'hidden' "
+                        "ORDER BY last_seen DESC"
+                    ),
+                    {"uid": user_id},
+                )
+                .mappings()
+                .all()
+            )
         return [_to_out(r) for r in rows]
 
     def get_visible(self, listing_id: int) -> ListingOut | None:
         """Detail công khai — ẩn tin expired/hidden (dùng cho GET /listings/{id})."""
         with self.engine.connect() as conn:
-            row = conn.execute(
-                text(
-                    f"SELECT {_COLS} FROM aggregated_listings "
-                    "WHERE id = :id AND status NOT IN ('expired', 'hidden')"
-                ),
-                {"id": listing_id},
-            ).mappings().first()
+            row = (
+                conn.execute(
+                    text(
+                        f"SELECT {_COLS} FROM aggregated_listings "
+                        "WHERE id = :id AND status NOT IN ('expired', 'hidden')"
+                    ),
+                    {"id": listing_id},
+                )
+                .mappings()
+                .first()
+            )
         return _to_out(row) if row else None
 
-    def nearby(self, lat: float, lng: float, radius_m: float, limit: int = 300) -> list[ListingOut]:
+    def nearby(
+        self, lat: float, lng: float, radius_m: float, limit: int = 300
+    ) -> list[ListingOut]:
         """Tin trong bán kính (FR-2.5) — PostGIS ST_DWithin trên geography."""
         with self.engine.connect() as conn:
-            rows = conn.execute(
-                text(
-                    f"SELECT {_COLS}, "
-                    "ST_Distance(geom::geography, ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography) AS dist "
-                    "FROM aggregated_listings "
-                    "WHERE status NOT IN ('expired', 'hidden') AND geom IS NOT NULL "
-                    # đồng bộ filter sạch với search() (build_filters): map = list
-                    "AND (source = 'user' OR (cleaning_status = 'cleaned' AND listing_type = 'phong_tro')) "
-                    "AND ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography, :r) "
-                    "ORDER BY dist ASC LIMIT :limit"
-                ),
-                {"lat": lat, "lng": lng, "r": radius_m, "limit": limit},
-            ).mappings().all()
+            rows = (
+                conn.execute(
+                    text(
+                        f"SELECT {_COLS}, "
+                        "ST_Distance(geom::geography, ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography) AS dist "
+                        "FROM aggregated_listings "
+                        "WHERE status NOT IN ('expired', 'hidden') AND geom IS NOT NULL "
+                        # đồng bộ filter sạch với search() (build_filters): map = list
+                        "AND (source = 'user' OR (cleaning_status = 'cleaned' AND listing_type = 'phong_tro')) "
+                        "AND ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography, :r) "
+                        "ORDER BY dist ASC LIMIT :limit"
+                    ),
+                    {"lat": lat, "lng": lng, "r": radius_m, "limit": limit},
+                )
+                .mappings()
+                .all()
+            )
         return [_to_out(r) for r in rows]
 
 
 # cột được phép sửa qua PUT (partial update) — khớp field của ListingUpdate
-_UPDATABLE_COLS = ("title", "price", "area", "address", "district", "description", "images")
+_UPDATABLE_COLS = (
+    "title",
+    "price",
+    "area",
+    "address",
+    "district",
+    "description",
+    "images",
+)
 
-_INSERT_UGC = text(
-    """
+_INSERT_UGC = text("""
     INSERT INTO aggregated_listings
         (title, price, area, address, district, images, description,
          source, source_url, source_id, posted_by,
@@ -177,8 +217,7 @@ _INSERT_UGC = text(
          CAST(:distance_to_ctu AS REAL), :geocode_confidence,
          'active', 'cleaned', 'phong_tro', 0.60, now(), now(), now())
     RETURNING id
-    """
-)
+    """)
 
 
 class ListingWriteRepo:
@@ -211,10 +250,16 @@ class ListingWriteRepo:
     def get_owner(self, listing_id: int):
         """Trả row {posted_by, status} hoặc None nếu id không tồn tại (dùng cho check 404/403)."""
         with self.engine.connect() as conn:
-            row = conn.execute(
-                text("SELECT posted_by, status FROM aggregated_listings WHERE id = :id"),
-                {"id": listing_id},
-            ).mappings().first()
+            row = (
+                conn.execute(
+                    text(
+                        "SELECT posted_by, status FROM aggregated_listings WHERE id = :id"
+                    ),
+                    {"id": listing_id},
+                )
+                .mappings()
+                .first()
+            )
         return row
 
     def update(self, listing_id: int, fields: dict, lat, lng, conf, dist) -> None:
@@ -238,7 +283,11 @@ class ListingWriteRepo:
                 params["geocode_confidence"] = conf
             else:
                 set_clauses.extend(
-                    ["geom = NULL", "distance_to_ctu = NULL", "geocode_confidence = NULL"]
+                    [
+                        "geom = NULL",
+                        "distance_to_ctu = NULL",
+                        "geocode_confidence = NULL",
+                    ]
                 )
 
         if not set_clauses:
@@ -253,7 +302,9 @@ class ListingWriteRepo:
         """Ghi route_time_campus cho 1 tin (sau khi geocode address UGC). Xem routing.py."""
         with self.engine.begin() as conn:
             conn.execute(
-                text("UPDATE aggregated_listings SET route_time_campus = :t WHERE id = :id"),
+                text(
+                    "UPDATE aggregated_listings SET route_time_campus = :t WHERE id = :id"
+                ),
                 {"t": times, "id": listing_id},
             )
 

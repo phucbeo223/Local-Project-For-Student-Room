@@ -6,8 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
 
-
-MODEL_VERSION = "room-risk-rules-v2"
+MODEL_VERSION = "room-risk-five-layer-v3"
 
 
 @dataclass(frozen=True, slots=True)
@@ -31,7 +30,9 @@ class ScoreResult:
 
 def normalize_text(value: object) -> str:
     text = unicodedata.normalize("NFD", str(value or "").lower())
-    text = "".join(character for character in text if unicodedata.category(character) != "Mn")
+    text = "".join(
+        character for character in text if unicodedata.category(character) != "Mn"
+    )
     text = text.replace("đ", "d")
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9\s]", " ", text)).strip()
 
@@ -91,7 +92,11 @@ def score_listing(
     if price and district_median_price and district_median_price > 0:
         ratio = float(price) / district_median_price
         if ratio < 0.45:
-            add("price_extreme", "Giá thấp hơn rất nhiều so với mặt bằng cùng khu vực", 0.30)
+            add(
+                "price_extreme",
+                "Giá thấp hơn rất nhiều so với mặt bằng cùng khu vực",
+                0.30,
+            )
         elif ratio < 0.65:
             add("price_low", "Giá thấp đáng kể so với mặt bằng cùng khu vực", 0.18)
 
@@ -118,6 +123,29 @@ def score_listing(
         add("weak_geocode", "Vị trí có độ tin cậy thấp", 0.05)
 
     owner_listing_count = int(listing.get("owner_active_listing_count") or 0)
+    if listing.get("statistical_anomaly"):
+        add(
+            "isolation_forest",
+            "Giá/diện tích bất thường trong dữ liệu cùng khu vực 180 ngày; không phải kết luận lừa đảo",
+            0.2,
+        )
+    if listing.get("cross_source_image_conflict") or listing.get(
+        "perceptual_image_conflict"
+    ):
+        add(
+            "cross_platform_image",
+            "Ảnh trùng/gần giống tin từ nguồn khác nhưng khác khu vực, cần xác minh",
+            0.3,
+        )
+    if (
+        listing.get("source") == "user"
+        and int(listing.get("owner_recent_listing_count") or 0) >= 10
+    ):
+        add(
+            "recent_posting_burst",
+            "Tài khoản đăng ít nhất 10 tin trong 24 giờ, cần xác minh",
+            0.15,
+        )
     if listing.get("source") == "user" and owner_listing_count >= 20:
         add(
             "posting_burst",

@@ -1,4 +1,5 @@
 """FastAPI dependencies: rút current user từ Bearer access token."""
+
 from __future__ import annotations
 
 import jwt
@@ -32,6 +33,8 @@ def get_current_user(
     user = _repo.get_user(int(payload["sub"]))
     if user is None:
         raise HTTPException(401, "User không tồn tại")
+    if payload.get("ver", 0) != user.get("auth_version", 0):
+        raise HTTPException(401, "Phiên đã bị thu hồi")
     return UserOut(**user)
 
 

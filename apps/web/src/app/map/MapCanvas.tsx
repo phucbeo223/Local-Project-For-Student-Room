@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
-import { Circle, MapContainer, Marker, Polyline, TileLayer, useMap } from "react-leaflet";
+import {
+  Circle,
+  MapContainer,
+  Marker,
+  Polyline,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -67,7 +75,18 @@ function FlyToSelected({ selected }: { selected: ListingWithCoords | null }) {
   return null;
 }
 
+function PickCenter({
+  onChange,
+}: {
+  onChange: (point: [number, number]) => void;
+}) {
+  useMapEvents({ click: (e) => onChange([e.latlng.lat, e.latlng.lng]) });
+  return null;
+}
+
 export default function MapCanvas({
+  center,
+  onCenterChange,
   items,
   campus,
   radius,
@@ -75,6 +94,8 @@ export default function MapCanvas({
   route,
   onSelect,
 }: {
+  center: [number, number];
+  onCenterChange: (point: [number, number]) => void;
   items: ListingWithCoords[];
   campus: number;
   radius: number;
@@ -82,14 +103,19 @@ export default function MapCanvas({
   route: [number, number][] | null;
   onSelect: (listing: ListingWithCoords) => void;
 }) {
-  const center = CAMPUSES[1]; // tâm tìm kiếm cố định = khu II, khớp map/page.tsx
   const selected = useMemo(
     () => items.find((l) => l.id === selectedId) ?? null,
     [items, selectedId],
   );
 
   return (
-    <MapContainer center={center} zoom={14} scrollWheelZoom className="h-full w-full">
+    <MapContainer
+      center={center}
+      zoom={14}
+      scrollWheelZoom
+      className="h-full w-full"
+    >
+      <PickCenter onChange={onCenterChange} />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -99,7 +125,13 @@ export default function MapCanvas({
       <Circle
         center={center}
         radius={radius}
-        pathOptions={{ color: "#1069bd", opacity: 0.45, weight: 2, dashArray: "8 8", fill: false }}
+        pathOptions={{
+          color: "#1069bd",
+          opacity: 0.45,
+          weight: 2,
+          dashArray: "8 8",
+          fill: false,
+        }}
       />
 
       <Marker
@@ -108,7 +140,12 @@ export default function MapCanvas({
         zIndexOffset={500}
       />
 
-      {route && <Polyline positions={route} pathOptions={{ color: "#1069bd", weight: 4 }} />}
+      {route && (
+        <Polyline
+          positions={route}
+          pathOptions={{ color: "#1069bd", weight: 4 }}
+        />
+      )}
 
       <MarkerClusterGroup
         chunkedLoading

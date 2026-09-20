@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 import re
+import time
 import unicodedata
 from dataclasses import dataclass
 from typing import Any, Protocol, Sequence
@@ -193,7 +194,9 @@ def _extract_gemini_text(data: dict[str, Any]) -> str:
     if not candidates:
         return ""
     parts = candidates[0].get("content", {}).get("parts", [])
-    return "\n".join(str(part.get("text", "")) for part in parts if part.get("text")).strip()
+    return "\n".join(
+        str(part.get("text", "")) for part in parts if part.get("text")
+    ).strip()
 
 
 class OllamaQwenGenerator:
@@ -218,7 +221,9 @@ class OllamaQwenGenerator:
     ) -> GenerationResult:
         if not contexts:
             raise RuntimeError("không có context")
-        system_prompt = LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
+        system_prompt = (
+            LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
+        )
         user_prompt = (
             _legal_prompt(question, contexts)
             if context_kind == "legal"
@@ -233,7 +238,9 @@ class OllamaQwenGenerator:
             ],
             "options": {"temperature": 0.2, "num_predict": 700},
         }
-        timeout = httpx.Timeout(self.timeout_seconds, connect=min(5.0, self.timeout_seconds))
+        timeout = httpx.Timeout(
+            self.timeout_seconds, connect=min(5.0, self.timeout_seconds)
+        )
         with httpx.Client(timeout=timeout, transport=self.transport) as client:
             response = client.post(f"{self.base_url}/api/chat", json=payload)
             response.raise_for_status()
@@ -241,7 +248,9 @@ class OllamaQwenGenerator:
         text = str(data.get("message", {}).get("content", "")).strip()
         if not text:
             raise RuntimeError("Ollama trả về nội dung rỗng")
-        return GenerationResult(text=text, provider=self.provider_name, model=self.model)
+        return GenerationResult(
+            text=text, provider=self.provider_name, model=self.model
+        )
 
 
 class GeminiGenerator:
@@ -270,7 +279,9 @@ class GeminiGenerator:
             raise RuntimeError("GEMINI_API_KEY chưa cấu hình")
         if not contexts:
             raise RuntimeError("không có context")
-        system_prompt = LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
+        system_prompt = (
+            LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
+        )
         user_prompt = (
             _legal_prompt(question, contexts)
             if context_kind == "legal"
@@ -287,7 +298,9 @@ class GeminiGenerator:
             "generationConfig": {"temperature": 0.2, "maxOutputTokens": 700},
         }
         headers = {"Content-Type": "application/json", "x-goog-api-key": self.api_key}
-        timeout = httpx.Timeout(self.timeout_seconds, connect=min(5.0, self.timeout_seconds))
+        timeout = httpx.Timeout(
+            self.timeout_seconds, connect=min(5.0, self.timeout_seconds)
+        )
         with httpx.Client(timeout=timeout, transport=self.transport) as client:
             response = client.post(
                 f"{self.base_url}/models/{self.model}:generateContent",
@@ -299,7 +312,9 @@ class GeminiGenerator:
         text = _extract_gemini_text(data)
         if not text:
             raise RuntimeError("Gemini trả về nội dung rỗng")
-        return GenerationResult(text=text, provider=self.provider_name, model=self.model)
+        return GenerationResult(
+            text=text, provider=self.provider_name, model=self.model
+        )
 
 
 class GroundedTemplateGenerator:
@@ -335,8 +350,12 @@ class GroundedTemplateGenerator:
                     if item.get("page_to") and item["page_to"] != item["page_from"]:
                         pages = f", trang {item['page_from']}–{item['page_to']}"
                 heading = f" — {item['heading']}" if item.get("heading") else ""
-                excerpt = re.sub(r"\s+", " ", str(item.get("content") or ""))[:360].rstrip()
-                lines.append(f"[{item['rank']}] {item['title']}{heading}{pages}: {excerpt}")
+                excerpt = re.sub(r"\s+", " ", str(item.get("content") or ""))[
+                    :360
+                ].rstrip()
+                lines.append(
+                    f"[{item['rank']}] {item['title']}{heading}{pages}: {excerpt}"
+                )
             lines.append(
                 "Đây là thông tin tham khảo từ kho văn bản đã nạp, không thay thế tư vấn pháp lý; "
                 "hãy kiểm tra hiệu lực văn bản tại thời điểm áp dụng."
@@ -351,7 +370,9 @@ class GroundedTemplateGenerator:
             )
             area = f", {item['area']:g} m²" if item.get("area") is not None else ""
             address = item.get("address") or item.get("district") or "chưa rõ địa chỉ"
-            lines.append(f"[{item['rank']}] {item['title']} — {price}{area}, {address}.")
+            lines.append(
+                f"[{item['rank']}] {item['title']} — {price}{area}, {address}."
+            )
         lines.append(
             "Các ký hiệu nguồn trong ngoặc vuông tương ứng với tin bên dưới; "
             "hãy kiểm tra lại với chủ trọ trước khi đặt cọc."
@@ -379,10 +400,18 @@ class FallbackResponseGenerator:
             return self.fallback.generate(question, contexts, context_kind=context_kind)
 
         reasons = list(self.initial_degraded_reasons)
+        started = time.monotonic()
         for provider in self.providers:
-            provider_name = getattr(provider, "provider_name", provider.__class__.__name__)
+            if time.monotonic() - started >= 4:
+                reasons.append("Đã hết thời gian gọi mô hình, chuyển mẫu theo nguồn")
+                break
+            provider_name = getattr(
+                provider, "provider_name", provider.__class__.__name__
+            )
             try:
-                result = provider.generate(question, contexts, context_kind=context_kind)
+                result = provider.generate(
+                    question, contexts, context_kind=context_kind
+                )
                 return GenerationResult(
                     text=result.text,
                     provider=result.provider,

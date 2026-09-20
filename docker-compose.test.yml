@@ -1,0 +1,36 @@
+name: timtrosv-fr-tests
+services:
+  db:
+    build: ./infra/db
+    environment:
+      POSTGRES_USER: nckh
+      POSTGRES_PASSWORD: test-only-password
+      POSTGRES_DB: fr_test
+    tmpfs: /var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U nckh -d fr_test"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7-alpine
+  api:
+    build: ./apps/api
+    environment:
+      DATABASE_URL: postgresql+psycopg://nckh:test-only-password@db:5432/fr_test
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: isolated-test-secret-not-for-production-2026
+      CRAWLER_ENABLED: 'false'
+      CHATBOT_LLM_PROVIDER: template
+      PROJECT_ROOT: /workspace
+      RUN_DB_TESTS: '1'
+    volumes:
+      - ./apps/api/tests:/app/tests:ro
+      - ./scripts:/workspace/scripts:ro
+      - ./eval:/workspace/eval:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    command: [python, -m, pytest, /app/tests, -q]

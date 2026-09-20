@@ -2,8 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { AMENITY_LABELS } from "@/lib/amenities";
 
-const DISTRICTS = ["Ninh Kiều", "Bình Thủy", "Cái Răng", "Ô Môn", "Thốt Nốt", "Phong Điền"];
+const DISTRICTS = [
+  "Ninh Kiều",
+  "Bình Thủy",
+  "Cái Răng",
+  "Ô Môn",
+  "Thốt Nốt",
+  "Phong Điền",
+];
 
 // Backend chưa có filter theo phút đi xe (route_time) — dùng khoảng cách thật
 // max_distance_ctu thay cho block "Thời gian tới trường" trong mockup.
@@ -16,6 +24,7 @@ const DISTANCE_OPTIONS = [
 const AREA_OPTIONS = ["15", "20", "25"];
 
 export const SORT_OPTIONS = [
+  { value: "freshness", label: "Độ tươi" },
   { value: "newest", label: "Mới nhất" },
   { value: "price_asc", label: "Giá thấp → cao" },
   { value: "price_desc", label: "Giá cao → thấp" },
@@ -24,6 +33,9 @@ export const SORT_OPTIONS = [
 ];
 
 export type HomeParams = {
+  ward?: string;
+  max_area?: string;
+  amenities?: string;
   q?: string;
   district?: string;
   min_price?: string;
@@ -43,7 +55,8 @@ function vndToTrieu(vnd: string | undefined): string {
 function buildParams(values: HomeParams): URLSearchParams {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(values)) {
-    if (value && !(key === "sort" && value === "newest")) params.set(key, value);
+    if (value && !(key === "sort" && value === "newest"))
+      params.set(key, value);
   }
   return params;
 }
@@ -55,11 +68,18 @@ export function HomeFilters({ current }: { current: HomeParams }) {
   const [district, setDistrict] = useState(current.district ?? "");
   const [distance, setDistance] = useState(current.max_distance_ctu ?? "");
   const [minArea, setMinArea] = useState(current.min_area ?? "");
+  const [maxArea, setMaxArea] = useState(current.max_area ?? "");
+  const [ward, setWard] = useState(current.ward ?? "");
+  const [amenities, setAmenities] = useState(
+    (current.amenities ?? "").split(",").filter(Boolean),
+  );
 
   function apply() {
     const toVnd = (trieu: string) => {
       const n = Number(trieu);
-      return trieu && Number.isFinite(n) && n > 0 ? String(Math.round(n * 1_000_000)) : "";
+      return trieu && Number.isFinite(n) && n > 0
+        ? String(Math.round(n * 1_000_000))
+        : "";
     };
     const params = buildParams({
       q: current.q,
@@ -68,6 +88,9 @@ export function HomeFilters({ current }: { current: HomeParams }) {
       min_price: toVnd(minTrieu),
       max_price: toVnd(maxTrieu),
       min_area: minArea,
+      max_area: maxArea,
+      ward,
+      amenities: amenities.join(","),
       max_distance_ctu: distance,
     });
     router.push(`/?${params.toString()}`);
@@ -129,7 +152,9 @@ export function HomeFilters({ current }: { current: HomeParams }) {
             <button
               key={opt.value}
               type="button"
-              onClick={() => setDistance(distance === opt.value ? "" : opt.value)}
+              onClick={() =>
+                setDistance(distance === opt.value ? "" : opt.value)
+              }
               className={chip(distance === opt.value)}
             >
               {opt.label}
@@ -152,12 +177,19 @@ export function HomeFilters({ current }: { current: HomeParams }) {
               >
                 <span
                   className={`flex h-[18px] w-[18px] items-center justify-center rounded-[5px] border transition ${
-                    active ? "border-primary bg-primary text-white" : "border-[#c6d2e0] bg-white"
+                    active
+                      ? "border-primary bg-primary text-white"
+                      : "border-[#c6d2e0] bg-white"
                   }`}
                 >
                   {active && (
                     <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6.5L4.6 9L10 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <path
+                        d="M2 6.5L4.6 9L10 3.5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   )}
                 </span>
@@ -188,6 +220,44 @@ export function HomeFilters({ current }: { current: HomeParams }) {
         </div>
       </div>
 
+      <label className="text-sm">
+        Diện tích tối đa (m²)
+        <input
+          type="number"
+          min="1"
+          value={maxArea}
+          onChange={(e) => setMaxArea(e.target.value)}
+          className="mt-2 w-full rounded border p-2"
+        />
+      </label>
+      <label className="text-sm">
+        Phường / xã
+        <input
+          value={ward}
+          onChange={(e) => setWard(e.target.value)}
+          className="mt-2 w-full rounded border p-2"
+          placeholder="Theo dữ liệu tin đăng"
+        />
+      </label>
+      <fieldset>
+        <legend className={sectionLabel}>Tiện ích</legend>
+        {Object.entries(AMENITY_LABELS).map(([key, label]) => (
+          <label key={key} className="mt-2 flex gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={amenities.includes(key)}
+              onChange={(e) =>
+                setAmenities(
+                  e.target.checked
+                    ? [...amenities, key]
+                    : amenities.filter((v) => v !== key),
+                )
+              }
+            />
+            {label}
+          </label>
+        ))}
+      </fieldset>
       <button
         type="button"
         onClick={apply}

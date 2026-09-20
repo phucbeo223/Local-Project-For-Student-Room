@@ -72,6 +72,30 @@ class RecommendationResponse(BaseModel):
     cold_start: bool
     profile_evidence: int
     items: list[RecommendationItem]
+    algorithm: str = "structured-cosine-v1"
+
+
+class PreferenceQuiz(BaseModel):
+    max_price: int = Field(ge=100000, le=100000000)
+    max_distance_ctu: float = Field(gt=0, le=100000)
+    amenities: list[str] = Field(default_factory=list, max_length=8)
+    district: str | None = Field(default=None, max_length=80)
+
+    @model_validator(mode="after")
+    def known_amenities(self):
+        allowed = {
+            "wifi",
+            "air_conditioner",
+            "private_wc",
+            "parking",
+            "kitchen",
+            "fridge",
+            "washing_machine",
+            "free_hours",
+        }
+        if set(self.amenities) - allowed:
+            raise ValueError("Tiện ích không hợp lệ")
+        return self
 
 
 class AIDashboardSummary(BaseModel):

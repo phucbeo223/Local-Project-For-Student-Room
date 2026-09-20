@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, 'codex/fr1-fr2-fr4-fr6-fr7']
   pull_request:
     branches: [main, master]
 
@@ -26,9 +26,11 @@ jobs:
         run: |
           API_CID=$(docker compose ps -q api)
           docker cp apps/api/tests $API_CID:/app/tests
+          docker cp scripts $API_CID:/app/scripts
+          docker cp eval $API_CID:/app/eval
 
       - name: Run tests
-        run: docker compose exec -T api python -m pytest -v
+        run: docker compose exec -T -e PROJECT_ROOT=/app -e RUN_DB_TESTS=1 api python -m pytest -v
 
   frontend:
     name: Frontend build

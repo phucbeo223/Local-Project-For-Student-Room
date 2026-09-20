@@ -11,23 +11,33 @@ class AuthRepo:
     def find_identity(self, provider: str, provider_user_id: str) -> dict | None:
         """Trả identity + user (role) đã join, hoặc None."""
         with self.engine.connect() as conn:
-            row = conn.execute(
-                text(
-                    "SELECT i.id AS identity_id, i.secret_hash, "
-                    "u.id AS user_id, u.email, u.name, u.role "
-                    "FROM user_identities i JOIN users u ON u.id = i.user_id "
-                    "WHERE i.provider = :p AND i.provider_user_id = :pid"
-                ),
-                {"p": provider, "pid": provider_user_id},
-            ).mappings().first()
+            row = (
+                conn.execute(
+                    text(
+                        "SELECT i.id AS identity_id, i.secret_hash, "
+                        "u.id AS user_id, u.email, u.name, u.role "
+                        "FROM user_identities i JOIN users u ON u.id = i.user_id "
+                        "WHERE i.provider = :p AND i.provider_user_id = :pid"
+                    ),
+                    {"p": provider, "pid": provider_user_id},
+                )
+                .mappings()
+                .first()
+            )
         return dict(row) if row else None
 
     def get_user(self, user_id: int) -> dict | None:
         with self.engine.connect() as conn:
-            row = conn.execute(
-                text("SELECT id, email, name, role, avatar_url FROM users WHERE id = :id"),
-                {"id": user_id},
-            ).mappings().first()
+            row = (
+                conn.execute(
+                    text(
+                        "SELECT id, email, name, role, avatar_url, auth_version FROM users WHERE id = :id"
+                    ),
+                    {"id": user_id},
+                )
+                .mappings()
+                .first()
+            )
         return dict(row) if row else None
 
     def create_user_with_identity(
@@ -48,19 +58,33 @@ class AuthRepo:
                     "INSERT INTO users (email, name, avatar_url, email_verified) "
                     "VALUES (:email, :name, :avatar, :verified) RETURNING id"
                 ),
-                {"email": email, "name": name, "avatar": avatar_url, "verified": email_verified},
+                {
+                    "email": email,
+                    "name": name,
+                    "avatar": avatar_url,
+                    "verified": email_verified,
+                },
             ).scalar_one()
             conn.execute(
                 text(
                     "INSERT INTO user_identities (user_id, provider, provider_user_id, secret_hash) "
                     "VALUES (:uid, :p, :pid, :sh)"
                 ),
-                {"uid": user_id, "p": provider, "pid": provider_user_id, "sh": secret_hash},
+                {
+                    "uid": user_id,
+                    "p": provider,
+                    "pid": provider_user_id,
+                    "sh": secret_hash,
+                },
             )
         return {"user_id": user_id, "email": email, "name": name, "role": "user"}
 
     def email_exists(self, email: str) -> bool:
         with self.engine.connect() as conn:
-            return conn.execute(
-                text("SELECT 1 FROM users WHERE email = :e"), {"e": email}
-            ).first() is not None
+            return (
+                conn.execute(
+                    text("SELECT 1 FROM users WHERE lower(email) = lower(:e)"),
+                    {"e": email},
+                ).first()
+                is not None
+            )

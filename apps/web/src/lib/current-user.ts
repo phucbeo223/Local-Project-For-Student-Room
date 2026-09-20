@@ -1,17 +1,11 @@
 import { getMe, refresh, type ApiError, type User } from "./api";
-import {
-  getAccessToken,
-  getRefreshToken,
-  setAuthCookies,
-} from "./session";
+import { getAccessToken, getRefreshToken, setAuthCookies } from "./session";
 
 // Lấy user hiện tại từ cookie. Nếu access hết hạn (401) thử refresh 1 lần.
 // LƯU Ý: setAuthCookies chỉ hiệu lực trong Route Handler / Server Action —
 // gọi từ Server Component render sẽ throw (Next không cho set cookie khi render).
 // Server Component chỉ đọc: dùng canRefresh=false để tránh throw.
-export async function getCurrentUser(
-  canRefresh = false,
-): Promise<User | null> {
+export async function getCurrentUser(canRefresh = false): Promise<User | null> {
   const access = getAccessToken();
   if (access) {
     try {
@@ -22,6 +16,7 @@ export async function getCurrentUser(
     }
   }
 
+  if (!canRefresh) return null;
   const refreshTok = getRefreshToken();
   if (!refreshTok) return null;
 

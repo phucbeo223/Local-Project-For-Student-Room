@@ -31,7 +31,11 @@ export async function apiFetch<T>(
     let detail = `Lỗi ${res.status}`;
     try {
       const body = (await res.json()) as { detail?: string };
-      if (body?.detail) detail = body.detail;
+      if (body?.detail)
+        detail =
+          typeof body.detail === "string"
+            ? body.detail
+            : "Dữ liệu nhập không hợp lệ";
     } catch {
       // body không phải JSON — giữ message mặc định
     }
@@ -53,8 +57,8 @@ export function register(
   email: string,
   password: string,
   name?: string,
-): Promise<TokenPair> {
-  return apiFetch<TokenPair>("/auth/register", {
+): Promise<{ verification_required: boolean; email: string }> {
+  return apiFetch("/auth/register", {
     method: "POST",
     body: JSON.stringify({ email, password, name: name || null }),
   });
@@ -76,6 +80,8 @@ export function getMe(accessToken: string): Promise<User> {
 // ---- Listings ----
 
 export type ListingOut = {
+  ward?: string | null;
+  parsed_amenities?: Record<string, boolean>;
   id: number;
   title: string;
   price: number | null;
@@ -111,6 +117,9 @@ export type SearchResult = {
 };
 
 export type SearchListingsParams = {
+  max_area?: number;
+  ward?: string;
+  amenities?: string[];
   q?: string;
   min_price?: number;
   max_price?: number;
@@ -132,18 +141,24 @@ export type ListingInput = {
   images?: string[];
 };
 
-function buildQuery(params: Record<string, string | number | undefined>): string {
+function buildQuery(
+  params: Record<string, string | number | string[] | undefined>,
+): string {
   const search = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null && value !== "") {
-      search.set(key, String(value));
+      if (Array.isArray(value))
+        value.forEach((item) => search.append(key, item));
+      else search.set(key, String(value));
     }
   }
   const qs = search.toString();
   return qs ? `?${qs}` : "";
 }
 
-export function searchListings(params: SearchListingsParams): Promise<SearchResult> {
+export function searchListings(
+  params: SearchListingsParams,
+): Promise<SearchResult> {
   return apiFetch<SearchResult>(`/listings${buildQuery(params)}`);
 }
 
@@ -151,12 +166,21 @@ export function getListing(id: number | string): Promise<ListingOut> {
   return apiFetch<ListingOut>(`/listings/${id}`);
 }
 
-export function getNearby(lat: number, lng: number, radius: number): Promise<ListingOut[]> {
-  return apiFetch<ListingOut[]>(`/listings/nearby${buildQuery({ lat, lng, radius })}`);
+export function getNearby(
+  lat: number,
+  lng: number,
+  radius: number,
+): Promise<ListingOut[]> {
+  return apiFetch<ListingOut[]>(
+    `/listings/nearby${buildQuery({ lat, lng, radius })}`,
+  );
 }
 
 // campus: 0=khu I, 1=khu II, 2=khu III. Trả polyline [lat,lng] campus→tin (FR-M.8).
-export function getListingRoute(id: number | string, campus: number): Promise<number[][]> {
+export function getListingRoute(
+  id: number | string,
+  campus: number,
+): Promise<number[][]> {
   return apiFetch<number[][]>(`/listings/${id}/route${buildQuery({ campus })}`);
 }
 
@@ -166,7 +190,10 @@ export function getMyListings(token: string): Promise<ListingOut[]> {
   });
 }
 
-export function createListing(token: string, data: ListingInput): Promise<ListingOut> {
+export function createListing(
+  token: string,
+  data: ListingInput,
+): Promise<ListingOut> {
   return apiFetch<ListingOut>("/listings", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
@@ -186,7 +213,10 @@ export function updateListing(
   });
 }
 
-export function deleteListing(token: string, id: number | string): Promise<void> {
+export function deleteListing(
+  token: string,
+  id: number | string,
+): Promise<void> {
   return apiFetch<void>(`/listings/${id}`, {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
@@ -195,7 +225,8 @@ export function deleteListing(token: string, id: number | string): Promise<void>
 
 // ---- Engagement, saved search and recommendation ----
 
-export type InteractionType = "view" | "bookmark" | "click_source" | "click_phone" | "dismiss";
+export type InteractionType =
+  "view" | "bookmark" | "click_source" | "click_phone" | "dismiss";
 
 export type FavoriteOut = {
   listing: ListingOut;
@@ -268,22 +299,34 @@ export function recordInteraction(
   return apiFetch("/interactions", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ listing_id: listingId, type, duration_ms: durationMs }),
+    body: JSON.stringify({
+      listing_id: listingId,
+      type,
+      duration_ms: durationMs,
+    }),
   });
 }
 
 export function getFavorites(token: string): Promise<FavoriteOut[]> {
-  return apiFetch("/favorites", { headers: { Authorization: `Bearer ${token}` } });
+  return apiFetch("/favorites", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 }
 
-export function addFavorite(token: string, listingId: number | string): Promise<FavoriteOut> {
+export function addFavorite(
+  token: string,
+  listingId: number | string,
+): Promise<FavoriteOut> {
   return apiFetch(`/favorites/${listingId}`, {
     method: "PUT",
     headers: { Authorization: `Bearer ${token}` },
   });
 }
 
-export function removeFavorite(token: string, listingId: number | string): Promise<void> {
+export function removeFavorite(
+  token: string,
+  listingId: number | string,
+): Promise<void> {
   return apiFetch(`/favorites/${listingId}`, {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
@@ -291,12 +334,18 @@ export function removeFavorite(token: string, listingId: number | string): Promi
 }
 
 export function getSavedSearches(token: string): Promise<SavedSearchOut[]> {
-  return apiFetch("/saved-searches", { headers: { Authorization: `Bearer ${token}` } });
+  return apiFetch("/saved-searches", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 }
 
 export function createSavedSearch(
   token: string,
-  data: { name: string; criteria: SavedSearchCriteria; notify_enabled: boolean },
+  data: {
+    name: string;
+    criteria: SavedSearchCriteria;
+    notify_enabled: boolean;
+  },
 ): Promise<SavedSearchOut> {
   return apiFetch("/saved-searches", {
     method: "POST",
@@ -312,11 +361,18 @@ export function deleteSavedSearch(token: string, id: number): Promise<void> {
   });
 }
 
-export function getRecommendations(token: string): Promise<RecommendationResponse> {
-  return apiFetch("/recommendations", { headers: { Authorization: `Bearer ${token}` } });
+export function getRecommendations(
+  token: string,
+): Promise<RecommendationResponse> {
+  return apiFetch("/recommendations", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 }
 
-export function getAIDashboard(token: string, days = 30): Promise<AIDashboardSummary> {
+export function getAIDashboard(
+  token: string,
+  days = 30,
+): Promise<AIDashboardSummary> {
   return apiFetch(`/admin/ai-dashboard?days=${days}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -336,17 +392,24 @@ export function overrideRisk(
 }
 
 export function getNotifications(token: string): Promise<NotificationOut[]> {
-  return apiFetch("/notifications", { headers: { Authorization: `Bearer ${token}` } });
+  return apiFetch("/notifications", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 }
 
-export function refreshNotifications(token: string): Promise<{ created: number; items: NotificationOut[] }> {
+export function refreshNotifications(
+  token: string,
+): Promise<{ created: number; items: NotificationOut[] }> {
   return apiFetch("/notifications/refresh", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   });
 }
 
-export function markNotificationRead(token: string, id: number): Promise<NotificationOut> {
+export function markNotificationRead(
+  token: string,
+  id: number,
+): Promise<NotificationOut> {
   return apiFetch(`/notifications/${id}`, {
     method: "PATCH",
     headers: { Authorization: `Bearer ${token}` },
@@ -482,7 +545,12 @@ export function moderateReport(
 
 export function getAdminListings(
   token: string,
-  params: { q?: string; status?: AdminListingStatus; page?: number; size?: number } = {},
+  params: {
+    q?: string;
+    status?: AdminListingStatus;
+    page?: number;
+    size?: number;
+  } = {},
 ): Promise<AdminListingList> {
   return apiFetch<AdminListingList>(
     `/admin/listings${buildQuery({

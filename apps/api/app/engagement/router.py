@@ -18,6 +18,7 @@ from .schemas import (
     SavedSearchOut,
 )
 from .service import EngagementService
+from .schemas import PreferenceQuiz
 
 router = APIRouter(tags=["engagement"])
 _service: EngagementService | None = None
@@ -105,6 +106,7 @@ def delete_saved_search(
     return Response(status_code=204)
 
 
+@router.get("/recommend/for-you", response_model=RecommendationResponse)
 @router.get("/recommendations", response_model=RecommendationResponse)
 def recommendations(
     limit: int = Query(default=10, ge=1, le=30),
@@ -112,6 +114,58 @@ def recommendations(
     service: EngagementService = Depends(get_service),
 ):
     return service.recommendations(user.id, limit)
+
+
+@router.post("/recommend/quiz")
+def save_quiz(
+    body: PreferenceQuiz,
+    user: UserOut = Depends(get_current_user),
+    repo: EngagementRepository = Depends(get_repo),
+):
+    repo.save_preferences(user.id, body.model_dump())
+    return {"ok": True, "dimensions": 384, "algorithm": "structured-cosine-v1"}
+
+
+@router.get("/recommend/quiz")
+def get_quiz(
+    user: UserOut = Depends(get_current_user),
+    repo: EngagementRepository = Depends(get_repo),
+):
+    return repo.preferences(user.id)
+
+
+@router.post("/recommend/feedback", response_model=InteractionOut, status_code=201)
+def recommend_feedback(
+    body: InteractionCreate,
+    user: UserOut = Depends(get_current_user),
+    service: EngagementService = Depends(get_service),
+):
+    return service.interaction(user.id, body)
+
+
+@router.get("/recommend/popular", response_model=RecommendationResponse)
+def popular(
+    repo: EngagementRepository = Depends(get_repo),
+    service: EngagementService = Depends(get_service),
+):
+    from .recommender import rank
+    from .schemas import RecommendationItem
+
+    _, rows = rank(repo.recommendation_candidates(), [], None, 10)
+    items = [
+        RecommendationItem(
+            listing=listing,
+            score=score / (score + 1),
+            reasons=[
+                "Mức quan tâm trong 30 ngày; chất lượng dùng để phân định đồng điểm"
+            ],
+        )
+        for score, row, _ in rows
+        if (listing := service.listings.get_visible(row["id"])) is not None
+    ]
+    return RecommendationResponse(
+        cold_start=True, profile_evidence=0, items=items, algorithm="popularity-30d-v1"
+    )
 
 
 @router.get("/admin/ai-dashboard", response_model=AIDashboardSummary)

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { readCompared } from "@/lib/compare";
 
 export default function ListingActions({
   listingId,
@@ -17,11 +18,11 @@ export default function ListingActions({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const ids = JSON.parse(localStorage.getItem("compare-listings") || "[]") as number[];
+    const ids = readCompared();
     setCompared(ids.includes(listingId));
     if (loggedIn) {
       void fetch("/api/favorites")
-        .then((response) => response.ok ? response.json() : [])
+        .then((response) => (response.ok ? response.json() : []))
         .then((items: Array<{ listing: { id: number } }>) => {
           setSaved(items.some((item) => item.listing.id === listingId));
         })
@@ -39,7 +40,9 @@ export default function ListingActions({
       setError("Vui lòng đăng nhập để lưu yêu thích.");
       return;
     }
-    const response = await fetch(`/api/favorites/${listingId}`, { method: saved ? "DELETE" : "PUT" });
+    const response = await fetch(`/api/favorites/${listingId}`, {
+      method: saved ? "DELETE" : "PUT",
+    });
     if (!response.ok) {
       const body = await response.json().catch(() => ({}));
       setError(body.detail || "Không thể cập nhật yêu thích");
@@ -50,11 +53,24 @@ export default function ListingActions({
   }
 
   function toggleCompare() {
-    const ids = JSON.parse(localStorage.getItem("compare-listings") || "[]") as number[];
+    if (!loggedIn) {
+      setError("Vui lòng đăng nhập để so sánh phòng.");
+      return;
+    }
+    const ids = readCompared();
+    if (!ids.includes(listingId) && ids.length >= 3) {
+      setError("Chỉ so sánh tối đa 3 phòng. Bỏ một phòng trước khi thêm.");
+      return;
+    }
     const next = ids.includes(listingId)
       ? ids.filter((id) => id !== listingId)
-      : [...ids.slice(-3), listingId];
-    localStorage.setItem("compare-listings", JSON.stringify(next));
+      : [...ids, listingId];
+    try {
+      localStorage.setItem("compare-listings", JSON.stringify(next));
+    } catch {
+      setError("Trình duyệt không cho phép lưu danh sách so sánh.");
+      return;
+    }
     setCompared(next.includes(listingId));
   }
 

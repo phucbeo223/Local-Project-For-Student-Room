@@ -21,3 +21,4 @@ COPY migrations/91_room_service_risk.sql /docker-entrypoint-initdb.d/91-room-ser
 COPY migrations/92_reports_moderation.sql /docker-entrypoint-initdb.d/92-reports-moderation.sql
 COPY migrations/93_ai_product_features.sql /docker-entrypoint-initdb.d/93-ai-product-features.sql
 COPY migrations/94_legal_knowledge.sql /docker-entrypoint-initdb.d/94-legal-knowledge.sql
+COPY migrations/95_fr_delivery.sql /docker-entrypoint-initdb.d/95-fr-delivery.sql

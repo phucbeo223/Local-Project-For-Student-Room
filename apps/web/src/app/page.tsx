@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { getNearby, searchListings, type ListingOut, type SearchResult } from "@/lib/api";
+import {
+  getNearby,
+  searchListings,
+  type ListingOut,
+  type SearchResult,
+} from "@/lib/api";
 import ListingCard from "./ListingCard";
 import SiteHeader from "./SiteHeader";
 import { HomeFilters, SortSelect, type HomeParams } from "./HomeControls";
@@ -46,10 +51,21 @@ export default async function Home({
   const [resultRes, totalRes, nearbyRes] = await Promise.allSettled([
     searchListings({
       q: searchParams.q,
+      max_area: searchParams.max_area
+        ? Number(searchParams.max_area)
+        : undefined,
+      ward: searchParams.ward,
+      amenities: searchParams.amenities?.split(",").filter(Boolean),
       district: searchParams.district,
-      min_price: searchParams.min_price ? Number(searchParams.min_price) : undefined,
-      max_price: searchParams.max_price ? Number(searchParams.max_price) : undefined,
-      min_area: searchParams.min_area ? Number(searchParams.min_area) : undefined,
+      min_price: searchParams.min_price
+        ? Number(searchParams.min_price)
+        : undefined,
+      max_price: searchParams.max_price
+        ? Number(searchParams.max_price)
+        : undefined,
+      min_area: searchParams.min_area
+        ? Number(searchParams.min_area)
+        : undefined,
       max_distance_ctu: searchParams.max_distance_ctu
         ? Number(searchParams.max_distance_ctu)
         : undefined,
@@ -67,16 +83,21 @@ export default async function Home({
     result = resultRes.value;
   } else {
     errorMessage =
-      (resultRes.reason as { detail?: string })?.detail ?? "Không thể tải danh sách tin";
+      (resultRes.reason as { detail?: string })?.detail ??
+      "Không thể tải danh sách tin";
     result = { total: 0, page, size: PAGE_SIZE, items: [] };
   }
 
-  const totalAll = totalRes.status === "fulfilled" ? totalRes.value.total : null;
+  const totalAll =
+    totalRes.status === "fulfilled" ? totalRes.value.total : null;
   const nearbyItems = nearbyRes.status === "fulfilled" ? nearbyRes.value : null;
   const median = nearbyItems ? medianPrice(nearbyItems) : null;
 
   const stats: { label: string; value: string }[] = [
-    { label: "Tin đang hiển thị", value: totalAll != null ? String(totalAll) : "—" },
+    {
+      label: "Tin đang hiển thị",
+      value: totalAll != null ? String(totalAll) : "—",
+    },
     { label: "Nguồn tổng hợp", value: "6" },
     {
       label: "Trong 3 km quanh CTU",
@@ -91,19 +112,19 @@ export default async function Home({
   const totalPages = Math.max(1, Math.ceil(result.total / PAGE_SIZE));
   const hasFilter = Boolean(
     searchParams.q ||
-      searchParams.district ||
-      searchParams.min_price ||
-      searchParams.max_price ||
-      searchParams.min_area ||
-      searchParams.max_distance_ctu,
+    searchParams.district ||
+    searchParams.min_price ||
+    searchParams.max_price ||
+    searchParams.min_area ||
+    searchParams.max_distance_ctu,
   );
 
   return (
     <div className="min-h-screen bg-paper">
       {/* Topbar giới thiệu đề tài (mockup 01) */}
       <div className="bg-navy px-5 py-2 text-[12.5px] text-[#b9d3ec] sm:px-10">
-        Sản phẩm nghiên cứu khoa học sinh viên · Trường Công nghệ Thông tin &amp; Truyền thông,
-        ĐH Cần Thơ
+        Sản phẩm nghiên cứu khoa học sinh viên · Trường Công nghệ Thông tin
+        &amp; Truyền thông, ĐH Cần Thơ
       </div>
 
       <SiteHeader />
@@ -117,16 +138,16 @@ export default async function Home({
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[13px] font-medium">
               <span className="block h-[7px] w-[7px] rounded-full bg-[#7fe0b0]" />
-              {totalAll != null ? `${totalAll} tin` : "Tin"} đã lọc sạch từ 6 nguồn, tự cập nhật
-              mỗi 5 giờ
+              {totalAll != null ? `${totalAll} tin` : "Tin"} đã lọc sạch từ 6
+              nguồn, tự cập nhật mỗi 5 giờ
             </div>
 
             <h1 className="mt-4 max-w-[17ch] text-balance text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] sm:text-[46px]">
               Ở gần trường, đúng giá sinh viên.
             </h1>
             <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[#cfe1f4] sm:text-[17px]">
-              Hệ thống tổng hợp tin trọ từ 6 trang, tự loại tin ảo, tin trùng và tính số phút xe
-              máy tới từng khu của ĐH Cần Thơ.
+              Hệ thống tổng hợp tin trọ từ 6 trang, tự loại tin ảo, tin trùng và
+              tính số phút xe máy tới từng khu của ĐH Cần Thơ.
             </p>
 
             {/* Ô tìm kiếm — GET / giữ nguyên các filter đang bật */}
@@ -136,8 +157,20 @@ export default async function Home({
               className="mt-7 flex items-center gap-2 rounded-2xl bg-white p-2.5 shadow-[0_18px_40px_-20px_rgba(0,0,0,.5)]"
             >
               <div className="flex flex-1 items-center gap-2.5 pl-3">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0">
-                  <circle cx="9" cy="9" r="6.2" stroke="#5b7189" strokeWidth="1.8" />
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="shrink-0"
+                >
+                  <circle
+                    cx="9"
+                    cy="9"
+                    r="6.2"
+                    stroke="#5b7189"
+                    strokeWidth="1.8"
+                  />
                   <line
                     x1="13.6"
                     y1="13.6"
@@ -159,22 +192,54 @@ export default async function Home({
               <span className="hidden border-l border-line pl-3.5 pr-2 text-sm text-ink-muted sm:block">
                 Cần Thơ
               </span>
+              {(["ward", "max_area", "amenities"] as const).map((key) =>
+                searchParams[key] ? (
+                  <input
+                    key={key}
+                    type="hidden"
+                    name={key}
+                    value={searchParams[key]}
+                  />
+                ) : null,
+              )}
               {searchParams.district && (
-                <input type="hidden" name="district" value={searchParams.district} />
+                <input
+                  type="hidden"
+                  name="district"
+                  value={searchParams.district}
+                />
               )}
               {searchParams.min_price && (
-                <input type="hidden" name="min_price" value={searchParams.min_price} />
+                <input
+                  type="hidden"
+                  name="min_price"
+                  value={searchParams.min_price}
+                />
               )}
               {searchParams.max_price && (
-                <input type="hidden" name="max_price" value={searchParams.max_price} />
+                <input
+                  type="hidden"
+                  name="max_price"
+                  value={searchParams.max_price}
+                />
               )}
               {searchParams.min_area && (
-                <input type="hidden" name="min_area" value={searchParams.min_area} />
+                <input
+                  type="hidden"
+                  name="min_area"
+                  value={searchParams.min_area}
+                />
               )}
               {searchParams.max_distance_ctu && (
-                <input type="hidden" name="max_distance_ctu" value={searchParams.max_distance_ctu} />
+                <input
+                  type="hidden"
+                  name="max_distance_ctu"
+                  value={searchParams.max_distance_ctu}
+                />
               )}
-              {searchParams.sort && <input type="hidden" name="sort" value={searchParams.sort} />}
+              {searchParams.sort && (
+                <input type="hidden" name="sort" value={searchParams.sort} />
+              )}
               <button
                 type="submit"
                 className="rounded-[11px] bg-primary-bright px-6 py-3 text-[16px] font-semibold text-white transition hover:bg-primary"
@@ -184,7 +249,9 @@ export default async function Home({
             </form>
 
             <div className="mt-3.5 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-[13px] text-[#a9c7e4]">Sinh viên hay tìm:</span>
+              <span className="mr-1 text-[13px] text-[#a9c7e4]">
+                Sinh viên hay tìm:
+              </span>
               {QUICK_CHIPS.map((chip) => (
                 <Link
                   key={chip.label}
@@ -208,13 +275,16 @@ export default async function Home({
                   key={s.label}
                   className="flex items-baseline justify-between gap-3 border-b border-white/10 pb-3.5"
                 >
-                  <span className="text-[14.5px] text-[#cfe1f4]">{s.label}</span>
+                  <span className="text-[14.5px] text-[#cfe1f4]">
+                    {s.label}
+                  </span>
                   <span className="text-[22px] font-bold">{s.value}</span>
                 </div>
               ))}
             </div>
             <p className="mt-3.5 text-[12.5px] leading-normal text-[#a9c7e4]">
-              Tin rác, tin bán nhà và tin trùng đã bị loại bởi bộ làm sạch 5 tầng.
+              Tin rác, tin bán nhà và tin trùng đã bị loại bởi bộ làm sạch 5
+              tầng.
             </p>
           </div>
         </div>
@@ -228,7 +298,8 @@ export default async function Home({
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="text-[22px] font-bold tracking-[-0.01em] text-ink">
-                {result.total} phòng trọ {hasFilter ? "phù hợp bộ lọc" : "tại Cần Thơ"}
+                {result.total} phòng trọ{" "}
+                {hasFilter ? "phù hợp bộ lọc" : "tại Cần Thơ"}
               </h2>
               <p className="mt-1 text-sm text-ink-muted">
                 Đã ẩn tin hết hạn, tin trùng và tin không phải phòng trọ
@@ -238,11 +309,15 @@ export default async function Home({
           </div>
 
           {errorMessage && (
-            <p className="rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-600">{errorMessage}</p>
+            <p className="rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-600">
+              {errorMessage}
+            </p>
           )}
 
           {!errorMessage && result.items.length === 0 && (
-            <p className="py-14 text-center text-ink-muted">Không tìm thấy tin phù hợp</p>
+            <p className="py-14 text-center text-ink-muted">
+              Không tìm thấy tin phù hợp
+            </p>
           )}
 
           {result.items.length > 0 && (
@@ -254,14 +329,21 @@ export default async function Home({
           )}
 
           {result.total > PAGE_SIZE && (
-            <Pagination searchParams={searchParams} page={page} totalPages={totalPages} />
+            <Pagination
+              searchParams={searchParams}
+              page={page}
+              totalPages={totalPages}
+            />
           )}
         </div>
       </section>
 
       <footer className="bg-navy px-5 py-8 text-[13.5px] text-[#a9c7e4] sm:px-10">
         <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-3">
-          <span>Trọ CTU · Đề tài NCKH sinh viên 2026 · Trường CNTT&amp;TT, ĐH Cần Thơ</span>
+          <span>
+            Trọ CTU · Đề tài NCKH sinh viên 2026 · Trường CNTT&amp;TT, ĐH Cần
+            Thơ
+          </span>
           <span className="flex gap-6">
             <Link href="/map" className="transition hover:text-white">
               Bản đồ
@@ -315,14 +397,19 @@ function Pagination({
           Trước
         </Link>
       ) : (
-        <span className={`${edgeBase} cursor-not-allowed border border-line-soft text-ink-faint`}>
+        <span
+          className={`${edgeBase} cursor-not-allowed border border-line-soft text-ink-faint`}
+        >
           Trước
         </span>
       )}
 
       {pageWindow(page, totalPages).map((n) =>
         n === page ? (
-          <span key={n} className={`${numberBase} bg-primary font-semibold text-white`}>
+          <span
+            key={n}
+            className={`${numberBase} bg-primary font-semibold text-white`}
+          >
             {n}
           </span>
         ) : (
@@ -344,7 +431,9 @@ function Pagination({
           Sau
         </Link>
       ) : (
-        <span className={`${edgeBase} cursor-not-allowed border border-line-soft text-ink-faint`}>
+        <span
+          className={`${edgeBase} cursor-not-allowed border border-line-soft text-ink-faint`}
+        >
           Sau
         </span>
       )}

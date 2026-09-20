@@ -3,6 +3,7 @@
 Chạy với Postgres thật (DATABASE_URL trỏ vào docker network `db`), không mock DB.
 Mỗi test tự đăng ký user mới (email random) để tránh đụng độ 409 giữa các lần chạy.
 """
+
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
@@ -16,8 +17,17 @@ client = TestClient(app)
 def _register() -> dict:
     """Đăng ký user mới (email random) -> {headers, user_id}."""
     email = f"crud_{uuid4().hex[:8]}@example.com"
-    r = client.post("/auth/register", json={"email": email, "password": "testpass123"})
-    assert r.status_code == 201, r.text
+    from unittest.mock import patch
+    import re
+
+    with patch("app.auth.lifecycle.send_email") as mail:
+        r = client.post(
+            "/auth/register", json={"email": email, "password": "testpass123"}
+        )
+        assert r.status_code == 202, r.text
+        code = re.search(r"\b\d{6}\b", mail.call_args.args[2]).group()
+    r = client.post("/auth/verify-email", json={"email": email, "code": code})
+    assert r.status_code == 200, r.text
     token = r.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 
@@ -58,10 +68,16 @@ def test_create_listing_persists_with_owner():
 
     # xác nhận posted_by qua DB trực tiếp (ListingOut không expose posted_by)
     with engine.connect() as conn:
-        row = conn.execute(
-            text("SELECT posted_by, status FROM aggregated_listings WHERE id = :id"),
-            {"id": body["id"]},
-        ).mappings().first()
+        row = (
+            conn.execute(
+                text(
+                    "SELECT posted_by, status FROM aggregated_listings WHERE id = :id"
+                ),
+                {"id": body["id"]},
+            )
+            .mappings()
+            .first()
+        )
     assert row is not None
     assert row["posted_by"] == user["user_id"]
     assert row["status"] == "active"
@@ -99,7 +115,9 @@ def test_update_other_users_listing_forbidden():
     user_a = _register()
     user_b = _register()
 
-    created = client.post("/listings", json=_listing_payload(), headers=user_a["headers"])
+    created = client.post(
+        "/listings", json=_listing_payload(), headers=user_a["headers"]
+    )
     assert created.status_code == 201, created.text
     listing_id = created.json()["id"]
 
@@ -132,10 +150,14 @@ def test_delete_own_listing_hides_it():
 
     # soft-delete -> status='hidden' trong DB (xác nhận qua query DB trực tiếp)
     with engine.connect() as conn:
-        row = conn.execute(
-            text("SELECT status FROM aggregated_listings WHERE id = :id"),
-            {"id": listing_id},
-        ).mappings().first()
+        row = (
+            conn.execute(
+                text("SELECT status FROM aggregated_listings WHERE id = :id"),
+                {"id": listing_id},
+            )
+            .mappings()
+            .first()
+        )
     assert row is not None
     assert row["status"] == "hidden"
 
@@ -154,7 +176,9 @@ def test_delete_other_users_listing_forbidden():
     user_a = _register()
     user_b = _register()
 
-    created = client.post("/listings", json=_listing_payload(), headers=user_a["headers"])
+    created = client.post(
+        "/listings", json=_listing_payload(), headers=user_a["headers"]
+    )
     assert created.status_code == 201, created.text
     listing_id = created.json()["id"]
 

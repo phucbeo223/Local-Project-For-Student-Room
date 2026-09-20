@@ -1,8 +1,32 @@
 import { NextResponse } from "next/server";
-import { deleteListing, updateListing, type ApiError, type ListingInput } from "@/lib/api";
+import {
+  deleteListing,
+  updateListing,
+  getListing,
+  type ApiError,
+  type ListingInput,
+} from "@/lib/api";
 import { getAccessToken } from "@/lib/session";
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  _req: Request,
+  { params }: { params: { id: string } },
+) {
+  try {
+    return NextResponse.json(await getListing(params.id));
+  } catch (e) {
+    const err = e as ApiError;
+    return NextResponse.json(
+      { detail: err.detail || "Không tải được tin" },
+      { status: err.status || 502 },
+    );
+  }
+}
+
+export async function PUT(
+  req: Request,
+  { params }: { params: { id: string } },
+) {
   const token = getAccessToken();
   if (!token) {
     return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });
@@ -27,7 +51,10 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
   }
 }
 
-export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(
+  _req: Request,
+  { params }: { params: { id: string } },
+) {
   const token = getAccessToken();
   if (!token) {
     return NextResponse.json({ detail: "Chưa đăng nhập" }, { status: 401 });

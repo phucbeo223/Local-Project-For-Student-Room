@@ -2,6 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.engine import Engine
 
 from ...config import settings
+from ...auth import get_current_user
+from ...auth.schemas import UserOut
+from ...auth.lifecycle import rate_limit
+from sqlalchemy import text
 from .providers import (
     E5EmbeddingProvider,
     FallbackResponseGenerator,
@@ -10,7 +14,12 @@ from .providers import (
     OllamaQwenGenerator,
 )
 from .repo import ChatRepository
-from .schemas import ChatAskRequest, ChatAskResponse, ChatFeedbackCreate, ChatFeedbackOut
+from .schemas import (
+    ChatAskRequest,
+    ChatAskResponse,
+    ChatFeedbackCreate,
+    ChatFeedbackOut,
+)
 from .service import ChatService
 
 router = APIRouter(prefix="/chat", tags=["chatbot"])
@@ -42,7 +51,9 @@ def init_chatbot(engine: Engine) -> None:
                 )
             )
         elif settings.chatbot_llm_provider == "gemini":
-            degraded_reasons.append("Gemini được chọn nhưng GEMINI_API_KEY chưa cấu hình")
+            degraded_reasons.append(
+                "Gemini được chọn nhưng GEMINI_API_KEY chưa cấu hình"
+            )
 
     _service = ChatService(
         ChatRepository(engine),
@@ -66,15 +77,36 @@ def get_service() -> ChatService:
 @router.post("/ask", response_model=ChatAskResponse)
 def ask_chatbot(
     body: ChatAskRequest,
+    user: UserOut = Depends(get_current_user),
     service: ChatService = Depends(get_service),
 ):
-    return service.ask(body)
+    rate_limit(service.repo.engine, f"chat:{user.id}", 12)
+    if body.include_evaluation_contexts and user.role != "admin":
+        raise HTTPException(403, "Chỉ admin được lấy dữ liệu đánh giá")
+    result = service.ask(body)
+    if result.event_id:
+        with service.repo.engine.begin() as conn:
+            conn.execute(
+                text("UPDATE chatbot_events SET user_id=:uid WHERE id=:id"),
+                {"uid": user.id, "id": result.event_id},
+            )
+    return result
 
 
 @router.post("/feedback", response_model=ChatFeedbackOut, status_code=201)
-def submit_chat_feedback(body: ChatFeedbackCreate):
+def submit_chat_feedback(
+    body: ChatFeedbackCreate, user: UserOut = Depends(get_current_user)
+):
     """Anonymous-safe feedback: no message content and no client-supplied user id."""
     if _service is None:
         raise HTTPException(503, "Chatbot chưa khởi tạo")
+    rate_limit(_service.repo.engine, f"chat-feedback:{user.id}", 30)
+    with _service.repo.engine.connect() as conn:
+        owned = conn.execute(
+            text("SELECT 1 FROM chatbot_events WHERE id=:id AND user_id=:uid"),
+            {"id": body.event_id, "uid": user.id},
+        ).first()
+    if not owned:
+        raise HTTPException(404, "Không tìm thấy lượt chat của bạn")
     feedback_id = _service.repo.add_feedback(body.model_dump())
     return ChatFeedbackOut(id=feedback_id)

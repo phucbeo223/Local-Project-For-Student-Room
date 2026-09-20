@@ -19,6 +19,7 @@ class RiskAssessment(BaseModel):
     evaluated_at: datetime
     persisted: bool = False
     evaluation_status: str = "evaluated"
+    statistical_status: str = "not_run"
 
 
 class RiskHistoryItem(BaseModel):

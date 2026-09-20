@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import GoogleLogin from "./GoogleLogin";
 
 const loginSchema = z.object({
   email: z.string().email("Email không hợp lệ"),
@@ -37,7 +39,10 @@ export default function LoginForm() {
 
       if (res.ok) {
         const requested = searchParams.get("next");
-        const next = requested?.startsWith("/") && !requested.startsWith("//") ? requested : "/";
+        const next =
+          requested?.startsWith("/") && !requested.startsWith("//")
+            ? requested
+            : "/";
         router.push(next);
         router.refresh();
         return;
@@ -61,7 +66,10 @@ export default function LoginForm() {
       )}
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-slate-700"
+        >
           Email
         </label>
         <input
@@ -77,7 +85,10 @@ export default function LoginForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-slate-700">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-slate-700"
+        >
           Mật khẩu
         </label>
         <input
@@ -99,6 +110,10 @@ export default function LoginForm() {
       >
         {isSubmitting ? "Đang xử lý..." : "Đăng nhập"}
       </button>
+      <Link className="block text-sm underline" href="/forgot-password">
+        Quên mật khẩu?
+      </Link>
+      <GoogleLogin />
     </form>
   );
 }

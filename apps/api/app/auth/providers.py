@@ -6,6 +6,7 @@ ctu    : MSSV + password (STUB — cắm sau, chỉ cần verify với hệ th�
 
 Mỗi provider trả về VerifiedIdentity đã xác thực; router lo phần tạo/join user.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -19,7 +20,7 @@ from .security import verify_password
 @dataclass
 class VerifiedIdentity:
     provider: str
-    provider_user_id: str        # email(local) | google sub | mssv(ctu)
+    provider_user_id: str  # email(local) | google sub | mssv(ctu)
     email: str
     name: str | None = None
     avatar_url: str | None = None
@@ -52,10 +53,16 @@ async def verify_google(id_token: str) -> VerifiedIdentity:
     data = resp.json()
     if data.get("aud") != settings.google_client_id:
         raise AuthError("Google token sai audience")
+    if (
+        not data.get("sub")
+        or not data.get("email")
+        or data.get("email_verified") not in (True, "true")
+    ):
+        raise AuthError("Google chưa xác thực email")
     return VerifiedIdentity(
         provider="google",
         provider_user_id=data["sub"],
-        email=data.get("email", ""),
+        email=data.get("email", "").lower(),
         name=data.get("name"),
         avatar_url=data.get("picture"),
         email_verified=data.get("email_verified") in (True, "true"),

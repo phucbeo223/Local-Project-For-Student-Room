@@ -1,8 +1,10 @@
 """Auth endpoints: register, login (local), login/google, refresh, me."""
+
 from __future__ import annotations
 
 import jwt
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
+from sqlalchemy import text
 from sqlalchemy.engine import Engine
 from sqlalchemy.exc import IntegrityError
 
@@ -18,6 +20,8 @@ from .schemas import (
     UserOut,
 )
 from .security import decode_token, hash_password, make_access_token, make_refresh_token
+from .lifecycle import AccountLifecycle, rate_limit
+from .schemas import EmailIn, VerifyIn, ResetIn, ProfileIn
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -36,39 +40,30 @@ def get_repo() -> AuthRepo:
 
 
 def _tokens(user_id: int, role: str) -> TokenPair:
-    return TokenPair(
-        access_token=make_access_token(user_id, role),
-        refresh_token=make_refresh_token(user_id),
-    )
+    user = get_repo().get_user(user_id)
+    return TokenPair(**AccountLifecycle(_engine).tokens(user))
 
 
-@router.post("/register", response_model=TokenPair, status_code=201)
+@router.post("/register", status_code=202)
 def register(body: RegisterIn, repo: AuthRepo = Depends(get_repo)):
-    if repo.email_exists(body.email):
+    email = str(body.email).lower()
+    if repo.email_exists(email):
         raise HTTPException(409, "Email đã đăng ký")
-    try:
-        created = repo.create_user_with_identity(
-            email=body.email,
-            name=body.name,
-            provider="local",
-            provider_user_id=body.email,
-            secret_hash=hash_password(body.password),
-        )
-    except IntegrityError:
-        raise HTTPException(409, "Email đã đăng ký")
-    return _tokens(created["user_id"], created["role"])
+    AccountLifecycle(repo.engine).challenge(
+        email,
+        "register",
+        {"name": body.name, "password_hash": hash_password(body.password)},
+    )
+    return {"verification_required": True, "email": email}
 
 
 @router.post("/login", response_model=TokenPair)
-def login(body: LoginIn, repo: AuthRepo = Depends(get_repo)):
-    identity = repo.find_identity("local", body.email)
-    if identity is None:
-        raise HTTPException(401, "Email hoặc mật khẩu sai")
-    try:
-        verify_local(identity["secret_hash"], body.password)
-    except AuthError as e:
-        raise HTTPException(401, str(e))
-    return _tokens(identity["user_id"], identity["role"])
+def login(body: LoginIn, request: Request, repo: AuthRepo = Depends(get_repo)):
+    rate_limit(
+        repo.engine, f"login:{request.client.host if request.client else 'unknown'}", 60
+    )
+    lifecycle = AccountLifecycle(repo.engine)
+    return lifecycle.tokens(lifecycle.login(str(body.email).lower(), body.password))
 
 
 @router.post("/login/google", response_model=TokenPair)
@@ -83,6 +78,8 @@ async def login_google(body: GoogleLoginIn, repo: AuthRepo = Depends(get_repo)):
         return _tokens(identity["user_id"], identity["role"])
 
     # lần đầu: tạo user + google identity (secret_hash NULL)
+    if repo.email_exists(vi.email):
+        raise HTTPException(409, "Email đã dùng cho phương thức đăng nhập khác")
     try:
         created = repo.create_user_with_identity(
             email=vi.email,
@@ -111,9 +108,58 @@ def refresh(body: RefreshIn, repo: AuthRepo = Depends(get_repo)):
     user = repo.get_user(int(payload["sub"]))
     if user is None:
         raise HTTPException(401, "User không tồn tại")
-    return _tokens(user["id"], user["role"])
+    return AccountLifecycle(repo.engine).tokens(user, previous=body.refresh_token)
 
 
 @router.get("/me", response_model=UserOut)
 def me(user: UserOut = Depends(get_current_user)):
     return user
+
+
+@router.post("/verify-email", response_model=TokenPair)
+def verify_email(body: VerifyIn, repo: AuthRepo = Depends(get_repo)):
+    lifecycle = AccountLifecycle(repo.engine)
+    try:
+        user = lifecycle.consume(str(body.email).lower(), "register", body.code)
+    except IntegrityError:
+        raise HTTPException(409, "Email đã đăng ký")
+    return lifecycle.tokens(user)
+
+
+@router.post("/resend-otp")
+def resend(body: EmailIn, repo: AuthRepo = Depends(get_repo)):
+    AccountLifecycle(repo.engine).challenge(str(body.email).lower(), "register")
+    return {"ok": True}
+
+
+@router.post("/forgot-password")
+def forgot(body: EmailIn, repo: AuthRepo = Depends(get_repo)):
+    AccountLifecycle(repo.engine).challenge(str(body.email).lower(), "reset", {})
+    return {"detail": "Nếu email đã đăng ký, hướng dẫn đặt lại mật khẩu sẽ được gửi."}
+
+
+@router.post("/reset-password")
+def reset(body: ResetIn, repo: AuthRepo = Depends(get_repo)):
+    return AccountLifecycle(repo.engine).consume(
+        str(body.email).lower(), "reset", body.token, body.password
+    )
+
+
+@router.post("/logout")
+def logout(body: RefreshIn, repo: AuthRepo = Depends(get_repo)):
+    AccountLifecycle(repo.engine).logout(body.refresh_token)
+    return {"ok": True}
+
+
+@router.patch("/me", response_model=UserOut)
+def profile(
+    body: ProfileIn,
+    user: UserOut = Depends(get_current_user),
+    repo: AuthRepo = Depends(get_repo),
+):
+    with repo.engine.begin() as conn:
+        conn.execute(
+            text("UPDATE users SET name=:name WHERE id=:id"),
+            {"name": body.name.strip(), "id": user.id},
+        )
+    return repo.get_user(user.id)

@@ -32,3 +32,20 @@ class UserOut(BaseModel):
     name: str | None = None
     role: str
     avatar_url: str | None = None
+
+
+class EmailIn(BaseModel):
+    email: EmailStr
+
+
+class VerifyIn(EmailIn):
+    code: str = Field(pattern=r"^\d{6}$")
+
+
+class ResetIn(EmailIn):
+    token: str = Field(min_length=20, max_length=200)
+    password: str = Field(min_length=8, max_length=128)
+
+
+class ProfileIn(BaseModel):
+    name: str = Field(min_length=1, max_length=100)
