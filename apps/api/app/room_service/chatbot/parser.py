@@ -83,7 +83,7 @@ def parse_query(message: str) -> ParsedQuery:
     legal_terms = (
         "luat", "nghi dinh", "thong tu", "quyet dinh", "dieu ", "khoan ",
         "hop dong", "dat coc", "tam tru", "cu tru", "tranh chap", "khieu nai",
-        "phong chay", "pccc", "gia dien", "tien dien", "gia nuoc", "tien nuoc",
+        "phong chay", "pccc", "gia dien", "tien dien", "thu dien", "kwh", "dinh muc dien", "gia nuoc", "tien nuoc",
         "quyen cua nguoi thue", "nghia vu", "xu phat", "boi thuong", "don phuong cham dut",
     )
     out_terms = ("thoi tiet", "bong da", "lap trinh", "chung khoan", "nau an", "tin tuc")

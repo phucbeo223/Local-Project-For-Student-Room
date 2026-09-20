@@ -10,6 +10,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from xml.etree import ElementTree
 
+from .quality import text_quality
+
 
 SUPPORTED_SUFFIXES = {".pdf", ".doc", ".docx", ".txt", ".md", ".png", ".jpg", ".jpeg", ".tif", ".tiff"}
 
@@ -96,7 +98,13 @@ def _extract_pdf(path: Path, *, language: str, force_ocr: bool, min_text_chars: 
         for index, page in enumerate(document):
             text = _clean_text(page.get_text("text"))
             visible_chars = len(re.sub(r"\s+", "", text))
-            needs_ocr = force_ocr or visible_chars < min_text_chars
+            # A scanned page can have only a digital-signature text layer. A large
+            # image plus sparse native text must still be read, even above 80 chars.
+            image_area = max((fitz.Rect(info["bbox"]).get_area()
+                              for info in page.get_image_info()), default=0)
+            sparse_scan = visible_chars < 500 and image_area > page.rect.get_area() * 0.5
+            needs_ocr = (force_ocr or visible_chars < min_text_chars or sparse_scan
+                         or text_quality(text) < 0.72)
             if needs_ocr:
                 try:
                     from PIL import Image
@@ -105,8 +113,11 @@ def _extract_pdf(path: Path, *, language: str, force_ocr: bool, min_text_chars: 
                 pixmap = page.get_pixmap(matrix=fitz.Matrix(2.5, 2.5), alpha=False)
                 image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
                 ocr_text = _ocr_image(image, language)
-                # Do not replace a usable native layer with a worse OCR result.
-                if len(ocr_text) > visible_chars:
+                # Prefer readable text over a longer corrupt embedded font layer.
+                if ocr_text and (not text or text_quality(ocr_text) > text_quality(text) + 0.05
+                                 or (text_quality(ocr_text) >= text_quality(text) - 0.05
+                                     and len(ocr_text) > visible_chars)
+                                 or (sparse_scan and text_quality(ocr_text) >= 0.6)):
                     text = ocr_text
                 ocr_engine = "tesseract"
                 pages.append(ExtractedPage(index + 1, text, True))

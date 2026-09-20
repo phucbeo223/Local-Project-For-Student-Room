@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+import logging
 
 from ..chatbot.providers import EmbeddingProvider
 from .chunker import chunk_pages
@@ -36,14 +37,21 @@ class LegalDocumentIndexer:
         self.ocr_language = ocr_language
         self.force_ocr = force_ocr
 
-    def index_folder(self, root: Path, *, force: bool = False) -> IndexingReport:
+    def index_folder(self, root: Path, *, force: bool = False, category: str | None = None,
+                     sources: list[str] | None = None) -> IndexingReport:
         root = root.resolve()
         paths = scan_documents(root)
+        if category:
+            paths = [path for path in paths if path.relative_to(root).parts[0] == category]
+        if sources:
+            paths = [path for path in paths if path.relative_to(root).as_posix() in sources]
+            if len(paths) != len(set(sources)):
+                raise ValueError("Không tìm thấy đầy đủ đường dẫn --source trong thư mục dữ liệu/nhóm đã chọn")
         report = IndexingReport(discovered=len(paths))
         for path in paths:
             relative = path.relative_to(root).as_posix()
             digest = file_sha256(path)
-            if not force and self.repository.current_hash(relative) == digest:
+            if not (force or self.force_ocr) and self.repository.current_hash(relative) == digest:
                 report.skipped += 1
                 continue
             try:
@@ -69,6 +77,7 @@ class LegalDocumentIndexer:
                 report.indexed += 1
                 report.chunks += len(chunks)
                 report.ocr_pages += document.ocr_page_count
+                logging.getLogger(__name__).info("Indexed %s: %s chunks, %s OCR pages", relative, len(chunks), document.ocr_page_count)
             except Exception as exc:
                 report.failed += 1
                 message = f"{relative}: {type(exc).__name__}: {exc}"
@@ -79,4 +88,3 @@ class LegalDocumentIndexer:
                 except Exception:
                     pass
         return report
-

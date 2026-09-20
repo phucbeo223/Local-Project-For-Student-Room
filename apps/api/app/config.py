@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     chatbot_max_results: int = 5
     chatbot_llm_provider: Literal["auto", "qwen", "gemini", "template"] = "auto"
     chatbot_llm_timeout_seconds: float = 4.0
+    chatbot_legal_timeout_seconds: float = Field(default=120.0, gt=0, le=300)
     chatbot_max_output_tokens: int = Field(default=384, ge=128, le=4096)
     chatbot_warmup_enabled: bool = True
     chatbot_warmup_timeout_seconds: float = Field(default=30, gt=0, le=120)

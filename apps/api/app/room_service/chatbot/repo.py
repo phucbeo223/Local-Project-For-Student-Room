@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import re
 from collections import Counter
 from typing import Any
 
@@ -10,6 +11,8 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from .providers import normalize_text
 from .schemas import ChatFilters
+from .legal_retrieval import expand_legal_query, legal_tokens, rerank_legal, electricity_question, rental_electricity_question
+from ..legal_knowledge.quality import usable_legal_text
 
 
 STOP_WORDS = {
@@ -52,13 +55,15 @@ def bm25_scores(
     *,
     k1: float = 1.5,
     b: float = 0.75,
+    tokenizer=None,
 ) -> list[float]:
     """BM25 from the old Hybrid project, adapted to live listing rows."""
 
     if not documents:
         return []
-    query_terms = Counter(_tokens(query))
-    tokenized = [_tokens(document) for document in documents]
+    tokenize = tokenizer or _tokens
+    query_terms = Counter(tokenize(query))
+    tokenized = [tokenize(document) for document in documents]
     if not query_terms or not any(tokenized):
         return [0.0] * len(documents)
 
@@ -278,24 +283,37 @@ class ChatRepository:
         Missing migration/data is treated as an empty knowledge base so a rolling
         deployment never makes the existing housing chatbot unavailable.
         """
-        params: dict[str, Any] = {"candidate_limit": 600}
+        expanded = expand_legal_query(query)
+        # Independent lexical and vector pools avoid excluding a relevant law
+        # merely because it was indexed earlier than 600 other chunks.
+        terms = list(dict.fromkeys(term for term in re.findall(r"[^\W_]{2,}", expanded.lower()) if legal_tokens(term)))
+        category = "electricity" if electricity_question(query) and "nuoc" not in normalize_text(query) else None
+        params: dict[str, Any] = {"candidate_limit": 120, "tsquery": " | ".join(terms) or "empty",
+                                  "category": category, "rental_query": rental_electricity_question(query)}
         if vector is not None:
             vector_sql = (
                 "CASE WHEN c.embedding_vector IS NULL THEN 0 ELSE "
                 "GREATEST(0, LEAST(1, 1 - (c.embedding_vector <=> CAST(:query_vector AS vector)))) END"
             )
             params["query_vector"] = _vector_literal(vector)
-            order_sql = "vector_score DESC, c.id"
         else:
             vector_sql = "0"
-            order_sql = "d.indexed_at DESC NULLS LAST, c.id"
-        sql = text(
-            "SELECT c.id AS chunk_id,d.id AS document_id,d.title,d.category,d.source_path,"
+        base_sql = (
+            "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
             "c.page_from,c.page_to,c.heading,c.content,"
-            f"{vector_sql} AS vector_score FROM legal_chunks c "
-            "JOIN legal_documents d ON d.id=c.document_id WHERE d.status='ready' "
-            f"ORDER BY {order_sql} LIMIT :candidate_limit"
+            f"{vector_sql} AS vector_score,"
+            "ts_rank_cd(c.content_tsv,to_tsquery('simple',:tsquery)) AS lexical_rank "
+            "FROM legal_chunks c JOIN legal_documents d ON d.id=c.document_id WHERE d.status='ready' "
+            "AND (CAST(:category AS text) IS NULL OR d.category=:category) "
         )
+        sql = text("WITH candidates AS (" + base_sql + "), lexical AS ("
+                   "SELECT * FROM candidates WHERE lexical_rank > 0 ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit), "
+                   "phrases AS (SELECT * FROM candidates WHERE :rental_query AND (content ILIKE '%thu tiền điện%' "
+                   "OR content ILIKE '%người thuê nhà%' OR content ILIKE '%định mức%') "
+                   "ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit) "
+                   + (", semantic AS (SELECT * FROM candidates ORDER BY vector_score DESC,chunk_id LIMIT :candidate_limit) "
+                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases" if vector is not None
+                      else "SELECT * FROM lexical UNION SELECT * FROM phrases"))
         try:
             with self.engine.connect() as conn:
                 rows = [dict(row) for row in conn.execute(sql, params).mappings().all()]
@@ -309,7 +327,7 @@ class ChatRepository:
             )
             for item in rows
         ]
-        lexical_scores = bm25_scores(query, documents)
+        lexical_scores = bm25_scores(expanded, documents, tokenizer=legal_tokens)
         for item, bm25_score in zip(rows, lexical_scores):
             vector_score = float(item.get("vector_score") or 0.0)
             item["bm25_score"] = round(bm25_score, 6)
@@ -334,16 +352,83 @@ class ChatRepository:
                 for item in rows
                 if item["bm25_score"] > 0 or float(item.get("vector_score") or 0) >= 0.35
             ]
-        rows.sort(
-            key=lambda item: (
-                -item["similarity_score"],
-                -float(item.get("bm25_score") or 0.0),
-                item["chunk_id"],
-            )
-        )
-        for rank, item in enumerate(rows[:limit], 1):
+        rows = rerank_legal(query, rows, limit=30)
+        selected = []
+        seen: set[tuple] = set()
+        # Keep complete clauses and associated effectiveness/transition provisions.
+        with self.engine.connect() as conn:
+            for item in rows:
+                group = (item["document_id"], item.get("heading") or item["chunk_id"])
+                if group in seen:
+                    continue
+                seen.add(group)
+                item = dict(item)
+                if item.get("heading"):
+                    siblings = [dict(row) for row in conn.execute(text(
+                        "SELECT id AS chunk_id,chunk_index,content,page_from,page_to FROM legal_chunks "
+                        "WHERE document_id=:doc AND heading=:heading ORDER BY chunk_index"
+                    ), {"doc": item["document_id"], "heading": item["heading"]}).mappings()]
+                    # Nearest continuation first; never drop the matching chunk.
+                    siblings.sort(key=lambda row: abs(row["chunk_index"] - item["chunk_index"]))
+                    included = []
+                    size = 0
+                    for sibling in siblings:
+                        if not usable_legal_text(sibling["content"]) or size + len(sibling["content"]) > 5500:
+                            continue
+                        included.append(sibling)
+                        size += len(sibling["content"])
+                    if included:
+                        included.sort(key=lambda row: row["chunk_index"])
+                        item["content"] = "\n\n".join(row["content"] for row in included)
+                        item["page_from"] = min((row["page_from"] for row in included if row["page_from"] is not None), default=None)
+                        item["page_to"] = max((row["page_to"] for row in included if row["page_to"] is not None), default=None)
+                selected.append(item)
+                core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
+                if len(selected) >= core_limit:
+                    break
+            doc_ids = list(dict.fromkeys(item["document_id"] for item in selected))
+            if doc_ids and len(selected) < limit:
+                effect_rows = [dict(row) for row in conn.execute(text(
+                    "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
+                    "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
+                    "JOIN legal_documents d ON d.id=c.document_id WHERE d.id=ANY(:ids) "
+                    "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%chuyển tiếp%' "
+                    "OR c.heading ILIKE '%hình thức xử phạt%') "
+                    "ORDER BY d.id,c.chunk_index"
+                ), {"ids": doc_ids}).mappings()]
+                for doc_id in doc_ids:
+                    effects = [row for row in effect_rows if row["document_id"] == doc_id
+                               and usable_legal_text(row["content"])
+                               and row["chunk_id"] not in {part["chunk_id"] for part in selected}]
+                    # Effectiveness first (contains delayed commencement), then
+                    # transition clauses. Each document gets its own citation.
+                    effects.sort(key=lambda row: ("hiệu lực" not in (row["heading"] or "").lower(), row["chunk_index"]))
+                    included = []
+                    size = 0
+                    for row in effects:
+                        # Commencement conditions are essential; mailing lists,
+                        # repeal inventories and annex tables are not context.
+                        normalized_content = normalize_text(row["content"])
+                        if len(row["content"]) < 80 or "noi nhan:" in normalized_content:
+                            continue
+                        if "bai bo" in normalized_content or "cac quy dinh sau het hieu luc" in normalized_content:
+                            continue
+                        if size + len(row["content"]) <= 2400:
+                            included.append(row)
+                            size += len(row["content"])
+                    if included:
+                        item = dict(included[0])
+                        item["content"] = "\n\n".join((row["heading"] or "") + "\n" + row["content"] for row in included)
+                        item["heading"] = "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp"
+                        item["page_from"] = min((row["page_from"] for row in included if row["page_from"] is not None), default=None)
+                        item["page_to"] = max((row["page_to"] for row in included if row["page_to"] is not None), default=None)
+                        item["similarity_score"] = selected[0]["similarity_score"]
+                        selected.append(item)
+                    if len(selected) >= limit:
+                        break
+        for rank, item in enumerate(selected, 1):
             item["rank"] = rank
-        return rows[:limit]
+        return selected
 
     def record_event(self, payload: dict[str, Any]) -> int | None:
         """Store aggregate research telemetry; never stores the user's message."""

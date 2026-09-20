@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import logging
 import os
 import sys
 from pathlib import Path
@@ -19,7 +20,8 @@ from app.room_service.legal_knowledge import LegalDocumentIndexer, LegalKnowledg
 from db_connection import local_database_url
 
 
-MIGRATION = ROOT / "infra/db/migrations/94_legal_knowledge.sql"
+MIGRATIONS = [ROOT / "infra/db/migrations" / name for name in
+              ("94_legal_knowledge.sql", "98_legal_quality.sql")]
 
 
 def _sqlalchemy_url(value: str) -> str:
@@ -27,6 +29,7 @@ def _sqlalchemy_url(value: str) -> str:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(
         description="OCR và lập chỉ mục pgvector cho thư mục văn bản pháp luật"
     )
@@ -40,6 +43,8 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=24)
     parser.add_argument("--force", action="store_true", help="Index lại cả file không đổi")
     parser.add_argument("--force-ocr", action="store_true", help="OCR tất cả trang PDF")
+    parser.add_argument("--category", help="Chỉ lập lại một nhóm, vẫn giữ đường dẫn nguồn gốc")
+    parser.add_argument("--source", action="append", help="Chỉ xử lý đường dẫn tương đối này; có thể dùng nhiều lần")
     parser.add_argument(
         "--lexical-only",
         action="store_true",
@@ -58,12 +63,13 @@ def main() -> None:
         import psycopg
 
         with psycopg.connect(database_url, autocommit=True) as connection:
-            connection.execute(MIGRATION.read_text(encoding="utf-8"), prepare=False)
-        print(f"Applied {MIGRATION.name}")
+            for migration in MIGRATIONS:
+                connection.execute(migration.read_text(encoding="utf-8"), prepare=False)
+                print(f"Applied {migration.name}")
 
     engine = create_engine(_sqlalchemy_url(database_url), pool_pre_ping=True)
 
-    embedder = None if args.lexical_only else E5EmbeddingProvider(args.model)
+    embedder = None if args.lexical_only else E5EmbeddingProvider(args.model, allow_download=True)
     indexer = LegalDocumentIndexer(
         LegalKnowledgeRepository(engine),
         embedder,
@@ -72,7 +78,7 @@ def main() -> None:
         force_ocr=args.force_ocr,
     )
     try:
-        report = indexer.index_folder(args.data_dir, force=args.force)
+        report = indexer.index_folder(args.data_dir, force=args.force, category=args.category, sources=args.source)
     finally:
         engine.dispose()
 

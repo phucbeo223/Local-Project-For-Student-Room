@@ -13,8 +13,7 @@ RUN pip install --no-cache-dir -r apps/api/requirements-legal.txt
 
 COPY apps/api/app ./apps/api/app
 COPY scripts ./scripts
-COPY infra/db/migrations/94_legal_knowledge.sql ./infra/db/migrations/94_legal_knowledge.sql
+COPY infra/db/migrations ./infra/db/migrations
 
 ENTRYPOINT ["python", "scripts/index_legal_documents.py"]
 CMD ["--data-dir", "/data"]
-

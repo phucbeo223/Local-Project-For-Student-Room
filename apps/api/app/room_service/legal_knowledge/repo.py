@@ -7,6 +7,7 @@ from sqlalchemy.engine import Engine
 
 from .chunker import LegalChunk
 from .extractor import ExtractedDocument
+from .quality import EXTRACTION_VERSION, text_quality, suspicious_numeric_range
 
 
 def _vector_literal(vector: Sequence[float]) -> str:
@@ -22,9 +23,9 @@ class LegalKnowledgeRepository:
             return connection.execute(
                 text(
                     "SELECT content_sha256 FROM legal_documents "
-                    "WHERE source_path=:source_path AND status='ready'"
+                    "WHERE source_path=:source_path AND status='ready' AND extraction_version=:version"
                 ),
-                {"source_path": source_path},
+                {"source_path": source_path, "version": EXTRACTION_VERSION},
             ).scalar_one_or_none()
 
     def replace_document(
@@ -69,10 +70,10 @@ class LegalKnowledgeRepository:
                     text(
                         "INSERT INTO legal_chunks "
                         "(document_id,chunk_index,page_from,page_to,heading,content,content_sha256,"
-                        "embedding_vector,embedding_model,embedded_at) VALUES "
+                        "embedding_vector,embedding_model,embedded_at,text_quality,quality_warning) VALUES "
                         "(:document_id,:chunk_index,:page_from,:page_to,:heading,:content,"
                         ":content_sha256,CAST(:embedding_vector AS vector),:embedding_model,"
-                        "CASE WHEN :embedding_vector IS NULL THEN NULL ELSE now() END)"
+                        "CASE WHEN :embedding_vector IS NULL THEN NULL ELSE now() END,:quality,:warning)"
                     ),
                     {
                         "document_id": document_id,
@@ -84,14 +85,17 @@ class LegalKnowledgeRepository:
                         "content_sha256": chunk.content_sha256,
                         "embedding_vector": _vector_literal(vector) if vector is not None else None,
                         "embedding_model": embedding_model if vector is not None else None,
+                        "quality": text_quality(chunk.content),
+                        "warning": ("reversed_numeric_range" if suspicious_numeric_range(chunk.content)
+                                    else "damaged_text" if text_quality(chunk.content) < 0.6 else None),
                     },
                 )
             connection.execute(
                 text(
-                    "UPDATE legal_documents SET status='ready',indexed_at=now(),updated_at=now() "
+                    "UPDATE legal_documents SET status='ready',extraction_version=:version,indexed_at=now(),updated_at=now() "
                     "WHERE id=:id"
                 ),
-                {"id": document_id},
+                {"id": document_id, "version": EXTRACTION_VERSION},
             )
         return document_id
 

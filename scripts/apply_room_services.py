@@ -15,6 +15,7 @@ MIGRATIONS = (
     ROOT / "infra/db/migrations/95_fr_delivery.sql",
     ROOT / "infra/db/migrations/96_reviews_sentiment.sql",
     ROOT / "infra/db/migrations/97_response_performance.sql",
+    ROOT / "infra/db/migrations/98_legal_quality.sql",
 )
 
 

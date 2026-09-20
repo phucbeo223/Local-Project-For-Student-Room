@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import re
 import time
+from dataclasses import replace
 
 from .parser import merge_filters, parse_query
 from .providers import EmbeddingProvider, ResponseGenerator, GroundedTemplateGenerator
 from .repo import ChatRepository
+from .legal_retrieval import evidence_issues, expand_legal_query, append_commencement_evidence
+from .legal_answer import extract_legal_answer
 from .schemas import (
     ChatAskRequest,
     ChatAskResponse,
@@ -31,6 +34,14 @@ def rewrite_query(message: str, history: list[ChatHistoryMessage | dict]) -> str
     """Resolve short follow-ups from at most five client-side turns."""
     if not history:
         return message
+    if any(marker in message.lower() for marker in ("quy định này", "điều khoản này", "mức phạt này", "áp dụng từ khi nào")):
+        for item in reversed(history[-10:]):
+            role = item.role if isinstance(item, ChatHistoryMessage) else item.get("role")
+            content = item.content if isinstance(item, ChatHistoryMessage) else item.get("content", "")
+            if role == "user":
+                if parse_query(content).intent == "legal_question":
+                    return f"Câu hỏi pháp lý trước: {content}. Câu hỏi tiếp theo: {message}"
+                break
     if parse_query(message).intent in {"out_of_scope", "legal_question"}:
         return message
     normalized = message.strip().lower()
@@ -125,6 +136,10 @@ class ChatService:
         chunks = self.repo.retrieve_legal(
             query, embedded.vector, limit=self.max_results
         )
+        if not chunks:
+            # Second pass uses lexical retrieval with legal vocabulary even if
+            # the query embedding failed or the semantic pool was irrelevant.
+            chunks = self.repo.retrieve_legal(expand_legal_query(query), None, limit=self.max_results)
         retrieval_mode = (
             "legal_hybrid" if embedded.vector is not None else "legal_lexical"
         )
@@ -134,14 +149,28 @@ class ChatService:
         # not inherit the stricter listing recommendation threshold.
         if confidence < self.confidence_threshold:
             chunks = []
-        generated = self.generator.generate(query, chunks, context_kind="legal")
-        if not chunks or _citation_accuracy(generated.text, chunks) < 1:
+        generated = extract_legal_answer(query, chunks) or self.generator.generate(query, chunks, context_kind="legal")
+        if chunks and generated.provider != "template":
+            generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
+        issues = evidence_issues(generated.text, chunks, query) if chunks else []
+        if issues and generated.provider != "template":
+            generated = self.generator.generate(
+                query + "\nYêu cầu kiểm tra lại: " + " ".join(issues)
+                + " Chỉ kết luận theo nguồn trực tiếp; nếu thiếu hãy nói chưa tìm thấy căn cứ.",
+                chunks, context_kind="legal",
+            )
+            if generated.provider != "template":
+                generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
+            issues = evidence_issues(generated.text, chunks, query)
+        rejected = bool(issues) or _citation_accuracy(generated.text, chunks) < 1
+        if not chunks or rejected:
             generated = GroundedTemplateGenerator().generate(
                 query, chunks, context_kind="legal"
             )
             degraded_reasons.append(
                 "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
             )
+            degraded_reasons.extend(issues)
         degraded_reasons.extend(generated.degraded_reasons)
         sources = [
             ChatSource(
@@ -181,7 +210,7 @@ class ChatService:
             confidence=round(confidence, 4),
             listings=[],
             sources=sources,
-            no_answer=not chunks,
+            no_answer=not chunks or rejected or generated.provider in {"template", "legal-insufficient"},
             degraded=bool(degraded_reasons),
             degraded_reasons=degraded_reasons,
             retrieval_mode=retrieval_mode,

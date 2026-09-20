@@ -9,7 +9,7 @@ from .extractor import ExtractedPage
 
 
 HEADING_RE = re.compile(
-    r"^(?:PHẦN|CHƯƠNG|MỤC|TIỂU MỤC)\s+[IVXLCDM\d]+\b|^Điều\s+\d+[a-zA-Z]?\b",
+    r"^(?:PHẦN|CHƯƠNG|MỤC|TIỂU MỤC)\s+[IVXLCDM\d]+\b|^Điều\s+\d+[a-zA-Z]?\s*[.:]",
     re.IGNORECASE,
 )
 
@@ -34,13 +34,41 @@ class _Unit:
 def _units(pages: Iterable[ExtractedPage]) -> list[_Unit]:
     result: list[_Unit] = []
     current_heading: str | None = None
+    clause: str | None = None
+    point: str | None = None
+    clause_intro = ""
+    end_matter = False
     for page in pages:
-        paragraphs = [part.strip() for part in re.split(r"\n\s*\n|(?<=\.)\s*\n", page.text) if part.strip()]
+        paragraphs = [part.strip() for part in re.split(
+            r"\n\s*\n|(?<=\.)\s*\n|\n(?=\s*(?:Điều\s+\d+\s*[.:]|\d+\.\s|[a-zđ]\)\s))",
+            page.text) if part.strip()]
         for paragraph in paragraphs:
             first_line = paragraph.splitlines()[0].strip()
+            if re.search(r"(?:^|\s)Phụ lục\b", first_line, re.I):
+                current_heading, clause, point, clause_intro, end_matter = "Phụ lục", None, None, "", False
+            elif re.search(r"Nơi\s+nhận\s*:", first_line, re.I):
+                current_heading, clause, point, clause_intro, end_matter = None, None, None, "", True
+            if end_matter:
+                continue
+            paragraph = re.sub(r"^[|_‘'\s]+(?=\d+\.\s|[a-zđ]\)\s)", "", paragraph)
+            if re.fullmatch(r"\d{1,3}", paragraph):
+                continue  # printed page number, not a legal provision
             if HEADING_RE.search(first_line):
                 current_heading = first_line[:300]
-            result.append(_Unit(page.number, current_heading, re.sub(r"\s+", " ", paragraph)))
+                clause = None
+                point, clause_intro = None, ""
+            elif current_heading and re.match(r"^\d+\.\s", paragraph):
+                clause = "Khoản " + paragraph.split(".", 1)[0]
+                point, clause_intro = None, re.sub(r"\s+", " ", paragraph)
+            elif clause and re.match(r"^[a-zđ]\)\s", paragraph):
+                point = "Điểm " + paragraph[0]
+                paragraph = clause_intro + "\n\n" + paragraph
+            heading = current_heading
+            if clause:
+                heading = f"{current_heading} | {clause}"
+            if point:
+                heading = f"{heading} | {point}"
+            result.append(_Unit(page.number, heading, re.sub(r"\s+", " ", paragraph)))
     return result
 
 
@@ -59,12 +87,13 @@ def chunk_pages(
     buffer: list[_Unit] = []
     size = 0
 
-    def flush() -> None:
+    def flush(*, retain_overlap: bool = True) -> None:
         nonlocal buffer, size
         if not buffer:
             return
         content = "\n\n".join(unit.text for unit in buffer).strip()
-        if len(content) >= min_chars or not chunks:
+        # Short clauses and the final tail still contain enforceable rules.
+        if content:
             chunks.append(
                 LegalChunk(
                     chunk_index=len(chunks),
@@ -77,7 +106,7 @@ def chunk_pages(
             )
         overlap: list[_Unit] = []
         overlap_size = 0
-        for unit in reversed(buffer):
+        for unit in reversed(buffer) if retain_overlap else []:
             remaining = overlap_chars - overlap_size
             if remaining <= 0:
                 break
@@ -88,8 +117,18 @@ def chunk_pages(
         size = overlap_size
 
     for unit in units:
+        if buffer and buffer[-1].heading != unit.heading:
+            flush(retain_overlap=False)
         # Split pathological OCR paragraphs without dropping any text.
-        parts = [unit.text[index : index + target_chars] for index in range(0, len(unit.text), target_chars)]
+        parts = []
+        remaining = unit.text
+        while len(remaining) > target_chars:
+            boundary = remaining.rfind(" ", 0, target_chars)
+            boundary = boundary if boundary > target_chars // 2 else target_chars
+            parts.append(remaining[:boundary])
+            remaining = remaining[boundary:].lstrip()
+        if remaining:
+            parts.append(remaining)
         for part in parts:
             part_unit = _Unit(unit.page, unit.heading, part)
             if buffer and size + len(part) + 2 > target_chars:

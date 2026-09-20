@@ -1,0 +1,10 @@
+[
+  {"id":"rent_collection","question":"Chủ trọ được thu tiền điện như thế nào theo quy định?","required":[{"path":"thong tu so 60 2025","text":"hóa đơn"},{"path":"thong tu so 60 2025","text":"hiệu lực"}],"answer_terms":["hóa đơn","không được"],"expect_answer":true},
+  {"id":"unit_price","question":"Chủ trọ thu tiền điện 4.000 đồng/kWh có đúng quy định không?","required":[{"path":"thong tu so 60 2025","text":"hóa đơn"}],"answer_terms":["hóa đơn"],"expect_answer":true},
+  {"id":"three_students","question":"Ba sinh viên ở chung phòng trọ được tính định mức điện như thế nào?","required":[{"path":"thong tu so 60 2025","text":"3/4"}],"answer_terms":["3/4"],"expect_answer":true},
+  {"id":"overcharge_penalty","question":"Chủ trọ thu tiền điện cao hơn quy định bị xử phạt thế nào?","required":[{"path":"nghi dinh so 133 2026","text":"20.000.000"},{"path":"nghi dinh so 133 2026","text":"hoàn trả"}],"answer_terms":["20","30","hoàn trả"],"expect_answer":true},
+  {"id":"refund","question":"Chủ nhà thu thừa tiền điện có phải trả lại cho người thuê không?","required":[{"path":"nghi dinh so 133 2026","text":"hoàn trả"}],"answer_terms":["hoàn trả"],"expect_answer":true},
+  {"id":"short_lease","question":"Thuê trọ dưới 12 tháng không kê khai đủ số người thì tính giá điện như thế nào?","required":[{"path":"thong tu so 60 2025","text":"12 tháng"},{"path":"thong tu so 60 2025","text":"hiệu lực"}],"answer_terms":["12 tháng"],"expect_answer":true},
+  {"id":"effective_date","question":"Quy định tiền điện cho sinh viên thuê nhà tại Thông tư 60/2025/TT-BCT áp dụng từ khi nào?","required":[{"path":"thong tu so 60 2025","text":"hiệu lực"},{"path":"thong tu so 60 2025","text":"điều chỉnh"}],"answer_terms":["điều chỉnh"],"expect_answer":true},
+  {"id":"bank_account","question":"Chủ trọ bắt buộc phải thu tiền điện qua ngân hàng nào và số tài khoản nào?","required":[],"answer_terms":[],"expect_answer":false}
+]

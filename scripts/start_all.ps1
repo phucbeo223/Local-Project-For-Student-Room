@@ -52,7 +52,8 @@ try {
         "94-legal-knowledge.sql",
         "95-fr-delivery.sql",
         "96-reviews-sentiment.sql",
-        "97-response-performance.sql"
+        "97-response-performance.sql",
+        "98-legal-quality.sql"
     )
     foreach ($migration in $migrations) {
         $sql = 'psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f "/docker-entrypoint-initdb.d/{0}"' -f $migration

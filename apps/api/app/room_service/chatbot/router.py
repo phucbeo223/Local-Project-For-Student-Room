@@ -42,6 +42,7 @@ def init_chatbot(engine: Engine) -> None:
                 context_length=settings.ollama_context_length,
                 max_output_tokens=settings.chatbot_max_output_tokens,
                 keep_alive=settings.ollama_keep_alive,
+                legal_timeout_seconds=settings.chatbot_legal_timeout_seconds,
             )
         )
 

@@ -1,0 +1,362 @@
+{
+  "evaluated_at": "2026-09-20T20:35:11.389370+00:00",
+  "mode": "retrieval",
+  "lexical_only": false,
+  "scope": "Real local corpus; automatic checks plus saved answers for human review.",
+  "cases": [
+    {
+      "id": "rent_collection",
+      "question": "Chủ trọ được thu tiền điện như thế nào theo quy định?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true,
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    },
+    {
+      "id": "unit_price",
+      "question": "Chủ trọ thu tiền điện 4.000 đồng/kWh có đúng quy định không?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    },
+    {
+      "id": "three_students",
+      "question": "Ba sinh viên ở chung phòng trọ được tính định mức điện như thế nào?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    },
+    {
+      "id": "overcharge_penalty",
+      "question": "Chủ trọ thu tiền điện cao hơn quy định bị xử phạt thế nào?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true,
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Điều 13. Vi phạm các quy định về sử dụng điện | Khoản 7",
+          "page_from": 16,
+          "page_to": 16,
+          "rank": 1,
+          "chunk_id": 4950,
+          "content": "7. Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng đối với người cho thuê nhà thu tiền điện của người thuê nhà cao hơn quy định trong trường hợp mua điện theo giá bán lẻ điện đê phục vụ mục đích sinh hoạt."
+        },
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Điều 13. Vi phạm các quy định về sử dụng điện | Khoản 11 | Điểm c",
+          "page_from": 17,
+          "page_to": 17,
+          "rank": 2,
+          "chunk_id": 4959,
+          "content": "11. Biện pháp khắc phục hậu quả: c) Bude nộp lại số lợi bất hợp pháp có được do thực hiện vi phạm hành chính (bao gôm cả mọi chi phí phát sinh do hành vi vi phạm gây ra) dé hoàn tra cho cá nhân, to chức bị chiêm đoạt đôi với hành vi vi phạm quy định tại khoản 7 Điêu này. Người cho thuê nhà phải hoàn trả cho người thuê nhà sô tiên đã thu thừa cộng với lãi suât do hai bên thỏa thuận trong hợp đông. Trường hợp không xác định được cá nhân, tô chức đề hoàn trả thì nộp toàn bộ số tiền chênh lệch vào ngân sách nhà nước;"
+        },
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 3,
+          "page_to": 38,
+          "rank": 3,
+          "chunk_id": 5168,
+          "content": "Điều 30. Hiệu lực thi hành | Khoản 1 | Điểm a\n1. Nghị định này có hiệu lực thi hành từ ngày 25 tháng 5 năm 2026 a) Bai bé tir khoan 1 dén khoan 11 Diéu 1; diém a khoản 1 Điều lai các khoản 1, 6, 7 và các khoản từ khoản 9 đên khoản 16 Điều 4; các điều từ Điều 5 đến Điều 18; khoản 1 và khoản 2 Điều 34; Điều 35; Điều 36; Điều 38; điểm và điểm b khoản 3 Điều 39 và điểm b khoản 1 Điều 40;\n\nĐiều 30. Hiệu lực thi hành | Khoản 3\n3. Trường hợp các văn bản quy phạm pháp luật viện dẫn tại Nghị định nà được sửa đôi, bô sung, hoặc thay thê thì thực hiện theo văn bản sửa đối, bỗ sung hoặc thay thê đó.\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 2\n2. Hình thức xử phạt bé sung: .\n\nTịch thu tang vật vi phạm hành chính, phương tiện được sử dụng để vi phạm hành chính (gọi chung là tang vật, phương tiện vi phạm hành chính).\n\n4 | ‘\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 3 | Điểm a\n3. Mức phạt tiền: | a) Mức phạt tiền tối đa đối với mỗi hành vi vi phạm trong lĩnh vực điện lực là 100.000.000 dong doi với cá nhân và 200.000.000 dong đôi với to ony\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 3 | Điểm b\n3. Mức phạt tiền: | b) Mức phat tiền quy định tại Chương II Nghị định nay là mức phạt tiền áp dụng đôi với hành vi vi phạm hành chính do cá nhân thực hiện, trừ các hành __ vi vi phạm hành chính được quy định do tô chức thực hiện quy định tại Điều 6, các điều từ Điêu 8 đến Điêu 11; các khoản 1, 3, 4, 5 của Điều 12; các điều|từ Điều 14 đên Điêu 16; khoan 3 Diéu 17; Điều 18; khoản 2 Điêu 19, các khoản 2, 3, 4, 5 Điêu 20, Điêu 21, các khoản 2, 3 Điêu 22 của Nghị định này.\n\n; Điều 5. Các biện pháp khắc phục hậu qua | Ngoài các hình thức xử phat chính va xử phat bé sung quy định tại Điều _ 4 Nghị định này, cá nhân, tổ chức có hành vi vi phạm còn bị áp dụng các biện pháp khắc phục hậu quả được quy định tại Chương II của Nghị định này.\n\n` Chương i „ : : HANH VI VI PHAM, BINH THỨC XU PHAT VA BIEN PHAP KHAC PHUC HAU QUA \"\n\nĐiều 31. Điều khoản chuyển tiếp :\nĐiều 31. Điều khoản chuyển tiếp :\n\nJ. Trường hợp hành vi vi phạm hành chính trong lĩnh vực điện lực xảy ra và kêt thúc trước ngày Nghị định này có hiệu lực thi hành sau đó mới bị phát hiện hoặc đang xem xét giải quyết khi Nghị định này đã có hiệu lực thì áp dụng Nghị định đang có hiệu lực tại thời điểm thực hiện hành vi vi phạm để xử a\n\nĐiều 31. Điều khoản chuyển tiếp : | Khoản 2\n2. Trường hợp hành vi vi phạm hành chính trong lĩnh vực điện lực xảy ra trước ngày Nghị định này có hiệu lực nhưng vẫn đang diễn ra khi Nghị định này đã có hiệu lực thi hành thì áp dụng quy định tại Nghị định này để xử lý. |"
+        }
+      ]
+    },
+    {
+      "id": "refund",
+      "question": "Chủ nhà thu thừa tiền điện có phải trả lại cho người thuê không?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Điều 13. Vi phạm các quy định về sử dụng điện | Khoản 7",
+          "page_from": 16,
+          "page_to": 16,
+          "rank": 1,
+          "chunk_id": 4950,
+          "content": "7. Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng đối với người cho thuê nhà thu tiền điện của người thuê nhà cao hơn quy định trong trường hợp mua điện theo giá bán lẻ điện đê phục vụ mục đích sinh hoạt."
+        },
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Điều 13. Vi phạm các quy định về sử dụng điện | Khoản 11 | Điểm c",
+          "page_from": 17,
+          "page_to": 17,
+          "rank": 2,
+          "chunk_id": 4959,
+          "content": "11. Biện pháp khắc phục hậu quả: c) Bude nộp lại số lợi bất hợp pháp có được do thực hiện vi phạm hành chính (bao gôm cả mọi chi phí phát sinh do hành vi vi phạm gây ra) dé hoàn tra cho cá nhân, to chức bị chiêm đoạt đôi với hành vi vi phạm quy định tại khoản 7 Điêu này. Người cho thuê nhà phải hoàn trả cho người thuê nhà sô tiên đã thu thừa cộng với lãi suât do hai bên thỏa thuận trong hợp đông. Trường hợp không xác định được cá nhân, tô chức đề hoàn trả thì nộp toàn bộ số tiền chênh lệch vào ngân sách nhà nước;"
+        },
+        {
+          "source_path": "electricity/nghi dinh so 133 2026.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 3,
+          "page_to": 38,
+          "rank": 3,
+          "chunk_id": 5168,
+          "content": "Điều 30. Hiệu lực thi hành | Khoản 1 | Điểm a\n1. Nghị định này có hiệu lực thi hành từ ngày 25 tháng 5 năm 2026 a) Bai bé tir khoan 1 dén khoan 11 Diéu 1; diém a khoản 1 Điều lai các khoản 1, 6, 7 và các khoản từ khoản 9 đên khoản 16 Điều 4; các điều từ Điều 5 đến Điều 18; khoản 1 và khoản 2 Điều 34; Điều 35; Điều 36; Điều 38; điểm và điểm b khoản 3 Điều 39 và điểm b khoản 1 Điều 40;\n\nĐiều 30. Hiệu lực thi hành | Khoản 3\n3. Trường hợp các văn bản quy phạm pháp luật viện dẫn tại Nghị định nà được sửa đôi, bô sung, hoặc thay thê thì thực hiện theo văn bản sửa đối, bỗ sung hoặc thay thê đó.\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 2\n2. Hình thức xử phạt bé sung: .\n\nTịch thu tang vật vi phạm hành chính, phương tiện được sử dụng để vi phạm hành chính (gọi chung là tang vật, phương tiện vi phạm hành chính).\n\n4 | ‘\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 3 | Điểm a\n3. Mức phạt tiền: | a) Mức phạt tiền tối đa đối với mỗi hành vi vi phạm trong lĩnh vực điện lực là 100.000.000 dong doi với cá nhân và 200.000.000 dong đôi với to ony\n\nĐiều 4. Các hình thức xử phạt vi phạm hành chính và mức phạt tiền | Khoản 3 | Điểm b\n3. Mức phạt tiền: | b) Mức phat tiền quy định tại Chương II Nghị định nay là mức phạt tiền áp dụng đôi với hành vi vi phạm hành chính do cá nhân thực hiện, trừ các hành __ vi vi phạm hành chính được quy định do tô chức thực hiện quy định tại Điều 6, các điều từ Điêu 8 đến Điêu 11; các khoản 1, 3, 4, 5 của Điều 12; các điều|từ Điều 14 đên Điêu 16; khoan 3 Diéu 17; Điều 18; khoản 2 Điêu 19, các khoản 2, 3, 4, 5 Điêu 20, Điêu 21, các khoản 2, 3 Điêu 22 của Nghị định này.\n\n; Điều 5. Các biện pháp khắc phục hậu qua | Ngoài các hình thức xử phat chính va xử phat bé sung quy định tại Điều _ 4 Nghị định này, cá nhân, tổ chức có hành vi vi phạm còn bị áp dụng các biện pháp khắc phục hậu quả được quy định tại Chương II của Nghị định này.\n\n` Chương i „ : : HANH VI VI PHAM, BINH THỨC XU PHAT VA BIEN PHAP KHAC PHUC HAU QUA \"\n\nĐiều 31. Điều khoản chuyển tiếp :\nĐiều 31. Điều khoản chuyển tiếp :\n\nJ. Trường hợp hành vi vi phạm hành chính trong lĩnh vực điện lực xảy ra và kêt thúc trước ngày Nghị định này có hiệu lực thi hành sau đó mới bị phát hiện hoặc đang xem xét giải quyết khi Nghị định này đã có hiệu lực thì áp dụng Nghị định đang có hiệu lực tại thời điểm thực hiện hành vi vi phạm để xử a\n\nĐiều 31. Điều khoản chuyển tiếp : | Khoản 2\n2. Trường hợp hành vi vi phạm hành chính trong lĩnh vực điện lực xảy ra trước ngày Nghị định này có hiệu lực nhưng vẫn đang diễn ra khi Nghị định này đã có hiệu lực thi hành thì áp dụng quy định tại Nghị định này để xử lý. |"
+        }
+      ]
+    },
+    {
+      "id": "short_lease",
+      "question": "Thuê trọ dưới 12 tháng không kê khai đủ số người thì tính giá điện như thế nào?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true,
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    },
+    {
+      "id": "effective_date",
+      "question": "Quy định tiền điện cho sinh viên thuê nhà tại Thông tư 60/2025/TT-BCT áp dụng từ khi nào?",
+      "retrieval_pass": true,
+      "required_checks": [
+        true,
+        true
+      ],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    },
+    {
+      "id": "bank_account",
+      "question": "Chủ trọ bắt buộc phải thu tiền điện qua ngân hàng nào và số tài khoản nào?",
+      "retrieval_pass": true,
+      "required_checks": [],
+      "answer_checks_pass": null,
+      "answer": "",
+      "provider": null,
+      "no_answer": false,
+      "issues": [],
+      "generation_attempts": [],
+      "retrieval_mode": "legal_hybrid",
+      "sources": [
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm c",
+          "page_from": 10,
+          "page_to": 11,
+          "rank": 1,
+          "chunk_id": 5308,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa diém sử dụng điện) thì chủ nhà trực tiệp giao két hợp dong mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đông mua bán điện (có cam kêt thanh toán tiên điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đây đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đêm được tại\n\n: công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức.\n\nKhi có thay đôi vê số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tong tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện đê làm căn cứ xác định số người tính sô định mức khi tính toán hóa đơn tiên điện."
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Điều 12. Giá bán lề điện sinh hoạt | Khoản 5 | Điểm b",
+          "page_from": 10,
+          "page_to": 10,
+          "rank": 2,
+          "chunk_id": 5307,
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà dé ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp dong mua bán điện hoặc ủy quyên cho hộ gia đình thuê nhà giao kêt hợp đông mua bán điện (có cam kết thanh toán tiên điện), môi hộ gia đình thuê nhà được tính một định mức;"
+        },
+        {
+          "source_path": "electricity/thong tu so 60 2025.pdf",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "page_from": 20,
+          "page_to": 21,
+          "rank": 3,
+          "chunk_id": 5405,
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngàyÔ.)tháng42 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điệu 5, Điêu 9, Điêu 10, khoản 10 Điệu 11, khoản 3 Điêu 12, khoản 4 Điêu 12, điểm c khoản 5 Điêu 12, khoản 6 Điêu 14, khoản 6 Điêu 1Š Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kê từ ngày thực hiện điêu chỉnh mức giá bán lẻ điện bình quân gân nhât sau ngày Quyêt định sô 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 21. Hiệu lực thi hành | Khoản 3\n3. Trong quá trình thực hiện Thông tư này nếu có vướng mắc, đề nghị các đơn vị có liên quan báo cáo Bộ Công Thuong dé xem xét sửa doi, bô sung cho phù hợp./.\n\n_ KT. BỘ TRƯỞNG Nơi nhận: , A - Văn phòng Tổng bí thư; THỨ TRƯỜNG - Văn phòng Chủ tịch nước; ae Ba - Văn phòng Quốc hội, Ấy 2 2 - Ủy ban Thường vụ Quốc hội; ƒ /đ +.\\`\\ - Hội đồng Dân tộc và các Ủy ban của Quốc hội; At: Đa hot - Văn phòng Chính phủ; va CESS - Thủ tướng, các Phó Thủ tướng Chính phủ; ` - Các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ; Xà x4 L2 - Viện Kiểm sát nhân dân tối cao; Tòa án nhân dân tối cao; ee - Kiém toán nha nước; x x - Uy ban Trung ương Mặt trận Tổ quốc Việt Nam; Nguyên Hoàng Long - UBND, HĐND các tỉnh, thành phố trực thuộc trung ương; - Cục Kiểm tra văn bản và Quản lý xử lý vi phạm hành chính, Bộ Tư pháp: - Cục Kiểm soát thủ tục hành chính, Văn phòng Chính phủ; - Các Lãnh đạo Bộ: - Các đơn vị thuộc Bộ Công Thương; - Sở Công Thương các tỉnh, thành phố trực thuộc trung ương; - Công thông tin điện tử Chính phủ; Công thông tin điện tử Bộ Công Thương; - Công báo; - Tập đoàn Điện lực Việt Nam; - Các Tông công ty Điện lực; - Luu: VT, DL (05b)."
+        }
+      ]
+    }
+  ]
+}
