@@ -6,6 +6,8 @@ import math
 import re
 import time
 import unicodedata
+import threading
+from collections import OrderedDict
 from dataclasses import dataclass
 from typing import Any, Protocol, Sequence
 
@@ -48,8 +50,14 @@ class E5EmbeddingProvider:
         self.model_name = model_name
         self._model = None
         self._load_error: str | None = None
+        self._lock = threading.RLock()
+        self._queries: OrderedDict[str, tuple[float, EmbeddingResult]] = OrderedDict()
 
     def _load(self):
+        with self._lock:
+            return self._load_once()
+
+    def _load_once(self):
         if self._model is not None or self._load_error is not None:
             return self._model
         try:
@@ -59,6 +67,16 @@ class E5EmbeddingProvider:
         except Exception as exc:  # optional dependency/model cache
             self._load_error = f"embedding model unavailable: {type(exc).__name__}"
         return self._model
+
+    def warmup(self) -> None:
+        # Startup may use an installed model, but must never download one or
+        # poison lazy loading if the optional dependency/cache is absent.
+        with self._lock:
+            if self._model is None:
+                from sentence_transformers import SentenceTransformer
+
+                self._model = SentenceTransformer(self.model_name, local_files_only=True)
+            self._encode(["query: phòng trọ gần trường"])
 
     def _encode(self, texts: Sequence[str]) -> list[list[float]]:
         model = self._load()
@@ -71,10 +89,22 @@ class E5EmbeddingProvider:
         return result
 
     def embed_query(self, text: str) -> EmbeddingResult:
-        try:
-            return EmbeddingResult(self._encode([f"query: {text}"])[0], self.model_name)
-        except RuntimeError as exc:
-            return EmbeddingResult(None, None, str(exc))
+        # Exact text: removing accents or punctuation can change query meaning.
+        key = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        with self._lock:
+            cached = self._queries.get(key)
+            if cached and time.monotonic() - cached[0] < 300:
+                self._queries.move_to_end(key)
+                return EmbeddingResult(list(cached[1].vector), cached[1].model)
+            try:
+                result = EmbeddingResult(self._encode([f"query: {text}"])[0], self.model_name)
+            except RuntimeError as exc:
+                return EmbeddingResult(None, None, str(exc))
+            self._queries[key] = (time.monotonic(), result)
+            self._queries.move_to_end(key)
+            while len(self._queries) > 256:
+                self._queries.popitem(last=False)
+            return EmbeddingResult(list(result.vector), result.model)
 
     def embed_passages(self, texts: Sequence[str]) -> list[list[float]]:
         return self._encode([f"passage: {text}" for text in texts])
@@ -222,12 +252,32 @@ class OllamaQwenGenerator:
         timeout_seconds: float = 120.0,
         transport: httpx.BaseTransport | None = None,
         context_length: int = 8192,
+        max_output_tokens: int = 384,
+        keep_alive: str = "30m",
     ):
         self.base_url = base_url.rstrip("/")
         self.model = model
         self.timeout_seconds = timeout_seconds
         self.transport = transport
         self.context_length = context_length
+        self.max_output_tokens = max_output_tokens
+        self.keep_alive = keep_alive
+        self._client = httpx.Client(
+            timeout=httpx.Timeout(timeout_seconds, connect=min(5.0, timeout_seconds)),
+            transport=transport,
+        )
+
+    def close(self) -> None:
+        self._client.close()
+
+    def warmup(self, timeout_seconds: float = 30) -> None:
+        response = self._client.post(
+            f"{self.base_url}/api/chat",
+            json={"model": self.model, "messages": [], "stream": False,
+                  "keep_alive": self.keep_alive, "options": {"num_ctx": self.context_length}},
+            timeout=timeout_seconds,
+        )
+        response.raise_for_status()
 
     def generate(
         self, question: str, contexts: Sequence[dict], *, context_kind: str = "listing"
@@ -246,20 +296,21 @@ class OllamaQwenGenerator:
             "model": self.model,
             "stream": False,
             "think": False,
-            "keep_alive": "10m",
+            "keep_alive": self.keep_alive,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            "options": {"temperature": 0.2, "num_predict": 700, "num_ctx": self.context_length},
+            "options": {"temperature": 0.2,
+                        "num_predict": max(700, self.max_output_tokens) if context_kind == "legal" else self.max_output_tokens,
+                        "num_ctx": self.context_length},
         }
         timeout = httpx.Timeout(
             self.timeout_seconds, connect=min(5.0, self.timeout_seconds)
         )
-        with httpx.Client(timeout=timeout, transport=self.transport) as client:
-            response = client.post(f"{self.base_url}/api/chat", json=payload)
-            response.raise_for_status()
-            data = response.json()
+        response = self._client.post(f"{self.base_url}/api/chat", json=payload, timeout=timeout)
+        response.raise_for_status()
+        data = response.json()
         if data.get("done_reason") == "length":
             raise RuntimeError("Ollama hết giới hạn token trước khi trả lời hoàn chỉnh")
         text = str(data.get("message", {}).get("content", "")).strip()
@@ -282,12 +333,21 @@ class GeminiGenerator:
         base_url: str = "https://generativelanguage.googleapis.com/v1beta",
         timeout_seconds: float = 120.0,
         transport: httpx.BaseTransport | None = None,
+        max_output_tokens: int = 384,
     ):
         self.api_key = api_key
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.timeout_seconds = timeout_seconds
         self.transport = transport
+        self.max_output_tokens = max_output_tokens
+        self._client = httpx.Client(
+            timeout=httpx.Timeout(timeout_seconds, connect=min(5.0, timeout_seconds)),
+            transport=transport,
+        )
+
+    def close(self) -> None:
+        self._client.close()
 
     def generate(
         self, question: str, contexts: Sequence[dict], *, context_kind: str = "listing"
@@ -312,20 +372,21 @@ class GeminiGenerator:
                     "parts": [{"text": user_prompt}],
                 }
             ],
-            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 700},
+            "generationConfig": {"temperature": 0.2, "maxOutputTokens":
+                                 max(700, self.max_output_tokens) if context_kind == "legal" else self.max_output_tokens},
         }
         headers = {"Content-Type": "application/json", "x-goog-api-key": self.api_key}
         timeout = httpx.Timeout(
             self.timeout_seconds, connect=min(5.0, self.timeout_seconds)
         )
-        with httpx.Client(timeout=timeout, transport=self.transport) as client:
-            response = client.post(
-                f"{self.base_url}/models/{self.model}:generateContent",
-                headers=headers,
-                json=payload,
-            )
-            response.raise_for_status()
-            data = response.json()
+        response = self._client.post(
+            f"{self.base_url}/models/{self.model}:generateContent",
+            headers=headers, json=payload, timeout=timeout,
+        )
+        response.raise_for_status()
+        data = response.json()
+        if any(c.get("finishReason") == "MAX_TOKENS" for c in data.get("candidates", [])):
+            raise RuntimeError("Gemini hết giới hạn token trước khi trả lời hoàn chỉnh")
         text = _extract_gemini_text(data)
         if not text:
             raise RuntimeError("Gemini trả về nội dung rỗng")

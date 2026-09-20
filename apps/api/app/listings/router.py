@@ -8,10 +8,14 @@ from ..auth.schemas import UserOut
 from ..config import settings
 from ..crawler.geocode import Geocoder, haversine_m, CTU_LAT, CTU_LNG
 from .repo import ListingQueryRepo, ListingWriteRepo
+from .cache import StatsCache
+from pydantic import ValidationError
 from .routing import CAMPUSES, matrix_minutes, route_geometry
 from .schemas import (
     ListingCreate,
     ListingOut,
+    ListingStats,
+    MapListing,
     ListingUpdate,
     SearchParams,
     SearchResult,
@@ -24,11 +28,13 @@ router = APIRouter(prefix="/listings", tags=["listings"])
 
 # engine được set bởi main.py qua init_listings(engine)
 _engine: Engine | None = None
+_stats_cache: StatsCache | None = None
 
 
-def init_listings(engine: Engine) -> None:
-    global _engine
+def init_listings(engine: Engine, cache: StatsCache | None = None) -> None:
+    global _engine, _stats_cache
     _engine = engine
+    _stats_cache = cache
 
 
 def get_repo() -> ListingQueryRepo:
@@ -138,6 +144,30 @@ def nearby_listings(
 ):
     """Tìm theo bán kính trên bản đồ (FR-2.5). radius: mét."""
     return repo.nearby(lat, lng, radius)
+
+
+@router.get("/stats", response_model=ListingStats)
+def listing_stats(repo: ListingQueryRepo = Depends(get_repo)):
+    cached = _stats_cache.get() if _stats_cache else None
+    if cached is not None:
+        try:
+            return ListingStats.model_validate(cached)
+        except ValidationError:
+            pass
+    result = repo.stats()
+    if _stats_cache:
+        _stats_cache.put(result.model_dump())
+    return result
+
+
+@router.get("/map", response_model=list[MapListing])
+def map_listings(
+    lat: float = Query(..., ge=-90, le=90),
+    lng: float = Query(..., ge=-180, le=180),
+    radius: float = Query(2000, gt=0, le=20000),
+    repo: ListingQueryRepo = Depends(get_repo),
+):
+    return repo.map_listings(lat, lng, radius)
 
 
 @router.get("/mine", response_model=list[ListingOut])

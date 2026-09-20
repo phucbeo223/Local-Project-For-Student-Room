@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { getListingRoute, type ListingOut } from "@/lib/api";
+import type { MapListing } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import { CAMPUSES } from "./campuses";
 
@@ -22,7 +22,7 @@ const MapCanvas = dynamic(() => import("./MapCanvas"), {
 // Index khớp CAMPUSES trong apps/api/app/listings/routing.py (0=khu I,1=khu II,2=khu III).
 const CAMPUS_LABELS = ["Khu I", "Khu II", "Khu III"];
 
-export type ListingWithCoords = ListingOut & { lat: number; lng: number };
+export type ListingWithCoords = MapListing;
 
 export default function MapScreen({
   items,
@@ -31,7 +31,7 @@ export default function MapScreen({
   center,
   initialCampus,
 }: {
-  items: ListingOut[];
+  items: MapListing[];
   radius: number;
   error: string | null;
   center: [number, number];
@@ -43,6 +43,13 @@ export default function MapScreen({
   const [radiusDraft, setRadiusDraft] = useState(radius);
   const [selected, setSelected] = useState<ListingWithCoords | null>(null);
   const [route, setRoute] = useState<[number, number][] | null>(null);
+  const routeRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => routeRequest.current?.abort(), []);
+  useEffect(() => {
+    routeRequest.current?.abort();
+    setSelected(null);
+    setRoute(null);
+  }, [items]);
 
   const withCoords = useMemo(
     () =>
@@ -53,12 +60,20 @@ export default function MapScreen({
   );
 
   async function drawRoute(listing: ListingWithCoords, campusIdx: number) {
+    routeRequest.current?.abort();
+    const controller = new AbortController();
+    routeRequest.current = controller;
     try {
-      const path = await getListingRoute(listing.id, campusIdx);
+      const response = await fetch(`/api/listings/${listing.id}/route-path?campus=${campusIdx}`, {
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error("Không lấy được đường đi");
+      const path = await response.json();
+      if (controller.signal.aborted) return;
       setRoute(path as [number, number][]);
     } catch {
       // ORS chưa cấu hình / lỗi mạng — không vẽ đường, không chặn UI (FR-M.8)
-      setRoute(null);
+      if (!controller.signal.aborted) setRoute(null);
     }
   }
 
@@ -90,7 +105,7 @@ export default function MapScreen({
     }
   }
 
-  function minutesLabel(listing: ListingOut): string | null {
+  function minutesLabel(listing: MapListing): string | null {
     const minutes = listing.route_time_campus?.[campus];
     if (minutes == null) return null;
     return `${Math.round(minutes)} phút tới ${CAMPUS_LABELS[campus].toLowerCase()}`;
@@ -170,6 +185,7 @@ export default function MapScreen({
                   <img
                     src={listing.images[0]}
                     alt=""
+                    loading="lazy"
                     className="h-[74px] w-[84px] shrink-0 rounded-[10px] object-cover"
                   />
                 ) : (
@@ -233,6 +249,7 @@ export default function MapScreen({
             <button
               type="button"
               onClick={() => {
+                routeRequest.current?.abort();
                 setSelected(null);
                 setRoute(null);
               }}

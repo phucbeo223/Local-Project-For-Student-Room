@@ -97,6 +97,26 @@ class SearchResult(BaseModel):
     items: list[ListingOut]
 
 
+class ListingStats(BaseModel):
+    total: int = Field(ge=0)
+    nearby_count: int = Field(ge=0)
+    median_price: float | None = None
+
+
+class MapListing(BaseModel):
+    id: int
+    title: str
+    price: int | None = None
+    area: float | None = None
+    address: str | None = None
+    district: str | None = None
+    lat: float
+    lng: float
+    images: list[str] = Field(default_factory=list)
+    geocode_confidence: str | None = None
+    route_time_campus: list[float | None] | None = None
+
+
 class ListingCreate(BaseModel):
     """Payload đăng tin UGC (FR-3.1)."""
 

@@ -1,4 +1,4 @@
-import { getNearby, type ApiError, type ListingOut } from "@/lib/api";
+import { getMapListings, type ApiError, type MapListing } from "@/lib/api";
 import SiteHeader from "../SiteHeader";
 import MapScreen from "./MapScreen";
 import { CAMPUSES } from "./campuses";
@@ -44,10 +44,10 @@ export default async function MapPage({
     ? Math.min(MAX_RADIUS, Math.max(MIN_RADIUS, parsed))
     : DEFAULT_RADIUS;
 
-  let items: ListingOut[] = [];
+  let items: MapListing[] = [];
   let errorMessage: string | null = null;
   try {
-    items = await getNearby(lat, lng, radius);
+    items = await getMapListings(lat, lng, radius);
   } catch (e) {
     errorMessage =
       (e as ApiError).detail ?? "Không thể tải danh sách tin lân cận";

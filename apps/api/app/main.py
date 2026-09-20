@@ -1,5 +1,7 @@
 from contextlib import asynccontextmanager
+import asyncio
 import logging
+import time
 
 from fastapi import FastAPI, HTTPException
 from sqlalchemy import create_engine, text
@@ -9,6 +11,8 @@ import redis
 from .config import settings
 from .crawler import ListingRepo, build_scheduler, run_source
 from .listings.router import init_listings, router as listings_router
+from .listings.cache import StatsCache
+from .room_service.chatbot.router import warmup_chatbot, close_chatbot
 from .auth import AuthRepo, auth_router, init_auth, init_auth_deps
 from .room_service import chatbot_router, init_chatbot, init_risk, risk_router
 from .room_service.risk.repo import RiskRepository
@@ -21,8 +25,9 @@ log = logging.getLogger("app.main")
 
 # psycopg3 sync engine; pre_ping avoids stale conns after db restart
 engine = create_engine(settings.database_url, pool_pre_ping=True)
-redis_client = redis.from_url(settings.redis_url, decode_responses=True)
-init_listings(engine)
+redis_client = redis.from_url(settings.redis_url, decode_responses=True,
+                              socket_connect_timeout=0.1, socket_timeout=0.1)
+init_listings(engine, StatsCache(redis_client, settings.listing_stats_cache_seconds))
 init_auth(engine)
 init_auth_deps(AuthRepo(engine))
 init_chatbot(engine)
@@ -35,17 +40,36 @@ init_engagement(engine)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     scheduler = None
+    warmup = (
+        asyncio.create_task(asyncio.to_thread(warmup_chatbot))
+        if settings.chatbot_warmup_enabled else None
+    )
     if settings.crawler_enabled:
         scheduler = build_scheduler(engine)
         scheduler.start()
-    yield
-    if scheduler:
-        scheduler.shutdown(wait=False)
-    engine.dispose()
-    redis_client.close()
+    try:
+        yield
+    finally:
+        if scheduler:
+            scheduler.shutdown(wait=False)
+        if warmup:
+            await warmup
+        close_chatbot()
+        engine.dispose()
+        redis_client.close()
 
 
 app = FastAPI(title="NCKH API", version="0.1.0", lifespan=lifespan)
+
+
+@app.middleware("http")
+async def request_timing(request, call_next):
+    started = time.perf_counter()
+    response = await call_next(request)
+    response.headers["Server-Timing"] = f"api;dur={(time.perf_counter() - started) * 1000:.2f}"
+    return response
+
+
 app.include_router(listings_router)
 app.include_router(auth_router)
 app.include_router(chatbot_router)

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import {
-  getNearby,
+  getListingStats,
   searchListings,
-  type ListingOut,
   type SearchResult,
 } from "@/lib/api";
 import ListingCard from "./ListingCard";
@@ -10,10 +9,6 @@ import SiteHeader from "./SiteHeader";
 import { HomeFilters, SortSelect, type HomeParams } from "./HomeControls";
 
 export const dynamic = "force-dynamic";
-
-// Tâm thống kê "quanh CTU" = khu II, khớp CAMPUSES[1] backend.
-const CTU_LAT = 10.0322;
-const CTU_LNG = 105.7683;
 
 const PAGE_SIZE = 12;
 
@@ -32,15 +27,6 @@ function chipHref(params: Record<string, string>): string {
   return `/?${new URLSearchParams(params).toString()}`;
 }
 
-function medianPrice(items: ListingOut[]): number | null {
-  const prices = items
-    .map((l) => l.price)
-    .filter((p): p is number => p != null && p > 0)
-    .sort((a, b) => a - b);
-  if (prices.length === 0) return null;
-  return prices[Math.floor(prices.length / 2)];
-}
-
 export default async function Home({
   searchParams,
 }: {
@@ -48,7 +34,7 @@ export default async function Home({
 }) {
   const page = Math.max(1, Number(searchParams.page) || 1);
 
-  const [resultRes, totalRes, nearbyRes] = await Promise.allSettled([
+  const [resultRes, statsRes] = await Promise.allSettled([
     searchListings({
       q: searchParams.q,
       max_area: searchParams.max_area
@@ -73,8 +59,7 @@ export default async function Home({
       page,
       size: PAGE_SIZE,
     }),
-    searchListings({ page: 1, size: 1 }),
-    getNearby(CTU_LAT, CTU_LNG, 3000),
+    getListingStats(),
   ]);
 
   let result: SearchResult;
@@ -88,10 +73,9 @@ export default async function Home({
     result = { total: 0, page, size: PAGE_SIZE, items: [] };
   }
 
-  const totalAll =
-    totalRes.status === "fulfilled" ? totalRes.value.total : null;
-  const nearbyItems = nearbyRes.status === "fulfilled" ? nearbyRes.value : null;
-  const median = nearbyItems ? medianPrice(nearbyItems) : null;
+  const summary = statsRes.status === "fulfilled" ? statsRes.value : null;
+  const totalAll = summary?.total ?? null;
+  const median = summary?.median_price ?? null;
 
   const stats: { label: string; value: string }[] = [
     {
@@ -101,7 +85,7 @@ export default async function Home({
     { label: "Nguồn tổng hợp", value: "6" },
     {
       label: "Trong 3 km quanh CTU",
-      value: nearbyItems ? String(nearbyItems.length) : "—",
+      value: summary ? String(summary.nearby_count) : "—",
     },
     {
       label: "Giá phổ biến",

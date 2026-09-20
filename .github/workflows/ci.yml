@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master, 'codex/fr1-fr2-fr4-fr6-fr7']
+    branches: [main, master, 'codex/**']
   pull_request:
     branches: [main, master]
 

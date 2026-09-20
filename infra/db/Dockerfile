@@ -23,3 +23,4 @@ COPY migrations/93_ai_product_features.sql /docker-entrypoint-initdb.d/93-ai-pro
 COPY migrations/94_legal_knowledge.sql /docker-entrypoint-initdb.d/94-legal-knowledge.sql
 COPY migrations/95_fr_delivery.sql /docker-entrypoint-initdb.d/95-fr-delivery.sql
 COPY migrations/96_reviews_sentiment.sql /docker-entrypoint-initdb.d/96-reviews-sentiment.sql
+COPY migrations/97_response_performance.sql /docker-entrypoint-initdb.d/97-response-performance.sql

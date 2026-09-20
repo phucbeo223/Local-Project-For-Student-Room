@@ -3,6 +3,8 @@ from sqlalchemy.engine import Engine
 
 from .schemas import (
     ListingOut,
+    ListingStats,
+    MapListing,
     SearchParams,
     SortBy,
     freshness_label,
@@ -98,6 +100,33 @@ class ListingQueryRepo:
 
     def __init__(self, engine: Engine):
         self.engine = engine
+
+    def stats(self) -> ListingStats:
+        where, params = build_filters(SearchParams())
+        with self.engine.connect() as conn:
+            row = conn.execute(text(
+                "WITH visible AS (SELECT price, geom FROM aggregated_listings WHERE "
+                + where + "), nearby AS (SELECT price FROM visible WHERE geom IS NOT NULL "
+                "AND ST_DWithin(geom::geography, "
+                "ST_SetSRID(ST_MakePoint(105.7683,10.0322),4326)::geography,3000)) "
+                "SELECT (SELECT count(*) FROM visible) AS total, count(*) AS nearby_count, "
+                "percentile_cont(0.5) WITHIN GROUP (ORDER BY price) "
+                "FILTER (WHERE price > 0) AS median_price FROM nearby"
+            ), params).mappings().one()
+        return ListingStats(**row)
+
+    def map_listings(self, lat: float, lng: float, radius_m: float) -> list[MapListing]:
+        where, params = build_filters(SearchParams())
+        with self.engine.connect() as conn:
+            rows = conn.execute(text(
+                "SELECT id,title,price,area,address,district,ST_Y(geom) AS lat,ST_X(geom) AS lng,"
+                "COALESCE(images[1:1], ARRAY[]::text[]) AS images,geocode_confidence,route_time_campus "
+                f"FROM aggregated_listings WHERE {where} AND geom IS NOT NULL "
+                "AND ST_DWithin(geom::geography,ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography,:r) "
+                "ORDER BY ST_Distance(geom::geography,ST_SetSRID(ST_MakePoint(:lng,:lat),4326)::geography),id "
+                "LIMIT 300"
+            ), {**params, "lat": lat, "lng": lng, "r": radius_m}).mappings().all()
+        return [MapListing(**row) for row in rows]
 
     def search(self, p: SearchParams) -> tuple[int, list[ListingOut]]:
         where, params = build_filters(p)

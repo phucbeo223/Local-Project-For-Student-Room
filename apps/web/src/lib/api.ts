@@ -116,6 +116,25 @@ export type SearchResult = {
   items: ListingOut[];
 };
 
+export type MapListing = Pick<ListingOut,
+  "id" | "title" | "price" | "area" | "address" | "district" |
+  "images" | "geocode_confidence"
+> & { lat: number; lng: number; route_time_campus: Array<number | null> | null };
+
+export type ListingStats = {
+  total: number;
+  nearby_count: number;
+  median_price: number | null;
+};
+
+export function getListingStats(): Promise<ListingStats> {
+  return apiFetch("/listings/stats");
+}
+
+export function getMapListings(lat: number, lng: number, radius: number): Promise<MapListing[]> {
+  return apiFetch(`/listings/map${buildQuery({ lat, lng, radius })}`);
+}
+
 export type SearchListingsParams = {
   max_area?: number;
   ward?: string;

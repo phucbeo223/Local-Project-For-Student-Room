@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Literal
+from pydantic import Field
 
 
 class Settings(BaseSettings):
@@ -33,10 +34,15 @@ class Settings(BaseSettings):
     chatbot_max_results: int = 5
     chatbot_llm_provider: Literal["auto", "qwen", "gemini", "template"] = "auto"
     chatbot_llm_timeout_seconds: float = 4.0
+    chatbot_max_output_tokens: int = Field(default=384, ge=128, le=4096)
+    chatbot_warmup_enabled: bool = True
+    chatbot_warmup_timeout_seconds: float = Field(default=30, gt=0, le=120)
+    listing_stats_cache_seconds: int = Field(default=30, ge=0, le=300)
 
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"
     ollama_context_length: int = 8192
+    ollama_keep_alive: str = "30m"
 
     # Không ghi khóa thật vào source; chỉ đặt GEMINI_API_KEY trong .env/runtime.
     gemini_api_key: str = ""

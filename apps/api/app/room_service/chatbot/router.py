@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.engine import Engine
 
@@ -38,6 +40,8 @@ def init_chatbot(engine: Engine) -> None:
                 settings.ollama_model,
                 settings.chatbot_llm_timeout_seconds,
                 context_length=settings.ollama_context_length,
+                max_output_tokens=settings.chatbot_max_output_tokens,
+                keep_alive=settings.ollama_keep_alive,
             )
         )
 
@@ -49,6 +53,7 @@ def init_chatbot(engine: Engine) -> None:
                     settings.gemini_model,
                     settings.gemini_base_url,
                     settings.chatbot_llm_timeout_seconds,
+                    max_output_tokens=settings.chatbot_max_output_tokens,
                 )
             )
         elif settings.chatbot_llm_provider == "gemini":
@@ -73,6 +78,27 @@ def get_service() -> ChatService:
     if _service is None:
         raise HTTPException(503, "Chatbot chưa khởi tạo")
     return _service
+
+
+def warmup_chatbot() -> None:
+    service = get_service()
+    for provider in service.generator.providers:
+        if isinstance(provider, OllamaQwenGenerator):
+            try:
+                provider.warmup(settings.chatbot_warmup_timeout_seconds)
+            except Exception:
+                logging.getLogger(__name__).warning("Chat model warmup unavailable")
+    try:
+        service.embedder.warmup()
+    except Exception:
+        logging.getLogger(__name__).info("Embedding warmup skipped; model not available locally")
+
+
+def close_chatbot() -> None:
+    if _service:
+        for provider in _service.generator.providers:
+            if hasattr(provider, "close"):
+                provider.close()
 
 
 @router.post("/ask", response_model=ChatAskResponse)
