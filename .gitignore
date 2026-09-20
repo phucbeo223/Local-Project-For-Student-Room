@@ -1,0 +1,45 @@
+# ── env ──
+.env
+.env.local
+.env.*.local
+
+# ── python ──
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# ── node / next ──
+node_modules/
+.next/
+dist/
+
+# ── AI agent configs (personal, không commit) ──
+.agent/
+.agents/
+.claude/
+GEMINI.md
+CLAUDE.md
+.mcp.json
+.windsurfrules
+skills-lock.json
+omni-coop.*
+Obsidian_Vault/
+
+# ── IDE ──
+.vs/
+.idea/
+.vscode/
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+*.log
+
+# ── Docker volumes / runtime ──
+pgdata/
+
+# ── Temporary & sensitive files ──
+.tmp-map*.png
+test_all_proxies.ps1
+apps/web/tsconfig.tsbuildinfo

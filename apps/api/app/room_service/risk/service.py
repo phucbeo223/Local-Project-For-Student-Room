@@ -1,0 +1,94 @@
+from __future__ import annotations
+
+from fastapi import HTTPException
+
+from .repo import RiskRepository
+from .schemas import RiskAssessment, RiskBatchResponse, RiskHistoryItem, RiskSignal
+from .scoring import MODEL_VERSION, ScoreResult, score_listing
+
+
+class RiskService:
+    def __init__(self, repo: RiskRepository):
+        self.repo = repo
+
+    @staticmethod
+    def _response(
+        listing_id: int, result: ScoreResult, persisted: bool
+    ) -> RiskAssessment:
+        return RiskAssessment(
+            listing_id=listing_id,
+            risk_score=result.score,
+            risk_level=result.level,
+            risk_reasons=result.reasons,
+            signals=[
+                RiskSignal(code=item.code, message=item.message, weight=item.weight)
+                for item in result.signals
+            ],
+            model_version=MODEL_VERSION,
+            evaluated_at=result.evaluated_at,
+            persisted=persisted,
+        )
+
+    def assess(self, listing_id: int, *, persist: bool) -> RiskAssessment:
+        listing = self.repo.get_listing(listing_id)
+        if listing is None:
+            raise HTTPException(404, "Không tìm thấy tin nhà trọ")
+        if not persist and listing.get("status") in {"hidden", "expired"}:
+            raise HTTPException(404, "Không tìm thấy tin nhà trọ")
+        if listing.get("risk_model") == "manual-override":
+            from .scoring import level_for_score
+
+            return RiskAssessment(
+                listing_id=listing_id,
+                risk_score=listing["risk_score"],
+                risk_level=level_for_score(listing["risk_score"]),
+                risk_reasons=listing.get("risk_reasons") or [],
+                model_version="manual-override",
+                evaluated_at=listing["risk_evaluated_at"],
+                persisted=True,
+                statistical_status="manual_override",
+            )
+        statistical_status = "repository_unavailable"
+        if hasattr(self.repo, "anomaly_cohort"):
+            from .anomaly import anomaly_signal
+
+            listing["statistical_anomaly"], statistical_status = anomaly_signal(
+                self.repo, listing
+            )
+        median = self.repo.district_median_price(listing)
+        result = score_listing(listing, district_median_price=median)
+        if persist:
+            self.repo.save(listing_id, result)
+        response = self._response(listing_id, result, persist)
+        response.statistical_status = statistical_status
+        return response
+
+    def assess_pending(self, limit: int) -> RiskBatchResponse:
+        counts = {"safe": 0, "caution": 0, "suspicious": 0}
+        failed: list[int] = []
+        for listing_id in self.repo.pending_ids(limit):
+            try:
+                result = self.assess(listing_id, persist=True)
+                counts[result.risk_level] += 1
+            except Exception:
+                failed.append(listing_id)
+        return RiskBatchResponse(
+            processed=sum(counts.values()),
+            safe=counts["safe"],
+            caution=counts["caution"],
+            suspicious=counts["suspicious"],
+            failed_listing_ids=failed,
+        )
+
+    def history(self, listing_id: int) -> list[RiskHistoryItem]:
+        if self.repo.get_listing(listing_id) is None:
+            raise HTTPException(404, "Không tìm thấy tin nhà trọ")
+        return [RiskHistoryItem(**row) for row in self.repo.history(listing_id)]
+
+    def override(
+        self, listing_id: int, score: float, note: str, admin_id: int
+    ) -> RiskHistoryItem:
+        row = self.repo.override(listing_id, score, note, admin_id)
+        if row is None:
+            raise HTTPException(404, "Không tìm thấy tin nhà trọ")
+        return RiskHistoryItem(**row)
