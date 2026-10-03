@@ -13,7 +13,7 @@ def finite(v):return isinstance(v,(float,int)) and math.isfinite(v)
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--after',type=Path,default=BASE/'reports/legal_agent_after_v5_2026-10-03.json')
+    parser.add_argument('--after',type=Path,default=BASE/'reports/legal_agent_after_v8_2026-10-03.json')
     args=parser.parse_args()
     old=read(BASE/'reports/legal_model_upgrade_after_2026-10-02.json');new=read(args.after)
     retrieval=read(BASE/'reports/legal_agent_retrieval_2026-10-03.json')

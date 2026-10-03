@@ -14,6 +14,16 @@ from app.room_service.chatbot.service import ChatService
 from app.room_service.chatbot.schemas import ChatAskRequest
 
 
+def test_ordinary_room_residence_does_not_use_collective_dormitory_rule():
+    rows=[dict(chunk_id=1,category='residence',heading='Điều 12. Đăng ký tạm trú | Khoản 2',similarity_score=.95,
+        content='Sinh viên ở ký túc xá được đơn vị quản lý lập danh sách đăng ký tạm trú.'),
+        dict(chunk_id=2,category='residence',heading='Điều 27. Điều kiện đăng ký tạm trú | Khoản 1',similarity_score=.5,
+        content='Công dân đến sinh sống tại chỗ ở hợp pháp ngoài nơi thường trú để học tập thì phải đăng ký tạm trú.')]
+    result=rerank_legal('Sinh viên thuê trọ cần làm thủ tục cư trú nào?',[dict(r) for r in rows])
+    assert [row['chunk_id'] for row in result]==[2]
+    assert any(r['chunk_id']==1 for r in rerank_legal('Sinh viên ở ký túc xá đăng ký tạm trú thế nào?',[dict(r) for r in rows]))
+
+
 def test_damaged_font_and_reversed_fine_are_not_safe_evidence():
     damaged = "B6n mua diQn thuC nhd chri nhd gi6 b6n tliQn " * 20
     clean = "Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà. " * 10

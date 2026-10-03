@@ -483,10 +483,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/fire106.json",
-      "sha256": "bb344e8117f6542b5663a736fa745d6f11cf923927e434dc92613194c6f1416e",
+      "sha256": "90afa0841844d897e47f379ce141908c6d5a6443004b1ba3b1834ca148283df9",
       "id": "fire106",
       "category": "fire_safety",
-      "provisions": 89,
+      "provisions": 90,
       "articles": [
         "1",
         "2",
@@ -546,6 +546,16 @@
         "13",
         "14",
         "15",
+        "27"
+      ]
+    },
+    {
+      "file": "docs/legal_corpus_v2/residence68.json",
+      "sha256": "9a7bc350bfffb3ca645f9f3e6041fd1651ee876a11995575ea0a82c87800dffc",
+      "id": "residence68",
+      "category": "residence",
+      "provisions": 3,
+      "articles": [
         "27"
       ]
     },

@@ -78,6 +78,12 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
     for row in rows:
         value = normalize_text(row["content"])
         base = float(row.get("similarity_score", 0))
+        if row.get('category') == 'residence' and 'residence' in categories:
+            collective_query = any(term in question for term in ('ky tuc xa', 'khu tap trung', 'co so tap trung', 'dang ky tap the'))
+            collective_rule = 'ky tuc xa' in value or ('danh sach' in value and 'don vi quan ly' in value)
+            if collective_rule and not collective_query:
+                row['similarity_score'] = 0.0
+                continue
         if private_rental and row.get("category") == "housing_contract":
             scope_heading = normalize_text(str(row.get('heading') or ''))
             specific_other = any(has_phrase(value, term) for term in ("mua ban", "thue mua", "tai san cong", "nha cong vu"))
@@ -114,6 +120,8 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 if any(term in heading for term in ("noi dung cua hop dong", "hop dong ve nha o")):
                     base += 0.25
             if row['category'] == 'housing_contract':
+                if 'coc' in question and 'dat coc' in heading and any(term in question for term in ('ghi ro', 'ngay thanh toan', 'ghi trong')):
+                    base += .8 if 'bao dam giao ket' in value or 'bao dam giao ket' in normalize_text(str(row.get('parent_content') or '')) else .1
                 if any(term in question for term in ('tien thue', 'gia thue')) and 'hop dong ve nha o' in heading and 'gia giao dich' in value:
                     base += .45
                 if 'tang gia thue' in question and any(term in heading for term in ('sua doi hop dong', 'gia thue')):
@@ -148,6 +156,8 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 if 'hop dong ve nha o' in heading and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi')):
                     base += .75
             if 'residence' in categories and row['category'] == 'residence' and any(term in question for term in ('giay to', 'thong tin', 'thu tuc', 'dang ky')):
+                if 'dieu kien dang ky tam tru' in heading and 'thu tuc' in question:
+                    base += .8
                 if any(term in heading for term in ('dang ky tam tru', 'ho so', 'thu tuc')):
                     base += .3
                 if any(term in question for term in ('giay to', 'thong tin', 'ho so')) and 'ho so' in heading:

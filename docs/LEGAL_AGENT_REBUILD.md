@@ -11,8 +11,8 @@
 
 1. **Gemini phân tích câu hỏi**: tạo truy vấn tìm kiếm, nhận diện chủ đề và thông tin tình huống còn thiếu. Không tạo câu trả lời hoặc điều luật. Số điều/số tiền mới không có trong câu hỏi bị từ chối; lỗi API có dấu vết dự phòng.
 2. **Bộ truy xuất**: dùng embedding E5, tìm kiếm từ khóa, xếp hạng và giữ đủ các chủ đề được hỏi. Truy vấn được giới hạn vào schema cấu hình. Gemini không ghi hay sửa luật trong kho.
-3. **Qwen local**: tạo câu trả lời từ các đoạn truy xuất. Gemini không được đăng ký làm model trả lời khi bật agent.
-4. **Kiểm tra căn cứ**: Gemini đối chiếu từng kết luận với nguồn, kết hợp kiểm tra bằng quy tắc về số điều, số liệu, chủ thể, điều kiện, ngoại lệ. Khi Gemini lỗi, Qwen kiểm tra dự phòng và ghi trạng thái suy giảm. Phản hồi thiếu căn cứ được sửa, đánh dấu một phần hoặc từ chối. Dấu vết ghi model đã thử, model kiểm tra và model tạo phản hồi cuối cùng. Quyền gửi câu hỏi, câu trả lời và nguồn luật sang Gemini để kiểm tra/chấm đã được người dùng xác nhận trước đó.
+3. **Qwen local**: khi bật agent, chọn ID các đoạn trả lời trong nguồn bằng JSON, không tự viết luật hoặc diễn giải lại số liệu. Hệ thống xác thực ID và chép đúng nguyên văn. Đây là chế độ `source_select`; Gemini không được đăng ký làm model tạo phản hồi cuối cùng.
+4. **Kiểm tra căn cứ**: chế độ trích nguồn kiểm tra từng đoạn là chuỗi nguyên văn của đúng nguồn/rank, không phải suy luận về việc áp dụng luật. Ngữ cảnh thiếu hoặc yêu cầu chưa đủ nguồn vẫn được đánh dấu một phần. Chế độ diễn giải cũ có bộ đối chiếu Gemini và Qwen dự phòng; các lượt thử cho thấy cả model trả lời và model kiểm tra có thể diễn giải sai. Dấu vết phân biệt `exact_source_match` với kiểm tra LLM. Quyền gửi câu hỏi, câu trả lời và nguồn luật sang Gemini để kiểm tra/chấm đã được người dùng xác nhận trước đó.
 
 Đây là quy trình phối hợp agent trong ứng dụng. Truy xuất hiện vẫn dùng hybrid; chưa chuyển sang GraphRAG.
 
@@ -58,12 +58,17 @@ Các báo cáo độc lập:
 - `eval/reports/legal_agent_retrieval_2026-10-03.json`: truy xuất 36 câu thật và các kiểm tra ngoại lệ, hồ sơ, thông tin hợp đồng, chuyển phòng.
 - `eval/reports/legal_agent_probe_2026-10-03.json`: kiểm tra Gemini phân tích và danh sách model trả lời thực tế.
 - `eval/reports/legal_agent_after_2026-10-03.json`: câu trả lời mới, nguồn, dấu vết agent và RAGAS.
-- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v5_2026-10-03.json`.
+- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v8_2026-10-03.json`.
 - `eval/reports/legal_agent_after_final_2026-10-03.json`: giữ kết quả hai câu bị chặn ở lượt v2 để truy lỗi; không dùng làm báo cáo hoàn tất.
 - Lượt v3 sửa bộ kiểm tra Qwen đọc thiếu danh sách giao dịch trong nguồn, ghép đủ điều về nội dung hợp đồng, và tránh coi hiệu lực của hợp đồng là hiệu lực thi hành văn bản. Lưu cả câu trả lời bị bác bỏ và lý do trong `provider_calls`.
 - Lượt v3 vẫn bị Qwen kiểm tra nhầm nội dung có trong nguồn và tự suy ra năm luật từ tên tệp. Giữ lại `legal_agent_after_v3_2026-10-03.json` để truy lỗi. Lượt v4 bổ sung bộ đối chiếu Gemini riêng và cấm suy ra năm luật từ năm của bản hợp nhất.
 - Lượt v4 phát hiện pool ứng viên bỏ mất khoản giá hợp đồng, bộ lọc nhầm khoản chung vì chứa điều kiện mua bán, và cách diễn giải 'chỉ' khi nguồn chưa loại trừ các căn cứ khác. Lượt v5 sửa ba lỗi này, buộc bộ đối chiếu kiểm tra nguồn riêng của từng câu khẳng định. Kết quả v4 được giữ ở `legal_agent_after_v4_2026-10-03.json`.
-- Bộ test phần chatbot/pháp lý/agent: 103 test đạt; API và giao diện build thành công. Đây không phải kết quả toàn bộ các kiểm thử tích hợp của dự án.
+- V5 vẫn bị chặn nhiều do diễn giải sai; giữ checkpoint `legal_agent_after_v5_2026-10-03.json`. Thử bật suy luận trên một câu với giới hạn 2.400 token/300 giây bị `ReadTimeout`, không nhận được câu trả lời; không thể suy ra chất lượng đã cao hơn.
+- V6 phân công Qwen tìm ID đoạn trả lời, hệ thống chép nguyên văn nguồn, bỏ suy luận pháp lý tự do trong chế độ agent. Lượt thử `legal_source_selection_smoke_2026-10-03.json` có 3 câu, 0 lỗi thực thi: câu 1 trích đủ danh mục, câu 2–3 vẫn đánh dấu một phần. Phản hồi dài hơn và ít diễn giải hơn; không dùng ba câu để kết luận toàn bộ bank tốt hơn.
+- V6 dừng khi rà nguồn phát hiện Điều 24 khoản 3 Nghị định 106 bị gộp vào khoản 2 do ký tự OCR ở lề; câu cư trú thuê trọ chọn nhầm phạm vi ký túc xá. Giữ checkpoint v6 để truy lỗi. V7 sửa nhãn theo ảnh PDF gốc có ghi before/after tại `verified_ocr_corrections.json`, bổ sung Điều 27 Luật Cư trú từ bản gốc và giữ toàn bộ các điểm trong khoản khi chọn nguồn. Các phần chưa xem toàn văn vẫn có metadata giới hạn kiểm chứng.
+- V7: 34 tài liệu, 1.221 đơn vị điều/khoản, 1.295 chunk/vector; 59 tài liệu/5.185 vector cũ, 1.130 tin phòng/915 vector tin phòng không đổi. Các gate truy xuất 36 câu, Điều 27, loại phạm vi ký túc xá khi hỏi phòng trọ và khóa cửa đúng khoản 3 đã đạt.
+- V7 phát hiện câu 2 trích giá/thanh toán nhưng bỏ tiền cọc và vẫn báo đủ. V8 bổ sung nguồn đặt cọc trong truy xuất, kiểm tra ý tiền cọc đã hỏi nhưng không có trong đoạn chọn thì đánh dấu một phần, thêm gate SQL và test hồi quy. Checkpoint v7 được giữ để truy lỗi.
+- Bộ test phần chatbot/pháp lý/agent: 108 test đạt; API và giao diện build thành công. Đây không phải kết quả toàn bộ các kiểm thử tích hợp của dự án.
 - `eval/reports/legal_agent_backup_2026-10-03.json`: bản dump 59 tài liệu/5.185 chunk cũ đã khôi phục vào database kiểm chứng riêng, đối chiếu nội dung tất cả dòng trùng nhau. Tệp dump lưu ở `backups/`, không đưa dữ liệu database lên GitHub.
 
 Chỉ chuyển sau khi kiểm tra truy xuất đạt, các câu hỏi chạy thật, vai trò model đúng, kết quả được rà soát và có bản sao lưu khôi phục được. Chỉ xóa bảng/chunk/vector pháp lý cũ sau khi kho mới đã được kiểm chứng và ứng dụng thực tế dùng kho mới. Không xóa bản gốc hoặc vector tin phòng.

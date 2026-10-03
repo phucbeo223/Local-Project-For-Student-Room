@@ -15,178 +15,23 @@
     "listing_vectors": 915
   },
   "counts": {
-    "chunks": 1291,
-    "vectors": 1291,
-    "identified": 1291,
-    "parented": 1291
+    "chunks": 1295,
+    "vectors": 1295,
+    "identified": 1295,
+    "parented": 1295
   },
   "indexed": [
     {
-      "id": "legacy-c689645e534f",
-      "chunks": 68,
-      "provisions": 63
+      "id": "fire106",
+      "chunks": 91,
+      "provisions": 90
     },
     {
-      "id": "legacy-95df8751459d",
-      "chunks": 37,
-      "provisions": 36
-    },
-    {
-      "id": "legacy-092b57ace14c",
-      "chunks": 1,
-      "provisions": 1
-    },
-    {
-      "id": "legacy-e9adeff06c7a",
-      "chunks": 1,
-      "provisions": 1
-    },
-    {
-      "id": "legacy-790737668504",
-      "chunks": 52,
-      "provisions": 50
-    },
-    {
-      "id": "legacy-d9f68871fe49",
+      "id": "residence68",
       "chunks": 3,
       "provisions": 3
-    },
-    {
-      "id": "legacy-d873b9410011",
-      "chunks": 20,
-      "provisions": 18
-    },
-    {
-      "id": "legacy-da7dcada906d",
-      "chunks": 25,
-      "provisions": 24
-    },
-    {
-      "id": "legacy-8fb07729dbcb",
-      "chunks": 21,
-      "provisions": 14
-    },
-    {
-      "id": "legacy-4bcf6ab450b3",
-      "chunks": 60,
-      "provisions": 58
-    },
-    {
-      "id": "legacy-e010a14386b4",
-      "chunks": 110,
-      "provisions": 109
-    },
-    {
-      "id": "legacy-6f667af18760",
-      "chunks": 40,
-      "provisions": 38
-    },
-    {
-      "id": "legacy-60dd067ea62d",
-      "chunks": 10,
-      "provisions": 10
-    },
-    {
-      "id": "legacy-f29b4cc9f353",
-      "chunks": 19,
-      "provisions": 19
-    },
-    {
-      "id": "legacy-3466ad78b47f",
-      "chunks": 130,
-      "provisions": 129
-    },
-    {
-      "id": "legacy-3c1db7d7a4f0",
-      "chunks": 11,
-      "provisions": 10
-    },
-    {
-      "id": "legacy-e2f946f8fa90",
-      "chunks": 48,
-      "provisions": 46
-    },
-    {
-      "id": "legacy-97260a1a9fb2",
-      "chunks": 93,
-      "provisions": 83
-    },
-    {
-      "id": "legacy-101ff31eaab8",
-      "chunks": 13,
-      "provisions": 13
-    },
-    {
-      "id": "legacy-27f5c84dac1d",
-      "chunks": 41,
-      "provisions": 41
-    },
-    {
-      "id": "legacy-a2219789861b",
-      "chunks": 15,
-      "provisions": 11
-    },
-    {
-      "id": "ecommerce122",
-      "chunks": 56,
-      "provisions": 51
-    },
-    {
-      "id": "ecommerce248",
-      "chunks": 63,
-      "provisions": 57
-    },
-    {
-      "id": "electricity14",
-      "chunks": 23,
-      "provisions": 23
-    },
-    {
-      "id": "electricity133",
-      "chunks": 28,
-      "provisions": 24
-    },
-    {
-      "id": "fire106",
-      "chunks": 90,
-      "provisions": 89
-    },
-    {
-      "id": "residence154",
-      "chunks": 40,
-      "provisions": 35
-    },
-    {
-      "id": "amend58",
-      "chunks": 23,
-      "provisions": 18
-    },
-    {
-      "id": "residence116",
-      "chunks": 39,
-      "provisions": 37
-    },
-    {
-      "id": "amend118",
-      "chunks": 21,
-      "provisions": 18
-    },
-    {
-      "id": "amend347",
-      "chunks": 22,
-      "provisions": 20
-    },
-    {
-      "id": "water117",
-      "chunks": 51,
-      "provisions": 51
-    },
-    {
-      "id": "water124",
-      "chunks": 17,
-      "provisions": 17
     }
   ],
-  "manifest_sha256": "deff554affb9ed10c141b7718822bb2a5bd84d758f3707d1f6ba0a0799f0e20f",
+  "manifest_sha256": "054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119d15",
   "activation": "not activated; evaluation pending"
 }

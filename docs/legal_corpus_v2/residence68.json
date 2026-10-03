@@ -1,0 +1,100 @@
+{
+  "source": {
+    "id": "residence68",
+    "source_page_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+    "download_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+    "path": "docs/legal_sources_originals_20261003/residence68.pdf",
+    "sha256": "fda03bdaa433b3e86807d9fa0e6cdae50d1ea2ae37aa59ffe992f1de1c7f17d1",
+    "bytes": 620655,
+    "pages": 23,
+    "text_chars": 0,
+    "category": "residence",
+    "title": "Luật Cư trú 68/2020/QH14",
+    "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+    "extraction": "government PDF text/OCR",
+    "page_kind": "physical_pdf",
+    "not_exhaustive": true,
+    "verification": "OCR/raw text; not all words visually reviewed",
+    "reviewed_ocr_corrections": [
+      {
+        "source_id": "residence68",
+        "page": 15,
+        "before": "1, Công dân đến",
+        "after": "1. Công dân đến",
+        "reason": "Clause 1 dot misrecognized as comma; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/residence68-15.png"
+      },
+      {
+        "source_id": "residence68",
+        "page": 15,
+        "before": "thường trú đề lao động",
+        "after": "thường trú để lao động",
+        "reason": "OCR accent error; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/residence68-15.png"
+      },
+      {
+        "source_id": "residence68",
+        "page": 16,
+        "before": "3, Công dân không được đăng ký tạm tri mới",
+        "after": "3. Công dân không được đăng ký tạm trú mới",
+        "reason": "Clause 3 punctuation and OCR word error; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/residence68-16.png"
+      }
+    ]
+  },
+  "provisions": [
+    {
+      "provision_id": "fda03bdaa433b3e86807:34046:1",
+      "article": "27",
+      "clause": "1",
+      "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 1",
+      "content": "1. Công dân đến sinh sống tại chỗ ở hợp pháp ngoài phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú để lao động, học tập hoặc vì mục đích\nkhác từ 30 ngày trở lên thì phải thực hiện đăng ký tạm trú.",
+      "source_start": 34082,
+      "source_end": 34291,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "171ca52b0dd88e162d87b609d259da73c261b579ff00feba0fa38bd929406088",
+      "page_from": 15,
+      "page_to": 15
+    },
+    {
+      "provision_id": "fda03bdaa433b3e86807:34046:2",
+      "article": "27",
+      "clause": "2",
+      "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 2",
+      "content": "2. Thời hạn tạm trú tối đa là 02 năm và có thể tiếp tục gia hạn nhiều lần.",
+      "source_start": 34291,
+      "source_end": 34367,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "02134be00d5cc7bfb29020280e2aa0d39ba35ef4b8ff448e112312e48c588801",
+      "page_from": 16,
+      "page_to": 16
+    },
+    {
+      "provision_id": "fda03bdaa433b3e86807:34046:3",
+      "article": "27",
+      "clause": "3",
+      "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 3",
+      "content": "3. Công dân không được đăng ký tạm trú mới tại chỗ ở quy định tại Điều\n23 của Luật này.",
+      "source_start": 34367,
+      "source_end": 34456,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều\n23"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4f32407d67e6c180d6c3df9e69b284d760f80f05f449530ca8f8bf1e5fe77a9f",
+      "page_from": 16,
+      "page_to": 16
+    }
+  ]
+}

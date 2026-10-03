@@ -13,7 +13,33 @@
     "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
     "page_kind": "physical_pdf",
     "not_exhaustive": true,
-    "verification": "OCR; selected critical pages visually checked, other text requires review"
+    "verification": "OCR; selected critical pages visually checked, other text requires review",
+    "reviewed_ocr_corrections": [
+      {
+        "source_id": "fire106",
+        "page": 19,
+        "before": "; 3. Phat",
+        "after": "3. Phat",
+        "reason": "False scan-margin semicolon before clause 3; label visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/fire106-19.png"
+      },
+      {
+        "source_id": "fire106",
+        "page": 19,
+        "before": "! b) Khóa",
+        "after": "b) Khóa",
+        "reason": "False scan-margin exclamation before point b; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/fire106-19.png"
+      },
+      {
+        "source_id": "fire106",
+        "page": 20,
+        "before": "_ ¢) Buộc",
+        "after": "c) Buộc",
+        "reason": "Point c incorrectly recognized as cent symbol; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/fire106-20.png"
+      }
+    ]
   },
   "provisions": [
     {
@@ -1324,17 +1350,35 @@
       "article": "24",
       "clause": "2",
       "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 2",
-      "content": "2. Phat tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi để\nvat tư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác cản trở lôi\nthoát nạn hoặc đường thoát nạn. .\n\n; 3. Phat tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì cửa đi đã được lắp đặt trên lối thoát nạn hoặc đường\nthoát nạn;\n\n! b) Khóa cửa đi lắp đặt trên lối thoát nạn hoặc đường thoát nạn.",
+      "content": "2. Phat tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi để\nvat tư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác cản trở lôi\nthoát nạn hoặc đường thoát nạn. .",
       "source_start": 36401,
-      "source_end": 36827,
+      "source_end": 36584,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "bd8cf1c76a23c7a47732288ff4528b9a5146c3e6a05e26555e77412c7530db66",
+      "page_from": 19,
+      "page_to": 19
+    },
+    {
+      "provision_id": "67f0d65f360ea4405594:36141:3",
+      "article": "24",
+      "clause": "3",
+      "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 3",
+      "content": "3. Phat tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì cửa đi đã được lắp đặt trên lối thoát nạn hoặc đường\nthoát nạn;\n\nb) Khóa cửa đi lắp đặt trên lối thoát nạn hoặc đường thoát nạn.",
+      "source_start": 36584,
+      "source_end": 36823,
       "points": [
-        "a"
+        "a",
+        "b"
       ],
       "exceptions": [],
       "cross_references": [],
       "kind": "legal_provision",
       "article_context": "",
-      "content_sha256": "eb218fa4c96bdf96db4b615b289bc6bb87c645a63616310d0c0ac85a4eb4dc4f",
+      "content_sha256": "5b79c427e54fe3d7502794bedc026a8747ad3ae9bdcea269ccd70dcfc8ecac54",
       "page_from": 19,
       "page_to": 19
     },
@@ -1344,8 +1388,8 @@
       "clause": "4",
       "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 4",
       "content": "4. Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì lối thoát nạn hoặc đường thoát nạn của gian phòng, khu vực;\n\nb) Không có đủ lối thoát nạn hoặc đường thoát nạn của gian phòng, khu vực.",
-      "source_start": 36827,
-      "source_end": 37073,
+      "source_start": 36823,
+      "source_end": 37069,
       "points": [
         "a",
         "b"
@@ -1364,8 +1408,8 @@
       "clause": "5",
       "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 5",
       "content": "5. Phạt tiền từ 40.000.000 đồng đến 50.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì lối thoát nạn hoặc đường thoát nạn của nhà, công trình;\n\nb) Không có đủ lối thoát nạn hoặc đường thoát nạn của nhà, công trình.",
-      "source_start": 37073,
-      "source_end": 37311,
+      "source_start": 37069,
+      "source_end": 37307,
       "points": [
         "a",
         "b"
@@ -1384,8 +1428,8 @@
       "clause": "6",
       "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 6",
       "content": "6. Hình thức xử phạt bé sung:\n\nĐình chỉ hoạt động từ 03 tháng đến 06 tháng đối với hành vi vi phạm\nquy định tại khoản 5 Điêu nay.",
-      "source_start": 37311,
-      "source_end": 37442,
+      "source_start": 37307,
+      "source_end": 37438,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1400,30 +1444,31 @@
       "article": "24",
       "clause": "7",
       "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 7",
-      "content": "7. Biện pháp khắc phục hậu quả:\n\na) Buộc tháo gương trên đường thoát nạn đối với hành vi vi phạm quy\nđịnh tại điểm a khoản 1 Điêu nay;\n\nb) Buộc mở cửa theo chiều thoát nạn đối với hành vi vi phạm quy định\ntại điểm b khoản 1 Điều này;\n\n_ ¢) Buộc di chuyển vật tu, hàng hóa, phương tiện giao thông, vật dụng,\nthiết bị khác đối với hành vi vi phạm quy định tại khoản 2 Điêu nay;\n\nd) Buộc duy trì cửa đi trên lối thoát nạn, đường thoát nạn đối với hành vi\nvi phạm quy định tại khoản 3 Điều này.",
-      "source_start": 37442,
-      "source_end": 37934,
+      "content": "7. Biện pháp khắc phục hậu quả:\n\na) Buộc tháo gương trên đường thoát nạn đối với hành vi vi phạm quy\nđịnh tại điểm a khoản 1 Điêu nay;\n\nb) Buộc mở cửa theo chiều thoát nạn đối với hành vi vi phạm quy định\ntại điểm b khoản 1 Điều này;\n\nc) Buộc di chuyển vật tu, hàng hóa, phương tiện giao thông, vật dụng,\nthiết bị khác đối với hành vi vi phạm quy định tại khoản 2 Điêu nay;\n\nd) Buộc duy trì cửa đi trên lối thoát nạn, đường thoát nạn đối với hành vi\nvi phạm quy định tại khoản 3 Điều này.",
+      "source_start": 37438,
+      "source_end": 37928,
       "points": [
         "a",
         "b",
+        "c",
         "d"
       ],
       "exceptions": [],
       "cross_references": [],
       "kind": "legal_provision",
       "article_context": "",
-      "content_sha256": "7fe3180da4556e51415ae5370824247a0a19107e78f898055012c4a458c7d59c",
+      "content_sha256": "0fa2a06c15157201527caec7239a3d2632f5a96b785d463a78bdf59308071add",
       "page_from": 20,
       "page_to": 20
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:1",
+      "provision_id": "67f0d65f360ea4405594:37928:1",
       "article": "25",
       "clause": "1",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 1",
       "content": "1. Phat tiền từ 2.000.000 đồng đến 4.000.000 đồng đối với hành vi đẻ vật\ntư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác không bảo đảm\nkhoảng cách phòng cháy, chữa cháy.",
-      "source_start": 37974,
-      "source_end": 38159,
+      "source_start": 37968,
+      "source_end": 38153,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1434,13 +1479,13 @@
       "page_to": 20
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:2",
+      "provision_id": "67f0d65f360ea4405594:37928:2",
       "article": "25",
       "clause": "2",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 2",
       "content": "2. Phạt tiền từ 5.000.000 đồng đến 7.000.000 đồng đối với hành vi không\nduy trì bộ phận ngăn cháy đã được thi công, lắp đặt, trừ hành vi quy định tại\nkhoản 5 Điều này.",
-      "source_start": 38159,
-      "source_end": 38328,
+      "source_start": 38153,
+      "source_end": 38322,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1451,13 +1496,13 @@
       "page_to": 20
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:3",
+      "provision_id": "67f0d65f360ea4405594:37928:3",
       "article": "25",
       "clause": "3",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 3",
       "content": "3. Phạt tiền từ 8.000.000 đồng đến 10.000.000 đồng đối với một trong .\ncác hành vi sau đây:\n\na) Không don sạch chất dễ cháy nằm trong hành lang an toàn tuyến ống\ndẫn dầu mỏ, khí đốt và sản phẩm dầu mỏ;\n\nb) Lắp đặt ống dẫn khí cháy, chất lỏng cháy tại khu vực không được\nphép hoặc không bảo đảm an toàn phòng cháy.\n\n- 21",
-      "source_start": 38328,
-      "source_end": 38649,
+      "source_start": 38322,
+      "source_end": 38643,
       "points": [
         "a",
         "b"
@@ -1471,13 +1516,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:4",
+      "provision_id": "67f0d65f360ea4405594:37928:4",
       "article": "25",
       "clause": "4",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 4",
       "content": "4. Phat tiền từ 20.000.000 đồng đến 25.000.000 đồng đối với một trong’. -\ncác hành vi sau đây:\n\na) Không duy trì khoảng cách phòng cháy, chữa cháy giữa các nhà và công trình,\n\nb) Không có bộ phận ngăn cháy, trừ hành vi quy định tại khoản 5 Điều này.",
-      "source_start": 38649,
-      "source_end": 38900,
+      "source_start": 38643,
+      "source_end": 38894,
       "points": [
         "a",
         "b"
@@ -1491,13 +1536,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:5",
+      "provision_id": "67f0d65f360ea4405594:37928:5",
       "article": "25",
       "clause": "5",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 5",
       "content": "5. Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng đối với hành vi\nkhông có hoặc không duy trì tường ngăn cháy hoặc vách ngăn cháy hoặc sàn\nngăn cháy.",
-      "source_start": 38900,
-      "source_end": 39053,
+      "source_start": 38894,
+      "source_end": 39047,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1508,13 +1553,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:6",
+      "provision_id": "67f0d65f360ea4405594:37928:6",
       "article": "25",
       "clause": "6",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 6",
       "content": "6. Phạt tiền từ 40.000.000 đồng đến 50.000.000 đồng đối với hành vi xây\nđựng nhà, công trình không bảo đảm khoảng cách phòng cháy, chữa cháy.",
-      "source_start": 39053,
-      "source_end": 39196,
+      "source_start": 39047,
+      "source_end": 39190,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1525,13 +1570,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:7",
+      "provision_id": "67f0d65f360ea4405594:37928:7",
       "article": "25",
       "clause": "7",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 7",
       "content": "7. Phat tiền gấp hai lần mức tiền phạt đối với các hành vi quy định tại\ncác khoản 2, 3 và khoản 4 Điều này khi để xảy ra cháy nhưng chưa đến mức\ntruy cứu trách nhiệm hình sự.",
-      "source_start": 39196,
-      "source_end": 39372,
+      "source_start": 39190,
+      "source_end": 39366,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1542,13 +1587,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:8",
+      "provision_id": "67f0d65f360ea4405594:37928:8",
       "article": "25",
       "clause": "8",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 8",
       "content": "8. Hình thức xử phạt bổ sung:\n\nĐình chỉ hoạt động từ 06 tháng đến 12 tháng đối với hành vi vi phạm\nquy định tại khoản 6 Điều này.",
-      "source_start": 39372,
-      "source_end": 39503,
+      "source_start": 39366,
+      "source_end": 39497,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1559,13 +1604,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:37934:9",
+      "provision_id": "67f0d65f360ea4405594:37928:9",
       "article": "25",
       "clause": "9",
       "heading": "Điều 25. Vi phạm quy định về ngăn cháy | Khoản 9",
       "content": "9. Biện pháp khắc phục hậu quả:\n\n: a) Buộc đi chuyển vật tư, hàng hóa, phương tiện giao thông, vật dụng,\nthiết bị khác bảo đảm khoảng cách phòng cháy, chữa cháy đôi với hành vi vi\nphạm quy định tại khoản 1 Điêu này;\n\nb) Buộc duy trì bộ phận ngăn cháy đối với hành vi vi phạm quy định tại\nkhoản 2 Điêu này;\n\nc) Buộc duy trì khoảng cách phòng cháy, chữa cháy đối với hành vi vi\nphạm quy định tại điểm a khoản 4 Điêu này;\n\nd) Buộc lắp đặt hoặc duy trì tường ngăn cháy hoặc vách ngăn cháy hoặc\nsàn ngăn cháy hành vi vi phạm quy định tại khoản 5 Điều này.",
-      "source_start": 39503,
-      "source_end": 40055,
+      "source_start": 39497,
+      "source_end": 40049,
       "points": [
         "b",
         "c",
@@ -1580,13 +1625,13 @@
       "page_to": 21
     },
     {
-      "provision_id": "67f0d65f360ea4405594:62332:1",
+      "provision_id": "67f0d65f360ea4405594:62326:1",
       "article": "39",
       "clause": "1",
       "heading": "Điều 39. Hiệu lực thi hành | Khoản 1",
       "content": "1. Nghị định này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2025.",
-      "source_start": 62360,
-      "source_end": 62428,
+      "source_start": 62354,
+      "source_end": 62422,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1597,13 +1642,13 @@
       "page_to": 35
     },
     {
-      "provision_id": "67f0d65f360ea4405594:62332:2",
+      "provision_id": "67f0d65f360ea4405594:62326:2",
       "article": "39",
       "clause": "2",
       "heading": "Điều 39. Hiệu lực thi hành | Khoản 2",
       "content": "2. Bãi bỏ mục 3 của Chương II Nghị định số 144/2021/NĐ-CP ngày 31\n\n% tháng 12 năm 2021 của Chính phủ quy định xử phạt vi phạm hành chính trong\ni lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chong tệ nan xã hội; phòng\ncháy và chữa cháy; cứu nạn, cứu hộ; phòng, chông bạo lực gia đình.",
-      "source_start": 62428,
-      "source_end": 62718,
+      "source_start": 62422,
+      "source_end": 62712,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1614,13 +1659,13 @@
       "page_to": 35
     },
     {
-      "provision_id": "67f0d65f360ea4405594:62718:1",
+      "provision_id": "67f0d65f360ea4405594:62712:1",
       "article": "40",
       "clause": "1",
       "heading": "Điều 40. Điều khoản chuyển tiếp | Khoản 1",
       "content": "1. Đối với hành vi vi phạm hành chính trong lĩnh vực phòng cháy, chữa\ncháy và cứu nạn, cứu hộ xảy ra và ket thúc trước thời diém Nghị định này có\nhiệu lực mà bị phát hiện nhưng chưa hết thời hiệu xử phạt hoặc đang xem xét,\ngiải quyết khi Nghị định này đã có hiệu lực thì áp dụng Nghị định của Chính\nphủ về xử phạt vi phạm hành chính có hiệu lực tại thời diém thực hiện hành vi\nvi phạm dé xử ly.\n\nĐối với hành vi vi phạm hành chính trong lĩnh vực phòng cháy, chữa cháy\nvà cứu nạn, cứu hộ xảy ra trước thời điểm Nghị định này có hiệu lực nhưng vẫn\nđang diễn ra khi Nghị định này đã có hiệu lực thì áp dụng quy định của Nghị\nđịnh này đề xử lý.",
-      "source_start": 62751,
-      "source_end": 63393,
+      "source_start": 62745,
+      "source_end": 63387,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -1631,13 +1676,13 @@
       "page_to": 35
     },
     {
-      "provision_id": "67f0d65f360ea4405594:62718:2",
+      "provision_id": "67f0d65f360ea4405594:62712:2",
       "article": "40",
       "clause": "2",
       "heading": "Điều 40. Điều khoản chuyển tiếp | Khoản 2",
       "content": "2. Đối với quyết định xử phạt vi phạm hành chính đã được ban hành hoặc\nđã được thi hanh xong truéc thoi diém Nghi dinh nay có hiệu lực thi hành, mà\ncá nhận, tô chức bị xử phạt vi phạm hành chính còn khiêu nai thì áp dụng quy\nđịnh về xử phạt vi phạm hành chính tại thời điểm ban hành quyêt định xử phạt\n\ndé giải quyét.\n\n36 ‘ -",
-      "source_start": 63393,
-      "source_end": 63719,
+      "source_start": 63387,
+      "source_end": 63713,
       "points": [],
       "exceptions": [],
       "cross_references": [],

@@ -7,10 +7,10 @@ from question_bank_ragas import save_report
 
 BASE=Path('/eval')
 BEFORE=BASE/'reports/legal_model_upgrade_after_2026-10-02.json'
-AFTER=BASE/'reports/legal_agent_after_v5_2026-10-03.json'
+AFTER=BASE/'reports/legal_agent_after_v8_2026-10-03.json'
 STATUS=BASE/'reports/legal_agent_status_2026-10-03.json'
 REPORT=BASE/'ragas_reports/legal_agent_comparison_2026-10-03.md'
-LOG=BASE/'reports/legal_agent_v5_2026-10-03.log'
+LOG=BASE/'reports/legal_agent_v8_2026-10-03.log'
 METRICS=('faithfulness','answer_relevancy','context_utilization')
 
 
@@ -29,7 +29,7 @@ def publish(state):
     previous={c['id']:c for c in old['cases']}
     lines=['# Kho embedding mới và agent — kết quả 03/10/2026','',
            f"Trạng thái: **{state['phase']}**. Đã trả lời {state['completed_answers']}/36 câu.",
-           'Gemini phân tích câu hỏi và đối chiếu nguồn; hybrid truy xuất; Qwen local tạo câu trả lời. Khi kiểm tra Gemini lỗi, Qwen kiểm tra dự phòng. Không dùng Gemini tạo câu trả lời.',
+           'Gemini phân tích câu hỏi; hybrid truy xuất; Qwen local chọn ID đoạn trả lời; hệ thống chép nguyên văn có kiểm tra với nguồn. Không dùng Gemini tạo câu trả lời. Đây là chế độ trích nguồn, không phải suy luận pháp lý tự do.',
            'Điểm trước lấy từ bản đánh giá lịch sử ngày 02/10, giữ nguyên câu trả lời/ngữ cảnh/điểm gốc. So sánh chỉ có giá trị khi model chấm và cấu hình giống nhau.', '',
            '| Metric | Trước | Sau | Thay đổi | Số cặp hợp lệ |','|---|---:|---:|---:|---:|']
     for m in METRICS:

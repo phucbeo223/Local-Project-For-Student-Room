@@ -1,0 +1,11 @@
+{
+  "scope": "Chatbot, legal agents, legal retrieval, supplement, topic routing, legal knowledge",
+  "command": "python -m pytest tests/test_legal_agents.py tests/test_legal_retrieval.py tests/test_chatbot.py tests/test_legal_supplement.py tests/test_legal_topic_routing.py tests/test_legal_knowledge.py -q",
+  "passed": 108,
+  "failed": 0,
+  "duration_seconds": 2.32,
+  "corpus_manifest_sha256": "054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119d15",
+  "not_full_project_integration_suite": true,
+  "api_build_passed": true,
+  "newly_verified": ["clause checklist is not split into isolated points", "ordinary rental does not use dormitory scope", "missing explicit deposit facet is marked incomplete"]
+}

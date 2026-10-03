@@ -10,11 +10,11 @@ from app.auth.security import make_access_token
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--base-url',default='http://nckh-api-legal-preview-v5:8000')
+    parser.add_argument('--base-url',default='http://nckh-api-legal-preview-v8:8000')
     parser.add_argument('--output',type=Path,default=Path('/eval/reports/legal_agent_http_preview_2026-10-03.json'))
     args=parser.parse_args()
     address=urlparse(args.base_url)
-    if address.scheme!='http' or address.hostname not in ('nckh-api-legal-preview-v5','api','127.0.0.1','localhost'):
+    if address.scheme!='http' or address.hostname not in ('nckh-api-legal-preview-v8','api','127.0.0.1','localhost'):
         raise ValueError('Smoke test only supports the local application')
     engine=create_engine(settings.database_url)
     email='legal-agent-smoke-'+uuid.uuid4().hex+'@example.test'

@@ -1,5 +1,5 @@
 {
-  "phase": "collecting_local_answers",
+  "phase": "stopped_for_isolated_rebuild",
   "started_at_utc": "2026-10-03T02:44:18.724797+00:00",
   "deployed_image": "sha256:22e97959482589ef2793d6c1bfdb4fdf3a32d6060dab1d156decf4afe08df3aa",
   "generation_provider": "qwen",
@@ -22,5 +22,6 @@
       "answer_relevancy": 1,
       "context_utilization": 1
     }
-  }
+  },
+  "stopped_at_utc": "2026-10-03T04:53:32.100931+00:00"
 }

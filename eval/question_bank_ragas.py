@@ -118,6 +118,7 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
         report['run_configuration'] = {'agents_enabled':True,'legal_schema':settings.chatbot_legal_schema,
             'question_analysis_model':settings.chatbot_question_analysis_model,'answer_model':settings.ollama_model,
             'embedding_model':settings.chatbot_embedding_model}
+        report['run_configuration']['legal_answer_mode']='source_select'
     service.repo.record_event = lambda payload: None
     provider_calls = []
     for provider in getattr(service.generator, "providers", []):

@@ -4,7 +4,7 @@
 Không suy ra hiệu lực hiện hành chỉ từ việc tải được tệp. Tài liệu trích tuyển kế thừa chưa được xác nhận từng chữ với toàn văn.
 `source_start` và `source_end` là vị trí ký tự trong văn bản trích đã chuẩn hóa, không phải vị trí byte/trang của PDF gốc. Số trang PDF là trang vật lý; nguồn DOC/DOCX/Markdown dùng trang trong bản trích.
 
-Manifest SHA-256: `deff554affb9ed10c141b7718822bb2a5bd84d758f3707d1f6ba0a0799f0e20f`.
+Manifest SHA-256: `054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119d15`.
 
 | Tài liệu đầu vào | Chủ đề | Điều đã chọn | Số đơn vị | Nguồn công bố | Cách trích/kiểm chứng |
 |---|---|---|---:|---|---|
@@ -33,10 +33,11 @@ Manifest SHA-256: `deff554affb9ed10c141b7718822bb2a5bd84d758f3707d1f6ba0a0799f0e
 | Nghị định 248/2026/NĐ-CP | ecommerce_platform | 1, 2, 3, 4, 7, 17, 18, 19, 20, 52 | 57 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=218747&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Quyết định 14/2025/QĐ-TTg | electricity | 1, 2, 3, 4, 6, 7 | 23 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=213782&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 133/2026/NĐ-CP | electricity | 1, 2, 4, 13, 30, 31 | 24 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=217612&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
-| Nghị định 106/2025/NĐ-CP | fire_safety | 1, 2, 3, 4, 11, 12, 13, 20, 21, 22, 23, 24, 25, 39, 40 | 89 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=213672&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
+| Nghị định 106/2025/NĐ-CP | fire_safety | 1, 2, 3, 4, 11, 12, 13, 20, 21, 22, 23, 24, 25, 39, 40 | 90 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=213672&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 154/2024/NĐ-CP | residence | 1, 2, 5, 6, 7, 16 | 35 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=211821&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 58/2026/NĐ-CP | residence | 4, 6 | 18 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=216977&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Thông tư 116/2026/TT-BCA | residence | 1, 2, 3, 6, 12, 13, 14, 15, 27 | 37 | [Cơ quan nhà nước](https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
+| Luật Cư trú 68/2020/QH14 | residence | 27 | 3 | [Cơ quan nhà nước](https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
 | Luật 118/2025/QH15 | residence | 4, 10, 11 | 18 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
 | Nghị định 347/2026/NĐ-CP | residence | 17, 18, 19, 29, 30, 32, 33, 35, 41 | 20 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/9/347_2026_nd-cp_08092026_7-signed.signed.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
 | Nghị định 117/2007/NĐ-CP | water_cantho | 1, 2, 44, 48, 49, 50, 54, 56, 57, 58, 65, 66 | 51 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=33015&pageid=27160) | antiword from government original; original attachment; no OCR; supply-contract parties distinct from landlord/tenant |
@@ -257,7 +258,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### fire106
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/fire106.json`.
-- SHA cấu trúc: `bb344e8117f6542b5663a736fa745d6f11cf923927e434dc92613194c6f1416e`.
+- SHA cấu trúc: `90afa0841844d897e47f379ce141908c6d5a6443004b1ba3b1834ca148283df9`.
 - Đầu vào: `docs/legal_agent_originals_20261003/fire106.pdf`.
 - SHA đầu vào: `67f0d65f360ea44055942dc2639e0dbbbc1c29b22faabdfd7259cbbb224114f2`.
 - Nguồn: https://vanban.chinhphu.vn/?docid=213672&pageid=27160
@@ -285,6 +286,14 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 - Đầu vào: `docs/legal_agent_originals_20261003/residence116.pdf`.
 - SHA đầu vào: `c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f`.
 - Nguồn: https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073
+
+### residence68
+
+- Tệp cấu trúc: `docs/legal_corpus_v2/residence68.json`.
+- SHA cấu trúc: `9a7bc350bfffb3ca645f9f3e6041fd1651ee876a11995575ea0a82c87800dffc`.
+- Đầu vào: `docs/legal_sources_originals_20261003/residence68.pdf`.
+- SHA đầu vào: `fda03bdaa433b3e86807d9fa0e6cdae50d1ea2ae37aa59ffe992f1de1c7f17d1`.
+- Nguồn: https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf
 
 ### amend118
 

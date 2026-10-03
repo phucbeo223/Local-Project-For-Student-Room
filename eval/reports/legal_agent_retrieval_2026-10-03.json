@@ -6,12 +6,17 @@
     "every_source_has_government_url": true,
     "contract_checklist_retains_article": true,
     "rental_contract_price_and_payment": true,
+    "rental_contract_deposit_facet": true,
     "contract_effect_not_statutory_commencement": true,
     "deposit_exception_preserved": true,
     "citizen_residence_duties": true,
+    "ordinary_rental_residence_conditions": true,
+    "ordinary_rental_excludes_dormitory": true,
     "rental_residence_checklist_complete": true,
     "moving_new_residence_direct_rule": true,
     "house_fire_escape_requirement": true,
+    "locked_escape_door_correct_clause": true,
+    "no_locked_door_in_clause_two": true,
     "landlord_authority_rule": true,
     "mixed_identity_three_topics": true,
     "contract_identity_contents": true,
@@ -19,10 +24,10 @@
   },
   "passed": true,
   "integrity": {
-    "chunks": 1291,
-    "vectors": 1291,
-    "identified": 1291,
-    "parented": 1291
+    "chunks": 1295,
+    "vectors": 1295,
+    "identified": 1295,
+    "parented": 1295
   },
   "cases": [
     {
@@ -83,6 +88,17 @@
       "rows": [
         {
           "rank": 1,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:2959:1"
+        },
+        {
+          "rank": 2,
           "title": "2026_204_79_VBHN-VPQH",
           "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
           "category": "housing_contract",
@@ -93,7 +109,7 @@
           "provision_id": "74e00cffe24839460edd:12930:3"
         },
         {
-          "rank": 2,
+          "rank": 3,
           "title": "2026_204_79_VBHN-VPQH",
           "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
           "category": "housing_contract",
@@ -102,17 +118,6 @@
           "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
           "context_complete": true,
           "provision_id": "74e00cffe24839460edd:12930:4"
-        },
-        {
-          "rank": 3,
-          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
-          "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
-          "category": "housing_contract",
-          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
-          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
-          "content": "2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
-          "context_complete": true,
-          "provision_id": "e36235277d9ced3a03df:6149:2"
         },
         {
           "rank": 4,
@@ -611,17 +616,28 @@
       "rows": [
         {
           "rank": 1,
-          "title": "Thông tư 116/2026/TT-BCA",
-          "heading": "Điều 12. Đăng ký tạm trú | Khoản 2",
+          "title": "Luật Cư trú 68/2020/QH14",
+          "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 1",
           "category": "residence",
-          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
-          "source_path": "docs/legal_corpus_v2/residence116.json",
-          "content": "2. Học sinh, sinh viên, học viên đến ở tập trung trong ký túc xá, khu nhà ở\ncủa học sinh, sinh viên, học viên; người lao động dén ở tập trung tại các khu nhà\nở của người lao động, khu lán trại công trường xây dựng, nông trường, nông\ntrại, đồn điền; người hoạt động tín ngưỡng, tôn giáo sinh sống trong cơ sở tín\nngưỡng, cơ sở tôn giáo; trẻ em, người khuyết tật, người không nơi nương tựa\nđược nhận nuôi và sinh sống trong cơ sở tín ngưỡng, cơ sở tôn giáo; người được\nchăm sóc, nuôi dưỡng, trợ giúp tại cơ sở trợ giúp xã hội có thể thực hiện đăng ký\ntạm trú thông qua cơ quan, tô chức quan lý trực tiếp chỗ ở đó.\n\nCo quan, tổ chức quan lý trực tiếp có trách nhiệm lập danh sách người tạm\ntrú, kèm Tờ khai thay đổi thông tin cư trú của từng người, van bản đề nghị đăng\nký tạm trú trong đó ghi rõ thông tin về chỗ ở hợp pháp và được cơ quan đăng ký\ncư trú cập nhật thông tin về nơi tạm trú vào Cơ sở dữ liệu về cư trú. Danh sách\nbao gồm những thông tin cơ bản của từng người: họ, chữ đệm và tên; ngày, tháng,\nnăm sinh; giới tính; số định danh cá nhân và thời hạn tạm trú.",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/residence68.json",
+          "content": "1. Công dân đến sinh sống tại chỗ ở hợp pháp ngoài phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú để lao động, học tập hoặc vì mục đích\nkhác từ 30 ngày trở lên thì phải thực hiện đăng ký tạm trú.",
           "context_complete": true,
-          "provision_id": "c7f081986711630f8ecd:16426:2"
+          "provision_id": "fda03bdaa433b3e86807:34046:1"
         },
         {
           "rank": 2,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "1. Công dân đến sinh sống tại chỗ ở hợp pháp ngoài phạm vi đơn vị hành chính cấp xã nơi đã đăng ký thường trú để lao động, học tập hoặc vì mục đích khác từ 30 ngày trở lên thì phải thực hiện đăng ký tạm trú.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:473:1"
+        },
+        {
+          "rank": 3,
           "title": "Luat-68-2020-QH14-doi-chieu-20261003",
           "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 3",
           "category": "residence",
@@ -630,28 +646,6 @@
           "content": "3. Trong thời hạn 15 ngày trước ngày kết thúc thời hạn tạm trú đã đăng ký, công dân phải làm thủ tục gia hạn tạm trú.\nHồ sơ, thủ tục gia hạn tạm trú thực hiện theo quy định tại khoản 1 và khoản 2 Điều này. Sau khi thẩm định hồ sơ, cơ quan đăng ký cư trú có trách nhiệm cập nhật thông tin về thời hạn tạm trú mới của người đăng ký vào Cơ sở dữ liệu về cư trú và thông báo cho người đăng ký về việc đã cập nhật thông tin đăng ký tạm trú; trường hợp từ chối đăng ký thì phải trả lời bằng văn bản và nêu rõ lý do.",
           "context_complete": true,
           "provision_id": "1b2041ad5663165a8fcf:880:3"
-        },
-        {
-          "rank": 3,
-          "title": "Thông tư 116/2026/TT-BCA",
-          "heading": "Điều 13. Hủy bỏ đăng ký tạm trú | Khoản 1",
-          "category": "residence",
-          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
-          "source_path": "docs/legal_corpus_v2/residence116.json",
-          "content": "1. Trường hợp cơ quan đăng ký cư trú giải quyết thủ tục đăng ký tạm trú\nhoặc các thủ tục khác về cư trú làm thay đổi kết quả đăng ký tạm trú không đúng\nthấm quyền, không đúng điều kiện và không đúng đối tượng theo quy định của\nLuật Cư trú thì phải hủy kết quả đã giải quyết. Trường hợp phức tạp thì báo cáo\nThủ trưởng cấp trên trực tiếp của cơ quan đã đăng ký tạm trú xem xét ra quyết\nđịnh hủy bỏ việc đăng ký tạm trú hoặc các thủ tục khác về cư trú.",
-          "context_complete": true,
-          "provision_id": "c7f081986711630f8ecd:17968:1"
-        },
-        {
-          "rank": 4,
-          "title": "Thông tư 116/2026/TT-BCA",
-          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
-          "category": "residence",
-          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
-          "source_path": "docs/legal_corpus_v2/residence116.json",
-          "content": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.",
-          "context_complete": null,
-          "provision_id": null
         }
       ]
     },
@@ -725,17 +719,6 @@
         {
           "rank": 2,
           "title": "Thông tư 116/2026/TT-BCA",
-          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
-          "category": "residence",
-          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
-          "source_path": "docs/legal_corpus_v2/residence116.json",
-          "content": "thủ tục về cư trú\n\n6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh.",
-          "context_complete": true,
-          "provision_id": "c7f081986711630f8ecd:1432:6"
-        },
-        {
-          "rank": 3,
-          "title": "Thông tư 116/2026/TT-BCA",
           "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 7",
           "category": "residence",
           "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
@@ -743,6 +726,17 @@
           "content": "thủ tục về cư trú\n\n7. Trường hợp công dân cung cấp giấy tờ, tài liệu trong hồ sơ đề nghị\nđăng ký cư trú thì bản quét hoặc bản chụp giấy tờ bằng thiết bị điện tử từ giấy tờ\nđược cấp hợp lệ còn giá trị sử đụng phải bảo đảm rõ nét, đầy đủ, toàn vẹn về nội\ndung; đã được hợp pháp hóa lãnh sự, dịch sang tiếng Việt theo quy định nếu là\ngiấy tờ do cơ quan có thẩm quyền nước ngoài cấp trừ trường hợp được miễn hợp\npháp hóa lãnh sự.\n\n§. Việc thông báo về kết quả giải quyết thủ tục về cư trú được thực hiện dưới\nhình thức văn bản giấy, văn bản điện tử, tin nhắn SMS, thông báo qua Ứng dụng\nđịnh danh quốc gia (VNeID).",
           "context_complete": true,
           "provision_id": "c7f081986711630f8ecd:1432:7"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 2",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "2. Người đăng ký tạm trú nộp hồ sơ đăng ký tạm trú đến cơ quan đăng ký cư trú nơi mình dự kiến tạm trú.\nKhi tiếp nhận hồ sơ đăng ký tạm trú, cơ quan đăng ký cư trú kiểm tra và cấp phiếu tiếp nhận hồ sơ cho người đăng ký; trường hợp hồ sơ chưa đầy đủ thì hướng dẫn người đăng ký bổ sung hồ sơ.\nTrong thời hạn 03 ngày làm việc kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ, cơ quan đăng ký cư trú có trách nhiệm thẩm định, cập nhật thông tin về nơi tạm trú mới, thời hạn tạm trú của người đăng ký vào Cơ sở dữ liệu về cư trú và thông báo cho người đăng ký về việc đã cập nhật thông tin đăng ký tạm trú; trường hợp từ chối đăng ký thì phải trả lời bằng văn bản và nêu rõ lý do.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:2"
         },
         {
           "rank": 4,
@@ -896,16 +890,27 @@
         {
           "rank": 1,
           "title": "Nghị định 106/2025/NĐ-CP",
+          "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 3",
+          "category": "fire_safety",
+          "source_url": "https://vanban.chinhphu.vn/?docid=213672&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/fire106.json",
+          "content": "3. Phat tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì cửa đi đã được lắp đặt trên lối thoát nạn hoặc đường\nthoát nạn;\n\nb) Khóa cửa đi lắp đặt trên lối thoát nạn hoặc đường thoát nạn.",
+          "context_complete": true,
+          "provision_id": "67f0d65f360ea4405594:36141:3"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 106/2025/NĐ-CP",
           "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 2",
           "category": "fire_safety",
           "source_url": "https://vanban.chinhphu.vn/?docid=213672&pageid=27160",
           "source_path": "docs/legal_corpus_v2/fire106.json",
-          "content": "2. Phat tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi để\nvat tư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác cản trở lôi\nthoát nạn hoặc đường thoát nạn. .\n\n; 3. Phat tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì cửa đi đã được lắp đặt trên lối thoát nạn hoặc đường\nthoát nạn;\n\n! b) Khóa cửa đi lắp đặt trên lối thoát nạn hoặc đường thoát nạn.",
+          "content": "2. Phat tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi để\nvat tư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác cản trở lôi\nthoát nạn hoặc đường thoát nạn. .",
           "context_complete": true,
           "provision_id": "67f0d65f360ea4405594:36141:2"
         },
         {
-          "rank": 2,
+          "rank": 3,
           "title": "Nghị-định-105-2025-NĐ-CP",
           "heading": "Điều 13. Nội dung, thẩm quyền kiểm tra về phòng cháy, chữa cháy | Khoản 1",
           "category": "fire_safety",
@@ -914,17 +919,6 @@
           "content": "Ghi chú tuyển chọn: Chỉ tuyển các điểm của khoản 1 liên quan nhà ở, người thuê và an toàn thoát nạn; điểm a, b khoản 2 đã thay bằng nội dung Nghị định 347/2026/NĐ-CP Điều 17.\n\n1. Nội dung kiểm tra về phòng cháy, chữa cháy theo quy định tại khoản 2 Điều 11 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ trong việc:\n\na) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của người đứng đầu cơ sở bao gồm: trách nhiệm trong việc thực hiện quy định tại các điểm a, b, c, đ, e, g và điểm h khoản 3 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; tổ chức thực hiện, kiểm tra, đôn đốc, giám sát cơ quan, tổ chức, cá nhân thuộc phạm vi quản lý về việc thực hiện quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nc) Trang bị phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy, nguồn nước chữa cháy theo quy định;\n\nd) Duy trì hoạt động các phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy; nguồn nước chữa cháy;\n\ne) Duy trì điều kiện an toàn phòng cháy trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nh) Duy trì giải pháp thoát nạn, ngăn cháy, chống cháy lan, chống khói;\n\nl) Chấp hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nm) Duy trì các biển cấm, biển báo, biển chỉ dẫn;\n\nn) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của chủ hộ gia đình trực tiếp sử dụng nhà ở, người thuê, mượn, ở nhờ nhà ở theo quy định tại khoản 6 và khoản 8 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\no) Duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn;",
           "context_complete": true,
           "provision_id": "96d3c8812018b49f0968:1574:1"
-        },
-        {
-          "rank": 3,
-          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
-          "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 7",
-          "category": "fire_safety",
-          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
-          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
-          "content": "7. Cá nhân có trách nhiệm sau đây:\n\na) Chấp hành quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ của cơ quan, tổ chức hoặc người có thẩm quyền theo quy định của pháp luật;\n\nb) Tìm hiểu kiến thức về phòng cháy, chữa cháy, cứu nạn, cứu hộ và kỹ năng thoát nạn, sử dụng dụng cụ, phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ thông dụng;\n\nc) Bảo đảm an toàn trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nd) Phát hiện, ngăn chặn nguy cơ trực tiếp gây cháy, nổ và các hành vi vi phạm quy định an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ trong điều kiện, khả năng cho phép;\n\nđ) Tham gia chữa cháy, cứu nạn, cứu hộ khi được cơ quan, người có thẩm quyền huy động; chấp hành yêu cầu, quyết định của người chỉ huy chữa cháy, người chỉ huy cứu nạn, cứu hộ khi tham gia chữa cháy, cứu nạn, cứu hộ.",
-          "context_complete": true,
-          "provision_id": "0ccafc9e862919a86083:65:7"
         },
         {
           "rank": 4,

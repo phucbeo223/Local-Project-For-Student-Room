@@ -119,6 +119,49 @@ def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch)
     finally:client.close()
 
 
+def test_local_selection_copies_source_numbers_and_exceptions_without_paraphrase():
+    from app.room_service.chatbot.source_selection import selection_candidates,render_selection
+    rows=[{'rank':1,'title':'Nguồn thử','category':'housing_contract','heading':'Điều 1. Điều kiện | Khoản 2',
+        'content':'2. Trả lại 17 đơn vị khi đã thực hiện hợp đồng, trừ trường hợp có thỏa thuận khác.','context_complete':True}]
+    candidates=selection_candidates(rows)
+    result=render_selection('Hoàn cọc theo hợp đồng thế nào?',rows,candidates,
+        json.dumps({'selected_ids':[1],'insufficient':False}),'qwen-local','qwen-test')
+    assert result.literal_source_answer and rows[0]['content'] in result.text
+    assert '17 đơn vị' in result.text and '[1]' in result.text
+    with pytest.raises(ValueError):render_selection('question',rows,candidates,
+        json.dumps({'selected_ids':[999],'insufficient':False}),'qwen-local','qwen-test')
+    with pytest.raises(ValueError):render_selection('question',rows,[dict(candidates[0],text='fabricated legal text')],
+        json.dumps({'selected_ids':[1],'insufficient':False}),'qwen-local','qwen-test')
+
+
+def test_source_selection_keeps_article_checklist_and_marks_fragments_incomplete():
+    from app.room_service.chatbot.source_selection import selection_candidates,render_selection
+    rows=[{'rank':1,'title':'Nguồn thử','category':'housing_contract','heading':'Điều 163. Hợp đồng về nhà ở',
+        'content':'Hợp đồng phải lập thành văn bản.\n\n1. Tên các bên.\n\n2. Thời hạn và giá.','context_complete':False}]
+    candidates=selection_candidates(rows)
+    assert len(candidates)==1 and candidates[0]['text']==rows[0]['content']
+    result=render_selection('Nội dung hợp đồng thuê trọ?',rows,candidates,
+        json.dumps({'selected_ids':[1],'insufficient':False}),'qwen-local','qwen-test')
+    assert 'Chưa đủ căn cứ' in result.text
+
+
+def test_clause_checklist_keeps_every_point_with_its_introduction():
+    from app.room_service.chatbot.source_selection import selection_candidates
+    content='1. Phải bảo đảm các điều kiện:\n\na) Điều kiện về điện.\n\nb) Điều kiện về bếp.\n\nc) Lối thoát nạn.'
+    rows=[{'rank':1,'title':'Nguồn thử','category':'fire_safety','heading':'Điều 1 | Khoản 1','content':content}]
+    candidates=selection_candidates(rows)
+    assert len(candidates)==1 and candidates[0]['text']==content
+
+
+def test_missing_deposit_facet_is_not_marked_complete():
+    from app.room_service.chatbot.source_selection import selection_candidates,render_selection
+    rows=[{'rank':1,'title':'Nguồn thử','category':'housing_contract','heading':'Điều kiện hợp đồng',
+           'content':'Các bên thỏa thuận giá thuê, thời hạn và phương thức thanh toán.'}]
+    result=render_selection('Hợp đồng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán?',rows,selection_candidates(rows),
+        json.dumps({'selected_ids':[1],'insufficient':False}),'qwen-local','qwen-test')
+    assert 'Chưa đủ căn cứ' in result.text
+
+
 def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch):
     from app.room_service.chatbot.providers import GeminiGenerator
     client=GeminiGenerator('test','gemini-test')

@@ -43,6 +43,7 @@ def init_chatbot(engine: Engine) -> None:
                 max_output_tokens=settings.chatbot_max_output_tokens,
                 keep_alive=settings.ollama_keep_alive,
                 legal_timeout_seconds=settings.chatbot_legal_timeout_seconds,
+                legal_answer_mode='source_select' if settings.chatbot_agents_enabled else 'synthesize',
             )
         )
 

@@ -33,6 +33,19 @@ def join_pages(pages):
 
 
 def build(source, pages, selected=None, advisory=False):
+    # Corrections are page-specific and reviewed against images of the signed PDF.
+    # Never infer labels, dates, amounts, or legal words from another provision.
+    corrections_path = ROOT/'docs/legal_agent_originals_20261003/verified_ocr_corrections.json'
+    corrections = json.loads(corrections_path.read_text(encoding='utf-8')) if corrections_path.exists() else []
+    reviewed = [c for c in corrections if c['source_id'] == source['id']]
+    pages = [dict(p) for p in pages]
+    for correction in reviewed:
+        page = next(p for p in pages if p['page'] == correction['page'])
+        if page['text'].count(correction['before']) != 1:
+            raise ValueError('Reviewed OCR correction no longer matches raw page: '+source['id'])
+        page['text'] = page['text'].replace(correction['before'], correction['after'])
+    if reviewed:
+        source = dict(source, reviewed_ocr_corrections=reviewed)
     text, spans = join_pages(pages)
     annex = re.search(r'(?im)^\s*Phụ lục(?:\s+[IVX\d]+)?\s*$',text)
     if annex:
@@ -111,7 +124,8 @@ def main():
                       page_kind='physical_pdf',not_exhaustive=True,verification='OCR; selected critical pages visually checked, other text requires review')
         entries.append(build(source,pages,articles))
     # Keep literal amendments as their own source; never label a derived consolidation official.
-    for key, category, title, selection in [('amend118','residence','Luật 118/2025/QH15',[4,10,11]),
+    for key, category, title, selection in [('residence68','residence','Luật Cư trú 68/2020/QH14',[27]),
+                                           ('amend118','residence','Luật 118/2025/QH15',[4,10,11]),
                                            ('amend347','residence','Nghị định 347/2026/NĐ-CP',[17,18,19,29,30,32,33,35,41])]:
         raw = by_id[key]
         pages = json.loads((ROOT/'eval/source_supplement_20261003'/(key+'.pages.json')).read_text(encoding='utf-8'))

@@ -1,0 +1,1954 @@
+{
+  "started_at_utc": "2026-10-03T07:54:41.010907+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "category": "housing_contract",
+      "answer": "Mình tìm thấy tài liệu liên quan nhưng chưa tổng hợp được kết luận đáng tin cậy. [1] [2] [3] [4]\n\n- Mở Nguồn tham khảo bên dưới để xem trích đoạn.\n- Kiểm tra điều kiện áp dụng và hiệu lực văn bản.\n\nThông tin tham khảo, không thay thế tư vấn pháp lý.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": false,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Số điều được khẳng định không khớp điều khoản của nguồn trích dẫn.",
+        "Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.",
+        "Claim 1 sai vì Điều 163 khoản 6 chỉ bắt buộc ghi rõ trách nhiệm sửa chữa hư hỏng đối với trường hợp 'thuê mua nhà ở', không phải hợp đồng thuê trọ thông thường.",
+        "Claim 2 thiếu căn cứ vì nguồn [3] không loại trừ việc Điều 398 có thể điều chỉnh trách nhiệm sửa chữa hư hỏng trong các loại hợp đồng khác."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "template",
+      "generation_model": null,
+      "latency_ms": 132957,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khuyến nghị: Sinh viên nên kiểm tra xem hợp đồng có được lập thành văn bản và ghi rõ họ tên, địa chỉ các bên cũng như mô tả đặc điểm nhà ở theo Điều 163 [3]. Cần đối chiếu nội dung về giá tiền, phương thức thanh toán, thời hạn thuê, quyền nghĩa vụ và trách nhiệm sửa chữa hư hỏng để đảm bảo phù hợp với quy định tại khoản 2 Điều 398 [2]. Ngoài ra, hãy xác minh điều khoản về thời điểm có hiệu lực của hợp đồng (thường là ngày ký hoặc theo thỏa thuận) và các cam kết khác theo Điều 163 [3] cùng Điều 117 [4]. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 29854
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khuyến nghị: Nên kiểm tra các điều khoản về quyền và nghĩa vụ của các bên cũng như trách nhiệm sửa chữa hư hỏng trong hợp đồng thuê trọ, vì đây là nội dung bắt buộc phải ghi rõ theo quy định tại Điều 163 khoản 6 [3]. Lưu ý rằng trách nhiệm cụ thể về việc sửa chữa hư hỏng thuộc phạm vi điều chỉnh của Điều 163 khoản 6 [3], không nằm trong Điều 398. Hợp đồng có thể bao gồm các nội dung khác như giá, thời hạn và phương thức thanh toán theo quy định tại Điều 398 khoản 2 [2]. Cần phân biệt giữa nội dung bắt buộc ghi nhận trong hợp đồng với các khuyến nghị kiểm tra để đảm bảo quyền lợi khi ký kết.",
+          "latency_ms": 82243
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "điều khoản hợp đồng thuê trọ",
+              "lưu ý khi ký hợp đồng thuê nhà",
+              "quy định hợp đồng thuê phòng trọ"
+            ],
+            "categories": [
+              "housing_contract",
+              "student_housing"
+            ],
+            "missing_information": [
+              "loại hình nhà trọ",
+              "địa điểm thuê trọ"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 1949
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 10409
+        },
+        {
+          "agent": "answer",
+          "provider": "template",
+          "model": null,
+          "status": "insufficient",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 5329
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 3062
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở",
+        "1. Các bên trong hợp đồng có quyền thỏa thuận về nội dung trong hợp đồng.\n\n2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
+        "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;\n\n2. Mô tả đặc điểm của nhà ở giao dịch và đặc điểm của thửa đất ở gắn với nhà ở đó.\n\nĐối với hợp đồng mua bán, hợp đồng thuê mua căn hộ chung cư thì các bên phải ghi rõ phần sở hữu chung, sử dụng chung; thời hạn sử dụng nhà chung cư theo hồ sơ thiết kế; diện tích sử dụng thuộc quyền sở hữu riêng; diện tích sàn căn hộ; mục đích sử dụng của phần sở hữu chung, sử dụng chung trong nhà chung cư theo đúng mục đích thiết kế đã được phê duyệt; giá dịch vụ quản lý vận hành nhà chung cư trong trường hợp chưa tổ chức Hội nghị nhà chung cư lần đầu; trách nhiệm đóng, mức đóng kinh phí bảo trì và thông tin tài khoản nộp kinh phí bảo trì;\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;\n\n5. Thời gian giao nhận nhà ở; thời gian bảo hành nhà ở nếu là mua, thuê mua nhà ở được đầu tư xây dựng mới; thời hạn cho thuê mua, cho thuê, thế chấp, cho mượn, cho ở nhờ, ủy quyền quản lý nhà ở; thời hạn góp vốn; thời hạn sở hữu đối với trường hợp mua bán nhà ở có thời hạn;\n\n6. Quyền và nghĩa vụ của các bên.\n\nTrường hợp thuê mua nhà ở thì phải ghi rõ quyền và nghĩa vụ của các bên về việc sửa chữa hư hỏng của nhà ở trong quá trình thuê mua;\n\n7. Cam kết của các bên;\n\n8. Thỏa thuận khác;\n\n9. Thời điểm có hiệu lực của hợp đồng;\n\n10. Ngày, tháng, năm ký kết hợp đồng;\n\n11. Chữ ký và ghi rõ họ, tên của các bên, nếu là tổ chức thì phải đóng dấu (nếu có) và ghi rõ chức vụ của người ký.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2035,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở",
+          "excerpt": "1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2087,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 398. Nội dung của hợp đồng",
+          "excerpt": "1. Các bên trong hợp đồng có quyền thỏa thuận về nội dung trong hợp đồng.\n\n2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2024,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở",
+          "excerpt": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;\n\n2. Mô tả đặc điểm của nhà ở giao dịch và đặc điểm của thửa đất ở gắn với nhà ở đó.\n\nĐối với hợp đồng mua bán, hợp đồng thuê mua căn hộ chung cư thì các bên phải ghi rõ phần sở hữu chung, sử dụng chung; thời hạn sử dụng nhà chung cư theo hồ sơ thiết kế; diện tích sử dụng thuộc quyền sở hữu riêng; diện tích sàn căn hộ; mục đích sử dụng của phần sở hữu chung, sử dụng chung trong nhà chung cư theo đúng mục đích thiết kế đã được phê duyệt; giá dịch vụ quản lý vận hành nhà chung cư trong trường hợp chưa tổ chức Hội nghị nhà chung cư lần đầu; trách nhiệm đóng, mức đóng kinh phí bảo trì và thông tin tài khoản nộp kinh phí bảo trì;\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;\n\n5. Thời gian giao nhận nhà ở; thời gian bảo hành nhà ở nếu là mua, thuê mua nhà ở được đầu tư xây dựng mới; thời hạn cho thuê mua, cho thuê, thế chấp, cho mượn, cho ở nhờ, ủy quyền quản lý nhà ở; thời hạn góp vốn; thời hạn sở hữu đối với trường hợp mua bán nhà ở có thời hạn;\n\n6. Quyền và nghĩa vụ của các bên.\n\nTrường hợp thuê mua nhà ở thì phải ghi rõ quyền và nghĩa vụ của các bên về việc sửa chữa hư hỏng của nhà ở trong quá trình thuê mua;\n\n7. Cam kết của các bên;\n\n8. Thỏa thuận khác;\n\n9. Thời điểm có hiệu lực của hợp đồng;\n\n10. Ngày, tháng, năm ký kết hợp đồng;\n\n11. Chữ ký và ghi rõ họ, tên của các bên, nếu là tổ chức thì phải đóng dấu (nếu có) và ghi rõ chức vụ của người ký."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2059,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- 2026_204_79_VBHN-VPQH — Điều 163. Hợp đồng về nhà ở | Khoản 4: “4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;” [2].\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 398. Nội dung của hợp đồng | Khoản 2: “2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.” [3].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Không thể kết luận pháp luật không có quy định từ các đoạn truy xuất."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 166853,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Hợp đồng thuê nhà ở phải được lập thành văn bản và các bên tự do thỏa thuận nội dung [1]. Theo quy định, hợp đồng cần ghi rõ giá trị giao dịch (tiền cọc, tiền thuê) nếu có thỏa thuận về giá [1]. Đồng thời, hợp đồng cũng phải nêu rõ thời hạn và phương thức thanh toán tiền trong trường hợp cho thuê nhà ở [2]. Các văn bản pháp luật còn khuyến nghị nên bao gồm quyền nghĩa vụ các bên để bảo vệ lợi ích hợp pháp [3]. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 63302
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Hợp đồng thuê nhà phải được lập thành văn bản và bao gồm các nội dung do các bên thỏa thuận; trong đó nếu có thỏa thuận về giá thì phải ghi rõ giá giao dịch [1], còn thời hạn và phương thức thanh toán tiền cũng là nội dung bắt buộc khi có thỏa thuận về cho thuê [2]. Tuy nhiên, pháp luật hiện hành không quy định cụ thể rằng hợp đồng *phải* liệt kê riêng biệt khoản \"tiền cọc\" hay chi tiết \"ngày thanh toán\" từng kỳ như một điều kiện bắt buộc của hình thức văn bản [1][2], mà chỉ yêu cầu ghi nhận các nội dung đã được hai bên thống nhất. Các bên có quyền tự do thỏa thuận thêm các điều khoản khác như tiền cọc, thời điểm nộp tiền cụ thể vào hợp đồng để bảo vệ quyền lợi cho nhau, nhưng việc thiếu các mục này trong văn bản không làm vô hiệu hóa toàn bộ hợp đồng nếu các điều kiện về năng lực chủ thể và sự tự nguyện vẫn được đảm bảo [3].\n\nKhuyến nghị: nên kiểm tra lại nội dung thỏa thuận thực tế giữa chủ trọ và người thuê để xác định xem tiền cọc có được ghi nhận rõ ràng hay không, đồng thời đối chiếu với các điều khoản thanh toán đã ký kết. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 92672
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "nội dung hợp đồng thuê nhà",
+              "quy định về tiền cọc và tiền thuê nhà",
+              "các điều khoản bắt buộc trong hợp đồng thuê phòng"
+            ],
+            "categories": [
+              "housing_contract"
+            ],
+            "missing_information": [],
+            "as_of_date": null
+          },
+          "duration_ms": 3607
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 992
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 3998
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "accepted",
+          "duration_ms": 2148
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+        "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
+        "2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2025,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "excerpt": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2026,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
+          "excerpt": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2087,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
+          "excerpt": "2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2059,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- 2026_204_79_VBHN-VPQH — Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 2: “2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật.” [1].\n\n- 2026_204_79_VBHN-VPQH — Điều 163. Hợp đồng về nhà ở | Khoản 3: “3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Nguồn nêu một trường hợp cụ thể, chưa loại trừ các căn cứ khác; không tự kết luận chỉ được áp dụng trong trường hợp đó.",
+        "Claim 1 sai vì nguồn [1] quy định điều kiện cần là 'được bên thuê đồng ý' cải tạo, không phải chỉ cần cải tạo và thời gian còn lại là đủ. Từ 'chỉ' làm sai lệch bản chất điều kiện."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 120949,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ chỉ được quyền tăng giá khi đã cải tạo nhà ở và nhận được sự đồng ý của người thuê [1]. Nếu thời gian còn lại trong hợp đồng từ một phần ba trở xuống, hai bên có thể thỏa thuận mức giá mới; nếu không thống nhất được thì chủ trọ có quyền đơn phương chấm dứt hợp đồng nhưng phải bồi thường cho người thuê theo quy định pháp luật [1]. Trong mọi trường hợp, giá trị giao dịch về nhà ở giữa các bên đều phải được lập thành văn bản và tuân thủ các quy định chung về giá nếu Nhà nước có ban hành [2][3]. Khuyến nghị: nên kiểm tra kỹ điều khoản cải tạo và thời hạn còn lại trong hợp đồng trước khi đề xuất tăng giá. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 55370
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ chỉ được quyền đơn phương điều chỉnh giá thuê khi thực hiện cải tạo nhà ở và thời gian còn lại của hợp đồng từ 1/3 trở xuống, nếu hai bên không thỏa thuận được mức giá mới [1]. Trong trường hợp này, chủ trọ có thể chấm dứt hợp đồng nhưng phải bồi thường cho người thuê theo quy định pháp luật [1]. Ngoài căn cứ cải tạo nêu trên, các văn bản cung cấp chưa tìm thấy quy định cụ thể về việc tăng giá trong các tình huống khác như thị trường biến động hay thỏa thuận tự nguyện giữa hai bên [2][3]. Khuyến nghị: nên kiểm tra lại điều khoản về giá và thời hạn trong hợp đồng thuê hiện hành để xác định quyền lợi chính xác. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 55519
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "tăng giá thuê trọ trong hợp đồng",
+              "quy định tăng giá thuê nhà",
+              "điều chỉnh giá thuê nhà trọ"
+            ],
+            "categories": [
+              "housing_contract"
+            ],
+            "missing_information": [
+              "nội dung hợp đồng hiện tại về điều khoản tăng giá",
+              "thỏa thuận giữa hai bên về việc tăng giá"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 4446
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 3,
+          "duration_ms": 1249
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2104
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2196
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật.",
+        "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+        "1. Bên cho thuê và bên thuê nhà ở được thỏa thuận về thời hạn thuê, giá thuê và hình thức trả tiền thuê nhà ở theo định kỳ hoặc trả một lần; trường hợp Nhà nước có quy định về giá thuê nhà ở thì các bên phải thực hiện theo quy định đó."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2041,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 2",
+          "excerpt": "2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2025,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "excerpt": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2040,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 1",
+          "excerpt": "1. Bên cho thuê và bên thuê nhà ở được thỏa thuận về thời hạn thuê, giá thuê và hình thức trả tiền thuê nhà ở theo định kỳ hoặc trả một lần; trường hợp Nhà nước có quy định về giá thuê nhà ở thì các bên phải thực hiện theo quy định đó."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 328. Đặt cọc | Khoản 2: “2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.” [1].\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 328. Đặt cọc | Khoản 1: “1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.934,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Nguồn nêu một trường hợp cụ thể, chưa loại trừ các căn cứ khác; không tự kết luận chỉ được áp dụng trong trường hợp đó.",
+        "Claim 3 liệt kê thiếu các trường hợp đơn phương chấm dứt hợp đồng khác được quy định tại Điều 172 Khoản 2 (như điểm a, d, đ, g), gây hiểu lầm là chỉ có 3 trường hợp đó."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 181732,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khi trả phòng, tiền cọc được hoàn lại hoặc trừ để thực nghĩa vụ nếu hợp đồng được giao kết và thực hiện [1]. Nếu bên thuê từ chối giao kết/thực hiện hợp đồng, tài sản đặt cọc thuộc về chủ trọ; ngược lại, chủ trọ từ chối thì phải trả lại tiền cọc kèm khoản tương đương giá trị trừ trường hợp có thỏa thuận khác [1]. Việc chấm dứt hợp đồng đơn phương chỉ xảy ra khi bên thuê vi phạm nghiêm trọng như không trả tiền đủ 03 tháng trở lên, sử dụng sai mục đích hoặc tự ý cải tạo nhà ở theo quy định tại Điều 172 Khoản 2 [3]. Mọi quyền lợi về hoàn trả đều dựa trên thỏa thuận cụ thể trong hợp đồng và tình trạng thực tế khi trả phòng.\n\nKhuyến nghị: nên kiểm tra lại điều khoản về đặt cọc và lý do chấm dứt hợp đồng trong văn bản ký kết để xác định chính xác số tiền phải hoàn trả hoặc khấu trừ. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 85053
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khi trả phòng, tiền cọc được hoàn lại hoặc trừ để thực hiện nghĩa vụ trả tiền nếu hợp đồng được giao kết và thực hiện [1]. Nếu bên nhận đặt cọc (chủ trọ) từ chối giao kết hoặc thực hiện hợp đồng, phải trả lại tài sản đặt cọc kèm khoản tiền tương đương giá trị đó, trừ trường hợp có thỏa thuận khác [1]. Tuy nhiên, việc chủ trọ đơn phương chấm dứt hợp đồng để thu hồi nhà chỉ được phép khi người thuê vi phạm các điều kiện cụ thể như không trả đủ tiền thuê từ 03 tháng trở lên, sử dụng sai mục đích hoặc gây mất trật tự nghiêm trọng theo Điều 172 Khoản 2 [3]. Các trường hợp khác về đơn phương chấm dứt cần đối chiếu kỹ thỏa thuận trong hợp đồng để xác định quyền và nghĩa vụ của từng bên.\n\nLưu ý: Đây là thông tin tham khảo dựa trên văn bản được cung cấp, không thay thế tư vấn pháp lý chuyên nghiệp từ luật sư.",
+          "latency_ms": 86116
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "quy định hoàn trả tiền cọc thuê nhà",
+              "thủ tục trả lại tiền cọc khi chấm dứt hợp đồng thuê nhà",
+              "tranh chấp tiền cọc thuê nhà"
+            ],
+            "categories": [
+              "housing_contract"
+            ],
+            "missing_information": [
+              "nội dung cụ thể trong hợp đồng thuê nhà về điều kiện hoàn cọc",
+              "lý do chấm dứt hợp đồng thuê nhà",
+              "tình trạng tài sản khi bàn giao lại"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 5258
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 901
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2181
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2194
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.",
+        "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+        "2. Bên cho thuê nhà ở có quyền đơn phương chấm dứt thực hiện hợp đồng thuê nhà ở và thu hồi nhà ở đang cho thuê khi thuộc một trong các trường hợp sau đây:\n\na) Bên cho thuê nhà ở thuộc tài sản công, nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà lưu trú công nhân trong khu công nghiệp cho thuê không đúng thẩm quyền hoặc không đúng đối tượng hoặc không đủ điều kiện theo quy định của pháp luật về nhà ở;\n\nb) Bên thuê không trả đủ tiền thuê nhà ở theo thỏa thuận trong hợp đồng từ 03 tháng trở lên mà không có lý do đã được thỏa thuận trong hợp đồng;\n\nc) Bên thuê sử dụng nhà ở không đúng mục đích đã thỏa thuận trong hợp đồng;\n\nd) Bên thuê tự ý đục phá, cơi nới, cải tạo, phá dỡ nhà ở đang thuê;\n\nđ) Bên thuê chuyển đổi, cho mượn, cho thuê lại nhà ở đang thuê mà không có sự đồng ý của bên cho thuê;\n\ne) Bên thuê làm mất trật tự, vệ sinh môi trường, ảnh hưởng nghiêm trọng đến sinh hoạt của những người xung quanh đã được bên cho thuê nhà ở hoặc tổ trưởng tổ dân phố, trưởng thôn, làng, ấp, bản, buôn, phum, sóc lập biên bản đến lần thứ ba mà vẫn không khắc phục;\n\ng) Trường hợp quy định tại khoản 2 Điều 170 của Luật này.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2072,
+          "rank": 1,
+          "similarity_score": 0.95202,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 2",
+          "excerpt": "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2071,
+          "rank": 2,
+          "similarity_score": 0.867314,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "excerpt": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 2047,
+          "rank": 3,
+          "similarity_score": 0.805372,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 172. Đơn phương chấm dứt thực hiện hợp đồng thuê nhà ở | Khoản 2",
+          "excerpt": "2. Bên cho thuê nhà ở có quyền đơn phương chấm dứt thực hiện hợp đồng thuê nhà ở và thu hồi nhà ở đang cho thuê khi thuộc một trong các trường hợp sau đây:\n\na) Bên cho thuê nhà ở thuộc tài sản công, nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà lưu trú công nhân trong khu công nghiệp cho thuê không đúng thẩm quyền hoặc không đúng đối tượng hoặc không đủ điều kiện theo quy định của pháp luật về nhà ở;\n\nb) Bên thuê không trả đủ tiền thuê nhà ở theo thỏa thuận trong hợp đồng từ 03 tháng trở lên mà không có lý do đã được thỏa thuận trong hợp đồng;\n\nc) Bên thuê sử dụng nhà ở không đúng mục đích đã thỏa thuận trong hợp đồng;\n\nd) Bên thuê tự ý đục phá, cơi nới, cải tạo, phá dỡ nhà ở đang thuê;\n\nđ) Bên thuê chuyển đổi, cho mượn, cho thuê lại nhà ở đang thuê mà không có sự đồng ý của bên cho thuê;\n\ne) Bên thuê làm mất trật tự, vệ sinh môi trường, ảnh hưởng nghiêm trọng đến sinh hoạt của những người xung quanh đã được bên cho thuê nhà ở hoặc tổ trưởng tổ dân phố, trưởng thôn, làng, ấp, bản, buôn, phum, sóc lập biên bản đến lần thứ ba mà vẫn không khắc phục;\n\ng) Trường hợp quy định tại khoản 2 Điều 170 của Luật này."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 2059,
+          "rank": 4,
+          "similarity_score": 0.95202,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "category": "electricity",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;” [1].\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;” [1].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9128,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1 sai vì nguồn [1] quy định việc cấp định mức dựa trên thông tin cư trú (đăng ký tạm trú/thường trú) chứ không phải 'khả năng kê khai số người' một cách chung chung.",
+        "Claim 3 sai vì nguồn [1] không quy định việc cấp định mức cho trường hợp thuê từ 12 tháng trở lên dựa trên 'số người sử dụng' mà dựa trên việc chủ nhà/đại diện bên thuê giao kết hợp đồng mua bán điện.",
+        "Claim 4 sai vì nguồn [3] không nhắc đến 'Quyết định 14/2025/QĐ-TTg' mà chỉ nêu mốc thời gian là 'ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực'."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 143153,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ chỉ được thu tiền điện từ người thuê không vượt quá tổng tiền điện ghi trên hóa đơn do đơn vị bán lẻ phát hành [1]. Đối với sinh viên hoặc người lao động thuê dưới 12 tháng mà chủ nhà không kê khai đủ số người, toàn bộ sản lượng sẽ áp dụng giá bậc 2 (từ 101-200 kWh) cho toàn bộ công tơ [1]. Nếu chủ nhà kê khai được đầy đủ số người, định mức sẽ được tính theo tỷ lệ: cứ 4 người là một hộ, cụ thể 1 người tính 1/4 định mức, 2 người tính 1/2 định mức và tương tự [1]. Lưu ý quy định này có hiệu lực từ ngày 02/12/2025 hoặc sau khi điều chỉnh giá điện gần nhất theo Điều 21 [3]. Khuyến nghị: nên kiểm tra kỹ thời hạn hợp đồng thuê và số người đăng ký cư trú để xác định đúng mức giá áp dụng. Đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 38992
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ thu tiền điện cho người thuê sinh viên hoặc người lao động không phải hộ gia đình dựa trên thời hạn hợp đồng và khả năng kê khai số người [1]. Nếu thuê dưới 12 tháng và chủ nhà không kê khai đủ số người, tổng tiền thu không được vượt quá hóa đơn thực tế phát hành của đơn vị bán lẻ điện [1]. Ngược lại, nếu thuê từ 12 tháng trở lên hoặc kê khai đầy đủ thông tin cư trú, bên bán điện sẽ cấp định mức tính toán tiền điện dựa trên số người sử dụng [1]. Lưu ý: Điểm c khoản 5 Điều 12 không có hiệu lực ngay từ ngày ban hành mà chỉ áp dụng sau khi điều chỉnh giá bán lẻ điện bình quân gần nhất theo Quyết định 14/2025/QĐ-TTg [3]. Khuyến nghị: nên kiểm tra lại thời điểm thực hiện điều chỉnh giá để xác định chính xác quy định đang áp dụng cho từng trường hợp cụ thể. Đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 80763
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "quy định thu tiền điện nhà trọ",
+              "giá điện cho người thuê nhà",
+              "chủ trọ thu tiền điện vượt mức quy định"
+            ],
+            "categories": [
+              "electricity",
+              "housing_contract"
+            ],
+            "missing_information": [
+              "loại hình nhà trọ (thuê nguyên căn hay phòng trọ)",
+              "thỏa thuận trong hợp đồng thuê nhà"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 2411
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 3,
+          "duration_ms": 13371
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 5088
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2452
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1945,
+          "rank": 1,
+          "similarity_score": 0.923689,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được…"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1943,
+          "rank": 2,
+          "similarity_score": 0.661689,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "excerpt": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1950,
+          "rank": 3,
+          "similarity_score": 0.923689,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "category": "electricity",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;” [1].\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;” [1].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9008,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.",
+        "Claim 3 thêm cụm từ 'trừ khi có thỏa thuận khác hợp pháp' không có trong nguồn [1].",
+        "Claim 4 trích dẫn Điều 21 khoản 1 nhưng diễn đạt chưa chính xác về phạm vi áp dụng của các quy định được liệt kê."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 176915,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "- Đối với sinh viên thuê nhà dưới 12 tháng, nếu chủ trọ không kê khai đủ số người thì tiền điện tính trên toàn bộ sản lượng theo bậc 2 (từ 101-200 kWh) [1]. Nếu chủ trọ kê khai được đầy đủ thông tin cư trú của 3 sinh viên, sẽ được tính là 3/4 định mức dựa trên quy tắc cứ 4 người là một hộ [1].\n- Tổng tiền điện chủ trọ thu từ sinh viên không được vượt quá số tiền ghi trong hóa đơn do đơn vị bán lẻ điện phát hành [1].\n- Khuyến nghị: nên kiểm tra hợp đồng thuê và đăng ký tạm trú của từng sinh viên để xác định xem có đủ điều kiện kê khai định mức hay không, tránh bị tính sai giá theo bậc cao hơn [2][3].\n\nLưu ý đây là thông tin tham khảo dựa trên văn bản được cung cấp, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 78983
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Ba sinh viên thuê chung phòng không phải là một hộ gia đình, nên việc tính tiền điện phụ thuộc vào thời hạn hợp đồng và khả năng kê khai thông tin cư trú theo quy định tại Điều 12 khoản 5 của Thông tư 60/2025/TT-BCT [1]. Nếu hợp đồng thuê dưới 12 tháng hoặc chủ nhà không kê khai đủ số người, tiền điện sẽ được tính theo bậc 2 cho toàn bộ sản lượng đo đếm. Ngược lại, nếu hợp đồng từ 12 tháng trở lên và có đăng ký tạm trú/thường trú, bên bán điện sẽ cấp định mức dựa trên thông tin cư trú: cứ 04 người là một hộ, nên 03 sinh viên được tính là 3/4 định mức [1]. Chủ nhà chỉ được thu tiền điện không vượt quá số tiền trong hóa đơn do đơn vị bán lẻ phát hành, trừ khi có thỏa thuận khác hợp pháp [1]. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 80719
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "cách tính tiền điện phòng trọ sinh viên",
+              "quy định giá điện cho người thuê nhà",
+              "giá điện sinh hoạt cho nhiều người thuê chung"
+            ],
+            "categories": [
+              "electricity",
+              "student_housing",
+              "housing_contract"
+            ],
+            "missing_information": [
+              "địa điểm thuê trọ",
+              "có đăng ký tạm trú hay không",
+              "hợp đồng thuê nhà có quy định về giá điện không"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 5397
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 3,
+          "duration_ms": 959
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 8624
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2192
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1945,
+          "rank": 1,
+          "similarity_score": 0.907766,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được…"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1943,
+          "rank": 2,
+          "similarity_score": 0.701678,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "excerpt": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1950,
+          "rank": 3,
+          "similarity_score": 0.907766,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "category": "electricity",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;” [1].\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.” [1].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.8716,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 4 sai về hiệu lực: Điểm c khoản 5 Điều 12 không có hiệu lực từ 02/12/2025 mà theo thời điểm điều chỉnh giá bán lẻ điện bình quân gần nhất sau Quyết định 14/2025/QĐ-TTg."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 182755,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khi nghi ngờ tiền điện bị thu cao, bạn cần kiểm tra hóa đơn từ đơn vị bán lẻ điện để xác định tổng tiền thực tế phát hành [1]. Căn cứ pháp lý quan trọng là quy định tại khoản 5 Điều 12 Thông tư 60/2025/TT-BCT, nơi nêu rõ chủ nhà chỉ được thu tiền không vượt quá số tiền trong hóa đơn do đơn vị cấp nước/cấp điện phát hành cho toàn bộ sản lượng đo đếm [1]. Nếu hợp đồng thuê dưới 12 tháng hoặc chưa kê khai đủ số người, giá áp dụng có thể là bậc 2 (từ 101-200 kWh) cho toàn bộ sản lượng [1]. Bạn nên đối chiếu thông tin cư trú đã đăng ký để xác định đúng định mức tính toán tiền điện theo quy định tại điểm c khoản 5 Điều 12 của văn bản này [1]. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 79054
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khi nghi ngờ tiền điện bị thu cao, bạn cần kiểm tra hóa đơn từ đơn vị bán lẻ điện để xác định mức giá áp dụng [1]. Theo quy định tại Điều 12 khoản 5 điểm c Thông tư 60/2025/TT-BCT, nếu hợp đồng thuê dưới 12 tháng và chủ nhà không kê khai đủ số người, tiền điện sẽ tính theo bậc 2 (từ 101-200 kWh) cho toàn bộ sản lượng [1]. Ngược lại, nếu chủ nhà kê khai đầy đủ thông tin cư trú của người thuê, bên bán điện sẽ cấp định mức dựa trên số người để áp dụng giá phù hợp [1]. Lưu ý rằng quy định này có hiệu lực từ ngày 02/12/2025 hoặc khi có điều chỉnh giá mới nhất [3]. Khuyến nghị: nên kiểm tra đối chiếu thông tin cư trú và thời hạn thuê trong hợp đồng với hóa đơn thực tế để xác minh tính chính xác. Đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 89637
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "quy định giá điện thuê trọ",
+              "cách tính tiền điện nhà trọ",
+              "kiểm tra hóa đơn tiền điện thuê nhà"
+            ],
+            "categories": [
+              "electricity",
+              "housing_contract"
+            ],
+            "missing_information": [
+              "loại hình nhà trọ",
+              "địa điểm thuê trọ",
+              "nội dung hợp đồng thuê trọ"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 4760
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 3,
+          "duration_ms": 181
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 4370
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 4690
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1945,
+          "rank": 1,
+          "similarity_score": 0.868813,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được…"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1943,
+          "rank": 2,
+          "similarity_score": 0.618665,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "excerpt": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1950,
+          "rank": 3,
+          "similarity_score": 0.868813,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "category": "electricity",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;” [1].\n\n- Thông-tư-60-2025-TT-BCT — Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.” [1].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9032,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.",
+        "Nguồn [1] không quy định chủ trọ không có nghĩa vụ thông báo cách tính tiền điện; việc thiếu quy định cụ thể không đồng nghĩa với việc không có nghĩa vụ này.",
+        "Claim 1 khẳng định văn bản chỉ quy định trách nhiệm cung cấp thông tin cư trú là không chính xác, vì nguồn [1] còn quy định về việc thu tiền điện không vượt quá hóa đơn."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 156625,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ không phải tự động thông báo cách tính tiền điện hay số lượng đã dùng, mà chỉ có nghĩa vụ thông báo cho đơn vị bán điện khi có thay đổi về số người thuê để điều chỉnh định mức [1]. Theo quy định tại Điều 12 Khoản 5 của Thông tư 60/2025/TT-BCT, chủ nhà kê khai đủ số người sẽ được cấp định mức và phải thông báo thay đổi cho bên bán điện [1]. Tuy nhiên, nếu chủ trọ không giao kết hợp đồng trực tiếp với đơn vị cấp nước, tổng tiền thu từ người thuê không được vượt quá số tiền ghi trên hóa đơn do đơn vị đó phát hành [1]. Lưu ý: Đây là thông tin tham khảo dựa trên văn bản hiện có, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 72184
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Chủ trọ không có nghĩa vụ pháp lý bắt buộc phải thông báo cách tính tiền điện hay số điện đã sử dụng cho người thuê, vì các văn bản chỉ quy định trách nhiệm cung cấp thông tin cư trú hoặc kê khai số người để xác định định mức [1]. Tuy nhiên, chủ trọ chỉ được thu tiền điện từ người thuê không được vượt quá tổng tiền điện ghi trên hóa đơn do đơn vị bán lẻ phát hành [1]. Khuyến nghị: nên kiểm tra hợp đồng xem có thỏa thuận riêng về việc công bố chi tiết hóa đơn hay không; nếu chưa có điều khoản này, chủ trọ không vi phạm khi chỉ thu đúng số tiền trong hóa đơn. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 73448
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "quy định thông báo tiền điện nhà trọ",
+              "nghĩa vụ chủ trọ công khai giá điện",
+              "cách tính tiền điện thuê nhà"
+            ],
+            "categories": [
+              "electricity",
+              "housing_contract"
+            ],
+            "missing_information": [],
+            "as_of_date": null
+          },
+          "duration_ms": 3824
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 3,
+          "duration_ms": 667
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 4327
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2142
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1945,
+          "rank": 1,
+          "similarity_score": 0.910915,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được…"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1943,
+          "rank": 2,
+          "similarity_score": 0.674981,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "excerpt": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 7,
+          "chunk_id": 1950,
+          "rank": 3,
+          "similarity_score": 0.910915,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "category": "electricity",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT)."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "category": "water_cantho",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Nghị định 117/2007/NĐ-CP — Điều 1. Phạm vi điều chỉnh và đối tượng áp dụng | Khoản 2: “2. Nghị định này áp dụng đối với các tổ chức, cá nhân và hộ gia đình\ntrong nước; tổ chức, cá nhân nước ngoài có hoạt động liên quan đến việc sản\nxuất, cung cấp và tiêu thụ nước sạch trên lãnh thổ Việt Nam.” [1].\n\n- Nghị định 117/2007/NĐ-CP — Điều 54. Thẩm quyền quyết định giá nước | Khoản 2: “2. Ủy ban nhân dân cấp tỉnh phê duyệt phương án giá nước và ban hành\nbiểu giá nước sạch sinh hoạt trên địa bàn do mình quản lý, phù hợp với\nkhung giá do Bộ trưởng Bộ Tài chính ban hành.” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.8699,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.",
+        "Nguồn [2] và [3] trích dẫn Nghị định 117/2007/NĐ-CP, nhưng thẩm quyền ban hành khung giá nước sạch hiện nay thuộc Bộ Xây dựng theo quy định pháp luật hiện hành, không phải Bộ Tài chính."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 112354,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Giá nước sinh hoạt tại Cần Thơ được xác định dựa trên khung giá do Bộ trưởng Bộ Tài chính ban hành trên phạm vi toàn quốc [3]. Trên cơ sở đó, Ủy ban nhân dân tỉnh Cần Thơ có thẩm quyền phê duyệt phương án và ban hành biểu giá cụ thể cho địa bàn quản lý, phù hợp với khung giá nêu trên [2]. Nghị định này áp dụng đối với các tổ chức, cá nhân và hộ gia đình trong nước bao gồm cả người thuê trọ [1]. Lưu ý: Đây là thông tin tham khảo dựa trên văn bản được cung cấp, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 49589
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Giá nước sinh hoạt tại Cần Thơ được xác định dựa trên khung giá do Bộ trưởng Bộ Tài chính ban hành và phương án cụ thể do Ủy ban nhân dân tỉnh phê duyệt [2], [3]. Nghị định này áp dụng chung cho các tổ chức, cá nhân và hộ gia đình trong nước mà không có điều khoản riêng biệt chỉ dành riêng cho nhóm \"người thuê trọ\" [1]. Do đó, người thuê trọ phải tuân theo biểu giá đã được cấp có thẩm quyền ban hành trên địa bàn quản lý. Khuyến nghị: nên kiểm tra biểu giá cụ thể do UBND tỉnh Cần Thơ phê duyệt để xác định chính xác mức thu tiền thực tế đang áp dụng. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 53938
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "giá nước sinh hoạt phòng trọ Cần Thơ",
+              "quy định giá nước cho người thuê nhà Cần Thơ",
+              "căn cứ tính giá nước sinh hoạt tại Cần Thơ"
+            ],
+            "categories": [
+              "water_cantho",
+              "housing_contract"
+            ],
+            "missing_information": [],
+            "as_of_date": null
+          },
+          "duration_ms": 4511
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 222
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2033
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2010
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Nghị định này áp dụng đối với các tổ chức, cá nhân và hộ gia đình\ntrong nước; tổ chức, cá nhân nước ngoài có hoạt động liên quan đến việc sản\nxuất, cung cấp và tiêu thụ nước sạch trên lãnh thổ Việt Nam.",
+        "2. Ủy ban nhân dân cấp tỉnh phê duyệt phương án giá nước và ban hành\nbiểu giá nước sạch sinh hoạt trên địa bàn do mình quản lý, phù hợp với\nkhung giá do Bộ trưởng Bộ Tài chính ban hành.",
+        "1. Bộ trưởng Bộ Tài chính ban hành khung giá nước sạch sinh hoạt trên\nphạm vi toàn quốc.",
+        "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 2994,
+          "rank": 1,
+          "similarity_score": 0.866514,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 1. Phạm vi điều chỉnh và đối tượng áp dụng | Khoản 2",
+          "excerpt": "2. Nghị định này áp dụng đối với các tổ chức, cá nhân và hộ gia đình\ntrong nước; tổ chức, cá nhân nước ngoài có hoạt động liên quan đến việc sản\nxuất, cung cấp và tiêu thụ nước sạch trên lãnh thổ Việt Nam."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3031,
+          "rank": 2,
+          "similarity_score": 0.835088,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 54. Thẩm quyền quyết định giá nước | Khoản 2",
+          "excerpt": "2. Ủy ban nhân dân cấp tỉnh phê duyệt phương án giá nước và ban hành\nbiểu giá nước sạch sinh hoạt trên địa bàn do mình quản lý, phù hợp với\nkhung giá do Bộ trưởng Bộ Tài chính ban hành."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3030,
+          "rank": 3,
+          "similarity_score": 0.834446,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 54. Thẩm quyền quyết định giá nước | Khoản 1",
+          "excerpt": "1. Bộ trưởng Bộ Tài chính ban hành khung giá nước sạch sinh hoạt trên\nphạm vi toàn quốc."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3041,
+          "rank": 4,
+          "similarity_score": 0.866514,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "category": "water_cantho",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Nghị định 117/2007/NĐ-CP — Điều 50. Kiểm định thiết bị đo đếm nước | Khoản 5: “5. Trường hợp tổ chức kiểm định độc lập xác định chỉ số đo đếm của đồng\nhồ nước vượt quá số lượng nước sử dụng thực tế thì đơn vị cấp nước phải\nhoàn trả khoản tiền thu thừa cho khách hàng sử dụng nước.” [3].\n\n- Nghị định 117/2007/NĐ-CP — Điều 48. Thanh toán tiền nước | Khoản 4: “4. Lãi suất của số tiền chậm trả hoặc thu thừa do các bên thỏa thuận\ntrong Hợp đồng dịch vụ nhưng không vượt quá lãi suất cho vay cao nhất của\nNgân hàng mà đơn vị cấp nước có tài khoản ghi trong Hợp đồng dịch vụ cấp\nnước tại thời điểm thanh toán.” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.8578,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1: Nguồn [1] không đề cập đến việc cần kiểm tra hợp đồng dịch vụ cấp nước trực tiếp hay phạm vi áp dụng của Nghị định 117/2007/NĐ-CP đối với quan hệ chủ trọ-người thuê.",
+        "Claim 2: Nguồn [3] chỉ quy định về kiểm định đồng hồ nước, không liên quan đến việc xác định tính hợp pháp của phương thức tính phí theo đầu người.",
+        "Claim 3: Nguồn [2] quy định về lãi suất chậm trả/thu thừa trong hợp đồng dịch vụ cấp nước, không đề cập đến việc các điều khoản này có tự động áp dụng cho quan hệ dân sự chủ trọ-người thuê hay không."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 130826,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khuyến nghị: Bạn nên kiểm tra xem chủ trọ có hợp đồng dịch vụ cấp nước trực tiếp với đơn vị cấp nước hay không, vì pháp luật chỉ quy định nghĩa vụ hoàn trả tiền thừa cho khách hàng khi đơn vị cấp nước xác định thu thừa [1]. Nếu chủ trọ tự tính toán theo đầu người mà không dựa trên chỉ số đo đếm thực tế từ đồng hồ, đây có thể là việc thu thừa tiền nước cần hoàn lại nếu được chứng minh qua kiểm định độc lập [3]. Lưu ý: Các quy định về lãi suất chậm trả hoặc thu thừa trong Nghị định 117/2007/NĐ-CP áp dụng cho các bên trong hợp đồng dịch vụ cấp nước, không tự động ràng buộc chủ trọ và người thuê nếu chưa có thỏa thuận cụ thể [2]. Thông tin này chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 54711
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "candidate_answer": "Khuyến nghị: Nên kiểm tra xem chủ trọ và người thuê có ký Hợp đồng dịch vụ cấp nước trực tiếp với đơn vị cấp nước hay không, vì các quy định về hoàn trả tiền thừa trong Nghị định 117/2007/NĐ-CP chỉ áp dụng cho quan hệ giữa đơn vị cấp nước và khách hàng sử dụng nước [1]. Khuyến nghị: Đối chiếu xem hợp đồng có ghi rõ phương thức tính phí theo đầu người hay không, vì nguồn văn bản hiện tại chưa quy định cụ thể về việc thu tiền theo đầu người là hành vi thu thừa hay bắt buộc phải hoàn trả cho bên thuê trọ [3]. Lưu ý: Các điều khoản về lãi suất trong Nghị định này chỉ ràng buộc các bên trong hợp đồng dịch vụ cấp nước và không tự động áp dụng cho quan hệ dân sự giữa chủ trọ với người thuê nếu chưa có thỏa thuận cụ thể [2]. Đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+          "latency_ms": 66332
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "completed",
+          "plan": {
+            "search_queries": [
+              "quy định thu tiền nước nhà trọ",
+              "giá nước sinh hoạt thuê nhà",
+              "chủ trọ thu tiền nước theo đầu người"
+            ],
+            "categories": [
+              "water_cantho",
+              "housing_contract"
+            ],
+            "missing_information": [
+              "địa điểm thuê trọ",
+              "hợp đồng thuê nhà có thỏa thuận về giá nước không"
+            ],
+            "as_of_date": null
+          },
+          "duration_ms": 4778
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 757
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 1952
+        },
+        {
+          "agent": "source_verification",
+          "provider": "gemini",
+          "model": "gemini-3.1-flash-lite",
+          "status": "rejected",
+          "duration_ms": 2255
+        },
+        {
+          "agent": "citation_and_rule_checks",
+          "provider": "rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "3. Đơn vị cấp nước thu thừa tiền nước phải hoàn trả cho khách hàng sử\ndụng nước khoản tiền thu thừa bao gồm cả tiền lãi của khoản tiền thu thừa\nnếu thời điểm hoàn trả sau một tháng so với thời điểm đã thu thừa tiền\nnước.",
+        "4. Lãi suất của số tiền chậm trả hoặc thu thừa do các bên thỏa thuận\ntrong Hợp đồng dịch vụ nhưng không vượt quá lãi suất cho vay cao nhất của\nNgân hàng mà đơn vị cấp nước có tài khoản ghi trong Hợp đồng dịch vụ cấp\nnước tại thời điểm thanh toán.",
+        "5. Trường hợp tổ chức kiểm định độc lập xác định chỉ số đo đếm của đồng\nhồ nước vượt quá số lượng nước sử dụng thực tế thì đơn vị cấp nước phải\nhoàn trả khoản tiền thu thừa cho khách hàng sử dụng nước.\n\n Chương V\n\n GIÁ NƯỚC SẠCH",
+        "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3018,
+          "rank": 1,
+          "similarity_score": 0.850452,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 48. Thanh toán tiền nước | Khoản 3",
+          "excerpt": "3. Đơn vị cấp nước thu thừa tiền nước phải hoàn trả cho khách hàng sử\ndụng nước khoản tiền thu thừa bao gồm cả tiền lãi của khoản tiền thu thừa\nnếu thời điểm hoàn trả sau một tháng so với thời điểm đã thu thừa tiền\nnước."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3019,
+          "rank": 2,
+          "similarity_score": 0.825911,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 48. Thanh toán tiền nước | Khoản 4",
+          "excerpt": "4. Lãi suất của số tiền chậm trả hoặc thu thừa do các bên thỏa thuận\ntrong Hợp đồng dịch vụ nhưng không vượt quá lãi suất cho vay cao nhất của\nNgân hàng mà đơn vị cấp nước có tài khoản ghi trong Hợp đồng dịch vụ cấp\nnước tại thời điểm thanh toán."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3029,
+          "rank": 3,
+          "similarity_score": 0.817023,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 50. Kiểm định thiết bị đo đếm nước | Khoản 5",
+          "excerpt": "5. Trường hợp tổ chức kiểm định độc lập xác định chỉ số đo đếm của đồng\nhồ nước vượt quá số lượng nước sử dụng thực tế thì đơn vị cấp nước phải\nhoàn trả khoản tiền thu thừa cho khách hàng sử dụng nước.\n\n Chương V\n\n GIÁ NƯỚC SẠCH"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 35,
+          "chunk_id": 3041,
+          "rank": 4,
+          "similarity_score": 0.850452,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "category": "water_cantho",
+          "page_kind": "logical_document",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "category": "residence"
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "category": "residence"
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "category": "residence"
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "category": "residence"
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "category": "criminal_law"
+    }
+  ],
+  "pipeline_sha256": "c5b582ecda85e27f205abb931a4fe11f035dd9135d97fbe2f2671504bfeb501e",
+  "corpus_manifest_sha256": "deff554affb9ed10c141b7718822bb2a5bd84d758f3707d1f6ba0a0799f0e20f",
+  "run_configuration": {
+    "agents_enabled": true,
+    "legal_schema": "legal_v2",
+    "question_analysis_model": "gemini-3.1-flash-lite",
+    "answer_model": "qwen3.5:9b",
+    "embedding_model": "intfloat/multilingual-e5-small"
+  },
+  "summary": {
+    "questions": 36,
+    "completed": 10,
+    "errors": 0,
+    "with_contexts": 10,
+    "no_answer": 10,
+    "partial_answer": 9,
+    "degraded": 10,
+    "vector_retrieval": 10,
+    "category_source_match": 10,
+    "category_source_evaluated": 10,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 149889.0,
+    "latency_p95_ms": 182755,
+    "ragas": {
+      "faithfulness": {
+        "mean": null,
+        "scored": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "scored": 0
+      },
+      "context_utilization": {
+        "mean": null,
+        "scored": 0
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 4
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 4
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 2,
+      "with_contexts": 2,
+      "no_answer": 2
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    }
+  }
+}

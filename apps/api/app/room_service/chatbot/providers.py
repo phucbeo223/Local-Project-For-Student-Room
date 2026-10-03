@@ -139,6 +139,7 @@ class GenerationResult:
     provider: str
     model: str | None = None
     degraded_reasons: tuple[str, ...] = ()
+    literal_source_answer: bool = False
 
 
 class EvidenceIssues(list[str]):
@@ -302,6 +303,7 @@ class OllamaQwenGenerator:
         max_output_tokens: int = 384,
         keep_alive: str = "30m",
         legal_timeout_seconds: float = 120.0,
+        legal_answer_mode: str = 'synthesize',
     ):
         self.base_url = base_url.rstrip("/")
         self.model = model
@@ -311,6 +313,7 @@ class OllamaQwenGenerator:
         self.max_output_tokens = max_output_tokens
         self.keep_alive = keep_alive
         self.legal_timeout_seconds = legal_timeout_seconds
+        self.legal_answer_mode = legal_answer_mode
         self._client = httpx.Client(
             timeout=httpx.Timeout(timeout_seconds, connect=min(5.0, timeout_seconds)),
             transport=transport,
@@ -391,6 +394,18 @@ class OllamaQwenGenerator:
     ) -> GenerationResult:
         if not contexts:
             raise RuntimeError("không có context")
+        if context_kind=='legal' and self.legal_answer_mode=='source_select':
+            from .source_selection import selection_candidates,selection_prompt,SELECTION_SCHEMA,render_selection
+            candidates=selection_candidates(contexts)
+            if not candidates:raise RuntimeError('No complete legal evidence candidates')
+            response=self._client.post(f'{self.base_url}/api/chat',json={
+                'model':self.model,'stream':False,'think':False,'format':SELECTION_SCHEMA,'keep_alive':self.keep_alive,
+                'messages':[{'role':'system','content':'Bạn là agent tìm đoạn trả lời từ tài liệu. Chỉ trả ID của đoạn có sẵn theo JSON schema.'},
+                            {'role':'user','content':selection_prompt(question,candidates)}],
+                'options':{'temperature':0,'num_predict':256,'num_ctx':max(16384,self.context_length)}},timeout=self.legal_timeout_seconds)
+            response.raise_for_status();data=response.json()
+            if data.get('done_reason')=='length':raise RuntimeError('Incomplete source selection')
+            return render_selection(question,contexts,candidates,data['message']['content'],self.provider_name,self.model)
         system_prompt = (
             LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
         )
@@ -712,6 +727,7 @@ class FallbackResponseGenerator:
                     provider=result.provider,
                     model=result.model,
                     degraded_reasons=tuple(reasons) + tuple(result.degraded_reasons),
+                    literal_source_answer=result.literal_source_answer,
                 )
             except Exception as exc:  # provider lỗi không được làm chết chatbot
                 reasons.append(f"{provider_name} không khả dụng ({type(exc).__name__})")

@@ -196,11 +196,14 @@ class ChatService:
         attempted_provider, attempted_model = generated.provider, generated.model
         semantic_checked = False
         verification_trace = []
-        if chunks and generated.provider != "template":
+        if chunks and generated.provider != "template" and not generated.literal_source_answer:
             generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
-        issues = evidence_issues(generated.text, chunks, query) if chunks else []
+        issues = evidence_issues(generated.text, chunks, query) if chunks and not generated.literal_source_answer else []
+        if generated.literal_source_answer:
+            verification_trace.append({'agent':'source_verification','provider':'exact_source_match',
+                'status':'accepted','scope':'verbatim source text only; no legal application inferred'})
         repairable = bool(issues)
-        if chunks and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
+        if chunks and not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
             semantic_checked = True
             checked = self.generator.check_legal_evidence(query, generated.text, chunks)
             if hasattr(checked,'trace'):
