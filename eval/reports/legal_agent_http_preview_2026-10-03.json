@@ -1,0 +1,159 @@
+{
+  "base_url": "http://nckh-api-legal-preview-v10:8000",
+  "started_at_utc": "2026-10-03T17:33:09.222235+00:00",
+  "temporary_user_removed": true,
+  "passed": true,
+  "health_status": 200,
+  "anonymous_status": 403,
+  "http_status": 200,
+  "latency_ms": 21453,
+  "response": {
+    "agent_trace": [
+      {
+        "agent": "question_analysis",
+        "provider": "gemini",
+        "model": "gemini-3.1-flash-lite",
+        "status": "completed",
+        "plan": {
+          "search_queries": [
+            "thủ tục đăng ký tạm trú khi chuyển chỗ ở",
+            "quy định khai báo cư trú cho sinh viên thuê trọ",
+            "cập nhật thông tin cư trú khi thay đổi nơi ở"
+          ],
+          "categories": [
+            "residence",
+            "student_housing"
+          ],
+          "missing_information": [
+            "địa điểm chuyển đến (tỉnh/thành phố)",
+            "hình thức cư trú (thuê trọ, ký túc xá)"
+          ],
+          "as_of_date": null
+        },
+        "duration_ms": 2690
+      },
+      {
+        "agent": "legal_retrieval",
+        "provider": "hybrid",
+        "status": "completed",
+        "corpus_schema": "legal_v2",
+        "sources_found": 4,
+        "duration_ms": 1198
+      },
+      {
+        "agent": "answer",
+        "provider": "qwen-local",
+        "model": "qwen3.5:9b",
+        "status": "partial",
+        "attempted_provider": "qwen-local",
+        "attempted_model": "qwen3.5:9b"
+      },
+      {
+        "agent": "source_verification",
+        "provider": "exact_source_match",
+        "status": "accepted",
+        "scope": "verbatim source text only; no legal application inferred"
+      },
+      {
+        "agent": "citation_and_rule_checks",
+        "provider": "rules",
+        "status": "accepted"
+      }
+    ],
+    "corpus_schema": "legal_v2",
+    "partial_answer": true,
+    "conversation_state": null,
+    "applied_filters": null,
+    "citation_applicable": true,
+    "answer": "Các đoạn trả lời trực tiếp trong nguồn:\n\n- Thông tư 116/2026/TT-BCA — Điều 12. Đăng ký tạm trú | Khoản 1: “1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm\nthực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3\nĐiều 6 Thông tư này.” [1].\n\n- Thông tư 116/2026/TT-BCA — Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp: “Điều 27. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành ké từ ngày 01 tháng 7 năm 2026.\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.” [4].\n\nChưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng; cần đối chiếu phần còn thiếu.\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.",
+    "intent": "legal_question",
+    "confidence": 0.97,
+    "listings": [],
+    "sources": [
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 29,
+        "chunk_id": 3338,
+        "rank": 1,
+        "similarity_score": 1.0,
+        "title": "Thông tư 116/2026/TT-BCA",
+        "source": "legal_corpus",
+        "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+        "source_path": "docs/legal_corpus_v2/residence116.json",
+        "category": "residence",
+        "page_kind": "physical_pdf",
+        "page_from": 7,
+        "page_to": 7,
+        "heading": "Điều 12. Đăng ký tạm trú | Khoản 1",
+        "excerpt": "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm\nthực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3\nĐiều 6 Thông tư này."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 19,
+        "chunk_id": 2524,
+        "rank": 2,
+        "similarity_score": 1.0,
+        "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+        "category": "residence",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 3",
+        "excerpt": "3. Công dân không được đăng ký tạm trú mới tại chỗ ở quy định tại Điều 23 của Luật này."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 79,
+        "chunk_id": 3154,
+        "rank": 3,
+        "similarity_score": 1.0,
+        "title": "Luật Cư trú 68/2020/QH14",
+        "source": "legal_corpus",
+        "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "source_path": "docs/legal_corpus_v2/residence68.json",
+        "category": "residence",
+        "page_kind": "physical_pdf",
+        "page_from": 16,
+        "page_to": 16,
+        "heading": "Điều 27. Điều kiện đăng ký tạm trú | Khoản 3",
+        "excerpt": "3. Công dân không được đăng ký tạm trú mới tại chỗ ở quy định tại Điều\n23 của Luật này."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 29,
+        "chunk_id": 3353,
+        "rank": 4,
+        "similarity_score": 1.0,
+        "title": "Thông tư 116/2026/TT-BCA",
+        "source": "legal_corpus",
+        "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+        "source_path": "docs/legal_corpus_v2/residence116.json",
+        "category": "residence",
+        "page_kind": "physical_pdf",
+        "page_from": 18,
+        "page_to": 18,
+        "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+        "excerpt": "Điều 27. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành ké từ ngày 01 tháng 7 năm 2026.\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước."
+      }
+    ],
+    "no_answer": true,
+    "degraded": true,
+    "degraded_reasons": [
+      "Phản hồi chưa đáp ứng đầy đủ yêu cầu chính; đánh dấu theo nội dung thay vì provider."
+    ],
+    "retrieval_mode": "legal_hybrid",
+    "generation_provider": "qwen-local",
+    "generation_model": "qwen3.5:9b",
+    "latency_ms": 20559,
+    "event_id": 36,
+    "citation_accuracy": 1.0,
+    "evaluation_contexts": []
+  }
+}

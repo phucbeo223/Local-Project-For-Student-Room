@@ -56,6 +56,27 @@ Runner ghi checkpoint sau mỗi câu và mỗi metric; chạy lại cùng output
 
 Để so sánh nâng cấp model, dùng `compare_model_upgrade.py --clone --before <JSON cũ> --after <JSON bản sao>` giữ nguyên câu trả lời/ngữ cảnh cũ; chấm bản sao và lượt mới bằng cùng judge, cùng tham số. Sau đó dùng `--before <bản sao> --after <lượt mới> --audit <audit> --output <báo cáo.md>` để đối chiếu các câu có điểm ở cả hai lượt. Không so trực tiếp điểm Qwen chấm cũ với điểm Gemini chấm mới.
 
+### Kho riêng và agent — lần sửa 03–04/10/2026
+
+Quy trình hiện tại xem tại `docs/LEGAL_AGENT_REBUILD.md`. Kho `legal_v2` được nạp riêng; các lệnh index `public` ở phần lịch sử phía trên không phải lệnh xây kho mới. Gemini phân tích truy vấn, Qwen local chọn đoạn nguồn, hệ thống kiểm tra và trích nguyên văn. Chấm so với baseline Gemini lịch sử phải dùng cùng Gemini/cấu hình, dù model trả lời là Qwen.
+
+Ví dụ chạy từ thư mục gốc bằng PowerShell, sau khi có corpus và manifest đã xác thực:
+
+```powershell
+$legalCompose = @('-f', 'docker-compose.yml', '-f', 'docker-compose.override.yml', '-f', 'docker-compose.ragas.yml')
+$legalOutput = '/eval/reports/legal_agents_' + (Get-Date -Format 'yyyyMMdd_HHmmss') + '.json'
+docker compose @legalCompose run --rm --no-deps --entrypoint python -v "${PWD}/docs:/workspace/docs" -v "${PWD}/eval:/workspace/eval" ragas-eval /workspace/scripts/index_legal_agent_corpus.py
+docker compose @legalCompose run --rm --no-deps --entrypoint python ragas-eval /eval/verify_legal_agent_corpus.py
+docker compose @legalCompose run --rm --no-deps -e CHATBOT_LEGAL_SCHEMA=legal_v2 -e CHATBOT_AGENTS_ENABLED=true -e CHATBOT_QUESTION_ANALYSIS_MODEL=gemini-3.1-flash-lite -e CHATBOT_LEGAL_TIMEOUT_SECONDS=180 ragas-eval --phase collect --output $legalOutput
+docker compose @legalCompose run --rm --no-deps ragas-eval --phase score --output $legalOutput --judge-provider gemini --judge-model gemini-3.1-flash-lite --judge-max-output-tokens 8192 --score-workers 4 --score-abstentions
+```
+
+Chỉ chạy bước sau khi bước trước thành công. Dùng output mới khi code hoặc manifest đổi; runner từ chối trộn các phiên bản. Khi tiếp tục phiên đang dở, dùng lại đường dẫn output đã ghi nhận, giữ code/corpus cố định và chỉ một tiến trình ghi file. Indexer không chuyển API chính và không xóa kho cũ. `finish_legal_agents.py` là runner hữu hạn cho lượt v10 cụ thể, không dùng như lịch nền.
+
+HTTP thử bằng người dùng thường không được yêu cầu `include_evaluation_contexts`; runner chấm gọi nội bộ để lấy ngữ cảnh. `probe_legal_agent_http.py` tạo rồi xóa tài khoản test, JWT dùng cùng cấu hình API. Không in token hoặc khóa. Điểm lỗi giữ N/A, chấm lại có giới hạn chỉ phần thiếu; báo cáo ghi cả số phản hồi thiếu và số điểm hợp lệ.
+
+Lượt v10 đã hoàn tất 36 phản hồi nhưng bộ chấm Gemini chạm HTTP 429. `retry_legal_agent_scores.py` đã chạy đúng một lượt thử lại, kiểm tra mọi điểm hợp lệ và payload trả lời/ngữ cảnh không đổi; không đổi khóa để vượt quota. Script từ chối chạy lại cùng lượt. Các trường lỗi ban đầu giữ trong `ragas_retry_history`, kết quả thiếu không được ghép điểm local vào bản so sánh Gemini. Báo cáo và gate cuối giữ quyết định chưa chuyển kho; không có tác vụ tự động chờ quota.
+
 ## 4. Risk và recommendation
 
 Risk chỉ được công bố recall/precision khi có JSONL nhãn độc lập:

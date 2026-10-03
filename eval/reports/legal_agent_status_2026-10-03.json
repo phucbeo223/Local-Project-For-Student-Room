@@ -1,0 +1,16 @@
+{
+  "phase": "complete_with_errors",
+  "started_at_utc": "2026-10-03T17:11:31.547466+00:00",
+  "baseline_sha256": "b32743c4ad5b251313f488db5ce794e9e2c0159d5b34da346d70a465e3e4810b",
+  "max_runtime_hours": 24,
+  "corpus_schema": "legal_v2",
+  "cutover": "not activated: retain original corpus; missing native scores, critical source-review issues and increased partial answers",
+  "updated_at_utc": "2026-10-03T17:51:09Z",
+  "completed_answers": 36,
+  "score_counts": {
+    "faithfulness": 7,
+    "answer_relevancy": 12,
+    "context_utilization": 9
+  },
+  "baseline_unchanged": true
+}

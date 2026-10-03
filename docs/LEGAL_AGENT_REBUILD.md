@@ -83,6 +83,14 @@ RAGAS đo faithfulness, answer relevancy và context utilization. Không có đ�
 
 ## Kiểm tra trước chuyển và thu hồi kho cũ
 
+### Kết quả nghiệm thu 04/10/2026
+
+- V10 đã chạy đủ 36 câu, 0 lỗi thực thi; Qwen local chọn đoạn ở cả 36 câu. Gemini phân tích 34 câu, 2 câu dự phòng do HTTP 503. 12 phản hồi được đánh dấu một phần, so với 5 của bản lịch sử; tổng cờ chưa đủ căn cứ tăng từ 6 lên 12.
+- HTTP bản thử v10 đạt: health 200, người dùng thường có xác thực nhận 200, không xác thực 403; tài khoản test đã xóa. Kiểm tra nguyên văn 36/36 khớp ngữ cảnh, nhưng rà nội dung còn vấn đề chặn chuyển ở câu 8, 14, 15, 16, 18, 24, 36.
+- RAGAS Gemini chạm quota 429. Một lượt thử lại cùng cấu hình giữ nguyên câu trả lời/ngữ cảnh/điểm hợp lệ và baseline, vẫn hết quota. Điểm hiện có: faithfulness 0,8981 (7/36), answer relevancy 0,6609 (12/36), context utilization 0,7870 (9/36). Có 80/108 metric còn thiếu, giữ N/A. Đây không phải trung bình đủ 36 câu; chưa kết luận chất lượng tổng thể tăng.
+- Gate chuyển kho **không đạt**: còn điểm thiếu, lỗi phạm vi/cắt khoản và phản hồi thiếu tăng. API chính giữ kho `public`; không thực thi thu hồi kho cũ. Kho `legal_v2`, các bản gốc và backup giữ để sửa/đối chiếu. Không có tác vụ đánh giá đang chạy lại tự động.
+- Báo cáo cuối: `eval/ragas_reports/legal_agent_comparison_2026-10-03.md`. Nhận xét từng câu: `eval/reports/legal_agent_source_review_2026-10-03.json`. Quyết định gate: `eval/reports/legal_agent_release_gate_2026-10-03.json`. Tên tệp giữ ngày bắt đầu 03/10; lượt v10 hoàn tất ngày 04/10 giờ Việt Nam.
+
 - `eval/validate_legal_agent_release.py` chỉ đọc dữ liệu và ghi báo cáo gate: đủ 36 phản hồi/điểm thật, cùng cấu hình chấm lịch sử, vai trò model, nguồn, review đúng hash phản hồi và backup đã khôi phục. Chính sách gate hiện giữ cả mức hoàn tất và ba metric không thấp hơn baseline; đây là tiêu chí kỹ thuật của lần sửa, không phải chứng nhận đúng luật.
 - `eval/probe_legal_agent_http.py` kiểm tra HTTP có xác thực bằng tài khoản test tạm trong database. Không gửi email, không xuất token; tài khoản được xóa trong `finally`. API thử dùng cổng localhost 8001; API chính chỉ được chuyển sau gate.
 - `scripts/retire_old_legal_corpus.py` không tự chạy cùng đánh giá. Chỉ thực thi xóa khi dùng `--apply`, API chính đã kiểm tra dùng `legal_v2`, release active đúng manifest, file đánh giá chưa đổi và backup còn đúng hash. Giao dịch xóa chỉ tác động dòng pháp lý `public.legal_documents`/`public.legal_chunks`, kiểm tra vector tin phòng trước/sau, giữ nguyên bảng, dữ liệu gốc và dump khôi phục.

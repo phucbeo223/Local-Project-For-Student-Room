@@ -1,0 +1,463 @@
+{
+  "evaluation_file": "legal_agent_after_v10_2026-10-03.json",
+  "evaluation_sha256": "a5b3ec7507e4ece633e3bf4469b0575f272e73b4c6ec2e22793996691c2a36ed",
+  "review_status": "complete_with_critical_issues_and_missing_native_scores",
+  "reviewed_cases": 36,
+  "finalized_at_utc": "2026-10-03T17:51:09Z",
+  "review_method": "Read all 36 generated answers and inspect selected clauses, subjects and missing facets; check literal quotes against actual generation contexts. Targeted original-page verification is logged separately. Not an independent legal correctness reference or full word-by-word verification of every government original.",
+  "answer_payload_sha256": "94b003923837c45ee3944630527b2d32bf9ef3248270cad32c60799cab53246d",
+  "literal_source_checks": [
+    {
+      "id": 1,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 2,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 3,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 4,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 5,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 6,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 7,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 8,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 9,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 10,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 11,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 12,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 13,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 14,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 15,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 16,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 17,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 18,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 19,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 20,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 21,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 22,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 23,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 24,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 25,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 26,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 27,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 28,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 29,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 30,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 31,
+      "quotes": 3,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 32,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 33,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 34,
+      "quotes": 1,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 35,
+      "quotes": 4,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    },
+    {
+      "id": 36,
+      "quotes": 2,
+      "mismatch_ranks": [],
+      "has_quotes": true
+    }
+  ],
+  "all_quotes_match": true,
+  "all_source_urls_government_https": true,
+  "analysis_status_counts": {
+    "gemini/completed": 34,
+    "rules/fallback": 2
+  },
+  "generation_provider_counts": {
+    "qwen-local": 36
+  },
+  "critical_issues": [
+    {
+      "id": 8,
+      "severity": "critical",
+      "note": "Chọn Điều 12.5 về hợp đồng/định mức/giới hạn hóa đơn; chưa có quy định trực tiếp về nghĩa vụ chủ trọ thông báo cách tính và số điện cho người thuê, nhưng phản hồi được gán đủ. Không được suy ra nghĩa vụ riêng từ nghĩa vụ thông báo biến động người thuê cho bên bán điện."
+    },
+    {
+      "id": 14,
+      "severity": "critical",
+      "note": "Điều 28.1 và Thông tư 116 Điều 3.6 nêu hồ sơ/công dân xuất trình khi không khai thác được dữ liệu. Chưa trả lời trực tiếp trách nhiệm chủ trọ. Phần hiệu lực kèm mảnh giữa danh sách văn bản bị bãi bỏ, mất đầu khoản do lọc từng fragment thay vì cả khoản."
+    },
+    {
+      "id": 15,
+      "severity": "critical",
+      "note": "Hồ sơ Điều 28.1 và yêu cầu bản chụp Điều 3.7 đúng nguồn, khoản 8 đã tách riêng. Đoạn bổ sung hiệu lực vẫn có mảnh giữa khoản bãi bỏ không đầy đủ; chưa nêu đủ loại chứng minh chỗ ở hợp pháp theo văn bản sửa đổi."
+    },
+    {
+      "id": 16,
+      "severity": "critical",
+      "note": "Điều 12.1 trực tiếp yêu cầu tạm trú mới và giữ ngoại lệ dẫn chiếu Điều 6.3, nhưng chưa truy xuất Điều 6.3; phần bổ sung hiệu lực còn mảnh giữa khoản bãi bỏ."
+    },
+    {
+      "id": 18,
+      "severity": "critical",
+      "note": "Câu hỏi nhà trọ nhiều phòng cần phân loại theo Điều 20.3/4 và các văn bản liên quan; chỉ chọn Điều 20.1/2 vốn loại trừ loại hình đó cùng Điều 21.2. Trạng thái đủ có thể gây hiểu nhầm phạm vi."
+    },
+    {
+      "id": 24,
+      "severity": "critical",
+      "note": "Điều 63.2 quy định thù lao giữa cá nhân môi giới và doanh nghiệp môi giới/sàn; không trực tiếp là phí người thuê trả cho người môi giới và giấy tờ giữa họ. Trạng thái đủ không bảo đảm đúng chủ thể."
+    },
+    {
+      "id": 36,
+      "severity": "critical",
+      "note": "Khuyến cáo BCA phù hợp giữ tài liệu/tin nhắn/chứng từ; khoản tiếp nhận tố giác có nội dung khoản 3.[74] bị gộp trong nhãn khoản 2 do chú thích sau số khoản. Chưa cấu trúc đúng nhãn toàn bộ bản kế thừa, cần tách chú thích có căn cứ gốc."
+    }
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "severity": "info",
+      "note": "Trích Điều 163 đầy đủ danh mục, giữ các điều kiện mua bán/thuê mua; Điều 398 hỗ trợ nội dung hợp đồng. Phần hiệu lực/chuyển tiếp dài, có thể giảm trọng tâm."
+    },
+    {
+      "id": 2,
+      "severity": "incomplete",
+      "note": "Truy xuất thật với truy vấn Gemini không có Điều 328 dù gate chỉ dùng câu gốc có tìm thấy; phần giá/thanh toán đúng nguồn, phản hồi tự đánh dấu một phần do thiếu ý tiền cọc."
+    },
+    {
+      "id": 3,
+      "severity": "incomplete",
+      "note": "Chỉ chọn Điều 170.2 trường hợp cải tạo có sự đồng ý, giữ điều kiện; thiếu Điều 170.1 nguyên tắc thỏa thuận khi câu hỏi chung về tăng giá giữa kỳ, nhưng được gán trạng thái đủ."
+    },
+    {
+      "id": 4,
+      "severity": "info",
+      "note": "Điều 328.2 giữ đầy đủ ngoại lệ thỏa thuận khác; Điều 481.1 đúng tiền thuê. Không tự đồng nhất trả phòng với từ chối giao kết/thực hiện."
+    },
+    {
+      "id": 5,
+      "severity": "scope_warning",
+      "note": "Trích điều điện sinh hoạt thuê nhà và xử phạt đúng số Điều 13.7; có điều kiện hiệu lực điểm c khoản 5 Điều 12 và chuyển tiếp. Chưa có dữ liệu độc lập xác nhận sự kiện kích hoạt điều chỉnh giá; OCR phần phạm vi phạt còn ký tự lỗi."
+    },
+    {
+      "id": 6,
+      "severity": "scope_warning",
+      "note": "Nguồn có định mức 3 người và cả điều kiện khai báo/cư trú/thời hạn cùng mốc áp dụng có điều kiện. Không tính tiền thực tế khi thiếu điện năng/biểu giá. Chưa xác nhận sự kiện kích hoạt."
+    },
+    {
+      "id": 7,
+      "severity": "scope_warning",
+      "note": "Nguồn hóa đơn giới hạn tổng tiền và Điều 13.7 có điều kiện, giữ hiệu lực/chuyển tiếp; chưa xác nhận sự kiện kích hoạt của quy định điểm c khoản 5."
+    },
+    {
+      "id": 8,
+      "severity": "critical",
+      "note": "Chọn Điều 12.5 về hợp đồng/định mức/giới hạn hóa đơn; chưa có quy định trực tiếp về nghĩa vụ chủ trọ thông báo cách tính và số điện cho người thuê, nhưng phản hồi được gán đủ. Không được suy ra nghĩa vụ riêng từ nghĩa vụ thông báo biến động người thuê cho bên bán điện."
+    },
+    {
+      "id": 9,
+      "severity": "incomplete",
+      "note": "Nguồn Điều 54.1/2 thẩm quyền quyết định giá nước đúng; chưa có quyết định địa phương Cần Thơ được xác thực, phản hồi không nêu biểu giá hiện hành. Gán đủ chưa chứng minh căn cứ địa phương."
+    },
+    {
+      "id": 10,
+      "severity": "info",
+      "note": "Các khoản về thanh toán và kiểm định đồng hồ là quan hệ khách hàng/đơn vị cấp nước; phản hồi đã ghi một phần và chưa suy ra công thức chia nước theo đầu người."
+    },
+    {
+      "id": 11,
+      "severity": "incomplete",
+      "note": "Chỉ chọn Điều 48.1 về khách hàng thanh toán đơn vị cấp nước; chưa trả lời thỏa thuận phân chia giữa người thuê/chủ trọ. Có đánh dấu một phần, không tự suy ra công thức."
+    },
+    {
+      "id": 12,
+      "severity": "info",
+      "note": "Điều 48.5 trực tiếp quy định yêu cầu xem xét hóa đơn, thời hạn giải quyết và nghĩa vụ trong lúc chờ; giữ điều kiện khách hàng sử dụng nước."
+    },
+    {
+      "id": 13,
+      "severity": "incomplete",
+      "note": "Hai nguồn trùng Điều 27.1, đúng điều kiện chỗ ở hợp pháp/ngoài xã thường trú/30 ngày. Chưa có thủ tục hồ sơ và nơi nộp trong đoạn chọn; câu hỏi thủ tục được gán đủ."
+    },
+    {
+      "id": 14,
+      "severity": "critical",
+      "note": "Điều 28.1 và Thông tư 116 Điều 3.6 nêu hồ sơ/công dân xuất trình khi không khai thác được dữ liệu. Chưa trả lời trực tiếp trách nhiệm chủ trọ. Phần hiệu lực kèm mảnh giữa danh sách văn bản bị bãi bỏ, mất đầu khoản do lọc từng fragment thay vì cả khoản."
+    },
+    {
+      "id": 15,
+      "severity": "critical",
+      "note": "Hồ sơ Điều 28.1 và yêu cầu bản chụp Điều 3.7 đúng nguồn, khoản 8 đã tách riêng. Đoạn bổ sung hiệu lực vẫn có mảnh giữa khoản bãi bỏ không đầy đủ; chưa nêu đủ loại chứng minh chỗ ở hợp pháp theo văn bản sửa đổi."
+    },
+    {
+      "id": 16,
+      "severity": "critical",
+      "note": "Điều 12.1 trực tiếp yêu cầu tạm trú mới và giữ ngoại lệ dẫn chiếu Điều 6.3, nhưng chưa truy xuất Điều 6.3; phần bổ sung hiệu lực còn mảnh giữa khoản bãi bỏ."
+    },
+    {
+      "id": 17,
+      "severity": "scope_warning",
+      "note": "Giữ trọn điểm a/b Điều 20.1/2 và điều kiện không thuộc khoản 3/4. Chọn thêm Điều 21.2 về nhà ở kinh doanh hàng hóa nguy hiểm, chưa có dữ kiện phân loại phòng trọ, không được coi là checklist áp dụng mọi nhà trọ."
+    },
+    {
+      "id": 18,
+      "severity": "critical",
+      "note": "Câu hỏi nhà trọ nhiều phòng cần phân loại theo Điều 20.3/4 và các văn bản liên quan; chỉ chọn Điều 20.1/2 vốn loại trừ loại hình đó cùng Điều 21.2. Trạng thái đủ có thể gây hiểu nhầm phạm vi."
+    },
+    {
+      "id": 19,
+      "severity": "incomplete",
+      "note": "Đã trích đúng khóa cửa ở Điều 24.3 và cản trở ở 24.2; có phạm vi mức phạt cá nhân/tổ chức và hiệu lực 01/7/2025. Chưa có chỉ dẫn hành động người thuê, được đánh dấu một phần. Phần bổ sung có fragment cuối Điều 3.4 mất đầu nội dung."
+    },
+    {
+      "id": 20,
+      "severity": "info",
+      "note": "Điều 8.8 giữ trách nhiệm người cho thuê và ngoại lệ thỏa thuận khác; 8.6/7 cung cấp nghĩa vụ dẫn chiếu liên quan. Không tự áp dụng mức phạt."
+    },
+    {
+      "id": 21,
+      "severity": "incomplete",
+      "note": "Chọn điều kiện doanh nghiệp môi giới Điều 61.1 thay vì nghĩa vụ công khai thông tin trực tiếp cho người thuê; đã báo một phần."
+    },
+    {
+      "id": 22,
+      "severity": "incomplete",
+      "note": "Điều 65.1 yêu cầu thông tin đầy đủ/trung thực nhưng thiếu Điều 161 về người có quyền cho thuê trong phần chọn; phản hồi đã báo một phần."
+    },
+    {
+      "id": 23,
+      "severity": "incomplete",
+      "note": "Điều 65.1 có nghĩa vụ thông tin và bồi thường do lỗi, nhưng chưa có thủ tục hành động người thuê; đã báo một phần, không tự suy ra mức bồi thường."
+    },
+    {
+      "id": 24,
+      "severity": "critical",
+      "note": "Điều 63.2 quy định thù lao giữa cá nhân môi giới và doanh nghiệp môi giới/sàn; không trực tiếp là phí người thuê trả cho người môi giới và giấy tờ giữa họ. Trạng thái đủ không bảo đảm đúng chủ thể."
+    },
+    {
+      "id": 25,
+      "severity": "incomplete",
+      "note": "Có nghĩa vụ chủ quản nền tảng và khuyến cáo BCA phòng ngừa lừa đảo, nhưng chưa trả lời đầy đủ thao tác kiểm tra người đăng/quyền cho thuê. Khuyến cáo được ghi rõ không phải điều luật."
+    },
+    {
+      "id": 26,
+      "severity": "incomplete",
+      "note": "Chọn trách nhiệm xác thực người bán và kiểm duyệt, chưa chọn điều về kênh tiếp nhận báo cáo của người dùng; đã đánh dấu một phần."
+    },
+    {
+      "id": 27,
+      "severity": "scope_warning",
+      "note": "Điều 17.1 về nền tảng trung gian phù hợp trách nhiệm thông tin, nhưng thêm Điều 18.2 chỉ nền tảng có chức năng đặt hàng trực tuyến và giao dịch hàng hóa; cần xác định nền tảng đăng tin thuộc phạm vi nào."
+    },
+    {
+      "id": 28,
+      "severity": "info",
+      "note": "Hai khuyến cáo chính thức về link lạ/OTP và cọc thuê trọ đáp ứng cảnh báo; được ghi rõ không phải điều luật, không tự gán hành vi là tội phạm."
+    },
+    {
+      "id": 29,
+      "severity": "info",
+      "note": "Đã giữ đủ ba chủ đề cư trú/hợp đồng/đồng ý xử lý dữ liệu trong phần chọn. Điều 163.1 chỉ danh tính/địa chỉ; không suy ra chủ trọ được thu mọi dữ liệu hoặc luôn cần ảnh căn cước."
+    },
+    {
+      "id": 30,
+      "severity": "incomplete",
+      "note": "Trích nguyên tắc phạm vi/mục đích và điều kiện đồng ý; chưa có thời hạn lưu, bảo mật và xóa ảnh căn cước cụ thể. Đã đánh dấu một phần."
+    },
+    {
+      "id": 31,
+      "severity": "incomplete",
+      "note": "Có nguyên tắc mục đích và đồng ý hợp lệ, nhưng thiếu quy định trực tiếp về công khai giấy tờ/số điện thoại và căn cứ ngoại lệ. Đã báo một phần, không suy ra cấm tuyệt đối."
+    },
+    {
+      "id": 32,
+      "severity": "incomplete",
+      "note": "Điều 10.1 trực tiếp quyền rút đồng ý/hạn chế xử lý và giữ ngoại lệ Điều 19/pháp luật khác; chưa truy xuất ngoại lệ/thủ tục yêu cầu, đã báo một phần."
+    },
+    {
+      "id": 33,
+      "severity": "incomplete",
+      "note": "Khuyến cáo BCA trả lời trực tiếp rủi ro cọc trước/không xem phòng, không tự kết luận tội phạm. Cờ một phần còn do thiếu chủ đề hợp đồng mà bộ định tuyến bắt từ 'cọc'; cần xem lại tiêu chí bắt buộc cho câu hỏi rủi ro."
+    },
+    {
+      "id": 34,
+      "severity": "info",
+      "note": "Khuyến cáo BCA chỉ rõ giữ tin nhắn/tài liệu/chứng từ chuyển tiền và trình báo Công an, phù hợp hỏi bằng chứng và nơi trình báo."
+    },
+    {
+      "id": 35,
+      "severity": "scope_warning",
+      "note": "Đã sửa truy xuất về Điều 174.1 cấu thành gian dối/chiếm đoạt, đủ các điểm dưới ngưỡng; kèm Điều 328.1 định nghĩa cọc và khuyến cáo. Không tự phân loại tình huống cụ thể, nhưng chưa có phần tranh chấp hợp đồng đầy đủ; còn chú thích [98] trong bản nguồn kế thừa."
+    },
+    {
+      "id": 36,
+      "severity": "critical",
+      "note": "Khuyến cáo BCA phù hợp giữ tài liệu/tin nhắn/chứng từ; khoản tiếp nhận tố giác có nội dung khoản 3.[74] bị gộp trong nhãn khoản 2 do chú thích sau số khoản. Chưa cấu trúc đúng nhãn toàn bộ bản kế thừa, cần tách chú thích có căn cứ gốc."
+    }
+  ],
+  "cutover_recommendation": "retain_original_corpus",
+  "next_repairs": [
+    "Always preserve human-requested deposit/price/payment evidence when Gemini expansions change retrieval ranking.",
+    "Assemble effectiveness and transition by complete provision_id parent; never keep a middle fragment of a repeal inventory.",
+    "Parse numbered clauses with government footnotes as annotations; verify actual source before changing labels.",
+    "Identify subject/building/platform scope and enforce answer-facet coverage; correct incomplete flags even when literal evidence is valid.",
+    "Retrieve referenced exceptions and verified local water instruments before stating applicability; keep abstention for absent sources."
+  ]
+}

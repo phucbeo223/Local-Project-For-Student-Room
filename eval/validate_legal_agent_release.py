@@ -40,7 +40,8 @@ def main():
         'no_gemini_answer_generation':len(completed)==36 and all(c.get('generation_provider')!='gemini' for c in completed),
         'gemini_analysis_observed':any(t.get('agent')=='question_analysis' and t.get('provider')=='gemini' and t.get('status')=='completed' for c in completed for t in c.get('agent_trace',[])),
         'backup_restored_and_hash_matches':backup.get('restore_verified') is True and dump.is_file() and sha(dump)==backup.get('backup_sha256'),
-        'reviewed_actual_answer_file':args.after.is_file() and review.get('evaluation_sha256')==sha(args.after) and review.get('reviewed_cases')==36 and review.get('critical_issues')==[],
+        'reviewed_actual_answer_file':args.after.is_file() and review.get('evaluation_sha256')==sha(args.after) and review.get('reviewed_cases')==36,
+        'no_critical_source_review_issues':review.get('critical_issues')==[],
     }
     for m in METRICS:
         gates[m+'_not_regressed']=len(scores[m])==len(old_scores[m])==36 and statistics.mean(scores[m])>=statistics.mean(old_scores[m])
@@ -51,6 +52,7 @@ def main():
         'score_counts':{m:len(scores[m]) for m in METRICS},
         'scores':{m:statistics.mean(scores[m]) if scores[m] else None for m in METRICS},
         'no_answer':sum(bool(c.get('no_answer')) for c in completed),
+        'source_review_critical_case_ids':[c['id'] for c in review.get('critical_issues',[])],
         'policy':'Engineering release gate: all cases scored with the historical judge, no metric/completeness regression, source review and restored backup. Not an independent legal correctness certification.',
         'action':'eligible_for_preview_and_cutover' if all(gates.values()) else 'retain_original_corpus'}
     (BASE/'reports/legal_agent_release_gate_2026-10-03.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
