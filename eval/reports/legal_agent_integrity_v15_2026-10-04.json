@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-03T20:16:03.162530+00:00",
+  "corpus_manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "structured_documents": 39,
+  "input_or_original_hashes_checked": 49,
+  "hash_mismatches": [],
+  "scope": "Byte integrity only; does not certify transcription, law effectiveness or actor applicability"
+}

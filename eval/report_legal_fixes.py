@@ -30,7 +30,9 @@ def main():
     state=read(args.after.with_suffix('.status.json'))
     checks=read(BASE/'reports/legal_agent_retrieval_v15_2026-10-04.json')
     http=read(BASE/'reports/legal_agent_http_v14_2026-10-04.json')
+    web_http=read(BASE/'reports/legal_agent_http_v13_2026-10-04.json')
     completed=[c for c in local.get('cases',[]) if 'answer' in c]
+    local_review=read(BASE/'reports/legal_agent_local_review_v15_2026-10-04.json')
     same=bool(new.get('judge')) and all(old.get('judge',{}).get(k)==new['judge'].get(k) for k in METHOD_FIELDS)
     lines=['# Kiểm thử năm nhóm sửa lỗi pháp lý — v15','',
         'Cập nhật UTC: '+datetime.now(timezone.utc).isoformat(),'',
@@ -38,7 +40,7 @@ def main():
         '- Truy xuất thật: '+str(checks.get('passed'))+'; '+str(sum(checks.get('gates',{}).values()))+'/'+str(len(checks.get('gates',{})))+' gate.',
         '- Local riêng: '+str(len(completed))+'/36 phản hồi; '+str(local.get('summary',{}).get('errors',0))+' lỗi thực thi; '+str(sum(bool(c.get('partial_answer')) for c in completed))+' phản hồi một phần.',
         '- Kiểm tra nguyên văn local: '+str(sum(quotes_valid(c) for c in completed))+'/'+str(len(completed))+' phản hồi có mọi trích đoạn khớp đúng context/rank. Đây là kiểm tra chuỗi, không chứng nhận đúng luật.',
-        '- HTTP v14: '+str(http.get('passed','chưa xong'))+'; nguồn web trả về: '+str(http.get('web_source_returned','chưa xong'))+'.',
+        '- HTTP v14 câu trình báo: '+str(http.get('passed','chưa xong'))+'; HTTP v13 câu 8 nguồn web trả về: '+str(web_http.get('web_source_returned','chưa xong'))+'. Các kiểm tra HTTP này dùng cùng mã API; toàn bộ corpus cuối được kiểm tra riêng ở lượt v15.',
         '- Worker Gemini: '+state.get('phase','chưa có trạng thái')+'; phản hồi hoàn thành: '+str(sum('answer' in c for c in new.get('cases',[])))+'/36.',
         '- Không điền điểm local vào Gemini. Kho public/API chính giữ nguyên, chờ gate và rà nguồn.', '',
         '## RAGAS native Gemini — so sánh theo cặp','',
@@ -65,6 +67,12 @@ def main():
     for c in local.get('cases',[]):
         literal='đạt' if quotes_valid(c) else 'chưa xong' if 'answer' not in c else 'cần rà'
         lines.append(f"| {c['id']} | {status(c)} | {c.get('generation_model','')} | {literal} |")
+    lines += ['','## Rà nguồn local và lỗi còn lại','',
+        'Hồ sơ rà nguồn: `legal_agent_local_review_v15_2026-10-04.json`. Kiểm tra cơ học đủ 36 câu; rà quan hệ/nguồn tập trung các câu trọng điểm. Không xác nhận pháp lý độc lập cho toàn bộ bộ câu hỏi.',
+        '- Câu 34/36 đã trích hướng dẫn bằng chứng dành cho người trình báo, Điều 146 khoản 1 và Điều 145 khoản 2; không chỉ thông báo nội bộ gửi Viện kiểm sát.',
+        '- Câu 21 còn chọn đoạn về giá dịch vụ thay cho nghĩa vụ công khai thông tin; câu trả lời một phần, cần xử lý/rà lại lượt native.',
+        '- Câu 10/11: quy định hợp đồng đơn vị cấp nước không tự xác lập cách chủ trọ chia tiền nước. Câu 24: có căn cứ trả tiền dịch vụ nhưng phần hình thức giấy tờ còn một phần.',
+        '- Hiệu lực điện có điều kiện và phạm vi áp dụng giá nước hiện tại chưa được xác minh. Không thay dữ kiện thiếu bằng suy đoán.']
     lines+=['','## Dấu vết và giới hạn','',
         '- JSON local: `'+args.local.name+'`, SHA `'+sha(args.local)+'`.',
         '- JSON native: `'+args.after.name+'`, SHA tại lúc lập báo cáo `'+sha(args.after)+'`; checkpoint còn chạy có thể đổi SHA.',

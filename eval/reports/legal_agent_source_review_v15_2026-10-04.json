@@ -6,10 +6,15 @@
   "review_required": [
     2,
     8,
+    9,
+    10,
+    11,
     14,
     15,
     16,
     18,
+    21,
+    22,
     24,
     27,
     31,
@@ -22,7 +27,9 @@
     "Separate landlord duty to supply all residence documents not established by citizen duties alone.",
     "2024 Can Tho water decision needs territory, provider and current application confirmation; tariff cells excluded.",
     "Many-room house classification requires actual use, floor count, area and applicable technical rules.",
-    "Literal quote matching and RAGAS scores do not independently certify legal applicability."
+    "Literal quote matching and RAGAS scores do not independently certify legal applicability.",
+    "Water supplier/customer contract and meter rules do not by themselves establish the landlord/tenant shared-meter allocation agreement; review questions 10/11 for actor applicability.",
+    "Local question 21 still gives only a pricing provision, which does not answer information-disclosure duties. Native question 21/22 must be reviewed for broker status and direct disclosure/authority evidence before acceptance."
   ],
   "action": "retain original corpus; do not certify an unreviewed answer file"
 }

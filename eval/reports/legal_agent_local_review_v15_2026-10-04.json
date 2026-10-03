@@ -1,0 +1,84 @@
+{
+  "status": "local_targeted_review_not_native_release_review",
+  "evaluation_sha256": "deff9af52f6192e129b5e8dd446874ab879472ebd502c815f7c64dc5d7026ea2",
+  "checked_at_utc": "2026-10-03T20:29:51.894334+00:00",
+  "completed_cases": 36,
+  "execution_errors": 0,
+  "literal_quotes_matching_context": 36,
+  "qwen_generate_attempts_observed_cases": 36,
+  "partial_answers": 23,
+  "local_rules_analysis_fallbacks": 36,
+  "scope": "Mechanical checks across 36 cases and targeted source/relation review; not independent legal correctness certification or native Gemini RAGAS scoring",
+  "targeted_findings": [
+    {
+      "id": 2,
+      "finding": "Original deposit/rent/payment facets retained in sources and quoted answer. Deposit definition is not treated as mandatory deposit clause; response remains partial."
+    },
+    {
+      "id": 8,
+      "finding": "Local electricity disclosure guidance present and labeled guidance; statutory obligation and conditional commencement remain unconfirmed."
+    },
+    {
+      "id": 14,
+      "finding": "Citizen/residence dossier evidence not relabeled as complete landlord paperwork obligation; gap disclosed."
+    },
+    {
+      "id": 18,
+      "finding": "Full house rules and classification annex retained; house use/floors/area needed before categorical application."
+    },
+    {
+      "id": 24,
+      "finding": "Tenant service payment basis comes from Civil Code 519, rather than employee brokerage remuneration. Document-form question still partial."
+    },
+    {
+      "id": 27,
+      "finding": "Intermediary-platform clauses present, remaining cross-reference gap disclosed; no full compliance conclusion."
+    },
+    {
+      "id": 31,
+      "finding": "Full publication rule retained with Article 19 clause 1 exceptions in the same-law context."
+    },
+    {
+      "id": 32,
+      "finding": "Direct data-subject-rights procedure supplied from Decree 356 Article 5, withdrawal/limitation from Law 91 Article 10."
+    },
+    {
+      "id": 34,
+      "finding": "Victim evidence guidance quoted, plus Article 146 clause 1 and 145 clause 2 receiving procedure; no state-agency proposal substituted."
+    },
+    {
+      "id": 36,
+      "finding": "Victim evidence guidance quoted; not just internal notice from investigation agency to procuracy."
+    }
+  ],
+  "remaining_issues": [
+    {
+      "id": 21,
+      "issue": "Selected pricing text does not directly answer disclosure duties; response remains partial. Review native retrieval and broker status before acceptance."
+    },
+    {
+      "ids": [
+        10,
+        11
+      ],
+      "issue": "Supplier/customer meter and service-contract rules do not by themselves establish landlord/tenant shared-cost terms."
+    },
+    {
+      "ids": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "issue": "Conditional electricity commencement trigger not confirmed."
+    },
+    {
+      "ids": [
+        9,
+        12
+      ],
+      "issue": "Confirm current territory/provider/application before using the 2024 local water decision."
+    }
+  ],
+  "action": "Keep original public corpus and main API; await native Gemini scores and actual native answer review."
+}

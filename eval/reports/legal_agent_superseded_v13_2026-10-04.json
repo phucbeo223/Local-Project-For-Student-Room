@@ -1,0 +1,16 @@
+{
+  "status": "superseded",
+  "local_report": "legal_agent_local_v13_2026-10-04.json",
+  "local_sha256": "32ae947017839b69e851279036756fb4cd253a3b467c3fad37c5e8e637717cb2",
+  "completed": 36,
+  "execution_errors": 0,
+  "reason": "Questions 34/36 selected authority internal procedure instead of direct guidance on victim evidence; fixed ranking, source reservation, bounded re-selection and actor checks in v14/v15",
+  "critical_case_ids": [
+    34,
+    36
+  ],
+  "native_report": "legal_agent_after_v13_2026-10-04.json",
+  "native_status": "Stopped before any answers/scores; empty quota state inherited into later version",
+  "merge_into_final": false,
+  "recorded_at_utc": "2026-10-03T20:22:06.411994+00:00"
+}
