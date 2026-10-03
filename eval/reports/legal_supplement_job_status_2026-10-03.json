@@ -1,0 +1,12 @@
+{
+  "started_at_utc": "2026-10-02T20:30:15.023987+00:00",
+  "phase": "stopped_for_local_mode",
+  "deployed_image": "sha256:fa1d9d36189f93dcccc71f8d81671208e8a5854a29105f4328459f8b9481fe7b",
+  "baseline_sha256": "b32743c4ad5b251313f488db5ce794e9e2c0159d5b34da346d70a465e3e4810b",
+  "verified_official_downloads": 10,
+  "max_runtime_hours": 24,
+  "completed": 13,
+  "updated_at_utc": "2026-10-03T02:37:41.577933+00:00",
+  "stopped_at_utc": "2026-10-03T02:44:40.437781+00:00",
+  "reason": "User requested local-only generation and judging; previous checkpoints preserved"
+}

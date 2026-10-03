@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 import unicodedata
 
-EXTRACTION_VERSION = "legal-v4"
+EXTRACTION_VERSION = "legal-v6"
 
 
 def text_quality(text: str) -> float:

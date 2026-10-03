@@ -4,6 +4,9 @@ from pydantic import BaseModel, Field, model_validator
 
 
 class ChatFilters(BaseModel):
+    max_price_exclusive: bool = False
+    sort_by: Literal["price_asc"] | None = None
+    listing_ids: list[int] = Field(default_factory=list, max_length=5)
     min_price: int | None = Field(default=None, ge=0)
     max_price: int | None = Field(default=None, ge=0)
     min_area: float | None = Field(default=None, ge=0)
@@ -25,11 +28,18 @@ class ChatFilters(BaseModel):
         return self
 
 
+class ChatConversationState(BaseModel):
+    filters: ChatFilters = Field(default_factory=ChatFilters)
+    listing_ids: list[int] = Field(default_factory=list, max_length=5)
+    selected_listing_id: int | None = Field(default=None, gt=0)
+
+
 class ChatAskRequest(BaseModel):
     """The API receives short client-side context but never persists chat content."""
 
     message: str = Field(min_length=2, max_length=2000)
     filters: ChatFilters | None = None
+    conversation_state: ChatConversationState | None = None
     conversation_history: list["ChatHistoryMessage"] = Field(
         default_factory=list, max_length=10
     )
@@ -101,6 +111,10 @@ class ChatFeedbackOut(BaseModel):
 
 
 class ChatAskResponse(BaseModel):
+    partial_answer: bool = False
+    conversation_state: ChatConversationState | None = None
+    applied_filters: ChatFilters | None = None
+    citation_applicable: bool = False
     answer: str
     intent: str
     confidence: float

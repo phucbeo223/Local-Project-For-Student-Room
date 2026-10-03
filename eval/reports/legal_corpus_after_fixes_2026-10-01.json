@@ -1,0 +1,10 @@
+{
+  "data_files": 30,
+  "indexed_documents": 30,
+  "missing_from_index": [],
+  "indexed_but_missing_from_data": [],
+  "current_document_chunks": 1834,
+  "current_document_vectors": 1834,
+  "listing_records": 915,
+  "listing_vectors": 915
+}

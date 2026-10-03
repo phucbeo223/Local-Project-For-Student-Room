@@ -1,0 +1,2079 @@
+{
+  "method": "saved run inspection + current parser/rewrite replay; no DB writes or LLM generation",
+  "category_label_check": "at least one source.category equals the question's single folder label; not semantic evidence correctness",
+  "topic_question_count": 40,
+  "topic_intents": {
+    "legal_question": 21,
+    "find_listing": 16,
+    "clarify": 3
+  },
+  "category_warning_count": 26,
+  "warning_intents": {
+    "legal_question": 7,
+    "find_listing": 16,
+    "clarify": 3
+  },
+  "wrong_topic_route_ids": [
+    29,
+    36,
+    37,
+    38,
+    39,
+    40,
+    42,
+    43,
+    44,
+    45,
+    47,
+    48,
+    49,
+    50,
+    52,
+    53,
+    54,
+    56,
+    58
+  ],
+  "knowledge_route_category_warning_ids": [
+    19,
+    28,
+    31,
+    41,
+    51,
+    55,
+    57
+  ],
+  "no_answer_intents": {
+    "find_listing": 2,
+    "legal_question": 7,
+    "clarify": 3
+  },
+  "stale_source_case_ids": [
+    17,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    28,
+    30,
+    32,
+    33,
+    34,
+    35,
+    41,
+    46,
+    51,
+    55,
+    57
+  ],
+  "followup_replay": [
+    {
+      "id": 15,
+      "history_user_ids": [
+        14
+      ],
+      "rewritten_query": "Trong các phòng vừa tìm được, phòng nào rẻ nhất?",
+      "rewrite_changed": false,
+      "previous_listing_ids": [
+        2101,
+        250,
+        248,
+        526,
+        94
+      ],
+      "result_listing_ids": [
+        2020,
+        248,
+        252,
+        247,
+        2088
+      ]
+    },
+    {
+      "id": 16,
+      "history_user_ids": [
+        14,
+        15
+      ],
+      "rewritten_query": "Phòng đó có chỗ để xe và Wi-Fi không?",
+      "rewrite_changed": false,
+      "previous_listing_ids": [
+        2020,
+        248,
+        252,
+        247,
+        2088
+      ],
+      "result_listing_ids": [
+        249,
+        609,
+        207,
+        93,
+        87
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "question": "Tìm phòng trọ dưới 2 triệu đồng mỗi tháng gần Đại học Cần Thơ.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": 2000000,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 2,
+      "question": "Có phòng nào giá từ 1,5 đến 2 triệu đồng mỗi tháng không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": 1,
+        "max_price": 2000000,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 3,
+      "question": "Tìm phòng có giá thuê thấp nhất trong các tin còn hiệu lực.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro",
+        "nha",
+        "thue"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 4,
+      "question": "Tôi có ngân sách tối đa 2,5 triệu đồng mỗi tháng, có những lựa chọn nào?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": 2500000,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 5,
+      "question": "Tìm phòng trọ ở quận Ninh Kiều.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": "Ninh Kiều",
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 6,
+      "question": "Có phòng nào ở Bình Thủy, cách Đại học Cần Thơ dưới 2 km không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": "Bình Thủy",
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": 2000.0,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 7,
+      "question": "Tìm phòng gần khu II Đại học Cần Thơ, ưu tiên đi lại thuận tiện.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 8,
+      "question": "Có phòng nào gần đường 3/2 hoặc khu Xuân Khánh không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Tìm phòng từ 20 m² trở lên, có gác lửng.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [
+          "mezzanine"
+        ],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 10,
+      "question": "Có phòng nào có máy lạnh, Wi-Fi và chỗ để xe không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [
+          "air_conditioner",
+          "parking"
+        ],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 11,
+      "question": "Tìm phòng có nhà vệ sinh riêng và giờ giấc tự do.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [
+          "flexible_hours",
+          "private_bathroom"
+        ],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "nha"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 12,
+      "question": "Có phòng phù hợp cho hai sinh viên ở ghép không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 13,
+      "question": "Tìm phòng dưới 2 triệu đồng ở Ninh Kiều, có gác và cách trường dưới 2 km.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": 2000000,
+        "min_area": null,
+        "district": "Ninh Kiều",
+        "amenities": [
+          "mezzanine"
+        ],
+        "gender": null,
+        "max_distance_ctu": 2000.0,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "truong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 14,
+      "question": "Tìm phòng từ 18 m² trở lên, có máy lạnh, giá không quá 2,5 triệu đồng mỗi tháng.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": 2500000,
+        "min_area": null,
+        "district": null,
+        "amenities": [
+          "air_conditioner"
+        ],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 15,
+      "question": "Trong các phòng vừa tìm được, phòng nào rẻ nhất?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 16,
+      "question": "Phòng đó có chỗ để xe và Wi-Fi không?",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [
+          "parking"
+        ],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 17,
+      "question": "Nếu không có phòng đúng tất cả điều kiện, hãy cho tôi biết điều kiện nào cần nới lỏng.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "dieu "
+      ],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "housing_contract/Luat Dan Su phan 2.pdf",
+        "housing_contract/Nghi dinh 95 nam 2024.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 18,
+      "question": "Các tin vừa gợi ý được cập nhật gần đây chưa? Cho tôi xem nguồn tin.",
+      "expected_category_label": "find_listing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "nha"
+      ],
+      "same_category_label_found": null,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 19,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "expected_category_label": "housing_contract",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "dieu ",
+        "khoan ",
+        "hop dong"
+      ],
+      "matching_housing_substrings": [
+        "tro",
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity",
+        "residence",
+        "student_housing"
+      ],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 20,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "expected_category_label": "housing_contract",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "hop dong"
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "thue"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "housing_contract/Luat Dan Su phan 1.pdf",
+        "housing_contract/Nghi dinh 95 nam 2024.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 21,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "expected_category_label": "housing_contract",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "hop dong"
+      ],
+      "matching_housing_substrings": [
+        "tro",
+        "thue"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "disputes",
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "disputes/2024_1161 + 1162_11-VBHN-VPQH.doc",
+        "housing_contract/Luat Dan Su phan 2.pdf",
+        "housing_contract/Nghi dinh 95 nam 2024.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 22,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "expected_category_label": "housing_contract",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "hop dong"
+      ],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "disputes",
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "disputes/326_2016_UBTVQH14(16723).pdf",
+        "housing_contract/Luat Dan Su phan 1.pdf"
+      ],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "expected_category_label": "electricity",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien dien"
+      ],
+      "matching_housing_substrings": [
+        "tro",
+        "thue"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity"
+      ],
+      "stale_source_paths": [
+        "electricity/thong tu so 60 2025.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 24,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "expected_category_label": "electricity",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien dien"
+      ],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity"
+      ],
+      "stale_source_paths": [
+        "electricity/thong tu so 60 2025.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 25,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "expected_category_label": "electricity",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien dien"
+      ],
+      "matching_housing_substrings": [],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity"
+      ],
+      "stale_source_paths": [
+        "electricity/thong tu so 60 2025.pdf"
+      ],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 26,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "expected_category_label": "electricity",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien dien"
+      ],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity"
+      ],
+      "stale_source_paths": [
+        "electricity/thong tu so 60 2025.pdf"
+      ],
+      "no_answer": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Phải nêu điều kiện hiệu lực gắn với lần điều chỉnh giá điện; chưa xác minh mốc thì không khẳng định đang áp dụng."
+      ]
+    },
+    {
+      "id": 27,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "expected_category_label": "water_cantho",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "gia nuoc"
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "student_housing",
+        "water_cantho"
+      ],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 28,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "expected_category_label": "water_cantho",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien nuoc"
+      ],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "ecommerce_platform",
+        "electricity",
+        "fire_safety"
+      ],
+      "stale_source_paths": [
+        "fire_safety/nghi dinh so 105 2025.pdf"
+      ],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 29,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "expected_category_label": "water_cantho",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 30,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "expected_category_label": "water_cantho",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tien nuoc"
+      ],
+      "matching_housing_substrings": [],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "fire_safety",
+        "water_cantho"
+      ],
+      "stale_source_paths": [
+        "fire_safety/2023_1091 + 1092_09-2023-TT-BXD.doc",
+        "fire_safety/nghi dinh so 105 2025.pdf",
+        "water_cantho/thong tu so 124 2025.pdf"
+      ],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 31,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "expected_category_label": "residence",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "cu tru"
+      ],
+      "matching_housing_substrings": [
+        "tro",
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "electricity",
+        "student_housing",
+        "water_cantho"
+      ],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ReadTimeout)"
+      ]
+    },
+    {
+      "id": 32,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "expected_category_label": "residence",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tam tru"
+      ],
+      "matching_housing_substrings": [
+        "thue"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "residence"
+      ],
+      "stale_source_paths": [
+        "residence/nghi dinh so 154 nam 2020.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 33,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "expected_category_label": "residence",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "tam tru"
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "disputes",
+        "fire_safety",
+        "residence"
+      ],
+      "stale_source_paths": [
+        "disputes/2024_1161 + 1162_11-VBHN-VPQH.doc",
+        "fire_safety/luat so 55 2024.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 34,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "expected_category_label": "residence",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "cu tru"
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "disputes",
+        "housing_contract",
+        "residence"
+      ],
+      "stale_source_paths": [
+        "disputes/2024_1161 + 1162_11-VBHN-VPQH.doc",
+        "housing_contract/Nghi dinh 95 nam 2024.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 35,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "expected_category_label": "fire_safety",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "dieu ",
+        "phong chay"
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "ecommerce_platform",
+        "fire_safety"
+      ],
+      "stale_source_paths": [
+        "fire_safety/nghi dinh so 105 2025.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 36,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "expected_category_label": "fire_safety",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 37,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "expected_category_label": "fire_safety",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 38,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "expected_category_label": "fire_safety",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro",
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 39,
+      "question": "Ký túc xá Đại học Cần Thơ năm học 2026–2027 có thông tin đăng ký nào trong tài liệu?",
+      "expected_category_label": "student_housing",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+      ]
+    },
+    {
+      "id": 40,
+      "question": "Sinh viên cần chuẩn bị gì khi đăng ký ở ký túc xá Đại học Cần Thơ?",
+      "expected_category_label": "student_housing",
+      "saved_intent": "clarify",
+      "current_parser_intent": "clarify",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [],
+      "same_category_label_found": false,
+      "source_kinds": [],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": []
+    },
+    {
+      "id": 41,
+      "question": "Tôi có thể đối chiếu chi phí và điều kiện ở ký túc xá với phòng trọ tư nhân như thế nào?",
+      "expected_category_label": "student_housing",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "dieu "
+      ],
+      "matching_housing_substrings": [
+        "phong",
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "fire_safety",
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "fire_safety/nghi dinh so 105 2025.pdf",
+        "housing_contract/Nghi dinh 95 nam 2024.pdf",
+        "housing_contract/nghi dinh 54 nam 2026.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 42,
+      "question": "Nếu tài liệu ký túc xá không nêu một mức phí hoặc thời hạn, hãy nói rõ thông tin nào còn thiếu.",
+      "expected_category_label": "student_housing",
+      "saved_intent": "clarify",
+      "current_parser_intent": "clarify",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [],
+      "same_category_label_found": false,
+      "source_kinds": [],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": []
+    },
+    {
+      "id": 43,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "expected_category_label": "real_estate_brokerage",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "tro"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 44,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "expected_category_label": "real_estate_brokerage",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 45,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "expected_category_label": "real_estate_brokerage",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong",
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 46,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "expected_category_label": "real_estate_brokerage",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "khoan "
+      ],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": true,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "housing_contract",
+        "real_estate_brokerage",
+        "residence"
+      ],
+      "stale_source_paths": [
+        "housing_contract/Luat Dan Su phan 1.pdf",
+        "residence/luat so 68 nam 2020.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 47,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "expected_category_label": "ecommerce_platform",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+      ]
+    },
+    {
+      "id": 48,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "expected_category_label": "ecommerce_platform",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (RemoteProtocolError)"
+      ]
+    },
+    {
+      "id": 49,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "expected_category_label": "ecommerce_platform",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "qwen-local không khả dụng (ConnectError)"
+      ]
+    },
+    {
+      "id": 50,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "expected_category_label": "ecommerce_platform",
+      "saved_intent": "clarify",
+      "current_parser_intent": "clarify",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [],
+      "same_category_label_found": false,
+      "source_kinds": [],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": true,
+      "degraded_reasons": []
+    },
+    {
+      "id": 51,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "expected_category_label": "privacy_data",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "hop dong",
+        "cu tru"
+      ],
+      "matching_housing_substrings": [
+        "tro",
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "residence"
+      ],
+      "stale_source_paths": [
+        "residence/luat so 68 nam 2020.pdf",
+        "residence/nghi dinh so 154 nam 2020.pdf",
+        "residence/nghi dinh so 282 2025.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 52,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "expected_category_label": "privacy_data",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "thue"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+      ]
+    },
+    {
+      "id": 53,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "expected_category_label": "privacy_data",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
+      ]
+    },
+    {
+      "id": 54,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "expected_category_label": "privacy_data",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 55,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "expected_category_label": "criminal_law",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "dat coc"
+      ],
+      "matching_housing_substrings": [
+        "phong"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "ecommerce_platform",
+        "housing_contract"
+      ],
+      "stale_source_paths": [
+        "housing_contract/Luat Dan Su phan 2.pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 56,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "expected_category_label": "criminal_law",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "tro"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 57,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "expected_category_label": "criminal_law",
+      "saved_intent": "legal_question",
+      "current_parser_intent": "legal_question",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": null
+      },
+      "matching_legal_substrings": [
+        "hop dong",
+        "tranh chap"
+      ],
+      "matching_housing_substrings": [],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "legal_document"
+      ],
+      "source_categories": [
+        "disputes"
+      ],
+      "stale_source_paths": [
+        "disputes/2024_1159 + 1160_11-VBHN-VPQH.doc",
+        "disputes/326_2016_UBTVQH14(16723).pdf"
+      ],
+      "no_answer": false,
+      "degraded_reasons": []
+    },
+    {
+      "id": 58,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "expected_category_label": "criminal_law",
+      "saved_intent": "find_listing",
+      "current_parser_intent": "find_listing",
+      "current_parser_filters": {
+        "min_price": null,
+        "max_price": null,
+        "min_area": null,
+        "district": null,
+        "amenities": [],
+        "gender": null,
+        "max_distance_ctu": null,
+        "max_route_minutes": null,
+        "listing_type": "phong_tro"
+      },
+      "matching_legal_substrings": [],
+      "matching_housing_substrings": [
+        "nha"
+      ],
+      "same_category_label_found": false,
+      "source_kinds": [
+        "listing"
+      ],
+      "source_categories": [],
+      "stale_source_paths": [],
+      "no_answer": false,
+      "degraded_reasons": []
+    }
+  ]
+}

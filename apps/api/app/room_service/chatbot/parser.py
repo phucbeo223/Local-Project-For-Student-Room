@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from .providers import normalize_text
 from .schemas import ChatFilters
+from .topics import has_phrase, question_categories
 
 
 DISTRICTS = {
@@ -23,6 +24,7 @@ AMENITIES = {
     "may lanh": "air_conditioner",
     "dieu hoa": "air_conditioner",
     "wifi": "wifi",
+    "wi fi": "wifi",
     "internet": "wifi",
     "gac": "mezzanine",
     "gac lung": "mezzanine",
@@ -65,7 +67,9 @@ def _prices(text: str) -> tuple[int | None, int | None]:
     pattern = r"(\d+(?:[\.,]\d+)?)\s*(trieu|tr|k|nghin|ngan|dong)?"
     between = re.search(rf"(?:tu|khoang)\s+{pattern}\s+(?:den|toi|-)\s+{pattern}", text)
     if between:
-        return _money(between.group(1), between.group(2)), _money(between.group(3), between.group(4))
+        left_unit = between.group(2) or between.group(4)
+        right_unit = between.group(4) or between.group(2)
+        return _money(between.group(1), left_unit), _money(between.group(3), right_unit)
     max_match = re.search(rf"(?:duoi|khong qua|toi da|tam|<=)\s*{pattern}", text)
     min_match = re.search(rf"(?:tren|toi thieu|it nhat|>=)\s*{pattern}", text)
     min_price = _money(min_match.group(1), min_match.group(2)) if min_match else None
@@ -81,15 +85,17 @@ def parse_query(message: str) -> ParsedQuery:
     text = normalize_text(message)
     housing_terms = ("phong", "tro", "nha", "thue", "cho o", "can ho", "mat bang", "ctu", "truong")
     legal_terms = (
-        "luat", "nghi dinh", "thong tu", "quyet dinh", "dieu ", "khoan ",
+        "luat", "nghi dinh", "thong tu", "quyet dinh",
         "hop dong", "dat coc", "tam tru", "cu tru", "tranh chap", "khieu nai",
         "phong chay", "pccc", "gia dien", "tien dien", "thu dien", "kwh", "dinh muc dien", "gia nuoc", "tien nuoc",
         "quyen cua nguoi thue", "nghia vu", "xu phat", "boi thuong", "don phuong cham dut",
     )
     out_terms = ("thoi tiet", "bong da", "lap trinh", "chung khoan", "nau an", "tin tuc")
-    if any(term in text for term in legal_terms):
+    detail_followup = any(has_phrase(text, term) for term in ("phong do", "tin vua", "phong vua", "cac tin vua"))
+    if (question_categories(message) or any(has_phrase(text, term) for term in legal_terms)
+            or re.search(r"\b(?:dieu|khoan)\s+\d+\b", text)) and not detail_followup:
         return ParsedQuery("legal_question", ChatFilters(listing_type=None), 0.92)
-    if any(term in text for term in out_terms) and not any(term in text for term in housing_terms):
+    if any(has_phrase(text, term) for term in out_terms) and not any(has_phrase(text, term) for term in housing_terms):
         return ParsedQuery("out_of_scope", ChatFilters(), 0.98)
 
     min_price, max_price = _prices(text)
@@ -97,7 +103,7 @@ def parse_query(message: str) -> ParsedQuery:
     amenities = sorted({value for key, value in AMENITIES.items() if key in text})
 
     min_area = None
-    area_match = re.search(r"(?:tren|toi thieu|it nhat)\s*(\d+(?:[\.,]\d+)?)\s*m(?:2| vuong)?", text)
+    area_match = re.search(r"(?:tren|toi thieu|it nhat|tu)\s*(\d+(?:[\.,]\d+)?)\s*m(?:2| vuong)\b", text)
     if area_match:
         min_area = float(area_match.group(1).replace(",", "."))
 
@@ -135,12 +141,14 @@ def parse_query(message: str) -> ParsedQuery:
         max_distance_ctu=max_distance,
         max_route_minutes=max_minutes,
         listing_type=listing_type,
+        max_price_exclusive=bool(re.search(r"\bduoi\s*\d+(?:[.,]\d+)?\s*(?:trieu|tr|k|nghin|ngan)\b", text)),
+        sort_by="price_asc" if any(has_phrase(text, term) for term in ("re nhat", "gia thue thap nhat", "gia thap nhat")) else None,
     )
     evidence = sum(
-        value not in (None, [], "phong_tro")
+        value not in (None, False, [], "phong_tro")
         for value in filters.model_dump().values()
     )
-    intent = "find_listing" if any(term in text for term in housing_terms) or evidence else "clarify"
+    intent = "find_listing" if any(has_phrase(text, term) for term in housing_terms) or evidence else "clarify"
     return ParsedQuery(intent, filters, min(0.98, 0.72 + evidence * 0.04))
 
 
@@ -148,7 +156,7 @@ def merge_filters(parsed: ChatFilters, explicit: ChatFilters | None) -> ChatFilt
     if explicit is None:
         return parsed
     data = parsed.model_dump()
-    for key, value in explicit.model_dump(exclude_none=True).items():
+    for key, value in explicit.model_dump(exclude_none=True, exclude_unset=True).items():
         if key == "amenities":
             data[key] = sorted(set(data.get(key, [])) | set(value))
         else:

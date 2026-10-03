@@ -1,0 +1,637 @@
+{
+  "started_at_utc": "2026-10-02T16:17:35.960046+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "category": "housing_contract",
+      "answer": "Trước khi ký hợp đồng, sinh viên nên kiểm tra các nội dung sau căn cứ theo văn bản số 2026_204_79_VBHN-VPQH:\n\n*   **Hình thức và giá thuê:** Hợp đồng phải được lập thành văn bản theo quy định tại Điều 163, trang 1 [1]; kiểm tra điều khoản giá thuê nhà ở và trường hợp Nhà nước có quy định về giá thì các bên phải tuân thủ theo Khoản 3 Điều 163, trang 1 [2].\n*   **Thanh toán:** Kiểm tra rõ thỏa thuận về thời hạn và phương thức thanh toán tiền thuê nhà ở theo Khoản 4 Điều 163, trang 1 [3].\n*   **Hiệu lực hợp đồng:** Hợp đồng thuê nhà không bắt buộc công chứng, chứng thực trừ khi có nhu cầu; thời điểm có hiệu lực do hai bên thỏa thuận hoặc tính từ lúc ký kết theo Khoản 2 Điều 164, trang 1 [4].\n\n*Lưu ý: Đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.*",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": false,
+      "partial_answer": false,
+      "degraded": false,
+      "degraded_reasons": [],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "gemini",
+      "generation_model": "gemini-3.8-flash",
+      "latency_ms": 83743,
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "Điều 163. Hợp đồng về nhà ở\n\nHợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:",
+        "3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+        "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
+        "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9695,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở",
+          "excerpt": "Điều 163. Hợp đồng về nhà ở\n\nHợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9698,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "excerpt": "3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9699,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
+          "excerpt": "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9707,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực h…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "category": "electricity"
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "category": "electricity"
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "category": "electricity"
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "category": "electricity"
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "category": "water_cantho",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- 215-QD-UBND-pham-vi-doi-chieu — ## Phạm vi chưa được tài liệu này xác định: “Quyết định này không nêu công thức chia chi phí giữa những người thuê chung đồng hồ, không quy định một khoản thu cố định theo đầu người cho mọi phòng trọ. Việc đối chiếu tiền nước thu của người thuê cần xem thêm thỏa thuận trong hợp đồng, số đo và hóa đơn. Không thể kết luận cách chia chi phí hoặc một khoản thu riêng là hợp pháp hay vi phạm chỉ từ biểu giá này.” [1].\n\n- 215-QD-UBND-pham-vi-doi-chieu — ## Điều 1 — đối tượng, khu vực và tiền nước trên hóa đơn: “Biểu giá phân theo khu vực đô thị/nông thôn, nhóm khách hàng và đơn vị cung cấp nước. Nhóm hộ dân cư khác nhóm kinh doanh, dịch vụ. Trung tâm Nước sạch và Vệ sinh môi trường nông thôn có nhóm giá riêng. Các bảng trong nguồn ghi giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt. Khi đối chiếu hóa đơn cần xác định đúng đơn vị cấp nước, nhóm khách hàng, khu vực và kỳ sử dụng; không suy ra mọi nhà trọ thuộc cùng một nhóm giá.” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.8473,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Không thể kết luận pháp luật không có quy định từ các đoạn truy xuất.",
+        "Claim 1: Kết luận 'văn bản không quy định công thức chia tiền nước chung đồng hồ' là sai. Nguồn (215-QD-UBND-pham-vi-doi-chieu) chỉ ghi rõ 'Quyết định này không nêu công thức chia chi phí giữa những người thuê chung đồng hồ', nhưng không khẳng định văn bản đó là nguồn duy nhất hoặc rằng việc thiếu q",
+        "Claim 1: Kết luận 'nên không thể chỉ dựa vào biểu giá để kết luận việc thu này là hợp pháp hay vi phạm' bị hiểu sai ngữ cảnh. Nguồn ghi 'Không thể kết luận cách chia chi phí... là hợp pháp hay vi phạm chỉ từ biểu giá này', nghĩa là cần thêm các yếu tố khác (thỏa thuận, số đo), chứ không phải nói rằn",
+        "Claim 2: Claim khẳng định 'Đối chiếu hóa đơn thực tế... nhằm xác định đúng mức giá nước sinh hoạt áp dụng' nhưng nguồn (215-QD-UBND-pham-vi-doi-chieu) chỉ liệt kê các yếu tố cần xem xét ('Khi đối chiếu hóa đơn cần xác định đúng...'), không đưa ra hướng dẫn hành động cụ thể là 'bạn nên làm gì'. Tuy n",
+        "Claim 3: Claim trích dẫn 'nguồn cung cấp chưa xác định rõ việc biểu giá này có bị điều chỉnh sau đó hay chưa' dựa trên nguồn (215-QD-UBND-pham-vi-doi-chieu) ghi 'Ngày có hiệu lực của văn bản gốc không chứng minh biểu giá chưa được điều chỉnh sau đó'. Claim diễn giải đúng ý nghĩa logic nhưng cách trì",
+        "Claim tổng thể: Các claim đều cố gắng đưa ra lời khuyên hành động ('Tôi nên kiểm tra gì', 'nên không thể') dựa trên các đoạn văn mô tả phạm vi của văn bản. Nguồn (215-QD-UBND-pham-vi-doi-chieu) chỉ nêu rõ những gì văn bản *không* quy định và những gì cần xem xét, chứ không trực tiếp trả lời câu hỏi "
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 175195,
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "## Phạm vi chưa được tài liệu này xác định\n\nQuyết định này không nêu công thức chia chi phí giữa những người thuê chung đồng hồ, không quy định một khoản thu cố định theo đầu người cho mọi phòng trọ. Việc đối chiếu tiền nước thu của người thuê cần xem thêm thỏa thuận trong hợp đồng, số đo và hóa đơn. Không thể kết luận cách chia chi phí hoặc một khoản thu riêng là hợp pháp hay vi phạm chỉ từ biểu giá này.",
+        "## Điều 1 — đối tượng, khu vực và tiền nước trên hóa đơn\n\nBiểu giá phân theo khu vực đô thị/nông thôn, nhóm khách hàng và đơn vị cung cấp nước. Nhóm hộ dân cư khác nhóm kinh doanh, dịch vụ. Trung tâm Nước sạch và Vệ sinh môi trường nông thôn có nhóm giá riêng. Các bảng trong nguồn ghi giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt. Khi đối chiếu hóa đơn cần xác định đúng đơn vị cấp nước, nhóm khách hàng, khu vực và kỳ sử dụng; không suy ra mọi nhà trọ thuộc cùng một nhóm giá.",
+        "1. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn năm 2024 do các đơn vị cấp nước cung cấp:\n\nSTT\n\nNhóm khách hàng sử dụng nước sạch cho mục đích sinh hoạt\n\nGiá tiêu thụ nước sạch (đồng/m3)\n\nKhu vực đô thị\n\nNhóm 1\n\nHộ dân cư là Hộ nghèo có sổ\n\n5.640\n\nHộ dân cư\n\n9.020\n\nNhóm 2\n\nCơ quan hành chính; đơn vị sự nghiệp công lập; trường học, bệnh viện, cơ sở khám, chữa bệnh (công lập và tư nhân); phục vụ mục đích công cộng (phi lợi nhuận).\n\n11.170\n\nNhóm 3\n\nTổ chức, cá nhân sản xuất vật chất\n\n12.400\n\nNhóm 4\n\nTổ chức, cá nhân kinh doanh, dịch vụ\n\n15.580\n\nKhu vực nông thôn\n\nNhóm 1\n\nHộ dân cư là hộ nghèo có sổ\n\n4.820\n\nHộ dân cư\n\n8.240\n\nNhóm 2\n\nCơ quan hành chính; đơn vị sự nghiệp công lập; trường học, bệnh viện, cơ sở khám, chữa bệnh (công lập và tư nhân); phục vụ mục đích công cộng (phi lợi nhuận).\n\n9.310\n\nNhóm 3\n\nTổ chức, cá nhân sản xuất vật chất\n\n9.930\n\nNhóm 4\n\nTổ chức, cá nhân kinh doanh, dịch vụ\n\n11.520\n\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)",
+        "## Điều 2 và Điều 3 — điều chỉnh và hiệu lực của nguồn\n## Điều 2 và Điều 3 — điều chỉnh và hiệu lực của nguồn\n\nĐiều 2 quy định đơn vị cấp nước rà soát phương án giá và giá dự kiến năm tiếp theo. Điều 3 ghi thi hành kể từ ngày ký. Ngày có hiệu lực của văn bản gốc không chứng minh biểu giá chưa được điều chỉnh sau đó."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 100,
+          "chunk_id": 10890,
+          "rank": 1,
+          "similarity_score": 0.83645,
+          "title": "215-QD-UBND-pham-vi-doi-chieu",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "water_cantho/215-QD-UBND-pham-vi-doi-chieu.md",
+          "category": "water_cantho",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "## Phạm vi chưa được tài liệu này xác định",
+          "excerpt": "## Phạm vi chưa được tài liệu này xác định\n\nQuyết định này không nêu công thức chia chi phí giữa những người thuê chung đồng hồ, không quy định một khoản thu cố định theo đầu người cho mọi phòng trọ. Việc đối chiếu tiền nước thu của người thuê cần xem thêm thỏa thuận trong hợp đồng, số đo và hóa đơn. Không thể kết luận cách chia chi phí hoặc một khoản thu riêng là hợp pháp hay vi phạm chỉ từ biểu giá này."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 100,
+          "chunk_id": 10888,
+          "rank": 2,
+          "similarity_score": 0.793909,
+          "title": "215-QD-UBND-pham-vi-doi-chieu",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "water_cantho/215-QD-UBND-pham-vi-doi-chieu.md",
+          "category": "water_cantho",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "## Điều 1 — đối tượng, khu vực và tiền nước trên hóa đơn",
+          "excerpt": "## Điều 1 — đối tượng, khu vực và tiền nước trên hóa đơn\n\nBiểu giá phân theo khu vực đô thị/nông thôn, nhóm khách hàng và đơn vị cung cấp nước. Nhóm hộ dân cư khác nhóm kinh doanh, dịch vụ. Trung tâm Nước sạch và Vệ sinh môi trường nông thôn có nhóm giá riêng. Các bảng trong nguồn ghi giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt. Khi đối chiếu hóa đơn cần xác định đúng đơn vị cấp nước, nhóm khách hàng, khu vực và kỳ sử dụng; không suy ra mọi nhà trọ thuộc cùng một nhóm giá."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 25,
+          "chunk_id": 10895,
+          "rank": 3,
+          "similarity_score": 0.746479,
+          "title": "Quyết-định-215-QĐ-UBND",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "water_cantho/Quyết-định-215-QĐ-UBND.docx",
+          "category": "water_cantho",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 1. Quy định giá nước sạch sinh hoạt tại đô thị và khu vực nông thôn áp dụng đối với các đơn vị kinh doanh nước sạch, các tổ chức và khách hàng sử dụng nước sạch trên địa bàn thành phố Cần Thơ như sau: | Khoản 1",
+          "excerpt": "1. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn năm 2024 do các đơn vị cấp nước cung cấp:\n\nSTT\n\nNhóm khách hàng sử dụng nước sạch cho mục đích sinh hoạt\n\nGiá tiêu thụ nước sạch (đồng/m3)\n\nKhu vực đô thị\n\nNhóm 1\n\nHộ dân cư là Hộ nghèo có sổ\n\n5.640\n\nHộ dân cư\n\n9.020\n\nNhóm 2\n\nCơ quan hành chính; đơn vị sự nghiệp công lập; trường học, bệnh viện, cơ sở khám, chữa bệnh (công lập và tư nhân); phục vụ mục đích công cộng (phi lợi nhuận).\n\n11.170\n\nNhóm 3\n\nTổ chức, cá nhân sản xuất vật chất\n\n12.400\n\nNhóm 4\n\nTổ chức, cá nhân kinh doanh, dịch vụ\n\n15.580\n\nKhu vực nông thôn\n\nNhóm 1\n\nHộ dân cư là hộ nghèo có sổ\n\n4.820\n\nHộ dân cư\n\n8.240\n\nNhóm 2\n\nCơ quan hành chính; đơn vị sự nghiệp công lập; trường học, bệnh viện, cơ sở khám, chữa bệnh (công lập và tư nhân); phục vụ mục đích công cộng (phi lợi nhuận).\n\n9.310\n\nNhóm 3\n\nTổ chức, cá nhân sản xuất vật chất\n\n9.930\n\nNhóm 4\n\nTổ chức, cá nhân kinh doanh, dịch vụ\n\n11.520\n\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 100,
+          "chunk_id": 10889,
+          "rank": 4,
+          "similarity_score": 0.83645,
+          "title": "215-QD-UBND-pham-vi-doi-chieu",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "water_cantho/215-QD-UBND-pham-vi-doi-chieu.md",
+          "category": "water_cantho",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "## Điều 2 và Điều 3 — điều chỉnh và hiệu lực của nguồn\n## Điều 2 và Điều 3 — điều chỉnh và hiệu lực của nguồn\n\nĐiều 2 quy định đơn vị cấp nước rà soát phương án giá và giá dự kiến năm tiếp theo. Điều 3 ghi thi hành kể từ ngày ký. Ngày có hiệu lực của văn bản gốc không chứng minh biểu giá chưa được điều chỉnh sau đó."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "category": "residence"
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "category": "residence"
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "category": "residence"
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "category": "residence"
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "category": "privacy_data",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Luật-91-2025-QH15 — Điều 10. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân | Khoản 2: “2. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân phải được thể hiện bằng văn bản, bao gồm cả dạng điện tử hoặc định dạng kiểm chứng được và được gửi cho bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân được thực hiện theo quy định của pháp luật và theo thỏa thuận giữa các bên.” [1].\n\n- Luật-91-2025-QH15 — Điều 19. Xử lý dữ liệu cá nhân trong trường hợp không cần sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 1 | Điểm a: “1. Các trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân bao gồm: a) Để bảo vệ tính mạng, sức khỏe, danh dự, nhân phẩm, quyền, lợi ích hợp pháp của chủ thể dữ liệu cá nhân hoặc người khác trong trường hợp cấp bách; bảo vệ quyền hoặc lợi ích chính đáng của mình, của người khác hoặc lợi ích của Nhà nước, của cơ quan tổ chức một cách cần thiết trước hành vi xâm phạm lợi ích nói trên. Bên kiểm soát dữ liệu cá nhân, bên xử lý dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân, bên thứ ba có trách nhiệm chứng minh trường hợp này;” [3].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Kết luận 'Chủ trọ chỉ được đăng công khai... khi có sự đồng ý rõ ràng' là sai vì nguồn cung cấp (Điều 16 Khoản 2) liệt kê nhiều trường hợp khác ngoài việc có sự đồng ý (ví dụ: để thực hiện nghĩa vụ pháp lý, bảo vệ quyền lợi chính đáng...). Việc khẳng định 'chỉ được' khi có đồng ý làm sai lệch quy đị",
+        "Kết luận về việc chủ trọ phải dừng xử lý dữ liệu nếu bạn rút lại sự đồng ý là không đầy đủ so với nguồn (Điều 19 Khoản 1). Nguồn chỉ nêu các trường hợp *không cần* sự đồng ý (như bảo vệ tính mạng, danh dự...), nhưng không khẳng định rằng việc rút lại đồng ý sẽ buộc phải dừng xử lý trong mọi trường h",
+        "Kết luận về việc hoạt động xử lý dữ liệu trước ngày luật có hiệu lực tiếp tục thực hiện (Điều 39) là sai đối với chủ thể 'chủ trọ'. Nguồn (Điều 38 Khoản 2, Khoản 3) quy định các ưu đãi hoặc miễn trừ cho 'doanh nghiệp nhỏ', 'doanh nghiệp khởi nghiệp' và 'hộ kinh doanh', 'doanh nghiệp siêu nhỏ'. Chủ t",
+        "Kết luận về việc 'chủ trọ' là một thực thể cụ thể trong câu hỏi, nhưng nguồn chỉ đề cập đến các khái niệm pháp lý chung như 'doanh nghiệp nhỏ', 'hộ kinh doanh'. Không thể khẳng định chắc chắn rằng chủ trọ thuộc nhóm được miễn trừ hay không mà không có thêm thông tin về quy mô và tính chất hoạt động ",
+        "Nguồn cung cấp (Luật-91-2025-QH15) là một văn bản giả định (có ngày tháng 2025), trong khi câu hỏi mang tính chất pháp lý thực tế hiện hành. Việc áp dụng các điều khoản của luật tương lai vào tình huống hiện tại hoặc giả định về hiệu lực của nó là không chính xác nếu chưa có thông tin về thời điểm á"
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 147790,
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân phải được thể hiện bằng văn bản, bao gồm cả dạng điện tử hoặc định dạng kiểm chứng được và được gửi cho bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân được thực hiện theo quy định của pháp luật và theo thỏa thuận giữa các bên.",
+        "2. Dữ liệu cá nhân chỉ được công khai trong các trường hợp sau đây: a) Khi có sự đồng ý của chủ thể dữ liệu cá nhân;",
+        "1. Các trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân bao gồm: a) Để bảo vệ tính mạng, sức khỏe, danh dự, nhân phẩm, quyền, lợi ích hợp pháp của chủ thể dữ liệu cá nhân hoặc người khác trong trường hợp cấp bách; bảo vệ quyền hoặc lợi ích chính đáng của mình, của người khác hoặc lợi ích của Nhà nước, của cơ quan tổ chức một cách cần thiết trước hành vi xâm phạm lợi ích nói trên. Bên kiểm soát dữ liệu cá nhân, bên xử lý dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân, bên thứ ba có trách nhiệm chứng minh trường hợp này;",
+        "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luật này.\n\n__________________________________________________________________________\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV, kỳ họp thứ 9 thông qua ngày 26 tháng 6 năm 2025.\n\nCHỦ TỊCH QUỐC HỘI\n\nTrần Thanh Mẫn"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 59,
+          "chunk_id": 10128,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "Luật-91-2025-QH15",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "privacy_data/Luật-91-2025-QH15.docx",
+          "category": "privacy_data",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 10. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân | Khoản 2",
+          "excerpt": "2. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân phải được thể hiện bằng văn bản, bao gồm cả dạng điện tử hoặc định dạng kiểm chứng được và được gửi cho bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân được thực hiện theo quy định của pháp luật và theo thỏa thuận giữa các bên."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 59,
+          "chunk_id": 10143,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "Luật-91-2025-QH15",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "privacy_data/Luật-91-2025-QH15.docx",
+          "category": "privacy_data",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 16. Công khai dữ liệu cá nhân | Khoản 2 | Điểm a",
+          "excerpt": "2. Dữ liệu cá nhân chỉ được công khai trong các trường hợp sau đây: a) Khi có sự đồng ý của chủ thể dữ liệu cá nhân;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 59,
+          "chunk_id": 10166,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "Luật-91-2025-QH15",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "privacy_data/Luật-91-2025-QH15.docx",
+          "category": "privacy_data",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 19. Xử lý dữ liệu cá nhân trong trường hợp không cần sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 1 | Điểm a",
+          "excerpt": "1. Các trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân bao gồm: a) Để bảo vệ tính mạng, sức khỏe, danh dự, nhân phẩm, quyền, lợi ích hợp pháp của chủ thể dữ liệu cá nhân hoặc người khác trong trường hợp cấp bách; bảo vệ quyền hoặc lợi ích chính đáng của mình, của người khác hoặc lợi ích của Nhà nước, của cơ quan tổ chức một cách cần thiết trước hành vi xâm phạm lợi ích nói trên. Bên kiểm soát dữ liệu cá nhân, bên xử lý dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân, bên thứ ba có trách nhiệm chứng minh trường hợp này;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 59,
+          "chunk_id": 10316,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "Luật-91-2025-QH15",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "privacy_data/Luật-91-2025-QH15.docx",
+          "category": "privacy_data",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luậ…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "category": "criminal_law",
+      "answer": "Mình tìm thấy tài liệu liên quan nhưng chưa tổng hợp được kết luận đáng tin cậy. [1] [2] [3]\n\n- Mở Nguồn tham khảo bên dưới để xem trích đoạn.\n- Kiểm tra điều kiện áp dụng và hiệu lực văn bản.\n\nThông tin tham khảo, không thay thế tư vấn pháp lý.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": false,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1: Kết luận 'yêu cầu đặt cọc trước nhưng không cho xem phòng' là dấu hiệu của thủ đoạn gian dối nhằm chiếm đoạt tài sản theo Điều 174 Hình sự là sai. Văn bản nguồn chỉ quy định về cấu thành tội danh khi có hành vi 'bằng thủ đoạn gian dối chiếm đoạt tài sản', không liệt kê việc 'không cho xem p",
+        "Claim 2: Kết luận về mức phạt tù/cải tạo không giam giữ đến 03 năm áp dụng cho số tiền từ 2.000.000 đồng trở lên là đúng về mặt con số trong văn bản, nhưng việc khẳng định hành vi 'bị lừa' (chưa xác định có tội danh) sẽ cấu thành tội này chỉ dựa trên nguồn dẫn chứng là chưa đủ vì nguồn không mô tả c",
+        "Claim 3: Kết luận về 'tình tiết tăng nặng' theo điểm a Điều 174 là đúng về mặt trích dẫn văn bản, nhưng cách diễn đạt 'đã từng bị xử phạt... mà vẫn tiếp tục thực hiện hành vi tương tự' trong claim cần được làm rõ: nguồn chỉ nói 'Đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt tài sản mà còn v"
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "template",
+      "generation_model": null,
+      "latency_ms": 151487,
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm: d) Tài sản là phương tiện kiếm sống chính của người bị hại và gia đình họ[98].",
+        "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm:",
+        "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm: a) Đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt tài sản mà còn vi phạm;"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 42,
+          "chunk_id": 9191,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "criminal_law/Văn-bản-hợp-nhất-135-VBHN-VPQH.docx",
+          "category": "criminal_law",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 1 | Điểm d",
+          "excerpt": "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm: d) Tài sản là phương tiện kiếm sống chính của người bị hại và gia đình họ[98]."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 42,
+          "chunk_id": 9187,
+          "rank": 2,
+          "similarity_score": 0.995023,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "criminal_law/Văn-bản-hợp-nhất-135-VBHN-VPQH.docx",
+          "category": "criminal_law",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 1",
+          "excerpt": "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm:"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 42,
+          "chunk_id": 9188,
+          "rank": 3,
+          "similarity_score": 0.986745,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "criminal_law/Văn-bản-hợp-nhất-135-VBHN-VPQH.docx",
+          "category": "criminal_law",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 1 | Điểm a",
+          "excerpt": "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm: a) Đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt tài sản mà còn vi phạm;"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "category": "criminal_law"
+    }
+  ],
+  "summary": {
+    "questions": 36,
+    "completed": 4,
+    "errors": 0,
+    "with_contexts": 4,
+    "no_answer": 3,
+    "partial_answer": 2,
+    "degraded": 3,
+    "vector_retrieval": 4,
+    "category_source_match": 4,
+    "category_source_evaluated": 4,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 149638.5,
+    "latency_p95_ms": 175195,
+    "ragas": {
+      "faithfulness": {
+        "mean": null,
+        "scored": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "scored": 0
+      },
+      "context_utilization": {
+        "mean": null,
+        "scored": 0
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 0
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 1
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 1
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 1
+    }
+  },
+  "updated_at_utc": "2026-10-02T16:27:58.582483+00:00"
+}

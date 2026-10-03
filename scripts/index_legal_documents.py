@@ -42,6 +42,7 @@ def main() -> None:
     parser.add_argument("--ocr-language", default="vie+eng")
     parser.add_argument("--batch-size", type=int, default=24)
     parser.add_argument("--force", action="store_true", help="Index lại cả file không đổi")
+    parser.add_argument("--sync-missing", type=Path, help="Ngừng truy xuất nguồn vắng trong Data; lưu metadata để khôi phục")
     parser.add_argument("--force-ocr", action="store_true", help="OCR tất cả trang PDF")
     parser.add_argument("--category", help="Chỉ lập lại một nhóm, vẫn giữ đường dẫn nguồn gốc")
     parser.add_argument("--source", action="append", help="Chỉ xử lý đường dẫn tương đối này; có thể dùng nhiều lần")
@@ -57,6 +58,8 @@ def main() -> None:
         help="Tự áp migration 94 trước khi index (mặc định: có)",
     )
     args = parser.parse_args()
+    if args.sync_missing and (args.category or args.source):
+        parser.error("--sync-missing yêu cầu quét toàn bộ kho nguồn")
 
     database_url = local_database_url(args.database_url or os.getenv("DATABASE_URL"))
     if args.apply_migration:
@@ -79,6 +82,11 @@ def main() -> None:
     )
     try:
         report = indexer.index_folder(args.data_dir, force=args.force, category=args.category, sources=args.source)
+        if args.sync_missing and not report.failed:
+            from app.room_service.legal_knowledge.extractor import scan_documents
+            active_paths = [path.relative_to(args.data_dir.resolve()).as_posix() for path in scan_documents(args.data_dir)]
+            count = indexer.repository.deactivate_missing_sources(active_paths, args.sync_missing)
+            print(f"Deactivated {count} absent sources; chunks/vectors preserved")
     finally:
         engine.dispose()
 

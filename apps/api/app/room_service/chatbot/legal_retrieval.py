@@ -8,6 +8,7 @@ import re
 
 from .providers import normalize_text
 from ..legal_knowledge.quality import usable_legal_text
+from .topics import question_categories, required_evidence_categories, TOPICS, has_phrase
 
 LEGAL_STOP_WORDS = {"toi", "minh", "giup", "xin", "hoi", "the", "nao", "sao", "la",
                     "va", "cua", "theo", "quy", "dinh", "duoc", "co", "khong", "ve"}
@@ -31,6 +32,22 @@ def rental_electricity_question(query: str) -> bool:
 def expand_legal_query(query: str) -> str:
     value = normalize_text(query)
     additions: list[str] = []
+    if has_phrase(value, "hop dong") and any(term in value for term in ("truoc khi ky", "dieu khoan", "ghi ro")):
+        additions.append("hợp đồng về nhà ở nội dung của hợp đồng giá thuê thời hạn phương thức thanh toán quyền nghĩa vụ")
+    if any(term in value for term in ("tam tru", "thu tuc cu tru", "dang ky cu tru")) and not any(term in value for term in ("phat", "vi pham")):
+        additions.append("đăng ký tạm trú điều kiện hồ sơ tờ khai chỗ ở hợp pháp tiếp nhận đăng ký")
+        if 'cung cap' in value and 'trach nhiem' in value:
+            additions.append('nghĩa vụ công dân cung cấp đầy đủ chính xác thông tin giấy tờ tài liệu về cư trú')
+    if any(term in value for term in ('phong chay', 'pccc', 'chay no')) and any(term in value for term in ('xem phong', 'dieu kien', 'nhieu phong')):
+        additions.append('phòng cháy đối với nhà ở thiết bị điện bếp đun nấu phương tiện chữa cháy lối thoát nạn')
+    if any(term in value for term in ("thong tin ca nhan", "du lieu ca nhan", "anh can cuoc", "so dien thoai", "anh giay to")):
+        additions.append("bảo vệ dữ liệu cá nhân quyền chủ thể sự đồng ý cung cấp tiết lộ công khai xử lý dữ liệu")
+        if has_phrase(value, 'hop dong'):
+            additions.append('hợp đồng về nhà ở họ tên cá nhân địa chỉ các bên nội dung hợp đồng')
+        if any(has_phrase(value, phrase) for phrase in ('cu tru', 'tam tru')):
+            additions.append('đăng ký tạm trú hồ sơ tờ khai thay đổi thông tin cư trú chỗ ở hợp pháp')
+    if any(term in value for term in ("dau hieu rui ro", "dau hieu lua dao", "khong cho xem phong")):
+        additions.append("thủ đoạn gian dối chiếm đoạt tài sản lừa đảo điều kiện giao dịch dân sự đặt cọc")
     if any(term in value for term in ("chu tro", "chu nha")):
         additions.append("người cho thuê nhà")
     if any(term in value for term in ("o ghep", "o chung", "sinh vien")):
@@ -53,9 +70,103 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
     rental = rental_electricity_question(query)
     question = normalize_text(query)
     penalty = any(word in question for word in ("phat", "xu ly", "thu thua", "hoan tra"))
+    categories = question_categories(query)
+    private_rental = ("housing_contract" in categories and any(has_phrase(question, term) for term in ("thue", "tro", "phong"))
+                      and not any(has_phrase(question, term) for term in ("mua ban", "thue mua", "tai san cong", "nha cong vu")))
     for row in rows:
         value = normalize_text(row["content"])
         base = float(row.get("similarity_score", 0))
+        if private_rental and row.get("category") == "housing_contract":
+            scope_heading = normalize_text(str(row.get('heading') or ''))
+            specific_other = any(has_phrase(value, term) for term in ("mua ban", "thue mua", "tai san cong", "nha cong vu"))
+            ordinary_rental = re.search(r"\bthue\b(?!\s+mua)", value)
+            general_contract = ('hop dong ve nha o' in scope_heading
+                                and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi cua cac ben')))
+            if specific_other and not ordinary_rental and not general_contract:
+                row["similarity_score"] = 0.0
+                continue
+        if row.get("category") and categories:
+            if row["category"] not in categories:
+                row["similarity_score"] = 0.0
+                continue
+            heading = normalize_text(str(row.get("heading") or ""))
+            meaningful = set(legal_tokens(query)) - {"sinh", "vien", "nguoi", "thue", "nha", "tro", "phong", "can", "nen", "nhung", "gi"}
+            overlap = len(meaningful & set(legal_tokens(value))) / max(1, len(meaningful))
+            heading_overlap = len(meaningful & set(legal_tokens(heading))) / max(1, len(meaningful))
+            primary = row["category"] == categories[0]
+            direct = any(has_phrase(value + " " + heading, p) for p in TOPICS.get(categories[0], ()))
+            own_evidence = any(has_phrase(value + " " + heading, p) for p in TOPICS.get(row["category"], ()))
+            contract_identity = (row['category'] == 'housing_contract' and 'privacy_data' in categories
+                                 and 'hop dong ve nha o' in heading
+                                 and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi')))
+            rental_authority = (row['category'] == 'housing_contract' and 'quyen cho thue' in question
+                                and any(term in heading for term in ('dieu kien', 'ben tham gia'))
+                                and any(term in value for term in ('chu so huu', 'uy quyen', 'cho thue')))
+            if not primary and not direct and not contract_identity and not rental_authority and not (own_evidence and overlap >= 0.2):
+                row["similarity_score"] = 0.0
+                continue
+            base = 0.5 * base + 0.3 * overlap + (0.18 if primary else 0.1)
+            base += 0.12 * heading_overlap
+            if "housing_contract" in categories and any(term in question for term in ("truoc khi ky", "ghi ro")):
+                if any(term in heading for term in ("noi dung cua hop dong", "hop dong ve nha o")):
+                    base += 0.25
+            if row['category'] == 'housing_contract':
+                if any(term in question for term in ('tien thue', 'gia thue')) and 'hop dong ve nha o' in heading and 'gia giao dich' in value:
+                    base += .45
+                if 'tang gia thue' in question and any(term in heading for term in ('sua doi hop dong', 'gia thue')):
+                    base += .5
+            if "residence" in categories and not penalty and ("xu phat" in value or "phat tien" in value):
+                base -= 0.25
+            if "privacy_data" in categories and any(term in question for term in ("cong khai", "chia se", "luu", "su dung", "ca nhan")):
+                if any(term in heading + " " + value for term in ("quyen cua chu the", "su dong y", "hanh vi bi nghiem cam", "nguyen tac bao ve", "cung cap du lieu", "tiet lo du lieu")):
+                    base += 0.3
+                if "xuat nhap canh" in value:
+                    base -= 0.55
+                if "thong bao vi pham" in heading and not any(term in question for term in ("thong bao vi pham", "su co", "ro ri", "bi chia se")):
+                    base -= 0.35
+            if 'privacy_data' in categories and 'housing_contract' in categories and row['category'] == 'housing_contract':
+                if 'hop dong ve nha o' in heading and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi')):
+                    base += .4
+            if 'residence' in categories and row['category'] == 'residence' and any(term in question for term in ('giay to', 'thong tin', 'thu tuc', 'dang ky')):
+                if any(term in heading for term in ('dang ky tam tru', 'ho so', 'thu tuc')):
+                    base += .3
+                if any(term in question for term in ('giay to', 'thong tin', 'ho so')) and 'ho so' in heading:
+                    base += .35
+                    if any(term in value for term in ('to khai', 'giay to, tai lieu chung minh')):
+                        base += .35
+                if 'trach nhiem' in question and 'cung cap' in question and 'nghia vu' in heading and 'cung cap' in value:
+                    base += .65
+            if row['category'] == 'fire_safety':
+                if any(term in question for term in ('xem phong', 'dieu kien', 'nhieu phong')) and 'phong chay doi voi nha o' in heading:
+                    base += .55
+                    if 'ket hop' not in heading:
+                        base += .25
+                    if any(term in value for term in ('dieu kien an toan', 'dieu kien ve chua chay')):
+                        base += .3
+                    if 'huong dan viec ket noi' in value and 'ket noi' not in question:
+                        base -= .5
+                if 'trach nhiem' in question and 'trach nhiem' in heading and any(term in value for term in ('nguoi thue', 'chu ho gia dinh')):
+                    base += .45
+            if row['category'] in ('criminal_law', 'ecommerce_platform') and 'khuyen cao' in value:
+                if any(term in question for term in ('kiem tra', 'bang chung', 'cung cap thong tin', 'luu lai', 'lien ket la')):
+                    base += .45
+            if rental_authority:
+                base += .35
+                if any(term in value for term in ('chu so huu', 'uy quyen')):
+                    base += .45
+            preventive_risk = "criminal_law" in categories and any(term in question for term in ("truoc khi", "khong cho xem", "dau hieu rui ro"))
+            if preventive_risk:
+                if any(term in heading + " " + value for term in ("gian doi", "lua dao", "giao dich dan su", "chiem doat")):
+                    base += 0.3
+                if any(term in heading for term in ("tham quyen giai quyet", "trach nhiem tiep nhan", "kien nghi khoi to")):
+                    base -= 0.4
+            # Introductory editorial metadata identifies a source but is not
+            # an operative legal clause answering a question about obligations.
+            if not heading and any(term in value for term in ("ghi chu ngu canh", "ban trich tuyen nghien cuu")):
+                row["similarity_score"] = 0.0
+                continue
+            if heading and any(has_phrase(heading, p) for p in TOPICS.get(categories[0], ())):
+                base += 0.1
         if rental:
             if not rental_evidence(str(row.get("heading") or "") + " " + row["content"]):
                 row["similarity_score"] = 0.0
@@ -67,10 +178,74 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 base += 0.15
             elif not penalty and "vi pham" in normalize_text(str(row.get("heading") or "")):
                 base -= 0.2
+        row['_rerank_score'] = base
         row["similarity_score"] = round(min(1.0, base), 6)
     return sorted((row for row in rows if row["similarity_score"] > 0
                    and usable_legal_text(row["content"])),
-                  key=lambda row: (-row["similarity_score"], row["chunk_id"]))[:limit]
+                  key=lambda row: (-row.get('_rerank_score', row["similarity_score"]), row["chunk_id"]))[:limit]
+
+
+def diversified_legal_rows(query: str, rows: list[dict], limit: int) -> list[dict]:
+    """Reserve a relevant candidate for each explicit facet before extra matches."""
+    categories = required_evidence_categories(query)
+    reserved = []
+    if len(categories) > 1:
+        for category in categories:
+            candidate = next((row for row in rows if row.get('category') == category), None)
+            if candidate is not None:
+                reserved.append(candidate)
+    unique = []
+    seen = set()
+    for row in reserved + rows:
+        group = (row['document_id'], row.get('heading') or row['chunk_id'])
+        if group not in seen:
+            seen.add(group)
+            unique.append(row)
+    return unique[:limit]
+
+
+def legal_completion_status(answer: str) -> str:
+    """Report incomplete answers independently of provider or citation validity."""
+    # A quoted statutory condition is evidence, not the assistant's abstention.
+    visible = re.sub(r'“[^”]*”|"[^"\n]*"', '', answer, flags=re.S)
+    limitation = re.compile(r'\b(?:chua (?:tim thay|co (?:can cu|du lieu|thong tin)|du can cu|xac minh|ket luan|tong hop)|khong (?:du can cu|the ket luan))\b')
+    if not limitation.search(normalize_text(visible)):
+        return 'complete'
+    supported = []
+    for segment in re.split(r'\n+|(?<=[.!?])\s+', answer):
+        norm = normalize_text(segment)
+        if limitation.search(norm) or not re.search(r'\[\d+\]', segment):
+            continue
+        if any(term in norm for term in ('thong tin tham khao', 'mo nguon tham khao', 'kiem tra dieu kien', 'khong thay the tu van')):
+            continue
+        if len(legal_tokens(segment)) >= 8:
+            supported.append(segment)
+    return 'partial' if supported else 'insufficient'
+
+
+def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
+    issues = []
+    norm = normalize_text(segment)
+    heading_articles = {n for row in cited for n in re.findall(r'Điều\s+(\d+)\b', str(row.get('heading') or ''), re.I)}
+    claim_articles = set(re.findall(r'Điều\s+(\d+)\b', segment, re.I))
+    if heading_articles and claim_articles - heading_articles:
+        issues.append('Số điều được khẳng định không khớp điều khoản của nguồn trích dẫn.')
+    heading_clauses = {n for row in cited for n in re.findall(r'Khoản\s+(\d+)\b', str(row.get('heading') or ''), re.I)}
+    claim_clauses = set(re.findall(r'Khoản\s+(\d+)\b', segment, re.I))
+    if heading_clauses and claim_clauses - heading_clauses:
+        issues.append('Số khoản được khẳng định không khớp khoản của nguồn trích dẫn.')
+    evidence = normalize_text(' '.join(str(row.get('heading') or '') + ' ' + row['content'] for row in cited))
+    normative = re.search(r'\b(?:phai|bat buoc|co nghia vu|nghia vu cua|co trach nhiem|trach nhiem cua)\b', norm)
+    if normative and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam')):
+        issues.append('Nguồn mô tả nội dung/công việc chưa xác nhận nghĩa vụ được khẳng định.')
+    if any(has_phrase(norm, p) for p in ('co quyen', 'duoc phep')) and not any(has_phrase(evidence, p) for p in ('quyen', 'duoc', 'cho phep')):
+        issues.append('Nguồn được trích chưa xác nhận quyền hoặc sự cho phép được khẳng định.')
+    if normative and any(has_phrase(norm, p) for p in ('nguoi thue', 'ben thue')):
+        if any(has_phrase(evidence, p) for p in ('uy ban nhan dan', 'co quan cong an')) and not any(has_phrase(evidence, p) for p in ('nguoi thue', 'ben thue', 'nguoi su dung')):
+            issues.append('Không chuyển trách nhiệm của cơ quan kiểm tra thành nghĩa vụ của người thuê.')
+    if any(re.search(r'(?:\btru(?: truong(?: hop)?)?|\btheo quy|\btru tru[o]?)[ .…]*$', normalize_text(row['content'])) for row in cited):
+        issues.append('Nguồn trích dẫn bị cụt điều kiện hoặc ngoại lệ; chưa đủ để kết luận.')
+    return issues
 
 
 def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
@@ -80,7 +255,7 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
     if any(term in normalized for term in (
         "phap luat khong co quy dinh", "khong co quy dinh cu the", "khong co quy dinh ve",
         "khong co van ban nao", "luat khong quy dinh",
-    )):
+    )) or re.search(r"(?:phap luat|luat).{0,45}khong(?: co)? (?:quy dinh|neu)", normalized):
         issues.append("Không thể kết luận pháp luật không có quy định từ các đoạn truy xuất.")
     if rental_electricity_question(query) and not any(rental_evidence(row["content"]) for row in chunks):
         issues.append("Chưa tìm thấy nguồn trực tiếp về tiền điện của người thuê nhà.")
@@ -102,11 +277,33 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
     for segment in re.split(r"\n+|(?<=[.!?])\s+", answer):
         refs = [int(ref) for ref in re.findall(r"\[(\d+)\]", segment)]
         if not refs:
+            segment_normalized = normalize_text(segment)
+            legal_assertion = re.search(r"\b(phải|bắt buộc|được phép|có quyền|có nghĩa vụ|vi phạm|chịu trách nhiệm|bị xử lý|xử phạt|bồi thường|hoàn trả)\b", segment, re.I)
+            numeric_claim = re.search(r"\b(?:\d+(?:[.,]\d+)*|một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười)\s*(?:triệu|đồng|ngày|tháng|năm)\b", segment, re.I)
+            limitation = any(term in segment_normalized for term in ("chua tim thay", "chua du can cu", "khong du can cu", "chua xac minh", "chua ket luan"))
+            advice = any(term in segment_normalized for term in ("kiem tra", "doi chieu", "khuyen nghi", "loi khuyen"))
+            if not limitation and (legal_assertion or (numeric_claim and not advice)):
+                issues.append("Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.")
             continue
         evidence = " ".join(sources.get(ref, "") for ref in refs)
         if not evidence:
             issues.append("Trích dẫn không có nguồn tương ứng.")
             continue
+        segment_normalized = normalize_text(segment)
+        scoped_absence = any(term in segment_normalized for term in ('chua tim thay can cu', 'chua du can cu', 'chua xac minh'))
+        additional_assertion = re.search(r'(?:\bnhung\b|\btuy nhien\b|\bdo do\b|\bvi vay\b|\bva\b|[,;]).*\b(?:phai|co quyen|co nghia vu|bi phat|boi thuong|hoan tra)\b', segment_normalized)
+        if scoped_absence and not additional_assertion:
+            # A statement about missing evidence cannot share vocabulary with the
+            # missing rule. General claims that no law exists are rejected above.
+            continue
+        issues.extend(_citation_scope_issues(segment, [row for row in chunks if int(row['rank']) in refs]))
+        for predicates, source_terms in (
+            (("xu ly hanh chinh", "xu phat", "bi phat"), ("xu ly hanh chinh", "xu phat", "bi phat", "phat tien", "canh cao")),
+            (("boi thuong",), ("boi thuong",)),
+            (("hoan tra", "hoan lai"), ("hoan tra", "hoan lai", "tra lai")),
+        ):
+            if any(term in segment_normalized for term in predicates) and not any(term in evidence for term in source_terms):
+                issues.append("Nguồn trích dẫn chưa nêu căn cứ cho kết luận về xử lý, bồi thường hoặc hoàn trả.")
         terms = set(legal_tokens(re.sub(r"\[\d+\]", "", segment)))
         if terms and len(terms & set(legal_tokens(evidence))) / len(terms) < 0.18:
             issues.append("Nội dung câu trả lời không khớp từ vựng của nguồn trích dẫn.")

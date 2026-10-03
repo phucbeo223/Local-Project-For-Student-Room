@@ -1,0 +1,1127 @@
+{
+  "started_at_utc": "2026-10-03T02:44:19.615122+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "category": "housing_contract",
+      "answer": "Mình tìm thấy tài liệu liên quan nhưng chưa tổng hợp được kết luận đáng tin cậy. [1] [2] [3] [4] [5]\n\n- Mở Nguồn tham khảo bên dưới để xem trích đoạn.\n- Kiểm tra điều kiện áp dụng và hiệu lực văn bản.\n\nThông tin tham khảo, không thay thế tư vấn pháp lý.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": false,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1: Nguồn rank 1 liệt kê 'có thể có' nhưng không xác nhận sinh viên bắt buộc kiểm tra tất cả các mục này. Kết luận nên dùng từ thận trọng hơn.",
+        "Claim 2: Nguồn rank 4 quy định điều kiện hiệu lực giao dịch dân sự chung, không cụ thể cho hợp đồng thuê trọ hay sinh viên. Không đủ căn cứ để khẳng định đây là yêu cầu bắt buộc riêng biệt.",
+        "Claim 3: Nguồn rank 5 chỉ nêu trường hợp mua bán, tặng cho... phải công chứng/chứng thực (Khoản 1). Hợp đồng thuê nhà không nằm trong danh sách này nên Claim nói 'thường không bắt buộc' là đúng nhưngc"
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "template",
+      "generation_model": null,
+      "latency_ms": 302875,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 74612
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 70374
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 87969
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 58204
+        }
+      ],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Hợp đồng có thể có các nội dung sau đây:\n\n2. Hợp đồng có thể có các nội dung sau đây: a) Đối tượng của hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: b) Số lượng, chất lượng;\n\n2. Hợp đồng có thể có các nội dung sau đây: c) Giá, phương thức thanh toán;\n\n2. Hợp đồng có thể có các nội dung sau đây: d) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: đ) Quyền, nghĩa vụ của các bên;\n\n2. Hợp đồng có thể có các nội dung sau đây: e) Trách nhiệm do vi phạm hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: g) Phương thức giải quyết tranh chấp.",
+        "2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.",
+        "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: a) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\n\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: b) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;",
+        "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 11031,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
+          "excerpt": "2. Hợp đồng có thể có các nội dung sau đây:\n\n2. Hợp đồng có thể có các nội dung sau đây: a) Đối tượng của hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: b) Số lượng, chất lượng;\n\n2. Hợp đồng có thể có các nội dung sau đây: c) Giá, phương thức thanh toán;\n\n2. Hợp đồng có thể có các nội dung sau đây: d) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: đ) Quyền, nghĩa vụ của các bên;\n\n2. Hợp đồng có thể có các nội dung sau đây: e) Trách nhiệm do vi phạm hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: g) Phương thức giải quyết tranh chấp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9709,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2",
+          "excerpt": "2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9699,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
+          "excerpt": "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 10989,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lự…"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9707,
+          "rank": 5,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- 2026_204_79_VBHN-VPQH — Điều 163. Hợp đồng về nhà ở | Khoản 4: “4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;” [1].\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 398. Nội dung của hợp đồng | Khoản 2: “2. Hợp đồng có thể có các nội dung sau đây: c) Giá, phương thức thanh toán;” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1 sai: Nguồn rank 2 chỉ liệt kê các nội dung 'có thể' có trong hợp đồng, không khẳng định việc ghi tiền cọc/ngày thanh toán là tùy chọn hay bắt buộc. Không có căn cứ để kết luận 'không bắt buộc'",
+        "Claim 1 sai: Nguồn rank 2 không đề cập đến trường hợp 'hai bên chưa thỏa thuận'. Việc thiếu chi tiết này khiến kết luận về tính bắt buộc trở nên vô căn cứ so với văn bản.",
+        "Claim 2 đúng: Nguồn rank 5 xác định hiệu lực dựa trên năng lực, tự nguyện và mục đích hợp pháp, không yêu cầu ghi nhận mọi khoản mục cụ thể để hợp đồng có giá trị."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 271805,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 79799
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 52025
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 83756
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 54797
+        }
+      ],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
+        "2. Hợp đồng có thể có các nội dung sau đây:\n\n2. Hợp đồng có thể có các nội dung sau đây: a) Đối tượng của hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: b) Số lượng, chất lượng;\n\n2. Hợp đồng có thể có các nội dung sau đây: c) Giá, phương thức thanh toán;\n\n2. Hợp đồng có thể có các nội dung sau đây: d) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: đ) Quyền, nghĩa vụ của các bên;\n\n2. Hợp đồng có thể có các nội dung sau đây: e) Trách nhiệm do vi phạm hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: g) Phương thức giải quyết tranh chấp.",
+        "2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.",
+        "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: a) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\n\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: b) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9699,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
+          "excerpt": "4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 11031,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
+          "excerpt": "2. Hợp đồng có thể có các nội dung sau đây:\n\n2. Hợp đồng có thể có các nội dung sau đây: a) Đối tượng của hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: b) Số lượng, chất lượng;\n\n2. Hợp đồng có thể có các nội dung sau đây: c) Giá, phương thức thanh toán;\n\n2. Hợp đồng có thể có các nội dung sau đây: d) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: đ) Quyền, nghĩa vụ của các bên;\n\n2. Hợp đồng có thể có các nội dung sau đây: e) Trách nhiệm do vi phạm hợp đồng;\n\n2. Hợp đồng có thể có các nội dung sau đây: g) Phương thức giải quyết tranh chấp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9709,
+          "rank": 3,
+          "similarity_score": 0.946446,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2",
+          "excerpt": "2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9707,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 10989,
+          "rank": 5,
+          "similarity_score": 1.0,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lự…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- 2026_204_79_VBHN-VPQH — Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 2: “2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật.” [1].\n\n- 2026_204_79_VBHN-VPQH — Điều 163. Hợp đồng về nhà ở | Khoản 3: “3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1 sai khi khẳng định 'chỉ được quyền' tăng giá. Nguồn [1] chỉ quy định điều kiện cho trường hợp cải tạo, không loại trừ các thỏa thuận khác.",
+        "Claim 2 thiếu căn cứ trong nguồn [1]. Nguồn chỉ nói bên cho thuê có quyền đơn phương chấm dứt và bồi thường, không đề cập cụ thể về việc 'có quyền' tăng giá mới nếu không thống nhất.",
+        "Claim 3 sai khi nói pháp luật 'không cấm đoán'. Nguồn [3] chỉ ghi nhận quyền tự do thỏa thuận, không có nội dung nào xác nhận việc không bị cấm tăng giá trong các trường hợp khác."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 194609,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 58550
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 40147
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 59936
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 35221
+        }
+      ],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật.",
+        "3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+        "1. Bên cho thuê và bên thuê nhà ở được thỏa thuận về thời hạn thuê, giá thuê và hình thức trả tiền thuê nhà ở theo định kỳ hoặc trả một lần; trường hợp Nhà nước có quy định về giá thuê nhà ở thì các bên phải thực hiện theo quy định đó.",
+        "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9719,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 2",
+          "excerpt": "2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9698,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "excerpt": "3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9718,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 1",
+          "excerpt": "1. Bên cho thuê và bên thuê nhà ở được thỏa thuận về thời hạn thuê, giá thuê và hình thức trả tiền thuê nhà ở theo định kỳ hoặc trả một lần; trường hợp Nhà nước có quy định về giá thuê nhà ở thì các bên phải thực hiện theo quy định đó."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 15,
+          "chunk_id": 9707,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/2026_204_79_VBHN-VPQH.docx",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực h…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 328. Đặt cọc | Khoản 2: “2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.” [1].\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 328. Đặt cọc | Khoản 1: “1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.” [3].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9337,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1 sai: Nguồn chỉ nói 'hợp đồng được giao kết', không yêu cầu điều kiện 'thực hiện thành công' để hoàn lại tiền cọc.",
+        "Claim 2 sai: Nguồn quy định bên nhận từ chối phải trả tài sản + khoản tương đương, không có ngoại lệ 'trừ trường hợp có thỏa thuận khác' cho việc này.",
+        "Claim 3 sai: Nguồn chỉ nói 'chi phí hợp lý trong thực hiện', thiếu cụm từ 'chi phí bảo quản tài sản' như trong claim."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 189094,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 33362
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 40890
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 70548
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 32681
+        }
+      ],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.",
+        "2. Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.\n\nViệc hoàn trả được thực hiện bằng hiện vật. Trường hợp không hoàn trả được bằng hiện vật thì được trị giá thành tiền để hoàn trả.\n\nTrường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.",
+        "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: a) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\n\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau: b) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 11008,
+          "rank": 1,
+          "similarity_score": 0.951662,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 2",
+          "excerpt": "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 11095,
+          "rank": 2,
+          "similarity_score": 0.937799,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 427. Hậu quả của việc huỷ bỏ hợp đồng | Khoản 2",
+          "excerpt": "2. Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.\n\nViệc hoàn trả được thực hiện bằng hiện vật. Trường hợp không hoàn trả được bằng hiện vật thì được trị giá thành tiền để hoàn trả.\n\nTrường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 11007,
+          "rank": 3,
+          "similarity_score": 0.854893,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "excerpt": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 134,
+          "chunk_id": 10989,
+          "rank": 4,
+          "similarity_score": 0.951662,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm a\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: a) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm b\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: b) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1 | Điểm c\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây: c) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành Bộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\n\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lự…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true,
+      "ragas": {
+        "faithfulness": 0.5556,
+        "answer_relevancy": 0.7763,
+        "context_utilization": 1.0
+      },
+      "ragas_errors": {},
+      "ragas_judgements": {
+        "faithfulness": [
+          {
+            "schema": "StatementGeneratorOutput",
+            "output": {
+              "statements": [
+                "Các căn cứ liên quan được tìm thấy trong kho.",
+                "Khoản 2 của Điều 328 quy định về việc đặt cọc theo Bo-luat-91-2015-QH13-doi-chieu-20261003.",
+                "Trường hợp hợp đồng được giao kết và thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền.",
+                "Nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc.",
+                "Nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc.",
+                "Trừ trường hợp có thỏa thuận khác.",
+                "Đây là câu trả lời một phần từ nguồn.",
+                "Chưa kết luận cách áp dụng cho tình huống riêng của bạn.",
+                "Cần đối chiếu điều kiện, hiệu lực và bản gốc."
+              ]
+            }
+          },
+          {
+            "schema": "NLIStatementOutput",
+            "output": {
+              "statements": [
+                {
+                  "statement": "Các căn cứ liên quan được tìm thấy trong kho.",
+                  "reason": "The context provided is a specific text snippet containing legal articles, but it does not mention a 'kho' (repository/database) or the process of searching for references within one. This statement describes the source of the data rather than the content itself.",
+                  "verdict": 0
+                },
+                {
+                  "statement": "Khoản 2 của Điều 328 quy định về việc đặt cọc theo Bo-luat-91-2015-QH13-doi-chieu-20261003.",
+                  "reason": "The context explicitly contains a document with the ID 'Bo-luat-91-2015-QH13-doi-chieu-20261003' and includes content for 'Điều 328. Đặt cọc | Khoản 2'. The content matches the statement.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền.",
+                  "reason": "This is a direct quote from the content of 'Khoản 2' of 'Điều 328' found in the context: 'Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc.",
+                  "reason": "This is a direct quote from the content of 'Khoản 2' of 'Điều 328' found in the context: 'nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc.",
+                  "reason": "This is a direct quote from the content of 'Khoản 2' of 'Điều 328' found in the context: 'nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Trừ trường hợp có thỏa thuận khác.",
+                  "reason": "The phrase 'trừ trường hợp có thỏa thuận khác' appears at the end of the content for 'Khoản 2' of 'Điều 328' in the context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Đây là câu trả lời một phần từ nguồn.",
+                  "reason": "The context is a raw text extraction from a legal document (likely an OCR or database dump), not a direct answer to a specific question. The statement implies this text is a partial answer from a source, which cannot be directly inferred just from the text content itself without external knowledge of the retrieval system.",
+                  "verdict": 0
+                },
+                {
+                  "statement": "Chưa kết luận cách áp dụng cho tình huống riêng của bạn.",
+                  "reason": "The context is a static legal text. It does not contain any advice, conclusion, or specific application instructions tailored to 'your' (the user's) individual situation.",
+                  "verdict": 0
+                },
+                {
+                  "statement": "Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+                  "reason": "The context lists various articles regarding validity and conditions, but it does not contain an instruction or conclusion stating that one 'needs to compare' these elements. This is a procedural advice not present in the text.",
+                  "verdict": 0
+                }
+              ]
+            }
+          }
+        ],
+        "answer_relevancy": [
+          {
+            "schema": "AnswerRelevanceOutput",
+            "output": {
+              "question": "What are the relevant clauses regarding deposits found in the law?",
+              "noncommittal": 0
+            }
+          }
+        ],
+        "context_utilization": [
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provides the specific legal text (Article 328 of Law No. 91/2015/QH13) regarding deposit rules in Vietnam. The answer directly quotes this text to explain how deposits are returned or forfeited based on contract fulfillment or refusal, making the context essential for deriving the answer.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provided discusses the general rules for returning assets after a contract is cancelled (Article 427), but it does not contain specific information regarding the return of a deposit ('tiền cọc') upon check-out or cancellation of a housing contract. The answer explicitly cites Article 328 regarding deposits, which is not present in the provided context. Therefore, the context was not useful for deriving the specific answer about deposit returns.",
+              "verdict": 0
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provided only contains the definition of 'deposit' (Clause 1) from Article 328, whereas the answer explicitly cites and relies on Clause 2 of the same article to explain how the deposit is returned or forfeited. Since the specific rules regarding the return of the deposit are missing from the provided context, it was not useful for arriving at the given answer.",
+              "verdict": 0
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains general provisions regarding the validity of civil transactions and contracts (Articles 117, 401, 689) but does not contain specific information about 'deposit return' (Điều 328). The answer explicitly cites Article 328 regarding deposits, which is absent from the provided context. Therefore, the context was not useful for deriving the specific answer.",
+              "verdict": 0
+            }
+          }
+        ]
+      },
+      "ragas_usage": {
+        "faithfulness": {
+          "max_output_tokens": 8192,
+          "requests": 2,
+          "prompt_tokens": 9917,
+          "output_tokens": 1165,
+          "max_prompt_tokens": 7911
+        },
+        "answer_relevancy": {
+          "max_output_tokens": 8192,
+          "requests": 1,
+          "prompt_tokens": 1769,
+          "output_tokens": 31,
+          "max_prompt_tokens": 1769
+        },
+        "context_utilization": {
+          "max_output_tokens": 8192,
+          "requests": 4,
+          "prompt_tokens": 6744,
+          "output_tokens": 385,
+          "max_prompt_tokens": 2276
+        }
+      }
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "category": "electricity",
+      "answer": "Giới hạn thu tiền điện:\n\n- Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;” [1]\n\nĐiều kiện hiệu lực trong nguồn: “có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành” [3].\n\nThông tin tham khảo từ văn bản đã trích xuất; cần đối chiếu điều kiện áp dụng và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9306,
+      "no_answer": false,
+      "partial_answer": false,
+      "degraded": false,
+      "degraded_reasons": [],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-extractive",
+      "generation_model": null,
+      "latency_ms": 708,
+      "provider_calls": [],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: a) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "THÔNG TƯ 60 2025 TT BCT TRÍCH TUYỂN\n\nVăn bản gốc: Thông tư số 60/2025/TT-BCT ngày 02/12/2025, quy định về thực hiện giá bán điện.\n\nPhạm vi bản trích: giá điện sinh hoạt cho người thuê nhà, định mức, hóa đơn, điều khoản chuyển tiếp và hiệu lực.\n\nNguồn chính thức: https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160\n\nLưu ý hiệu lực: khoản 3, khoản 4 và điểm c khoản 5 Điều 12 có mốc áp dụng riêng theo khoản 1 Điều 21. Trước khi dùng các khoản này để trả lời hiện tại, phải xác minh đã có lần điều chỉnh mức giá bán lẻ điện bình quân sau Quyết định 14/2025/QĐ-TTg hay chưa; xem thêm khoản 1 Điều 20.\n\nNguồn sửa đổi: tại ngày 01/10/2026 chưa gắn một văn bản sửa đổi ban hành trong bản trích này; cần kiểm tra lại khi cập nhật giá điện.\n\nNỘI DUNG TRÍCH TUYỂN",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: a) Khoản 1 Điều 5;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: b) Khoản 10 Điều 8;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm c\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: c) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9566,
+          "rank": 1,
+          "similarity_score": 0.947495,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: a) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng …"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9543,
+          "rank": 2,
+          "similarity_score": 0.723787,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": null,
+          "excerpt": "THÔNG TƯ 60 2025 TT BCT TRÍCH TUYỂN\n\nVăn bản gốc: Thông tư số 60/2025/TT-BCT ngày 02/12/2025, quy định về thực hiện giá bán điện.\n\nPhạm vi bản trích: giá điện sinh hoạt cho người thuê nhà, định mức, hóa đơn, điều khoản chuyển tiếp và hiệu lực.\n\nNguồn chính thức: https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160\n\nLưu ý hiệu lực: khoản 3, khoản 4 và điểm c khoản 5 Điều 12 có mốc áp dụng riêng theo khoản 1 Điều 21. Trước khi dùng các khoản này để trả lời hiện tại, phải xác minh đã có lần điều chỉnh mức giá bán lẻ điện bình quân sau Quyết định 14/2025/QĐ-TTg hay chưa; xem thêm khoản 1 Điều 20.\n\nNguồn sửa đổi: tại ngày 01/10/2026 chưa gắn một văn bản sửa đổi ban hành trong bản trích này; cần kiểm tra lại khi cập nhật giá điện.\n\nNỘI DUNG TRÍCH TUYỂN"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9579,
+          "rank": 3,
+          "similarity_score": 0.947495,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: a) Khoản 1 Điều 5;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: b) Khoản 10 Điều 8;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm c\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy địn…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "category": "electricity",
+      "answer": "Định mức theo số người thuê:\n\n- Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5: “Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;” [1]\n\nĐiều kiện hiệu lực trong nguồn: “có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành” [3].\n\nThông tin tham khảo từ văn bản đã trích xuất; cần đối chiếu điều kiện áp dụng và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.898,
+      "no_answer": false,
+      "partial_answer": false,
+      "degraded": false,
+      "degraded_reasons": [],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-extractive",
+      "generation_model": null,
+      "latency_ms": 127,
+      "provider_calls": [],
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: a) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\nười thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+        "THÔNG TƯ 60 2025 TT BCT TRÍCH TUYỂN\n\nVăn bản gốc: Thông tư số 60/2025/TT-BCT ngày 02/12/2025, quy định về thực hiện giá bán điện.\n\nPhạm vi bản trích: giá điện sinh hoạt cho người thuê nhà, định mức, hóa đơn, điều khoản chuyển tiếp và hiệu lực.\n\nNguồn chính thức: https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160\n\nLưu ý hiệu lực: khoản 3, khoản 4 và điểm c khoản 5 Điều 12 có mốc áp dụng riêng theo khoản 1 Điều 21. Trước khi dùng các khoản này để trả lời hiện tại, phải xác minh đã có lần điều chỉnh mức giá bán lẻ điện bình quân sau Quyết định 14/2025/QĐ-TTg hay chưa; xem thêm khoản 1 Điều 20.\n\nNguồn sửa đổi: tại ngày 01/10/2026 chưa gắn một văn bản sửa đổi ban hành trong bản trích này; cần kiểm tra lại khi cập nhật giá điện.\n\nNỘI DUNG TRÍCH TUYỂN",
+        "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: a) Khoản 1 Điều 5;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: b) Khoản 10 Điều 8;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm c\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: c) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9566,
+          "rank": 1,
+          "similarity_score": 0.904022,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "excerpt": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: a) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: b) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\n5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau: c) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng …"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9543,
+          "rank": 2,
+          "similarity_score": 0.738301,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": null,
+          "excerpt": "THÔNG TƯ 60 2025 TT BCT TRÍCH TUYỂN\n\nVăn bản gốc: Thông tư số 60/2025/TT-BCT ngày 02/12/2025, quy định về thực hiện giá bán điện.\n\nPhạm vi bản trích: giá điện sinh hoạt cho người thuê nhà, định mức, hóa đơn, điều khoản chuyển tiếp và hiệu lực.\n\nNguồn chính thức: https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160\n\nLưu ý hiệu lực: khoản 3, khoản 4 và điểm c khoản 5 Điều 12 có mốc áp dụng riêng theo khoản 1 Điều 21. Trước khi dùng các khoản này để trả lời hiện tại, phải xác minh đã có lần điều chỉnh mức giá bán lẻ điện bình quân sau Quyết định 14/2025/QĐ-TTg hay chưa; xem thêm khoản 1 Điều 20.\n\nNguồn sửa đổi: tại ngày 01/10/2026 chưa gắn một văn bản sửa đổi ban hành trong bản trích này; cần kiểm tra lại khi cập nhật giá điện.\n\nNỘI DUNG TRÍCH TUYỂN"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 50,
+          "chunk_id": 9579,
+          "rank": 3,
+          "similarity_score": 0.904022,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "source": "legal_corpus",
+          "source_url": null,
+          "source_path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+          "category": "electricity",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm a\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: a) Khoản 1 Điều 5;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm b\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm: b) Khoản 10 Điều 8;\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1 | Điểm c\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy địn…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "category": "electricity"
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "category": "electricity"
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "category": "residence"
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "category": "residence"
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "category": "residence"
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "category": "residence"
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "category": "criminal_law"
+    }
+  ],
+  "summary": {
+    "questions": 36,
+    "completed": 6,
+    "errors": 0,
+    "with_contexts": 6,
+    "no_answer": 4,
+    "partial_answer": 3,
+    "degraded": 4,
+    "vector_retrieval": 6,
+    "category_source_match": 6,
+    "category_source_evaluated": 6,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 191851.5,
+    "latency_p95_ms": 302875,
+    "ragas": {
+      "faithfulness": {
+        "mean": 0.5556,
+        "scored": 1
+      },
+      "answer_relevancy": {
+        "mean": 0.7763,
+        "scored": 1
+      },
+      "context_utilization": {
+        "mean": 1.0,
+        "scored": 1
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 4
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 2,
+      "with_contexts": 2,
+      "no_answer": 0
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    }
+  },
+  "updated_at_utc": "2026-10-03T04:34:17.222512+00:00",
+  "judge": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "qwen3.5:9b",
+    "provider": "ollama",
+    "score_workers": 1,
+    "models_by_metric": {
+      "faithfulness": "qwen3.5:9b",
+      "answer_relevancy": "qwen3.5:9b",
+      "context_utilization": "qwen3.5:9b"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "http://host.docker.internal:11434/api/chat",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 8192,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 300,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window"
+  }
+}

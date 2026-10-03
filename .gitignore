@@ -49,3 +49,5 @@ apps/web/test-results/
 apps/web/playwright-report/
 graphify-out/
 .claude-gate.json
+tmp/
+eval/source_supplement_20261003/

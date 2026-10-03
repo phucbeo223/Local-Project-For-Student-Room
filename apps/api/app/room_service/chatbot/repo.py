@@ -13,6 +13,7 @@ from .providers import normalize_text
 from .schemas import ChatFilters
 from .legal_retrieval import expand_legal_query, legal_tokens, rerank_legal, electricity_question, rental_electricity_question
 from ..legal_knowledge.quality import usable_legal_text
+from .topics import question_categories
 
 
 STOP_WORDS = {
@@ -155,6 +156,9 @@ class ChatRepository:
             "(source = 'user' OR cleaning_status = 'cleaned')",
         ]
         params: dict[str, Any] = {"candidate_limit": 250}
+        if filters.listing_ids:
+            clauses.append("id = ANY(:listing_ids)")
+            params["listing_ids"] = filters.listing_ids
         if filters.listing_type:
             clauses.append("listing_type = CAST(:listing_type AS listing_type_enum)")
             params["listing_type"] = filters.listing_type
@@ -162,7 +166,7 @@ class ChatRepository:
             clauses.append("price >= :min_price")
             params["min_price"] = filters.min_price
         if filters.max_price is not None:
-            clauses.append("price <= :max_price")
+            clauses.append("price < :max_price" if filters.max_price_exclusive else "price <= :max_price")
             params["max_price"] = filters.max_price
         if filters.min_area is not None:
             clauses.append("area >= :min_area")
@@ -202,11 +206,15 @@ class ChatRepository:
         else:
             vector_sql = "0"
             order_sql = "quality_score DESC NULLS LAST, freshness_score DESC NULLS LAST"
+        if filters.sort_by == "price_asc":
+            clauses.append("price IS NOT NULL")
+            order_sql = "price ASC, id ASC"
+            params["candidate_limit"] = limit
 
         sql = text(
             "SELECT id, title, price, area, address, district, description, parsed_amenities, "
             "distance_to_ctu, route_time_campus, source, source_url, quality_score, "
-            "freshness_score, risk_score, risk_evaluated_at, listing_type, "
+            "freshness_score, risk_score, risk_evaluated_at, listing_type, first_seen, last_seen, updated_at, "
             f"{vector_sql} AS vector_score FROM aggregated_listings "
             f"WHERE {' AND '.join(clauses)} ORDER BY {order_sql} LIMIT :candidate_limit"
         )
@@ -263,7 +271,7 @@ class ChatRepository:
 
         rows.sort(
             key=lambda item: (
-                -item["similarity_score"],
+                float(item.get("price") or 0) if filters.sort_by == "price_asc" else -item["similarity_score"],
                 -float(item.get("quality_score") or 0.0),
                 item["id"],
             )
@@ -287,9 +295,9 @@ class ChatRepository:
         # Independent lexical and vector pools avoid excluding a relevant law
         # merely because it was indexed earlier than 600 other chunks.
         terms = list(dict.fromkeys(term for term in re.findall(r"[^\W_]{2,}", expanded.lower()) if legal_tokens(term)))
-        category = "electricity" if electricity_question(query) and "nuoc" not in normalize_text(query) else None
-        params: dict[str, Any] = {"candidate_limit": 120, "tsquery": " | ".join(terms) or "empty",
-                                  "category": category, "rental_query": rental_electricity_question(query)}
+        categories = question_categories(query)
+        params: dict[str, Any] = {"candidate_limit": 120, "category_limit": 40, "tsquery": " | ".join(terms) or "empty",
+                                  "categories": list(categories), "has_categories": bool(categories), "rental_query": rental_electricity_question(query)}
         if vector is not None:
             vector_sql = (
                 "CASE WHEN c.embedding_vector IS NULL THEN 0 ELSE "
@@ -304,14 +312,17 @@ class ChatRepository:
             f"{vector_sql} AS vector_score,"
             "ts_rank_cd(c.content_tsv,to_tsquery('simple',:tsquery)) AS lexical_rank "
             "FROM legal_chunks c JOIN legal_documents d ON d.id=c.document_id WHERE d.status='ready' "
-            "AND (CAST(:category AS text) IS NULL OR d.category=:category) "
+            "AND (NOT :has_categories OR d.category=ANY(:categories)) "
         )
-        sql = text("WITH candidates AS (" + base_sql + "), lexical AS ("
-                   "SELECT * FROM candidates WHERE lexical_rank > 0 ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit), "
+        sql = text("WITH candidates AS (" + base_sql + "), lexical_ids AS ("
+                   "SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY lexical_rank DESC,chunk_id) AS position "
+                   "FROM candidates WHERE lexical_rank > 0), lexical AS ("
+                   "SELECT c.* FROM candidates c JOIN lexical_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit), "
                    "phrases AS (SELECT * FROM candidates WHERE :rental_query AND (content ILIKE '%thu tiền điện%' "
                    "OR content ILIKE '%người thuê nhà%' OR content ILIKE '%định mức%') "
                    "ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit) "
-                   + (", semantic AS (SELECT * FROM candidates ORDER BY vector_score DESC,chunk_id LIMIT :candidate_limit) "
+                   + (", semantic_ids AS (SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY vector_score DESC,chunk_id) AS position FROM candidates), "
+                      "semantic AS (SELECT c.* FROM candidates c JOIN semantic_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit) "
                       "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases" if vector is not None
                       else "SELECT * FROM lexical UNION SELECT * FROM phrases"))
         try:
@@ -352,22 +363,31 @@ class ChatRepository:
                 for item in rows
                 if item["bm25_score"] > 0 or float(item.get("vector_score") or 0) >= 0.35
             ]
-        rows = rerank_legal(query, rows, limit=30)
+        # Preserve each category's relevant candidates until facet reservation.
+        rows = rerank_legal(query, rows, limit=max(30, len(categories) * 80))
+        from .legal_retrieval import diversified_legal_rows
+        core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
+        # Relevance filtering runs first; diversity never introduces an unrelated row.
+        rows = diversified_legal_rows(query, rows, core_limit) + rows
         selected = []
         seen: set[tuple] = set()
         # Keep complete clauses and associated effectiveness/transition provisions.
         with self.engine.connect() as conn:
             for item in rows:
-                group = (item["document_id"], item.get("heading") or item["chunk_id"])
+                group = (item["document_id"], re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])
                 if group in seen:
                     continue
                 seen.add(group)
                 item = dict(item)
                 if item.get("heading"):
+                    # A point's meaning often depends on its clause introduction
+                    # and other required items in the same dossier/checklist.
+                    clause_heading = re.sub(r' \| Điểm [a-zđ]$', '', item['heading'])
                     siblings = [dict(row) for row in conn.execute(text(
                         "SELECT id AS chunk_id,chunk_index,content,page_from,page_to FROM legal_chunks "
-                        "WHERE document_id=:doc AND heading=:heading ORDER BY chunk_index"
-                    ), {"doc": item["document_id"], "heading": item["heading"]}).mappings()]
+                        "WHERE document_id=:doc AND (heading=:heading OR heading LIKE :points) ORDER BY chunk_index"
+                    ), {"doc": item["document_id"], "heading": clause_heading,
+                        "points": clause_heading + ' | Điểm %'}).mappings()]
                     # Nearest continuation first; never drop the matching chunk.
                     siblings.sort(key=lambda row: abs(row["chunk_index"] - item["chunk_index"]))
                     included = []
@@ -380,10 +400,10 @@ class ChatRepository:
                     if included:
                         included.sort(key=lambda row: row["chunk_index"])
                         item["content"] = "\n\n".join(row["content"] for row in included)
+                        item['heading'] = clause_heading
                         item["page_from"] = min((row["page_from"] for row in included if row["page_from"] is not None), default=None)
                         item["page_to"] = max((row["page_to"] for row in included if row["page_to"] is not None), default=None)
                 selected.append(item)
-                core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
                 if len(selected) >= core_limit:
                     break
             doc_ids = list(dict.fromkeys(item["document_id"] for item in selected))

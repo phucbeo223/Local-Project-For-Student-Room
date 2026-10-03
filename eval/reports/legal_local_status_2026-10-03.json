@@ -1,0 +1,26 @@
+{
+  "phase": "collecting_local_answers",
+  "started_at_utc": "2026-10-03T02:44:18.724797+00:00",
+  "deployed_image": "sha256:22e97959482589ef2793d6c1bfdb4fdf3a32d6060dab1d156decf4afe08df3aa",
+  "generation_provider": "qwen",
+  "judge_provider": "ollama",
+  "model": "qwen3.5:9b",
+  "baseline_sha256": "b32743c4ad5b251313f488db5ce794e9e2c0159d5b34da346d70a465e3e4810b",
+  "verified_official_downloads": 10,
+  "max_runtime_hours": 24,
+  "report": "/eval/ragas_reports/legal_local_comparison_2026-10-03.md",
+  "updated_at_utc": "2026-10-03T04:48:30.608302+00:00",
+  "completed_answers": 6,
+  "score_counts": {
+    "before": {
+      "faithfulness": 0,
+      "answer_relevancy": 0,
+      "context_utilization": 0
+    },
+    "after": {
+      "faithfulness": 1,
+      "answer_relevancy": 1,
+      "context_utilization": 1
+    }
+  }
+}

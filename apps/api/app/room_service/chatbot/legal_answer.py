@@ -12,6 +12,37 @@ from .providers import GenerationResult, normalize_text
 from .legal_retrieval import electricity_question
 
 
+def extract_partial_provisions(question: str, chunks: list[dict]) -> GenerationResult | None:
+    """Copy complete paragraphs, without inferring how a rule applies to a case."""
+    from .legal_retrieval import legal_tokens
+    terms = set(legal_tokens(question)) - {"nguoi", "thue", "nha", "tro", "phong", "can", "nen", "gi", "nhung"}
+    candidates = []
+    for row, paragraph, _ in _paragraphs(chunks):
+        heading = normalize_text(str(row.get("heading") or ""))
+        if "hieu luc" in heading or "chuyen tiep" in heading:
+            continue
+        shared = terms & set(legal_tokens(paragraph))
+        if len(shared) < min(3, len(terms)) or len(shared) / max(1, len(terms)) < .18:
+            continue
+        candidates.append((len(shared) / max(1, len(terms)), row, paragraph))
+    candidates.sort(key=lambda part: (-part[0], int(part[1]["rank"])))
+    selected, seen = [], set()
+    for _, row, paragraph in candidates:
+        if paragraph in seen:
+            continue
+        seen.add(paragraph)
+        selected.append((row, paragraph))
+        if len(selected) == 2:
+            break
+    if not selected:
+        return None
+    lines = ["Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):"]
+    for row, paragraph in selected:
+        lines.append(f"- {row['title']} — {row.get('heading') or 'trích đoạn'}: “{paragraph}” [{row['rank']}].")
+    lines.append("Đây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.")
+    return GenerationResult("\n\n".join(lines), "legal-partial-extractive")
+
+
 def _paragraphs(chunks: list[dict]):
     for row in chunks:
         content = re.sub(r"\n\s*\n\s*:\s*", " ", row["content"])

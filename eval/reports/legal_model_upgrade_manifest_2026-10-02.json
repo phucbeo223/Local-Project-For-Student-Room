@@ -1,0 +1,229 @@
+{
+  "created_at_utc": "2026-10-02T19:01:31.094508+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "baseline_immutable": true,
+  "run_sha256": {
+    "legal_upgrade_before_common_judge_2026-10-02.json": "abfc45e6e0065115b351c4dd25cdedd752bded8851d9874bfa057996f557c927",
+    "legal_model_upgrade_after_2026-10-02.json": "b32743c4ad5b251313f488db5ce794e9e2c0159d5b34da346d70a465e3e4810b"
+  },
+  "source_sha256": {
+    "apps/api/app/config.py": "1db321df52b2d7757b1398807a76f1e8bb78c494881a295636fd4f17ee9ba121",
+    "docker-compose.yml": "657364ddce96f85100ef5fc3fd33a5526b825b0a28d114002c3f578f1b57f7bd",
+    "docker-compose.override.yml": "765182e79438a29f333a00946cb8b4d1ae45ddf383df1d7e4f1bf8a9e012e13e",
+    "docker-compose.ragas.yml": "34ebeedecac6397c65d28e5543cde4a3136200d10e4b2d0b87d407ab6144bd5a",
+    "apps/api/app/room_service/chatbot/__init__.py": "3c72152e951b808325d5ba100993d28af0939cd1e89fc8fa1e8b1b044edb1970",
+    "apps/api/app/room_service/chatbot/legal_answer.py": "6ac2a6de4b33d8a5117128a9b8e942c5a524726271c9d2ccaf4e706305165316",
+    "apps/api/app/room_service/chatbot/legal_retrieval.py": "34a4897bbc556cc7df0ee76a2308c698bff61a00bb01f5a638fce3514c51c346",
+    "apps/api/app/room_service/chatbot/parser.py": "226431c6c39f4891b6598ad77a6cbd890b2efa311bcbab3b91c7b982b32336ac",
+    "apps/api/app/room_service/chatbot/providers.py": "16bb0826d1b99a467c6a32a721cab96c49463523281b1fd5a7ef55da1ee48ab4",
+    "apps/api/app/room_service/chatbot/repo.py": "58b2ecee3d7fdc932eb56ef982aa1f02652e1918cf305ca60b2b3ca00b8f4955",
+    "apps/api/app/room_service/chatbot/router.py": "26a12170d180635ec4fbcd0156187ac8c94f8fb0624a064d20b40bb6bea5b7c1",
+    "apps/api/app/room_service/chatbot/schemas.py": "115360c0bb07f0b5a5487def013ea3d14efdcc83d4ebfbde1229847cb66c8973",
+    "apps/api/app/room_service/chatbot/service.py": "6209fa97df5fde47fb71519f2a1ac6d72fb84cfc69ccf8ffea276ae3350939c5",
+    "apps/api/app/room_service/chatbot/topics.py": "d00d88bedd5db47878291193e14fbb94f00e5b1a87d911dd4de9bfa11657bcb3",
+    "apps/api/app/room_service/legal_knowledge/__init__.py": "42c6f5eccb1caac5f5aec9ccd30d8f3a0f67fcd4c31801aef2b2985ef0591384",
+    "apps/api/app/room_service/legal_knowledge/chunker.py": "91828e7043b32afdc0e327a238126ba674282cce8a1d33c747921b49536a341b",
+    "apps/api/app/room_service/legal_knowledge/extractor.py": "fe77a99a0c1f810f9422d189a89184800585994d84aedcb7bab11125a0b82176",
+    "apps/api/app/room_service/legal_knowledge/ingestion.py": "44fc9a00081026ba759053ce0add781df482bf92bb9ddd5a02d1c948793413cd",
+    "apps/api/app/room_service/legal_knowledge/quality.py": "a02ec77ec389764fbd151cb02ac85f1e7855bbacf8afb03668c76cd7b51694b6",
+    "apps/api/app/room_service/legal_knowledge/repo.py": "ccde781027840c4fc25a49be4cf83767b2508c6c9e365ca08bbc0b7d61ef78d7",
+    "eval/question_bank_ragas.py": "24261165d16f6d57b8ad987e76b96e2d23fd8687af882981c13036f357802806",
+    "eval/compare_model_upgrade.py": "129e926ba13df639779cd8803b22df03a9860bed239b6597c8c3536e8356bb89",
+    "eval/stamp_model_upgrade.py": "069233d456aeeea015934cf7560d7025435a402d2ae33a6e86fe3daf6ab5704a",
+    "docs/LEGAL_QUESTION_BANK.md": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd"
+  },
+  "data_sha256": {
+    "criminal_law/Văn-bản-hợp-nhất-135-VBHN-VPQH.docx": "75794b3769abfb6aa6682494adab15f4856a853a4564b88a42a33bcec29138f1",
+    "criminal_law/Văn-bản-hợp-nhất-17-VBHN-VPQH.docx": "da4fbd8f39bc46ad96059d54e4baa40236cfbe41e69aaceb11dcedadcb3e1ff5",
+    "ecommerce_platform/Luật-122-2025-QH15-trích-tuyển.docx": "be9f2fb950b7d5435ccab04fa9c66c567fce021564321a3440a4f4a25f3f94b4",
+    "ecommerce_platform/Nghị-định-248-2026-NĐ-CP-trích-tuyển.docx": "11eccec9f6b576d413069c89ca886272d0db4f235e8d3b5d5faa5ca5bac2047a",
+    "electricity/Luật-61-2024-QH15.docx": "8e7b189d5dc975d08131945e11368e389f7a68e625762ea90d05344b385b3087",
+    "electricity/Nghị-định-133-2026-NĐ-CP-trích-tuyển.docx": "4de92d66b529179d8cd7327aec734dfa848589eaea0e82ef38ea42b49d2f242c",
+    "electricity/Quyết-định-1279-QĐ-BCT.docx": "1d243991970650c5dc4bcf2bea1cb21289444f6eace2fcf183a6bae299724486",
+    "electricity/Quyết-định-14-2025-QĐ-TTg-trích-tuyển.docx": "40438cb6df21b987e319e89b2ae454e0a6f83d5a345974ed330ccc84e730a394",
+    "electricity/Thông-tư-60-2025-TT-BCT.docx": "281c5617cc3a5e567fcbe446e405049fc2d8942cb02ab5a183a8b071af1be94f",
+    "fire_safety/Luật-55-2024-QH15-trích-tuyển.docx": "a4901f154a82dfdf90b08b14ef67faad80054244ff0ca11566fc00630601b8b1",
+    "fire_safety/Nghị-định-105-2025-NĐ-CP.docx": "96d3c8812018b49f0968bf43f4d9785c8e7d87536cec262e2a904f7cb4021b23",
+    "fire_safety/Nghị-định-106-2025-NĐ-CP-trích-tuyển-cập-nhật.docx": "7a7dfd57c2d3c4dc0107f42c1bf9e9f1b55ab70ee03827ef742bc1a245b4ddac",
+    "housing_contract/2026_204_79_VBHN-VPQH.docx": "74e00cffe24839460eddf3b266c84eda90bf31370d27498c68a96442dd9172a2",
+    "housing_contract/Bộ-luật-91-2015-QH13-trích-tuyển.docx": "069d0511433e7ed924719af71d315f9039f3c82f256e4688a25d423e8b1e71ed",
+    "housing_contract/Luật-19-2023-QH15.docx": "295107f2a9562ec3eefcd5237c6e42b09e12fb84b11fc1010feecc8768f219c7",
+    "housing_contract/Nghị-định-95-2024-NĐ-CP.docx": "4474ba0ef040a9ddf0a2504f914c35d28320bac04b09b6b6c45503178c635a2d",
+    "privacy_data/Luật-26-2023-QH15.docx": "1b5b0197b978c7fc879045db01f1a3843ff9416050e12c99d6941bb9f5958f15",
+    "privacy_data/Luật-91-2025-QH15.docx": "e7d93bdbebca5d2202e0b721f3eeda42c227ba7e81175f8336c73543b214bd3a",
+    "privacy_data/Nghị-định-330-2026-NĐ-CP.docx": "d61016274577aa6558eeb4275bf75f1ec8deb67fa84ab22bdb8e701e7837d3d0",
+    "privacy_data/Nghị-định-356-2025-NĐ-CP.docx": "9265afaa636da509567bfb519a85cc8830b3072b90ded60fdf1635c9a9b00203",
+    "real_estate_brokerage/Luật-29-2023-QH15.docx": "147363772a45ea4beb11b6983111046beea45d9ba61d71884353b79c7160a4d9",
+    "residence/Luật-118-2025-QH15-trích-tuyển-điều-chỉnh-Luật-Cư-trú.docx": "6385ca9d4a667c5d7227ad46f6c862c8eaa2956a264e36b9a703eb9dcee63f92",
+    "residence/Luật-68-2020-QH14-trích-tuyển-cập-nhật.docx": "7060064cf865aecf014d3d41c2df48ed781b781868f9c77efc1197abb8e9f2f2",
+    "residence/Nghị-định-154-2024-NĐ-CP-trích-tuyển-cập-nhật.docx": "5660702219287bd4da4267e8c4d6b37cd3cd2abd67edabb2d9498e49b4cfa746",
+    "residence/Nghị-định-282-2025-NĐ-CP.docx": "88364570c14e3ec6a3d4160348014653792c29381215eba9c67fe3de75c503bb",
+    "residence/Nghị-định-347-2026-NĐ-CP-trích-tuyển.docx": "6278d09004af459055079807c7318da3d8a7bb2a89c5233d5bfc9636260d9059",
+    "residence/Thông-tư-116-2026-TT-BCA-trích-tuyển-thay-Thông-tư-53-2025.docx": "d314a34e23e3d39b9e5b1b6f1978e8164fd613afd642d90f6f0c01f5a9e53961",
+    "student_housing/CTU-KTX-thong-tin-2026-2027.docx": "d332dabdce21b461381fdeed939ea31d56563644af0fc682feda5cca99906450",
+    "water_cantho/215-QD-UBND-pham-vi-doi-chieu.md": "8256ed9b83ad4803c7fa056b62057357a2a542edadd27d8db965470c41128bc2",
+    "water_cantho/Quyết-định-215-QĐ-UBND.docx": "be8d4e4e85bb240b674d11e09c0f367baa086f36f4df46ca18442439a4390afd"
+  },
+  "hardware": {
+    "cpu": "AMD Ryzen 5 7535HS",
+    "ram_bytes": 16312721408,
+    "gpu": "NVIDIA RTX 4050 Laptop",
+    "vram_mib": 6141
+  },
+  "local_model": {
+    "installed": "qwen3.5:9b",
+    "quantization": "Q4_K_M",
+    "removed": [
+      "qwen3.5:4b",
+      "qwen2.5:1.5b"
+    ],
+    "smoke_latency_seconds": 25.44,
+    "smoke_tokens_per_second": 7.52,
+    "smoke_context": 8192,
+    "smoke_gpu_resident_bytes": 5636882430
+  },
+  "effective_configuration": {
+    "provider": "auto",
+    "order": [
+      "gemini",
+      "qwen",
+      "template"
+    ],
+    "gemini_model": "gemini-3.5-flash-lite",
+    "ollama_model": "qwen3.5:9b",
+    "llm_timeout_seconds": 60,
+    "legal_timeout_seconds": 180,
+    "max_output_tokens": 1536,
+    "ollama_context_length": 8192
+  },
+  "credential_probes": {
+    "slot_1": "HTTP 503 on inference",
+    "slot_2": "HTTP 403 project denied",
+    "slot_3": "Gemini 3.8 first succeeded then daily quota 20; Gemini 3.5 Flash Lite schema and Ragas succeeded"
+  },
+  "judge_before": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "score_workers": 4,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.1-flash-lite",
+      "answer_relevancy": "gemini-3.1-flash-lite",
+      "context_utilization": "gemini-3.1-flash-lite"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 8192,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window"
+  },
+  "judge_after": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "score_workers": 4,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.1-flash-lite",
+      "answer_relevancy": "gemini-3.1-flash-lite",
+      "context_utilization": "gemini-3.1-flash-lite"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 8192,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window"
+  },
+  "score_coverage": {
+    "before": {
+      "faithfulness": {
+        "mean": 0.9191,
+        "scored": 35
+      },
+      "answer_relevancy": {
+        "mean": 0.6987,
+        "scored": 36
+      },
+      "context_utilization": {
+        "mean": 0.5486,
+        "scored": 36
+      }
+    },
+    "after": {
+      "faithfulness": {
+        "mean": 0.6747,
+        "scored": 36
+      },
+      "answer_relevancy": {
+        "mean": 0.7553,
+        "scored": 36
+      },
+      "context_utilization": {
+        "mean": 0.6042,
+        "scored": 36
+      }
+    }
+  },
+  "score_errors": {
+    "before": [
+      {
+        "id": 32,
+        "errors": {
+          "faithfulness": "RuntimeError: Gemini trả về JSON rỗng"
+        }
+      }
+    ],
+    "after": []
+  },
+  "regression": {
+    "passed": 89,
+    "failed": 0
+  },
+  "incremental_source_guard_retest": {
+    "changed_case_ids": [
+      23
+    ],
+    "unchanged_answers_checked": 35,
+    "old_guard_sha256": "9399d28aaae35c3f283ca9a412f276fa4049bfee18808da5ea88846e57e4c28f",
+    "method": "Replay deterministic source guard across all saved full answers; rerun only the newly rejected response"
+  },
+  "known_input_gap": {
+    "case_id": 4,
+    "source": "housing_contract/Bộ-luật-91-2015-QH13-trích-tuyển.docx",
+    "issue": "Article 328 clause 2 ends at trừ trườ in both input DOCX and retrieved context; no source completion invented"
+  },
+  "runtime_verification": {
+    "api_health": "ok",
+    "configured_key_count": 3,
+    "api_image": "sha256:2f8626d1841bac29dbb66a4e728e94537cefc12ec4c79717c01577a8509fd2a0",
+    "electricity_smoke": {
+      "intent": "legal_question",
+      "provider": "legal-extractive",
+      "no_answer": false,
+      "sources": 3,
+      "citation_accuracy": 1.0,
+      "retrieval_mode": "legal_hybrid"
+    }
+  },
+  "verification_optimization": "Cited ranks mapped to deduplicated full sources; no regeneration on verifier outage",
+  "limits": [
+    "No independent reference answers: correctness and recall unmeasured",
+    "Common Gemini judge may favor Gemini-generated answers",
+    "Native faithfulness also judges disclaimers; some verdicts misread editorial source notes. All verdicts retained without score adjustment",
+    "Model, retrieval and checking changed together; not a model-only causal experiment",
+    "Cloud overload and local fallback affect latency",
+    "Baseline scoring overlapped early collection until paused; shared quota affected two local fallbacks",
+    "Initial and local partial trials preserved separately; final run uses available Gemini 3.5 Flash Lite"
+  ]
+}

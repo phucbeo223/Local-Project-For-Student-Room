@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-03",
+  "sources": [
+    {
+      "path": "housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+      "sha256": "e36235277d9ced3a03df409f0a7a167ef48b2156fae4504ebcb3ec46bf2dffde",
+      "origin": [
+        "civil91first",
+        "civil91"
+      ],
+      "notes": {
+        "replaced": [
+          328,
+          689
+        ],
+        "visual_pages_328": [
+          86,
+          87
+        ],
+        "other_articles": "Giữ nguyên bản trích trước; kiểm tra đuôi đoạn, không khẳng định đã đối chiếu toàn văn từng chữ."
+      },
+      "archived": {
+        "path": "docs\\legal_sources_excluded\\supplement_20261003\\housing_contract\\Bộ-luật-91-2015-QH13-trích-tuyển.docx",
+        "sha256": "069d0511433e7ed924719af71d315f9039f3c82f256e4688a25d423e8b1e71ed"
+      }
+    },
+    {
+      "path": "residence/Luat-68-2020-QH14-doi-chieu-20261003.md",
+      "sha256": "1b2041ad5663165a8fcf7c4a3ba17d16dcdf972ce7fcb663cf07a2c224efd467",
+      "origin": [
+        "residence68",
+        "amend118"
+      ],
+      "notes": {
+        "articles": [
+          9,
+          27,
+          28,
+          30
+        ],
+        "visual_pages": {
+          "residence68": [
+            5,
+            15,
+            16
+          ],
+          "amend118": [
+            12,
+            13
+          ]
+        },
+        "amendment": "Điều 4 khoản 9 Luật 118 thay Điều 30, áp dụng từ 01/07/2026; Điều 9,27,28 giữ nội dung gốc.",
+        "ocr": "Chép đối chiếu ảnh: sửa Điền/Hỗ/tài Hiệu/tam tri; giữ đủ khoản, điểm và ngoại lệ.",
+        "article31": "Nội dung sửa đổi vẫn có trong tài liệu Luật 118 riêng."
+      },
+      "archived": {
+        "path": "docs\\legal_sources_excluded\\supplement_20261003\\residence\\Luật-68-2020-QH14-trích-tuyển-cập-nhật.docx",
+        "sha256": "7060064cf865aecf014d3d41c2df48ed781b781868f9c77efc1197abb8e9f2f2"
+      }
+    },
+    {
+      "path": "fire_safety/Luat-55-2024-QH15-dieu-8-20-21-23-24.md",
+      "sha256": "0ccafc9e862919a86083ac57ecd07b265cc3f7ceb11c32c53c0659700d502434",
+      "origin": [
+        "fire55",
+        "amend118"
+      ],
+      "notes": {
+        "articles": [
+          8,
+          20,
+          21,
+          23,
+          24
+        ],
+        "extraction": "Văn bản PDF có lớp chữ; bỏ đầu trang Công báo, nối dòng; giữ nguyên khoản, điểm.",
+        "amendment": "Luật 118 Điều 10 không sửa các điều được trích này; không suy rộng sang điều khác."
+      },
+      "archived": {
+        "path": "docs\\legal_sources_excluded\\supplement_20261003\\fire_safety\\Luật-55-2024-QH15-trích-tuyển.docx",
+        "sha256": "a4901f154a82dfdf90b08b14ef67faad80054244ff0ca11566fc00630601b8b1"
+      }
+    },
+    {
+      "path": "criminal_law/rental_warning-Bo-Cong-an-20261003.md",
+      "sha256": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d",
+      "origin": [
+        "rental_warning"
+      ],
+      "notes": {
+        "type": "khuyến cáo",
+        "scope": "thuê nhà qua mạng"
+      },
+      "archived": null
+    },
+    {
+      "path": "ecommerce_platform/online_warning-Bo-Cong-an-20261003.md",
+      "sha256": "fef0b5e4f0758f5e19a443296f75915429c0fb3ffa488af40e97a09329c367e3",
+      "origin": [
+        "online_warning"
+      ],
+      "notes": {
+        "type": "khuyến cáo",
+        "scope": "mua hàng trực tuyến; không biến thành nghĩa vụ pháp lý thuê trọ"
+      },
+      "archived": null
+    }
+  ],
+  "downloads": {
+    "client_date": "2026-10-03",
+    "recorded_at_utc": "2026-10-02T19:41:21.631134+00:00",
+    "sources": [
+      {
+        "id": "civil91",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+        "path": "docs/legal_sources_originals_20261003/civil91.pdf",
+        "sha256": "dd2c45f8dee4e0d7b0416786b236e9588092863edcef64db07ef2b74954bba50",
+        "bytes": 5498558,
+        "pages": 78,
+        "text_chars": 0
+      },
+      {
+        "id": "civil91first",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+        "path": "docs/legal_sources_originals_20261003/civil91first.pdf",
+        "sha256": "d2f9e486faa8aa205dff952c813251acb82475a614b388d2a52449a05dd37205",
+        "bytes": 6675593,
+        "pages": 94,
+        "text_chars": 147
+      },
+      {
+        "id": "residence68",
+        "source_page_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "download_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "path": "docs/legal_sources_originals_20261003/residence68.pdf",
+        "sha256": "fda03bdaa433b3e86807d9fa0e6cdae50d1ea2ae37aa59ffe992f1de1c7f17d1",
+        "bytes": 620655,
+        "pages": 23,
+        "text_chars": 0
+      },
+      {
+        "id": "amend118",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+        "path": "docs/legal_sources_originals_20261003/amend118.pdf",
+        "sha256": "a9798bfab6120963834d26559ab8614003ca3012de1d1846305495e8bb4300b6",
+        "bytes": 12531681,
+        "pages": 28,
+        "text_chars": 0
+      },
+      {
+        "id": "fire55",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+        "path": "docs/legal_sources_originals_20261003/fire55.pdf",
+        "sha256": "1b1942dbf11e912a28ac2004d1f3cca3b6e7356796507dda7450ccf27a250462",
+        "bytes": 429765,
+        "pages": 43,
+        "text_chars": 92538
+      },
+      {
+        "id": "fire105",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+        "path": "docs/legal_sources_originals_20261003/fire105.pdf",
+        "sha256": "21f2c7373b57fdf0c88617a504521e72b31f1948a71279a8d2f52a40b0ae116d",
+        "bytes": 6565982,
+        "pages": 181,
+        "text_chars": 149
+      },
+      {
+        "id": "amend347",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/9/347_2026_nd-cp_08092026_7-signed.signed.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/9/347_2026_nd-cp_08092026_7-signed.signed.pdf",
+        "path": "docs/legal_sources_originals_20261003/amend347.pdf",
+        "sha256": "9559542193426a0f7ab7f3bacb133cd37c810c418ad68616d6f349820bc3f550",
+        "bytes": 384446,
+        "pages": 20,
+        "text_chars": 40875
+      },
+      {
+        "id": "broker29",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/01/luat29.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/01/luat29.pdf",
+        "path": "docs/legal_sources_originals_20261003/broker29.pdf",
+        "sha256": "a4399dc8e26063d753ecdf96e5833cfb573ad9265c3e74ab86e3e6f51ce00063",
+        "bytes": 726118,
+        "pages": 69,
+        "text_chars": 143070
+      },
+      {
+        "id": "rental_warning",
+        "source_page_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+        "download_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+        "path": "docs/legal_sources_originals_20261003/rental_warning.html",
+        "sha256": "07146994c89f2a470e49a16b23a819cb0ac92b8bc2ee2d0d6728fa6c2a19cc30",
+        "bytes": 415347,
+        "pages": 1,
+        "text_chars": 10457
+      },
+      {
+        "id": "online_warning",
+        "source_page_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+        "download_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+        "path": "docs/legal_sources_originals_20261003/online_warning.html",
+        "sha256": "38580ac8ee4ffac4ecdeef71db7901d94ad329552d0a524eb5dc83247e046a7e",
+        "bytes": 412130,
+        "pages": 1,
+        "text_chars": 9720
+      }
+    ]
+  },
+  "download_limitations": [
+    "vbpl.moj.gov.vn không phân giải DNS trên máy",
+    "CDN Công báo lỗi chuỗi chứng chỉ; không tắt kiểm tra TLS",
+    "civil91.pdf là phần 2; đã tải thêm civil91first.pdf phần 1"
+  ],
+  "already_current": [
+    "Nghị định 105 hiện có đã cập nhật điểm a,b khoản 2 Điều 13 và khoản 3 Điều 14 theo 347; giữ nguyên",
+    "Luật nhà ở 79 có Điều 163 khoản 1; tăng ưu tiên truy xuất, không thêm bản trùng"
+  ]
+}

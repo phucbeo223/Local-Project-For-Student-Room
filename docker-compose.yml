@@ -61,11 +61,16 @@ services:
       CHATBOT_WARMUP_TIMEOUT_SECONDS: ${CHATBOT_WARMUP_TIMEOUT_SECONDS:-30}
       LISTING_STATS_CACHE_SECONDS: ${LISTING_STATS_CACHE_SECONDS:-30}
       OLLAMA_BASE_URL: ${OLLAMA_DOCKER_BASE_URL:-http://host.docker.internal:11434}
-      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
       OLLAMA_CONTEXT_LENGTH: ${OLLAMA_CONTEXT_LENGTH:-8192}
       OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-30m}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
-      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.7-flash}
+      GEMINI_API_KEY_1: ${GEMINI_API_KEY_1:-}
+      GEMINI_API_KEY_2: ${GEMINI_API_KEY_2:-}
+      GEMINI_API_KEY_3: ${GEMINI_API_KEY_3:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
+      GEMINI_FALLBACK_MODEL: ${GEMINI_FALLBACK_MODEL:-gemini-3.1-flash-lite}
+      GEMINI_MIN_REQUEST_INTERVAL_SECONDS: ${GEMINI_MIN_REQUEST_INTERVAL_SECONDS:-5}
       GEMINI_BASE_URL: ${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}
       RISK_AUTO_ASSESS: ${RISK_AUTO_ASSESS:-true}
       RISK_AUTO_ASSESS_LIMIT: ${RISK_AUTO_ASSESS_LIMIT:-1000}
@@ -96,6 +101,12 @@ services:
       CHATBOT_EMBEDDING_MODEL: ${CHATBOT_EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
     volumes:
       - ./Data:/data:ro
+      - ./apps/api/app:/workspace/apps/api/app:ro
+      - ./scripts:/workspace/scripts:ro
+      - ./infra/db/migrations:/workspace/infra/db/migrations:ro
+      - ./apps/api/app:/workspace/apps/api/app:ro
+      - ./scripts:/workspace/scripts:ro
+      - ./infra/db/migrations:/workspace/infra/db/migrations:ro
       - legal-model-cache:/models
     depends_on:
       db:

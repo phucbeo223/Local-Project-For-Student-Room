@@ -38,6 +38,24 @@ RAGAS được chọn vì bài báo gốc phân tách evaluation theo retrieval,
 
 Có thể thêm `--admin-token <token>` để ghi run vào dashboard AI. Model judge, model sinh câu trả lời, prompt version, dataset version và thời điểm chạy phải được giữ trong artifact. Điểm LLM-as-a-judge có tính ngẫu nhiên; nên chạy lặp lại và đối chiếu một tập nhỏ do con người chấm. ARES cũng cho thấy đánh giá tự động đáng tin hơn khi hiệu chỉnh bằng một tập nhãn người thật nhỏ.
 
+### Bộ câu hỏi CTU trên kho dữ liệu hiện hành
+
+`question_bank_ragas.py` mặc định đọc `docs/LEGAL_QUESTION_BANK.md` qua Compose (36 câu pháp lý). Bộ 58 câu `docs/CHATBOT_QUESTION_BANK.md` giữ cho lịch sử; các câu giá phòng và khoảng cách chưa dùng lại khi dữ liệu mới chưa nạp. Runner gọi dịch vụ chatbot với DB thật, lưu từng câu trả lời, nguồn, toàn bộ đoạn truy xuất, trạng thái suy giảm, độ trễ và điểm trích dẫn; tắt ghi telemetry. `audit_legal_corpus.py` chỉ đọc DB để kiểm tra chỉ mục.
+
+Theo yêu cầu ngày 03/10/2026, hệ thống hiện trả lời và kiểm tra nguồn bằng Qwen 3.5 9B local (`CHATBOT_LLM_PROVIDER=qwen`); RAGAS 0.3.9 cũng dùng Ollama Qwen (`RAGAS_JUDGE_PROVIDER=ollama`, `RAGAS_JUDGE_MODEL=qwen3.5:9b`). E5 là embedding cho Answer Relevancy; volume `nckh_chat-model-cache` giữ E5. Chấm một luồng, giữ đủ ngữ cảnh, lưu phát biểu/phán định và token từng chỉ số. Các lượt Gemini trước được giữ riêng, không so trực tiếp điểm giữa hai bộ chấm. Chạy tuần tự, dùng tên output mới cho mỗi phiên bản hệ thống:
+
+```powershell
+ollama pull qwen3.5:9b
+docker compose --profile tools run --rm --no-deps legal-indexer --data-dir /data --no-apply-migration --batch-size 8
+docker build -f eval/Dockerfile.ragas -t nckh-ragas-eval:local .
+docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.ragas.yml run --rm --no-deps ragas-eval --phase collect --output /eval/reports/legal_NEW_TIMESTAMP.json
+docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.ragas.yml run --rm --no-deps ragas-eval --phase score --output /eval/reports/legal_NEW_TIMESTAMP.json --judge-provider ollama --judge-model qwen3.5:9b --judge-max-output-tokens 8192 --score-workers 1 --score-abstentions
+```
+
+Runner ghi checkpoint sau mỗi câu và mỗi metric; chạy lại cùng output tiếp tục phần chưa xong. Chỉ một tiến trình được ghi một JSON. Khi chấm song song, mỗi worker có judge riêng; tiến trình chính lưu checkpoint. Bộ câu hỏi chưa có đáp án chuẩn độc lập: chỉ chấm Faithfulness, Answer Relevancy và Context Utilization; Context Recall/Answer Correctness để N/A. Điểm judge không thay thế kiểm tra tính đúng và hiệu lực của văn bản.
+
+Để so sánh nâng cấp model, dùng `compare_model_upgrade.py --clone --before <JSON cũ> --after <JSON bản sao>` giữ nguyên câu trả lời/ngữ cảnh cũ; chấm bản sao và lượt mới bằng cùng judge, cùng tham số. Sau đó dùng `--before <bản sao> --after <lượt mới> --audit <audit> --output <báo cáo.md>` để đối chiếu các câu có điểm ở cả hai lượt. Không so trực tiếp điểm Qwen chấm cũ với điểm Gemini chấm mới.
+
 ## 4. Risk và recommendation
 
 Risk chỉ được công bố recall/precision khi có JSONL nhãn độc lập:
@@ -63,6 +81,26 @@ Recommendation cần relevance judgment theo từng người dùng; `relevance` 
 Runner chủ động từ chối `label_source=synthetic`. Với risk, dữ liệu giả sinh từ chính các rule sẽ gây đánh giá vòng tròn. Với recommendation, lượt tương tác dùng để tạo hồ sơ phải tách theo thời gian khỏi lượt tương tác dùng làm test.
 
 ## 5. Ngưỡng và báo cáo
+
+### Lịch sử sửa lỗi ngày 2026-10-01 — pháp lý, điện và nước
+
+Đợt sau sửa lỗi dùng `docs/LEGAL_QUESTION_BANK.md` (36 câu). Không dùng các câu lọc phòng/giá thuê/khoảng cách của dữ liệu phòng cũ. File 58 câu và JSON cũ được giữ để đối chiếu lịch sử. Các câu về điện/nước vẫn kiểm tra căn cứ, đối tượng và điều kiện áp dụng; không coi biểu giá năm 2024 là giá mới nhất.
+
+```powershell
+docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.ragas.yml run --rm --no-deps --entrypoint python ragas-eval /workspace/scripts/index_legal_documents.py --data-dir /data --sync-missing /eval/reports/source_sync_NEW_TIMESTAMP.json
+docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.ragas.yml run --rm --no-deps ragas-eval --phase collect --output /eval/reports/legal_NEW_TIMESTAMP.json
+docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.ragas.yml run --rm --no-deps ragas-eval --phase score --output /eval/reports/legal_NEW_TIMESTAMP.json --judge-provider gemini --judge-model gemini-3.1-flash-lite --judge-max-output-tokens 8192 --score-abstentions
+```
+
+Chạy tuần tự nạp → collect → score, không cho hai tiến trình ghi cùng JSON. Đồng bộ chỉ mục giữ nguyên đoạn/vectors cũ, lưu metadata trước đổi trạng thái; đường dẫn vắng trong Data bị loại khỏi truy xuất `ready`, không bị tuyên bố là văn bản hết hiệu lực. Không dùng `--sync-missing` với một nhóm nguồn riêng hoặc thư mục rỗng.
+
+Bản tách đoạn `legal-v6` giữ tham chiếu “và Phụ lục” trong điều khoản hiệu lực, nhận tiêu đề bản trích dạng “Điều 27 — …” và Markdown. Câu trả lời sinh tự do có thêm bước đối chiếu kết luận với đúng nguồn; nếu không xác nhận được, hệ thống chỉ trích đoạn phù hợp và đánh dấu trả lời một phần, hoặc từ chối khi không có đoạn phù hợp. Đây là kiểm tra bằng mô hình và quy tắc, không phải chứng nhận đúng pháp lý.
+
+Lần chấm mới dùng toàn bộ ngữ cảnh đã cung cấp cho câu trả lời, thay cho giới hạn 2 đoạn × 1.200 ký tự ở lượt cũ. Ragas dùng Qwen 3.5 4B cho cả ba chỉ số. Vì phương pháp và mô hình chấm đã đổi, điểm Ragas cũ không dùng để kết luận mức cải thiện trực tiếp. Context Recall/Answer Correctness vẫn N/A khi chưa có đáp án chuẩn độc lập.
+
+Lượt pháp lý mới bật `--score-abstentions`: chấm cả phản hồi chưa đủ căn cứ tổng hợp khi có nguồn. Không gán giả điểm 0; nếu metric không có phát biểu để chấm hoặc judge lỗi, ghi N/A/lỗi cụ thể. Tỷ lệ từ chối và `partial_answer` báo riêng. Phản hồi một phần trích nguyên đoạn nguồn, giữ điều kiện/ngoại lệ và không tự suy ra cách áp dụng cho tình huống riêng. Lượt cuối lưu ở `legal_question_bank_release_2026-10-01.json`; các tên `after_fixes`, `final`, `verified` lưu quá trình tìm/sửa lỗi, không phải nghiệm thu cuối.
+
+Nếu JSON chấm bị cắt, chỉ chạy lại metric/câu bị lỗi với `--metrics faithfulness --ids 8 23 33 --judge-max-output-tokens 4096`; không bật `--reset-selected-metrics` khi muốn giữ điểm hợp lệ. Giới hạn đầu ra ban đầu là 2.048 token. Mỗi metric lưu giới hạn đầu ra trong `ragas_usage`; lịch sử lỗi chấm lại giữ trong `ragas_retry_history`. Thay giới hạn đầu ra không thay mô hình, câu hỏi hoặc ngữ cảnh.
 
 Các ngưỡng trong dự án là tiêu chí nghiệm thu được nhóm đăng ký trước, không phải “chuẩn phổ quát” do RAGAS hay các bài báo bảo đảm. Báo cáo phải có cả giá trị, cỡ mẫu, dataset/model/prompt version, CI hoặc độ biến thiên giữa các lần chạy, và các failure case.
 

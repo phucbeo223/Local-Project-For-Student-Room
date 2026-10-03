@@ -1,0 +1,296 @@
+[
+  {
+    "article": 116,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 151,
+    "original_chars": 150
+  },
+  {
+    "article": 117,
+    "ocr_found": true,
+    "similarity": 0.9969,
+    "new_chars": 505,
+    "original_chars": 509
+  },
+  {
+    "article": 119,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 435,
+    "original_chars": 438
+  },
+  {
+    "article": 124,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 454,
+    "original_chars": 456
+  },
+  {
+    "article": 127,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 695,
+    "original_chars": 698
+  },
+  {
+    "article": 131,
+    "ocr_found": true,
+    "similarity": 0.9954,
+    "new_chars": 676,
+    "original_chars": 701
+  },
+  {
+    "article": 328,
+    "ocr_found": true,
+    "similarity": 0.9945,
+    "new_chars": 740,
+    "original_chars": 756
+  },
+  {
+    "article": 351,
+    "ocr_found": true,
+    "similarity": 0.9952,
+    "new_chars": 640,
+    "original_chars": 656
+  },
+  {
+    "article": 357,
+    "ocr_found": true,
+    "similarity": 0.9954,
+    "new_chars": 448,
+    "original_chars": 454
+  },
+  {
+    "article": 360,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 232,
+    "original_chars": 233
+  },
+  {
+    "article": 361,
+    "ocr_found": true,
+    "similarity": 0.9948,
+    "new_chars": 495,
+    "original_chars": 511
+  },
+  {
+    "article": 385,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 133,
+    "original_chars": 134
+  },
+  {
+    "article": 387,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 502,
+    "original_chars": 507
+  },
+  {
+    "article": 398,
+    "ocr_found": true,
+    "similarity": 0.9893,
+    "new_chars": 396,
+    "original_chars": 416
+  },
+  {
+    "article": 400,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 697,
+    "original_chars": 704
+  },
+  {
+    "article": 401,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 386,
+    "original_chars": 388
+  },
+  {
+    "article": 403,
+    "ocr_found": true,
+    "similarity": 0.9945,
+    "new_chars": 555,
+    "original_chars": 568
+  },
+  {
+    "article": 404,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 1017,
+    "original_chars": 1023
+  },
+  {
+    "article": 405,
+    "ocr_found": true,
+    "similarity": 0.9952,
+    "new_chars": 849,
+    "original_chars": 863
+  },
+  {
+    "article": 406,
+    "ocr_found": true,
+    "similarity": 0.9989,
+    "new_chars": 885,
+    "original_chars": 891
+  },
+  {
+    "article": 407,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 530,
+    "original_chars": 533
+  },
+  {
+    "article": 418,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 640,
+    "original_chars": 644
+  },
+  {
+    "article": 419,
+    "ocr_found": true,
+    "similarity": 0.9936,
+    "new_chars": 713,
+    "original_chars": 728
+  },
+  {
+    "article": 421,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 218,
+    "original_chars": 219
+  },
+  {
+    "article": 422,
+    "ocr_found": true,
+    "similarity": 0.9919,
+    "new_chars": 509,
+    "original_chars": 529
+  },
+  {
+    "article": 423,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 570,
+    "original_chars": 582
+  },
+  {
+    "article": 427,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 1221,
+    "original_chars": 1230
+  },
+  {
+    "article": 428,
+    "ocr_found": true,
+    "similarity": 0.9967,
+    "new_chars": 1214,
+    "original_chars": 1235
+  },
+  {
+    "article": 429,
+    "ocr_found": true,
+    "similarity": 0.8644,
+    "new_chars": 225,
+    "original_chars": 295
+  },
+  {
+    "article": 472,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 363,
+    "original_chars": 365
+  },
+  {
+    "article": 473,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 309,
+    "original_chars": 313
+  },
+  {
+    "article": 474,
+    "ocr_found": true,
+    "similarity": 0.9804,
+    "new_chars": 359,
+    "original_chars": 380
+  },
+  {
+    "article": 475,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 110,
+    "original_chars": 111
+  },
+  {
+    "article": 476,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 536,
+    "original_chars": 538
+  },
+  {
+    "article": 477,
+    "ocr_found": true,
+    "similarity": 0.999,
+    "new_chars": 1010,
+    "original_chars": 1016
+  },
+  {
+    "article": 478,
+    "ocr_found": true,
+    "similarity": 0.9853,
+    "new_chars": 342,
+    "original_chars": 353
+  },
+  {
+    "article": 479,
+    "ocr_found": true,
+    "similarity": 0.9973,
+    "new_chars": 388,
+    "original_chars": 393
+  },
+  {
+    "article": 480,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 347,
+    "original_chars": 349
+  },
+  {
+    "article": 481,
+    "ocr_found": true,
+    "similarity": 1.0,
+    "new_chars": 559,
+    "original_chars": 561
+  },
+  {
+    "article": 482,
+    "ocr_found": true,
+    "similarity": 0.6217,
+    "new_chars": 724,
+    "original_chars": 1101
+  },
+  {
+    "article": 688,
+    "ocr_found": true,
+    "similarity": 0.9973,
+    "new_chars": 1520,
+    "original_chars": 1544
+  },
+  {
+    "article": 689,
+    "ocr_found": true,
+    "similarity": 0.6448,
+    "new_chars": 171,
+    "original_chars": 368
+  }
+]

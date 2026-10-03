@@ -1,0 +1,35 @@
+{
+  "verified_at_utc": "2026-10-03T04:07:49.330394+00:00",
+  "chatbot_provider": "qwen",
+  "model": "qwen3.5:9b",
+  "model_sha256": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+  "model_size_bytes": 6594474711,
+  "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen35",
+    "families": [
+      "qwen35"
+    ],
+    "parameter_size": "9.7B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 262144,
+    "embedding_length": 4096
+  },
+  "judge_provider": "ollama",
+  "tests_passed": 110,
+  "deployed_image": "sha256:22e97959482589ef2793d6c1bfdb4fdf3a32d6060dab1d156decf4afe08df3aa",
+  "generation_context_tokens": 16384,
+  "judge_context_tokens": 16384,
+  "judge_max_output_tokens": 8192,
+  "judge_timeout_seconds": 300,
+  "judge_workers": 1,
+  "code_sha256": {
+    "config.py": "5cf3c44dffda44f3cdf130b1ea0e396d3779482e12eb85d9d39928cdcebcda03",
+    "room_service/chatbot/providers.py": "0f7eac8d52cbd3213471b315a18b321d11f78fbb6553c663ebaa3b23cbbe3823",
+    "room_service/chatbot/router.py": "a2bbcaffa451680085ee42af17403be7acbaa0b5666463cf46d79fd328d3ab00",
+    "room_service/chatbot/service.py": "bfa191b428e8cb3024404792fb2fdaff5f5e5028ee1bb24d87880f22892c9e75",
+    "room_service/chatbot/legal_retrieval.py": "b84e8245f6a80ec67f9c9245e38b360d020695d414eff369da93d9d27b75dfd5",
+    "room_service/chatbot/repo.py": "529c8390527885a8cfefa33d019e7352f34f311150778e60f52b5725414fa775"
+  }
+}

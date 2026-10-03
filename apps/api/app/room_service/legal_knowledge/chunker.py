@@ -9,7 +9,7 @@ from .extractor import ExtractedPage
 
 
 HEADING_RE = re.compile(
-    r"^(?:PHẦN|CHƯƠNG|MỤC|TIỂU MỤC)\s+[IVXLCDM\d]+\b|^Điều\s+\d+[a-zA-Z]?\s*[.:]",
+    r"^#{1,6}\s+|^(?:PHẦN|CHƯƠNG|MỤC|TIỂU MỤC)\s+[IVXLCDM\d]+\b|^Điều\s+\d+[a-zA-Z]?(?:[–−-]\d+)?\s*[.:—–-]",
     re.IGNORECASE,
 )
 
@@ -44,7 +44,7 @@ def _units(pages: Iterable[ExtractedPage]) -> list[_Unit]:
             page.text) if part.strip()]
         for paragraph in paragraphs:
             first_line = paragraph.splitlines()[0].strip()
-            if re.search(r"(?:^|\s)Phụ lục\b", first_line, re.I):
+            if re.search(r"^(?:\d{1,3}\s+)?Phụ lục\b", first_line, re.I):
                 current_heading, clause, point, clause_intro, end_matter = "Phụ lục", None, None, "", False
             elif re.search(r"Nơi\s+nhận\s*:", first_line, re.I):
                 current_heading, clause, point, clause_intro, end_matter = None, None, None, "", True

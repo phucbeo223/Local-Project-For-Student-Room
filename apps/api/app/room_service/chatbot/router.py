@@ -47,21 +47,26 @@ def init_chatbot(engine: Engine) -> None:
         )
 
     if settings.chatbot_llm_provider in ("auto", "gemini"):
-        if settings.gemini_api_key:
-            providers.append(
-                GeminiGenerator(
-                    settings.gemini_api_key,
-                    settings.gemini_model,
+        if settings.configured_gemini_keys:
+            for model in dict.fromkeys([settings.gemini_model, settings.gemini_fallback_model]):
+                if not model:
+                    continue
+                providers.append(GeminiGenerator(
+                    settings.configured_gemini_keys[0],
+                    model,
                     settings.gemini_base_url,
                     settings.chatbot_llm_timeout_seconds,
                     max_output_tokens=settings.chatbot_max_output_tokens,
-                )
-            )
+                    api_keys=settings.configured_gemini_keys,
+                    legal_timeout_seconds=settings.chatbot_legal_timeout_seconds,
+                    min_request_interval_seconds=settings.gemini_min_request_interval_seconds,
+                ))
         elif settings.chatbot_llm_provider == "gemini":
             degraded_reasons.append(
-                "Gemini được chọn nhưng GEMINI_API_KEY chưa cấu hình"
+                "Gemini được chọn nhưng chưa cấu hình key"
             )
 
+    providers.sort(key=lambda provider: 0 if isinstance(provider, GeminiGenerator) else 1)
     _service = ChatService(
         ChatRepository(engine),
         E5EmbeddingProvider(settings.chatbot_embedding_model),

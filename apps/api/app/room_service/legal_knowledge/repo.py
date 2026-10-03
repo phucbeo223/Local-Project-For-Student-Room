@@ -18,6 +18,30 @@ class LegalKnowledgeRepository:
     def __init__(self, engine: Engine):
         self.engine = engine
 
+    def deactivate_missing_sources(self, active_paths: Sequence[str], audit_path) -> int:
+        """Preserve every chunk/vector; save prior metadata before deactivation."""
+        import json
+        from datetime import datetime, timezone
+        from pathlib import Path
+        if not active_paths:
+            raise ValueError("Không đồng bộ chỉ mục từ thư mục nguồn rỗng")
+        with self.engine.begin() as connection:
+            rows = [dict(row) for row in connection.execute(text(
+                "SELECT * FROM legal_documents WHERE status='ready' AND NOT(source_path=ANY(:paths)) FOR UPDATE"
+            ), {"paths": list(active_paths)}).mappings()]
+            output = Path(audit_path)
+            output.parent.mkdir(parents=True, exist_ok=True)
+            if output.exists():
+                raise ValueError("Chọn đường dẫn audit mới; không ghi đè bản khôi phục")
+            output.write_text(json.dumps({"created_at": datetime.now(timezone.utc).isoformat(),
+                "action": "deactivate missing paths; preserve all chunks and vectors",
+                "previous_documents": rows}, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+            if rows:
+                connection.execute(text("UPDATE legal_documents SET status='failed', "
+                    "error_message='inactive: source absent from current corpus; preserved for recovery', updated_at=now() "
+                    "WHERE id=ANY(:ids)"), {"ids": [row["id"] for row in rows]})
+        return len(rows)
+
     def current_hash(self, source_path: str) -> str | None:
         with self.engine.connect() as connection:
             return connection.execute(

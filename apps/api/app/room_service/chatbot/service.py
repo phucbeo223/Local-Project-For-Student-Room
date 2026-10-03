@@ -5,10 +5,10 @@ import time
 from dataclasses import replace
 
 from .parser import merge_filters, parse_query
-from .providers import EmbeddingProvider, ResponseGenerator, GroundedTemplateGenerator
+from .providers import EmbeddingProvider, ResponseGenerator, GroundedTemplateGenerator, normalize_text, GenerationResult
 from .repo import ChatRepository
-from .legal_retrieval import evidence_issues, expand_legal_query, append_commencement_evidence
-from .legal_answer import extract_legal_answer
+from .legal_retrieval import evidence_issues, expand_legal_query, append_commencement_evidence, legal_completion_status
+from .legal_answer import extract_legal_answer, extract_partial_provisions
 from .schemas import (
     ChatAskRequest,
     ChatAskResponse,
@@ -16,9 +16,12 @@ from .schemas import (
     ChatHistoryMessage,
     ChatListing,
     ChatSource,
+    ChatConversationState,
+    ChatFilters,
 )
 
 FOLLOW_UP_MARKERS = (
+    "phòng vừa", "phòng đó", "phòng nào rẻ nhất", "các phòng vừa", "các tin vừa", "tất cả điều kiện",
     "còn phòng nào",
     "rẻ hơn",
     "gần hơn",
@@ -78,8 +81,11 @@ def _risk_level(item: dict) -> str:
 
 def _citation_accuracy(answer: str, listings: list[dict]) -> float:
     if not listings:
-        return 1.0
-    citations = [int(value) for value in re.findall(r"\[(\d+)\]", answer)]
+        return 0.0
+    # Bracketed numbers inside copied legal quotations are document footnotes,
+    # e.g. [98], rather than a citation to retrieval rank 98.
+    citation_text = re.sub(r"“[^”]*”", "", answer, flags=re.S)
+    citations = [int(value) for value in re.findall(r"\[(\d+)\]", citation_text)]
     if not citations:
         return 0.0
     valid = {int(item["rank"]) for item in listings}
@@ -101,9 +107,37 @@ def _evaluation_context(item: dict) -> str:
             item.get("address") or item.get("district"),
             amenities,
             item.get("description"),
+            item.get("last_seen"),
+            item.get("updated_at"),
         )
         if value not in (None, "")
     )
+
+
+def listing_evidence_issues(answer: str, listings: list[dict]) -> list[str]:
+    """Reject unsupported listing numbers, names, and attribute assertions."""
+    from .parser import AMENITIES
+    issues = []
+    sources = {int(item["rank"]): item for item in listings}
+    for segment in re.split(r"\n+|(?<=[.!?])\s+", answer):
+        refs = [int(value) for value in re.findall(r"\[(\d+)\]", segment)]
+        if not refs:
+            if re.search(r"\d+\s*(?:triệu|đồng|m²|m2|km)", segment):
+                issues.append("Số liệu tin trọ chưa gắn nguồn.")
+            continue
+        rows = [sources[ref] for ref in refs if ref in sources]
+        text = normalize_text(segment)
+        if "ten phong" in text or "ten nha" in text:
+            issues.append("Câu trả lời dùng tên phòng giữ chỗ.")
+        if not any(term in text for term in ("chua", "khong", "can xac nhan", "kiem tra")):
+            for phrase, key in AMENITIES.items():
+                if phrase in text and not any((row.get("parsed_amenities") or {}).get(key) is True or phrase in normalize_text(str(row.get("description") or "")) for row in rows):
+                    issues.append("Tiện ích khẳng định chưa có trong tin được trích dẫn.")
+        for match in re.finditer(r"(\d+(?:[.,]\d+)?)\s*triệu", segment, re.I):
+            amount = round(float(match[1].replace(",", ".")) * 1_000_000)
+            if not any(row.get("price") == amount for row in rows):
+                issues.append("Giá nêu trong câu trả lời khác giá nguồn.")
+    return list(dict.fromkeys(issues))
 
 
 class ChatService:
@@ -153,25 +187,42 @@ class ChatService:
         if chunks and generated.provider != "template":
             generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
         issues = evidence_issues(generated.text, chunks, query) if chunks else []
-        if issues and generated.provider != "template":
+        repairable = bool(issues)
+        if chunks and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
+            checked = self.generator.check_legal_evidence(query, generated.text, chunks)
+            issues.extend(checked)
+            repairable = repairable or (bool(checked) and not getattr(checked, "unavailable", False))
+        if issues and repairable and generated.provider not in {"template", "legal-extractive", "legal-insufficient"}:
             generated = self.generator.generate(
                 query + "\nYêu cầu kiểm tra lại: " + " ".join(issues)
-                + " Chỉ kết luận theo nguồn trực tiếp; nếu thiếu hãy nói chưa tìm thấy căn cứ.",
+                + " Sửa đúng các kết luận bị chỉ ra, không thêm quyền/nghĩa vụ hoặc từ 'chỉ' nếu nguồn chưa loại trừ ngoại lệ. "
+                + "Giới hạn của một tài liệu không phải giới hạn của toàn bộ pháp luật. "
+                + "Chỉ kết luận theo nguồn trực tiếp; nếu thiếu hãy nói chưa tìm thấy căn cứ.",
                 chunks, context_kind="legal",
             )
             if generated.provider != "template":
                 generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
             issues = evidence_issues(generated.text, chunks, query)
+            if generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
+                issues.extend(self.generator.check_legal_evidence(query, generated.text, chunks))
         rejected = bool(issues) or _citation_accuracy(generated.text, chunks) < 1
+        partial = None
+        if chunks and (rejected or generated.provider == "template"):
+            partial = extract_partial_provisions(query, chunks)
         if not chunks or rejected:
-            generated = GroundedTemplateGenerator().generate(
+            generated = partial or GroundedTemplateGenerator().generate(
                 query, chunks, context_kind="legal"
             )
             degraded_reasons.append(
                 "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
             )
             degraded_reasons.extend(issues)
+        elif partial:
+            generated = partial
         degraded_reasons.extend(generated.degraded_reasons)
+        completion = legal_completion_status(generated.text)
+        if completion != 'complete' and generated.provider not in {'template', 'legal-insufficient', 'legal-partial-extractive'}:
+            degraded_reasons.append('Phản hồi chưa đáp ứng đầy đủ yêu cầu chính; đánh dấu theo nội dung thay vì provider.')
         sources = [
             ChatSource(
                 kind="legal_document",
@@ -210,7 +261,8 @@ class ChatService:
             confidence=round(confidence, 4),
             listings=[],
             sources=sources,
-            no_answer=not chunks or rejected or generated.provider in {"template", "legal-insufficient"},
+            no_answer=not chunks or rejected or completion != 'complete' or generated.provider in {"template", "legal-insufficient", "legal-partial-extractive"},
+            partial_answer=generated.provider == "legal-partial-extractive" or completion == 'partial',
             degraded=bool(degraded_reasons),
             degraded_reasons=degraded_reasons,
             retrieval_mode=retrieval_mode,
@@ -219,6 +271,7 @@ class ChatService:
             latency_ms=max(0, int((time.perf_counter() - started) * 1000)),
             citation_accuracy=_citation_accuracy(generated.text, chunks),
             evaluation_contexts=contexts,
+            citation_applicable=bool(chunks),
         )
         if hasattr(self.repo, "record_event"):
             response.event_id = self.repo.record_event(
@@ -263,6 +316,20 @@ class ChatService:
                 )
             filters = merge_filters(filters, incoming)
         filters = merge_filters(filters, body.filters)
+        state = body.conversation_state
+        normalized_message = normalize_text(body.message)
+        follow_up = query != body.message or any(marker in body.message.lower() for marker in FOLLOW_UP_MARKERS)
+        detail = state is not None and "phong do" in normalized_message
+        if state and follow_up:
+            filters = merge_filters(state.filters, parse_query(body.message).filters)
+            # A detail question reads the selected record, without interpreting
+            # requested attributes as filters and silently substituting a room.
+            ids = state.listing_ids
+            if detail:
+                ids = [state.selected_listing_id] if state.selected_listing_id in ids else ids[:1]
+                filters = ChatFilters(listing_ids=ids)
+            elif "cac phong vua" in normalized_message or "cac tin vua" in normalized_message or "tat ca dieu kien" in normalized_message:
+                filters = filters.model_copy(update={"listing_ids": ids})
 
         degraded_reasons: list[str] = []
         listings: list[dict] = []
@@ -288,7 +355,7 @@ class ChatService:
                 "hybrid" if embedded.vector is not None else "lexical_structured"
             )
             filter_count = sum(
-                value not in (None, [], "phong_tro")
+                value not in (None, False, [], "phong_tro")
                 for value in filters.model_dump().values()
             )
             top_score = listings[0]["similarity_score"] if listings else 0.0
@@ -306,14 +373,37 @@ class ChatService:
                 if listings
                 else 0.0
             )
-            if confidence < self.confidence_threshold:
+            if confidence < self.confidence_threshold and not (filters.listing_ids or filters.sort_by):
                 listings = []
-            generated = self.generator.generate(query, listings)
-            if not listings or _citation_accuracy(generated.text, listings) < 1:
+            if detail and listings:
+                item = listings[0]
+                amenities = item.get("parsed_amenities") or {}
+                def status(key):
+                    value = amenities.get(key)
+                    return "có" if value is True else "không có" if value is False else "tin chưa nêu rõ"
+                generated = GenerationResult(
+                    text=f"{item['title']}: chỗ để xe — {status('parking')}; Wi-Fi — {status('wifi')} [1]. Hãy xác nhận lại với người cho thuê.",
+                    provider="structured",
+                )
+            elif listings and "cac tin vua" in normalized_message:
+                lines = []
+                for item in listings:
+                    lines.append(f"- {item['title']}: lần ghi nhận nguồn {item.get('last_seen') or 'chưa có thời gian'}; cập nhật bản ghi {item.get('updated_at') or 'chưa có thời gian'} [{item['rank']}].")
+                generated = GenerationResult(text="\n".join(lines) + "\nThời gian ghi nhận không xác nhận phòng còn trống; mở nguồn tin để kiểm tra.", provider="structured")
+            elif "tat ca dieu kien" in normalized_message and listings:
+                generated = GenerationResult(text="Các tin này đang khớp các bộ lọc đã áp dụng; chưa cần nới điều kiện. " + " ".join(f"[{item['rank']}]" for item in listings), provider="structured")
+            elif filters.sort_by == "price_asc" and listings:
+                item = listings[0]
+                generated = GenerationResult(text=f"Tin có giá thuê thấp nhất trong tập tin hợp lệ khớp bộ lọc: {item['title']} — {item['price'] / 1_000_000:g} triệu đồng/tháng [1]. Giá này chưa bao gồm các chi phí mà tin không nêu.", provider="structured")
+            else:
+                generated = self.generator.generate(query, listings)
+            listing_issues = listing_evidence_issues(generated.text, listings) if listings and generated.provider not in {"template", "structured"} else []
+            if not listings or _citation_accuracy(generated.text, listings) < 1 or listing_issues:
                 generated = GroundedTemplateGenerator().generate(query, listings)
                 degraded_reasons.append(
                     "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ"
                 )
+                degraded_reasons.extend(listing_issues)
             answer = generated.text
             generation_provider = generated.provider
             generation_model = generated.model
@@ -386,6 +476,13 @@ class ChatService:
             latency_ms=latency_ms,
             citation_accuracy=citation_accuracy,
             evaluation_contexts=contexts,
+            citation_applicable=bool(listings),
+            applied_filters=filters,
+            conversation_state=ChatConversationState(
+                filters=state.filters if detail and state else filters.model_copy(update={"listing_ids": []}),
+                listing_ids=[item["id"] for item in listings],
+                selected_listing_id=listings[0]["id"] if listings and (detail or filters.sort_by) else None,
+            ),
         )
         if hasattr(self.repo, "record_event"):
             response.event_id = self.repo.record_event(

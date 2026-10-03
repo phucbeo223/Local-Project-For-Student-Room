@@ -1,0 +1,52 @@
+services:
+  ragas-eval:
+    profiles: ["tools"]
+    image: nckh-ragas-eval:local
+    build:
+      context: .
+      dockerfile: eval/Dockerfile.ragas
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-nckh}:${POSTGRES_PASSWORD:-nckh}@db:5432/${POSTGRES_DB:-nckh}
+      CHATBOT_EMBEDDING_MODEL: ${CHATBOT_EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
+      HF_HOME: /models
+      TRANSFORMERS_CACHE: /models/hub
+      CHATBOT_LLM_PROVIDER: ${CHATBOT_LLM_PROVIDER:-auto}
+      CHATBOT_LLM_TIMEOUT_SECONDS: ${CHATBOT_LLM_TIMEOUT_SECONDS:-60}
+      CHATBOT_LEGAL_TIMEOUT_SECONDS: ${CHATBOT_LEGAL_TIMEOUT_SECONDS:-180}
+      CHATBOT_MAX_OUTPUT_TOKENS: ${CHATBOT_MAX_OUTPUT_TOKENS:-1536}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_API_KEY_1: ${GEMINI_API_KEY_1:-}
+      GEMINI_API_KEY_2: ${GEMINI_API_KEY_2:-}
+      GEMINI_API_KEY_3: ${GEMINI_API_KEY_3:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
+      GEMINI_FALLBACK_MODEL: ${GEMINI_FALLBACK_MODEL:-gemini-3.1-flash-lite}
+      GEMINI_MIN_REQUEST_INTERVAL_SECONDS: ${GEMINI_MIN_REQUEST_INTERVAL_SECONDS:-5}
+      RAGAS_JUDGE_MODEL: ${RAGAS_JUDGE_MODEL:-qwen3.5:9b}
+      RAGAS_JUDGE_PROVIDER: ${RAGAS_JUDGE_PROVIDER:-ollama}
+      RAGAS_JUDGE_URL: http://host.docker.internal:11434
+      GIT_PYTHON_REFRESH: quiet
+      PYTHONPATH: /workspace/apps/api:/eval
+    volumes:
+      - ./eval:/eval
+      - ./apps/api/app:/workspace/apps/api/app:ro
+      - ./apps/api/tests:/workspace/apps/api/tests:ro
+      - ./scripts:/workspace/scripts:ro
+      - ./infra/db/migrations:/workspace/infra/db/migrations:ro
+      - ./Data:/data:ro
+      - ./docs/LEGAL_QUESTION_BANK.md:/question_bank.md:ro
+      - ./docker-compose.yml:/workspace/docker-compose.yml:ro
+      - ./docker-compose.override.yml:/workspace/docker-compose.override.yml:ro
+      - ./docker-compose.ragas.yml:/workspace/docker-compose.ragas.yml:ro
+      - ragas-model-cache:/models
+    depends_on:
+      db:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  ragas-model-cache:
+    external: true
+    name: nckh_chat-model-cache

@@ -42,6 +42,7 @@ type Listing = {
 };
 
 type Turn = {
+  conversationState?: ConversationState | null;
   key: string;
   role: "user" | "assistant";
   content: string;
@@ -55,6 +56,7 @@ type Turn = {
 };
 
 type AskResponse = {
+  conversation_state?: ConversationState | null;
   answer: string;
   listings: Listing[];
   sources: Source[];
@@ -66,6 +68,12 @@ type AskResponse = {
   latency_ms: number;
   event_id: number | null;
   citation_accuracy: number;
+};
+
+type ConversationState = {
+  filters: Record<string, unknown>;
+  listing_ids: number[];
+  selected_listing_id: number | null;
 };
 
 type WidgetMode = "closed" | "compact" | "expanded";
@@ -185,7 +193,8 @@ export default function ChatClient() {
       const response = await fetch("/api/chat/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: cleanText, conversation_history: history }),
+        body: JSON.stringify({ message: cleanText, conversation_history: history,
+          conversation_state: [...turns].reverse().find((turn) => turn.role === "assistant" && turn.conversationState)?.conversationState }),
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.detail || "Không thể gửi câu hỏi");
@@ -196,6 +205,7 @@ export default function ChatClient() {
           key: `assistant-${Date.now()}`,
           role: "assistant",
           content: result.answer,
+          conversationState: result.conversation_state,
           listings: result.listings,
           sources: result.sources,
           degraded: result.degraded,
