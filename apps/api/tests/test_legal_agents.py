@@ -100,3 +100,37 @@ def test_separate_verifier_never_generates_the_answer_and_records_fallback():
     assert fallback==['local issue']
     assert fallback.trace['provider']=='qwen_and_rules' and fallback.trace['http_status']==429
     assert fallback.degraded_reasons
+
+
+def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch):
+    from app.room_service.chatbot.providers import GeminiGenerator
+    client=GeminiGenerator('test','gemini-test')
+    def request(prompt,schema):
+        payload=json.loads(prompt[prompt.index('{'):])
+        assert [s['rank'] for s in payload['CLAIMS'][0]['cited_sources']]==[1]
+        assert [s['rank'] for s in payload['CLAIMS'][1]['cited_sources']]==[2]
+        assert 'unused evidence' not in prompt
+        return json.dumps({'supported':True,'issues':[]}),{}
+    monkeypatch.setattr(client,'request_json',request)
+    try:
+        assert client.check_legal_evidence('question','Claim one [1]. Claim two [2].',[
+            {'rank':1,'content':'evidence one'},{'rank':2,'content':'evidence two'},
+            {'rank':3,'content':'unused evidence'}])==[]
+    finally:client.close()
+
+
+def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch):
+    from app.room_service.chatbot.providers import GeminiGenerator
+    client=GeminiGenerator('test','gemini-test')
+    def request(prompt,schema):
+        payload=json.loads(prompt[prompt.index('{'):])
+        assert [s['rank'] for s in payload['CLAIMS'][0]['cited_sources']]==[1]
+        assert [s['rank'] for s in payload['CLAIMS'][1]['cited_sources']]==[2]
+        assert 'unused evidence' not in prompt
+        return json.dumps({'supported':True,'issues':[]}),{}
+    monkeypatch.setattr(client,'request_json',request)
+    try:
+        assert client.check_legal_evidence('question','Claim one [1]. Claim two [2].',[
+            {'rank':1,'content':'evidence one'},{'rank':2,'content':'evidence two'},
+            {'rank':3,'content':'unused evidence'}])==[]
+    finally:client.close()

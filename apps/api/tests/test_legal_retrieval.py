@@ -211,3 +211,19 @@ def test_missing_bank_evidence_is_explicit_abstention():
     assert result.provider == "legal-insufficient"
     assert "Chưa tìm thấy căn cứ" in result.text
     assert "không đủ để kết luận" in result.text
+
+
+def test_general_contract_price_clause_is_not_excluded_by_a_sales_subcondition():
+    from app.room_service.chatbot.legal_retrieval import rerank_legal
+    row=dict(document_id=1,chunk_id=1,category='housing_contract',title='Văn bản thử',
+        heading='Điều 163. Hợp đồng về nhà ở | Khoản 3',similarity_score=.8,
+        content='3. Giá trị góp vốn, giá giao dịch về nhà ở nếu hợp đồng có thỏa thuận về giá; '
+                'trường hợp mua bán, cho thuê mua nhà ở do Nhà nước quy định về giá thì thực hiện theo quy định đó.')
+    assert rerank_legal('Hợp đồng thuê phòng có cần ghi rõ tiền thuê không?',[row])
+
+
+def test_cannot_turn_one_permitted_case_into_the_only_legal_basis():
+    from app.room_service.chatbot.legal_retrieval import evidence_issues
+    rows=[dict(rank=1,heading='Điều 170. Giá thuê',content='Bên cho thuê có quyền điều chỉnh giá thuê nhà sau khi thực hiện cải tạo nhà ở và được bên thuê đồng ý.')]
+    issues=evidence_issues('Bên cho thuê chỉ có quyền điều chỉnh giá khi cải tạo nhà và được bên thuê đồng ý [1].',rows,'Chủ trọ tăng giá thế nào?')
+    assert any('chưa loại trừ các căn cứ khác' in i for i in issues)

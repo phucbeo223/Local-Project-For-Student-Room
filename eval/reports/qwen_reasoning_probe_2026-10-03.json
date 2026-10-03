@@ -1,0 +1,14 @@
+{
+  "question_id": 1,
+  "model": "qwen3.5:9b",
+  "thinking": true,
+  "request_timeout_seconds": 300,
+  "max_generated_tokens_including_reasoning": 2400,
+  "context_length": 16384,
+  "error_type": "ReadTimeout",
+  "answer_received": false,
+  "latency_ms": null,
+  "ragas": null,
+  "evidence": "Actual Docker probe exited with httpx.ReadTimeout; no answer or token count was received.",
+  "decision": "Keep thinking disabled for the full evaluation; do not claim a quality improvement from this probe."
+}

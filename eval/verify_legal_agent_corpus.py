@@ -29,6 +29,7 @@ gates={
     'every_source_has_government_url':all(urlparse(r.get('source_url') or '').scheme=='https' and
         (urlparse(r.get('source_url') or '').hostname or '').endswith(('.gov.vn', '.chinhphu.vn')) for c in checks for r in c['rows']),
     'contract_checklist_retains_article':has(1,'Điều 163.') and has(1,'1. Họ và tên') and has(1,'11. Chữ ký'),
+    'rental_contract_price_and_payment':has(2,'giá giao dịch') and has(2,'Thời hạn và phương thức thanh toán'),
     'contract_effect_not_statutory_commencement':all(not ('Công chứng, chứng thực hợp đồng' in r['content'])
         for c in checks for r in c['rows'] if r.get('heading')=='Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp'),
     'deposit_exception_preserved':has(4,'trừ trường hợp có thoả thuận khác'),

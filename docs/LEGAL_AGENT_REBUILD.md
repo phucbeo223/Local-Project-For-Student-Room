@@ -58,12 +58,21 @@ Các báo cáo độc lập:
 - `eval/reports/legal_agent_retrieval_2026-10-03.json`: truy xuất 36 câu thật và các kiểm tra ngoại lệ, hồ sơ, thông tin hợp đồng, chuyển phòng.
 - `eval/reports/legal_agent_probe_2026-10-03.json`: kiểm tra Gemini phân tích và danh sách model trả lời thực tế.
 - `eval/reports/legal_agent_after_2026-10-03.json`: câu trả lời mới, nguồn, dấu vết agent và RAGAS.
-- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v4_2026-10-03.json`.
+- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v5_2026-10-03.json`.
 - `eval/reports/legal_agent_after_final_2026-10-03.json`: giữ kết quả hai câu bị chặn ở lượt v2 để truy lỗi; không dùng làm báo cáo hoàn tất.
 - Lượt v3 sửa bộ kiểm tra Qwen đọc thiếu danh sách giao dịch trong nguồn, ghép đủ điều về nội dung hợp đồng, và tránh coi hiệu lực của hợp đồng là hiệu lực thi hành văn bản. Lưu cả câu trả lời bị bác bỏ và lý do trong `provider_calls`.
 - Lượt v3 vẫn bị Qwen kiểm tra nhầm nội dung có trong nguồn và tự suy ra năm luật từ tên tệp. Giữ lại `legal_agent_after_v3_2026-10-03.json` để truy lỗi. Lượt v4 bổ sung bộ đối chiếu Gemini riêng và cấm suy ra năm luật từ năm của bản hợp nhất.
+- Lượt v4 phát hiện pool ứng viên bỏ mất khoản giá hợp đồng, bộ lọc nhầm khoản chung vì chứa điều kiện mua bán, và cách diễn giải 'chỉ' khi nguồn chưa loại trừ các căn cứ khác. Lượt v5 sửa ba lỗi này, buộc bộ đối chiếu kiểm tra nguồn riêng của từng câu khẳng định. Kết quả v4 được giữ ở `legal_agent_after_v4_2026-10-03.json`.
+- Bộ test phần chatbot/pháp lý/agent: 103 test đạt; API và giao diện build thành công. Đây không phải kết quả toàn bộ các kiểm thử tích hợp của dự án.
 - `eval/reports/legal_agent_backup_2026-10-03.json`: bản dump 59 tài liệu/5.185 chunk cũ đã khôi phục vào database kiểm chứng riêng, đối chiếu nội dung tất cả dòng trùng nhau. Tệp dump lưu ở `backups/`, không đưa dữ liệu database lên GitHub.
 
 Chỉ chuyển sau khi kiểm tra truy xuất đạt, các câu hỏi chạy thật, vai trò model đúng, kết quả được rà soát và có bản sao lưu khôi phục được. Chỉ xóa bảng/chunk/vector pháp lý cũ sau khi kho mới đã được kiểm chứng và ứng dụng thực tế dùng kho mới. Không xóa bản gốc hoặc vector tin phòng.
 
 RAGAS đo faithfulness, answer relevancy và context utilization. Không có đáp án pháp lý chuẩn độc lập thì context recall và answer correctness phải ghi N/A. Trích dẫn đúng số rank không đồng nghĩa đúng pháp luật. So sánh trước/sau cần cùng model chấm và cấu hình, ghi cả phản hồi một phần/từ chối; lỗi chấm không được thay bằng điểm giả.
+
+## Kiểm tra trước chuyển và thu hồi kho cũ
+
+- `eval/validate_legal_agent_release.py` chỉ đọc dữ liệu và ghi báo cáo gate: đủ 36 phản hồi/điểm thật, cùng cấu hình chấm lịch sử, vai trò model, nguồn, review đúng hash phản hồi và backup đã khôi phục. Chính sách gate hiện giữ cả mức hoàn tất và ba metric không thấp hơn baseline; đây là tiêu chí kỹ thuật của lần sửa, không phải chứng nhận đúng luật.
+- `eval/probe_legal_agent_http.py` kiểm tra HTTP có xác thực bằng tài khoản test tạm trong database. Không gửi email, không xuất token; tài khoản được xóa trong `finally`. API thử dùng cổng localhost 8001; API chính chỉ được chuyển sau gate.
+- `scripts/retire_old_legal_corpus.py` không tự chạy cùng đánh giá. Chỉ thực thi xóa khi dùng `--apply`, API chính đã kiểm tra dùng `legal_v2`, release active đúng manifest, file đánh giá chưa đổi và backup còn đúng hash. Giao dịch xóa chỉ tác động dòng pháp lý `public.legal_documents`/`public.legal_chunks`, kiểm tra vector tin phòng trước/sau, giữ nguyên bảng, dữ liệu gốc và dump khôi phục.
+- OCR mới lưu trong `eval/agent_source_ocr/`, không đưa cache dung lượng lớn vào Git. Để tái tạo: tải/xác thực manifest gốc → chạy script OCR → prepare corpus → index riêng → verify retrieval → đánh giá bank → review → gate → API thử/active → thu hồi có điều kiện. Không chạy indexer `public` cũ để thay thế quy trình này.

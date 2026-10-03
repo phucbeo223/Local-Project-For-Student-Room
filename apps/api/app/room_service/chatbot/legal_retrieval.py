@@ -82,8 +82,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             scope_heading = normalize_text(str(row.get('heading') or ''))
             specific_other = any(has_phrase(value, term) for term in ("mua ban", "thue mua", "tai san cong", "nha cong vu"))
             ordinary_rental = re.search(r"\bthue\b(?!\s+mua)", value)
-            general_contract = ('hop dong ve nha o' in scope_heading
-                                and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi cua cac ben')))
+            general_contract = bool(re.search(r'\bdieu\s+\d+[a-z]?[.]?\s+hop dong ve nha o(?:\s+khoan \d+)?$', scope_heading))
+            if re.search(r'^(?:\d+[.]\s*)?(?:doi voi|truong hop) (?:hop dong )?(?:mua ban|thue mua|cho thue mua)',value):
+                general_contract = False
             if specific_other and not ordinary_rental and not general_contract:
                 row["similarity_score"] = 0.0
                 continue
@@ -258,6 +259,8 @@ def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
         issues.append('Số khoản được khẳng định không khớp khoản của nguồn trích dẫn.')
     evidence = normalize_text(' '.join(str(row.get('heading') or '') + ' ' + row['content'] for row in cited))
     normative = re.search(r'\b(?:phai|bat buoc|co nghia vu|nghia vu cua|co trach nhiem|trach nhiem cua)\b', norm)
+    if re.search(r'\bchi (?:duoc|co quyen|co the|phai)\b',norm) and not re.search(r'\bchi\b',evidence):
+        issues.append('Nguồn nêu một trường hợp cụ thể, chưa loại trừ các căn cứ khác; không tự kết luận chỉ được áp dụng trong trường hợp đó.')
     if normative and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam')):
         issues.append('Nguồn mô tả nội dung/công việc chưa xác nhận nghĩa vụ được khẳng định.')
     if any(has_phrase(norm, p) for p in ('co quyen', 'duoc phep')) and not any(has_phrase(evidence, p) for p in ('quyen', 'duoc', 'cho phep')):

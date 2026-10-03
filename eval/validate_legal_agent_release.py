@@ -13,7 +13,7 @@ def finite(v):return isinstance(v,(float,int)) and math.isfinite(v)
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--after',type=Path,default=BASE/'reports/legal_agent_after_v4_2026-10-03.json')
+    parser.add_argument('--after',type=Path,default=BASE/'reports/legal_agent_after_v5_2026-10-03.json')
     args=parser.parse_args()
     old=read(BASE/'reports/legal_model_upgrade_after_2026-10-02.json');new=read(args.after)
     retrieval=read(BASE/'reports/legal_agent_retrieval_2026-10-03.json')
@@ -30,6 +30,8 @@ def main():
     gates={
         'retrieval_checks_passed':retrieval.get('passed') is True,
         'all_36_answered_without_execution_error':len(completed)==len(cases)==36,
+        'all_cases_used_legal_agents':len(completed)==36 and all(c.get('intent')=='legal_question' and
+            c.get('corpus_schema')=='legal_v2' and any(t.get('agent')=='question_analysis' for t in c.get('agent_trace',[])) for c in completed),
         'all_36_native_scores':all(len(scores[m])==36 for m in METRICS),
         'same_judge_and_method':bool(new.get('judge')) and all(old.get('judge',{}).get(k)==new['judge'].get(k) for k in METHOD_FIELDS),
         'same_corpus_as_database':bool(new.get('corpus_manifest_sha256')) and new['corpus_manifest_sha256']==release['manifest_sha256'],
@@ -43,7 +45,9 @@ def main():
     for m in METRICS:
         gates[m+'_not_regressed']=len(scores[m])==len(old_scores[m])==36 and statistics.mean(scores[m])>=statistics.mean(old_scores[m])
     gates['incomplete_answers_not_increased']=len(completed)==36 and sum(bool(c.get('no_answer')) for c in completed)<=sum(bool(c.get('no_answer')) for c in old['cases'])
-    report={'passed':all(gates.values()),'gates':gates,'after':str(args.after),'corpus_manifest_sha256':release['manifest_sha256'],
+    report={'passed':all(gates.values()),'gates':gates,'after':str(args.after),
+        'evaluation_file':args.after.name,'evaluation_sha256':sha(args.after) if args.after.is_file() else None,
+        'corpus_manifest_sha256':release['manifest_sha256'],
         'score_counts':{m:len(scores[m]) for m in METRICS},
         'scores':{m:statistics.mean(scores[m]) if scores[m] else None for m in METRICS},
         'no_answer':sum(bool(c.get('no_answer')) for c in completed),

@@ -5,6 +5,7 @@
     "all_required_categories": true,
     "every_source_has_government_url": true,
     "contract_checklist_retains_article": true,
+    "rental_contract_price_and_payment": true,
     "contract_effect_not_statutory_commencement": true,
     "deposit_exception_preserved": true,
     "citizen_residence_duties": true,
@@ -83,6 +84,17 @@
         {
           "rank": 1,
           "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:3"
+        },
+        {
+          "rank": 2,
+          "title": "2026_204_79_VBHN-VPQH",
           "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
           "category": "housing_contract",
           "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
@@ -92,7 +104,7 @@
           "provision_id": "74e00cffe24839460edd:12930:4"
         },
         {
-          "rank": 2,
+          "rank": 3,
           "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
           "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
           "category": "housing_contract",
@@ -101,17 +113,6 @@
           "content": "2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
           "context_complete": true,
           "provision_id": "e36235277d9ced3a03df:6149:2"
-        },
-        {
-          "rank": 3,
-          "title": "2026_204_79_VBHN-VPQH",
-          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 11",
-          "category": "housing_contract",
-          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
-          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
-          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n11. Chữ ký và ghi rõ họ, tên của các bên, nếu là tổ chức thì phải đóng dấu (nếu có) và ghi rõ chức vụ của người ký.",
-          "context_complete": true,
-          "provision_id": "74e00cffe24839460edd:12930:11"
         },
         {
           "rank": 4,
@@ -196,13 +197,13 @@
         {
           "rank": 3,
           "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
-          "heading": "Điều 419. Thiệt hại được bồi thường do vi phạm hợp đồng | Khoản 2",
+          "heading": "Điều 481. Trả tiền thuê | Khoản 1",
           "category": "housing_contract",
           "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
           "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
-          "content": "2. Người có quyền có thể yêu cầu bồi thường thiệt hại cho lợi ích mà lẽ ra mình sẽ được hưởng do hợp đồng mang lại. Người có quyền còn có thể yêu cầu người có nghĩa vụ chi trả chi phí phát sinh do không hoàn thành nghĩa vụ hợp đồng mà không trùng lặp với mức bồi thường thiệt hại cho lợi ích mà hợp đồng mang lại.",
+          "content": "1. Bên thuê phải trả đủ tiền thuê đúng thời hạn đã thoả thuận; nếu không có thoả thuận về thời hạn trả tiền thuê thì thời hạn trả tiền thuê được xác định theo tập quán nơi trả tiền; nếu không thể xác định được thời hạn theo tập quán thì bên thuê phải trả tiền khi trả lại tài sản thuê.",
           "context_complete": true,
-          "provision_id": "e36235277d9ced3a03df:12104:2"
+          "provision_id": "e36235277d9ced3a03df:20538:1"
         },
         {
           "rank": 4,

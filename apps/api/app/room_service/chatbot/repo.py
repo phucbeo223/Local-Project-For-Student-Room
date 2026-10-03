@@ -308,6 +308,7 @@ class ChatRepository:
                                   "categories": list(categories), "has_categories": bool(categories), "rental_query": rental_electricity_question(query),
                                   "identity_query": 'privacy_data' in categories and 'housing_contract' in categories}
         params['privacy_query'] = 'privacy_data' in categories
+        params['contract_contents_query'] = 'housing_contract' in categories
         if vector is not None:
             vector_sql = (
                 "CASE WHEN c.embedding_vector IS NULL THEN 0 ELSE "
@@ -337,10 +338,12 @@ class ChatRepository:
                    "AND heading ILIKE '%hợp đồng về nhà ở%' AND (content ILIKE '%Họ và tên%' OR content ILIKE '%họ tên%')), "
                    "privacy AS (SELECT * FROM candidates WHERE :privacy_query AND category='privacy_data' "
                    "AND (heading ILIKE '%Nguyên tắc bảo vệ%' OR heading ILIKE '%Sự đồng ý%' OR heading ILIKE '%Thu thập, phân tích%')) "
+                   ", contract_contents AS (SELECT * FROM candidates WHERE :contract_contents_query AND category='housing_contract' "
+                   "AND (heading ILIKE '%Hợp đồng về nhà ở%' OR heading ILIKE '%Nội dung của hợp đồng%')) "
                    + (", semantic_ids AS (SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY vector_score DESC,chunk_id) AS position FROM candidates), "
                       "semantic AS (SELECT c.* FROM candidates c JOIN semantic_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit) "
-                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy" if vector is not None
-                      else "SELECT * FROM lexical UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy"))
+                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents" if vector is not None
+                      else "SELECT * FROM lexical UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents"))
         try:
             with self.engine.connect() as conn:
                 rows = [dict(row) for row in conn.execute(sql, params).mappings().all()]
