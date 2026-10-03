@@ -17,9 +17,13 @@ def extract_partial_provisions(question: str, chunks: list[dict]) -> GenerationR
     from .legal_retrieval import legal_tokens
     terms = set(legal_tokens(question)) - {"nguoi", "thue", "nha", "tro", "phong", "can", "nen", "gi", "nhung"}
     candidates = []
-    for row, paragraph, _ in _paragraphs(chunks):
+    query=normalize_text(question)
+    ordinary_rental=any(term in query for term in ('thue tro','thue phong','hop dong tro')) and not any(term in query for term in ('mua ban','thue mua'))
+    for row, paragraph, normalized_paragraph in _paragraphs(chunks):
         heading = normalize_text(str(row.get("heading") or ""))
         if "hieu luc" in heading or "chuyen tiep" in heading:
+            continue
+        if ordinary_rental and any(term in normalized_paragraph for term in ('mua ban','thue mua','nha cong vu','tai san cong')) and not re.search(r'\bthue\b(?!\s+mua)',normalized_paragraph):
             continue
         shared = terms & set(legal_tokens(paragraph))
         if len(shared) < min(3, len(terms)) or len(shared) / max(1, len(terms)) < .18:

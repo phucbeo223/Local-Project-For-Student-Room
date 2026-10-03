@@ -195,6 +195,7 @@ class ChatService:
         generated = (extract_legal_answer(query, chunks) if self.question_analyzer is None else None) or self.generator.generate(query, chunks, context_kind="legal")
         attempted_provider, attempted_model = generated.provider, generated.model
         semantic_checked = False
+        verification_trace = []
         if chunks and generated.provider != "template":
             generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
         issues = evidence_issues(generated.text, chunks, query) if chunks else []
@@ -202,6 +203,9 @@ class ChatService:
         if chunks and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
             semantic_checked = True
             checked = self.generator.check_legal_evidence(query, generated.text, chunks)
+            if hasattr(checked,'trace'):
+                verification_trace.append(checked.trace)
+                degraded_reasons.extend(checked.degraded_reasons)
             issues.extend(checked)
             repairable = repairable or (bool(checked) and not getattr(checked, "unavailable", False))
         if issues and repairable and generated.provider not in {"template", "legal-extractive", "legal-insufficient"}:
@@ -216,7 +220,11 @@ class ChatService:
                 generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
             issues = evidence_issues(generated.text, chunks, query)
             if generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-                issues.extend(self.generator.check_legal_evidence(query, generated.text, chunks))
+                checked = self.generator.check_legal_evidence(query, generated.text, chunks)
+                issues.extend(checked)
+                if hasattr(checked,'trace'):
+                    verification_trace.append(checked.trace)
+                    degraded_reasons.extend(checked.degraded_reasons)
         rejected = bool(issues) or _citation_accuracy(generated.text, chunks) < 1
         partial = None
         if chunks and (rejected or generated.provider == "template"):
@@ -273,7 +281,8 @@ class ChatService:
             agent_trace=agent_trace + ([{"agent": "answer", "provider": generated.provider,
                 "model": generated.model, "status": completion,
                 "attempted_provider":attempted_provider,"attempted_model":attempted_model},
-                {"agent": "source_verification", "provider": "qwen_and_rules" if semantic_checked else "rules",
+                *verification_trace,
+                {"agent": "citation_and_rule_checks", "provider": "rules",
                  "status": "rejected" if rejected else "accepted"}]
                 if self.question_analyzer is not None else []),
             corpus_schema=getattr(self.repo, "legal_schema", None),

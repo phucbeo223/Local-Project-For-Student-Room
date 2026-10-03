@@ -95,12 +95,39 @@ class LegalRetrievalAgent:
 
 class QwenAnswerAgent:
     """Keep local generation and verification behind an explicit answering role."""
-    def __init__(self, generator):
+    def __init__(self, generator, verifier=None):
         self.generator = generator
         self.providers = generator.providers
+        self.verifier = verifier
 
     def generate(self, *args, **kwargs):
         return self.generator.generate(*args, **kwargs)
 
     def check_legal_evidence(self, *args, **kwargs):
-        return self.generator.check_legal_evidence(*args, **kwargs)
+        started=time.perf_counter()
+        failure={}
+        if self.verifier is not None:
+            try:
+                issues=self.verifier.check_legal_evidence(*args, **kwargs)
+                return AgentEvidenceIssues(issues, {'agent':'source_verification','provider':'gemini',
+                    'model':self.verifier.model,'status':'rejected' if issues else 'accepted',
+                    'duration_ms':round((time.perf_counter()-started)*1000)})
+            except Exception as exc:
+                status=re.search(r'HTTP (\d{3})',str(exc))
+                failure={'requested_provider':'gemini','requested_model':self.verifier.model,
+                         'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None}
+        checked=self.generator.check_legal_evidence(*args, **kwargs)
+        return AgentEvidenceIssues(checked, {'agent':'source_verification','provider':'qwen_and_rules',
+            'status':'unavailable' if getattr(checked,'unavailable',False) else 'rejected' if checked else 'accepted',
+            **failure,'duration_ms':round((time.perf_counter()-started)*1000)},
+            unavailable=getattr(checked,'unavailable',False),
+            degraded_reasons=['Gemini kiểm tra nguồn chưa khả dụng; dùng Qwen kiểm tra dự phòng.'] if failure else [])
+
+
+class AgentEvidenceIssues(list):
+    """Keep verification metadata on the result, safe across concurrent requests."""
+    def __init__(self, issues, trace, *, unavailable=False, degraded_reasons=()):
+        super().__init__(issues)
+        self.trace=trace
+        self.unavailable=unavailable
+        self.degraded_reasons=list(degraded_reasons)

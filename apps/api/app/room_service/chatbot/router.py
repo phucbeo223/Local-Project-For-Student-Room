@@ -77,7 +77,7 @@ def init_chatbot(engine: Engine) -> None:
             per_request_timeout_seconds=settings.chatbot_question_analysis_timeout_seconds,
             min_request_interval_seconds=settings.gemini_min_request_interval_seconds) if settings.configured_gemini_keys else None
         analyzer = QuestionAnalysisAgent(analysis_client)
-        generator = QwenAnswerAgent(generator)
+        generator = QwenAnswerAgent(generator, verifier=analysis_client)
     _service = ChatService(
         ChatRepository(engine, settings.chatbot_legal_schema),
         E5EmbeddingProvider(settings.chatbot_embedding_model),

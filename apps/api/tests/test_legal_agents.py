@@ -77,3 +77,26 @@ def test_clause_preserves_statutory_introduction_separately():
     assert result[1].clause=='1'
     assert result[1].article_context=='Hợp đồng phải lập thành văn bản bao gồm:'
     assert result[1].content=='1. Tên các bên;'
+
+
+def test_separate_verifier_never_generates_the_answer_and_records_fallback():
+    from app.room_service.chatbot.agents import QwenAnswerAgent
+    from app.room_service.chatbot.providers import EvidenceIssues
+    class Local:
+        providers=[]
+        def generate(self,*args,**kwargs): return 'local answer'
+        def check_legal_evidence(self,*args,**kwargs): return EvidenceIssues(['local issue'])
+    class Verifier:
+        model='gemini-test'
+        def check_legal_evidence(self,*args,**kwargs): return []
+    agent=QwenAnswerAgent(Local(),Verifier())
+    assert agent.generate('question',[])=='local answer'
+    result=agent.check_legal_evidence('question','answer',[])
+    assert not result and result.trace['provider']=='gemini'
+    class Unavailable:
+        model='gemini-test'
+        def check_legal_evidence(self,*args,**kwargs): raise RuntimeError('HTTP 429')
+    fallback=QwenAnswerAgent(Local(),Unavailable()).check_legal_evidence('question','answer',[])
+    assert fallback==['local issue']
+    assert fallback.trace['provider']=='qwen_and_rules' and fallback.trace['http_status']==429
+    assert fallback.degraded_reasons

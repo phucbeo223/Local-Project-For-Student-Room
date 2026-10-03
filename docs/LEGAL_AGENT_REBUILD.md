@@ -11,8 +11,8 @@
 
 1. **Gemini phân tích câu hỏi**: tạo truy vấn tìm kiếm, nhận diện chủ đề và thông tin tình huống còn thiếu. Không tạo câu trả lời hoặc điều luật. Số điều/số tiền mới không có trong câu hỏi bị từ chối; lỗi API có dấu vết dự phòng.
 2. **Bộ truy xuất**: dùng embedding E5, tìm kiếm từ khóa, xếp hạng và giữ đủ các chủ đề được hỏi. Truy vấn được giới hạn vào schema cấu hình. Gemini không ghi hay sửa luật trong kho.
-3. **Qwen local**: tạo câu trả lời từ các đoạn truy xuất, kiểm tra kết luận và trích dẫn. Gemini không được đăng ký làm model trả lời khi bật agent.
-4. **Kiểm tra căn cứ**: kiểm tra định dạng nguồn, số liệu, chủ thể, điều kiện, ngoại lệ; phản hồi thiếu căn cứ được đánh dấu một phần hoặc từ chối. Dấu vết ghi model đã thử và model tạo phản hồi cuối cùng.
+3. **Qwen local**: tạo câu trả lời từ các đoạn truy xuất. Gemini không được đăng ký làm model trả lời khi bật agent.
+4. **Kiểm tra căn cứ**: Gemini đối chiếu từng kết luận với nguồn, kết hợp kiểm tra bằng quy tắc về số điều, số liệu, chủ thể, điều kiện, ngoại lệ. Khi Gemini lỗi, Qwen kiểm tra dự phòng và ghi trạng thái suy giảm. Phản hồi thiếu căn cứ được sửa, đánh dấu một phần hoặc từ chối. Dấu vết ghi model đã thử, model kiểm tra và model tạo phản hồi cuối cùng. Quyền gửi câu hỏi, câu trả lời và nguồn luật sang Gemini để kiểm tra/chấm đã được người dùng xác nhận trước đó.
 
 Đây là quy trình phối hợp agent trong ứng dụng. Truy xuất hiện vẫn dùng hybrid; chưa chuyển sang GraphRAG.
 
@@ -58,9 +58,10 @@ Các báo cáo độc lập:
 - `eval/reports/legal_agent_retrieval_2026-10-03.json`: truy xuất 36 câu thật và các kiểm tra ngoại lệ, hồ sơ, thông tin hợp đồng, chuyển phòng.
 - `eval/reports/legal_agent_probe_2026-10-03.json`: kiểm tra Gemini phân tích và danh sách model trả lời thực tế.
 - `eval/reports/legal_agent_after_2026-10-03.json`: câu trả lời mới, nguồn, dấu vết agent và RAGAS.
-- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v3_2026-10-03.json`.
+- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v4_2026-10-03.json`.
 - `eval/reports/legal_agent_after_final_2026-10-03.json`: giữ kết quả hai câu bị chặn ở lượt v2 để truy lỗi; không dùng làm báo cáo hoàn tất.
 - Lượt v3 sửa bộ kiểm tra Qwen đọc thiếu danh sách giao dịch trong nguồn, ghép đủ điều về nội dung hợp đồng, và tránh coi hiệu lực của hợp đồng là hiệu lực thi hành văn bản. Lưu cả câu trả lời bị bác bỏ và lý do trong `provider_calls`.
+- Lượt v3 vẫn bị Qwen kiểm tra nhầm nội dung có trong nguồn và tự suy ra năm luật từ tên tệp. Giữ lại `legal_agent_after_v3_2026-10-03.json` để truy lỗi. Lượt v4 bổ sung bộ đối chiếu Gemini riêng và cấm suy ra năm luật từ năm của bản hợp nhất.
 - `eval/reports/legal_agent_backup_2026-10-03.json`: bản dump 59 tài liệu/5.185 chunk cũ đã khôi phục vào database kiểm chứng riêng, đối chiếu nội dung tất cả dòng trùng nhau. Tệp dump lưu ở `backups/`, không đưa dữ liệu database lên GitHub.
 
 Chỉ chuyển sau khi kiểm tra truy xuất đạt, các câu hỏi chạy thật, vai trò model đúng, kết quả được rà soát và có bản sao lưu khôi phục được. Chỉ xóa bảng/chunk/vector pháp lý cũ sau khi kho mới đã được kiểm chứng và ứng dụng thực tế dùng kho mới. Không xóa bản gốc hoặc vector tin phòng.

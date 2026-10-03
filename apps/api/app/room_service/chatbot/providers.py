@@ -186,6 +186,9 @@ kiểm tra; không gọi nội dung công việc thành nghĩa vụ hoặc quy�
 Với lời khuyên kiểm tra, dùng 'Khuyến nghị: nên kiểm tra/đối chiếu'; không viết 'phải kiểm tra'
 hoặc 'bắt buộc kiểm tra' nếu nguồn chỉ nêu nội dung hợp đồng mà không đặt nghĩa vụ kiểm tra.
 Đối chiếu từng trích dẫn với chính Điều/Khoản, chủ thể và điều kiện của nguồn đó.
+Tên tệp hoặc năm công bố bản hợp nhất không phải năm ban hành luật. Không tự tạo năm,
+số hiệu hoặc chữ 'sửa đổi' cho văn bản; chỉ dùng tên văn bản được cung cấp và Điều/Khoản.
+Nếu tên nguồn là mã tệp, có thể viết 'nguồn [rank], Điều ...' thay vì đoán tên hoặc năm luật.
 Với câu hỏi nhiều chủ đề, trả lời từng phần được nguồn hỗ trợ và chỉ rõ phần còn thiếu căn cứ.
 Khi nguồn không trả lời được câu hỏi, chỉ nói ngắn gọn thiếu quy định nào và gợi ý bước tiếp theo;
 không liệt kê, diễn giải hàng loạt điều luật không liên quan. Giữ trích dẫn ngoài dấu in đậm."""
