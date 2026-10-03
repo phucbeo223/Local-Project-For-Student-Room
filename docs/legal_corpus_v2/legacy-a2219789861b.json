@@ -10,7 +10,14 @@
     "extraction": "existing selected text; editorial header excluded by article parser",
     "verification": "not verified word by word against full government original",
     "page_kind": "logical_document",
-    "not_exhaustive": true
+    "not_exhaustive": true,
+    "editorial_annotations": [
+      {
+        "page": 1,
+        "text": "Ghi chú tuyển chọn: Khoản 2 Điều 30 có mốc hiệu lực riêng theo khoản 2 Điều 41. Không coi khoản này đã có hiệu lực từ 15/09/2026."
+      }
+    ],
+    "contains_selected_points": false
   },
   "provisions": [
     {
@@ -88,33 +95,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:4690:body",
-      "article": "30",
-      "clause": null,
-      "heading": "Điều 30. Bãi bỏ một số quy định, biểu mẫu, phụ lục (trích khoản 2)",
-      "content": "Ghi chú tuyển chọn: Khoản 2 Điều 30 có mốc hiệu lực riêng theo khoản 2 Điều 41. Không coi khoản này đã có hiệu lực từ 15/09/2026.",
-      "source_start": 4756,
-      "source_end": 4889,
-      "points": [],
-      "exceptions": [],
-      "cross_references": [
-        "Khoản 2 Điều 30",
-        "khoản 2 Điều 41"
-      ],
-      "kind": "legal_provision",
-      "article_context": "",
-      "content_sha256": "d226828bcd995f8a67dd75af91163dc00c4cd6f2512844c3bc45b292bf31d716",
-      "page_from": 1,
-      "page_to": 1
-    },
-    {
       "provision_id": "6278d09004af45905507:4690:2",
       "article": "30",
       "clause": "2",
       "heading": "Điều 30. Bãi bỏ một số quy định, biểu mẫu, phụ lục (trích khoản 2) | Khoản 2",
       "content": "2. Bãi bỏ khoản 5 Điều 6; khoản 2 Điều 7; khoản 9 Điều 39; điểm d và điểm e khoản 3 Điều 41; khoản 3 Điều 44; khoản 5 Điều 46.",
-      "source_start": 4889,
-      "source_end": 5017,
+      "source_start": 4760,
+      "source_end": 4888,
       "points": [],
       "exceptions": [],
       "cross_references": [
@@ -126,19 +113,19 @@
         "khoản 5 Điều 46"
       ],
       "kind": "legal_provision",
-      "article_context": "Ghi chú tuyển chọn: Khoản 2 Điều 30 có mốc hiệu lực riêng theo khoản 2 Điều 41. Không coi khoản này đã có hiệu lực từ 15/09/2026.",
+      "article_context": "",
       "content_sha256": "78ee313489e9aee2d19a53157bdbd4d1feb3e3d2d58511d79cf3b1da121d834d",
       "page_from": 1,
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:5017:1",
+      "provision_id": "6278d09004af45905507:4888:1",
       "article": "35",
       "clause": "1",
       "heading": "Điều 35. Sửa đổi, bổ sung điểm đ khoản 2, điểm b khoản 3, điểm d khoản 4 Điều 10 Nghị định 282/2025/NĐ-CP | Khoản 1",
       "content": "1. Sửa đổi, bổ sung điểm đ khoản 2 như sau:\n\n“đ) Cơ sở kinh doanh lưu trú, nhà ở tập thể, cơ sở chữa bệnh, cơ sở lưu trú du lịch, cơ sở lưu trú ở khu công nghiệp và các cơ sở khác có chức năng lưu trú không thực hiện thông báo lưu trú từ 01 đến 03 người lưu trú;”",
-      "source_start": 5124,
-      "source_end": 5389,
+      "source_start": 4995,
+      "source_end": 5260,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -149,13 +136,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:5017:2",
+      "provision_id": "6278d09004af45905507:4888:2",
       "article": "35",
       "clause": "2",
       "heading": "Điều 35. Sửa đổi, bổ sung điểm đ khoản 2, điểm b khoản 3, điểm d khoản 4 Điều 10 Nghị định 282/2025/NĐ-CP | Khoản 2",
       "content": "2. Sửa đổi, bổ sung điểm b khoản 3 như sau:\n\n“b) Cơ sở kinh doanh lưu trú, nhà ở tập thể, cơ sở chữa bệnh, cơ sở lưu trú du lịch, cơ sở lưu trú ở khu công nghiệp và các cơ sở khác có chức năng lưu trú không thực hiện thông báo lưu trú từ 04 đến 08 người lưu trú;”",
-      "source_start": 5389,
-      "source_end": 5654,
+      "source_start": 5260,
+      "source_end": 5525,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -166,13 +153,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:5017:3",
+      "provision_id": "6278d09004af45905507:4888:3",
       "article": "35",
       "clause": "3",
       "heading": "Điều 35. Sửa đổi, bổ sung điểm đ khoản 2, điểm b khoản 3, điểm d khoản 4 Điều 10 Nghị định 282/2025/NĐ-CP | Khoản 3",
       "content": "3. Sửa đổi, bổ sung điểm d khoản 4 như sau:\n\n“d) Cơ sở kinh doanh lưu trú, nhà ở tập thể, cơ sở chữa bệnh, cơ sở lưu trú du lịch, cơ sở lưu trú ở khu công nghiệp và các cơ sở khác có chức năng lưu trú không thực hiện thông báo lưu trú từ 09 người lưu trú trở lên.”",
-      "source_start": 5654,
-      "source_end": 5920,
+      "source_start": 5525,
+      "source_end": 5791,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -183,13 +170,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:5920:1",
+      "provision_id": "6278d09004af45905507:5791:1",
       "article": "41",
       "clause": "1",
       "heading": "Điều 41. Hiệu lực thi hành (trích khoản 1 và khoản 2) | Khoản 1",
       "content": "1. Nghị định này có hiệu lực thi hành kể từ ngày 15 tháng 9 năm 2026.",
-      "source_start": 5975,
-      "source_end": 6046,
+      "source_start": 5846,
+      "source_end": 5917,
       "points": [],
       "exceptions": [],
       "cross_references": [],
@@ -200,13 +187,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "6278d09004af45905507:5920:2",
+      "provision_id": "6278d09004af45905507:5791:2",
       "article": "41",
       "clause": "2",
       "heading": "Điều 41. Hiệu lực thi hành (trích khoản 1 và khoản 2) | Khoản 2",
       "content": "2. Đối với việc kê khai thông tin, quản lý chất lượng phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ trong sản xuất, lắp ráp, nhập khẩu và lưu thông trên thị trường được quy định tại khoản 2 Điều 10; Điều 21; khoản 2 Điều 26; khoản 2, khoản 3 Điều 30; khoản 2, khoản 6 Điều 31; khoản 4 Điều 40 có hiệu lực thi hành cùng thời điểm Luật sửa đổi, bổ sung một số điều của Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ, Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ có hiệu lực.",
-      "source_start": 6046,
-      "source_end": 6539,
+      "source_start": 5917,
+      "source_end": 6410,
       "points": [],
       "exceptions": [],
       "cross_references": [

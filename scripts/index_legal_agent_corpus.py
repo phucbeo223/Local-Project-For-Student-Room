@@ -81,6 +81,7 @@ def main():
                          {'id':doc_id,'meta':json.dumps(source,ensure_ascii=False)})
             for index,parent in enumerate(parents):
                 meta={k:v for k,v in parent.items() if k!='content'}
+                meta['selected_points_only']=bool(source.get('contains_selected_points'))
                 complete_parent = ((parent.get('article_context')+'\n\n') if parent.get('article_context') else '')+parent['content']
                 conn.execute(text('UPDATE legal_v2.legal_chunks SET provision_id=:pid,parent_content=:parent,'
                     'source_metadata=CAST(:meta AS jsonb) WHERE document_id=:id AND chunk_index=:index'),

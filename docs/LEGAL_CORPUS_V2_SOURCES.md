@@ -4,7 +4,7 @@
 Không suy ra hiệu lực hiện hành chỉ từ việc tải được tệp. Tài liệu trích tuyển kế thừa chưa được xác nhận từng chữ với toàn văn.
 `source_start` và `source_end` là vị trí ký tự trong văn bản trích đã chuẩn hóa, không phải vị trí byte/trang của PDF gốc. Số trang PDF là trang vật lý; nguồn DOC/DOCX/Markdown dùng trang trong bản trích.
 
-Manifest SHA-256: `054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119d15`.
+Manifest SHA-256: `12cda786b35f6e99bf22c3e94ffda4ac139289d69496fecfdecbb3a9e80dc098`.
 
 | Tài liệu đầu vào | Chủ đề | Điều đã chọn | Số đơn vị | Nguồn công bố | Cách trích/kiểm chứng |
 |---|---|---|---:|---|---|
@@ -14,11 +14,11 @@ Manifest SHA-256: `054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119
 | online_warning-Bo-Cong-an-20261003 | ecommerce_platform | Khuyến cáo, không đánh số điều | 1 | [Cơ quan nhà nước](https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304) | existing selected text; editorial header excluded by article parser; {'type': 'khuyến cáo', 'scope': 'mua hàng trực tuyến; không biến thành nghĩa vụ pháp lý thuê trọ'} |
 | Luật-61-2024-QH15 | electricity | 2, 9, 44, 48, 49, 50, 56, 57, 63, 66, 74 | 50 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=212489&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Quyết-định-1279-QĐ-BCT | electricity | 1, 2, 3 | 3 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=2&docid=213617&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
-| Thông-tư-60-2025-TT-BCT | electricity | 1, 2, 3, 6, 12, 20, 21 | 18 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
+| Thông-tư-60-2025-TT-BCT | electricity | 1, 2, 3, 6, 12, 20, 21 | 17 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Luat-55-2024-QH15-dieu-8-20-21-23-24 | fire_safety | 8, 20, 21, 23, 24 | 24 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf) | existing selected text; editorial header excluded by article parser; {'articles': [8, 20, 21, 23, 24], 'extraction': 'Văn bản PDF có lớp chữ; bỏ đầu trang Công báo, nối dòng; giữ nguyên khoản, điểm.', 'amendment': 'Luật 118 Điều 10 không sửa các điều được trích này; không suy rộng sang điều khác.'} |
-| Nghị-định-105-2025-NĐ-CP | fire_safety | 3, 13, 14, 45, 46 | 14 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
+| Nghị-định-105-2025-NĐ-CP | fire_safety | 3, 13, 14, 45, 46 | 9 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | 2026_204_79_VBHN-VPQH | housing_contract | 10, 11, 57, 160, 161, 162, 163, 164, 168, 170, 171, 172, 173, 194 | 58 | [Cơ quan nhà nước](https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
-| Bo-luat-91-2015-QH13-doi-chieu-20261003 | housing_contract | 116, 117, 119, 124, 127, 131, 328, 351, 357, 360, 361, 385, 387, 398, 400, 401, 403, 404, 405, 406, 407, 418, 419, 421, 422, 423, 427, 428, 429, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 688, 689 | 109 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf) | existing selected text; editorial header excluded by article parser; {'replaced': [328, 689], 'visual_pages_328': [86, 87], 'other_articles': 'Giữ nguyên bản trích trước; kiểm tra đuôi đoạn, không khẳng định đã đối chiếu toàn văn từng chữ.'} |
+| Bo-luat-91-2015-QH13-doi-chieu-20261003 | housing_contract | 116, 117, 119, 124, 127, 131, 328, 351, 357, 360, 361, 385, 387, 398, 400, 401, 403, 404, 405, 406, 407, 418, 419, 421, 422, 423, 427, 428, 429, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 688, 689 | 108 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf) | existing selected text; editorial header excluded by article parser; {'replaced': [328, 689], 'visual_pages_328': [86, 87], 'other_articles': 'Giữ nguyên bản trích trước; kiểm tra đuôi đoạn, không khẳng định đã đối chiếu toàn văn từng chữ.'} |
 | Luật-19-2023-QH15 | housing_contract | 3, 4, 10, 15, 16, 17, 18, 19 | 38 | [Cơ quan nhà nước](https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-47-vbhn-vpqh-469132.htm) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Nghị-định-95-2024-NĐ-CP | housing_contract | 1, 2, 41, 42, 93, 94 | 10 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=0&docid=210761&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Luật-26-2023-QH15 | privacy_data | 7, 20, 29 | 19 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=1&docid=209628&orggroupid=1&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
@@ -28,7 +28,7 @@ Manifest SHA-256: `054fcb1d3ac9c327d7cf072a15c61abaed227836f6b6e42a17b54e020e119
 | Luật-29-2023-QH15 | real_estate_brokerage | 1, 2, 3, 4, 6, 8, 9, 14, 16, 18, 19, 20, 21, 44, 45, 46, 47, 48, 61, 62, 63, 64, 65 | 83 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Luat-68-2020-QH14-doi-chieu-20261003 | residence | 9, 27, 28, 30 | 13 | [Cơ quan nhà nước](https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf) | existing selected text; editorial header excluded by article parser; {'articles': [9, 27, 28, 30], 'visual_pages': {'residence68': [5, 15, 16], 'amend118': [12, 13]}, 'amendment': 'Điều 4 khoản 9 Luật 118 thay Điều 30, áp dụng từ 01/07/2026; Điều 9,27,28 giữ nội dung gốc.', 'ocr': 'Chép đối chiếu ảnh: sửa Điền/Hỗ/tài Hiệu/tam tri; giữ đủ khoản, điểm và ngoại lệ.', 'article31': 'Nội dung sửa đổi vẫn có trong tài liệu Luật 118 riêng.'} |
 | Nghị-định-282-2025-NĐ-CP | residence | 1, 2, 3, 5, 6, 9, 10, 11, 69, 70 | 41 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
-| Nghị-định-347-2026-NĐ-CP-trích-tuyển | residence | 17, 18, 29, 30, 35, 41 | 11 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
+| Nghị-định-347-2026-NĐ-CP-trích-tuyển | residence | 17, 18, 29, 30, 35, 41 | 10 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160) | existing selected text; editorial header excluded by article parser; not verified word by word against full government original |
 | Luật Thương mại điện tử 122/2025/QH15 | ecommerce_platform | 1, 2, 3, 4, 5, 15, 16, 17, 18, 19, 20, 40 | 51 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=216503&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 248/2026/NĐ-CP | ecommerce_platform | 1, 2, 3, 4, 7, 17, 18, 19, 20, 52 | 57 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=218747&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Quyết định 14/2025/QĐ-TTg | electricity | 1, 2, 3, 4, 6, 7 | 23 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=213782&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
@@ -92,7 +92,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### legacy-d9f68871fe49
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/legacy-d9f68871fe49.json`.
-- SHA cấu trúc: `dd2dc5525c1bade785c742c721fe1b7d81e7e8fb24d7889d428370ba5107cc72`.
+- SHA cấu trúc: `ee7cd62a87858ef0265562052ce2d9ea2fc05fbc3c4d3f07710f0d3e237b4780`.
 - Đầu vào: `Data/electricity/Quyết-định-1279-QĐ-BCT.docx`.
 - SHA đầu vào: `1d243991970650c5dc4bcf2bea1cb21289444f6eace2fcf183a6bae299724486`.
 - Nguồn: https://vanban.chinhphu.vn/?classid=2&docid=213617&pageid=27160
@@ -100,7 +100,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### legacy-d873b9410011
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/legacy-d873b9410011.json`.
-- SHA cấu trúc: `d1ff53f998c22a85e3e913d40830465f0e159616ee36b2e95a5f11d87775bfe6`.
+- SHA cấu trúc: `76c25e7616d39a59999bd9a3ec51b969bf48137924f68a61c1dc14c1480db9cf`.
 - Đầu vào: `Data/electricity/Thông-tư-60-2025-TT-BCT.docx`.
 - SHA đầu vào: `281c5617cc3a5e567fcbe446e405049fc2d8942cb02ab5a183a8b071af1be94f`.
 - Nguồn: https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160
@@ -118,7 +118,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### legacy-8fb07729dbcb
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/legacy-8fb07729dbcb.json`.
-- SHA cấu trúc: `88ce9a98488e8e4918f52464ee3f3078a21a035a2db8d3aae6bb01c64de93384`.
+- SHA cấu trúc: `5535f7c1e609b68bb0ea6c41be99d9f61c680c26c04abbc77fce59cee12ddeed`.
 - Đầu vào: `Data/fire_safety/Nghị-định-105-2025-NĐ-CP.docx`.
 - SHA đầu vào: `96d3c8812018b49f0968bf43f4d9785c8e7d87536cec262e2a904f7cb4021b23`.
 - Nguồn: https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160
@@ -134,7 +134,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### legacy-e010a14386b4
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/legacy-e010a14386b4.json`.
-- SHA cấu trúc: `4be57d06036c732fe8f2b1ff6c5a8ba53af0123437c039d88f2c8709621ca76f`.
+- SHA cấu trúc: `87a1ae7eaf6bfeebe3eab70eacc6f155481012d90b121f1bf6610da2daf1fdff`.
 - Đầu vào: `Data/housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md`.
 - SHA đầu vào: `e36235277d9ced3a03df409f0a7a167ef48b2156fae4504ebcb3ec46bf2dffde`.
 - Nguồn: https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf
@@ -218,7 +218,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### legacy-a2219789861b
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/legacy-a2219789861b.json`.
-- SHA cấu trúc: `123791c12eb5390dd338784801843ab0d19486b27b33b5ae21c913039278a056`.
+- SHA cấu trúc: `2cbab24d6059b40dbf12ee63be42df4b0c1ad8666b36e9cf58b91c26a189e2e7`.
 - Đầu vào: `Data/residence/Nghị-định-347-2026-NĐ-CP-trích-tuyển.docx`.
 - SHA đầu vào: `6278d09004af459055079807c7318da3d8a7bb2a89c5233d5bfc9636260d9059`.
 - Nguồn: https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160

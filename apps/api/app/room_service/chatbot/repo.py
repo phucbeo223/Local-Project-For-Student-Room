@@ -428,7 +428,7 @@ class ChatRepository:
                         item['context_complete'] = False
                 elif item.get("parent_content") and len(item['parent_content']) <= 5500:
                     item['content'] = item['parent_content']
-                    item['context_complete'] = True
+                    item['context_complete'] = not (item.get('provision_metadata') or {}).get('selected_points_only',False)
                 elif item.get('parent_content'):
                     # Do not represent a bounded fragment as a complete clause.
                     item['context_complete'] = False

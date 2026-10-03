@@ -64,6 +64,12 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     if 'coc' in normalize_text(question) and 'coc' not in normalize_text(' '.join(p['text'] for p in parts)):
         insufficient=True
     # Preserve delayed commencement for every selected source containing it.
+    chosen_documents={original[p['rank']].get('source_path') for p in parts}
+    for row in contexts:
+        if (row.get('source_path') and row.get('source_path') in chosen_documents
+                and 'Hiệu lực, phạm vi' in (row.get('heading') or '')
+                and row['rank'] not in {p['rank'] for p in parts}):
+            parts.append({'rank':row['rank'],'document':row.get('title'),'heading':row.get('heading'),'text':row['content']})
     for row in contexts:
         if row['rank'] not in {p['rank'] for p in parts}:continue
         match=re.search(r'có hiệu lực(?: thi hành)? k[ểê] từ ngày thực hiện[^.\n]{20,700}(?:\.|$)',row['content'],re.I)

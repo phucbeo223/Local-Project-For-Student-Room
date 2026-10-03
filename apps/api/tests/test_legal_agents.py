@@ -162,6 +162,17 @@ def test_missing_deposit_facet_is_not_marked_complete():
     assert 'Chưa đủ căn cứ' in result.text
 
 
+def test_selected_source_keeps_its_commencement_conditions():
+    from app.room_service.chatbot.source_selection import selection_candidates,render_selection
+    rows=[{'rank':1,'title':'Nguồn thử','source_path':'same','category':'electricity','heading':'Điều kiện thuê nhà',
+           'content':'Người thuê nhà được tính định mức theo các điều kiện trong nguồn.'},
+          {'rank':2,'title':'Nguồn thử','source_path':'same','category':'electricity','heading':'Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp',
+           'content':'Quy định này có hiệu lực khi điều kiện chuyển tiếp trong nguồn được đáp ứng.'}]
+    result=render_selection('Người thuê được tính tiền điện thế nào?',rows,selection_candidates(rows),
+        json.dumps({'selected_ids':[1],'insufficient':False}),'qwen-local','qwen-test')
+    assert rows[1]['content'] in result.text and '[2]' in result.text
+
+
 def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch):
     from app.room_service.chatbot.providers import GeminiGenerator
     client=GeminiGenerator('test','gemini-test')

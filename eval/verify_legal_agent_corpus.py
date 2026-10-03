@@ -28,6 +28,8 @@ gates={
     'all_required_categories':all(not c['missing_categories'] for c in checks),
     'every_source_has_government_url':all(urlparse(r.get('source_url') or '').scheme=='https' and
         (urlparse(r.get('source_url') or '').hostname or '').endswith(('.gov.vn', '.chinhphu.vn')) for c in checks for r in c['rows']),
+    'editorial_notes_not_quoted_as_law':all('Ghi chú tuyển chọn:' not in r['content'] for c in checks for r in c['rows']),
+    'rental_electricity_excludes_dormitories':all('ky tuc xa' not in normalize_text(r['content']) for n in (5,6,7,8) for r in by_id[n]['rows'] if 'Hiệu lực' not in (r.get('heading') or '')),
     'contract_checklist_retains_article':has(1,'Điều 163.') and has(1,'1. Họ và tên') and has(1,'11. Chữ ký'),
     'rental_contract_price_and_payment':has(2,'giá giao dịch') and has(2,'Thời hạn và phương thức thanh toán'),
     'rental_contract_deposit_facet':has(2,'Điều 328.'),

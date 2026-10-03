@@ -46,8 +46,16 @@ def build(source, pages, selected=None, advisory=False):
         page['text'] = page['text'].replace(correction['before'], correction['after'])
     if reviewed:
         source = dict(source, reviewed_ocr_corrections=reviewed)
+    annotations=[]
+    for page in pages:
+        notes=re.findall(r'(?m)^[ \t]*Ghi chú tuyển chọn:[^\n]*',page['text'])
+        annotations.extend({'page':page['page'],'text':note} for note in notes)
+        page['text']=re.sub(r'(?m)^[ \t]*Ghi chú tuyển chọn:[^\n]*','',page['text'])
+    if annotations:
+        source=dict(source,editorial_annotations=annotations,
+                    contains_selected_points=any('Chỉ tuyển các điểm' in note['text'] for note in annotations))
     text, spans = join_pages(pages)
-    annex = re.search(r'(?im)^\s*Phụ lục(?:\s+[IVX\d]+)?\s*$',text)
+    annex = re.search(r'(?im)^[ \t]*Phụ lục(?:[ \t]+[IVX\d]+)?(?:[ \t]*[.:][^\n]*)?[ \t]*$',text)
     if annex:
         text = text[:annex.start()]
     provisions = structure_provisions(text, source['sha256'], advisory=advisory)

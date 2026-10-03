@@ -41,7 +41,14 @@
       "other_articles": "Giữ nguyên bản trích trước; kiểm tra đuôi đoạn, không khẳng định đã đối chiếu toàn văn từng chữ."
     },
     "page_kind": "logical_document",
-    "not_exhaustive": true
+    "not_exhaustive": true,
+    "editorial_annotations": [
+      {
+        "page": 1,
+        "text": "Ghi chú tuyển chọn: Chỉ giữ khoản 1 và khoản 4 về tình trạng tài sản khi trả và trách nhiệm khi chậm trả; bỏ phần về động sản, gia súc ngoài phạm vi nhà trọ."
+      }
+    ],
+    "contains_selected_points": false
   },
   "provisions": [
     {
@@ -1874,35 +1881,18 @@
       "page_to": 1
     },
     {
-      "provision_id": "e36235277d9ced3a03df:21097:body",
-      "article": "482",
-      "clause": null,
-      "heading": "Điều 482. Trả lại tài sản thuê",
-      "content": "Ghi chú tuyển chọn: Chỉ giữ khoản 1 và khoản 4 về tình trạng tài sản khi trả và trách nhiệm khi chậm trả; bỏ phần về động sản, gia súc ngoài phạm vi nhà trọ.",
-      "source_start": 21127,
-      "source_end": 21286,
-      "points": [],
-      "exceptions": [],
-      "cross_references": [],
-      "kind": "legal_provision",
-      "article_context": "",
-      "content_sha256": "a944da3da483497d76876c1bd0fe0ea3cb5729f70c2ababaf98d33b965de6460",
-      "page_from": 1,
-      "page_to": 1
-    },
-    {
       "provision_id": "e36235277d9ced3a03df:21097:1",
       "article": "482",
       "clause": "1",
       "heading": "Điều 482. Trả lại tài sản thuê | Khoản 1",
       "content": "1. Bên thuê phải trả lại tài sản thuê trong tình trạng như khi nhận, trừ hao mòn tự nhiên hoặc theo đúng như tình trạng đã thoả thuận; nếu giá trị của tài sản thuê bị giảm sút so với tình trạng khi nhận thì bên cho thuê có quyền yêu cầu bồi thường thiệt hại, trừ hao mòn tự nhiên.",
-      "source_start": 21286,
-      "source_end": 21567,
+      "source_start": 21129,
+      "source_end": 21410,
       "points": [],
       "exceptions": [],
       "cross_references": [],
       "kind": "legal_provision",
-      "article_context": "Ghi chú tuyển chọn: Chỉ giữ khoản 1 và khoản 4 về tình trạng tài sản khi trả và trách nhiệm khi chậm trả; bỏ phần về động sản, gia súc ngoài phạm vi nhà trọ.",
+      "article_context": "",
       "content_sha256": "91f99b8fcc497b9ad4ee1f936437cfe973353702c99ec27598d43bb4bf4e1c09",
       "page_from": 1,
       "page_to": 1
@@ -1913,25 +1903,25 @@
       "clause": "4",
       "heading": "Điều 482. Trả lại tài sản thuê | Khoản 4",
       "content": "4. Khi bên thuê chậm trả tài sản thuê thì bên cho thuê có quyền yêu cầu bên thuê trả lại tài sản thuê, trả tiền thuê trong thời gian chậm trả và phải bồi thường thiệt hại; bên thuê phải trả tiền phạt vi phạm do chậm trả tài sản thuê, nếu có thoả thuận.",
-      "source_start": 21567,
-      "source_end": 21821,
+      "source_start": 21410,
+      "source_end": 21664,
       "points": [],
       "exceptions": [],
       "cross_references": [],
       "kind": "legal_provision",
-      "article_context": "Ghi chú tuyển chọn: Chỉ giữ khoản 1 và khoản 4 về tình trạng tài sản khi trả và trách nhiệm khi chậm trả; bỏ phần về động sản, gia súc ngoài phạm vi nhà trọ.",
+      "article_context": "",
       "content_sha256": "8d28f782428b18eb4a91d1b1d16c374784a089d7bece5bcd2c5a497791811be0",
       "page_from": 1,
       "page_to": 1
     },
     {
-      "provision_id": "e36235277d9ced3a03df:21821:1",
+      "provision_id": "e36235277d9ced3a03df:21664:1",
       "article": "688",
       "clause": "1",
       "heading": "Điều 688. Điều khoản chuyển tiếp | Khoản 1",
       "content": "1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.",
-      "source_start": 21854,
-      "source_end": 23146,
+      "source_start": 21697,
+      "source_end": 22989,
       "points": [
         "a",
         "b",
@@ -1949,13 +1939,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "e36235277d9ced3a03df:21821:2",
+      "provision_id": "e36235277d9ced3a03df:21664:2",
       "article": "688",
       "clause": "2",
       "heading": "Điều 688. Điều khoản chuyển tiếp | Khoản 2",
       "content": "2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
-      "source_start": 23146,
-      "source_end": 23341,
+      "source_start": 22989,
+      "source_end": 23184,
       "points": [],
       "exceptions": [
         " Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực."
@@ -1968,13 +1958,13 @@
       "page_to": 1
     },
     {
-      "provision_id": "e36235277d9ced3a03df:23341:body",
+      "provision_id": "e36235277d9ced3a03df:23184:body",
       "article": "689",
       "clause": null,
       "heading": "Điều 689. Hiệu lực thi hành",
       "content": "Điều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.",
-      "source_start": 23341,
-      "source_end": 23513,
+      "source_start": 23184,
+      "source_end": 23356,
       "points": [],
       "exceptions": [],
       "cross_references": [

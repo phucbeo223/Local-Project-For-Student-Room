@@ -24,6 +24,14 @@ def test_ordinary_room_residence_does_not_use_collective_dormitory_rule():
     assert any(r['chunk_id']==1 for r in rerank_legal('Sinh viên ở ký túc xá đăng ký tạm trú thế nào?',[dict(r) for r in rows]))
 
 
+def test_rental_electricity_excludes_dormitory_tariff_scope():
+    rows=[dict(chunk_id=1,category='electricity',heading='Giá điện ký túc xá',similarity_score=.95,
+        content='Ký túc xá sinh viên áp dụng giá bán lẻ điện sinh hoạt theo số người.'),
+        dict(chunk_id=2,category='electricity',heading='Giá điện người thuê nhà',similarity_score=.5,
+        content='Chủ nhà cho thuê thu tiền điện của người thuê nhà không vượt quá hóa đơn tiền điện.')]
+    assert [r['chunk_id'] for r in rerank_legal('Chủ trọ thu tiền điện thế nào?',rows)]==[2]
+
+
 def test_damaged_font_and_reversed_fine_are_not_safe_evidence():
     damaged = "B6n mua diQn thuC nhd chri nhd gi6 b6n tliQn " * 20
     clean = "Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà. " * 10

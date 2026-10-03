@@ -78,6 +78,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
     for row in rows:
         value = normalize_text(row["content"])
         base = float(row.get("similarity_score", 0))
+        if rental and 'ky tuc xa' in value and 'ky tuc xa' not in question and 'nguoi thue nha' not in value:
+            row['similarity_score']=0.0
+            continue
         if row.get('category') == 'residence' and 'residence' in categories:
             collective_query = any(term in question for term in ('ky tuc xa', 'khu tap trung', 'co so tap trung', 'dang ky tap the'))
             collective_rule = 'ky tuc xa' in value or ('danh sach' in value and 'don vi quan ly' in value)

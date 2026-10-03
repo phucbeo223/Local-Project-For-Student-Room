@@ -89,7 +89,7 @@
     },
     {
       "file": "docs/legal_corpus_v2/legacy-d9f68871fe49.json",
-      "sha256": "dd2dc5525c1bade785c742c721fe1b7d81e7e8fb24d7889d428370ba5107cc72",
+      "sha256": "ee7cd62a87858ef0265562052ce2d9ea2fc05fbc3c4d3f07710f0d3e237b4780",
       "id": "legacy-d9f68871fe49",
       "category": "electricity",
       "provisions": 3,
@@ -101,10 +101,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/legacy-d873b9410011.json",
-      "sha256": "d1ff53f998c22a85e3e913d40830465f0e159616ee36b2e95a5f11d87775bfe6",
+      "sha256": "76c25e7616d39a59999bd9a3ec51b969bf48137924f68a61c1dc14c1480db9cf",
       "id": "legacy-d873b9410011",
       "category": "electricity",
-      "provisions": 18,
+      "provisions": 17,
       "articles": [
         "1",
         "2",
@@ -131,10 +131,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/legacy-8fb07729dbcb.json",
-      "sha256": "88ce9a98488e8e4918f52464ee3f3078a21a035a2db8d3aae6bb01c64de93384",
+      "sha256": "5535f7c1e609b68bb0ea6c41be99d9f61c680c26c04abbc77fce59cee12ddeed",
       "id": "legacy-8fb07729dbcb",
       "category": "fire_safety",
-      "provisions": 14,
+      "provisions": 9,
       "articles": [
         "3",
         "13",
@@ -168,10 +168,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
-      "sha256": "4be57d06036c732fe8f2b1ff6c5a8ba53af0123437c039d88f2c8709621ca76f",
+      "sha256": "87a1ae7eaf6bfeebe3eab70eacc6f155481012d90b121f1bf6610da2daf1fdff",
       "id": "legacy-e010a14386b4",
       "category": "housing_contract",
-      "provisions": 109,
+      "provisions": 108,
       "articles": [
         "116",
         "117",
@@ -398,10 +398,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/legacy-a2219789861b.json",
-      "sha256": "123791c12eb5390dd338784801843ab0d19486b27b33b5ae21c913039278a056",
+      "sha256": "2cbab24d6059b40dbf12ee63be42df4b0c1ad8666b36e9cf58b91c26a189e2e7",
       "id": "legacy-a2219789861b",
       "category": "residence",
-      "provisions": 11,
+      "provisions": 10,
       "articles": [
         "17",
         "18",
