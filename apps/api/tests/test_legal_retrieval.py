@@ -32,6 +32,12 @@ def test_rental_electricity_excludes_dormitory_tariff_scope():
     assert [r['chunk_id'] for r in rerank_legal('Chủ trọ thu tiền điện thế nào?',rows)]==[2]
 
 
+def test_multiline_quoted_evidence_remains_a_partial_answer():
+    from app.room_service.chatbot.legal_retrieval import legal_completion_status
+    answer='Nguồn: “Điều kiện đầu tiên có nhiều thông tin hỗ trợ cho một phần yêu cầu.\n\nDòng cuối.” [1].\n\nChưa đủ căn cứ để kết luận toàn bộ yêu cầu.'
+    assert legal_completion_status(answer)=='partial'
+
+
 def test_damaged_font_and_reversed_fine_are_not_safe_evidence():
     damaged = "B6n mua diQn thuC nhd chri nhd gi6 b6n tliQn " * 20
     clean = "Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà. " * 10

@@ -10,11 +10,11 @@ from app.auth.security import make_access_token
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--base-url',default='http://nckh-api-legal-preview-v9:8000')
+    parser.add_argument('--base-url',default='http://nckh-api-legal-preview-v10:8000')
     parser.add_argument('--output',type=Path,default=Path('/eval/reports/legal_agent_http_preview_2026-10-03.json'))
     args=parser.parse_args()
     address=urlparse(args.base_url)
-    if address.scheme!='http' or address.hostname not in ('nckh-api-legal-preview-v9','api','127.0.0.1','localhost'):
+    if address.scheme!='http' or address.hostname not in ('nckh-api-legal-preview-v10','api','127.0.0.1','localhost'):
         raise ValueError('Smoke test only supports the local application')
     engine=create_engine(settings.database_url)
     email='legal-agent-smoke-'+uuid.uuid4().hex+'@example.test'
@@ -34,7 +34,7 @@ def main():
             anonymous=client.post(args.base_url+'/chat/ask',json={'message':message},timeout=10)
             result['anonymous_status']=anonymous.status_code
             started=time.perf_counter()
-            response=client.post(args.base_url+'/chat/ask',json={'message':message,'include_evaluation_contexts':True},
+            response=client.post(args.base_url+'/chat/ask',json={'message':message},
                                   headers={'Authorization':'Bearer '+token})
             result['http_status']=response.status_code
             result['latency_ms']=round((time.perf_counter()-started)*1000)

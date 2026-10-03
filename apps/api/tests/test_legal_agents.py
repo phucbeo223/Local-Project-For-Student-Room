@@ -173,6 +173,25 @@ def test_selected_source_keeps_its_commencement_conditions():
     assert rows[1]['content'] in result.text and '[2]' in result.text
 
 
+def test_local_selector_retries_an_omitted_deposit_once_then_copies_sources():
+    import httpx
+    from app.room_service.chatbot.providers import OllamaQwenGenerator
+    calls=[]
+    def handler(request):
+        payload=json.loads(request.content);calls.append(payload)
+        ids=[2] if len(calls)==1 else [1,2]
+        return httpx.Response(200,json={'message':{'content':json.dumps({'selected_ids':ids,'insufficient':False})}})
+    rows=[{'rank':1,'title':'Nguồn thử','category':'housing_contract','heading':'Đặt cọc','content':'Các bên thỏa thuận việc đặt cọc bảo đảm hợp đồng.'},
+          {'rank':2,'title':'Nguồn thử','category':'housing_contract','heading':'Thanh toán','content':'Các bên thỏa thuận giá thuê và thời hạn thanh toán.'}]
+    generator=OllamaQwenGenerator('http://ollama.test','qwen-test',legal_answer_mode='source_select',transport=httpx.MockTransport(handler))
+    try:
+        result=generator.generate('Hợp đồng cần ghi rõ tiền cọc và thanh toán không?',rows,context_kind='legal')
+        assert len(calls)==2 and 'tiền cọc' in calls[1]['messages'][1]['content']
+        assert all(row['content'] in result.text for row in rows)
+        assert result.literal_source_answer
+    finally:generator.close()
+
+
 def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch):
     from app.room_service.chatbot.providers import GeminiGenerator
     client=GeminiGenerator('test','gemini-test')

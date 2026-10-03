@@ -58,7 +58,7 @@ Các báo cáo độc lập:
 - `eval/reports/legal_agent_retrieval_2026-10-03.json`: truy xuất 36 câu thật và các kiểm tra ngoại lệ, hồ sơ, thông tin hợp đồng, chuyển phòng.
 - `eval/reports/legal_agent_probe_2026-10-03.json`: kiểm tra Gemini phân tích và danh sách model trả lời thực tế.
 - `eval/reports/legal_agent_after_2026-10-03.json`: câu trả lời mới, nguồn, dấu vết agent và RAGAS.
-- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v9_2026-10-03.json`.
+- Báo cáo trên là lượt thử ba câu, không phải kết quả toàn bộ 36 câu. Lượt đủ 36 câu hiện tại dùng `eval/reports/legal_agent_after_v10_2026-10-03.json`.
 - `eval/reports/legal_agent_after_final_2026-10-03.json`: giữ kết quả hai câu bị chặn ở lượt v2 để truy lỗi; không dùng làm báo cáo hoàn tất.
 - Lượt v3 sửa bộ kiểm tra Qwen đọc thiếu danh sách giao dịch trong nguồn, ghép đủ điều về nội dung hợp đồng, và tránh coi hiệu lực của hợp đồng là hiệu lực thi hành văn bản. Lưu cả câu trả lời bị bác bỏ và lý do trong `provider_calls`.
 - Lượt v3 vẫn bị Qwen kiểm tra nhầm nội dung có trong nguồn và tự suy ra năm luật từ tên tệp. Giữ lại `legal_agent_after_v3_2026-10-03.json` để truy lỗi. Lượt v4 bổ sung bộ đối chiếu Gemini riêng và cấm suy ra năm luật từ năm của bản hợp nhất.
@@ -70,7 +70,11 @@ Các báo cáo độc lập:
 - V7 phát hiện câu 2 trích giá/thanh toán nhưng bỏ tiền cọc và vẫn báo đủ. V8 bổ sung nguồn đặt cọc trong truy xuất, kiểm tra ý tiền cọc đã hỏi nhưng không có trong đoạn chọn thì đánh dấu một phần, thêm gate SQL và test hồi quy. Checkpoint v7 được giữ để truy lỗi.
 - V8 phát hiện ghi chú tuyển chọn nằm trong nội dung luật và lẫn phạm vi ký túc xá ở câu điện thuê trọ. V9 tách các ghi chú sang metadata, không đưa vào nội dung vector/trích dẫn; giữ đoạn hiệu lực/chuyển tiếp của cùng tài liệu khi Qwen chọn nội dung, đánh dấu bản tuyển một số điểm là không đủ toàn khoản, tách phụ lục khỏi điều luật. Checkpoint v8 được giữ để truy lỗi; không dùng làm lượt đủ 36 câu.
 - V9: 34 tài liệu, 1.213 đơn vị điều/khoản, 1.287 chunk/vector có định danh và phần cha; kho cũ và vector tin phòng không đổi. Manifest `12cda786b35f6e99bf22c3e94ffda4ac139289d69496fecfdecbb3a9e80dc098`.
-- Bộ test phần chatbot/pháp lý/agent: 110 test đạt; API và giao diện build thành công. Đây không phải kết quả toàn bộ các kiểm thử tích hợp của dự án.
+- V9 hoàn tất 36 phản hồi, không lỗi thực thi. Faithfulness 0,9202 chỉ có 30/36 điểm (6 lỗi chấm JSON); answer relevancy 0,6276 và context utilization 0,6273 có 36/36 điểm. Chưa đủ điều kiện chuyển vì trả lời thiếu tăng và relevancy giảm. Giữ riêng JSON, báo cáo so sánh và trạng thái v9.
+- V10 sửa nhãn khoản 8 Thông tư 116 theo trang PDF gốc, giữ cả mốc hiệu lực ngắn và phạm vi mức phạt, ưu tiên cấu thành hành vi khi hỏi phân biệt lừa đảo, sửa nhận diện trích dẫn nhiều dòng. Qwen được thử chọn lại tối đa một lần khi bỏ một chủ đề hoặc tiền cọc đã hỏi và nguồn có sẵn; không tạo nội dung luật mới.
+- V10: 34 tài liệu, 1.214 đơn vị điều/khoản, 1.288 chunk/vector/định danh/phần cha. Manifest `ba309b6ef424b0b15a703b019db3537002eabc6729090629e40a7aa3cf44052b`. Tất cả gate truy xuất 36 câu đạt; số liệu kho cũ và tin phòng không đổi. Chạy đánh giá v10 ngày 04/10 theo giờ Việt Nam, tên tệp giữ ngày bắt đầu công việc 03/10.
+- Bộ test phần chatbot/pháp lý/agent: 112 test đạt; API và giao diện build thành công. Đây không phải kết quả toàn bộ các kiểm thử tích hợp của dự án.
+- HTTP v9 thử với người dùng thường đã trả 200 và dùng `legal_v2`; tài khoản test đã xóa. JWT của runner phải đồng bộ API; thử người dùng thường không yêu cầu ngữ cảnh dành riêng cho admin. Lượt v10 phải kiểm tra HTTP riêng, không dùng kết quả v9 để xác nhận v10.
 - `eval/reports/legal_agent_backup_2026-10-03.json`: bản dump 59 tài liệu/5.185 chunk cũ đã khôi phục vào database kiểm chứng riêng, đối chiếu nội dung tất cả dòng trùng nhau. Tệp dump lưu ở `backups/`, không đưa dữ liệu database lên GitHub.
 
 Chỉ chuyển sau khi kiểm tra truy xuất đạt, các câu hỏi chạy thật, vai trò model đúng, kết quả được rà soát và có bản sao lưu khôi phục được. Chỉ xóa bảng/chunk/vector pháp lý cũ sau khi kho mới đã được kiểm chứng và ứng dụng thực tế dùng kho mới. Không xóa bản gốc hoặc vector tin phòng.

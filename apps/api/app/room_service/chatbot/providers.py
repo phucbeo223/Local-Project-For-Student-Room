@@ -395,17 +395,26 @@ class OllamaQwenGenerator:
         if not contexts:
             raise RuntimeError("không có context")
         if context_kind=='legal' and self.legal_answer_mode=='source_select':
-            from .source_selection import selection_candidates,selection_prompt,SELECTION_SCHEMA,render_selection
+            from .source_selection import selection_candidates,selection_prompt,SELECTION_SCHEMA,render_selection,missing_selection_facets
             candidates=selection_candidates(contexts)
             if not candidates:raise RuntimeError('No complete legal evidence candidates')
-            response=self._client.post(f'{self.base_url}/api/chat',json={
-                'model':self.model,'stream':False,'think':False,'format':SELECTION_SCHEMA,'keep_alive':self.keep_alive,
-                'messages':[{'role':'system','content':'Bạn là agent tìm đoạn trả lời từ tài liệu. Chỉ trả ID của đoạn có sẵn theo JSON schema.'},
-                            {'role':'user','content':selection_prompt(question,candidates)}],
-                'options':{'temperature':0,'num_predict':256,'num_ctx':max(16384,self.context_length)}},timeout=self.legal_timeout_seconds)
-            response.raise_for_status();data=response.json()
-            if data.get('done_reason')=='length':raise RuntimeError('Incomplete source selection')
-            return render_selection(question,contexts,candidates,data['message']['content'],self.provider_name,self.model)
+            prompt=selection_prompt(question,candidates)
+            def select(instruction):
+                response=self._client.post(f'{self.base_url}/api/chat',json={
+                    'model':self.model,'stream':False,'think':False,'format':SELECTION_SCHEMA,'keep_alive':self.keep_alive,
+                    'messages':[{'role':'system','content':'Bạn là agent tìm đoạn trả lời từ tài liệu. Chỉ trả ID của đoạn có sẵn theo JSON schema.'},
+                                {'role':'user','content':instruction}],
+                    'options':{'temperature':0,'num_predict':256,'num_ctx':max(16384,self.context_length)}},timeout=self.legal_timeout_seconds)
+                response.raise_for_status();data=response.json()
+                if data.get('done_reason')=='length':raise RuntimeError('Incomplete source selection')
+                return data['message']['content']
+            raw=select(prompt)
+            missing=missing_selection_facets(question,candidates,raw)
+            if missing:
+                raw=select(prompt+'\nLần chọn trước bỏ sót các ý/chủ đề người dùng đã hỏi: '
+                    +json.dumps(missing,ensure_ascii=False)+'. Chọn lại các ID cho toàn bộ câu hỏi. '
+                    'Chỉ dùng đoạn có sẵn, đúng phạm vi; nếu vẫn thiếu thì insufficient=true. Không tự viết luật.')
+            return render_selection(question,contexts,candidates,raw,self.provider_name,self.model)
         system_prompt = (
             LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
         )

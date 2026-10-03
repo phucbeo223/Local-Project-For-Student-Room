@@ -7,10 +7,10 @@ from question_bank_ragas import save_report
 
 BASE=Path('/eval')
 BEFORE=BASE/'reports/legal_model_upgrade_after_2026-10-02.json'
-AFTER=BASE/'reports/legal_agent_after_v9_2026-10-03.json'
+AFTER=BASE/'reports/legal_agent_after_v10_2026-10-03.json'
 STATUS=BASE/'reports/legal_agent_status_2026-10-03.json'
 REPORT=BASE/'ragas_reports/legal_agent_comparison_2026-10-03.md'
-LOG=BASE/'reports/legal_agent_v9_2026-10-03.log'
+LOG=BASE/'reports/legal_agent_v10_2026-10-03.log'
 METRICS=('faithfulness','answer_relevancy','context_utilization')
 
 

@@ -15,38 +15,18 @@
     "listing_vectors": 915
   },
   "counts": {
-    "chunks": 1287,
-    "vectors": 1287,
-    "identified": 1287,
-    "parented": 1287
+    "chunks": 1288,
+    "vectors": 1288,
+    "identified": 1288,
+    "parented": 1288
   },
   "indexed": [
     {
-      "id": "legacy-d9f68871fe49",
-      "chunks": 3,
-      "provisions": 3
-    },
-    {
-      "id": "legacy-d873b9410011",
-      "chunks": 19,
-      "provisions": 17
-    },
-    {
-      "id": "legacy-8fb07729dbcb",
-      "chunks": 16,
-      "provisions": 9
-    },
-    {
-      "id": "legacy-e010a14386b4",
-      "chunks": 109,
-      "provisions": 108
-    },
-    {
-      "id": "legacy-a2219789861b",
-      "chunks": 14,
-      "provisions": 10
+      "id": "residence116",
+      "chunks": 40,
+      "provisions": 38
     }
   ],
-  "manifest_sha256": "12cda786b35f6e99bf22c3e94ffda4ac139289d69496fecfdecbb3a9e80dc098",
+  "manifest_sha256": "ba309b6ef424b0b15a703b019db3537002eabc6729090629e40a7aa3cf44052b",
   "activation": "not activated; evaluation pending"
 }

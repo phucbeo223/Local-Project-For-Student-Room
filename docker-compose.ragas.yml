@@ -7,6 +7,7 @@ services:
       dockerfile: eval/Dockerfile.ragas
     environment:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-nckh}:${POSTGRES_PASSWORD:-nckh}@db:5432/${POSTGRES_DB:-nckh}
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-change-me}
       CHATBOT_EMBEDDING_MODEL: ${CHATBOT_EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
       HF_HOME: /models
       TRANSFORMERS_CACHE: /models/hub

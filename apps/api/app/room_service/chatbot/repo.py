@@ -466,7 +466,7 @@ class ChatRepository:
                     + metadata_sql + "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
                     "JOIN legal_documents d ON d.id=c.document_id WHERE d.id=ANY(:ids) "
                     "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%chuyển tiếp%' "
-                    "OR c.heading ILIKE '%hình thức xử phạt%') "
+                    "OR c.heading ILIKE '%hình thức xử phạt%' OR c.heading ILIKE '%Mức phạt tiền%') "
                     "ORDER BY d.id,c.chunk_index"
                 ), {"ids": doc_ids}).mappings()]
                 for doc_id in doc_ids:
@@ -476,16 +476,19 @@ class ChatRepository:
                                and row["chunk_id"] not in {part["chunk_id"] for part in selected}]
                     # Effectiveness first (contains delayed commencement), then
                     # transition clauses. Each document gets its own citation.
-                    effects.sort(key=lambda row: ("hiệu lực" not in (row["heading"] or "").lower(), row["chunk_index"]))
+                    def effect_priority(row):
+                        heading=normalize_text(row.get('heading') or '')
+                        return (0 if 'hieu luc' in heading else 1 if 'muc phat tien' in heading else 2 if 'chuyen tiep' in heading else 3,row['chunk_index'])
+                    effects.sort(key=effect_priority)
                     included = []
                     size = 0
                     for row in effects:
                         # Commencement conditions are essential; mailing lists,
                         # repeal inventories and annex tables are not context.
                         normalized_content = normalize_text(row["content"])
-                        if len(row["content"]) < 80 or "noi nhan:" in normalized_content:
+                        if not row['content'].strip() or "noi nhan:" in normalized_content:
                             continue
-                        if "bai bo" in normalized_content or "cac quy dinh sau het hieu luc" in normalized_content:
+                        if re.search(r'^(?:\d+[.,]\s*)?(?:bai bo\b|cac quy dinh sau(?: day)? het hieu luc\b)',normalized_content):
                             continue
                         if size + len(row["content"]) <= 2400:
                             included.append(row)

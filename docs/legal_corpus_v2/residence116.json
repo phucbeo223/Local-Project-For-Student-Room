@@ -13,7 +13,17 @@
     "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
     "page_kind": "physical_pdf",
     "not_exhaustive": true,
-    "verification": "OCR; selected critical pages visually checked, other text requires review"
+    "verification": "OCR; selected critical pages visually checked, other text requires review",
+    "reviewed_ocr_corrections": [
+      {
+        "source_id": "residence116",
+        "page": 2,
+        "before": "§. Việc thông báo",
+        "after": "8. Việc thông báo",
+        "reason": "Clause 8 misrecognized as section symbol; visually checked against signed government PDF",
+        "review_image": "docs/legal_agent_originals_20261003/qa/residence116-2.png"
+      }
+    ]
   },
   "provisions": [
     {
@@ -212,9 +222,9 @@
       "article": "3",
       "clause": "7",
       "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 7",
-      "content": "7. Trường hợp công dân cung cấp giấy tờ, tài liệu trong hồ sơ đề nghị\nđăng ký cư trú thì bản quét hoặc bản chụp giấy tờ bằng thiết bị điện tử từ giấy tờ\nđược cấp hợp lệ còn giá trị sử đụng phải bảo đảm rõ nét, đầy đủ, toàn vẹn về nội\ndung; đã được hợp pháp hóa lãnh sự, dịch sang tiếng Việt theo quy định nếu là\ngiấy tờ do cơ quan có thẩm quyền nước ngoài cấp trừ trường hợp được miễn hợp\npháp hóa lãnh sự.\n\n§. Việc thông báo về kết quả giải quyết thủ tục về cư trú được thực hiện dưới\nhình thức văn bản giấy, văn bản điện tử, tin nhắn SMS, thông báo qua Ứng dụng\nđịnh danh quốc gia (VNeID).",
+      "content": "7. Trường hợp công dân cung cấp giấy tờ, tài liệu trong hồ sơ đề nghị\nđăng ký cư trú thì bản quét hoặc bản chụp giấy tờ bằng thiết bị điện tử từ giấy tờ\nđược cấp hợp lệ còn giá trị sử đụng phải bảo đảm rõ nét, đầy đủ, toàn vẹn về nội\ndung; đã được hợp pháp hóa lãnh sự, dịch sang tiếng Việt theo quy định nếu là\ngiấy tờ do cơ quan có thẩm quyền nước ngoài cấp trừ trường hợp được miễn hợp\npháp hóa lãnh sự.",
       "source_start": 3690,
-      "source_end": 4283,
+      "source_end": 4098,
       "points": [],
       "exceptions": [
         "giấy tờ do cơ quan có thẩm quyền nước ngoài cấp trừ trường hợp được miễn hợp"
@@ -222,7 +232,24 @@
       "cross_references": [],
       "kind": "legal_provision",
       "article_context": "thủ tục về cư trú",
-      "content_sha256": "76be7ff19ca104311859aac4b40d152ed7bc0e2be39c4620c5072541b28c94db",
+      "content_sha256": "50faf8a443a32c45b1c48e675b4efbe9e60e1bc628b259a4cff55f4b9ba8584a",
+      "page_from": 2,
+      "page_to": 2
+    },
+    {
+      "provision_id": "c7f081986711630f8ecd:1432:8",
+      "article": "3",
+      "clause": "8",
+      "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 8",
+      "content": "8. Việc thông báo về kết quả giải quyết thủ tục về cư trú được thực hiện dưới\nhình thức văn bản giấy, văn bản điện tử, tin nhắn SMS, thông báo qua Ứng dụng\nđịnh danh quốc gia (VNeID).",
+      "source_start": 4098,
+      "source_end": 4283,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "thủ tục về cư trú",
+      "content_sha256": "bc8afbd4c51a2b5892498721f9d59c3cf5bfd40a2cec578fd2b2d33d5a4eb6ae",
       "page_from": 2,
       "page_to": 2
     },

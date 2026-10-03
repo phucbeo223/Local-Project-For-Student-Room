@@ -4,7 +4,7 @@
 Không suy ra hiệu lực hiện hành chỉ từ việc tải được tệp. Tài liệu trích tuyển kế thừa chưa được xác nhận từng chữ với toàn văn.
 `source_start` và `source_end` là vị trí ký tự trong văn bản trích đã chuẩn hóa, không phải vị trí byte/trang của PDF gốc. Số trang PDF là trang vật lý; nguồn DOC/DOCX/Markdown dùng trang trong bản trích.
 
-Manifest SHA-256: `12cda786b35f6e99bf22c3e94ffda4ac139289d69496fecfdecbb3a9e80dc098`.
+Manifest SHA-256: `ba309b6ef424b0b15a703b019db3537002eabc6729090629e40a7aa3cf44052b`.
 
 | Tài liệu đầu vào | Chủ đề | Điều đã chọn | Số đơn vị | Nguồn công bố | Cách trích/kiểm chứng |
 |---|---|---|---:|---|---|
@@ -36,7 +36,7 @@ Manifest SHA-256: `12cda786b35f6e99bf22c3e94ffda4ac139289d69496fecfdecbb3a9e80dc
 | Nghị định 106/2025/NĐ-CP | fire_safety | 1, 2, 3, 4, 11, 12, 13, 20, 21, 22, 23, 24, 25, 39, 40 | 90 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=213672&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 154/2024/NĐ-CP | residence | 1, 2, 5, 6, 7, 16 | 35 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=211821&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Nghị định 58/2026/NĐ-CP | residence | 4, 6 | 18 | [Cơ quan nhà nước](https://vanban.chinhphu.vn/?docid=216977&pageid=27160) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
-| Thông tư 116/2026/TT-BCA | residence | 1, 2, 3, 6, 12, 13, 14, 15, 27 | 37 | [Cơ quan nhà nước](https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
+| Thông tư 116/2026/TT-BCA | residence | 1, 2, 3, 6, 12, 13, 14, 15, 27 | 38 | [Cơ quan nhà nước](https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073) | Tesseract vie+eng from signed government PDF; no automatic legal-word correction; OCR; selected critical pages visually checked, other text requires review |
 | Luật Cư trú 68/2020/QH14 | residence | 27 | 3 | [Cơ quan nhà nước](https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
 | Luật 118/2025/QH15 | residence | 4, 10, 11 | 18 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
 | Nghị định 347/2026/NĐ-CP | residence | 17, 18, 19, 29, 30, 32, 33, 35, 41 | 20 | [Cơ quan nhà nước](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/9/347_2026_nd-cp_08092026_7-signed.signed.pdf) | government PDF text/OCR; OCR/raw text; not all words visually reviewed |
@@ -282,7 +282,7 @@ SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metada
 ### residence116
 
 - Tệp cấu trúc: `docs/legal_corpus_v2/residence116.json`.
-- SHA cấu trúc: `989f4d9b0e29ab67061c502b71649144d1ce8169240700876772d7d144fe779a`.
+- SHA cấu trúc: `e755800decdf7e4fd0ef19981a1580fd52ff89b0d9c47bbdf03e99b7499bd64b`.
 - Đầu vào: `docs/legal_agent_originals_20261003/residence116.pdf`.
 - SHA đầu vào: `c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f`.
 - Nguồn: https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073

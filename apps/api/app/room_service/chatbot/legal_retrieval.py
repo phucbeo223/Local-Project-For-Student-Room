@@ -183,6 +183,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                         base -= .5
                 if 'trach nhiem' in question and 'trach nhiem' in heading and any(term in value for term in ('nguoi thue', 'chu ho gia dinh')):
                     base += .45
+            if row['category']=='criminal_law' and 'lua dao' in question and 'toi lua dao' in heading:
+                if 'thu doan gian doi' in value and not any(term in question for term in ('muc phat','muc an','bao nhieu nam')):
+                    base += .8
             if row['category'] in ('criminal_law', 'ecommerce_platform') and 'khuyen cao' in value:
                 if any(term in question for term in ('kiem tra', 'bang chung', 'cung cap thong tin', 'luu lai', 'lien ket la')):
                     base += .45
@@ -248,6 +251,9 @@ def legal_completion_status(answer: str) -> str:
     if not limitation.search(normalize_text(visible)):
         return 'complete'
     supported = []
+    # A citation after a multiline quotation supports its earlier lines too.
+    if any(len(legal_tokens(m[1]))>=8 for m in re.finditer(r'“(.*?)”\s*\[\d+\]',answer,re.S)):
+        return 'partial'
     for segment in re.split(r'\n+|(?<=[.!?])\s+', answer):
         norm = normalize_text(segment)
         if limitation.search(norm) or not re.search(r'\[\d+\]', segment):

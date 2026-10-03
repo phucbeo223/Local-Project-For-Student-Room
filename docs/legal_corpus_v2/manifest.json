@@ -533,10 +533,10 @@
     },
     {
       "file": "docs/legal_corpus_v2/residence116.json",
-      "sha256": "989f4d9b0e29ab67061c502b71649144d1ce8169240700876772d7d144fe779a",
+      "sha256": "e755800decdf7e4fd0ef19981a1580fd52ff89b0d9c47bbdf03e99b7499bd64b",
       "id": "residence116",
       "category": "residence",
-      "provisions": 37,
+      "provisions": 38,
       "articles": [
         "1",
         "2",
