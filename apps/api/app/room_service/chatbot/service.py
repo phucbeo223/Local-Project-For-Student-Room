@@ -150,12 +150,14 @@ class ChatService:
         generator: ResponseGenerator,
         confidence_threshold: float = 0.65,
         max_results: int = 5,
+        question_analyzer=None,
     ):
         self.repo = repo
         self.embedder = embedder
         self.generator = generator
         self.confidence_threshold = confidence_threshold
         self.max_results = min(max_results, 5)
+        self.question_analyzer = question_analyzer
 
     def _ask_legal(
         self,
@@ -164,12 +166,19 @@ class ChatService:
         started: float,
     ) -> ChatAskResponse:
         degraded_reasons: list[str] = []
-        embedded = self.embedder.embed_query(query)
+        agent_trace = []
+        if self.question_analyzer is not None:
+            from .agents import LegalRetrievalAgent
+            analyzed = self.question_analyzer.analyze(query)
+            degraded_reasons.extend(analyzed.degraded_reasons)
+            agent_trace.append(analyzed.step)
+            chunks, embedded, step = LegalRetrievalAgent(self.repo, self.embedder, self.max_results).retrieve(query, analyzed.plan)
+            agent_trace.append(step)
+        else:
+            embedded = self.embedder.embed_query(query)
+            chunks = self.repo.retrieve_legal(query, embedded.vector, limit=self.max_results)
         if embedded.degraded_reason:
             degraded_reasons.append(embedded.degraded_reason)
-        chunks = self.repo.retrieve_legal(
-            query, embedded.vector, limit=self.max_results
-        )
         if not chunks:
             # Second pass uses lexical retrieval with legal vocabulary even if
             # the query embedding failed or the semantic pool was irrelevant.
@@ -183,12 +192,15 @@ class ChatService:
         # not inherit the stricter listing recommendation threshold.
         if confidence < self.confidence_threshold:
             chunks = []
-        generated = extract_legal_answer(query, chunks) or self.generator.generate(query, chunks, context_kind="legal")
+        generated = (extract_legal_answer(query, chunks) if self.question_analyzer is None else None) or self.generator.generate(query, chunks, context_kind="legal")
+        attempted_provider, attempted_model = generated.provider, generated.model
+        semantic_checked = False
         if chunks and generated.provider != "template":
             generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
         issues = evidence_issues(generated.text, chunks, query) if chunks else []
         repairable = bool(issues)
         if chunks and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
+            semantic_checked = True
             checked = self.generator.check_legal_evidence(query, generated.text, chunks)
             issues.extend(checked)
             repairable = repairable or (bool(checked) and not getattr(checked, "unavailable", False))
@@ -233,7 +245,9 @@ class ChatService:
                 title=str(item["title"]),
                 source="legal_corpus",
                 source_path=item.get("source_path"),
+                source_url=item.get("source_url"),
                 category=item.get("category"),
+                page_kind=item.get('page_kind'),
                 page_from=item.get("page_from"),
                 page_to=item.get("page_to"),
                 heading=item.get("heading"),
@@ -256,6 +270,13 @@ class ChatService:
             else []
         )
         response = ChatAskResponse(
+            agent_trace=agent_trace + ([{"agent": "answer", "provider": generated.provider,
+                "model": generated.model, "status": completion,
+                "attempted_provider":attempted_provider,"attempted_model":attempted_model},
+                {"agent": "source_verification", "provider": "qwen_and_rules" if semantic_checked else "rules",
+                 "status": "rejected" if rejected else "accepted"}]
+                if self.question_analyzer is not None else []),
+            corpus_schema=getattr(self.repo, "legal_schema", None),
             answer=generated.text,
             intent="legal_question",
             confidence=round(confidence, 4),

@@ -1,0 +1,359 @@
+{
+  "source": {
+    "id": "water124",
+    "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+    "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2012/04/124nd.doc",
+    "path": "docs/legal_agent_originals_20261003/water124.doc",
+    "sha256": "f3fae17d5f680300060ea959bd352658866bf15b63747ebaf3942684d8582c67",
+    "verified_at_utc": "2026-10-03T06:06:30.189478+00:00",
+    "category": "water_cantho",
+    "title": "Nghị định 124/2011/NĐ-CP",
+    "extraction": "antiword from government original",
+    "page_kind": "logical_document",
+    "not_exhaustive": true,
+    "verification": "original attachment; no OCR; supply-contract parties distinct from landlord/tenant"
+  },
+  "provisions": [
+    {
+      "provision_id": "f3fae17d5f680300060e:566:body",
+      "article": "1",
+      "clause": null,
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP",
+      "content": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "source_start": 635,
+      "source_end": 729,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "e8acd0b9dfe28acc5a8cf3df4f48ee44f1903070562b429fee431e8e6fa34b41",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:1",
+      "article": "1",
+      "clause": "1",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 1",
+      "content": "1. Bổ sung khoản 3 Điều 6 như sau:\n\n “Điều 6. Sử dụng đất trong hoạt động cấp nước\n\n 3. Đơn vị cấp nước được miễn tiền sử dụng đất, tiền thuê đất đối với\ncông trình cấp nước bao gồm: công trình khai thác, xử lý nước, đường ống và\ncông trình trên mạng lưới đường ống cấp nước; các công trình hỗ trợ quản\nlý, vận hành hệ thống cấp nước (nhà hành chính, nhà quản lý, điều hành, nhà\nxưởng, kho bãi vật tư, thiết bị).”",
+      "source_start": 729,
+      "source_end": 1145,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 3 Điều 6",
+        "Điều 6"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "5ef36d330d9b63016122436e47e87d47123e98f62d83b88c11104deaa704ab04",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:2",
+      "article": "1",
+      "clause": "2",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 2",
+      "content": "2. Điểm b khoản 2 Điều 12 được sửa đổi, bổ sung như sau:\n\n “Điều 12. Đối tượng lập quy hoạch cấp nước\n\n 2. Quy hoạch cấp nước được tổ chức lập như một đề án quy hoạch riêng\ntrong những trường hợp sau:\n\n b) Quy hoạch cấp nước đô thị: cho các đô thị là thành phố trực thuộc\nTrung ương (và các đô thị khác nếu xét thấy cần thiết) nhằm cụ thể hóa định\nhướng cấp nước đã được xác định trong quy hoạch chung đô thị.”",
+      "source_start": 1145,
+      "source_end": 1558,
+      "points": [
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 12",
+        "Điều 12"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "c2955823a9790b99822a921db853f48b6caff1095a6e2c38ecc786940c440efb",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:3",
+      "article": "1",
+      "clause": "3",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 3",
+      "content": "3. Điều 13 được sửa đổi, bổ sung như sau:\n\n “Điều 13. Giai đoạn và thời gian lập đồ án quy hoạch cấp nước vùng\n\n 1. Giai đoạn quy hoạch cấp nước vùng theo giai đoạn quy hoạch xây dựng\nvùng.\n\n 2. Thời gian lập đồ án quy hoạch cấp nước vùng không quá 18 tháng, kể\ntừ ngày nhiệm vụ quy hoạch được cấp có thẩm quyền phê duyệt.”",
+      "source_start": 1558,
+      "source_end": 1884,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 13"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "fd362647634d8b8e1f9baaa8318e26972063cb9aa7a619193eb2d27e88beffda",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:4",
+      "article": "1",
+      "clause": "4",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 4",
+      "content": "4. Điều 21 được sửa đổi, bổ sung như sau:\n\n “Điều 21. Giai đoạn và thời gian lập đồ án quy hoạch cấp nước đô thị\n\n 1. Giai đoạn quy hoạch cấp nước đô thị theo giai đoạn quy hoạch chung\nđô thị.\n\n 2. Thời gian lập đồ án quy hoạch cấp nước đô thị không quá 9 tháng, kể\ntừ ngày nhiệm vụ quy hoạch được cấp có thẩm quyền phê duyệt.”",
+      "source_start": 1884,
+      "source_end": 2214,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 21"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "910ca11809f91cb07f5f812e7c134b2456b0c50eebf5f538aefd427a03359afd",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:5",
+      "article": "1",
+      "clause": "5",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 5",
+      "content": "5. Điều 22 được sửa đổi, bổ sung như sau:\n\n “Điều 22. Nội dung nhiệm vụ đồ án quy hoạch cấp nước đô thị\n\n 1. Nội dung nhiệm vụ quy hoạch cấp nước đô thị:\n\n a) Xác định sự cần thiết, phạm vi, mục tiêu lập quy hoạch cấp nước đô\nthị;\n\n b) Xác định các chỉ tiêu cơ bản, các tiêu chuẩn, quy chuẩn áp dụng;\n\n c) Các yêu cầu nghiên cứu về: diễn biến môi trường; chất lượng, trữ\nlượng và khả năng khai thác sử dụng các nguồn nước; các yêu cầu cụ thể về\nquy hoạch cấp nước đô thị;\n\n 2. Bản vẽ sơ đồ vị trí, ranh giới và mối quan hệ vùng; tỷ lệ 1/50.000\nđến 1/250.000.\n\n 3. Thời gian lập nhiệm vụ quy hoạch cấp nước đô thị không quá 02 tháng\nkể từ ngày ký hợp đồng tư vấn giữa cơ quan tổ chức lập quy hoạch hoặc chủ\nđầu tư với tổ chức tư vấn lập quy hoạch.”",
+      "source_start": 2214,
+      "source_end": 2964,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 22"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "b9ee8dbe55355457e784487ccfd1b964892b65d7c2786747be073287ab2a5ec3",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:6",
+      "article": "1",
+      "clause": "6",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 6",
+      "content": "6. Điều 24 được sửa đổi, bổ sung như sau:\n\n “Điều 24. Nội dung đồ án quy hoạch cấp nước đô thị\n\n 1. Đánh giá hiện trạng hệ thống cấp nước: nguồn khai thác, công suất,\nhiệu suất khai thác, chất lượng nước sạch, áp lực nước, tỷ lệ đấu nối, tỷ\nlệ thất thoát thất thu và đánh giá tình trạng hoạt động các công trình,\nmạng lưới đường ống cấp nước.\n\n 2. Đánh giá cụ thể trữ lượng, chất lượng các nguồn nước mặt, nước ngầm\nvà khả năng khai thác cho cấp nước.\n\n 3. Xác định các chỉ tiêu cấp nước cho các mục đích sử dụng, nhu cầu\ncấp nước.\n\n 4. Lựa chọn cụ thể nguồn cấp nước, xác định nhu cầu; phân vùng cấp\nnước và xác định nhu cầu sử dụng đất cho các công trình cấp nước.\n\n 5. Xác định mạng lưới đường ống cấp nước (mạng cấp I, mạng cấp II), vị\ntrí, quy mô công suất các công trình cấp nước.\n\n 6. Xác định chương trình và dự án đầu tư ưu tiên, xác định sơ bộ tổng\nmức đầu tư, dự kiến nguồn lực thực hiện.\n\n 7. Đề xuất các quy định bảo vệ nguồn nước, bảo vệ hệ thống cấp nước.\n\n 8. Đánh giá môi trường chiến lược.”",
+      "source_start": 2964,
+      "source_end": 3975,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 24"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "a6820f7a88b02cc2d4caa06f198a5d1a5a561ecbcf2cc11f530b6d34dc25c5c2",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:7",
+      "article": "1",
+      "clause": "7",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 7",
+      "content": "7. Khoản 1 Điều 25 được sửa đổi, bổ sung như sau:\n\n “Điều 25. Hồ sơ đồ án quy hoạch cấp nước đô thị\n\n 1. Bản vẽ:\n\n a) Bản đồ vị trí và mối liên hệ vùng; tỷ lệ 1/50.000 đến 1/250.000;\n\n b) Bản đồ hiện trạng hệ thống cấp nước đô thị; tỷ lệ 1/10.000 đến\n1/25.000;\n\n c) Bản đồ nguồn nước mặt, nước ngầm và khả năng khai thác nguồn nước;\ntỷ lệ 1/10.000 đến 1/25.000;\n\n d) Bản đồ quy hoạch cấp nước đô thị; tỷ lệ 1/10.000 đến 1/25.000.”",
+      "source_start": 3975,
+      "source_end": 4408,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Khoản 1 Điều 25",
+        "Điều 25"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "9ca5138c341bd6935f1bd9c910c3e5399c9232e7bba75d37498e9c70d98dc04c",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:8",
+      "article": "1",
+      "clause": "8",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 8",
+      "content": "8. Khoản 3 Điều 30 được sửa đổi, bổ sung như sau:\n\n “Điều 30. Khuyến khích, ưu đãi và hỗ trợ đầu tư\n\n 3. Dự án đầu tư xây dựng cấp nước được Nhà nước hỗ trợ:\n\n a) Đầu tư xây dựng các công trình hạ tầng ngoài hàng rào như cấp điện,\nđường;\n\n b) Chi phí bồi thường, giải phóng mặt bằng khi triển khai dự án cấp\nnước tại các đô thị;\n\n c) Chi phí bồi thường, giải phóng mặt bằng và một phần chi phí đầu tư\nxây dựng công trình khi triển khai dự án cấp nước cho những vùng đặc biệt\nkhó khăn về nguồn nước, dân tộc ít người, miền núi và hải đảo;\n\n d) Ưu tiên sử dụng các nguồn tài chính ưu đãi cho dự án đầu tư cấp\nnước, không phân biệt đối tượng sử dụng;\n\n đ) Ưu tiên hỗ trợ lãi suất sau đầu tư các dự án cấp nước sử dụng nguồn\nvốn vay thương mại.”",
+      "source_start": 4408,
+      "source_end": 5152,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Khoản 3 Điều 30",
+        "Điều 30"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "b599f059968710b7a6354f6fa96fb649c57c9d357ad2d6ab119e91402cd92c61",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:9",
+      "article": "1",
+      "clause": "9",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 9",
+      "content": "9. Hủy bỏ quy định tại khoản 2 Điều 42.",
+      "source_start": 5152,
+      "source_end": 5194,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 42"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "dc85a6f396613a41b79f0a7cd2c19593a4c60aa07351104e2f4ee346a672b1c7",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:10",
+      "article": "1",
+      "clause": "10",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 10",
+      "content": "10. Khoản 1 Điều 51 được sửa đổi, bổ sung như sau:\n\n “Điều 51. Nguyên tắc tính giá nước\n\n 1. Giá nước sạch phải được tính đúng, tính đủ các yếu tố chi phí sản\nxuất hợp lý trong quá trình sản xuất, phân phối nước sạch (bao gồm cả chi\nphí duy trì đấu nối) nhằm bảo đảm quyền và lợi ích hợp pháp của các đơn vị\ncấp nước và khách hàng sử dụng nước.”",
+      "source_start": 5194,
+      "source_end": 5542,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Khoản 1 Điều 51",
+        "Điều 51"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "437bf84442798937540b9fe61fe4f1eb9f9154b2b68760b8495229fae55712c5",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:11",
+      "article": "1",
+      "clause": "11",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 11",
+      "content": "11. Bổ sung khoản 6 Điều 52 như sau:\n\n “Điều 52. Căn cứ lập, điều chỉnh giá nước\n\n 6. Theo lộ trình điều chỉnh giá nước được Ủy ban nhân dân cấp tỉnh phê\nduyệt.”",
+      "source_start": 5542,
+      "source_end": 5706,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 6 Điều 52",
+        "Điều 52"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "6c110c06c477e5eaeda494a2218ff5f4d36c22db8a4f862ffd422dc614483885",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:566:12",
+      "article": "1",
+      "clause": "12",
+      "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 12",
+      "content": "12. Bỏ cụm từ “Sở Giao thông công chính” tại khoản 2 Điều 18, khoản 2\nĐiều 26, khoản 8 Điều 60.",
+      "source_start": 5706,
+      "source_end": 5804,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 18",
+        "khoản 2\nĐiều 26",
+        "khoản 8 Điều 60"
+      ],
+      "kind": "legal_provision",
+      "article_context": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:",
+      "content_sha256": "287301ae3e2df92c64d6f3a15bafbb2ce27836dcec68786f7603ac6e968e2c68",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:5804:body",
+      "article": "2",
+      "clause": null,
+      "heading": "Điều 2. Xử lý chuyển tiếp",
+      "content": "Điều 2. Xử lý chuyển tiếp\n\n Đối với các đơn vị cấp nước đang thu tiền nước theo quy định tại khoản\n2 Điều 42 Nghị định số 117/2007/NĐ-CP được tiếp tục thực hiện đến khi điều\nchỉnh giá nước lần kế tiếp.",
+      "source_start": 5804,
+      "source_end": 6008,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 2",
+        "khoản\n2 Điều 42"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "c518b3ba4570669653ea74d17e01b82a4665207bc01973743080258a7b19ef47",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:6008:1",
+      "article": "3",
+      "clause": "1",
+      "heading": "Điều 3. Hiệu lực và trách nhiệm thi hành | Khoản 1",
+      "content": "1. Nghị định này có hiệu lực thi hành kể từ ngày 20 tháng 02 năm 2012.",
+      "source_start": 6051,
+      "source_end": 6124,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "91a65dc705ce7918efd88dcec240a713e122ee8759135dce28275c22973b8f68",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:6008:2",
+      "article": "3",
+      "clause": "2",
+      "heading": "Điều 3. Hiệu lực và trách nhiệm thi hành | Khoản 2",
+      "content": "2. Bộ trưởng Bộ Xây dựng có trách nhiệm hướng dẫn, tổ chức thực hiện\nvà kiểm tra việc thực hiện Nghị định này.",
+      "source_start": 6124,
+      "source_end": 6237,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d354ebd3c8787902df875ed21a07ab1a12260ada37cce245d744b1a3f0fe9f33",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "f3fae17d5f680300060e:6008:3",
+      "article": "3",
+      "clause": "3",
+      "heading": "Điều 3. Hiệu lực và trách nhiệm thi hành | Khoản 3",
+      "content": "3. Các Bộ trưởng, Thủ trưởng cơ quan ngang Bộ, Thủ trưởng cơ quan\nthuộc Chính phủ, Chủ tịch Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung\nương chịu trách nhiệm thi hành Nghị định này./.\n\n \n|  |TM. CHÍNH PHỦ |\n|Nơi nhận: |THỦ TƯỚNG |\n|- Ban Bí thư Trung ương Đảng; | |\n|- Thủ tướng, các Phó Thủ tướng Chính phủ;| |\n|- Các Bộ, cơ quan ngang Bộ, cơ quan thuộc|(Đã ký) |\n|CP; | |\n|- VP BCĐ TW về phòng, chống tham nhũng; |Nguyễn Tấn Dũng |\n|- HĐND, UBND các tỉnh, TP trực thuộc TW; | |\n|- Văn phòng Trung ương và các Ban của | |\n|Đảng; | |\n|- Văn phòng Chủ tịch nước; | |\n|- Hội đồng Dân tộc và các Ủy ban của Quốc| |\n|hội; | |\n|- Văn phòng Quốc hội; | |\n|- Tòa án nhân dân tối cao; | |\n|- Viện Kiểm sát nhân dân tối cao; | |\n|- Kiểm toán Nhà nước; | |\n|- Ủy ban Giám sát tài chính Quốc gia; | |\n|- Ngân hàng Chính sách Xã hội; | |\n|- Ngân hàng Phát triển Việt Nam; | |\n|- UBTW Mặt trận Tổ quốc Việt Nam; | |\n|- Cơ quan Trung ương của các đoàn thể; | |\n|- VPCP: BTCN, các PCN, Cổng TTĐT, | |\n|các Vụ, Cục, đơn vị trực thuộc, Công báo;| |\n|- Lưu: Văn thư, KTN (5b). | |",
+      "source_start": 6237,
+      "source_end": 7307,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "3d4cda4f44a101a1caf8fb4615c17bbde7067019a8a6554f83235455e91faa9e",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

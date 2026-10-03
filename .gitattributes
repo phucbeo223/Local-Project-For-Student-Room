@@ -1,0 +1,5 @@
+# Audited sources use byte hashes. Keep their original line endings on checkout.
+docs/legal_corpus_v2/** -text
+docs/legal_agent_originals_20261003/** -text
+docs/legal_sources_originals_20261003/** -text
+Data/**/*.md -text

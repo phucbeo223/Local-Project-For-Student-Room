@@ -51,3 +51,4 @@ graphify-out/
 .claude-gate.json
 tmp/
 eval/source_supplement_20261003/
+eval/agent_source_ocr/

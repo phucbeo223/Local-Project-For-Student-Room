@@ -1,0 +1,15 @@
+{
+  "phase": "collecting_answers",
+  "started_at_utc": "2026-10-03T07:07:00.865416+00:00",
+  "baseline_sha256": "b32743c4ad5b251313f488db5ce794e9e2c0159d5b34da346d70a465e3e4810b",
+  "max_runtime_hours": 24,
+  "corpus_schema": "legal_v2",
+  "cutover": "pending verified results",
+  "updated_at_utc": "2026-10-03T07:18:17.087946+00:00",
+  "completed_answers": 2,
+  "score_counts": {
+    "faithfulness": 0,
+    "answer_relevancy": 0,
+    "context_utilization": 0
+  }
+}

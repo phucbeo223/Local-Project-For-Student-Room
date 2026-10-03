@@ -1,0 +1,50 @@
+{
+  "checked_at_utc": "2026-10-03T06:59:24.581098+00:00",
+  "corpus": "legal_v2",
+  "analysis": {
+    "agent": "question_analysis",
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "status": "completed",
+    "plan": {
+      "search_queries": [
+        "thủ tục đăng ký tạm trú khi chuyển phòng trọ",
+        "cập nhật thông tin cư trú khi thay đổi chỗ ở",
+        "quy định khai báo tạm trú cho người thuê nhà"
+      ],
+      "categories": [
+        "residence",
+        "housing_contract"
+      ],
+      "missing_information": [
+        "địa điểm phòng trọ mới (tỉnh/thành phố)",
+        "thời gian dự kiến chuyển đi"
+      ],
+      "as_of_date": null
+    },
+    "duration_ms": 2254
+  },
+  "plan": {
+    "search_queries": [
+      "thủ tục đăng ký tạm trú khi chuyển phòng trọ",
+      "cập nhật thông tin cư trú khi thay đổi chỗ ở",
+      "quy định khai báo tạm trú cho người thuê nhà"
+    ],
+    "categories": [
+      "residence",
+      "housing_contract"
+    ],
+    "missing_information": [
+      "địa điểm phòng trọ mới (tỉnh/thành phố)",
+      "thời gian dự kiến chuyển đi"
+    ],
+    "as_of_date": null
+  },
+  "degraded_reasons": [],
+  "answer_providers": [
+    {
+      "provider": "qwen-local",
+      "model": "qwen3.5:9b"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ from sqlalchemy.engine import Engine
 from .chunker import LegalChunk
 from .extractor import ExtractedDocument
 from .quality import EXTRACTION_VERSION, text_quality, suspicious_numeric_range
+from .storage import legal_sql, legal_schema
 
 
 def _vector_literal(vector: Sequence[float]) -> str:
@@ -15,8 +16,12 @@ def _vector_literal(vector: Sequence[float]) -> str:
 
 
 class LegalKnowledgeRepository:
-    def __init__(self, engine: Engine):
+    def __init__(self, engine: Engine, schema: str = "public"):
         self.engine = engine
+        self.schema = legal_schema(schema)
+
+    def _sql(self, statement: str):
+        return legal_sql(statement, self.schema)
 
     def deactivate_missing_sources(self, active_paths: Sequence[str], audit_path) -> int:
         """Preserve every chunk/vector; save prior metadata before deactivation."""
@@ -26,7 +31,7 @@ class LegalKnowledgeRepository:
         if not active_paths:
             raise ValueError("Không đồng bộ chỉ mục từ thư mục nguồn rỗng")
         with self.engine.begin() as connection:
-            rows = [dict(row) for row in connection.execute(text(
+            rows = [dict(row) for row in connection.execute(self._sql(
                 "SELECT * FROM legal_documents WHERE status='ready' AND NOT(source_path=ANY(:paths)) FOR UPDATE"
             ), {"paths": list(active_paths)}).mappings()]
             output = Path(audit_path)
@@ -37,7 +42,7 @@ class LegalKnowledgeRepository:
                 "action": "deactivate missing paths; preserve all chunks and vectors",
                 "previous_documents": rows}, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
             if rows:
-                connection.execute(text("UPDATE legal_documents SET status='failed', "
+                connection.execute(self._sql("UPDATE legal_documents SET status='failed', "
                     "error_message='inactive: source absent from current corpus; preserved for recovery', updated_at=now() "
                     "WHERE id=ANY(:ids)"), {"ids": [row["id"] for row in rows]})
         return len(rows)
@@ -45,7 +50,7 @@ class LegalKnowledgeRepository:
     def current_hash(self, source_path: str) -> str | None:
         with self.engine.connect() as connection:
             return connection.execute(
-                text(
+                self._sql(
                     "SELECT content_sha256 FROM legal_documents "
                     "WHERE source_path=:source_path AND status='ready' AND extraction_version=:version"
                 ),
@@ -64,7 +69,7 @@ class LegalKnowledgeRepository:
         with self.engine.begin() as connection:
             document_id = int(
                 connection.execute(
-                    text(
+                    self._sql(
                         "INSERT INTO legal_documents "
                         "(source_path,title,category,document_type,content_sha256,page_count,"
                         "ocr_page_count,ocr_engine,status,error_message,indexed_at,updated_at) "
@@ -88,10 +93,10 @@ class LegalKnowledgeRepository:
                     },
                 ).scalar_one()
             )
-            connection.execute(text("DELETE FROM legal_chunks WHERE document_id=:id"), {"id": document_id})
+            connection.execute(self._sql("DELETE FROM legal_chunks WHERE document_id=:id"), {"id": document_id})
             for chunk, vector in zip(chunks, vectors):
                 connection.execute(
-                    text(
+                    self._sql(
                         "INSERT INTO legal_chunks "
                         "(document_id,chunk_index,page_from,page_to,heading,content,content_sha256,"
                         "embedding_vector,embedding_model,embedded_at,text_quality,quality_warning) VALUES "
@@ -115,7 +120,7 @@ class LegalKnowledgeRepository:
                     },
                 )
             connection.execute(
-                text(
+                self._sql(
                     "UPDATE legal_documents SET status='ready',extraction_version=:version,indexed_at=now(),updated_at=now() "
                     "WHERE id=:id"
                 ),
@@ -126,7 +131,7 @@ class LegalKnowledgeRepository:
     def mark_failed(self, source_path: str, path_name: str, category: str, sha256: str, error: str) -> None:
         with self.engine.begin() as connection:
             connection.execute(
-                text(
+                self._sql(
                     "INSERT INTO legal_documents "
                     "(source_path,title,category,document_type,content_sha256,status,error_message,updated_at) "
                     "VALUES (:source_path,:title,:category,:document_type,:sha,'failed',:error,now()) "

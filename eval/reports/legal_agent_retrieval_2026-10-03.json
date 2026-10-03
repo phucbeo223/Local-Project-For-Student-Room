@@ -1,0 +1,1711 @@
+{
+  "schema": "legal_v2",
+  "gates": {
+    "all_36_retrieve_contexts": true,
+    "all_required_categories": true,
+    "every_source_has_government_url": true,
+    "contract_checklist_retains_article": true,
+    "contract_effect_not_statutory_commencement": true,
+    "deposit_exception_preserved": true,
+    "citizen_residence_duties": true,
+    "rental_residence_checklist_complete": true,
+    "moving_new_residence_direct_rule": true,
+    "house_fire_escape_requirement": true,
+    "landlord_authority_rule": true,
+    "mixed_identity_three_topics": true,
+    "contract_identity_contents": true,
+    "all_chunks_embedded_and_parented": true
+  },
+  "passed": true,
+  "integrity": {
+    "chunks": 1291,
+    "vectors": 1291,
+    "identified": 1291,
+    "parented": 1291
+  },
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 398. Nội dung của hợp đồng",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "1. Các bên trong hợp đồng có quyền thỏa thuận về nội dung trong hợp đồng.\n\n2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:6149:2"
+        },
+        {
+          "rank": 2,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:14750:2"
+        },
+        {
+          "rank": 3,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;\n\n2. Mô tả đặc điểm của nhà ở giao dịch và đặc điểm của thửa đất ở gắn với nhà ở đó.\n\nĐối với hợp đồng mua bán, hợp đồng thuê mua căn hộ chung cư thì các bên phải ghi rõ phần sở hữu chung, sử dụng chung; thời hạn sử dụng nhà chung cư theo hồ sơ thiết kế; diện tích sử dụng thuộc quyền sở hữu riêng; diện tích sàn căn hộ; mục đích sử dụng của phần sở hữu chung, sử dụng chung trong nhà chung cư theo đúng mục đích thiết kế đã được phê duyệt; giá dịch vụ quản lý vận hành nhà chung cư trong trường hợp chưa tổ chức Hội nghị nhà chung cư lần đầu; trách nhiệm đóng, mức đóng kinh phí bảo trì và thông tin tài khoản nộp kinh phí bảo trì;\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;\n\n5. Thời gian giao nhận nhà ở; thời gian bảo hành nhà ở nếu là mua, thuê mua nhà ở được đầu tư xây dựng mới; thời hạn cho thuê mua, cho thuê, thế chấp, cho mượn, cho ở nhờ, ủy quyền quản lý nhà ở; thời hạn góp vốn; thời hạn sở hữu đối với trường hợp mua bán nhà ở có thời hạn;\n\n6. Quyền và nghĩa vụ của các bên.\n\nTrường hợp thuê mua nhà ở thì phải ghi rõ quyền và nghĩa vụ của các bên về việc sửa chữa hư hỏng của nhà ở trong quá trình thuê mua;\n\n7. Cam kết của các bên;\n\n8. Thỏa thuận khác;\n\n9. Thời điểm có hiệu lực của hợp đồng;\n\n10. Ngày, tháng, năm ký kết hợp đồng;\n\n11. Chữ ký và ghi rõ họ, tên của các bên, nếu là tổ chức thì phải đóng dấu (nếu có) và ghi rõ chức vụ của người ký.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:4"
+        },
+        {
+          "rank": 4,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 4",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n4. Thời hạn và phương thức thanh toán tiền nếu là trường hợp mua bán, cho thuê mua, cho thuê nhà ở;",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:4"
+        },
+        {
+          "rank": 2,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 398. Nội dung của hợp đồng | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:6149:2"
+        },
+        {
+          "rank": 3,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 11",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n11. Chữ ký và ghi rõ họ, tên của các bên, nếu là tổ chức thì phải đóng dấu (nếu có) và ghi rõ chức vụ của người ký.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:11"
+        },
+        {
+          "rank": 4,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "2. Trường hợp bên cho thuê thực hiện cải tạo nhà ở và được bên thuê đồng ý thì bên cho thuê được quyền điều chỉnh giá thuê nhà ở nếu thời gian cho thuê còn lại từ một phần ba thời hạn của hợp đồng thuê nhà ở trở xuống. Giá thuê nhà ở mới do các bên thỏa thuận; trường hợp không thỏa thuận được thì bên cho thuê có quyền đơn phương chấm dứt hợp đồng thuê nhà ở và phải bồi thường cho bên thuê theo quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:16898:2"
+        },
+        {
+          "rank": 2,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 3",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n3. Giá trị góp vốn, giá giao dịch nhà ở nếu hợp đồng có thỏa thuận về giá; trường hợp mua bán, cho thuê mua, cho thuê nhà ở mà Nhà nước có quy định về giá thì các bên phải thực hiện theo quy định đó;",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:3"
+        },
+        {
+          "rank": 3,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 170. Thời hạn thuê, giá thuê, cho thuê lại nhà ở | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "1. Bên cho thuê và bên thuê nhà ở được thỏa thuận về thời hạn thuê, giá thuê và hình thức trả tiền thuê nhà ở theo định kỳ hoặc trả một lần; trường hợp Nhà nước có quy định về giá thuê nhà ở thì các bên phải thực hiện theo quy định đó.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:16898:1"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 328. Đặt cọc | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:2959:2"
+        },
+        {
+          "rank": 2,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:2959:1"
+        },
+        {
+          "rank": 3,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 419. Thiệt hại được bồi thường do vi phạm hợp đồng | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "2. Người có quyền có thể yêu cầu bồi thường thiệt hại cho lợi ích mà lẽ ra mình sẽ được hưởng do hợp đồng mang lại. Người có quyền còn có thể yêu cầu người có nghĩa vụ chi trả chi phí phát sinh do không hoàn thành nghĩa vụ hợp đồng mà không trùng lặp với mức bồi thường thiệt hại cho lợi ích mà hợp đồng mang lại.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:12104:2"
+        },
+        {
+          "rank": 4,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:5"
+        },
+        {
+          "rank": 2,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:3"
+        },
+        {
+          "rank": 3,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT).",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:5"
+        },
+        {
+          "rank": 2,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:3"
+        },
+        {
+          "rank": 3,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT).",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:5"
+        },
+        {
+          "rank": 2,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:3"
+        },
+        {
+          "rank": 3,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT).",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 5",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "5. Bên mua điện sử dụng vào mục đích sinh hoạt của người thuê nhà để ở áp dụng như sau:\n\na) Tại mỗi địa chỉ nhà cho thuê, bên bán điện chỉ giao kết một hợp đồng mua bán điện duy nhất. Chủ nhà cho thuê có trách nhiệm cung cấp thông tin về cư trú tại địa điểm sử dụng điện của người thuê nhà;\n\nb) Đối với trường hợp cho hộ gia đình thuê: Chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc ủy quyền cho hộ gia đình thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện), mỗi hộ gia đình thuê nhà được tính một định mức;\n\nGhi chú tuyển chọn: Điểm c khoản 5 về sinh viên/người lao động thuê nhà có mốc hiệu lực riêng tại khoản 1 Điều 21; không mặc nhiên áp dụng từ 02/12/2025.\n\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp giao kết hợp đồng mua bán điện hoặc đại diện bên thuê nhà giao kết hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ;\n\n- Trường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 01 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện;\n\n- Trường hợp người thuê nhà không giao kết hợp đồng trực tiếp với bên bán điện thì tổng tiền điện chủ nhà cho thuê thu của người thuê nhà không được vượt quá tiền điện trong hoá đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành;\n\n- Bên bán điện được phép yêu cầu bên mua điện cung cấp thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:5"
+        },
+        {
+          "rank": 2,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Điều 12. Giá bán lẻ điện sinh hoạt | Khoản 3",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "3. Bên mua điện sử dụng vào mục đích sinh hoạt cho nhà ở tập thể của cán bộ, công chức, viên chức, nhân viên, người lao động của doanh nghiệp, trừ trường hợp quy định tại khoản 4 Điều này; nhà ở của người tu hành; nhà ở cho huấn luyện viên, vận động viên của trung tâm huấn luyện thể thao, nhà thi đấu thể thao; ký túc xá học sinh, sinh viên, học viên áp dụng như sau:\n\na) Trường hợp có thể kê khai được số người thì cứ 04 (bốn) người (xác định theo thông tin về cư trú tại địa điểm sử dụng điện) được tính là một hộ sử dụng điện để áp dụng giá bán lẻ điện sinh hoạt;\n\nb) Trường hợp không thể kê khai được số người thì áp dụng giá bán lẻ điện sinh hoạt của bậc 2: từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.",
+          "context_complete": true,
+          "provision_id": "281c5617cc3a5e567fcb:4141:3"
+        },
+        {
+          "rank": 3,
+          "title": "Thông-tư-60-2025-TT-BCT",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "electricity",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-d873b9410011.json",
+          "content": "Điều 21. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành từ ngày 02 tháng 12 năm 2025, trừ quy định tại khoản 3 Điều 4, khoản 1 và khoản 2 Điều 5, Điều 9, Điều 10, khoản 10 Điều 11, khoản 3 Điều 12, khoản 4 Điều 12, điểm c khoản 5 Điều 12, khoản 6 Điều 14, khoản 6 Điều 15 Thông tư này và Phụ lục ban hành kèm theo Thông tư này có hiệu lực thi hành kể từ ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành.\n\nĐiều 20. Điều khoản chuyển tiếp | Khoản 1\n1. Các quy định tại Thông tư số 16/2014/TT-BCT ngày 29 tháng 5 năm 2014 của Bộ trưởng Bộ Công Thương quy định về giá bán điện được tiếp tục áp dụng từ ngày Thông tư này có hiệu lực đến ngày thực hiện điều chỉnh mức giá bán lẻ điện bình quân gần nhất sau ngày Quyết định số 14/2025/QĐ-TTg có hiệu lực thi hành, bao gồm:\n\na) Khoản 1 Điều 5;\n\nb) Khoản 10 Điều 8;\n\nc) Khoản 3 Điều 10 (đã được sửa đổi theo quy định tại khoản 3 Điều 1 của Thông tư số 09/2023/TT-BCT sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT và Thông tư số 25/2018/TT-BCT ngày 12 tháng 9 năm 2018 của Bộ trưởng Bộ Công Thương sửa đổi, bổ sung một số điều của Thông tư số 16/2014/TT-BCT);\n\nd) Điểm c khoản 4 Điều 10 (đã được sửa đổi theo quy định tại khoản 5 Điều 1 của Thông tư số 25/2018/TT-BCT và khoản 2 Điều 2 của Thông tư số 09/2023/TT-BCT);\n\nđ) Khoản 6 Điều 12 (đã được sửa đổi theo quy định tại khoản 7 Điều 1 của Thông tư số 09/2023/TT-BCT);\n\ne) Khoản 6 Điều 13 (đã được sửa đổi theo quy định tại khoản 9 Điều 1 của Thông tư số 09/2023/TT-BCT).",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 124/2011/NĐ-CP",
+          "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 6",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water124.json",
+          "content": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:\n\n6. Điều 24 được sửa đổi, bổ sung như sau:\n\n “Điều 24. Nội dung đồ án quy hoạch cấp nước đô thị\n\n 1. Đánh giá hiện trạng hệ thống cấp nước: nguồn khai thác, công suất,\nhiệu suất khai thác, chất lượng nước sạch, áp lực nước, tỷ lệ đấu nối, tỷ\nlệ thất thoát thất thu và đánh giá tình trạng hoạt động các công trình,\nmạng lưới đường ống cấp nước.\n\n 2. Đánh giá cụ thể trữ lượng, chất lượng các nguồn nước mặt, nước ngầm\nvà khả năng khai thác cho cấp nước.\n\n 3. Xác định các chỉ tiêu cấp nước cho các mục đích sử dụng, nhu cầu\ncấp nước.\n\n 4. Lựa chọn cụ thể nguồn cấp nước, xác định nhu cầu; phân vùng cấp\nnước và xác định nhu cầu sử dụng đất cho các công trình cấp nước.\n\n 5. Xác định mạng lưới đường ống cấp nước (mạng cấp I, mạng cấp II), vị\ntrí, quy mô công suất các công trình cấp nước.\n\n 6. Xác định chương trình và dự án đầu tư ưu tiên, xác định sơ bộ tổng\nmức đầu tư, dự kiến nguồn lực thực hiện.\n\n 7. Đề xuất các quy định bảo vệ nguồn nước, bảo vệ hệ thống cấp nước.\n\n 8. Đánh giá môi trường chiến lược.”",
+          "context_complete": true,
+          "provision_id": "f3fae17d5f680300060e:566:6"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 1. Phạm vi điều chỉnh và đối tượng áp dụng | Khoản 2",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "2. Nghị định này áp dụng đối với các tổ chức, cá nhân và hộ gia đình\ntrong nước; tổ chức, cá nhân nước ngoài có hoạt động liên quan đến việc sản\nxuất, cung cấp và tiêu thụ nước sạch trên lãnh thổ Việt Nam.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:422:2"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 54. Thẩm quyền quyết định giá nước | Khoản 1",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "1. Bộ trưởng Bộ Tài chính ban hành khung giá nước sạch sinh hoạt trên\nphạm vi toàn quốc.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:48564:1"
+        },
+        {
+          "rank": 4,
+          "title": "Nghị định 124/2011/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water124.json",
+          "content": "Điều 3. Hiệu lực và trách nhiệm thi hành | Khoản 2\n2. Bộ trưởng Bộ Xây dựng có trách nhiệm hướng dẫn, tổ chức thực hiện\nvà kiểm tra việc thực hiện Nghị định này.\n\nĐiều 3. Hiệu lực và trách nhiệm thi hành | Khoản 3\n3. Các Bộ trưởng, Thủ trưởng cơ quan ngang Bộ, Thủ trưởng cơ quan\nthuộc Chính phủ, Chủ tịch Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung\nương chịu trách nhiệm thi hành Nghị định này./.\n\n \n|  |TM. CHÍNH PHỦ |\n|Nơi nhận: |THỦ TƯỚNG |\n|- Ban Bí thư Trung ương Đảng; | |\n|- Thủ tướng, các Phó Thủ tướng Chính phủ;| |\n|- Các Bộ, cơ quan ngang Bộ, cơ quan thuộc|(Đã ký) |\n|CP; | |\n|- VP BCĐ TW về phòng, chống tham nhũng; |Nguyễn Tấn Dũng |\n|- HĐND, UBND các tỉnh, TP trực thuộc TW; | |\n|- Văn phòng Trung ương và các Ban của | |\n|Đảng; | |\n|- Văn phòng Chủ tịch nước; | |\n|- Hội đồng Dân tộc và các Ủy ban của Quốc| |\n|hội; | |\n|- Văn phòng Quốc hội; | |\n|- Tòa án nhân dân tối cao; | |\n|- Viện Kiểm sát nhân dân tối cao; | |\n|- Kiểm toán Nhà nước; | |\n|- Ủy ban Giám sát tài chính Quốc gia; | |\n|- Ngân hàng Chính sách Xã hội; | |\n|- Ngân hàng Phát triển Việt Nam; | |\n|- UBTW Mặt trận Tổ quốc Việt Nam; | |\n|- Cơ quan Trung ương của các đoàn thể; | |\n|- VPCP: BTCN, các PCN, Cổng TTĐT, | |\n|các Vụ, Cục, đơn vị trực thuộc, Công báo;| |\n|- Lưu: Văn thư, KTN (5b). | |\n\nĐiều 2. Xử lý chuyển tiếp\nĐiều 2. Xử lý chuyển tiếp\n\n Đối với các đơn vị cấp nước đang thu tiền nước theo quy định tại khoản\n2 Điều 42 Nghị định số 117/2007/NĐ-CP được tiếp tục thực hiện đến khi điều\nchỉnh giá nước lần kế tiếp.",
+          "context_complete": null,
+          "provision_id": null
+        },
+        {
+          "rank": 5,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 56. Quyền và nghĩa vụ của khách hàng sử dụng nước | Khoản 2",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "2. Khách hàng sử dụng nước có các nghĩa vụ sau:\n\n a) Thanh toán tiền nước đầy đủ, đúng thời hạn và thực hiện các thỏa\nthuận khác trong hợp đồng dịch vụ cấp nước;\n\n b) Sử dụng nước tiết kiệm;\n\n c) Thông báo kịp thời cho đơn vị cấp nước khi phát hiện những dấu hiệu\nbất thường có thể gây mất nước, ảnh hưởng đến chất lượng dịch vụ, mất an\ntoàn cho người và tài sản;\n\n d) Tạo điều kiện để đơn vị cấp nước kiểm tra, ghi chỉ số của đồng hồ đo\nnước;\n\n đ) Bảo đảm các trang thiết bị sử dụng nước đáp ứng các tiêu chuẩn, quy\nchuẩn kỹ thuật, phù hợp với đặc tính kỹ thuật trang thiết bị của đơn vị cấp\nnước;\n\n e) Bồi thường khi gây thiệt hại cho đơn vị cấp nước và các tổ chức, cá\nnhân có liên quan theo quy định của pháp luật;\n\n g) Các nghĩa vụ khác theo quy định của pháp luật.\n\n Chương VII\n BẢO ĐẢM AN TOÀN CẤP NƯỚC",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:50979:2"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 50. Kiểm định thiết bị đo đếm nước | Khoản 3",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "3. Khi có nghi ngờ thiết bị đo đếm nước không chính xác, khách hàng sử\ndụng nước có quyền yêu cầu đơn vị cấp nước kiểm tra. Trong thời hạn 5 ngày\nlàm việc, kể từ khi nhận được yêu cầu của khách hàng sử dụng nước, đơn vị\ncấp nước phải kiểm tra và hoàn thành việc sửa chữa hoặc thay thế thiết bị\nđo đếm nước. Trường hợp không đồng ý với kết quả kiểm tra, sửa chữa hoặc\nthay thế của đơn vị cấp nước, khách hàng sử dụng nước có quyền yêu cầu cơ\nquan quản lý nhà nước về cấp nước tại địa phương tổ chức kiểm định độc lập.\nTrong thời hạn 15 ngày làm việc, kể từ ngày nhận được yêu cầu của khách\nhàng sử dụng nước, cơ quan quản lý nhà nước về cấp nước tại địa phương có\ntrách nhiệm tổ chức việc kiểm định.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:44205:3"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 50. Kiểm định thiết bị đo đếm nước | Khoản 5",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "5. Trường hợp tổ chức kiểm định độc lập xác định chỉ số đo đếm của đồng\nhồ nước vượt quá số lượng nước sử dụng thực tế thì đơn vị cấp nước phải\nhoàn trả khoản tiền thu thừa cho khách hàng sử dụng nước.\n\n Chương V\n\n GIÁ NƯỚC SẠCH",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:44205:5"
+        },
+        {
+          "rank": 4,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 124/2011/NĐ-CP",
+          "heading": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 117/2007/NĐ-CP | Khoản 8",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water124.json",
+          "content": "ngày 11 tháng 7 năm 2007 của Chính phủ về sản xuất, cung cấp và tiêu thụ\nnước sạch như sau:\n\n8. Khoản 3 Điều 30 được sửa đổi, bổ sung như sau:\n\n “Điều 30. Khuyến khích, ưu đãi và hỗ trợ đầu tư\n\n 3. Dự án đầu tư xây dựng cấp nước được Nhà nước hỗ trợ:\n\n a) Đầu tư xây dựng các công trình hạ tầng ngoài hàng rào như cấp điện,\nđường;\n\n b) Chi phí bồi thường, giải phóng mặt bằng khi triển khai dự án cấp\nnước tại các đô thị;\n\n c) Chi phí bồi thường, giải phóng mặt bằng và một phần chi phí đầu tư\nxây dựng công trình khi triển khai dự án cấp nước cho những vùng đặc biệt\nkhó khăn về nguồn nước, dân tộc ít người, miền núi và hải đảo;\n\n d) Ưu tiên sử dụng các nguồn tài chính ưu đãi cho dự án đầu tư cấp\nnước, không phân biệt đối tượng sử dụng;\n\n đ) Ưu tiên hỗ trợ lãi suất sau đầu tư các dự án cấp nước sử dụng nguồn\nvốn vay thương mại.”",
+          "context_complete": true,
+          "provision_id": "f3fae17d5f680300060e:566:8"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 58. Bảo đảm ổn định dịch vụ cấp nước | Khoản 2",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "2. Trong trường hợp có sự cố xảy ra trên hệ thống cấp nước:\n\n a) Đơn vị cấp nước cần thông báo kịp thời cho các khách hàng sử dụng\nnước có biện pháp dự trữ nước trong thời gian khôi phục dịch vụ cấp nước;\n\n b) Thông báo ngay với cơ quan quản lý giao thông và có quyền chủ động\nkhắc phục sự cố để bảo đảm an toàn cấp nước, đồng thời phải bảo đảm an toàn\ngiao thông tại nơi có sự cố và hoàn trả mặt bằng theo quy định;\n\n c) Nếu thời gian khắc phục sự cố kéo dài, đơn vị cấp nước phải phối hợp\nvới chính quyền địa phương thực hiện các biện pháp cấp nước tạm thời đáp\nứng nhu cầu sinh hoạt tối thiểu của người dân ở khu vực bị ảnh hưởng.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:52906:2"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 44. Hợp đồng dịch vụ cấp nước | Khoản 2",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "2. Hợp đồng dịch vụ cấp nước bao gồm các nội dung cơ bản sau:\n\n a) Chủ thể hợp đồng;\n\n b) Mục đích sử dụng;\n\n c) Tiêu chuẩn và chất lượng dịch vụ;\n\n d) Quyền và nghĩa vụ của các bên;\n\n đ) Giá nước, phương thức và thời hạn thanh toán;\n\n e) Điều kiện chấm dứt hợp đồng;\n\n g) Xử lý vi phạm hợp đồng;\n\n h) Các nội dung khác do hai bên thỏa thuận.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:38661:2"
+        },
+        {
+          "rank": 4,
+          "title": "Nghị định 124/2011/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water124.json",
+          "content": "Điều 3. Hiệu lực và trách nhiệm thi hành | Khoản 2\n2. Bộ trưởng Bộ Xây dựng có trách nhiệm hướng dẫn, tổ chức thực hiện\nvà kiểm tra việc thực hiện Nghị định này.\n\nĐiều 3. Hiệu lực và trách nhiệm thi hành | Khoản 3\n3. Các Bộ trưởng, Thủ trưởng cơ quan ngang Bộ, Thủ trưởng cơ quan\nthuộc Chính phủ, Chủ tịch Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung\nương chịu trách nhiệm thi hành Nghị định này./.\n\n \n|  |TM. CHÍNH PHỦ |\n|Nơi nhận: |THỦ TƯỚNG |\n|- Ban Bí thư Trung ương Đảng; | |\n|- Thủ tướng, các Phó Thủ tướng Chính phủ;| |\n|- Các Bộ, cơ quan ngang Bộ, cơ quan thuộc|(Đã ký) |\n|CP; | |\n|- VP BCĐ TW về phòng, chống tham nhũng; |Nguyễn Tấn Dũng |\n|- HĐND, UBND các tỉnh, TP trực thuộc TW; | |\n|- Văn phòng Trung ương và các Ban của | |\n|Đảng; | |\n|- Văn phòng Chủ tịch nước; | |\n|- Hội đồng Dân tộc và các Ủy ban của Quốc| |\n|hội; | |\n|- Văn phòng Quốc hội; | |\n|- Tòa án nhân dân tối cao; | |\n|- Viện Kiểm sát nhân dân tối cao; | |\n|- Kiểm toán Nhà nước; | |\n|- Ủy ban Giám sát tài chính Quốc gia; | |\n|- Ngân hàng Chính sách Xã hội; | |\n|- Ngân hàng Phát triển Việt Nam; | |\n|- UBTW Mặt trận Tổ quốc Việt Nam; | |\n|- Cơ quan Trung ương của các đoàn thể; | |\n|- VPCP: BTCN, các PCN, Cổng TTĐT, | |\n|các Vụ, Cục, đơn vị trực thuộc, Công báo;| |\n|- Lưu: Văn thư, KTN (5b). | |\n\nĐiều 2. Xử lý chuyển tiếp\nĐiều 2. Xử lý chuyển tiếp\n\n Đối với các đơn vị cấp nước đang thu tiền nước theo quy định tại khoản\n2 Điều 42 Nghị định số 117/2007/NĐ-CP được tiếp tục thực hiện đến khi điều\nchỉnh giá nước lần kế tiếp.",
+          "context_complete": null,
+          "provision_id": null
+        },
+        {
+          "rank": 5,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 48. Thanh toán tiền nước | Khoản 5",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "5. Khách hàng sử dụng nước có quyền yêu cầu đơn vị cấp nước xem xét lại\nsố tiền nước phải thanh toán. Khi nhận được yêu cầu của khách hàng sử dụng\nnước, đơn vị cấp nước có trách nhiệm giải quyết trong thời hạn 15 ngày làm\nviệc. Trường hợp không đồng ý với cách giải quyết của đơn vị cấp nước,\nkhách hàng sử dụng nước có thể đề nghị cơ quan, tổ chức có thẩm quyền tổ\nchức việc hòa giải. Trong trường hợp không đề nghị hòa giải hoặc hòa giải\nkhông thành, khách hàng sử dụng nước có quyền khởi kiện tại tòa án theo quy\nđịnh của pháp luật về tố tụng dân sự. Trong thời gian chờ giải quyết, khách\nhàng sử dụng nước vẫn phải thanh toán tiền nước và đơn vị cấp nước không\nđược ngừng dịch vụ cấp nước.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:41746:5"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 48. Thanh toán tiền nước | Khoản 1",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "1. Khách hàng sử dụng nước phải thanh toán đủ và đúng thời hạn số tiền\nnước ghi trong hóa đơn cho đơn vị cấp nước. Phương thức, hình thức và địa\nđiểm thanh toán do hai bên thỏa thuận trong Hợp đồng dịch vụ cấp nước.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:41746:1"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Điều 58. Bảo đảm ổn định dịch vụ cấp nước | Khoản 2",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "2. Trong trường hợp có sự cố xảy ra trên hệ thống cấp nước:\n\n a) Đơn vị cấp nước cần thông báo kịp thời cho các khách hàng sử dụng\nnước có biện pháp dự trữ nước trong thời gian khôi phục dịch vụ cấp nước;\n\n b) Thông báo ngay với cơ quan quản lý giao thông và có quyền chủ động\nkhắc phục sự cố để bảo đảm an toàn cấp nước, đồng thời phải bảo đảm an toàn\ngiao thông tại nơi có sự cố và hoàn trả mặt bằng theo quy định;\n\n c) Nếu thời gian khắc phục sự cố kéo dài, đơn vị cấp nước phải phối hợp\nvới chính quyền địa phương thực hiện các biện pháp cấp nước tạm thời đáp\nứng nhu cầu sinh hoạt tối thiểu của người dân ở khu vực bị ảnh hưởng.",
+          "context_complete": true,
+          "provision_id": "baa30359ccb0743198f2:52906:2"
+        },
+        {
+          "rank": 4,
+          "title": "Nghị định 117/2007/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "water_cantho",
+          "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/water117.json",
+          "content": "Điều 65. Hiệu lực thi hành\nĐiều 65. Hiệu lực thi hành\n\n Nghị định này có hiệu lực thi hành sau 15 ngày, kể từ ngày đăng Công\nbáo.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 12. Đăng ký tạm trú | Khoản 2",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "2. Học sinh, sinh viên, học viên đến ở tập trung trong ký túc xá, khu nhà ở\ncủa học sinh, sinh viên, học viên; người lao động dén ở tập trung tại các khu nhà\nở của người lao động, khu lán trại công trường xây dựng, nông trường, nông\ntrại, đồn điền; người hoạt động tín ngưỡng, tôn giáo sinh sống trong cơ sở tín\nngưỡng, cơ sở tôn giáo; trẻ em, người khuyết tật, người không nơi nương tựa\nđược nhận nuôi và sinh sống trong cơ sở tín ngưỡng, cơ sở tôn giáo; người được\nchăm sóc, nuôi dưỡng, trợ giúp tại cơ sở trợ giúp xã hội có thể thực hiện đăng ký\ntạm trú thông qua cơ quan, tô chức quan lý trực tiếp chỗ ở đó.\n\nCo quan, tổ chức quan lý trực tiếp có trách nhiệm lập danh sách người tạm\ntrú, kèm Tờ khai thay đổi thông tin cư trú của từng người, van bản đề nghị đăng\nký tạm trú trong đó ghi rõ thông tin về chỗ ở hợp pháp và được cơ quan đăng ký\ncư trú cập nhật thông tin về nơi tạm trú vào Cơ sở dữ liệu về cư trú. Danh sách\nbao gồm những thông tin cơ bản của từng người: họ, chữ đệm và tên; ngày, tháng,\nnăm sinh; giới tính; số định danh cá nhân và thời hạn tạm trú.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:16426:2"
+        },
+        {
+          "rank": 2,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 3",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "3. Trong thời hạn 15 ngày trước ngày kết thúc thời hạn tạm trú đã đăng ký, công dân phải làm thủ tục gia hạn tạm trú.\nHồ sơ, thủ tục gia hạn tạm trú thực hiện theo quy định tại khoản 1 và khoản 2 Điều này. Sau khi thẩm định hồ sơ, cơ quan đăng ký cư trú có trách nhiệm cập nhật thông tin về thời hạn tạm trú mới của người đăng ký vào Cơ sở dữ liệu về cư trú và thông báo cho người đăng ký về việc đã cập nhật thông tin đăng ký tạm trú; trường hợp từ chối đăng ký thì phải trả lời bằng văn bản và nêu rõ lý do.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:3"
+        },
+        {
+          "rank": 3,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 13. Hủy bỏ đăng ký tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "1. Trường hợp cơ quan đăng ký cư trú giải quyết thủ tục đăng ký tạm trú\nhoặc các thủ tục khác về cư trú làm thay đổi kết quả đăng ký tạm trú không đúng\nthấm quyền, không đúng điều kiện và không đúng đối tượng theo quy định của\nLuật Cư trú thì phải hủy kết quả đã giải quyết. Trường hợp phức tạp thì báo cáo\nThủ trưởng cấp trên trực tiếp của cơ quan đã đăng ký tạm trú xem xét ra quyết\nđịnh hủy bỏ việc đăng ký tạm trú hoặc các thủ tục khác về cư trú.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:17968:1"
+        },
+        {
+          "rank": 4,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:1"
+        },
+        {
+          "rank": 2,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "thủ tục về cư trú\n\n6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:1432:6"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 9. Nghĩa vụ của công dân về cư trú | Khoản 2",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "2. Cung cấp đầy đủ, chính xác, kịp thời thông tin, giấy tờ, tài liệu về cư trú của mình cho cơ quan, người có thẩm quyền và chịu trách nhiệm về thông tin, giấy tờ, tài liệu đã cung cấp.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:66:2"
+        },
+        {
+          "rank": 4,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:1"
+        },
+        {
+          "rank": 2,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "thủ tục về cư trú\n\n6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:1432:6"
+        },
+        {
+          "rank": 3,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 7",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "thủ tục về cư trú\n\n7. Trường hợp công dân cung cấp giấy tờ, tài liệu trong hồ sơ đề nghị\nđăng ký cư trú thì bản quét hoặc bản chụp giấy tờ bằng thiết bị điện tử từ giấy tờ\nđược cấp hợp lệ còn giá trị sử đụng phải bảo đảm rõ nét, đầy đủ, toàn vẹn về nội\ndung; đã được hợp pháp hóa lãnh sự, dịch sang tiếng Việt theo quy định nếu là\ngiấy tờ do cơ quan có thẩm quyền nước ngoài cấp trừ trường hợp được miễn hợp\npháp hóa lãnh sự.\n\n§. Việc thông báo về kết quả giải quyết thủ tục về cư trú được thực hiện dưới\nhình thức văn bản giấy, văn bản điện tử, tin nhắn SMS, thông báo qua Ứng dụng\nđịnh danh quốc gia (VNeID).",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:1432:7"
+        },
+        {
+          "rank": 4,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 12. Đăng ký tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm\nthực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3\nĐiều 6 Thông tư này.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:16426:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:1"
+        },
+        {
+          "rank": 3,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "thủ tục về cư trú\n\n6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh.",
+          "context_complete": true,
+          "provision_id": "c7f081986711630f8ecd:1432:6"
+        },
+        {
+          "rank": 4,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "residence",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "content": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 1",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "1. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Lắp đặt, sử dụng thiết bị điện bảo đảm điều kiện an toàn về phòng cháy quy định tại điểm c khoản 1 Điều 24 của Luật này;\n\nb) Bố trí bếp đun nấu, nơi thờ cúng, đốt vàng mã bảo đảm an toàn; không để vật, chất dễ cháy, nổ gần nguồn lửa, nguồn nhiệt.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:5742:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 2",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "2. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện về chữa cháy, thoát nạn sau đây:\n\na) Có phương tiện phòng cháy, chữa cháy phù hợp với khả năng, điều kiện thực tế để sẵn sàng chữa cháy, thoát nạn;\n\nb) Bố trí, duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:5742:2"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh | Khoản 2",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "2. Nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Các điều kiện an toàn về phòng cháy quy định tại khoản 1 Điều này;\n\nb) Không bố trí chỗ ngủ trong khu vực sản xuất, kinh doanh;\n\nc) Có phương tiện báo cháy, giải pháp thông gió, thiết bị phát hiện sự cố rò rỉ chất khí nguy hiểm về cháy, nổ phù hợp với công năng, đặc điểm của nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ;\n\nd) Khu vực sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải được ngăn cháy với lối thoát nạn của khu vực để ở.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:7816:2"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 1",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "1. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Lắp đặt, sử dụng thiết bị điện bảo đảm điều kiện an toàn về phòng cháy quy định tại điểm c khoản 1 Điều 24 của Luật này;\n\nb) Bố trí bếp đun nấu, nơi thờ cúng, đốt vàng mã bảo đảm an toàn; không để vật, chất dễ cháy, nổ gần nguồn lửa, nguồn nhiệt.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:5742:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 2",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "2. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện về chữa cháy, thoát nạn sau đây:\n\na) Có phương tiện phòng cháy, chữa cháy phù hợp với khả năng, điều kiện thực tế để sẵn sàng chữa cháy, thoát nạn;\n\nb) Bố trí, duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:5742:2"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh | Khoản 2",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "2. Nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Các điều kiện an toàn về phòng cháy quy định tại khoản 1 Điều này;\n\nb) Không bố trí chỗ ngủ trong khu vực sản xuất, kinh doanh;\n\nc) Có phương tiện báo cháy, giải pháp thông gió, thiết bị phát hiện sự cố rò rỉ chất khí nguy hiểm về cháy, nổ phù hợp với công năng, đặc điểm của nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ;\n\nd) Khu vực sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải được ngăn cháy với lối thoát nạn của khu vực để ở.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:7816:2"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 106/2025/NĐ-CP",
+          "heading": "Điều 24. Vi phạm quy định về thoát nạn trong phòng cháy và chữa cháy | Khoản 2",
+          "category": "fire_safety",
+          "source_url": "https://vanban.chinhphu.vn/?docid=213672&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/fire106.json",
+          "content": "2. Phat tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi để\nvat tư, hàng hóa, phương tiện giao thông, vật dụng, thiệt bị khác cản trở lôi\nthoát nạn hoặc đường thoát nạn. .\n\n; 3. Phat tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong\ncác hành vi sau đây:\n\na) Không duy trì cửa đi đã được lắp đặt trên lối thoát nạn hoặc đường\nthoát nạn;\n\n! b) Khóa cửa đi lắp đặt trên lối thoát nạn hoặc đường thoát nạn.",
+          "context_complete": true,
+          "provision_id": "67f0d65f360ea4405594:36141:2"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị-định-105-2025-NĐ-CP",
+          "heading": "Điều 13. Nội dung, thẩm quyền kiểm tra về phòng cháy, chữa cháy | Khoản 1",
+          "category": "fire_safety",
+          "source_url": "https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-8fb07729dbcb.json",
+          "content": "Ghi chú tuyển chọn: Chỉ tuyển các điểm của khoản 1 liên quan nhà ở, người thuê và an toàn thoát nạn; điểm a, b khoản 2 đã thay bằng nội dung Nghị định 347/2026/NĐ-CP Điều 17.\n\n1. Nội dung kiểm tra về phòng cháy, chữa cháy theo quy định tại khoản 2 Điều 11 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ trong việc:\n\na) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của người đứng đầu cơ sở bao gồm: trách nhiệm trong việc thực hiện quy định tại các điểm a, b, c, đ, e, g và điểm h khoản 3 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; tổ chức thực hiện, kiểm tra, đôn đốc, giám sát cơ quan, tổ chức, cá nhân thuộc phạm vi quản lý về việc thực hiện quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nc) Trang bị phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy, nguồn nước chữa cháy theo quy định;\n\nd) Duy trì hoạt động các phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy; nguồn nước chữa cháy;\n\ne) Duy trì điều kiện an toàn phòng cháy trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nh) Duy trì giải pháp thoát nạn, ngăn cháy, chống cháy lan, chống khói;\n\nl) Chấp hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nm) Duy trì các biển cấm, biển báo, biển chỉ dẫn;\n\nn) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của chủ hộ gia đình trực tiếp sử dụng nhà ở, người thuê, mượn, ở nhờ nhà ở theo quy định tại khoản 6 và khoản 8 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\no) Duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn;",
+          "context_complete": true,
+          "provision_id": "96d3c8812018b49f0968:1574:1"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 7",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "7. Cá nhân có trách nhiệm sau đây:\n\na) Chấp hành quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ của cơ quan, tổ chức hoặc người có thẩm quyền theo quy định của pháp luật;\n\nb) Tìm hiểu kiến thức về phòng cháy, chữa cháy, cứu nạn, cứu hộ và kỹ năng thoát nạn, sử dụng dụng cụ, phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ thông dụng;\n\nc) Bảo đảm an toàn trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nd) Phát hiện, ngăn chặn nguy cơ trực tiếp gây cháy, nổ và các hành vi vi phạm quy định an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ trong điều kiện, khả năng cho phép;\n\nđ) Tham gia chữa cháy, cứu nạn, cứu hộ khi được cơ quan, người có thẩm quyền huy động; chấp hành yêu cầu, quyết định của người chỉ huy chữa cháy, người chỉ huy cứu nạn, cứu hộ khi tham gia chữa cháy, cứu nạn, cứu hộ.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:65:7"
+        },
+        {
+          "rank": 4,
+          "title": "Nghị định 106/2025/NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "fire_safety",
+          "source_url": "https://vanban.chinhphu.vn/?docid=213672&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/fire106.json",
+          "content": "Điều 3. Hình thức xử phạt vi phạm hành chính và biện pháp khắc-\nphục hậu quả\n\n1, Các hình thức xử phạt chính trong lĩnh vực phòng cháy, chữa cháy và\ncứu nạn, cứu hộ bao gôm:\n\na) Cảnh cáo;\n\nb) Phạt tiền.\n\nĐiều 3. Hình thức xử phạt vi phạm hành chính và biện pháp khắc- | Khoản 2\n2. Các hình thức xử phạt bổ sung trong lĩnh vực phòng cháy, chữa cháy\nvà cứu nạn, cứu hộ bao gôm:\n\na) Đình chỉ hoạt động có thời hạn;\n\nb) Tịch thu tang vật vi phạm hành chính;\n\nc) Tước quyền sử dụng giấy phép là văn bản thẩm định thiết kế về phòng\ncháy và chữa cháy, văn bản châp thuận kêt quả nghiệm thu về phòng cháy\nvà chữa cháy từ 06 tháng đến 12 tháng.\n\nĐiều 3. Hình thức xử phạt vi phạm hành chính và biện pháp khắc- | Khoản 3\n3. Các biện pháp khắc phục hậu quả trong lĩnh vực phòng cháy, chữa\ncháy và cứu nạn, cứu hộ bao gôm:\n\na) Biện pháp khắc phục hậu quả quy định tại điểm a khoản 1 Điều 28\nLuật Xử lý vi phạm hành chính;\n\nb) Các biện pháp khác được quy định cụ thé tại Nghị định này.\n\nĐiều 3. Hình thức xử phạt vi phạm hành chính và biện pháp khắc- | Khoản 4\n4. Thủ tục thi hành biện pháp khắc phục hậu quả buộc nộp lại giấy phép\nbị tây xóa, sửa chữa làm sai lệch nội dung:\n\na) Người có thẩm quyền Ta quyết định, cá nhân, tổ chức vi phạm có trách\nnhiệm thi hành biện pháp khắc phục hậu quả buộc nộp lại giây phép bị tây\nxóa, sửa chữa làm sai lệch nội dung thực hiện theo quy định tại các khoản 1,\n\n2, 3 và khoản 4 Điều 85 Luật Xử lý vi phạm hành chính;\n\nb) Người có thâm quyền ra quyết định thi hành biện pháp khắc phục hậu\nquả theo quy định tại điểm a khoản này phải thông báo bang văn bản cho cơ\nquan, người có thâm quyên đã cap giây phép đó.\n\n| „9. Cơ quan, người có thẩm quyền xử phạt vi phạm thực hiện việc tước\nquyên sử dụng giây phép dưới dang văn bản điện tử đã được cap trước đó trên\nmôi trường điện tử doi với hành vi vi phạm trong lĩnh vực phòng cháy, chữa\ncháy và cứu nạn, cứu hộ theo quy định tại khoản 6 Điều 15 Nghị định này\ntrên môi trường điện tử. Việc tước quyên sử dụng văn bản thâm định thiệt ke\nvề phòng cháy và chữa cháy, văn bản chap thuận kêt quả nghiệm thu -về\n\n4 :\nphòng cháy va chữa cháy được cập nhật trạng thái trên hệ thống Cơ sở đữ liệu\nvề phòng cháy, chữa cháy và cứu nạn, cứu hộ do Bộ Công an xây dựng, quản\n\nĐiều 40. Điều khoản chuyển tiếp | Khoản 2\n2. Đối với quyết định xử phạt vi phạm hành chính đã được ban hành hoặc\nđã được thi hanh xong truéc thoi diém Nghi dinh nay có hiệu lực thi hành, mà\ncá nhận, tô chức bị xử phạt vi phạm hành chính còn khiêu nai thì áp dụng quy\nđịnh về xử phạt vi phạm hành chính tại thời điểm ban hành quyêt định xử phạt\n\ndé giải quyét.\n\n36 ‘ -",
+          "context_complete": null,
+          "provision_id": null
+        },
+        {
+          "rank": 5,
+          "title": "Nghị-định-105-2025-NĐ-CP",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "fire_safety",
+          "source_url": "https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-8fb07729dbcb.json",
+          "content": "Điều 46. Quy định chuyển tiếp\nGhi chú tuyển chọn: Chỉ giữ khoản 6 mới về cơ sở hoạt động trước 01/07/2025; được bổ sung tại Điều 29 khoản 2 Nghị định 347/2026/NĐ-CP. Bản PDF nguồn ghi “Nghị này” ở cuối câu, giữ nguyên cách ghi của nguồn.\n\nĐiều 46. Quy định chuyển tiếp | Khoản 6\n6. Đối với cơ sở được xây dựng và hoạt động trước ngày 01 tháng 7 năm 2025 đã được quản lý về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định tại Nghị định số 136/2020/NĐ-CP, Nghị định số 50/2024/NĐ-CP và thuộc danh mục quy định tại Phụ lục I kèm theo Nghị định này, tiếp tục thực hiện việc quản lý, kiểm tra về phòng cháy, chữa cháy đối với cơ sở theo quy định tại Điều 13 và Điều 14 Nghị này.\n\nPhụ lục I. Danh mục cơ sở thuộc diện quản lý về phòng cháy, chữa cháy (trích)\n\nCơ sở thuộc diện quản lý về phòng cháy, chữa cháy là các cơ sở được quy định tại khoản 7 Điều 2 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, gồm:\n\nĐiều 46. Quy định chuyển tiếp | Khoản 14\n14. Khách sạn, nhà khách, nhà nghỉ; cơ sở nghỉ dưỡng, cơ sở dịch vụ lưu trú khác cao từ 2 tầng trở lên hoặc có tổng diện tích sàn từ 50 m2 trở lên.\n\nĐiều 46. Quy định chuyển tiếp | Khoản 32\n32. Nhà ở kết hợp sản xuất, kinh doanh có tổng diện tích phục vụ sản xuất, kinh doanh từ 50 m2 trở lên.\n\nPhụ lục II. Danh mục cơ sở có nguy hiểm về cháy, nổ (trích)\n\nCơ sở có nguy hiểm về cháy, nổ là các cơ sở thuộc diện quản lý về phòng cháy, chữa cháy có nguy cơ cháy, nổ cao quy định tại khoản 8 Điều 2 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, gồm:\n\nGhi chú tuyển chọn: Dòng dưới đây chỉ nói về nhà chung cư, nhà ở tập thể; không áp ngưỡng này cho mọi nhà trọ.\n\nTT\n\nLoại hình cơ sở\n\nNhóm 1\n\nNhóm 2\n\nNhà chung cư, nhà ở tập thể\n\nCó nhà cao từ 7 tầng trở lên hoặc tổng diện tích sàn từ 3.000 m² trở lên\n\nCó nhà cao từ 5 tầng đến dưới 7 tầng hoặc tổng diện tích sàn từ 1.000 m² đến dưới 3.000 m²",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 8",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "8. Trách nhiệm về phòng cháy, chữa cháy, cứu nạn, cứu hộ đối với trường hợp thuê, mượn, ở nhờ nhà ở được quy định như sau:\n\na) Người cho thuê, cho mượn, cho ở nhờ nhà ở có trách nhiệm tuyên truyền, đôn đốc, nhắc nhở người thuê, mượn, ở nhờ thực hiện quy định của pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\nb) Người thuê, mượn, ở nhờ nhà ở có trách nhiệm theo quy định tại khoản 6 Điều này, trừ trường hợp có thỏa thuận khác với người cho thuê, mượn, ở nhờ nhà ở. Trường hợp thuê, mượn, ở nhờ nhà ở kết hợp sản xuất, kinh doanh thì người thuê, mượn, ở nhờ còn có trách nhiệm bảo đảm điều kiện an toàn về phòng cháy theo quy định tại Điều 21 của Luật này.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:65:8"
+        },
+        {
+          "rank": 2,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 6",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "6. Chủ hộ gia đình trực tiếp sử dụng nhà ở mà không phải là người đứng đầu cơ sở có trách nhiệm sau đây:\n\na) Thực hiện quy định tại Điều 20 và Điều 21 của Luật này;\n\nb) Tuyên truyền, đôn đốc, nhắc nhở thành viên khác trong gia đình thực hiện pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\nc) Thường xuyên tự kiểm tra, phát hiện và khắc phục kịp thời nguy cơ gây cháy, nổ, tai nạn, sự cố;\n\nd) Thực hiện các nhiệm vụ khác về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:65:6"
+        },
+        {
+          "rank": 3,
+          "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+          "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 7",
+          "category": "fire_safety",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-da7dcada906d.json",
+          "content": "7. Cá nhân có trách nhiệm sau đây:\n\na) Chấp hành quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ của cơ quan, tổ chức hoặc người có thẩm quyền theo quy định của pháp luật;\n\nb) Tìm hiểu kiến thức về phòng cháy, chữa cháy, cứu nạn, cứu hộ và kỹ năng thoát nạn, sử dụng dụng cụ, phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ thông dụng;\n\nc) Bảo đảm an toàn trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nd) Phát hiện, ngăn chặn nguy cơ trực tiếp gây cháy, nổ và các hành vi vi phạm quy định an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ trong điều kiện, khả năng cho phép;\n\nđ) Tham gia chữa cháy, cứu nạn, cứu hộ khi được cơ quan, người có thẩm quyền huy động; chấp hành yêu cầu, quyết định của người chỉ huy chữa cháy, người chỉ huy cứu nạn, cứu hộ khi tham gia chữa cháy, cứu nạn, cứu hộ.",
+          "context_complete": true,
+          "provision_id": "0ccafc9e862919a86083:65:7"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 64. Quyền của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các quyền sau đây:\n\na) Thực hiện môi giới bất động sản theo quy định của Luật này;\n\nb) Yêu cầu các tổ chức, cá nhân có liên quan cung cấp hồ sơ, thông tin bất động sản thực hiện giao dịch;\n\nc) Thu phí dịch vụ của khách hàng theo thỏa thuận của các bên;\n\nd) Từ chối môi giới bất động sản không đủ điều kiện đưa vào kinh doanh;\n\nđ) Yêu cầu các tổ chức, cá nhân có liên quan bồi thường thiệt hại do lỗi của họ gây ra;\n\ne) Quyền khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:42990:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 61. Điều kiện của tổ chức, cá nhân kinh doanh dịch vụ môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Tổ chức, cá nhân kinh doanh dịch vụ môi giới bất động sản phải thành lập doanh nghiệp kinh doanh dịch vụ bất động sản theo quy định tại khoản 5 Điều 9 của Luật này và phải đáp ứng các điều kiện sau đây:\n\na) Phải có quy chế hoạt động dịch vụ môi giới bất động sản;\n\nb) Phải có cơ sở vật chất, kỹ thuật đáp ứng yêu cầu hoạt động theo quy định của Chính phủ;\n\nc) Có tối thiểu 01 cá nhân có chứng chỉ môi giới bất động sản;\n\nd) Trước khi hoạt động kinh doanh dịch vụ môi giới bất động sản, doanh nghiệp kinh doanh dịch vụ môi giới bất động sản gửi thông tin về doanh nghiệp đến cơ quan quản lý nhà nước về kinh doanh bất động sản cấp tỉnh nơi thành lập doanh nghiệp để được đăng tải trên hệ thống thông tin về nhà ở và thị trường bất động sản theo quy định của Luật này.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:40843:1"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các nghĩa vụ sau đây:\n\na) Cung cấp đầy đủ, trung thực hồ sơ, thông tin về bất động sản do mình môi giới và chịu trách nhiệm về hồ sơ, thông tin do mình cung cấp;\n\nb) Tổ chức đào tạo, bồi dưỡng nâng cao kiến thức hành nghề môi giới bất động sản cho nhân viên môi giới bất động sản làm việc trong doanh nghiệp hằng năm;\n\nc) Thực hiện nghĩa vụ thuế đối với Nhà nước;\n\nd) Bồi thường thiệt hại do lỗi của mình gây ra;\n\nđ) Thực hiện chế độ báo cáo theo quy định của pháp luật và chịu sự kiểm tra, thanh tra của cơ quan nhà nước có thẩm quyền;\n\ne) Nghĩa vụ khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:43830:1"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các nghĩa vụ sau đây:\n\na) Cung cấp đầy đủ, trung thực hồ sơ, thông tin về bất động sản do mình môi giới và chịu trách nhiệm về hồ sơ, thông tin do mình cung cấp;\n\nb) Tổ chức đào tạo, bồi dưỡng nâng cao kiến thức hành nghề môi giới bất động sản cho nhân viên môi giới bất động sản làm việc trong doanh nghiệp hằng năm;\n\nc) Thực hiện nghĩa vụ thuế đối với Nhà nước;\n\nd) Bồi thường thiệt hại do lỗi của mình gây ra;\n\nđ) Thực hiện chế độ báo cáo theo quy định của pháp luật và chịu sự kiểm tra, thanh tra của cơ quan nhà nước có thẩm quyền;\n\ne) Nghĩa vụ khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:43830:1"
+        },
+        {
+          "rank": 2,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 161. Điều kiện của các bên tham gia giao dịch về nhà ở | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "2. Bên mua, thuê mua, thuê nhà ở, nhận tặng cho, nhận đổi, nhận thừa kế, nhận thế chấp, nhận góp vốn, mượn, ở nhờ, được ủy quyền quản lý nhà ở là cá nhân phải đáp ứng điều kiện về chủ thể tham gia giao dịch theo quy định của pháp luật về dân sự và thực hiện theo quy định sau đây:\n\na) Nếu là cá nhân trong nước thì không bắt buộc phải có đăng ký cư trú tại nơi có nhà ở được giao dịch;\n\nb) Nếu là cá nhân nước ngoài, người Việt Nam định cư ở nước ngoài thì phải thuộc đối tượng được sở hữu nhà ở tại Việt Nam theo quy định của Luật này và không bắt buộc phải có đăng ký cư trú tại nơi có nhà ở được giao dịch. Đối với người Việt Nam định cư ở nước ngoài còn phải tuân thủ quy định của Luật Đất đai.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:10149:2"
+        },
+        {
+          "rank": 3,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 160. Điều kiện của nhà ở tham gia giao dịch | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "2. Giao dịch về nhà ở sau đây thì nhà ở không bắt buộc phải có Giấy chứng nhận:\n\na) Mua bán, thuê mua, thế chấp nhà ở hình thành trong tương lai; bán nhà ở trong trường hợp giải thể, phá sản;\n\nb) Tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết;\n\nc) Mua bán, thuê mua nhà ở có sẵn của chủ đầu tư dự án đầu tư xây dựng nhà ở trong các trường hợp sau đây: nhà ở thuộc tài sản công; nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư không thuộc tài sản công;\n\nd) Cho thuê, cho mượn, cho ở nhờ, ủy quyền quản lý nhà ở;\n\nđ) Nhận thừa kế nhà ở.\n\nGiấy tờ chứng minh điều kiện nhà ở tham gia giao dịch quy định tại khoản này thực hiện theo quy định của Chính phủ.",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:8109:2"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các nghĩa vụ sau đây:\n\na) Cung cấp đầy đủ, trung thực hồ sơ, thông tin về bất động sản do mình môi giới và chịu trách nhiệm về hồ sơ, thông tin do mình cung cấp;\n\nb) Tổ chức đào tạo, bồi dưỡng nâng cao kiến thức hành nghề môi giới bất động sản cho nhân viên môi giới bất động sản làm việc trong doanh nghiệp hằng năm;\n\nc) Thực hiện nghĩa vụ thuế đối với Nhà nước;\n\nd) Bồi thường thiệt hại do lỗi của mình gây ra;\n\nđ) Thực hiện chế độ báo cáo theo quy định của pháp luật và chịu sự kiểm tra, thanh tra của cơ quan nhà nước có thẩm quyền;\n\ne) Nghĩa vụ khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:43830:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 64. Quyền của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các quyền sau đây:\n\na) Thực hiện môi giới bất động sản theo quy định của Luật này;\n\nb) Yêu cầu các tổ chức, cá nhân có liên quan cung cấp hồ sơ, thông tin bất động sản thực hiện giao dịch;\n\nc) Thu phí dịch vụ của khách hàng theo thỏa thuận của các bên;\n\nd) Từ chối môi giới bất động sản không đủ điều kiện đưa vào kinh doanh;\n\nđ) Yêu cầu các tổ chức, cá nhân có liên quan bồi thường thiệt hại do lỗi của họ gây ra;\n\ne) Quyền khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:42990:1"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 2",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "2. Cá nhân hành nghề môi giới bất động sản có các nghĩa vụ sau đây:\n\na) Nghĩa vụ quy định tại các điểm a, c và d khoản 1 Điều này;\n\nb) Thực hiện quy chế hoạt động của sàn giao dịch bất động sản hoặc doanh nghiệp kinh doanh dịch vụ môi giới bất động sản nơi cá nhân làm việc;\n\nc) Tham gia đào tạo, bồi dưỡng nâng cao kiến thức hành nghề môi giới bất động sản hằng năm.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:43830:2"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 64. Quyền của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các quyền sau đây:\n\na) Thực hiện môi giới bất động sản theo quy định của Luật này;\n\nb) Yêu cầu các tổ chức, cá nhân có liên quan cung cấp hồ sơ, thông tin bất động sản thực hiện giao dịch;\n\nc) Thu phí dịch vụ của khách hàng theo thỏa thuận của các bên;\n\nd) Từ chối môi giới bất động sản không đủ điều kiện đưa vào kinh doanh;\n\nđ) Yêu cầu các tổ chức, cá nhân có liên quan bồi thường thiệt hại do lỗi của họ gây ra;\n\ne) Quyền khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:42990:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Doanh nghiệp kinh doanh dịch vụ môi giới bất động sản có các nghĩa vụ sau đây:\n\na) Cung cấp đầy đủ, trung thực hồ sơ, thông tin về bất động sản do mình môi giới và chịu trách nhiệm về hồ sơ, thông tin do mình cung cấp;\n\nb) Tổ chức đào tạo, bồi dưỡng nâng cao kiến thức hành nghề môi giới bất động sản cho nhân viên môi giới bất động sản làm việc trong doanh nghiệp hằng năm;\n\nc) Thực hiện nghĩa vụ thuế đối với Nhà nước;\n\nd) Bồi thường thiệt hại do lỗi của mình gây ra;\n\nđ) Thực hiện chế độ báo cáo theo quy định của pháp luật và chịu sự kiểm tra, thanh tra của cơ quan nhà nước có thẩm quyền;\n\ne) Nghĩa vụ khác theo hợp đồng.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:43830:1"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-29-2023-QH15",
+          "heading": "Điều 61. Điều kiện của tổ chức, cá nhân kinh doanh dịch vụ môi giới bất động sản | Khoản 1",
+          "category": "real_estate_brokerage",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+          "source_path": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+          "content": "1. Tổ chức, cá nhân kinh doanh dịch vụ môi giới bất động sản phải thành lập doanh nghiệp kinh doanh dịch vụ bất động sản theo quy định tại khoản 5 Điều 9 của Luật này và phải đáp ứng các điều kiện sau đây:\n\na) Phải có quy chế hoạt động dịch vụ môi giới bất động sản;\n\nb) Phải có cơ sở vật chất, kỹ thuật đáp ứng yêu cầu hoạt động theo quy định của Chính phủ;\n\nc) Có tối thiểu 01 cá nhân có chứng chỉ môi giới bất động sản;\n\nd) Trước khi hoạt động kinh doanh dịch vụ môi giới bất động sản, doanh nghiệp kinh doanh dịch vụ môi giới bất động sản gửi thông tin về doanh nghiệp đến cơ quan quản lý nhà nước về kinh doanh bất động sản cấp tỉnh nơi thành lập doanh nghiệp để được đăng tải trên hệ thống thông tin về nhà ở và thị trường bất động sản theo quy định của Luật này.",
+          "context_complete": true,
+          "provision_id": "147363772a45ea4beb11:40843:1"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 17. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 1",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "1. Chủ quản nên tảng thương mại điện tử thực hiện các trách nhiệm quy\nđịnh tại Điều 15 của Luật Thương mại điện tử, trong đó một số nội dung được\nthực hiện cụ thể như sau:\n\na) Công bố đầy đủ, chính xác, rõ ràng các nội dung hoặc có đường liên\nkết để xem chỉ tiết các nội dung quy định tại Chương II của Nghị định này tại\nvị trí trên màn hình chính của nền tảng thương mại điện tử và có dấu hiệu phân\nbiệt rõ ràng;\n\nb) Báo cáo trực tuyến định kỳ thông qua Hệ thống quản lý hoạt động\nthương mại điện tử thực hiện theo quy định tại khoản | Điều 22 của Nghị định\nnày hoặc cung cấp thông tin theo yêu cầu của cơ quan nhà nước có thâm quyền;\n\nc) Có biện pháp kiểm tra, rà soát, gỡ bỏ và xử lý kịp thời đối với thông\ntin hàng hóa, dịch vụ xâm phạm quyền sở hữu trí tuệ, hàng hóa, dịch vụ liên\nquan đến hành vi kinh doanh vi phạm pháp luật trong thời hạn 24 giờ kể từ khi\nnhận được yêu cầu của cơ quan nhà nước có thẩm quyền; ;\n\n. . 11\n\nd) Cập nhật từ khóa theo khuyến cáo từ co quan nhà nước có thẩm quyền\nvà lọc thông tin theo từ khóa trước khi thông tin hàng hóa, dịch vụ hiển thị trên\nnền tảng thương mại điện tử;\n\nđ) Duy trì, sử dụng tài khoản đã thực hiện thủ tục hành chính tại Hệ thống\nquản lý hoạt động thương mại điện tử để tiếp nhận và phản hồi thông tin nhằm\ngiải quyết khiếu nại, phản ánh và tranh chấp liên quan đến nền tang thương mại\n\n__ điện tử;\n\ne) Phối hợp với chủ thể quyền sở hữu trí tuệ rà soát, tạm thời gỡ bỏ hoặc\nngăn chặn truy cập đến thông tin hàng hóa, dịch vụ có.dấu hiệu xâm phạm\nquyền sở hữu trí tuệ theo phương thức tiếp nhận và giải quyết phản ánh, yêu\ncầu, khiếu nại đã công khai trên nền tảng theo quy định tại Điều 7 của Nghị\nđịnh này.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:17818:1"
+        },
+        {
+          "rank": 2,
+          "title": "online_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "ecommerce_platform",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+          "source_path": "docs/legal_corpus_v2/legacy-e9adeff06c7a.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về lừa đảo mua hàng trực tuyến\n\nTuyệt đối không cung cấp thông tin tài khoản, mật khẩu, mã OTP; không truy cập đường link lạ, quét mã QR không rõ nguồn gốc; không cài đặt ứng dụng theo hướng dẫn của người gọi và không chuyển tiền để nhận hoàn tiền, bồi thường.\n\nTrường hợp nghi ngờ bị lừa đảo, người dân cần ngừng ngay giao dịch, liên hệ ngân hàng để khóa tài khoản khi cần thiết, lưu giữ tin nhắn, số điện thoại, lịch sử giao dịch và trình báo cơ quan Công an gần nhất để được hỗ trợ.",
+          "context_complete": true,
+          "provision_id": "fef0b5e4f0758f5e19a443296f75915429c0fb3ffa488af40e97a09329c367e3:advice"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 18. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 2",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "trung gian\n\n2. Chủ quản nền tảng thương mại điện tử trung gian có chức năng đặt\nhàng trực tuyến thực hiện các trách nhiệm quy định tại khoản 2 Điều 17 của\nLuật Thương mại điện tử, trong đó một số nội dung được thực hiện cụ thể như\nsau:\n\na) Trách nhiệm quy định tại khoản 1 Điều này;\n\nb) Tiếp nhận lại hàng hóa đối với trường hợp hàng hóa do người bán\ncung cấp không theo đúng nội dung đã thông báo, công bố, niêm yết, quảng\ncáo, giới thiệu, giao kết, cam kết trên nền tảng và thực hiện đổi trả hàng, hoàn\ntiên theo chính sách đã công bố trên nền tảng theo quy định tại Điều 14 của\nNghị định này;\n\n: 13 :\n\nc) Công khai đầy đủ thông tin về việc thu hồi hàng hóa có khuyết tật trên\nnền tảng ngay khi nhận được thông tin từ người bán hoặc cơ quan nhà nước có\nthẩm quyền trong vòng 10 ngày liên tục tại một vị trí dễ thấy; công khai thông\ntin liên hệ của đầu mối tiếp nhận lại hàng hóa; thông tin trực tiếp đến người\nmua hàng hóa đó trên nén tảng thông qua tài khoản của người mua trên nền\ntảng hoặc kênh liên hệ khác phù hợp mà người mua đã đăng ký trên nền tảng;\n\nd) Cung cấp các thông tin cần thiết hỗ trợ các bên có tham gia giao dịch\ntrên nên tang theo phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu\nnại đã công khai theo quy định tại Điều 7 của Nghị định này; cung cấp các\nthông tin cho cơ quan nhà nước có thẩm quyển về các hành vi có dấu hiệu vi\nphạm pháp luật hoặc hành vi vi phạm pháp luật thông qua đầu mối được chỉ\nđịnh và thông qua Hệ thống quản lý hoạt động thương mại điện tử trong thời\nhạn 24 giờ kể từ thời điểm tiếp nhận yêu cầu để phục vụ công tác thanh tra,\nkiểm tra, xử lý vi phạm;\n\nđ) Cung cấp công cụ để người bán truy cập tài khoản để tải về dữ liệu về\nhàng hóa, địch vụ đã đăng tải trong vòng 01 năm từ thời điểm đăng tải, dữ liệu\nvề hợp đồng giao kết trong vòng 03 năm kể từ thời điểm giao kết hợp đồng, trừ\ntrường hợp người bán chủ động xóa tài khoản. Trường hợp tài khoản người bán\nbị tạm ngừng hoặc chấm dứt hoạt động, chủ quản nền tảng bảo đảm cho người\nbán có thể truy cập tài khoản hoặc phương thức khác dé tải đữ liệu về hợp đồng\ngiao kết đã thực hiện trước đó trong thời gian ít nhất 03 năm từ thời điểm tài\nkhoản bị tạm ngừng hoặc chấm dứt hoạt động;\n\ne) Tạm ngừng, chấm dứt tài khoản người bán trong thời hạn 24 giờ kể từ\nkhi nhận được yêu cầu của cơ quan nhà nước có thẩm quyền.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:20394:2"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 18. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 1",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "trung gian\n\n1. Chủ quản nền tảng thương mại điện tử trung gian thực hiện các trách\nnhiệm quy định tại Điều 17 của Luật Thương mại điện tử, trong đó một số nội\ndung được thực hiện cụ thể như sau:\n\na) Thực hiện việc xác thực điện tử danh tính người bán trong nước thông\n\n: qua các thông tin sau đây:\n\nĐối với cá nhân trong nước: họ và tên; ngày, tháng, năm sinh; số định\ndanh cá nhân;\n\nĐối với tổ chức trong nước: tên tô chức; địa chỉ trụ sở chính; số định\ndanh của tổ chức; họ và tên, ngày, tháng, năm sinh, số định đanh cá nhân của\n\n12 .\nngười dai diện theo pháp luật;\n\nb) Thực hiện việc xác thực người bán nước ngoài thông qua các giấy tờ\nhợp pháp sau đây:\n\nĐối với cá nhân nước ngoài: tên, số hộ chiếu, tên quốc gia, vùng lãnh thổ\ncủa cá nhân tại hộ chiếu hoặc các giấy tờ tương đương khác còn hiệu lực ít nhất\n06 tháng kể từ ngày xét duyệt do cơ quan có thẩm quyền nước ngoài cấp;\n\n- Đối với tổ chức nước ngoài: tên tổ chức, địa chỉ trụ sở chính, tên quốc\ngia, vùng lãnh thổ của tổ chức tại Giấy chứng nhận đăng ký doanh nghiệp hoặc\ncác giấy tờ tương đương khác do cơ quan có thâm quyền nước ngoài cấp; tên,\nsố hộ chiếu của người đại diện theo pháp luật hoặc các giấy tờ tương đương\nkhác còn hiệu lực ít nhất 06 tháng kể từ ngày xét duyệt do cơ quan có thẩm\nquyền nước ngoài cấp;\n\nc) Công khai thông tin về tên, địa điểm kinh doanh của doanh nghiệp, hộ\nkinh doanh theo nội dung đăng ký đã thực hiện với cơ quan đăng ký kinh doanh;\ntên, địa chỉ nơi đặt trụ sở của tổ chức; tên, địa chỉ cư trú của cá nhân. Các thông\ntin phải được phiên âm sang tiếng Việt hoặc thể hiện bằng ký tự La-tinh;\n\nđ) Kiểm duyệt nội dung thông tin về hàng hóa, dịch vụ do người bán\nkhởi tạo trước khi cho phép hiển thị trên nền tang, bảo đảm thông tin không\nthuộc danh mục ngành, nghề cắm đầu tư kinh doanh, hàng hóa, dịch vụ đang\nbị tạm dừng lưu thông theo công bố của cơ quan nha nước có thẩm quyền hoặc\ncập nhật từ khóa theo yêu cầu của cơ quan nhà nước có thẩm quyển;\n\nđ) Bảo đảm khả năng truy cập thông tin và dữ liệu hàng hóa, dịch vụ đã\ndang tải từ tài khoản người bán trong thời gian ít nhất 01 năm kể từ thời điểm\nđăng tải.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:20394:1"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 18. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 2",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "trung gian\n\n2. Chủ quản nền tảng thương mại điện tử trung gian có chức năng đặt\nhàng trực tuyến thực hiện các trách nhiệm quy định tại khoản 2 Điều 17 của\nLuật Thương mại điện tử, trong đó một số nội dung được thực hiện cụ thể như\nsau:\n\na) Trách nhiệm quy định tại khoản 1 Điều này;\n\nb) Tiếp nhận lại hàng hóa đối với trường hợp hàng hóa do người bán\ncung cấp không theo đúng nội dung đã thông báo, công bố, niêm yết, quảng\ncáo, giới thiệu, giao kết, cam kết trên nền tảng và thực hiện đổi trả hàng, hoàn\ntiên theo chính sách đã công bố trên nền tảng theo quy định tại Điều 14 của\nNghị định này;\n\n: 13 :\n\nc) Công khai đầy đủ thông tin về việc thu hồi hàng hóa có khuyết tật trên\nnền tảng ngay khi nhận được thông tin từ người bán hoặc cơ quan nhà nước có\nthẩm quyền trong vòng 10 ngày liên tục tại một vị trí dễ thấy; công khai thông\ntin liên hệ của đầu mối tiếp nhận lại hàng hóa; thông tin trực tiếp đến người\nmua hàng hóa đó trên nén tảng thông qua tài khoản của người mua trên nền\ntảng hoặc kênh liên hệ khác phù hợp mà người mua đã đăng ký trên nền tảng;\n\nd) Cung cấp các thông tin cần thiết hỗ trợ các bên có tham gia giao dịch\ntrên nên tang theo phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu\nnại đã công khai theo quy định tại Điều 7 của Nghị định này; cung cấp các\nthông tin cho cơ quan nhà nước có thẩm quyển về các hành vi có dấu hiệu vi\nphạm pháp luật hoặc hành vi vi phạm pháp luật thông qua đầu mối được chỉ\nđịnh và thông qua Hệ thống quản lý hoạt động thương mại điện tử trong thời\nhạn 24 giờ kể từ thời điểm tiếp nhận yêu cầu để phục vụ công tác thanh tra,\nkiểm tra, xử lý vi phạm;\n\nđ) Cung cấp công cụ để người bán truy cập tài khoản để tải về dữ liệu về\nhàng hóa, địch vụ đã đăng tải trong vòng 01 năm từ thời điểm đăng tải, dữ liệu\nvề hợp đồng giao kết trong vòng 03 năm kể từ thời điểm giao kết hợp đồng, trừ\ntrường hợp người bán chủ động xóa tài khoản. Trường hợp tài khoản người bán\nbị tạm ngừng hoặc chấm dứt hoạt động, chủ quản nền tảng bảo đảm cho người\nbán có thể truy cập tài khoản hoặc phương thức khác dé tải đữ liệu về hợp đồng\ngiao kết đã thực hiện trước đó trong thời gian ít nhất 03 năm từ thời điểm tài\nkhoản bị tạm ngừng hoặc chấm dứt hoạt động;\n\ne) Tạm ngừng, chấm dứt tài khoản người bán trong thời hạn 24 giờ kể từ\nkhi nhận được yêu cầu của cơ quan nhà nước có thẩm quyền.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:20394:2"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 17. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 1",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "1. Chủ quản nên tảng thương mại điện tử thực hiện các trách nhiệm quy\nđịnh tại Điều 15 của Luật Thương mại điện tử, trong đó một số nội dung được\nthực hiện cụ thể như sau:\n\na) Công bố đầy đủ, chính xác, rõ ràng các nội dung hoặc có đường liên\nkết để xem chỉ tiết các nội dung quy định tại Chương II của Nghị định này tại\nvị trí trên màn hình chính của nền tảng thương mại điện tử và có dấu hiệu phân\nbiệt rõ ràng;\n\nb) Báo cáo trực tuyến định kỳ thông qua Hệ thống quản lý hoạt động\nthương mại điện tử thực hiện theo quy định tại khoản | Điều 22 của Nghị định\nnày hoặc cung cấp thông tin theo yêu cầu của cơ quan nhà nước có thâm quyền;\n\nc) Có biện pháp kiểm tra, rà soát, gỡ bỏ và xử lý kịp thời đối với thông\ntin hàng hóa, dịch vụ xâm phạm quyền sở hữu trí tuệ, hàng hóa, dịch vụ liên\nquan đến hành vi kinh doanh vi phạm pháp luật trong thời hạn 24 giờ kể từ khi\nnhận được yêu cầu của cơ quan nhà nước có thẩm quyền; ;\n\n. . 11\n\nd) Cập nhật từ khóa theo khuyến cáo từ co quan nhà nước có thẩm quyền\nvà lọc thông tin theo từ khóa trước khi thông tin hàng hóa, dịch vụ hiển thị trên\nnền tảng thương mại điện tử;\n\nđ) Duy trì, sử dụng tài khoản đã thực hiện thủ tục hành chính tại Hệ thống\nquản lý hoạt động thương mại điện tử để tiếp nhận và phản hồi thông tin nhằm\ngiải quyết khiếu nại, phản ánh và tranh chấp liên quan đến nền tang thương mại\n\n__ điện tử;\n\ne) Phối hợp với chủ thể quyền sở hữu trí tuệ rà soát, tạm thời gỡ bỏ hoặc\nngăn chặn truy cập đến thông tin hàng hóa, dịch vụ có.dấu hiệu xâm phạm\nquyền sở hữu trí tuệ theo phương thức tiếp nhận và giải quyết phản ánh, yêu\ncầu, khiếu nại đã công khai trên nền tảng theo quy định tại Điều 7 của Nghị\nđịnh này.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:17818:1"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật Thương mại điện tử 122/2025/QH15",
+          "heading": "Điều 17. Trách nhiệm của chủ quản nền tảng thương mại điện tử trung gian | Khoản 2",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216503&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce122.json",
+          "content": "2. Chủ quản nền tảng thương mại điện tử trung gian có chức năng đặt hàng\ntrực tuyến thực hiện các trách nhiệm sau đây:\n\na) Trách nhiệm quy định tại khoản 1 Điều này;\n\n_... b) Tiếp nhận lại hàng hóa đối với trường hợp hàng hóa do người bán cung\n| cap không theo đúng nội dung đã thông báo, công bô, niêm yết, quảng cáo, giới\n| thiệu, giao kết, cam kết trên nên tảng. Việc xử lý hàng hóa bị hoàn trả thực hiện\n\ntheo quy định của pháp luật vê dân sự;\n\n._— © Trường hợp phát hiện hàng hóa có khuyết tật theo quy định của pháp luật\nvề bảo vệ quyên lợi người tiêu dùng, chủ quản nên tảng phải công khai nội dung\nthông báo thu hôi hàng hóa trên nền tảng, thông báo trực tiêp đên người mua, dau\nmối tiếp nhận lại hàng hóa theo thoả thuận giữa người bán với chủ quản nên tảng.\nViệc xác định trách nhiệm, việc xử lý hàng hóa có khuyêt tật và bôi thường thiệt\nhại thực hiện theo quy định của pháp luật về dân sự, pháp luật về bảo vệ quyên\nlợi người tiêu dùng và quy định khác của pháp luật có liên quan;\n\n12 k\n\nd) Cung cấp các thông tin cần thiết để hỗ trợ các bên có liên quan trên nền\ntảng trong quá trình giải quyêt phản ánh, yêu câu, khiêu nại, tranh châp;\n\nđ) Cung cấp công cụ đề người bán truy cập tài khoản dé tải về dữ liệu về\nhàng hóa, dịch vụ và thông tin hợp đông giao kêt. Trường hợp tài khoản người\nbán bị tạm ngừng hoặc châm dứt hoạt động, chủ quản nên tảng bảo dam cho\nngười bán có thê truy cập tài khoản đê tải về dữ liệu về hợp đông giao kêt đã thực\nhiện trước đó trong vòng 03 năm từ thời điểm tài khoản bị tạm ngừng hoặc châm\ndứt hoạt động;\n\ne) Tạm ngừng, chấm dirt tài khoản người bán ngay khi nhận được yêu cầu\ncủa cơ quan nhà nước có thâm quyên;\n\ng) Thông báo cho người bán it nhất 05 ngày trước khi tạm ngừng, chấm dứt\nhoặc áp đặt bat kỳ hạn chê nào đổi với tài khoản người bán khi có lý do chính\nđáng, trừ trường hợp quy định tại điêm e khoản này;\n\nh) Cho phép người mua phản hồi, đánh giá về người bán và hàng hóa, dịch\nvụ do người bán cung cap, hiên thị day đủ, chính xác ket qua phản hôi, đánh giá,\ntrừ trường hợp phản hôi, đánh giá đó vi phạm quy định của pháp luật, trái đạo đức\nxã hội, thuân phong mỹ tục;\n\n„1 Bảo đảm khả năng truy cập thông tin, dữ liệu liên quan đến hợp đồng giao\nkết trong thời gian ít nhât 03 năm từ thời điểm giao két hợp dong trên nên tảng;\n\nk) Chịu trách nhiệm bồi thường thiệt hại hoặc liên đới chịu trách nhiệm bồi\nthường thiệt hại trong trường hợp không thực hiện hoặc thực hiện không đây đủ\ncác quy định tại Điêu này dân đên thiệt hại cho người mua. Việc bôi thường thiệt\nhại thực hiện theo quy định của pháp luật về dân sự và quy định khác của pháp\nluật có liên quan.",
+          "context_complete": true,
+          "provision_id": "10eb9faf1384bebaff64:21127:2"
+        },
+        {
+          "rank": 2,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 18. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 1",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "trung gian\n\n1. Chủ quản nền tảng thương mại điện tử trung gian thực hiện các trách\nnhiệm quy định tại Điều 17 của Luật Thương mại điện tử, trong đó một số nội\ndung được thực hiện cụ thể như sau:\n\na) Thực hiện việc xác thực điện tử danh tính người bán trong nước thông\n\n: qua các thông tin sau đây:\n\nĐối với cá nhân trong nước: họ và tên; ngày, tháng, năm sinh; số định\ndanh cá nhân;\n\nĐối với tổ chức trong nước: tên tô chức; địa chỉ trụ sở chính; số định\ndanh của tổ chức; họ và tên, ngày, tháng, năm sinh, số định đanh cá nhân của\n\n12 .\nngười dai diện theo pháp luật;\n\nb) Thực hiện việc xác thực người bán nước ngoài thông qua các giấy tờ\nhợp pháp sau đây:\n\nĐối với cá nhân nước ngoài: tên, số hộ chiếu, tên quốc gia, vùng lãnh thổ\ncủa cá nhân tại hộ chiếu hoặc các giấy tờ tương đương khác còn hiệu lực ít nhất\n06 tháng kể từ ngày xét duyệt do cơ quan có thẩm quyền nước ngoài cấp;\n\n- Đối với tổ chức nước ngoài: tên tổ chức, địa chỉ trụ sở chính, tên quốc\ngia, vùng lãnh thổ của tổ chức tại Giấy chứng nhận đăng ký doanh nghiệp hoặc\ncác giấy tờ tương đương khác do cơ quan có thâm quyền nước ngoài cấp; tên,\nsố hộ chiếu của người đại diện theo pháp luật hoặc các giấy tờ tương đương\nkhác còn hiệu lực ít nhất 06 tháng kể từ ngày xét duyệt do cơ quan có thẩm\nquyền nước ngoài cấp;\n\nc) Công khai thông tin về tên, địa điểm kinh doanh của doanh nghiệp, hộ\nkinh doanh theo nội dung đăng ký đã thực hiện với cơ quan đăng ký kinh doanh;\ntên, địa chỉ nơi đặt trụ sở của tổ chức; tên, địa chỉ cư trú của cá nhân. Các thông\ntin phải được phiên âm sang tiếng Việt hoặc thể hiện bằng ký tự La-tinh;\n\nđ) Kiểm duyệt nội dung thông tin về hàng hóa, dịch vụ do người bán\nkhởi tạo trước khi cho phép hiển thị trên nền tang, bảo đảm thông tin không\nthuộc danh mục ngành, nghề cắm đầu tư kinh doanh, hàng hóa, dịch vụ đang\nbị tạm dừng lưu thông theo công bố của cơ quan nha nước có thẩm quyền hoặc\ncập nhật từ khóa theo yêu cầu của cơ quan nhà nước có thẩm quyển;\n\nđ) Bảo đảm khả năng truy cập thông tin và dữ liệu hàng hóa, dịch vụ đã\ndang tải từ tài khoản người bán trong thời gian ít nhất 01 năm kể từ thời điểm\nđăng tải.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:20394:1"
+        },
+        {
+          "rank": 3,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 18. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 2",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "trung gian\n\n2. Chủ quản nền tảng thương mại điện tử trung gian có chức năng đặt\nhàng trực tuyến thực hiện các trách nhiệm quy định tại khoản 2 Điều 17 của\nLuật Thương mại điện tử, trong đó một số nội dung được thực hiện cụ thể như\nsau:\n\na) Trách nhiệm quy định tại khoản 1 Điều này;\n\nb) Tiếp nhận lại hàng hóa đối với trường hợp hàng hóa do người bán\ncung cấp không theo đúng nội dung đã thông báo, công bố, niêm yết, quảng\ncáo, giới thiệu, giao kết, cam kết trên nền tảng và thực hiện đổi trả hàng, hoàn\ntiên theo chính sách đã công bố trên nền tảng theo quy định tại Điều 14 của\nNghị định này;\n\n: 13 :\n\nc) Công khai đầy đủ thông tin về việc thu hồi hàng hóa có khuyết tật trên\nnền tảng ngay khi nhận được thông tin từ người bán hoặc cơ quan nhà nước có\nthẩm quyền trong vòng 10 ngày liên tục tại một vị trí dễ thấy; công khai thông\ntin liên hệ của đầu mối tiếp nhận lại hàng hóa; thông tin trực tiếp đến người\nmua hàng hóa đó trên nén tảng thông qua tài khoản của người mua trên nền\ntảng hoặc kênh liên hệ khác phù hợp mà người mua đã đăng ký trên nền tảng;\n\nd) Cung cấp các thông tin cần thiết hỗ trợ các bên có tham gia giao dịch\ntrên nên tang theo phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu\nnại đã công khai theo quy định tại Điều 7 của Nghị định này; cung cấp các\nthông tin cho cơ quan nhà nước có thẩm quyển về các hành vi có dấu hiệu vi\nphạm pháp luật hoặc hành vi vi phạm pháp luật thông qua đầu mối được chỉ\nđịnh và thông qua Hệ thống quản lý hoạt động thương mại điện tử trong thời\nhạn 24 giờ kể từ thời điểm tiếp nhận yêu cầu để phục vụ công tác thanh tra,\nkiểm tra, xử lý vi phạm;\n\nđ) Cung cấp công cụ để người bán truy cập tài khoản để tải về dữ liệu về\nhàng hóa, địch vụ đã đăng tải trong vòng 01 năm từ thời điểm đăng tải, dữ liệu\nvề hợp đồng giao kết trong vòng 03 năm kể từ thời điểm giao kết hợp đồng, trừ\ntrường hợp người bán chủ động xóa tài khoản. Trường hợp tài khoản người bán\nbị tạm ngừng hoặc chấm dứt hoạt động, chủ quản nền tảng bảo đảm cho người\nbán có thể truy cập tài khoản hoặc phương thức khác dé tải đữ liệu về hợp đồng\ngiao kết đã thực hiện trước đó trong thời gian ít nhất 03 năm từ thời điểm tài\nkhoản bị tạm ngừng hoặc chấm dứt hoạt động;\n\ne) Tạm ngừng, chấm dứt tài khoản người bán trong thời hạn 24 giờ kể từ\nkhi nhận được yêu cầu của cơ quan nhà nước có thẩm quyền.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:20394:2"
+        },
+        {
+          "rank": 4,
+          "title": "Luật Thương mại điện tử 122/2025/QH15",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=216503&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce122.json",
+          "content": "Điều 40. Hiệu lực thi hành\nĐiều 40. Hiệu lực thi hành\n\nLuật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Nghị định 248/2026/NĐ-CP",
+          "heading": "Điều 17. Trách nhiệm của chủ quản nền tảng thương mại điện tử | Khoản 1",
+          "category": "ecommerce_platform",
+          "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/ecommerce248.json",
+          "content": "1. Chủ quản nên tảng thương mại điện tử thực hiện các trách nhiệm quy\nđịnh tại Điều 15 của Luật Thương mại điện tử, trong đó một số nội dung được\nthực hiện cụ thể như sau:\n\na) Công bố đầy đủ, chính xác, rõ ràng các nội dung hoặc có đường liên\nkết để xem chỉ tiết các nội dung quy định tại Chương II của Nghị định này tại\nvị trí trên màn hình chính của nền tảng thương mại điện tử và có dấu hiệu phân\nbiệt rõ ràng;\n\nb) Báo cáo trực tuyến định kỳ thông qua Hệ thống quản lý hoạt động\nthương mại điện tử thực hiện theo quy định tại khoản | Điều 22 của Nghị định\nnày hoặc cung cấp thông tin theo yêu cầu của cơ quan nhà nước có thâm quyền;\n\nc) Có biện pháp kiểm tra, rà soát, gỡ bỏ và xử lý kịp thời đối với thông\ntin hàng hóa, dịch vụ xâm phạm quyền sở hữu trí tuệ, hàng hóa, dịch vụ liên\nquan đến hành vi kinh doanh vi phạm pháp luật trong thời hạn 24 giờ kể từ khi\nnhận được yêu cầu của cơ quan nhà nước có thẩm quyền; ;\n\n. . 11\n\nd) Cập nhật từ khóa theo khuyến cáo từ co quan nhà nước có thẩm quyền\nvà lọc thông tin theo từ khóa trước khi thông tin hàng hóa, dịch vụ hiển thị trên\nnền tảng thương mại điện tử;\n\nđ) Duy trì, sử dụng tài khoản đã thực hiện thủ tục hành chính tại Hệ thống\nquản lý hoạt động thương mại điện tử để tiếp nhận và phản hồi thông tin nhằm\ngiải quyết khiếu nại, phản ánh và tranh chấp liên quan đến nền tang thương mại\n\n__ điện tử;\n\ne) Phối hợp với chủ thể quyền sở hữu trí tuệ rà soát, tạm thời gỡ bỏ hoặc\nngăn chặn truy cập đến thông tin hàng hóa, dịch vụ có.dấu hiệu xâm phạm\nquyền sở hữu trí tuệ theo phương thức tiếp nhận và giải quyết phản ánh, yêu\ncầu, khiếu nại đã công khai trên nền tảng theo quy định tại Điều 7 của Nghị\nđịnh này.",
+          "context_complete": true,
+          "provision_id": "9829949d91358428be62:17818:1"
+        },
+        {
+          "rank": 2,
+          "title": "rental_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "criminal_law",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+          "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+          "context_complete": true,
+          "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice"
+        },
+        {
+          "rank": 3,
+          "title": "online_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "ecommerce_platform",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+          "source_path": "docs/legal_corpus_v2/legacy-e9adeff06c7a.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về lừa đảo mua hàng trực tuyến\n\nTuyệt đối không cung cấp thông tin tài khoản, mật khẩu, mã OTP; không truy cập đường link lạ, quét mã QR không rõ nguồn gốc; không cài đặt ứng dụng theo hướng dẫn của người gọi và không chuyển tiền để nhận hoàn tiền, bồi thường.\n\nTrường hợp nghi ngờ bị lừa đảo, người dân cần ngừng ngay giao dịch, liên hệ ngân hàng để khóa tài khoản khi cần thiết, lưu giữ tin nhắn, số điện thoại, lịch sử giao dịch và trình báo cơ quan Công an gần nhất để được hỗ trợ.",
+          "context_complete": true,
+          "provision_id": "fef0b5e4f0758f5e19a443296f75915429c0fb3ffa488af40e97a09329c367e3:advice"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "category": "residence",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "content": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+          "context_complete": true,
+          "provision_id": "1b2041ad5663165a8fcf:880:1"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 9. Sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 1",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "1. Sự đồng ý của chủ thể dữ liệu cá nhân là việc chủ thể dữ liệu cá nhân cho phép xử lý dữ liệu cá nhân của mình, trừ trường hợp pháp luật có quy định khác.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:8268:1"
+        },
+        {
+          "rank": 3,
+          "title": "2026_204_79_VBHN-VPQH",
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "content": "Hợp đồng về nhà ở do các bên thỏa thuận và phải được lập thành văn bản bao gồm các nội dung sau đây:\n\n1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;",
+          "context_complete": true,
+          "provision_id": "74e00cffe24839460edd:12930:1"
+        },
+        {
+          "rank": 4,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luật này.\n\n__________________________________________________________________________\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV, kỳ họp thứ 9 thông qua ngày 26 tháng 6 năm 2025.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 3. Nguyên tắc bảo vệ dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Chỉ được thu thập, xử lý dữ liệu cá nhân đúng phạm vi, mục đích cụ thể, rõ ràng, bảo đảm tuân thủ quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:1218:2"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 9. Sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Sự đồng ý của chủ thể dữ liệu cá nhân chỉ có hiệu lực khi dựa trên sự tự nguyện và biết rõ các thông tin sau đây:\n\na) Loại dữ liệu cá nhân được xử lý, mục đích xử lý dữ liệu cá nhân;\n\nb) Bên kiểm soát dữ liệu cá nhân hoặc bên kiểm soát và xử lý dữ liệu cá nhân;\n\nc) Các quyền, nghĩa vụ của chủ thể dữ liệu cá nhân.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:8268:2"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 10. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân | Khoản 1",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "1. Chủ thể dữ liệu cá nhân có quyền yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, yêu cầu hạn chế xử lý dữ liệu cá nhân của mình khi có nghi ngờ phạm vi, mục đích xử lý dữ liệu cá nhân hoặc tính chính xác của dữ liệu cá nhân, trừ trường hợp quy định tại Điều 19 của Luật này hoặc trường hợp pháp luật có quy định khác.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:9436:1"
+        },
+        {
+          "rank": 4,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luật này.\n\n__________________________________________________________________________\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV, kỳ họp thứ 9 thông qua ngày 26 tháng 6 năm 2025.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 3. Nguyên tắc bảo vệ dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Chỉ được thu thập, xử lý dữ liệu cá nhân đúng phạm vi, mục đích cụ thể, rõ ràng, bảo đảm tuân thủ quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:1218:2"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 9. Sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Sự đồng ý của chủ thể dữ liệu cá nhân chỉ có hiệu lực khi dựa trên sự tự nguyện và biết rõ các thông tin sau đây:\n\na) Loại dữ liệu cá nhân được xử lý, mục đích xử lý dữ liệu cá nhân;\n\nb) Bên kiểm soát dữ liệu cá nhân hoặc bên kiểm soát và xử lý dữ liệu cá nhân;\n\nc) Các quyền, nghĩa vụ của chủ thể dữ liệu cá nhân.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:8268:2"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 10. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân | Khoản 1",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "1. Chủ thể dữ liệu cá nhân có quyền yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, yêu cầu hạn chế xử lý dữ liệu cá nhân của mình khi có nghi ngờ phạm vi, mục đích xử lý dữ liệu cá nhân hoặc tính chính xác của dữ liệu cá nhân, trừ trường hợp quy định tại Điều 19 của Luật này hoặc trường hợp pháp luật có quy định khác.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:9436:1"
+        },
+        {
+          "rank": 4,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luật này.\n\n__________________________________________________________________________\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV, kỳ họp thứ 9 thông qua ngày 26 tháng 6 năm 2025.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 3. Nguyên tắc bảo vệ dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Chỉ được thu thập, xử lý dữ liệu cá nhân đúng phạm vi, mục đích cụ thể, rõ ràng, bảo đảm tuân thủ quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:1218:2"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 10. Yêu cầu rút lại sự đồng ý, yêu cầu hạn chế xử lý dữ liệu cá nhân | Khoản 1",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "1. Chủ thể dữ liệu cá nhân có quyền yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, yêu cầu hạn chế xử lý dữ liệu cá nhân của mình khi có nghi ngờ phạm vi, mục đích xử lý dữ liệu cá nhân hoặc tính chính xác của dữ liệu cá nhân, trừ trường hợp quy định tại Điều 19 của Luật này hoặc trường hợp pháp luật có quy định khác.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:9436:1"
+        },
+        {
+          "rank": 3,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Điều 9. Sự đồng ý của chủ thể dữ liệu cá nhân | Khoản 2",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "2. Sự đồng ý của chủ thể dữ liệu cá nhân chỉ có hiệu lực khi dựa trên sự tự nguyện và biết rõ các thông tin sau đây:\n\na) Loại dữ liệu cá nhân được xử lý, mục đích xử lý dữ liệu cá nhân;\n\nb) Bên kiểm soát dữ liệu cá nhân hoặc bên kiểm soát và xử lý dữ liệu cá nhân;\n\nc) Các quyền, nghĩa vụ của chủ thể dữ liệu cá nhân.",
+          "context_complete": true,
+          "provision_id": "e7d93bdbebca5d2202e0:8268:2"
+        },
+        {
+          "rank": 4,
+          "title": "Luật-91-2025-QH15",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "privacy_data",
+          "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-3466ad78b47f.json",
+          "content": "Điều 38. Hiệu lực thi hành | Khoản 2\n2. Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền lựa chọn thực hiện hoặc không thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này trong thời gian 05 năm kể từ ngày Luật này có hiệu lực thi hành, trừ doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 38. Hiệu lực thi hành | Khoản 3\n3. Hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện quy định tại Điều 21, Điều 22 và khoản 2 Điều 33 của Luật này, trừ hộ kinh doanh, doanh nghiệp siêu nhỏ kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm hoặc xử lý dữ liệu cá nhân của số lượng lớn chủ thể dữ liệu cá nhân.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 1\n1. Hoạt động xử lý dữ liệu cá nhân đang thực hiện mà đã được chủ thể dữ liệu cá nhân đồng ý hoặc theo thỏa thuận theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ trước ngày Luật này có hiệu lực thi hành thì tiếp tục thực hiện, không phải xin đồng ý lại hoặc thỏa thuận lại.\n\nĐiều 39. Quy định chuyển tiếp | Khoản 2\n2. Hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài theo quy định của Nghị định số 13/2023/NĐ-CP ngày 17 tháng 4 năm 2023 của Chính phủ đã được cơ quan chuyên trách bảo vệ dữ liệu cá nhân tiếp nhận trước ngày Luật này có hiệu lực thi hành thì tiếp tục được sử dụng và không phải lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân, hồ sơ đánh giá tác động chuyển dữ liệu cá nhân xuyên biên giới theo quy định của Luật này; việc cập nhật các hồ sơ đã lập nêu trên sau ngày Luật này có hiệu lực thi hành thì thực hiện theo quy định của Luật này.\n\n__________________________________________________________________________\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV, kỳ họp thứ 9 thông qua ngày 26 tháng 6 năm 2025.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "rental_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "criminal_law",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+          "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+          "context_complete": true,
+          "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice"
+        },
+        {
+          "rank": 2,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 328. Đặt cọc | Khoản 2",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:2959:2"
+        },
+        {
+          "rank": 3,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 1",
+          "category": "criminal_law",
+          "source_url": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-135-vbhn-vpqh-46165-58894?format=pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-c689645e534f.json",
+          "content": "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác trị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm:\n\na) Đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt tài sản mà còn vi phạm;\n\nb) Đã bị kết án về tội này hoặc về một trong các tội quy định tại các điều 168, 169, 170, 171, 172, 173, 175 và 290 của Bộ luật này, chưa được xóa án tích mà còn vi phạm;\n\nc) Gây ảnh hưởng xấu đến an ninh, trật tự, an toàn xã hội;\n\nd) Tài sản là phương tiện kiếm sống chính của người bị hại và gia đình họ[98].",
+          "context_complete": true,
+          "provision_id": "75794b3769abfb6aa668:15609:1"
+        },
+        {
+          "rank": 4,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "rental_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "criminal_law",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+          "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+          "context_complete": true,
+          "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice"
+        },
+        {
+          "rank": 2,
+          "title": "Văn-bản-hợp-nhất-17-VBHN-VPQH",
+          "heading": "Điều 145. Trách nhiệm tiếp nhận và thẩm quyền giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 3",
+          "category": "criminal_law",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-95df8751459d.json",
+          "content": "3. Thẩm quyền giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố:\n\na) Cơ quan điều tra giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố theo thẩm quyền điều tra của mình;\n\nb) Cơ quan được giao nhiệm vụ tiến hành một số hoạt động điều tra giải quyết tố giác, tin báo về tội phạm theo thẩm quyền điều tra của mình;\n\nc) Viện kiểm sát giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố trong trường hợp phát hiện Cơ quan điều tra, cơ quan được giao nhiệm vụ tiến hành một số hoạt động điều tra có vi phạm pháp luật nghiêm trọng trong hoạt động kiểm tra, xác minh tố giác, tin báo về tội phạm, kiến nghị khởi tố hoặc có dấu hiệu bỏ lọt tội phạm mà Viện kiểm sát đã yêu cầu bằng văn bản nhưng không được khắc phục.",
+          "context_complete": true,
+          "provision_id": "da4fbd8f39bc46ad9605:9060:3"
+        },
+        {
+          "rank": 3,
+          "title": "Văn-bản-hợp-nhất-17-VBHN-VPQH",
+          "heading": "Điều 144. Tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 3",
+          "category": "criminal_law",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-95df8751459d.json",
+          "content": "3. Kiến nghị khởi tố là việc cơ quan nhà nước có thẩm quyền kiến nghị bằng văn bản và gửi kèm theo chứng cứ, tài liệu liên quan cho Cơ quan điều tra, Viện kiểm sát có thẩm quyền xem xét, xử lý vụ việc có dấu hiệu tội phạm.",
+          "context_complete": true,
+          "provision_id": "da4fbd8f39bc46ad9605:8181:3"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "rental_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "criminal_law",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+          "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+          "context_complete": true,
+          "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice"
+        },
+        {
+          "rank": 2,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+          "context_complete": true,
+          "provision_id": "e36235277d9ced3a03df:2959:1"
+        },
+        {
+          "rank": 3,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 4",
+          "category": "criminal_law",
+          "source_url": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-135-vbhn-vpqh-46165-58894?format=pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-c689645e534f.json",
+          "content": "4. Phạm tội thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 12 năm đến 20 năm hoặc tù chung thân:\n\na) Chiếm đoạt tài sản trị giá 500.000.000 đồng trở lên;\n\nb)[101] (được bãi bỏ)\n\nc) Lợi dụng hoàn cảnh chiến tranh, tình trạng khẩn cấp.",
+          "context_complete": true,
+          "provision_id": "75794b3769abfb6aa668:15609:4"
+        },
+        {
+          "rank": 4,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "category": "housing_contract",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "content": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 2\n2. Không áp dụng Bộ luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về dân sự trước ngày Bộ luật này có hiệu lực.",
+          "context_complete": null,
+          "provision_id": null
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "missing_categories": [],
+      "rows": [
+        {
+          "rank": 1,
+          "title": "rental_warning-Bo-Cong-an-20261003",
+          "heading": "Khuyến cáo cơ quan Công an",
+          "category": "criminal_law",
+          "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+          "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+          "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+          "context_complete": true,
+          "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice"
+        },
+        {
+          "rank": 2,
+          "title": "Luật-19-2023-QH15",
+          "heading": "Điều 10. Các hành vi bị nghiêm cấm trong bảo vệ quyền lợi người tiêu dùng | Khoản 1",
+          "category": "housing_contract",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-47-vbhn-vpqh-469132.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-6f667af18760.json",
+          "content": "1. Tổ chức, cá nhân kinh doanh bị nghiêm cấm thực hiện các hành vi sau đây:\n\na) Lừa dối hoặc gây nhầm lẫn cho người tiêu dùng thông qua việc cung cấp thông tin sai lệch, không đầy đủ, không chính xác về một trong các nội dung sau đây: sản phẩm, hàng hóa, dịch vụ mà tổ chức, cá nhân kinh doanh bán, cung cấp; uy tín, khả năng kinh doanh, khả năng cung cấp sản phẩm, hàng hóa, dịch vụ của tổ chức, cá nhân kinh doanh; nội dung, đặc điểm giao dịch giữa người tiêu dùng với tổ chức, cá nhân kinh doanh; hình ảnh, giấy tờ, tài liệu chứng nhận của cơ quan nhà nước có thẩm quyền về sản phẩm, hàng hóa, dịch vụ hoặc tổ chức, cá nhân kinh doanh;\n\nb) Quấy rối người tiêu dùng thông qua hành vi tiếp xúc trực tiếp hoặc gián tiếp trái với ý muốn của người tiêu dùng để giới thiệu về sản phẩm, hàng hóa, dịch vụ, tổ chức, cá nhân kinh doanh, đề nghị giao kết hợp đồng hoặc có hành vi khác gây cản trở công việc, sinh hoạt bình thường của người tiêu dùng;\n\nc) Ép buộc người tiêu dùng mua sản phẩm, hàng hóa, dịch vụ trái với ý muốn của người tiêu dùng thông qua việc thực hiện hành vi dùng vũ lực, đe dọa dùng vũ lực hoặc hành vi khác có tính chất tương tự;\n\nd) Ép buộc người tiêu dùng thanh toán cho sản phẩm, hàng hóa, dịch vụ đã cung cấp mà không có thỏa thuận trước với người tiêu dùng;\n\nđ) Không đền bù, trả lại tiền hoặc đổi lại sản phẩm, hàng hóa, dịch vụ cho người tiêu dùng do nhầm lẫn của tổ chức, cá nhân kinh doanh;\n\ne) Không đền bù, trả lại tiền hoặc đổi lại sản phẩm, hàng hóa, dịch vụ cho người tiêu dùng do sản phẩm, hàng hóa, dịch vụ không đúng với đăng ký, thông báo, công bố, niêm yết, quảng cáo, giới thiệu, giao kết, cam kết của tổ chức, cá nhân kinh doanh;\n\ng) Đánh tráo, gian lận sản phẩm, hàng hóa, dịch vụ khi giao hàng, cung cấp dịch vụ cho người tiêu dùng;\n\nh) Không thông báo trước, không công khai cho người tiêu dùng việc tài trợ cho người có ảnh hưởng dưới mọi hình thức để sử dụng hình ảnh, lời khuyên, khuyến nghị của người này nhằm xúc tiến thương mại hoặc khuyến khích người tiêu dùng mua, sử dụng sản phẩm, hàng hóa, dịch vụ;\n\ni) Ngăn cản người tiêu dùng kiểm tra về sản phẩm, hàng hóa, dịch vụ, trừ trường hợp pháp luật có quy định khác;\n\nk) Yêu cầu người tiêu dùng phải mua thêm sản phẩm, hàng hóa, dịch vụ như là điều kiện bắt buộc để giao kết hợp đồng trái với ý muốn của người tiêu dùng;\n\nl) Quy định điều khoản không được phép tại Điều 25 của Luật này trong hợp đồng giao kết với người tiêu dùng, hợp đồng theo mẫu, điều kiện giao dịch chung;\n\nm) Thu thập, lưu trữ, sử dụng, chỉnh sửa, cập nhật, hủy bỏ thông tin của người tiêu dùng trái quy định của pháp luật.",
+          "context_complete": true,
+          "provision_id": "295107f2a9562ec3eefc:4944:1"
+        },
+        {
+          "rank": 3,
+          "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+          "heading": "Điều 290. Tội sử dụng mạng máy tính, mạng viễn thông, phương tiện điện tử thực hiện hành vi chiếm đoạt tài sản | Khoản 1",
+          "category": "criminal_law",
+          "source_url": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-135-vbhn-vpqh-46165-58894?format=pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-c689645e534f.json",
+          "content": "1. Người nào sử dụng mạng máy tính, mạng viễn thông hoặc phương tiện điện tử thực hiện một trong những hành vi sau đây, nếu không thuộc một trong các trường hợp quy định tại Điều 173 và Điều 174 của Bộ luật này, thì bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm:\n\na) Sử dụng thông tin về tài khoản, thẻ ngân hàng của cơ quan, tổ chức, cá nhân để chiếm đoạt tài sản của chủ tài khoản, chủ thẻ hoặc thanh toán hàng hóa, dịch vụ;\n\nb) Làm, tàng trữ, mua bán, sử dụng, lưu hành thẻ ngân hàng giả nhằm chiếm đoạt tài sản của chủ tài khoản, chủ thẻ hoặc thanh toán hàng hóa, dịch vụ;\n\nc) Truy cập bất hợp pháp vào tài khoản của cơ quan, tổ chức, cá nhân nhằm chiếm đoạt tài sản;\n\nd) Lừa đảo trong thương mại điện tử, thanh toán điện tử, kinh doanh tiền tệ, huy động vốn, kinh doanh đa cấp hoặc giao dịch chứng khoán qua mạng nhằm chiếm đoạt tài sản;\n\nđ) Thiết lập, cung cấp trái phép dịch vụ viễn thông, internet nhằm chiếm đoạt tài sản.",
+          "context_complete": true,
+          "provision_id": "75794b3769abfb6aa668:23229:1"
+        }
+      ]
+    }
+  ],
+  "note": "Retrieval gates are not RAGAS scores and do not validate all legal interpretations."
+}

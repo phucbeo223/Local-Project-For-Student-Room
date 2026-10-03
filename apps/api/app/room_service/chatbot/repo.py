@@ -141,8 +141,14 @@ def _preference_score(
 class ChatRepository:
     """Read-only repository for stateless hybrid housing retrieval."""
 
-    def __init__(self, engine: Engine):
+    def __init__(self, engine: Engine, legal_schema: str = "public"):
         self.engine = engine
+        from ..legal_knowledge.storage import legal_schema as validate_schema
+        self.legal_schema = validate_schema(legal_schema)
+
+    def _legal_sql(self, statement: str):
+        from ..legal_knowledge.storage import legal_sql
+        return legal_sql(statement, self.legal_schema)
 
     def retrieve(
         self,
@@ -285,19 +291,23 @@ class ChatRepository:
         query: str,
         vector: list[float] | None,
         limit: int = 5,
+        search_queries: list[str] | None = None,
+        categories_override: list[str] | None = None,
     ) -> list[dict]:
         """Hybrid retrieval over OCR/indexed legal chunks.
 
         Missing migration/data is treated as an empty knowledge base so a rolling
         deployment never makes the existing housing chatbot unavailable.
         """
-        expanded = expand_legal_query(query)
+        expanded = expand_legal_query(query) + " " + " ".join(search_queries or [])
         # Independent lexical and vector pools avoid excluding a relevant law
         # merely because it was indexed earlier than 600 other chunks.
         terms = list(dict.fromkeys(term for term in re.findall(r"[^\W_]{2,}", expanded.lower()) if legal_tokens(term)))
-        categories = question_categories(query)
+        categories = tuple(dict.fromkeys([*question_categories(query), *(categories_override or [])]))
         params: dict[str, Any] = {"candidate_limit": 120, "category_limit": 40, "tsquery": " | ".join(terms) or "empty",
-                                  "categories": list(categories), "has_categories": bool(categories), "rental_query": rental_electricity_question(query)}
+                                  "categories": list(categories), "has_categories": bool(categories), "rental_query": rental_electricity_question(query),
+                                  "identity_query": 'privacy_data' in categories and 'housing_contract' in categories}
+        params['privacy_query'] = 'privacy_data' in categories
         if vector is not None:
             vector_sql = (
                 "CASE WHEN c.embedding_vector IS NULL THEN 0 ELSE "
@@ -306,25 +316,31 @@ class ChatRepository:
             params["query_vector"] = _vector_literal(vector)
         else:
             vector_sql = "0"
+        metadata_sql = "d.source_metadata->>'source_url' AS source_url,d.source_metadata->>'page_kind' AS page_kind," if self.legal_schema != "public" else ""
+        provision_sql = "c.parent_content,c.provision_id,c.source_metadata AS provision_metadata," if self.legal_schema != "public" else ""
         base_sql = (
             "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
-            "c.page_from,c.page_to,c.heading,c.content,"
+            + metadata_sql + provision_sql + "c.page_from,c.page_to,c.heading,c.content,"
             f"{vector_sql} AS vector_score,"
             "ts_rank_cd(c.content_tsv,to_tsquery('simple',:tsquery)) AS lexical_rank "
             "FROM legal_chunks c JOIN legal_documents d ON d.id=c.document_id WHERE d.status='ready' "
             "AND (NOT :has_categories OR d.category=ANY(:categories)) "
         )
-        sql = text("WITH candidates AS (" + base_sql + "), lexical_ids AS ("
+        sql = self._legal_sql("WITH candidates AS (" + base_sql + "), lexical_ids AS ("
                    "SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY lexical_rank DESC,chunk_id) AS position "
                    "FROM candidates WHERE lexical_rank > 0), lexical AS ("
                    "SELECT c.* FROM candidates c JOIN lexical_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit), "
                    "phrases AS (SELECT * FROM candidates WHERE :rental_query AND (content ILIKE '%thu tiền điện%' "
                    "OR content ILIKE '%người thuê nhà%' OR content ILIKE '%định mức%') "
-                   "ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit) "
+                   "ORDER BY lexical_rank DESC,chunk_id LIMIT :candidate_limit), "
+                   "identity AS (SELECT * FROM candidates WHERE :identity_query AND category='housing_contract' "
+                   "AND heading ILIKE '%hợp đồng về nhà ở%' AND (content ILIKE '%Họ và tên%' OR content ILIKE '%họ tên%')), "
+                   "privacy AS (SELECT * FROM candidates WHERE :privacy_query AND category='privacy_data' "
+                   "AND (heading ILIKE '%Nguyên tắc bảo vệ%' OR heading ILIKE '%Sự đồng ý%' OR heading ILIKE '%Thu thập, phân tích%')) "
                    + (", semantic_ids AS (SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY vector_score DESC,chunk_id) AS position FROM candidates), "
                       "semantic AS (SELECT c.* FROM candidates c JOIN semantic_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit) "
-                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases" if vector is not None
-                      else "SELECT * FROM lexical UNION SELECT * FROM phrases"))
+                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy" if vector is not None
+                      else "SELECT * FROM lexical UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy"))
         try:
             with self.engine.connect() as conn:
                 rows = [dict(row) for row in conn.execute(sql, params).mappings().all()]
@@ -371,19 +387,53 @@ class ChatRepository:
         rows = diversified_legal_rows(query, rows, core_limit) + rows
         selected = []
         seen: set[tuple] = set()
+        general_contract_contents = ('housing_contract' in categories and
+            any(term in normalize_text(query) for term in ('truoc khi ky', 'nhung dieu khoan', 'noi dung hop dong')))
         # Keep complete clauses and associated effectiveness/transition provisions.
         with self.engine.connect() as conn:
             for item in rows:
-                group = (item["document_id"], re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])
+                article_heading = re.sub(r' \| Khoản .*$', '', item.get('heading') or '')
+                include_article = (self.legal_schema != 'public' and general_contract_contents and
+                    any(term in normalize_text(article_heading) for term in ('hop dong ve nha o', 'noi dung cua hop dong')))
+                group = (item["document_id"], article_heading if include_article else re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])
                 if group in seen:
                     continue
                 seen.add(group)
                 item = dict(item)
-                if item.get("heading"):
+                if include_article:
+                    article_rows = [dict(r) for r in conn.execute(self._legal_sql(
+                        'SELECT content,parent_content,page_from,page_to,provision_id,source_metadata '
+                        'FROM legal_chunks WHERE document_id=:doc AND (heading=:heading OR heading LIKE :clauses) '
+                        'ORDER BY chunk_index'), {'doc':item['document_id'], 'heading':article_heading,
+                                                  'clauses':article_heading+' | Khoản %'}).mappings()]
+                    unique_parts = list({r['provision_id']:r for r in article_rows}.values())
+                    # Each clause's parent contains the same article introduction. Retain it once.
+                    introduction = next((r['source_metadata'].get('article_context') for r in unique_parts
+                                         if r['source_metadata'].get('article_context')), '')
+                    bodies = [r['parent_content'][len(introduction):].lstrip() if introduction and
+                              r['parent_content'].startswith(introduction) else r['parent_content']
+                              for r in unique_parts]
+                    bodies = [body for body in bodies if body and body != introduction]
+                    article_text = ((introduction+'\n\n') if introduction else '')+'\n\n'.join(bodies)
+                    if article_text and len(article_text)<=5500:
+                        item.update(content=article_text, heading=article_heading, context_complete=True,
+                                    provision_ids=[r['provision_id'] for r in unique_parts])
+                        item['page_from'] = min((r['page_from'] for r in unique_parts if r['page_from'] is not None), default=None)
+                        item['page_to'] = max((r['page_to'] for r in unique_parts if r['page_to'] is not None), default=None)
+                    else:
+                        item['content'] = (item.get('parent_content') or item['content'])[:5500]
+                        item['context_complete'] = False
+                elif item.get("parent_content") and len(item['parent_content']) <= 5500:
+                    item['content'] = item['parent_content']
+                    item['context_complete'] = True
+                elif item.get('parent_content'):
+                    # Do not represent a bounded fragment as a complete clause.
+                    item['context_complete'] = False
+                elif item.get("heading"):
                     # A point's meaning often depends on its clause introduction
                     # and other required items in the same dossier/checklist.
                     clause_heading = re.sub(r' \| Điểm [a-zđ]$', '', item['heading'])
-                    siblings = [dict(row) for row in conn.execute(text(
+                    siblings = [dict(row) for row in conn.execute(self._legal_sql(
                         "SELECT id AS chunk_id,chunk_index,content,page_from,page_to FROM legal_chunks "
                         "WHERE document_id=:doc AND (heading=:heading OR heading LIKE :points) ORDER BY chunk_index"
                     ), {"doc": item["document_id"], "heading": clause_heading,
@@ -408,9 +458,9 @@ class ChatRepository:
                     break
             doc_ids = list(dict.fromkeys(item["document_id"] for item in selected))
             if doc_ids and len(selected) < limit:
-                effect_rows = [dict(row) for row in conn.execute(text(
+                effect_rows = [dict(row) for row in conn.execute(self._legal_sql(
                     "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
-                    "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
+                    + metadata_sql + "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
                     "JOIN legal_documents d ON d.id=c.document_id WHERE d.id=ANY(:ids) "
                     "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%chuyển tiếp%' "
                     "OR c.heading ILIKE '%hình thức xử phạt%') "
@@ -419,6 +469,7 @@ class ChatRepository:
                 for doc_id in doc_ids:
                     effects = [row for row in effect_rows if row["document_id"] == doc_id
                                and usable_legal_text(row["content"])
+                               and 'hop dong' not in normalize_text(row.get('heading') or '')
                                and row["chunk_id"] not in {part["chunk_id"] for part in selected}]
                     # Effectiveness first (contains delayed commencement), then
                     # transition clauses. Each document gets its own citation.

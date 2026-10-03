@@ -1,0 +1,1212 @@
+{
+  "started_at_utc": "2026-10-03T06:52:20.321495+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "category": "housing_contract",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 328. Đặt cọc | Khoản 2: “2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.” [1].\n\n- Bo-luat-91-2015-QH13-doi-chieu-20261003 — Điều 427. Hậu quả của việc huỷ bỏ hợp đồng | Khoản 2: “2. Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.\nViệc hoàn trả được thực hiện bằng hiện vật. Trường hợp không hoàn trả được bằng hiện vật thì được trị giá thành tiền để hoàn trả.\nTrường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.” [2].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.9331,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Gemini phân tích câu hỏi chưa khả dụng (RuntimeError); dùng định tuyến chủ đề dự phòng.",
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Kết luận hoặc số liệu chưa gắn trích dẫn trực tiếp.",
+        "Claim 1 sai: Nguồn chỉ nói 'từ chối giao kết/thực hiện', không phân biệt chủ thể (chủ trọ hay khách) để áp dụng cho trường hợp chủ trọ từ chối.",
+        "Claim 2 đúng về nguyên tắc đồng thời nhưng ngữ cảnh 'hoàn trả tiền cọc' cụ thể chưa được nguồn rank 2 đề cập trực tiếp, chỉ nói chung về hoàn trả sau hủy hợp đồng.",
+        "Claim 1 thiếu điều kiện: Nguồn quy định khoản tương đương giá trị tài sản đặt cọc khi 'bên nhận đặt cọc từ chối', không phải mọi trường hợp chủ trọ từ chối đều áp dụng."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 230407,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 80646
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 35619
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 72508
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 33647
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "rules",
+          "model": null,
+          "status": "fallback",
+          "duration_ms": 525
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 7412
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "qwen_and_rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác.",
+        "2. Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.\nViệc hoàn trả được thực hiện bằng hiện vật. Trường hợp không hoàn trả được bằng hiện vật thì được trị giá thành tiền để hoàn trả.\nTrường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.",
+        "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng.",
+        "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ luật này;\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\nc) Giao dịch dân sự được thực hiện xong trước ngày Bộ luật này có hiệu lực mà có tranh chấp thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11 để giải quyết;\nd) Thời hiệu được áp dụng theo quy định của Bộ luật này."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 303,
+          "rank": 1,
+          "similarity_score": 0.950774,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 2",
+          "excerpt": "2. Trường hợp hợp đồng được giao kết, thực hiện thì tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền; nếu bên đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì tài sản đặt cọc thuộc về bên nhận đặt cọc; nếu bên nhận đặt cọc từ chối việc giao kết, thực hiện hợp đồng thì phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thoả thuận khác."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 363,
+          "rank": 2,
+          "similarity_score": 0.934874,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 427. Hậu quả của việc huỷ bỏ hợp đồng | Khoản 2",
+          "excerpt": "2. Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.\nViệc hoàn trả được thực hiện bằng hiện vật. Trường hợp không hoàn trả được bằng hiện vật thì được trị giá thành tiền để hoàn trả.\nTrường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 302,
+          "rank": 3,
+          "similarity_score": 0.867288,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 328. Đặt cọc | Khoản 1",
+          "excerpt": "1. Đặt cọc là việc một bên (sau đây gọi là bên đặt cọc) giao cho bên kia (sau đây gọi là bên nhận đặt cọc) một khoản tiền hoặc kim khí quý, đá quý hoặc vật có giá trị khác (sau đây gọi chung là tài sản đặt cọc) trong một thời hạn để bảo đảm giao kết hoặc thực hiện hợp đồng."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 11,
+          "chunk_id": 290,
+          "rank": 4,
+          "similarity_score": 0.950774,
+          "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 1\n1. Hợp đồng được giao kết hợp pháp có hiệu lực từ thời điểm giao kết, trừ trường hợp có thỏa thuận khác hoặc luật liên quan có quy định khác.\n\nĐiều 401. Hiệu lực của hợp đồng | Khoản 2\n2. Từ thời điểm hợp đồng có hiệu lực, các bên phải thực hiện quyền và nghĩa vụ đối với nhau theo cam kết. Hợp đồng chỉ có thể bị sửa đổi hoặc hủy bỏ theo thỏa thuận của các bên hoặc theo quy định của pháp luật.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật…"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true,
+      "ragas": {
+        "answer_relevancy": 0.8905,
+        "faithfulness": 1.0,
+        "context_utilization": 1.0
+      },
+      "ragas_errors": {},
+      "ragas_usage": {
+        "answer_relevancy": {
+          "max_output_tokens": 8192,
+          "requests": 1,
+          "prompt_tokens": 2281,
+          "output_tokens": 146,
+          "max_prompt_tokens": 2281
+        },
+        "faithfulness": {
+          "max_output_tokens": 8192,
+          "requests": 2,
+          "prompt_tokens": 11751,
+          "output_tokens": 1514,
+          "max_prompt_tokens": 9221
+        },
+        "context_utilization": {
+          "max_output_tokens": 8192,
+          "requests": 4,
+          "prompt_tokens": 6877,
+          "output_tokens": 818,
+          "max_prompt_tokens": 2243
+        }
+      },
+      "ragas_judgements": {
+        "answer_relevancy": [
+          {
+            "schema": "AnswerRelevanceOutput",
+            "output": {
+              "question": "Quy định của pháp luật về đặt cọc và hậu quả của việc hủy bỏ hợp đồng là gì?",
+              "noncommittal": 0
+            }
+          }
+        ],
+        "faithfulness": [
+          {
+            "schema": "StatementGeneratorOutput",
+            "output": {
+              "statements": [
+                "Điều 328 của Bộ luật Dân sự 2015 quy định về việc đặt cọc.",
+                "Khi hợp đồng được giao kết và thực hiện, tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền.",
+                "Nếu bên đặt cọc từ chối việc giao kết hoặc thực hiện hợp đồng, tài sản đặt cọc thuộc về bên nhận đặt cọc.",
+                "Nếu bên nhận đặt cọc từ chối việc giao kết hoặc thực hiện hợp đồng, bên nhận đặt cọc phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thỏa thuận khác.",
+                "Điều 427 của Bộ luật Dân sự 2015 quy định về hậu quả của việc hủy bỏ hợp đồng.",
+                "Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.",
+                "Việc hoàn trả được thực hiện bằng hiện vật.",
+                "Trường hợp không hoàn trả được bằng hiện vật thì việc hoàn trả được thực hiện bằng giá trị thành tiền.",
+                "Trường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.",
+                "Các quy định trên là thông tin tham khảo từ nguồn pháp luật.",
+                "Các quy định trên chưa kết luận cách áp dụng cho tình huống riêng của người hỏi.",
+                "Người hỏi cần đối chiếu điều kiện, hiệu lực và bản gốc của hợp đồng."
+              ]
+            }
+          },
+          {
+            "schema": "NLIStatementOutput",
+            "output": {
+              "statements": [
+                {
+                  "statement": "Điều 328 của Bộ luật Dân sự 2015 quy định về việc đặt cọc.",
+                  "reason": "The context explicitly includes Article 328 titled 'Đặt cọc' from the document 'Bo-luat-91-2015-QH13'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Khi hợp đồng được giao kết và thực hiện, tài sản đặt cọc được trả lại cho bên đặt cọc hoặc được trừ để thực hiện nghĩa vụ trả tiền.",
+                  "reason": "This is directly stated in Article 328, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Nếu bên đặt cọc từ chối việc giao kết hoặc thực hiện hợp đồng, tài sản đặt cọc thuộc về bên nhận đặt cọc.",
+                  "reason": "This is directly stated in Article 328, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Nếu bên nhận đặt cọc từ chối việc giao kết hoặc thực hiện hợp đồng, bên nhận đặt cọc phải trả cho bên đặt cọc tài sản đặt cọc và một khoản tiền tương đương giá trị tài sản đặt cọc, trừ trường hợp có thỏa thuận khác.",
+                  "reason": "This is directly stated in Article 328, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Điều 427 của Bộ luật Dân sự 2015 quy định về hậu quả của việc hủy bỏ hợp đồng.",
+                  "reason": "The context explicitly includes Article 427 titled 'Hậu quả của việc hủy bỏ hợp đồng' from the document 'Bo-luat-91-2015-QH13'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Các bên phải hoàn trả cho nhau những gì đã nhận sau khi trừ chi phí hợp lý trong thực hiện hợp đồng và chi phí bảo quản, phát triển tài sản.",
+                  "reason": "This is directly stated in Article 427, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Việc hoàn trả được thực hiện bằng hiện vật.",
+                  "reason": "This is directly stated in Article 427, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Trường hợp không hoàn trả được bằng hiện vật thì việc hoàn trả được thực hiện bằng giá trị thành tiền.",
+                  "reason": "This is directly stated in Article 427, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Trường hợp các bên cùng có nghĩa vụ hoàn trả thì việc hoàn trả phải được thực hiện cùng một thời điểm, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.",
+                  "reason": "This is directly stated in Article 427, Clause 2 of the provided context.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Các quy định trên là thông tin tham khảo từ nguồn pháp luật.",
+                  "reason": "The context provides legal text, which serves as reference information.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Các quy định trên chưa kết luận cách áp dụng cho tình huống riêng của người hỏi.",
+                  "reason": "The provided text is a general legal excerpt and does not address specific individual cases.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Người hỏi cần đối chiếu điều kiện, hiệu lực và bản gốc của hợp đồng.",
+                  "reason": "This is a logical inference based on the nature of legal documents provided, which require context-specific application and verification.",
+                  "verdict": 1
+                }
+              ]
+            }
+          }
+        ],
+        "context_utilization": [
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provided relevant legal articles (Article 328 of the Civil Code 2015 regarding deposits and Article 427 regarding the consequences of contract cancellation) that directly address the principles of returning deposits and obligations upon contract termination, which is highly relevant to the user's question about deposit refunds.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains Article 427 regarding the consequences of contract cancellation, which is relevant to the general principle of returning assets/payments. However, the answer provided by the model also includes information from Article 328 (regarding deposits) which was not present in the provided context snippet. Since the context only provided Article 427 and the answer relied on external knowledge (Article 328) to fully address the question about 'deposits', the context was only partially useful.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context only contains the definition of a deposit (Article 328, Clause 1) and does not contain the information regarding the refund of the deposit upon contract completion or termination (which is found in Clause 2 of the same article or other articles). The answer provided by the model relies on external information not present in the provided context snippet.",
+              "verdict": 0
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context does not contain the information used in the answer. The answer cites Article 328 and Article 427 of the Civil Code, but the provided context only contains Articles 117, 401, 688, and 689. Therefore, the context was not useful in arriving at the specific answer provided.",
+              "verdict": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "category": "electricity"
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "category": "electricity"
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "category": "electricity"
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "category": "electricity"
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "category": "residence"
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "category": "residence"
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "category": "residence"
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "category": "residence",
+      "answer": "Khi chuyển sang phòng trọ khác, bạn có trách nhiệm thực hiện đăng ký tạm trú mới tại nơi ở mới [1]. Hồ sơ cần chuẩn bị bao gồm tờ khai thay đổi thông tin cư trú và giấy tờ chứng minh chỗ ở hợp pháp [2]. Nếu không thể tra cứu được thông tin trong hệ thống, cơ quan chức năng sẽ kiểm tra xác minh dựa trên bản gốc giấy tờ bạn xuất trình để ghi nhận tính chính xác [3]. Lưu ý đây là thông tin tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": false,
+      "partial_answer": false,
+      "degraded": true,
+      "degraded_reasons": [
+        "Gemini phân tích câu hỏi chưa khả dụng (RuntimeError); dùng định tuyến chủ đề dự phòng."
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "qwen-local",
+      "generation_model": "qwen3.5:9b",
+      "latency_ms": 85516,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 63963
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 0,
+          "latency_ms": 20923
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "rules",
+          "model": null,
+          "status": "fallback",
+          "duration_ms": 23
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 594
+        },
+        {
+          "agent": "answer",
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "status": "complete",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "qwen_and_rules",
+          "status": "accepted"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm\nthực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3\nĐiều 6 Thông tư này.",
+        "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+        "6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh.",
+        "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước."
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 29,
+          "chunk_id": 1157,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "category": "residence",
+          "page_from": 7,
+          "page_to": 7,
+          "heading": "Điều 12. Đăng ký tạm trú | Khoản 1",
+          "excerpt": "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm\nthực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành\nchính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3\nĐiều 6 Thông tư này."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 19,
+          "chunk_id": 756,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "category": "residence",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "excerpt": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 29,
+          "chunk_id": 1146,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "category": "residence",
+          "page_from": 2,
+          "page_to": 2,
+          "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
+          "excerpt": "6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 29,
+          "chunk_id": 1173,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "Thông tư 116/2026/TT-BCA",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+          "source_path": "docs/legal_corpus_v2/residence116.json",
+          "category": "residence",
+          "page_from": 18,
+          "page_to": 18,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 27. Hiệu lực thi hành | Khoản 2\n2. Các quy định sau đây hết hiệu lực kể từ ngày Thông tư này có hiệu lực\nthi hành:\n\na) Thông tư số 55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng\nBộ Công an quy định chi tiét một số điều và biện pháp thi hành Luật Cư trú;\n\nb) Thông tư số 56/2021/TT: -BCA ngày 15 tháng 5 năm 2021 của Bộ\ntrưởng Bộ Công an quy định biểu mẫu trong đăng ký, quản lý cư trú;\n\nc) Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023 của Bộ\ntrưởng Bộ Công an sửa đổi, bd sung một số điều của Thông tư số 55/2021/TT-\nBCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định chỉ tiết một\nsố điều và biện pháp thi hành Luật Cư trú; Thông tư số 56/2021/TT: -BCA ngày 15\ntháng 5 năm 2021 của Bộ trưởng Bộ Công an quy định về biểu mẫu trong đăng\nký, quản lý cư trú; Thông tư số 57/2021/TT-BCA ngày 15 tháng 5 năm 2021 của\nBộ trưởng Bộ Công an quy định về quy trình đăng ký cư trú.\n\nd) Điều 1 và Điều 2 Thông tư số 53/2025/TT-BCA ngày 01 tháng 7 năm\n2025 của Bộ trưởng Bộ Công an sửa đôi, bô sung một sô điều của Thông tư số\n55/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh chi tiết một số điều và biện pháp thi hành Luật Cư trú được sửa đổi, bd\n\nĐiều 27. Hiệu lực thi hành | Khoản 2\nsung bởi Thông tư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư\nsố 56/2021/TT-BCA ngày 15 tháng 5 năm 2021 của Bộ trưởng Bộ Công an quy\nđịnh về biểu mẫu trong đăng ký, quản lý cư trú được sửa đổi, bé sung bởi Thông\ntư số 66/2023/TT-BCA ngày 17 tháng 11 năm 2023; Thông tư số 17/2024/TT-\nBCA ngay 15 tháng 5 năm 2024 của Bộ trưởng Bộ Công an quy định chi tiết\nmột số điều và biện pháp thi hành Luật Căn cước."
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true,
+      "ragas": {
+        "faithfulness": 0.7143,
+        "answer_relevancy": 0.9296,
+        "context_utilization": 1.0
+      },
+      "ragas_errors": {},
+      "ragas_usage": {
+        "faithfulness": {
+          "max_output_tokens": 8192,
+          "requests": 2,
+          "prompt_tokens": 7122,
+          "output_tokens": 2573,
+          "max_prompt_tokens": 6071
+        },
+        "answer_relevancy": {
+          "max_output_tokens": 8192,
+          "requests": 1,
+          "prompt_tokens": 853,
+          "output_tokens": 149,
+          "max_prompt_tokens": 853
+        },
+        "context_utilization": {
+          "max_output_tokens": 8192,
+          "requests": 4,
+          "prompt_tokens": 5523,
+          "output_tokens": 763,
+          "max_prompt_tokens": 1821
+        }
+      },
+      "ragas_judgements": {
+        "faithfulness": [
+          {
+            "schema": "StatementGeneratorOutput",
+            "output": {
+              "statements": [
+                "Người thuê trọ có trách nhiệm thực hiện đăng ký tạm trú mới tại nơi ở mới khi chuyển sang phòng trọ khác.",
+                "Hồ sơ đăng ký tạm trú bao gồm tờ khai thay đổi thông tin cư trú.",
+                "Hồ sơ đăng ký tạm trú bao gồm giấy tờ chứng minh chỗ ở hợp pháp.",
+                "Cơ quan chức năng sẽ kiểm tra xác minh dựa trên bản gốc giấy tờ người thuê trọ xuất trình nếu không thể tra cứu được thông tin trong hệ thống.",
+                "Cơ quan chức năng ghi nhận tính chính xác của thông tin dựa trên bản gốc giấy tờ người thuê trọ xuất trình.",
+                "Thông tin này là thông tin tham khảo.",
+                "Thông tin này không thay thế tư vấn pháp lý chuyên nghiệp."
+              ]
+            }
+          },
+          {
+            "schema": "NLIStatementOutput",
+            "output": {
+              "statements": [
+                {
+                  "statement": "Người thuê trọ có trách nhiệm thực hiện đăng ký tạm trú mới tại nơi ở mới khi chuyển sang phòng trọ khác.",
+                  "reason": "Văn bản quy định công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm thực hiện đăng ký tạm trú mới, việc chuyển phòng trọ là thay đổi chỗ ở.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Hồ sơ đăng ký tạm trú bao gồm tờ khai thay đổi thông tin cư trú.",
+                  "reason": "Văn bản quy định rõ hồ sơ đăng ký tạm trú bao gồm tờ khai thay đổi thông tin cư trú.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Hồ sơ đăng ký tạm trú bao gồm giấy tờ chứng minh chỗ ở hợp pháp.",
+                  "reason": "Văn bản quy định rõ hồ sơ đăng ký tạm trú bao gồm giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Cơ quan chức năng sẽ kiểm tra xác minh dựa trên bản gốc giấy tờ người thuê trọ xuất trình nếu không thể tra cứu được thông tin trong hệ thống.",
+                  "reason": "Văn bản quy định trường hợp không khai thác được thông tin trong cơ sở dữ liệu thì cơ quan đăng ký cư trú có trách nhiệm kiểm tra, xác minh dựa trên bản gốc giấy tờ công dân xuất trình.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Cơ quan chức năng ghi nhận tính chính xác của thông tin dựa trên bản gốc giấy tờ người thuê trọ xuất trình.",
+                  "reason": "Văn bản quy định cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác vào biên bản khi thực hiện xác minh dựa trên bản gốc giấy tờ công dân xuất trình.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Thông tin này là thông tin tham khảo.",
+                  "reason": "Văn bản cung cấp là các quy định pháp luật cụ thể, không có nội dung nào khẳng định đây chỉ là thông tin tham khảo.",
+                  "verdict": 0
+                },
+                {
+                  "statement": "Thông tin này không thay thế tư vấn pháp lý chuyên nghiệp.",
+                  "reason": "Văn bản không chứa nội dung tuyên bố miễn trừ trách nhiệm về tư vấn pháp lý.",
+                  "verdict": 0
+                }
+              ]
+            }
+          }
+        ],
+        "answer_relevancy": [
+          {
+            "schema": "AnswerRelevanceOutput",
+            "output": {
+              "question": "Tôi cần làm gì và chuẩn bị những giấy tờ gì khi chuyển sang phòng trọ mới?",
+              "noncommittal": 0
+            }
+          }
+        ],
+        "context_utilization": [
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provided information about the requirement to register for temporary residence when changing accommodation, which directly addresses the core of the user's question. However, the answer includes additional details (like specific documents and verification procedures) that are not present in the provided context snippet. Despite this, the context was useful as a foundational source for the answer.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The context provides the specific requirements for registering temporary residence (tạm trú), which is the procedure needed when moving to a new rental room. It lists the necessary documents (declaration form and proof of legal residence), which directly supports the answer provided.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context only addresses the procedure for when information cannot be retrieved from the database or VNeID system (requiring the presentation of original documents). It does not explain the general process of updating residence information when moving to a new room, such as the requirement to register for temporary residence or the specific documents needed (like the declaration form), which are mentioned in the answer. Therefore, the context is insufficient to fully support the answer provided.",
+              "verdict": 0
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context only lists the effective dates and repeals of various circulars related to residence registration (Thông tư 116/2026/TT-BCA). It does not contain any instructions, procedures, or information on how to update residence information when moving to a new room or apartment. Therefore, the context is not useful for answering the question.",
+              "verdict": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "category": "privacy_data",
+      "answer": "Các căn cứ liên quan tìm được trong kho (trích nguyên đoạn):\n\n- Nghị-định-356-2025-NĐ-CP — Điều 5. Thực hiện quyền của chủ thể dữ liệu cá nhân | Khoản 2: “2. Khi nhận được yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, hạn chế xử lý dữ liệu cá nhân, phản đối xử lý dữ liệu cá nhân theo đúng thủ tục của chủ thể dữ liệu cá nhân, bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân phải phản hồi trong thời hạn 02 ngày làm việc, cung cấp đầy đủ thông tin cho chủ thể dữ liệu cá nhân về thủ tục ngừng xử lý dữ liệu cá nhân và thực hiện trong thời hạn 15 ngày, trừ trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân theo quy định tại Điều 19 Luật Bảo vệ dữ liệu cá nhân.Trường hợp cần yêu cầu bên xử lý dữ liệu cá nhân, bên thứ ba ngừng xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân thì thực hiện trong thời hạn 20 ngày.” [2].\n\n- Luat-68-2020-QH14-doi-chieu-20261003 — Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1: “1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.” [1].\n\nĐây là câu trả lời một phần từ nguồn; chưa kết luận cách áp dụng cho tình huống riêng của bạn. Cần đối chiếu điều kiện, hiệu lực và bản gốc.",
+      "intent": "legal_question",
+      "confidence": 0.97,
+      "no_answer": true,
+      "partial_answer": true,
+      "degraded": true,
+      "degraded_reasons": [
+        "Gemini phân tích câu hỏi chưa khả dụng (RuntimeError); dùng định tuyến chủ đề dự phòng.",
+        "Câu trả lời dùng mẫu theo nguồn vì chưa đủ bằng chứng hoặc trích dẫn không hợp lệ",
+        "Claim 1: Nguồn rank 1 quy định chủ trọ phải thu thập 'Giấy tờ chứng minh chỗ ở hợp pháp' (khoản 1), mâu thuẫn với kết luận 'chưa tìm thấy căn cứ'.",
+        "Claim 2: Nguồn rank 3 chỉ liệt kê họ tên và địa chỉ là nội dung ghi nhận, không khẳng định đây là điều kiện tiên quyết cho đăng ký tạm trú.",
+        "Claim 4: Claim khẳng định giao dịch thuê nhà ở thường không bắt buộc công chứng/chứng thực. Tuy nhiên, nguồn rank 4 quy định các trường hợp phải công chứng/chứng thực (khoản 1) và chỉ miễn trừ một sốụ"
+      ],
+      "retrieval_mode": "legal_hybrid",
+      "generation_provider": "legal-partial-extractive",
+      "generation_model": null,
+      "latency_ms": 232382,
+      "provider_calls": [
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 63964
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 47799
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "generate",
+          "success": true,
+          "latency_ms": 70143
+        },
+        {
+          "provider": "qwen-local",
+          "model": "qwen3.5:9b",
+          "method": "check_legal_evidence",
+          "success": true,
+          "issues": 3,
+          "latency_ms": 50044
+        }
+      ],
+      "agent_trace": [
+        {
+          "agent": "question_analysis",
+          "provider": "rules",
+          "model": null,
+          "status": "fallback",
+          "duration_ms": 2
+        },
+        {
+          "agent": "legal_retrieval",
+          "provider": "hybrid",
+          "status": "completed",
+          "corpus_schema": "legal_v2",
+          "sources_found": 4,
+          "duration_ms": 386
+        },
+        {
+          "agent": "answer",
+          "provider": "legal-partial-extractive",
+          "model": null,
+          "status": "partial",
+          "attempted_provider": "qwen-local",
+          "attempted_model": "qwen3.5:9b"
+        },
+        {
+          "agent": "source_verification",
+          "provider": "qwen_and_rules",
+          "status": "rejected"
+        }
+      ],
+      "corpus_schema": "legal_v2",
+      "citation_accuracy": 1.0,
+      "contexts": [
+        "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+        "2. Khi nhận được yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, hạn chế xử lý dữ liệu cá nhân, phản đối xử lý dữ liệu cá nhân theo đúng thủ tục của chủ thể dữ liệu cá nhân, bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân phải phản hồi trong thời hạn 02 ngày làm việc, cung cấp đầy đủ thông tin cho chủ thể dữ liệu cá nhân về thủ tục ngừng xử lý dữ liệu cá nhân và thực hiện trong thời hạn 15 ngày, trừ trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân theo quy định tại Điều 19 Luật Bảo vệ dữ liệu cá nhân.Trường hợp cần yêu cầu bên xử lý dữ liệu cá nhân, bên thứ ba ngừng xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân thì thực hiện trong thời hạn 20 ngày.\n\nTùy theo tính chất, mức độ phức tạp của yêu cầu, trường hợp cần gia hạn thời gian xử lý thì kéo dài thêm tối đa 01 lần gia hạn trong thời hạn không quá 15 ngày, bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân thông báo cho chủ thể dữ liệu cá nhân lý do cần gia hạn và chịu trách nhiệm chứng minh việc gia hạn là cần thiết, hợp lý.",
+        "1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;",
+        "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở"
+      ],
+      "sources": [
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 19,
+          "chunk_id": 756,
+          "rank": 1,
+          "similarity_score": 1.0,
+          "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+          "source": "legal_corpus",
+          "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+          "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+          "category": "residence",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+          "excerpt": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 17,
+          "chunk_id": 627,
+          "rank": 2,
+          "similarity_score": 1.0,
+          "title": "Nghị-định-356-2025-NĐ-CP",
+          "source": "legal_corpus",
+          "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=216387&pageid=27160",
+          "source_path": "docs/legal_corpus_v2/legacy-e2f946f8fa90.json",
+          "category": "privacy_data",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 5. Thực hiện quyền của chủ thể dữ liệu cá nhân | Khoản 2",
+          "excerpt": "2. Khi nhận được yêu cầu rút lại sự đồng ý cho phép xử lý dữ liệu cá nhân, hạn chế xử lý dữ liệu cá nhân, phản đối xử lý dữ liệu cá nhân theo đúng thủ tục của chủ thể dữ liệu cá nhân, bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân phải phản hồi trong thời hạn 02 ngày làm việc, cung cấp đầy đủ thông tin cho chủ thể dữ liệu cá nhân về thủ tục ngừng xử lý dữ liệu cá nhân và thực hiện trong thời hạn 15 ngày, trừ trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân theo quy định tại Điều 19 Luật Bảo vệ dữ liệu cá nhân.Trường hợp cần yêu cầu bên xử lý dữ liệu cá nhân, bên thứ ba ngừng xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân thì thực hiện trong thời hạn 20 ngày.\n\nTùy theo tính chất, mức độ phức tạp của yêu cầu, trường hợp cần gia hạn thời gian xử lý thì kéo dài thêm tối đa 01 lần gia hạn trong thời hạn không quá 15 ngày, bên kiểm soát dữ liệu cá nhân, bên kiểm soát và xử lý dữ liệu cá nhân thông báo cho chủ thể dữ liệu cá nhân lý do cần gia hạn và chịu trách nhiệm chứng minh việc gia hạn là cần thiết, hợp lý."
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 254,
+          "rank": 3,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Điều 163. Hợp đồng về nhà ở | Khoản 1",
+          "excerpt": "1. Họ và tên của cá nhân, tên của tổ chức và địa chỉ của các bên;"
+        },
+        {
+          "kind": "legal_document",
+          "listing_id": null,
+          "document_id": 10,
+          "chunk_id": 265,
+          "rank": 4,
+          "similarity_score": 1.0,
+          "title": "2026_204_79_VBHN-VPQH",
+          "source": "legal_corpus",
+          "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+          "source_path": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+          "category": "housing_contract",
+          "page_from": 1,
+          "page_to": 1,
+          "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+          "excerpt": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 1\n1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 2\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 3\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\nĐiều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở | Khoản 4\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở"
+        }
+      ],
+      "listing_ids": [],
+      "category_source_match": true,
+      "ragas": {
+        "answer_relevancy": 0.8683,
+        "faithfulness": 1.0,
+        "context_utilization": 1.0
+      },
+      "ragas_errors": {},
+      "ragas_usage": {
+        "answer_relevancy": {
+          "max_output_tokens": 8192,
+          "requests": 1,
+          "prompt_tokens": 2504,
+          "output_tokens": 164,
+          "max_prompt_tokens": 2504
+        },
+        "faithfulness": {
+          "max_output_tokens": 8192,
+          "requests": 2,
+          "prompt_tokens": 11660,
+          "output_tokens": 3409,
+          "max_prompt_tokens": 8888
+        },
+        "context_utilization": {
+          "max_output_tokens": 8192,
+          "requests": 4,
+          "prompt_tokens": 6812,
+          "output_tokens": 893,
+          "max_prompt_tokens": 1963
+        }
+      },
+      "ragas_judgements": {
+        "answer_relevancy": [
+          {
+            "schema": "AnswerRelevanceOutput",
+            "output": {
+              "question": "Quy định pháp luật về việc rút lại sự đồng ý xử lý dữ liệu cá nhân và hồ sơ đăng ký tạm trú là gì?",
+              "noncommittal": 0
+            }
+          }
+        ],
+        "faithfulness": [
+          {
+            "schema": "StatementGeneratorOutput",
+            "output": {
+              "statements": [
+                "Nghị định 356/2025/NĐ-CP Điều 5 Khoản 2 quy định về quyền của chủ thể dữ liệu cá nhân.",
+                "Bên kiểm soát và xử lý dữ liệu cá nhân phải phản hồi trong thời hạn 02 ngày làm việc khi nhận được yêu cầu rút lại sự đồng ý, hạn chế xử lý hoặc phản đối xử lý dữ liệu cá nhân.",
+                "Bên kiểm soát và xử lý dữ liệu cá nhân phải cung cấp đầy đủ thông tin cho chủ thể dữ liệu cá nhân về thủ tục ngừng xử lý dữ liệu cá nhân.",
+                "Bên kiểm soát và xử lý dữ liệu cá nhân phải thực hiện ngừng xử lý dữ liệu cá nhân trong thời hạn 15 ngày.",
+                "Quy định về thời hạn 15 ngày không áp dụng trong trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân theo Điều 19 Luật Bảo vệ dữ liệu cá nhân.",
+                "Bên kiểm soát và xử lý dữ liệu cá nhân phải thực hiện ngừng xử lý dữ liệu cá nhân trong thời hạn 20 ngày nếu cần yêu cầu bên xử lý dữ liệu cá nhân hoặc bên thứ ba ngừng xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân.",
+                "Luật 68/2020/QH14 Điều 28 Khoản 1 quy định về hồ sơ đăng ký tạm trú và gia hạn tạm trú.",
+                "Hồ sơ đăng ký tạm trú bao gồm tờ khai thay đổi thông tin cư trú.",
+                "Tờ khai thay đổi thông tin cư trú của người chưa thành niên phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ.",
+                "Ý kiến đồng ý của cha, mẹ hoặc người giám hộ trong tờ khai thay đổi thông tin cư trú không bắt buộc nếu đã có ý kiến đồng ý bằng văn bản.",
+                "Hồ sơ đăng ký tạm trú bao gồm giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+                "Thông tin được cung cấp là thông tin một phần từ nguồn.",
+                "Thông tin được cung cấp chưa kết luận cách áp dụng cho tình huống riêng của người hỏi.",
+                "Người hỏi cần đối chiếu điều kiện, hiệu lực và bản gốc của các văn bản pháp luật."
+              ]
+            }
+          },
+          {
+            "schema": "NLIStatementOutput",
+            "output": {
+              "statements": [
+                {
+                  "statement": "Nghị định 356/2025/NĐ-CP Điều 5 Khoản 2 quy định về quyền của chủ thể dữ liệu cá nhân.",
+                  "reason": "The context explicitly mentions 'Nghị-định-356-2025-NĐ-CP' and 'Điều 5. Thực hiện quyền của chủ thể dữ liệu cá nhân | Khoản 2'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Bên kiểm soát và xử lý dữ liệu cá nhân phải phản hồi trong thời hạn 02 ngày làm việc khi nhận được yêu cầu rút lại sự đồng ý, hạn chế xử lý hoặc phản đối xử lý dữ liệu cá nhân.",
+                  "reason": "The context states that the controller/processor must respond within 2 working days upon receiving such requests.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Bên kiểm soát và xử lý dữ liệu cá nhân phải cung cấp đầy đủ thông tin cho chủ thể dữ liệu cá nhân về thủ tục ngừng xử lý dữ liệu cá nhân.",
+                  "reason": "The context confirms the requirement to provide full information regarding the procedure for stopping data processing.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Bên kiểm soát và xử lý dữ liệu cá nhân phải thực hiện ngừng xử lý dữ liệu cá nhân trong thời hạn 15 ngày.",
+                  "reason": "The context specifies that the action must be carried out within 15 days.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Quy định về thời hạn 15 ngày không áp dụng trong trường hợp xử lý dữ liệu cá nhân không cần sự đồng ý của chủ thể dữ liệu cá nhân theo Điều 19 Luật Bảo vệ dữ liệu cá nhân.",
+                  "reason": "The context includes an exception clause referencing Article 19 of the Personal Data Protection Law.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Bên kiểm soát và xử lý dữ liệu cá nhân phải thực hiện ngừng xử lý dữ liệu cá nhân trong thời hạn 20 ngày nếu cần yêu cầu bên xử lý dữ liệu cá nhân hoặc bên thứ ba ngừng xử lý dữ liệu cá nhân của chủ thể dữ liệu cá nhân.",
+                  "reason": "The context explicitly states that if third-party processing is involved, the deadline is 20 days.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Luật 68/2020/QH14 Điều 28 Khoản 1 quy định về hồ sơ đăng ký tạm trú và gia hạn tạm trú.",
+                  "reason": "The context identifies 'Luat-68-2020-QH14' and 'Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú'.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Hồ sơ đăng ký tạm trú bao gồm tờ khai thay đổi thông tin cư trú.",
+                  "reason": "The context lists the declaration form as part of the registration documents.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Tờ khai thay đổi thông tin cư trú của người chưa thành niên phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ.",
+                  "reason": "The context specifies that for minors, the declaration must include the consent of parents or guardians.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Ý kiến đồng ý của cha, mẹ hoặc người giám hộ trong tờ khai thay đổi thông tin cư trú không bắt buộc nếu đã có ý kiến đồng ý bằng văn bản.",
+                  "reason": "The context provides an exception for cases where written consent has already been obtained.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Hồ sơ đăng ký tạm trú bao gồm giấy tờ, tài liệu chứng minh chỗ ở hợp pháp.",
+                  "reason": "The context lists documents proving legal residence as part of the requirements.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Thông tin được cung cấp là thông tin một phần từ nguồn.",
+                  "reason": "The context provides specific snippets of laws rather than the full text of the documents.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Thông tin được cung cấp chưa kết luận cách áp dụng cho tình huống riêng của người hỏi.",
+                  "reason": "The context provides general legal provisions and does not address specific individual circumstances.",
+                  "verdict": 1
+                },
+                {
+                  "statement": "Người hỏi cần đối chiếu điều kiện, hiệu lực và bản gốc của các văn bản pháp luật.",
+                  "reason": "This is a logical inference for anyone interpreting legal snippets, as the context is limited and requires verification against official sources.",
+                  "verdict": 1
+                }
+              ]
+            }
+          }
+        ],
+        "context_utilization": [
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains information about the documents required for temporary residence registration (a declaration form and proof of legal residence), which directly addresses the part of the user's question regarding residence registration. Although the answer also includes information about data processing from a different source not present in the context, the context itself was useful for answering the residence registration aspect of the question.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains two documents. The first document (Nghị-định-356-2025-NĐ-CP) is irrelevant to the question about what information a landlord can request. However, the answer references a second document (Luat-68-2020-QH14) which is highly relevant to the question regarding residence registration requirements. Although the context provided in the input JSON only explicitly shows the first document, the answer clearly utilizes information from a relevant legal source to address the user's query about residence registration. Therefore, the context provided was useful in the context of the answer's construction.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains a snippet about housing contracts (mentioning names and addresses) and regulations on temporary residence registration (mentioning the need for a residence change declaration form and proof of legal residence). While the answer is somewhat verbose and includes extraneous information about data privacy, it successfully utilizes the provided context to address the question about what information is needed for contracts and residence registration.",
+              "verdict": 1
+            }
+          },
+          {
+            "schema": "ContextPrecisionOutput",
+            "output": {
+              "reason": "The provided context contains information about the notarization and effective dates of housing contracts, but it does not contain information regarding what personal data a landlord can request for a contract or residence registration. The answer provided actually cites external sources (Nghị định 356-2025-NĐ-CP and Luật 68-2020-QH14) that were not present in the provided context block. Therefore, the context was not useful.",
+              "verdict": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "category": "criminal_law"
+    }
+  ],
+  "summary": {
+    "questions": 36,
+    "completed": 3,
+    "errors": 0,
+    "with_contexts": 3,
+    "no_answer": 2,
+    "partial_answer": 2,
+    "degraded": 3,
+    "vector_retrieval": 3,
+    "category_source_match": 3,
+    "category_source_evaluated": 3,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 230407,
+    "latency_p95_ms": 232382,
+    "ragas": {
+      "faithfulness": {
+        "mean": 0.9048,
+        "scored": 3
+      },
+      "answer_relevancy": {
+        "mean": 0.8961,
+        "scored": 3
+      },
+      "context_utilization": {
+        "mean": 1.0,
+        "scored": 3
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 1
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 0
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 1,
+      "with_contexts": 1,
+      "no_answer": 1
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    }
+  },
+  "updated_at_utc": "2026-10-03T07:04:08.103452+00:00",
+  "judge": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "score_workers": 4,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.1-flash-lite",
+      "answer_relevancy": "gemini-3.1-flash-lite",
+      "context_utilization": "gemini-3.1-flash-lite"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 8192,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window"
+  }
+}

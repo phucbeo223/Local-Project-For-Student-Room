@@ -1,0 +1,27 @@
+{
+  "verified_at_utc": "2026-10-03T07:11:10.761765+00:00",
+  "restored_database": "legal_backup_verify_20261003_1410",
+  "backup_path": "backups/legal_agent_rebuild_20261003/old_legal.dump",
+  "backup_sha256": "f98da62c4c7bb02946ede7b6ff0efa1880d4a662444d1c17005535cf61be3fd6",
+  "original": {
+    "legal_documents": {
+      "rows": 59,
+      "digest": "05bbf81b7bbffef86c45992cf1e18ade"
+    },
+    "legal_chunks": {
+      "rows": 5185,
+      "digest": "8f9034bb6dac3aec0e1a9ba4f43b09a8"
+    }
+  },
+  "restored": {
+    "legal_documents": {
+      "rows": 59,
+      "digest": "05bbf81b7bbffef86c45992cf1e18ade"
+    },
+    "legal_chunks": {
+      "rows": 5185,
+      "digest": "8f9034bb6dac3aec0e1a9ba4f43b09a8"
+    }
+  },
+  "restore_verified": true
+}

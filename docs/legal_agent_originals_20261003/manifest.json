@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "id": "ecommerce122",
+      "source_url": "https://vanban.chinhphu.vn/?docid=216503&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luat122.2025.qh15.pdf",
+      "path": "docs/legal_agent_originals_20261003/ecommerce122.pdf",
+      "sha256": "10eb9faf1384bebaff64c30beccdc4dbd2713dc251f5d1c2714c6514c9b58e44",
+      "pages": 28,
+      "native_chars": 0,
+      "verified_at_utc": "2026-10-03T05:53:29.165610+00:00"
+    },
+    {
+      "id": "ecommerce248",
+      "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/248-ndcp.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/ecommerce248.pdf",
+      "sha256": "9829949d91358428be627a613474efebb31748175d133c70410b02118e8c7f3e",
+      "pages": 93,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:23.243380+00:00"
+    },
+    {
+      "id": "electricity14",
+      "source_url": "https://vanban.chinhphu.vn/?docid=213782&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/14-2025-ttg.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/electricity14.pdf",
+      "sha256": "733bfe8f53bbf8b320e2b501711bd4617768197f7f5bc0f1279236ded7569053",
+      "pages": 7,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:22.429869+00:00"
+    },
+    {
+      "id": "electricity133",
+      "source_url": "https://vanban.chinhphu.vn/?docid=217612&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/133-ndcp.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/electricity133.pdf",
+      "sha256": "87be0af90b962085aa6a4c56fea6d10f6273d0a1ea9841f66aeaf5034628c885",
+      "pages": 45,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:21.598431+00:00"
+    },
+    {
+      "id": "fire106",
+      "source_url": "https://vanban.chinhphu.vn/?docid=213672&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/106-npcp.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/fire106.pdf",
+      "sha256": "67f0d65f360ea44055942dc2639e0dbbbc1c29b22faabdfd7259cbbb224114f2",
+      "pages": 36,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:21.608249+00:00"
+    },
+    {
+      "id": "residence154",
+      "source_url": "https://vanban.chinhphu.vn/?docid=211821&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/11/154-cp.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/residence154.pdf",
+      "sha256": "ca6079a7dd0b0d2b95f8c94f9175e4d8b57b8a5a79e3079d40ed1000deb665f6",
+      "pages": 22,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:21.615281+00:00"
+    },
+    {
+      "id": "amend58",
+      "source_url": "https://vanban.chinhphu.vn/?docid=216977&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/02/58nd.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/amend58.pdf",
+      "sha256": "17e965c08c9191c8d9827f29abb1c31bb9ea2ab237ad807c8c803a349f4dcce3",
+      "pages": 85,
+      "native_chars": 149,
+      "verified_at_utc": "2026-10-03T05:53:21.632578+00:00"
+    },
+    {
+      "id": "residence116",
+      "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+      "download_url": "https://bocongan.gov.vn/media/bca-media/library-20260717110413-0c32870e-3f4d-41d8-9da4-8f90638543ff-thong-tu-116-2026.pdf",
+      "path": "docs/legal_agent_originals_20261003/residence116.pdf",
+      "sha256": "c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f",
+      "pages": 48,
+      "native_chars": 0,
+      "verified_at_utc": "2026-10-03T05:53:21.666495+00:00"
+    }
+  ]
+}

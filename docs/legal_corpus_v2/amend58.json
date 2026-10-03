@@ -1,0 +1,363 @@
+{
+  "source": {
+    "id": "amend58",
+    "source_url": "https://vanban.chinhphu.vn/?docid=216977&pageid=27160",
+    "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/02/58nd.signed.pdf",
+    "path": "docs/legal_agent_originals_20261003/amend58.pdf",
+    "sha256": "17e965c08c9191c8d9827f29abb1c31bb9ea2ab237ad807c8c803a349f4dcce3",
+    "pages": 85,
+    "native_chars": 149,
+    "verified_at_utc": "2026-10-03T05:53:21.632578+00:00",
+    "category": "residence",
+    "title": "Nghị định 58/2026/NĐ-CP",
+    "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
+    "page_kind": "physical_pdf",
+    "not_exhaustive": true,
+    "verification": "OCR; selected critical pages visually checked, other text requires review"
+  },
+  "provisions": [
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:body",
+      "article": "4",
+      "clause": null,
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP |",
+      "content": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "source_start": 56766,
+      "source_end": 56885,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "8ef35ae9c3e3d5adc78f573b7fd05e8e8609e5512fabb6e842e1495e30d4b556",
+      "page_from": 26,
+      "page_to": 26
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:1",
+      "article": "4",
+      "clause": "1",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 1",
+      "content": "1. Sửa đổi, bố sung khoản 2 Điều 3 như sau: |\n“2. Nơi thường xuyên đậu, đỗ của phương tiện là địa điểm mà phương |\ntiện đó thực tế đậu, đỗ, không thuộc địa điểm cấm, khu vực cấm do chủ\nphương tiện tự xác định và đăng ký với Uy ban nhân dân xã, phường, đặc khu ị\n(sau đây gọi chung là Uy ban nhân dân cap xã). Trường hợp chủ phương tiện j\nđã có hợp đồng thuê bên bãi hoặc văn bản châp thuận cho phương tiện đậu,\nđỗ của cơ quan, tổ chức quản lý nơi đậu, đỗ thì không phải đăng ký.”.",
+      "source_start": 56885,
+      "source_end": 57366,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 3"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "8000c8a13893859bd13c61ddb0d56c2c492e600953d2bea2536410af5864c385",
+      "page_from": 26,
+      "page_to": 26
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:2",
+      "article": "4",
+      "clause": "2",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 2",
+      "content": "2. Sửa đổi, bd sung điểm a khoản 3 Điều 5 như sau:\n“a) Một trong những giấy tờ, tài liệu quy định tại khoản 2 Điều này, trừ\ntrường hợp đăng ký tạm trú vào chỗ ở hợp pháp do thuê, mượn, ở nhờ thì giấy\ntờ, tài liệu chứng minh chỗ ở hợp pháp là văn bản cho thuê, cho mượn, cho ở\nnhờ chỗ ở hợp pháp của cơ quan, t6 chức, cá nhân và văn ban đó không phải\ncông chứng hoặc chứng thực;”.\ni\n\n` 27",
+      "source_start": 57366,
+      "source_end": 57755,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 3 Điều 5"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "d1fa0a474713b31a669dfddb7cb4ac759d8588c8eb51017ba461fadb70787226",
+      "page_from": 26,
+      "page_to": 27
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:3",
+      "article": "4",
+      "clause": "3",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 3",
+      "content": "3. Sửa đổi, bé sung điểm e khoản 3 Điều 6 như sau:\n\n“e) Giấy tờ chứng mỉnh là người khuyết tật đặc biệt nặng, người khuyết\ntật nặng, người không có khả năng lao động, người bị bệnh tâm thân hoặc\nbệnh khác làm mat khả năng nhận thức, khả năng điều khiển hành vi: Chứng\nnhận của Cơ sở y tê khu vực hoặc xác nhận của Ủy ban nhân dân cấp xã tại\nnơi cư trú;”.",
+      "source_start": 57755,
+      "source_end": 58111,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 3 Điều 6"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "c466c891801f52eac203e44ffa06a636f8c8edaf4636410a2b04419f59ca44a7",
+      "page_from": 27,
+      "page_to": 27
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:4",
+      "article": "4",
+      "clause": "4",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 4",
+      "content": "4. Sửa đổi, bé sung Điều 7 như sau:\n\n“Điều 7. Đăng ký cư trú cho người chưa thành niên\n\n1. Trường hợp người chưa thành niên đăng ký thường trú, đăng ký tạm\ntrú tại nơi thường trú, nơi tạm trú của cha, mẹ hoặc cha hoặc mẹ hoặc người\ngiám hộ thì cha hoặc mẹ hoặc người giám hộ thực hiện kê khai, xác nhận ý\nkiên vào Tờ khai thay đỗi thông tin cư trú.\n\nTrường hợp người chưa thành niên đăng ký thường trú, đăng ký tạm trú\ntại nơi thường trú, nơi tạm trú không phải là nơi thường trú, nơi tạm trú của\ncha, mẹ hoặc người giám hộ thì cha hoặc mẹ hoặc người giám hộ thực hiện kê\nkhai, xác nhận ý kiên vào Tờ khai thay đôi thông tin cư trú. Trường hợp\nngười chưa thành niên được Tòa án quyết định giao cho cha hoặc mẹ chăm\nsóc, nuôi dưỡng thì người được giao chăm sóc, nuôi dưỡng kê khai, xác nhận\n\n, ý kiên vào Tờ khai thay đôi thông tin cư trú.\n\n2. Trong thời hạn tối đa 60 ngày, kể từ ngày người chưa thành niên được\n\n| đăng ký khai sinh thì cha hoặc mẹ hoặc chủ hộ hoặc người giám hộ có trách\nnhiệm thực hiện thủ tục đăng ký thường trú, đăng ký tạm trú, khai báo thông\n\n| tin về cu trú cho người chưa thành niên. Trường hợp cha, mẹ, người giám hộ\n| của người dưới 6 tuôi có nơi thường trú nhưng không phải nơi đang thực tế\n| sinh sông thi người dưới 6 tuôi được đăng ký thường trú tai nơi thường trú\n\n: của cha, mẹ hoặc người giám hộ.\n\n3. Trường hợp cha, mẹ của người chưa thành niên không có cả nơi\n\ni thường trú, nơi tam trú thì thực hiện khai báo thông tin về cư trú cho người\n\n| chưa thành niên theo quy định tại Điêu 4 Nghị định này.\n\nA, Trường hợp đăng ký thường trú hoặc đăng ký tạm trú cho người dưới\n6 tuôi tại nơi thường trú, nơi tạm trú của cha, mẹ, người giám hộ theo quy\n\n1 định khoản 2 Điều này thi co quan đăng ký cư trú không phải thực hiện kiểm\ntra, xác minh điêu kiện đăng ký thường trú, đăng ký tạm trú.”.",
+      "source_start": 58111,
+      "source_end": 59933,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 7"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "2f551a564f818b7da79ea6d9f91476b1ede167c447ac7b2b0e15fcf6d0074b66",
+      "page_from": 27,
+      "page_to": 27
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:5",
+      "article": "4",
+      "clause": "5",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 5",
+      "content": "5. Sửa đổi, bé sung khoản 5 Điều 8 như sau:\n\nỊ -\n\n‘ “5. Việc lay ý kiên đông ý của chủ hộ, chủ sở hữu chỗ ở hợp pháp, người\nđại diện hợp pháp, người thừa kê theo quy định pháp luật, cha, mẹ, người giám\nhộ, thành viên hộ gia đình được thực hiện bang một trong các hình thức sau:\n\ni\n\n28 \"\n\na) Ghi rõ nội dung đồng ý và ký, ghi rõ họ tên vào Tờ khai thay đổi |\nthông tin cư trú;\n\nb) Xác nhận nội dung đồng ý thông qua Ứng dụng định danh quốc gia ,\n(VNeID) hoặc dich vụ công trực tuyên hoặc cơ quan đăng ký cư trú trao đôi, :\nlây ý kiên trực tiép thông qua việc kiểm tra, xác minh cư trú; |\n\nc) Có ý kiến đồng ý bằng văn bản.”.",
+      "source_start": 59933,
+      "source_end": 60558,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 5 Điều 8"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "6ad026dfa930164cd22536ff00409e314d27792ceb8502d1ef237e92581e5c8b",
+      "page_from": 27,
+      "page_to": 28
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:6",
+      "article": "4",
+      "clause": "6",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 6",
+      "content": "6. Sửa đổi, bổ sung Điều 9 như sau:\n\n“Điều 9. Hồ sơ, thủ tục xóa đăng ký thường trú\n\n1. Trong thời hạn 01 ngày kế từ ngày nhận được quyết định hủy bỏ đăng\nký thường trú của thủ trưởng cấp trên trực tiếp hoặc ngay sau khi ra quyết\nđịnh hủy bỏ đăng ký thường trú đôi với công dân, cơ quan đăng ký cư trú thực\nhiện việc xóa đăng ký thường trú đôi với công dân và cập nhật việc xóa đăng\nký thường trú vào Cơ sở dữ liệu về cu trú, Cơ sở dit liệu quốc gia về dân cư.\n\n2. Trong thời hạn 01 ngày làm việc, ké từ ngày Cơ sở dữ liệu quốc gia về ị\ndân cư, cơ quan đăng ký cư trú tiếp nhận thông tin phản ánh về người thuộc\ntrường hợp bị xóa đăng ký thường trú quy định tại điểm a, đ khoản 1 Điều 24\nLuật Cư trú, cơ quan đăng ký cư trú có trách nhiệm kiêm tra, xác minh, thực\nhiện xóa đăng ký thường trú đôi với công dân và cập nhật việc xóa đăng ký\nthường trú vào Cơ sở dữ liệu về cư trú, Cơ sở đữ liệu quốc gia về dân cư.\n\n3. Trong thời hạn 07 ngày, kể từ ngày hộ gia đình có người thuộc. diện\nxóa đăng ký thường trú theo quy định tại điểm b, d, e, g, h, i khoản 1 Điều 24\nLuật Cư trú thì người thuộc diện xóa đăng ký thường trú hoặc đại diện hộ gia\nđình hoặc người đại diện theo pháp luật có trách nhiệm thực hiện thủ tục xóa -\nđăng ký thường trú. ị\n\na) Hồ sơ xóa đăng ký thường trú gồm: Tờ khai thay đổi thông tin cư trú ị\nvà giấy tờ, tài liệu chứng minh thuộc một trong các trường hợp xóa đăng ký :\nthường trú; i\n\nb) Người thực hiện thủ tục nộp 01 hồ sơ trực tuyến qua Cổng dịch vụ\ncông quôc gia hoặc Ung dụng định danh quốc gia (VNeID) đến cơ quan đăng |\n\n: ký cư trú. Ị\n\n4. Trường hợp người bị đề nghị xóa đăng ký thường trú chưa có thông ;\ntin trong Co sở dữ liệu quốc gia về dân cư hoặc thông tin về người đó trong -\nCơ sở dữ liệu quốc gia về dân cư không đầy đủ, chính xác thì cơ quan đăng\nký cư trú có trách nhiệm thu thập, cập nhật vào Cơ sở dữ liệu quốc gia về dân :\n\ncu. |\n|\n‡\n|\n\n. 29\n\n5. Trong thời han 05 ngày làm việc, kể từ ngày nhận được hồ sơ hợp lệ\nthì cơ quan đăng ký cư trú thực hiện xóa đăng ký thường trú đối với công dân\nvà cập nhật việc xóa đăng ký thường trú vào Cơ sở dit liệu về cư trú, Cơ sở dữ\nliệu quốc gia về dân cư.\n\n6. Trường hợp người thuộc diện xóa đăng ký thường trú theo quy định\ntại điểm b, d, e, g, h, i khoản 1 Điều 24 Luật Cư trú mà hộ gia đình chỉ có 01\nngười hoặc đại diện hộ gia đình hoặc người đại diện theo pháp luật không\nthực hiện thủ tục xóa đăng ký thường trú thì cơ quan đăng ký cư trú có trách\nnhiệm kiểm tra, xác minh, lập biên bản về việc công dân, đại diện hộ gia đình\nkhông thực hiện thủ tục xóa đăng ký thường trú và thực hiện xóa đăng ký\nthường trú đối với công dân.\n\n7. Cơ quan, đơn vị quản lý người học tập, công tác, làm việc trong lực\nlượng vũ trang nhân dân có văn bản đề nghị cơ quan đăng ký cư trú trên địa\nbàn đóng quân xóa đăng ký thường trú đối với người thuộc đơn vị mình quản\nlý. Văn bản đề nghị cần nêu rõ họ, chữ đệm và tên khai sinh; ngày, tháng,\nnăm sinh; số định danh cá nhân của người thuộc trường hợp xóa đăng ký\nthường trú; lý do đề nghị xóa đăng ký thường trú.\n\n8. Sau khi thực hiện việc xóa đăng ký thường trú, cơ quan đăng ký cư trú\nthông báo bằng văn bản giấy hoặc bản điện tử hoặc hình thức điện tử khác\ncho người bị xóa đăng ký thường trú hoặc đại diện hộ gia đình.”.",
+      "source_start": 60558,
+      "source_end": 63802,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 9",
+        "khoản 1 Điều 24"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "6d4139e0e4c912122f127bfa856bf2461b75202081104cabb2d7d4bf94ba72be",
+      "page_from": 28,
+      "page_to": 29
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:7",
+      "article": "4",
+      "clause": "7",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 7",
+      "content": "7. Sửa đổi, bỗ sung Điều 10 như sau:\n\n“Điều 10. Hồ sơ, thủ tục xóa đăng ký tạm trú\n\n1. Trong thời hạn 01 ngày kể từ ngày nhận được quyết định hủy bỏ đăng\nký tạm trú của thủ trưởng cấp trên trực tiếp hoặc ngay sau khi ra quyết định\nhủy bỏ đăng ký tạm trú đối với công dân, cơ quan đăng ký cư trú thực hiện\nviệc xóa đăng ký tạm trú đối với công dân và cập nhật việc xóa đăng ký tạm\ntrú vào Cơ sở dữ liệu về cư trú, Cơ sở dữ liệu quốc gia về dân cư.\n\n2. Trong thời hạn 01 ngày làm việc, kể từ ngày hệ thống Cơ sở dữ liệu\nquốc gia về dân cư, cơ quan đăng ký cư trú tiếp nhận thông tin quy định tại\nđiểm a, d, đ khoản 1 Điều 29 Luật Cư trú thông qua kết nối, chia sẻ, đồng bộ\ndữ liệu từ cơ sở đữ liệu quốc gia, cơ sở dữ liệu chuyên ngành, cơ sở dữ liệu\nkhác do cơ quan, tổ chức quản lý, cơ quan đăng ký cư trú có trách nhiệm kiểm\ntra, xác minh, thực hiện xóa đăng ký tạm trú đối với công dân và cập nhật\nviệc xóa đăng ký tạm trú vào Cơ sở đữ liệu về cư trú, Cơ sở dữ liệu quốc gia\nvề dân cư.\n\n3. Trong thời hạn 07 ngày, kể từ ngày hộ gia đình có người thuộc diện\nxóa đăng ký tạm trú theo quy định tại điểm c, e, g, h khoản 1 Điều 29 Luật Cư\ntrú thì người thuộc diện xóa đăng ký tạm trú hoặc đại diện hộ gia đình hoặc\n\n30 .\nngười đại diện hợp pháp có trách nhiệm thực hiện thủ tục xóa đăng ký tạm\ntrú.\n\na) Hồ sơ xóa đăng ký tạm trú gồm: Tờ khai thay đổi thông tin cư trú và giấy\ntờ, tài liệu chứng minh thuộc một trong các trường hợp xóa đăng ký tạm trú.\n\nb) Người thực hiện thủ tục nộp 01 hồ. so trực tuyến qua Cổng dịch vụ\ncông quôc gia hoặc Ung dụng định danh quốc gia (VNeID) đến cơ quan đăng\nký cư trú.\n\n4. Trường hợp người bị đề nghị xóa đăng ký tạm trú có thông tỉn trong\nCơ sở dữ liệu quốc gia vé dân cư nhưng không đây đủ, chính xác thì cơ quan\nđăng ký cư trú có trách nhiệm cập nhật, điều chỉnh thông tin vào Cơ sở dit\nliệu quôc gia về dân cư.\n\n5. Trong thời hạn 03 ngày làm việc, kể từ ngày nhận được hồ sơ hợp lệ\nthì cơ quan đăng ký cư trú phải xóa đăng ký tạm trú đôi với công dân và cập\nnhật việc xóa đăng ky tạm trú vào Cơ sở dif liệu về cư trú, Cơ sở dữ liệu quốc\ngia về dân cư.\n\n6. Trường hợp. thuộc diện xóa đăng ký tạm trú theo quy định tại điểm c,\ne, g, h khoản 1 Điêu 29 Luật Cư trú mà hộ gia đình chỉ có 01 người hoặc\nngười thuộc diện xóa đăng ký tạm trú hoặc đại diện hộ gia đình hoặc người\nđại diện hợp pháp không thực hiện thủ tục xóa đăng ký tạm trú thì cơ quan\nđăng ký cư trú có trách nhiệm kiểm tra, xác minh, lập biên bản về việc công\ndân, đại diện hộ gia đình không thực hiện thủ tục xóa đăng ký tạm trú và thực\nhiện xóa đăng ký tạm trú đối với công dân.\n\n7. Cơ quan, đơn vị quản lý người học tập, công tác, làm việc trong lực\nlượng võ trang nhân dân có văn ban đề nghị cơ quan đăng ký cư trú trên địa\nbàn đóng quân xóa đăng ký tạm trú đôi với người thuộc đơn vị mình quản lý.\nVăn bản dé nghị cân nêu rõ họ, chữ đệm và tên khai sinh; ngày, tháng, năm\nsinh; số định danh cá nhân của người cân xóa đăng ký tạm trú; lý do đề nghị\nxóa đăng ký tạm trú.\n\n8. Sau khi thực hiện việc xóa đăng ký tạm trú, cơ quan đăng ký cư trú\nthông báo bằng văn bản giấy hoặc bản điện tử hoặc hình thức điện tử khác\ncho người bị xóa đăng ký tạm trú hoặc đại diện hộ gia đình.”.",
+      "source_start": 63802,
+      "source_end": 66981,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 10",
+        "khoản 1 Điều 29"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "7c025dd069b58b335de543e6b5487686c51723f37d5fb6789964e59c5c5e6ae3",
+      "page_from": 29,
+      "page_to": 30
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:8",
+      "article": "4",
+      "clause": "8",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 8",
+      "content": "8. Sửa đổi, bd sung điểm c, khoản 2 Điều 13 như sau:\n\n“c) Các thông tin về công dân đã được thu thập, cập nhật vào Cơ sở dữ\nliệu về cư trú phải được điêu chỉnh, cập nhật bô sung ngay khi có sự thay đôi\nvà được lưu trữ đây đủ, thê hiện được quá trình lịch sử các lần cập nhật, thay\nđổi, điều chỉnh.”.\n\niF\n\n. 31",
+      "source_start": 66981,
+      "source_end": 67292,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 13"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "1a4f7bc04214aa90f1b45bdbbea19bab672a9da82f8b5be491cd845a8e9dc253",
+      "page_from": 30,
+      "page_to": 31
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:9",
+      "article": "4",
+      "clause": "9",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 9",
+      "content": "9. Sửa đổi cụm từ “trực tiếp, trực tuyến hoặc dịch vụ bưu chính công\ních” thành “trực tuyển qua Công dịch vụ công quốc gia hoặc Ứng dụng định\ndanh quốc gia (VNeID)” tại khoản 3 Điều 3.",
+      "source_start": 67292,
+      "source_end": 67478,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 3 Điều 3"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "9b7bf2996c068df9b25e6ed2ad059c4a6186e194a5361f60dd37a00bd8957a56",
+      "page_from": 31,
+      "page_to": 31
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:10",
+      "article": "4",
+      "clause": "10",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 10",
+      "content": "10. Sửa đổi cụm từ “trực tiếp, trực tuyến hoặc dich vụ bưu chính công\ních” thành “trực tiệp hoặc trực tuyên qua Cổng dịch vụ công quốc gia hoặc\nỨng dụng định danh quốc gia (VNeID)” tại khoản 1 Điều 4, điểm a khoản 12\nĐiêu 8.",
+      "source_start": 67478,
+      "source_end": 67704,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 1 Điều 4"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "c7c9b87eab6de448b45c690d7aba5235140fe33cdd2cda782ca0da3d2f0f87c9",
+      "page_from": 31,
+      "page_to": 31
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:11",
+      "article": "4",
+      "clause": "11",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 11",
+      "content": "11. Bỏ cụm từ “trực thuộc Trung ương” tại điểm b khoản 4 Điều 5, Điều 16.",
+      "source_start": 67704,
+      "source_end": 67779,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 4 Điều 5",
+        "Điều 16"
+      ],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "4302fc08bd134532ca5e025eedd6a5a73bbbec97274f3772c17a0d51feade434",
+      "page_from": 31,
+      "page_to": 31
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:56696:12",
+      "article": "4",
+      "clause": "12",
+      "heading": "Điều 4. Sửa đối, bd sung một số điều của Nghị định số 154/2024/NĐ-CP | | Khoản 12",
+      "content": "12. Thay thế Mẫu số 01, Mẫu số 02 bằng Mẫu số 01, Mẫu số 02 tại phụ lục số\nIV ban hành kèm Nghị định này.",
+      "source_start": 67779,
+      "source_end": 67886,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "quy định chi tiết một số điều và biện pháp thi hành Luật Cư trú (sau đây ị\nviết gọn là Nghị định số 154/2024/NĐ-CP) |",
+      "content_sha256": "84494506f1e2fd421637a3f59eacf485a1ce2003a8118141b15ae5dd90b8e766",
+      "page_from": 31,
+      "page_to": 31
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:92086:1",
+      "article": "6",
+      "clause": "1",
+      "heading": "Điều 6. Hiệu lực thi hành và quy định chuyển tiếp | Khoản 1",
+      "content": "1. Nghị định này có hiệu lực thi hành từ ngày 15 tháng 3 năm 2026, trừ\nquy định tại khoản 2 Điều này.",
+      "source_start": 92137,
+      "source_end": 92240,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d7f6bed050fd8cb79cacd1a9ba623ab695ae3d8f8ab676848097e67fd278a3e2",
+      "page_from": 41,
+      "page_to": 41
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:92086:2",
+      "article": "6",
+      "clause": "2",
+      "heading": "Điều 6. Hiệu lực thi hành và quy định chuyển tiếp | Khoản 2",
+      "content": "2. Quy định tại khoản 4 Điều 4 của Nghị định này có hiệu lực thi hành từ\nngày 01 tháng 7 năm 2026.",
+      "source_start": 92240,
+      "source_end": 92340,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 4 Điều 4"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "9d61929ed76fa3271f624061998bee111e295facf283cea6da23e95c6e65b050",
+      "page_from": 41,
+      "page_to": 41
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:92086:3",
+      "article": "6",
+      "clause": "3",
+      "heading": "Điều 6. Hiệu lực thi hành và quy định chuyển tiếp | Khoản 3",
+      "content": "3. Chứng chỉ nghiệp vụ bảo vệ đã được cấp trước ngày Nghị định này có\nhiệu lực thi hành thì có thời hạn sử dụng 05 năm kê từ ngày được cấp, hết thời\nhạn trên phải thực hiện câp đôi theo quy định tại Nghị định này.\n\n.#, Đối với hồ sơ cấp mới, cấp đổi, cấp lại Giấy chứng nhận đủ điều kiện\nvé an ninh, trật tự đã được tiép nhận và đang xem xét giải quyết theo quy định\ntại Nghị định sô 96/2016/NĐ-CP; Nghị định số 56/2023/NĐ-CP thì thực hiện\ntheo Nghị định sô 96/2016/NĐ-CP; Nghị định sô 56/2023/NĐ-CP.",
+      "source_start": 92340,
+      "source_end": 92842,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "b0c879ef74496fa141484713c0735b1c30ef89a87380275bcf1e35ebed015247",
+      "page_from": 41,
+      "page_to": 41
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:92086:5",
+      "article": "6",
+      "clause": "5",
+      "heading": "Điều 6. Hiệu lực thi hành và quy định chuyển tiếp | Khoản 5",
+      "content": "5. Đối với hồ so đề nghị đăng ký mẫu con dấu mới, đăng ký thêm con\ndấu, đăng ký dấu nồi, dấu thu nhỏ, dấu xi, đăng ký lại mẫu con dấu, đổi, cấp\nlại giấy chứng nhận đăng ký mẫu con dấu đã được tiếp nhận và đang xem xét\ngiải quyết theo quy định tại Nghị định số 99/2016/NĐ-CP; Nghị định sô\n56/2023/NĐ-CP thì thực hiện theo Nghị định sô 99/2016/NĐ-CP; Nghị định\nsố 56/2023/NĐ-CP.",
+      "source_start": 92842,
+      "source_end": 93220,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "3fca98b0ee38a08c22bcc9079700f0c2276a4b2d24eb6972f2b2816504dd7a28",
+      "page_from": 41,
+      "page_to": 41
+    },
+    {
+      "provision_id": "17e965c08c9191c8d982:92086:6",
+      "article": "6",
+      "clause": "6",
+      "heading": "Điều 6. Hiệu lực thi hành và quy định chuyển tiếp | Khoản 6",
+      "content": "6. Các bộ, cơ quan ngang bộ và cơ quan khác có liên quan rà soát các\nvăn bản quy phạm pháp luật thuộc thâm quyên ban hành hoặc tham mưu câp\n\ncó thâm quyên ban hành có nội dung quy định liên quan dén xác nhận thông\n\n| tin số chứng minh nhân dân 09 sé, số định danh cá nhân dé sửa đổi, bổ sung\n\nh cho phù hợp với quy định của Nghị định này.",
+      "source_start": 93220,
+      "source_end": 93560,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "ff867f730a4fa58787d79c13af55cb968b2078346d28d319b838b8f9a1f2985b",
+      "page_from": 41,
+      "page_to": 41
+    }
+  ]
+}

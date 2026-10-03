@@ -1,0 +1,48 @@
+{
+  "source": {
+    "id": "legacy-e9adeff06c7a",
+    "title": "online_warning-Bo-Cong-an-20261003",
+    "category": "ecommerce_platform",
+    "path": "Data/ecommerce_platform/online_warning-Bo-Cong-an-20261003.md",
+    "sha256": "fef0b5e4f0758f5e19a443296f75915429c0fb3ffa488af40e97a09329c367e3",
+    "source_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+    "origin_documents": [
+      {
+        "id": "online_warning",
+        "source_page_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+        "download_url": "https://www.bocongan.gov.vn/bai-viet/xuat-hien-thu-doan-lua-dao-moi-khi-mua-hang-online-1790562304",
+        "path": "docs/legal_sources_originals_20261003/online_warning.html",
+        "sha256": "38580ac8ee4ffac4ecdeef71db7901d94ad329552d0a524eb5dc83247e046a7e",
+        "bytes": 412130,
+        "pages": 1,
+        "text_chars": 9720
+      }
+    ],
+    "extraction": "existing selected text; editorial header excluded by article parser",
+    "verification": {
+      "type": "khuyến cáo",
+      "scope": "mua hàng trực tuyến; không biến thành nghĩa vụ pháp lý thuê trọ"
+    },
+    "page_kind": "logical_document",
+    "not_exhaustive": true
+  },
+  "provisions": [
+    {
+      "provision_id": "fef0b5e4f0758f5e19a443296f75915429c0fb3ffa488af40e97a09329c367e3:advice",
+      "article": null,
+      "clause": null,
+      "heading": "Khuyến cáo cơ quan Công an",
+      "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về lừa đảo mua hàng trực tuyến\n\nTuyệt đối không cung cấp thông tin tài khoản, mật khẩu, mã OTP; không truy cập đường link lạ, quét mã QR không rõ nguồn gốc; không cài đặt ứng dụng theo hướng dẫn của người gọi và không chuyển tiền để nhận hoàn tiền, bồi thường.\n\nTrường hợp nghi ngờ bị lừa đảo, người dân cần ngừng ngay giao dịch, liên hệ ngân hàng để khóa tài khoản khi cần thiết, lưu giữ tin nhắn, số điện thoại, lịch sử giao dịch và trình báo cơ quan Công an gần nhất để được hỗ trợ.",
+      "source_start": 0,
+      "source_end": 572,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "official_advice",
+      "article_context": "",
+      "content_sha256": "6f5b9a23cab559156f521a4ce0fc531e6e2808a507e89e2d394a157c71ded073",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

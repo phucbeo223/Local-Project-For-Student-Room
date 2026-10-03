@@ -101,6 +101,23 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     engine = create_engine(settings.database_url)
     init_chatbot(engine)
     service = get_service()
+    if settings.chatbot_agents_enabled:
+        from sqlalchemy import text
+        import app.room_service.chatbot as chatbot_package
+        pipeline_files = sorted(Path(chatbot_package.__file__).parent.glob('*.py'))
+        pipeline_sha = hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in pipeline_files)).hexdigest()
+        if report.get('pipeline_sha256') and report['pipeline_sha256'] != pipeline_sha:
+            raise ValueError('Generation pipeline changed; use a new evaluation output')
+        report['pipeline_sha256'] = pipeline_sha
+        with engine.connect() as conn:
+            manifest_sha = conn.execute(text('SELECT manifest_sha256 FROM public.legal_corpus_releases WHERE schema_name=:schema'),
+                                        {'schema':settings.chatbot_legal_schema}).scalar_one()
+        if report.get('corpus_manifest_sha256') and report['corpus_manifest_sha256'] != manifest_sha:
+            raise ValueError('Corpus changed; use a new evaluation output')
+        report['corpus_manifest_sha256'] = manifest_sha
+        report['run_configuration'] = {'agents_enabled':True,'legal_schema':settings.chatbot_legal_schema,
+            'question_analysis_model':settings.chatbot_question_analysis_model,'answer_model':settings.ollama_model,
+            'embedding_model':settings.chatbot_embedding_model}
     service.repo.record_event = lambda payload: None
     provider_calls = []
     for provider in getattr(service.generator, "providers", []):
@@ -116,6 +133,9 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                     call["success"] = True
                     if _method == "check_legal_evidence":
                         call["issues"] = len(result)
+                        call['verification_issues'] = list(result)
+                    elif kwargs.get('context_kind') == 'legal':
+                        call['candidate_answer'] = result.text
                     return result
                 except Exception as exc:
                     call.update(success=False, error_type=type(exc).__name__)
@@ -172,6 +192,8 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                     "generation_model": data["generation_model"],
                     "latency_ms": data["latency_ms"],
                     "provider_calls": list(provider_calls),
+                    "agent_trace": data.get("agent_trace", []),
+                    "corpus_schema": data.get("corpus_schema"),
                     "citation_accuracy": data["citation_accuracy"],
                     "contexts": [item["content"] for item in data["evaluation_contexts"]],
                     "sources": sources,

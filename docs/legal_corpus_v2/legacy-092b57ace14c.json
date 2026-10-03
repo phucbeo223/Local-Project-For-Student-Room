@@ -1,0 +1,48 @@
+{
+  "source": {
+    "id": "legacy-092b57ace14c",
+    "title": "rental_warning-Bo-Cong-an-20261003",
+    "category": "criminal_law",
+    "path": "Data/criminal_law/rental_warning-Bo-Cong-an-20261003.md",
+    "sha256": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d",
+    "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+    "origin_documents": [
+      {
+        "id": "rental_warning",
+        "source_page_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+        "download_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+        "path": "docs/legal_sources_originals_20261003/rental_warning.html",
+        "sha256": "07146994c89f2a470e49a16b23a819cb0ac92b8bc2ee2d0d6728fa6c2a19cc30",
+        "bytes": 415347,
+        "pages": 1,
+        "text_chars": 10457
+      }
+    ],
+    "extraction": "existing selected text; editorial header excluded by article parser",
+    "verification": {
+      "type": "khuyến cáo",
+      "scope": "thuê nhà qua mạng"
+    },
+    "page_kind": "logical_document",
+    "not_exhaustive": true
+  },
+  "provisions": [
+    {
+      "provision_id": "cd12e433ce3cf7fb254a094e138079707c305584b30088728e10739c751d8f1d:advice",
+      "article": null,
+      "clause": null,
+      "heading": "Khuyến cáo cơ quan Công an",
+      "content": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+      "source_start": 0,
+      "source_end": 635,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "official_advice",
+      "article_context": "",
+      "content_sha256": "7d7bf15d4a5b24ef84acb10de9587b20d01199fb8a7e341b731c6428295d8b80",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

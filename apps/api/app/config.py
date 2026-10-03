@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     chatbot_embedding_model: str = "intfloat/multilingual-e5-small"
     chatbot_confidence_threshold: float = 0.65
     chatbot_max_results: int = 5
+    chatbot_legal_schema: str = Field(default="public", pattern=r"^(public|legal_[a-z0-9_]{1,48})$")
+    chatbot_agents_enabled: bool = False
+    chatbot_question_analysis_model: str = "gemini-3.1-flash-lite"
+    chatbot_question_analysis_timeout_seconds: float = Field(default=30, gt=0, le=120)
     chatbot_llm_provider: Literal["auto", "qwen", "gemini", "template"] = "auto"
     chatbot_llm_timeout_seconds: float = 60.0
     chatbot_legal_timeout_seconds: float = Field(default=180.0, gt=0, le=300)

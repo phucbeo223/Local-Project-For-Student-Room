@@ -33,7 +33,7 @@ def init_chatbot(engine: Engine) -> None:
     providers = []
     degraded_reasons: list[str] = []
 
-    if settings.chatbot_llm_provider in ("auto", "qwen"):
+    if settings.chatbot_agents_enabled or settings.chatbot_llm_provider in ("auto", "qwen"):
         providers.append(
             OllamaQwenGenerator(
                 settings.ollama_base_url,
@@ -46,7 +46,7 @@ def init_chatbot(engine: Engine) -> None:
             )
         )
 
-    if settings.chatbot_llm_provider in ("auto", "gemini"):
+    if not settings.chatbot_agents_enabled and settings.chatbot_llm_provider in ("auto", "gemini"):
         if settings.configured_gemini_keys:
             for model in dict.fromkeys([settings.gemini_model, settings.gemini_fallback_model]):
                 if not model:
@@ -67,16 +67,24 @@ def init_chatbot(engine: Engine) -> None:
             )
 
     providers.sort(key=lambda provider: 0 if isinstance(provider, GeminiGenerator) else 1)
+    generator = FallbackResponseGenerator(providers, GroundedTemplateGenerator(), initial_degraded_reasons=degraded_reasons)
+    analyzer = None
+    if settings.chatbot_agents_enabled:
+        from .agents import QuestionAnalysisAgent, QwenAnswerAgent
+        analysis_client = GeminiGenerator("", settings.chatbot_question_analysis_model,
+            base_url=settings.gemini_base_url, api_keys=settings.configured_gemini_keys,
+            legal_timeout_seconds=settings.chatbot_question_analysis_timeout_seconds,
+            per_request_timeout_seconds=settings.chatbot_question_analysis_timeout_seconds,
+            min_request_interval_seconds=settings.gemini_min_request_interval_seconds) if settings.configured_gemini_keys else None
+        analyzer = QuestionAnalysisAgent(analysis_client)
+        generator = QwenAnswerAgent(generator)
     _service = ChatService(
-        ChatRepository(engine),
+        ChatRepository(engine, settings.chatbot_legal_schema),
         E5EmbeddingProvider(settings.chatbot_embedding_model),
-        FallbackResponseGenerator(
-            providers,
-            GroundedTemplateGenerator(),
-            initial_degraded_reasons=degraded_reasons,
-        ),
+        generator,
         confidence_threshold=settings.chatbot_confidence_threshold,
         max_results=settings.chatbot_max_results,
+        question_analyzer=analyzer,
     )
 
 
@@ -105,6 +113,8 @@ def close_chatbot() -> None:
         for provider in _service.generator.providers:
             if hasattr(provider, "close"):
                 provider.close()
+        if _service.question_analyzer and _service.question_analyzer.client:
+            _service.question_analyzer.client.close()
 
 
 @router.post("/ask", response_model=ChatAskResponse)

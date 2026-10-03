@@ -16,6 +16,7 @@ type Source = {
   source: string;
   source_url: string | null;
   source_path: string | null;
+  page_kind?: 'physical_pdf' | 'logical_document' | null;
   category: string | null;
   page_from: number | null;
   page_to: number | null;

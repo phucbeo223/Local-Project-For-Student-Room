@@ -9,7 +9,16 @@ type Reference = {
   page_from: number | null;
   page_to: number | null;
   excerpt?: string | null;
+  source_url?: string | null;
+  page_kind?: 'physical_pdf' | 'logical_document' | null;
 };
+
+function officialSource(value?: string | null): string | null {
+  try {
+    const url = new URL(value || '');
+    return url.protocol === 'https:' && (url.hostname.endsWith('.gov.vn') || url.hostname.endsWith('.chinhphu.vn')) ? url.href : null;
+  } catch { return null; }
+}
 
 export default function ChatAnswer({ content, sources = [] }: { content: string; sources?: Reference[] }) {
   const [expanded, setExpanded] = useState(false);
@@ -70,7 +79,8 @@ export default function ChatAnswer({ content, sources = [] }: { content: string;
         {sources.map((source) => <div key={source.rank} className={`rounded-lg border p-2.5 ${selected === source.rank ? "border-blue-400 bg-blue-50" : "border-slate-200 bg-white"}`}>
           <p className="font-semibold text-slate-700">[{source.rank}] {source.title}</p>
           {source.heading && <p className="mt-1 text-slate-500">{source.heading}</p>}
-          {source.page_from && <p className="text-slate-500">Trang {source.page_from}{source.page_to && source.page_to !== source.page_from ? `–${source.page_to}` : ""}</p>}
+          {source.page_from && <p className="text-slate-500">{source.page_kind === 'logical_document' ? 'Trang trong bản trích' : 'Trang'} {source.page_from}{source.page_to && source.page_to !== source.page_from ? `–${source.page_to}` : ""}</p>}
+          {officialSource(source.source_url) && <a href={officialSource(source.source_url)!} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block font-medium text-[#005baa] underline">Đối chiếu trên cổng cơ quan nhà nước</a>}
           {source.excerpt && <details className="mt-2">
             <summary className="cursor-pointer text-[#005baa]">Đọc trích đoạn</summary>
             <p className="mt-2 whitespace-pre-line border-l-2 border-blue-200 pl-2 leading-5 text-slate-600">{source.excerpt}</p>

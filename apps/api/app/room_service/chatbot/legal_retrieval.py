@@ -38,6 +38,8 @@ def expand_legal_query(query: str) -> str:
         additions.append("đăng ký tạm trú điều kiện hồ sơ tờ khai chỗ ở hợp pháp tiếp nhận đăng ký")
         if 'cung cap' in value and 'trach nhiem' in value:
             additions.append('nghĩa vụ công dân cung cấp đầy đủ chính xác thông tin giấy tờ tài liệu về cư trú')
+    if 'cu tru' in value and any(term in value for term in ('chuyen sang', 'chuyen phong', 'thay doi cho o')):
+        additions.append('thay đổi chỗ ở đăng ký tạm trú mới')
     if any(term in value for term in ('phong chay', 'pccc', 'chay no')) and any(term in value for term in ('xem phong', 'dieu kien', 'nhieu phong')):
         additions.append('phòng cháy đối với nhà ở thiết bị điện bếp đun nấu phương tiện chữa cháy lối thoát nạn')
     if any(term in value for term in ("thong tin ca nhan", "du lieu ca nhan", "anh can cuoc", "so dien thoai", "anh giay to")):
@@ -115,6 +117,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                     base += .45
                 if 'tang gia thue' in question and any(term in heading for term in ('sua doi hop dong', 'gia thue')):
                     base += .5
+                if 'tien coc' in question and not any(term in question for term in ('huy hop dong','don phuong','vi pham')):
+                    if 'huy bo hop dong' in heading:
+                        base -= .6
             if "residence" in categories and not penalty and ("xu phat" in value or "phat tien" in value):
                 base -= 0.25
             if "privacy_data" in categories and any(term in question for term in ("cong khai", "chia se", "luu", "su dung", "ca nhan")):
@@ -122,11 +127,25 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                     base += 0.3
                 if "xuat nhap canh" in value:
                     base -= 0.55
+                if row['category']=='privacy_data':
+                    if 'tre em' in heading and not any(term in question for term in ('tre em','chua thanh nien','giam ho')):
+                        base -= .65
+                    if any(term in heading for term in ('tuyen dung','nguoi lao dong')) and not any(term in question for term in ('tuyen dung','lao dong','viec lam')):
+                        base -= .65
+                    if 'ghi am, ghi hinh tai noi cong cong' in heading and not any(term in question for term in ('camera','noi cong cong','ghi hinh')):
+                        base -= .65
+                    if 'nguyen tac bao ve' in heading and 'pham vi' in value and 'muc dich' in value:
+                        base += .65
+                    if any(term in heading for term in ('su dong y','thu thap, phan tich')):
+                        if any(term in value for term in ('tru truong hop phap luat','tu nguyen','muc dich xu ly')):
+                            base += .5
+                    if any(term in question for term in ('cung cap','yeu cau','hop dong','thu thap','thong tin ca nhan')) and any(term in heading+' '+value for term in ('ngung xu ly','rut lai su dong y','han che xu ly')) and not any(term in question for term in ('ngung','xoa','rut lai','han che','chia se sai')):
+                        base -= .5
                 if "thong bao vi pham" in heading and not any(term in question for term in ("thong bao vi pham", "su co", "ro ri", "bi chia se")):
                     base -= 0.35
             if 'privacy_data' in categories and 'housing_contract' in categories and row['category'] == 'housing_contract':
                 if 'hop dong ve nha o' in heading and any(term in value for term in ('ho va ten', 'ho ten', 'dia chi')):
-                    base += .4
+                    base += .75
             if 'residence' in categories and row['category'] == 'residence' and any(term in question for term in ('giay to', 'thong tin', 'thu tuc', 'dang ky')):
                 if any(term in heading for term in ('dang ky tam tru', 'ho so', 'thu tuc')):
                     base += .3
@@ -136,6 +155,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                         base += .35
                 if 'trach nhiem' in question and 'cung cap' in question and 'nghia vu' in heading and 'cung cap' in value:
                     base += .65
+            if row['category']=='residence' and 'cu tru' in question and any(term in question for term in ('chuyen sang','chuyen phong','thay doi cho o')):
+                if 'dang ky tam tru' in heading and 'dang ky tam tru moi' in value:
+                    base += 1.25
             if row['category'] == 'fire_safety':
                 if any(term in question for term in ('xem phong', 'dieu kien', 'nhieu phong')) and 'phong chay doi voi nha o' in heading:
                     base += .55

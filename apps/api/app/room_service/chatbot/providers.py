@@ -197,6 +197,8 @@ nêu ngày/địa bàn/đối tượng của nguồn; không khẳng định đ�
 Phân biệt thỏa thuận chia chi phí nước trong hợp đồng với biểu giá của đơn vị cấp nước;
 không tự đặt công thức chia tiền theo đầu người nếu nguồn không quy định.
 Phân biệt 'chưa tìm thấy căn cứ trong các đoạn được cung cấp' với 'pháp luật không có quy định'.
+Nếu context_complete=false, đoạn chỉ là một phần khoản: không kết luận đã đủ điều kiện, ngoại lệ hay danh mục hồ sơ.
+Hợp đồng dịch vụ cấp nước giữa đơn vị cấp nước và khách hàng không tự đặt nghĩa vụ cho chủ trọ và người thuê; phải xác định đúng chủ thể.
 Không được khẳng định pháp luật không quy định chỉ vì CONTEXT thiếu thông tin.
 Câu hỏi 'chủ trọ được thu tiền điện như thế nào' hỏi nguyên tắc tính và giới hạn thu tiền;
 chỉ nói phương thức thanh toán hoặc hạn nộp nếu người dùng thực sự hỏi nội dung đó.
@@ -208,6 +210,7 @@ là tự động vi phạm khi chưa biết hóa đơn, định mức, sản lư
 Nếu CONTEXT có điều khoản trực tiếp về người thuê nhà, phải ưu tiên điều khoản đó hơn các quy định
 chung về công trình, an toàn hoặc trộm cắp điện. Không sửa số tiền OCR bằng phỏng đoán.
 Giữ nguyên quan hệ 'không vượt quá', không đổi thành 'phải bằng'. Giữ điều kiện 'và', không đổi thành 'hoặc'.
+Khi giải thích đặt cọc, giữ vai trò 'bên đặt cọc' và 'bên nhận đặt cọc'; không tự đồng nhất một vai với chủ trọ hay người thuê khi chưa biết ai giao/nhận cọc. Trả phòng không tự chứng minh hủy hợp đồng, từ chối thực hiện hoặc vi phạm. Giữ ngoại lệ thỏa thuận khác và không kết luận mức hoàn trả cho tình huống chưa đủ dữ kiện.
 Chỉ nêu biện pháp khắc phục áp dụng cho đúng hành vi được hỏi, không gộp các điểm của hành vi khác.
 Tiền lãi hoàn trả chỉ nêu theo thỏa thuận trong hợp đồng khi nguồn quy định như vậy.
 Chỉ giải đáp nội dung được hỏi. Câu hỏi về cách thu tiền không cần diễn giải mức phạt;
@@ -259,6 +262,8 @@ def _legal_prompt(question: str, chunks: Sequence[dict]) -> str:
                 "heading": _clip(item.get("heading"), 300),
                 "page_from": item.get("page_from"),
                 "page_to": item.get("page_to"),
+                "source_url": item.get("source_url"),
+                "context_complete": item.get("context_complete", True),
                 "content": _clip(item.get("content"), 5500),
             }
         )
@@ -326,6 +331,13 @@ class OllamaQwenGenerator:
             "phụ thuộc điều kiện chưa được xác minh; không tự tạo hướng dẫn xử lý hay trách nhiệm. "
             "Lời khuyên kiểm tra/đối chiếu nguồn và lời nhắc tham khảo được chấp nhận. "
             "Các khuyến nghị được nêu rõ là lời khuyên không cần là một nghĩa vụ luật định. "
+            "Không bác bỏ lời khuyên chỉ vì nguồn không ra lệnh phải thực hiện lời khuyên đó. "
+            "Đọc đủ toàn bộ danh sách chủ thể/giao dịch trong nguồn: một điều liệt kê A, B, C áp dụng "
+            "cho cả C, không được nói nguồn chỉ có A và B. Đọc cả ngoại lệ trong chính khoản được dẫn. "
+            "Trước khi nêu mỗi lỗi, đối chiếu nguyên văn đoạn nguồn với claim; không phủ nhận một từ "
+            "hay đối tượng hiện rõ trong nguồn. Phân biệt 'không phải công chứng' với 'phải công chứng'. "
+            "Không biến thành phần hồ sơ của người đăng ký cư trú thành nghĩa vụ thu thập của chủ trọ. "
+            "Nguồn ghi họ tên, địa chỉ trong hợp đồng không tự là điều kiện của hồ sơ tạm trú. "
             "Không tự thêm ngoại lệ hay nội dung bị thiếu vào nguồn. Không đổi số rank của nguồn. "
             "Nếu thiếu căn cứ, issues mô tả chính xác kết luận cần bỏ hoặc sửa bằng tiếng Việt. "
             "Nêu tối đa 3 lỗi chính, mỗi lỗi không quá 200 ký tự; vẫn kiểm tra tất cả kết luận. "

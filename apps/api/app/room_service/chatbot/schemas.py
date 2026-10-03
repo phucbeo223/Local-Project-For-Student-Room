@@ -84,6 +84,7 @@ class ChatSource(BaseModel):
     source_url: str | None = None
     source_path: str | None = None
     category: str | None = None
+    page_kind: Literal['physical_pdf', 'logical_document'] | None = None
     page_from: int | None = None
     page_to: int | None = None
     heading: str | None = None
@@ -111,6 +112,8 @@ class ChatFeedbackOut(BaseModel):
 
 
 class ChatAskResponse(BaseModel):
+    agent_trace: list[dict] = Field(default_factory=list)
+    corpus_schema: str | None = None
     partial_answer: bool = False
     conversation_state: ChatConversationState | None = None
     applied_filters: ChatFilters | None = None

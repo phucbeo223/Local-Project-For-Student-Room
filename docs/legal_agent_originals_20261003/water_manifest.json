@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "id": "water117",
+      "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2007/07/34374_nd117cp.doc",
+      "path": "docs/legal_agent_originals_20261003/water117.doc",
+      "sha256": "baa30359ccb0743198f23d02fe2b8461603c50e1fe99e4a0d6c02601ded21dd6",
+      "verified_at_utc": "2026-10-03T06:06:29.119893+00:00"
+    },
+    {
+      "id": "water124",
+      "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2012/04/124nd.doc",
+      "path": "docs/legal_agent_originals_20261003/water124.doc",
+      "sha256": "f3fae17d5f680300060ea959bd352658866bf15b63747ebaf3942684d8582c67",
+      "verified_at_utc": "2026-10-03T06:06:30.189478+00:00"
+    },
+    {
+      "id": "water57",
+      "source_url": "https://vanban.chinhphu.vn/?docid=218699&pageid=27160",
+      "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/57-vbhn-bxd.signed.pdf",
+      "path": "docs/legal_agent_originals_20261003/water57.pdf",
+      "sha256": "8acb938bfe32ab68cd815072a992cb312bd280d70200e4fddf16a6d7d2602be1",
+      "verified_at_utc": "2026-10-03T06:06:34.521074+00:00"
+    }
+  ]
+}
