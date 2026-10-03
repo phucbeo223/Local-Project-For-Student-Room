@@ -54,3 +54,13 @@ eval/source_supplement_20261003/
 eval/agent_source_ocr/
 eval/legal_fix_ocr_20261004/
 *.lock
+# Supplied internal rental ads and raw evaluation payloads stay local.
+Datehouse/
+eval/reports/housing_cases_*.json
+eval/reports/housing_cases_*.status.json
+eval/reports/housing_cases_*.json.tmp
+# Aggregate housing reports remain local pending publication permission.
+docs/HOUSING_IMPORT_20261004.md
+eval/reports/housing_import_2026-10-04.json
+eval/reports/housing_audit_2026-10-04.json
+eval/ragas_reports/housing_evaluation_2026-10-04.md
