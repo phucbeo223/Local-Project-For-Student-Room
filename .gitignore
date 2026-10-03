@@ -52,3 +52,5 @@ graphify-out/
 tmp/
 eval/source_supplement_20261003/
 eval/agent_source_ocr/
+eval/legal_fix_ocr_20261004/
+*.lock

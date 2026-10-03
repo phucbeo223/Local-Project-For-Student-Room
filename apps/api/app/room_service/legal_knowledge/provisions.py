@@ -4,7 +4,7 @@ import hashlib
 import re
 
 ARTICLE = re.compile(r'(?m)^[ \t]*(?:#{1,6}[ \t]+)?Điều[ \t]+(\d+[a-z]?)[ \t]*[.:—–-][^\n]*', re.I)
-CLAUSE = re.compile(r'(?m)^[ \t]*(\d+)\.[ \t]+')
+CLAUSE = re.compile(r'(?m)^[ \t]*(\d+)\.(?:\[\d+\])*[ \t]+')
 POINT = re.compile(r'(?m)^[ \t]*([a-zđ])\)[ \t]+')
 EDITORIAL = re.compile(r'(?im)^\s*(?:GHI CHÚ NGỮ CẢNH|Ghi chú nguồn|Ghi chú: Đây là bản|Nguồn đối chiếu|Cách dùng trong|Cách trả lời tình huống|Lược khỏi|Giới hạn trích tuyển|BẢN TRÍCH TUYỂN NGHIÊN CỨU)\b')
 

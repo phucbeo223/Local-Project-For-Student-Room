@@ -77,6 +77,27 @@ HTTP thử bằng người dùng thường không được yêu cầu `include_e
 
 Lượt v10 đã hoàn tất 36 phản hồi nhưng bộ chấm Gemini chạm HTTP 429. `retry_legal_agent_scores.py` đã chạy đúng một lượt thử lại, kiểm tra mọi điểm hợp lệ và payload trả lời/ngữ cảnh không đổi; không đổi khóa để vượt quota. Script từ chối chạy lại cùng lượt. Các trường lỗi ban đầu giữ trong `ragas_retry_history`, kết quả thiếu không được ghép điểm local vào bản so sánh Gemini. Báo cáo và gate cuối giữ quyết định chưa chuyển kho; không có tác vụ tự động chờ quota.
 
+### Năm nhóm sửa và worker chờ quota — 04/10/2026
+
+Lượt cuối v15 và sổ nguồn xem `docs/LEGAL_FIXES_20261004.md`. V11/v12 là lượt thử đã dừng để sửa OCR và schema nguồn web; không chạy lại các lượt đó. Corpus cuối giữ riêng `legal_v2`; không dùng lệnh index `public` lịch sử để thay thế. Báo cáo local và native Gemini tách file.
+
+```powershell
+$legalCompose = @('-f', 'docker-compose.yml', '-f', 'docker-compose.override.yml', '-f', 'docker-compose.ragas.yml')
+docker compose @legalCompose run --rm --no-deps --entrypoint python -e CHATBOT_LEGAL_SCHEMA=legal_v2 -e CHATBOT_AGENTS_ENABLED=true -e CHATBOT_QUESTION_ANALYSIS_MODEL=gemini-3.1-flash-lite -e CHATBOT_LEGAL_TIMEOUT_SECONDS=180 ragas-eval /eval/resume_legal_evaluation.py --output /eval/reports/legal_NEW_TIMESTAMP.json --max-hours 48
+```
+
+Chọn output mới khi code/corpus đổi. Tiếp tục phiên đã có checkpoint thì dùng chính output đó và xác minh không có container/writer đang chạy; worker có khóa một writer. Lượt hiện có container `nckh-legal-agents-eval-v15` và output `legal_agent_after_v15_2026-10-04.json`, đang chờ quota; không khởi động thêm bản trùng.
+
+Khi HTTP 429, runner thoát mã 75 sau atomic checkpoint; không ghi 0 hoặc phản hồi fallback như kết quả kiểm thử thành công. Worker dừng toàn bộ queue, tôn trọng Retry-After/RetryInfo, quota ngày tính mốc reset Pacific, probe nhỏ sau mốc chờ rồi tiếp tục những câu/metric chưa xong. Không xoay key cùng dự án để vượt quota. Worker hữu hạn 48 giờ; hết thời gian vẫn giữ checkpoint. Máy/Docker cần hoạt động. Heartbeat trong chat theo dõi và báo khi có kết quả hoặc lỗi; im lặng khi chạy/chờ bình thường.
+
+Mỗi metric hợp lệ được giữ nguyên khi tiếp tục; điểm NaN/None/lỗi vẫn là phần chưa chấm, không điền điểm từ judge khác. Native Gemini vẫn dùng 8192 token/4 worker/E5/strictness 1/temperature 0/giữ đủ context/chấm abstention như baseline. So sánh bằng `report_legal_fixes.py` trên các cặp có cùng phương pháp. Không sửa báo cáo lịch sử v10 hoặc baseline.
+
+```powershell
+& 'C:\Program Files\Python314\python.exe' -X utf8 eval/report_legal_fixes.py
+```
+
+Nếu quota đã được xác nhận ở một phiên trống vừa dừng, `inherit_quota_checkpoint.py` chỉ tạo phiên mới có **0 phản hồi/0 điểm**, gắn SHA checkpoint trước và cùng mốc chờ, tránh gọi thêm Gemini trước reset. Script từ chối phiên trước có câu trả lời. Không dùng để sao chép điểm giữa phiên.
+
 ## 4. Risk và recommendation
 
 Risk chỉ được công bố recall/precision khi có JSONL nhãn độc lập:

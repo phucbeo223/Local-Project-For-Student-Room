@@ -1,0 +1,144 @@
+{
+  "base_url": "http://nckh-api-legal-preview-v11:8000",
+  "started_at_utc": "2026-10-03T18:56:22.626521+00:00",
+  "temporary_user_removed": true,
+  "passed": true,
+  "health_status": 200,
+  "anonymous_status": 403,
+  "http_status": 200,
+  "latency_ms": 97789,
+  "response": {
+    "agent_trace": [
+      {
+        "agent": "question_analysis",
+        "provider": "rules",
+        "model": null,
+        "requested_model": null,
+        "status": "fallback",
+        "duration_ms": 0
+      },
+      {
+        "agent": "legal_retrieval",
+        "provider": "hybrid",
+        "status": "completed",
+        "corpus_schema": "legal_v2",
+        "sources_found": 4,
+        "duration_ms": 11673
+      },
+      {
+        "agent": "answer",
+        "provider": "qwen-local",
+        "model": "qwen3.5:9b",
+        "status": "complete",
+        "attempted_provider": "qwen-local",
+        "attempted_model": "qwen3.5:9b"
+      },
+      {
+        "agent": "source_verification",
+        "provider": "exact_source_match",
+        "status": "accepted",
+        "scope": "verbatim source text only; no legal application inferred"
+      },
+      {
+        "agent": "citation_and_rule_checks",
+        "provider": "rules",
+        "status": "accepted"
+      }
+    ],
+    "corpus_schema": "legal_v2",
+    "partial_answer": false,
+    "conversation_state": null,
+    "applied_filters": null,
+    "citation_applicable": true,
+    "answer": "Các đoạn trả lời trực tiếp trong nguồn:\n\n- Luat-68-2020-QH14-doi-chieu-20261003 — Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 2: “2. Người đăng ký tạm trú nộp hồ sơ đăng ký tạm trú đến cơ quan đăng ký cư trú nơi mình dự kiến tạm trú.\nKhi tiếp nhận hồ sơ đăng ký tạm trú, cơ quan đăng ký cư trú kiểm tra và cấp phiếu tiếp nhận hồ sơ cho người đăng ký; trường hợp hồ sơ chưa đầy đủ thì hướng dẫn người đăng ký bổ sung hồ sơ.\nTrong thời hạn 03 ngày làm việc kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ, cơ quan đăng ký cư trú có trách nhiệm thẩm định, cập nhật thông tin về nơi tạm trú mới, thời hạn tạm trú của người đăng ký vào Cơ sở dữ liệu về cư trú và thông báo cho người đăng ký về việc đã cập nhật thông tin đăng ký tạm trú; trường hợp từ chối đăng ký thì phải trả lời bằng văn bản và nêu rõ lý do.” [3].\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.",
+    "intent": "legal_question",
+    "confidence": 0.97,
+    "listings": [],
+    "sources": [
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 19,
+        "chunk_id": 2525,
+        "rank": 1,
+        "similarity_score": 1.0,
+        "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+        "category": "residence",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 1",
+        "excerpt": "1. Hồ sơ đăng ký tạm trú bao gồm:\na) Tờ khai thay đổi thông tin cư trú; đối với người đăng ký tạm trú là người chưa thành niên thì trong tờ khai phải ghi rõ ý kiến đồng ý của cha, mẹ hoặc người giám hộ, trừ trường hợp đã có ý kiến đồng ý bằng văn bản;\nb) Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 29,
+        "chunk_id": 3326,
+        "rank": 2,
+        "similarity_score": 1.0,
+        "title": "Thông tư 116/2026/TT-BCA",
+        "source": "legal_corpus",
+        "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+        "source_path": "docs/legal_corpus_v2/residence116.json",
+        "category": "residence",
+        "page_kind": "physical_pdf",
+        "page_from": 2,
+        "page_to": 2,
+        "heading": "Điều 3. Tiếp nhận, giải quyết hồ sơ và thông báo về kết quả giải quyết | Khoản 6",
+        "excerpt": "thủ tục về cư trú\n\n6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống\nthông tin hoặc Ung dụng định danh quốc gia (VNeID) thi cơ quan đăng ký cư trú\ncó trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dan có\ntrách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê\nkhai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác\nvào biên bản khi thực hiện xác minh."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 19,
+        "chunk_id": 2526,
+        "rank": 3,
+        "similarity_score": 1.0,
+        "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "source_path": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+        "category": "residence",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 28. Hồ sơ, thủ tục đăng ký tạm trú, gia hạn tạm trú | Khoản 2",
+        "excerpt": "2. Người đăng ký tạm trú nộp hồ sơ đăng ký tạm trú đến cơ quan đăng ký cư trú nơi mình dự kiến tạm trú.\nKhi tiếp nhận hồ sơ đăng ký tạm trú, cơ quan đăng ký cư trú kiểm tra và cấp phiếu tiếp nhận hồ sơ cho người đăng ký; trường hợp hồ sơ chưa đầy đủ thì hướng dẫn người đăng ký bổ sung hồ sơ.\nTrong thời hạn 03 ngày làm việc kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ, cơ quan đăng ký cư trú có trách nhiệm thẩm định, cập nhật thông tin về nơi tạm trú mới, thời hạn tạm trú của người đăng ký vào Cơ sở dữ liệu về cư trú và thông báo cho người đăng ký về việc đã cập nhật thông tin đăng ký tạm trú; trường hợp từ chối đăng ký thì phải trả lời bằng văn bản và nêu rõ lý do."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 29,
+        "chunk_id": 3353,
+        "rank": 4,
+        "similarity_score": 1.0,
+        "title": "Thông tư 116/2026/TT-BCA",
+        "source": "legal_corpus",
+        "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+        "source_path": "docs/legal_corpus_v2/residence116.json",
+        "category": "residence",
+        "page_kind": "physical_pdf",
+        "page_from": 18,
+        "page_to": 18,
+        "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+        "excerpt": "Điều 27. Hiệu lực thi hành | Khoản 1\n1. Thông tư này có hiệu lực thi hành ké từ ngày 01 tháng 7 năm 2026."
+      }
+    ],
+    "no_answer": false,
+    "degraded": true,
+    "degraded_reasons": [
+      "Chưa cấu hình Gemini phân tích câu hỏi; dùng định tuyến chủ đề dự phòng."
+    ],
+    "retrieval_mode": "legal_hybrid",
+    "generation_provider": "qwen-local",
+    "generation_model": "qwen3.5:9b",
+    "latency_ms": 97549,
+    "event_id": 37,
+    "citation_accuracy": 1.0,
+    "evaluation_contexts": []
+  }
+}

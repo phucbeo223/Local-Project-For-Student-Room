@@ -1,0 +1,33 @@
+{
+  "schema": "legal_v2",
+  "original_before": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "original_after": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "counts": {
+    "chunks": 1784,
+    "vectors": 1784,
+    "identified": 1784,
+    "parented": 1784
+  },
+  "indexed": [
+    {
+      "id": "fire105-annex-I",
+      "chunks": 3,
+      "provisions": 3
+    }
+  ],
+  "deactivated_superseded_sources": 0,
+  "manifest_sha256": "26b93bafaffad842667fc18aebd8a962ededb719048fe989c480318cc749f4b9",
+  "activation": "not activated; evaluation pending"
+}

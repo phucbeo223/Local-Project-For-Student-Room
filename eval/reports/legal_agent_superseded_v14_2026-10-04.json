@@ -1,0 +1,7 @@
+{
+  "status": "superseded",
+  "local_report": "legal_agent_local_v14_2026-10-04.json",
+  "native_report": "legal_agent_after_v14_2026-10-04.json",
+  "reason": "Correct legacy base decree 282 URL, previously pointing to amending decree 347; fresh v15 binds corrected manifest",
+  "merge_into_final": false
+}

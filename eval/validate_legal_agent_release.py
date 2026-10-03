@@ -14,11 +14,14 @@ def finite(v):return isinstance(v,(float,int)) and math.isfinite(v)
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--after',type=Path,default=BASE/'reports/legal_agent_after_v10_2026-10-03.json')
+    parser.add_argument('--retrieval',type=Path,default=BASE/'reports/legal_agent_retrieval_2026-10-03.json')
+    parser.add_argument('--review',type=Path,default=BASE/'reports/legal_agent_source_review_2026-10-03.json')
+    parser.add_argument('--output',type=Path,default=BASE/'reports/legal_agent_release_gate_2026-10-03.json')
     args=parser.parse_args()
     old=read(BASE/'reports/legal_model_upgrade_after_2026-10-02.json');new=read(args.after)
-    retrieval=read(BASE/'reports/legal_agent_retrieval_2026-10-03.json')
+    retrieval=read(args.retrieval)
     backup=read(BASE/'reports/legal_agent_backup_2026-10-03.json')
-    review=read(BASE/'reports/legal_agent_source_review_2026-10-03.json')
+    review=read(args.review)
     cases=new.get('cases',[]);completed=[c for c in cases if 'answer' in c and not c.get('error')]
     scores={m:[c.get('ragas',{}).get(m) for c in cases if finite(c.get('ragas',{}).get(m))] for m in METRICS}
     old_scores={m:[c.get('ragas',{}).get(m) for c in old.get('cases',[]) if finite(c.get('ragas',{}).get(m))] for m in METRICS}
@@ -52,10 +55,10 @@ def main():
         'score_counts':{m:len(scores[m]) for m in METRICS},
         'scores':{m:statistics.mean(scores[m]) if scores[m] else None for m in METRICS},
         'no_answer':sum(bool(c.get('no_answer')) for c in completed),
-        'source_review_critical_case_ids':[c['id'] for c in review.get('critical_issues',[])],
+        'source_review_critical_case_ids':[c['id'] for c in (review.get('critical_issues') or [])],
         'policy':'Engineering release gate: all cases scored with the historical judge, no metric/completeness regression, source review and restored backup. Not an independent legal correctness certification.',
         'action':'eligible_for_preview_and_cutover' if all(gates.values()) else 'retain_original_corpus'}
-    (BASE/'reports/legal_agent_release_gate_2026-10-03.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    args.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,ensure_ascii=False),flush=True);engine.dispose()
     if not report['passed']:raise SystemExit(2)
 

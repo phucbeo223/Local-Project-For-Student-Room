@@ -1,0 +1,25 @@
+{
+  "downloaded_at_utc": "2026-10-03T19:16:36.462043+00:00",
+  "sources": [
+    {
+      "id": "electricity-cantho-guidance",
+      "source_url": "https://btgdv.cantho.gov.vn/vi/news/thong-tin-tong-hop/nha-tro-minh-bach-gia-dien-nguoi-thue-them-yen-tam-4629.html",
+      "path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.html",
+      "sha256": "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f",
+      "kind": "public_official_guidance_not_statutory_provision",
+      "indexed": true,
+      "excerpt_path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.txt",
+      "excerpt_sha256": "3fb190ff42b56aa7027531997246b405456b8e84cfc0557733884709caf2ae30",
+      "limitation": "Local guidance supports checking how electricity is charged; not a statutory article establishing a universal notification obligation or conditional commencement event."
+    },
+    {
+      "id": "electricity-hanoi-guidance",
+      "source_url": "https://phucloi.hanoi.gov.vn/thong-tin-tuyen-truyen/tuyen-truyen-thuc-hien-gia-ban-le-dien-tai-cac-diem-cho-thue-nha-de-o-theo-chi-thi-so-04-ct-ubnd-cua-ubnd-thanh-pho-ha-noi-2702260518144621697.htm",
+      "path": "docs/legal_fix_originals_20261004/electricity-hanoi-guidance.html",
+      "sha256": "f9d2b4b99419c2c2cb82a92e4a4e0a86ff32919ff7098773b91b3690f03b5128",
+      "kind": "public_official_guidance_not_statutory_provision",
+      "indexed": false,
+      "limitation": "Hanoi territorial rule: retained as research trace, excluded from Can Tho corpus; no cross-locality inference."
+    }
+  ]
+}

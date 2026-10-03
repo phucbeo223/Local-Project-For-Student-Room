@@ -10,13 +10,14 @@ type Reference = {
   page_to: number | null;
   excerpt?: string | null;
   source_url?: string | null;
-  page_kind?: 'physical_pdf' | 'logical_document' | null;
+  page_kind?: 'physical_pdf' | 'logical_document' | 'web_excerpt' | null;
 };
 
-function officialSource(value?: string | null): string | null {
+function publicSource(value?: string | null): string | null {
   try {
     const url = new URL(value || '');
-    return url.protocol === 'https:' && (url.hostname.endsWith('.gov.vn') || url.hostname.endsWith('.chinhphu.vn')) ? url.href : null;
+    const signedWaterDecision = url.hostname === 'capnuoccantho2.com.vn' && url.pathname === '/View.aspx' && url.searchParams.get('wc') === '63' && url.searchParams.get('wp') === '332';
+    return url.protocol === 'https:' && (url.hostname.endsWith('.gov.vn') || url.hostname.endsWith('.chinhphu.vn') || signedWaterDecision) ? url.href : null;
   } catch { return null; }
 }
 
@@ -79,8 +80,8 @@ export default function ChatAnswer({ content, sources = [] }: { content: string;
         {sources.map((source) => <div key={source.rank} className={`rounded-lg border p-2.5 ${selected === source.rank ? "border-blue-400 bg-blue-50" : "border-slate-200 bg-white"}`}>
           <p className="font-semibold text-slate-700">[{source.rank}] {source.title}</p>
           {source.heading && <p className="mt-1 text-slate-500">{source.heading}</p>}
-          {source.page_from && <p className="text-slate-500">{source.page_kind === 'logical_document' ? 'Trang trong bản trích' : 'Trang'} {source.page_from}{source.page_to && source.page_to !== source.page_from ? `–${source.page_to}` : ""}</p>}
-          {officialSource(source.source_url) && <a href={officialSource(source.source_url)!} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block font-medium text-[#005baa] underline">Đối chiếu trên cổng cơ quan nhà nước</a>}
+          {source.page_kind === 'web_excerpt' ? <p className="text-slate-500">Trích từ trang thông tin</p> : source.page_from && <p className="text-slate-500">{source.page_kind === 'logical_document' ? 'Trang trong bản trích' : 'Trang'} {source.page_from}{source.page_to && source.page_to !== source.page_from ? `–${source.page_to}` : ""}</p>}
+          {publicSource(source.source_url) && <a href={publicSource(source.source_url)!} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block font-medium text-[#005baa] underline">Đối chiếu nguồn công bố</a>}
           {source.excerpt && <details className="mt-2">
             <summary className="cursor-pointer text-[#005baa]">Đọc trích đoạn</summary>
             <p className="mt-2 whitespace-pre-line border-l-2 border-blue-200 pl-2 leading-5 text-slate-600">{source.excerpt}</p>

@@ -41,6 +41,8 @@ def required_evidence_categories(query: str) -> tuple[str, ...]:
     text = normalize_text(query)
     requested = []
     for category in question_categories(query):
+        if category=='housing_contract' and any(t in text for t in ('dau hieu rui ro','khong cho xem phong')) and not has_phrase(text,'hop dong'):
+            continue
         phrases = TOPICS[category]
         if category == 'privacy_data':
             phrases = ('thong tin ca nhan', 'du lieu ca nhan', 'anh can cuoc', 'so dien thoai', 'anh giay to')

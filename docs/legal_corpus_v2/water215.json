@@ -1,0 +1,79 @@
+{
+  "source": {
+    "download_url": "https://drive.google.com/uc?export=download&id=1048r34Uoou90dWXo09lp5kE591jRGacR",
+    "official_attachment_link": "https://drive.google.com/file/d/1048r34Uoou90dWXo09lp5kE591jRGacR/view?usp=drive_link",
+    "path": "docs/legal_fix_originals_20261004/water215.pdf",
+    "sha256": "1b476f823340e632b5fe9213c4e55ad92487eb568d81fe03f51fc59080321871",
+    "provenance": "signed government decision explicitly linked by the accountable water utility; corroborate number/date/title with government publication; verify territorial/current application separately",
+    "id": "water215",
+    "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=63&wp=332",
+    "category": "water_cantho",
+    "title": "Quyết định 215/QĐ-UBND ngày 01/02/2024 Cần Thơ",
+    "extraction": "Transcribed against rendered signed pages 1 and 3. Tariff tables and numerical adjustment limit excluded. This is a project extract, not an official consolidation.",
+    "page_kind": "physical_pdf",
+    "not_exhaustive": true,
+    "verification": "Number/date/title corroborated with government reply; selected clauses transcribed against signed pages 1/3; tables/numeric adjustment limit excluded; current territory/effectiveness requires confirmation",
+    "reviewed_extract": "docs/legal_fix_originals_20261004/water215_verified_extract.json",
+    "tariff_tables_excluded": true,
+    "application_verified": false
+  },
+  "provisions": [
+    {
+      "provision_id": "1b476f823340e632b5fe:0:body",
+      "article": "1",
+      "clause": null,
+      "heading": "Điều 1. Quy định giá nước sạch sinh hoạt tại đô thị và khu vực nông thôn áp dụng đối với các đơn vị kinh doanh nước sạch, các tổ chức và khách hàng sử dụng nước sạch trên địa bàn thành phố Cần Thơ như sau:",
+      "content": "Điều 1. Quy định giá nước sạch sinh hoạt tại đô thị và khu vực nông thôn áp dụng đối với các đơn vị kinh doanh nước sạch, các tổ chức và khách hàng sử dụng nước sạch trên địa bàn thành phố Cần Thơ như sau:",
+      "source_start": 0,
+      "source_end": 207,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 1"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "acccdb6db7bdad157cc5e8304180ab299aef776a82c254058f44662bdd7e1983",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "1b476f823340e632b5fe:207:2",
+      "article": "2",
+      "clause": "2",
+      "heading": "Điều 2. Điều chỉnh giá nước sạch | Khoản 2",
+      "content": "2. Hàng năm, các đơn vị cấp nước chủ động rà soát việc thực hiện phương án giá nước sạch và giá nước sạch dự kiến cho năm tiếp theo trên cơ sở quy định tại Điều 4 Thông tư số 44/2021/TT-BTC ngày 18 tháng 6 năm 2021 của Bộ trưởng Bộ Tài chính quy định về khung giá, nguyên tắc, phương pháp xác định giá nước sạch sinh hoạt để thực hiện, đảm bảo tuân thủ đúng quy định.",
+      "source_start": 240,
+      "source_end": 609,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 4"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "dfe9ab7fc7812b4f2702cfae32e8e796e3061872bd49789a548ad75a83703567",
+      "page_from": 3,
+      "page_to": 3
+    },
+    {
+      "provision_id": "1b476f823340e632b5fe:609:body",
+      "article": "3",
+      "clause": null,
+      "heading": "Điều 3. Chánh Văn phòng Ủy ban nhân dân thành phố, Giám đốc sở, Thủ trưởng cơ quan, ban ngành thành phố, Chủ tịch Ủy ban nhân dân quận, huyện và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Quyết định này kể từ ngày ký./.",
+      "content": "Điều 3. Chánh Văn phòng Ủy ban nhân dân thành phố, Giám đốc sở, Thủ trưởng cơ quan, ban ngành thành phố, Chủ tịch Ủy ban nhân dân quận, huyện và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Quyết định này kể từ ngày ký./.",
+      "source_start": 609,
+      "source_end": 847,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 3"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "92de3fc68ae764ee00120b36990d2477a6d4ac2c4987a447dabecaf7e390b4ca",
+      "page_from": 3,
+      "page_to": 3
+    }
+  ]
+}

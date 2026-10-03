@@ -1,0 +1,307 @@
+{
+  "started_at_utc": "2026-10-03T19:57:37.749912+00:00",
+  "question_bank_sha256": "0cd8e8f865c9d50fa21ebb38fae22b925e2fd5bbb6e0241ee96d25eed8b0f4fd",
+  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
+  "cases": [
+    {
+      "id": 1,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 2,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 3,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 4,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "category": "housing_contract"
+    },
+    {
+      "id": 5,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "category": "electricity"
+    },
+    {
+      "id": 6,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "category": "electricity"
+    },
+    {
+      "id": 7,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "category": "electricity"
+    },
+    {
+      "id": 8,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "category": "electricity"
+    },
+    {
+      "id": 9,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 10,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 11,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 12,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "category": "water_cantho"
+    },
+    {
+      "id": 13,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "category": "residence"
+    },
+    {
+      "id": 14,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "category": "residence"
+    },
+    {
+      "id": 15,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "category": "residence"
+    },
+    {
+      "id": 16,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "category": "residence"
+    },
+    {
+      "id": 17,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 18,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 19,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 20,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "category": "fire_safety"
+    },
+    {
+      "id": 21,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 22,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 23,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 24,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "category": "real_estate_brokerage"
+    },
+    {
+      "id": 25,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 26,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 27,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 28,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "category": "ecommerce_platform"
+    },
+    {
+      "id": 29,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 30,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 31,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 32,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "category": "privacy_data"
+    },
+    {
+      "id": 33,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 34,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 35,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "category": "criminal_law"
+    },
+    {
+      "id": 36,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "category": "criminal_law"
+    }
+  ],
+  "quota_state": {
+    "status": "paused",
+    "http_status": 429,
+    "paused_at_utc": "2026-10-03T18:53:29.493847+00:00",
+    "retry_at_utc": "2026-10-04T07:00:05+00:00",
+    "delay_seconds": 43595.506153,
+    "daily_quota": true,
+    "quota": [
+      {
+        "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+        "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+        "quotaValue": "500"
+      }
+    ],
+    "reset_policy": "server Retry-After/RetryInfo; RPD midnight America/Los_Angeles; probe availability before resuming",
+    "phase": "collect"
+  },
+  "run_configuration": {
+    "agents_enabled": true,
+    "legal_schema": "legal_v2",
+    "question_analysis_model": "gemini-3.1-flash-lite",
+    "answer_model": "qwen3.5:9b",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "analysis_provider_available": "gemini",
+    "legal_answer_mode": "source_select"
+  },
+  "pipeline_sha256": "d3a1706736c858e61e9266acaaadbe67feb271c264762b7e02e475f43936e67f",
+  "corpus_manifest_sha256": "b44ef9ac1757d9ed65254e618beb9867e1fe17c188965cd715247686a15d0633",
+  "inherited_quota_checkpoint": {
+    "path": "eval\\reports\\legal_agent_after_v13_2026-10-04.json",
+    "sha256": "53c850069fc29716c7d796a26e2fb9925876f512b2139b77cedd6d9949615fc3",
+    "reason": "Same Gemini project daily quota; zero answers/scores, no additional request before retry"
+  },
+  "summary": {
+    "questions": 36,
+    "completed": 0,
+    "errors": 0,
+    "with_contexts": 0,
+    "no_answer": 0,
+    "partial_answer": 0,
+    "degraded": 0,
+    "vector_retrieval": 0,
+    "category_source_match": 0,
+    "category_source_evaluated": 0,
+    "citation_format_accuracy_mean": null,
+    "latency_p50_ms": null,
+    "latency_p95_ms": null,
+    "ragas": {
+      "faithfulness": {
+        "mean": null,
+        "scored": 0
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "scored": 0
+      },
+      "context_utilization": {
+        "mean": null,
+        "scored": 0
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 0,
+      "with_contexts": 0,
+      "no_answer": 0
+    }
+  }
+}

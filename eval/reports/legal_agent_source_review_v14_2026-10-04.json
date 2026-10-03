@@ -1,0 +1,28 @@
+{
+  "status": "pending_native_v14_evaluation_and_review",
+  "reviewed_cases": 0,
+  "evaluation_sha256": null,
+  "critical_issues": null,
+  "review_required": [
+    2,
+    8,
+    14,
+    15,
+    16,
+    18,
+    24,
+    27,
+    31,
+    32,
+    34,
+    36
+  ],
+  "known_limits": [
+    "Conditional electricity commencement trigger still unconfirmed; local publication is guidance, not a universal statutory notification obligation.",
+    "Separate landlord duty to supply all residence documents not established by citizen duties alone.",
+    "2024 Can Tho water decision needs territory, provider and current application confirmation; tariff cells excluded.",
+    "Many-room house classification requires actual use, floor count, area and applicable technical rules.",
+    "Literal quote matching and RAGAS scores do not independently certify legal applicability."
+  ],
+  "action": "retain original corpus; do not certify an unreviewed answer file"
+}

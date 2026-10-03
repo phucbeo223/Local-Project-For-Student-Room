@@ -26,6 +26,8 @@ sys.path.insert(0, str(ROOT / "apps/api"))
 QUESTION_RE = re.compile(r"^(\d+)\.\s+(.+)$")
 CATEGORY_RE = re.compile(r"`([a-z_]+)`")
 METRIC_NAMES = ("faithfulness", "answer_relevancy", "context_utilization")
+from quota_checkpoint import QuotaCoordinator, QuotaPause, bounded_scoring, checkpoint_pause
+QUOTA = QuotaCoordinator()
 
 
 def load_questions(path: Path) -> list[dict]:
@@ -101,6 +103,10 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     engine = create_engine(settings.database_url)
     init_chatbot(engine)
     service = get_service()
+    analysis_client=getattr(getattr(service,'question_analyzer',None),'client',None)
+    if analysis_client is not None:QUOTA.attach(analysis_client)
+    verification_client=getattr(service.generator,'verifier',None)
+    if verification_client is not None and verification_client is not analysis_client:QUOTA.attach(verification_client)
     if settings.chatbot_agents_enabled:
         from sqlalchemy import text
         import app.room_service.chatbot as chatbot_package
@@ -115,10 +121,14 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
         if report.get('corpus_manifest_sha256') and report['corpus_manifest_sha256'] != manifest_sha:
             raise ValueError('Corpus changed; use a new evaluation output')
         report['corpus_manifest_sha256'] = manifest_sha
-        report['run_configuration'] = {'agents_enabled':True,'legal_schema':settings.chatbot_legal_schema,
+        configuration = {'agents_enabled':True,'legal_schema':settings.chatbot_legal_schema,
             'question_analysis_model':settings.chatbot_question_analysis_model,'answer_model':settings.ollama_model,
-            'embedding_model':settings.chatbot_embedding_model}
-        report['run_configuration']['legal_answer_mode']='source_select'
+            'embedding_model':settings.chatbot_embedding_model,
+            'analysis_provider_available':'gemini' if settings.configured_gemini_keys else 'rules-local',
+            'legal_answer_mode':'source_select'}
+        if report.get('run_configuration') and report['run_configuration'] != configuration:
+            raise ValueError('Provider configuration changed; use a new evaluation output')
+        report['run_configuration'] = configuration
     service.repo.record_event = lambda payload: None
     provider_calls = []
     for provider in getattr(service.generator, "providers", []):
@@ -204,6 +214,7 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                         if case["category"] != "find_listing" else None
                     ),
                 })
+                case.pop('error',None)
             except Exception as exc:
                 case["error"] = f"collect: {type(exc).__name__}: {exc}"[:500]
                 case["provider_calls"] = list(provider_calls)
@@ -254,6 +265,7 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
                                           min_request_interval_seconds=settings.gemini_min_request_interval_seconds)
             self.usage = []
             self.judgements = []
+            QUOTA.attach(self.client)
 
         def generate(self, prompt: str, response_model: type):
             print(f"Gemini judge: {len(prompt)} characters, schema: {response_model.__name__}", flush=True)
@@ -351,9 +363,8 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
                 "prompt_tokens": sum(item.get("prompt_eval_count") or 0 for item in usage),
                 "output_tokens": sum(item.get("eval_count") or 0 for item in usage),
                 "max_prompt_tokens": max((item.get("prompt_eval_count") or 0 for item in usage), default=0)}, getattr(local.judge, "judgements", [])[judgement_start:]
-        futures = {}
-        with ThreadPoolExecutor(max_workers=score_workers) as pool:
-            for case in report["cases"][:limit]:
+        tasks = []
+        for case in report["cases"][:limit]:
                 if ids is not None and case["id"] not in ids:
                     continue
                 if "answer" not in case or (case.get("no_answer") and not score_abstentions) or not case.get("contexts"):
@@ -361,24 +372,28 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
                 case.setdefault("ragas", {})
                 case.setdefault("ragas_errors", {})
                 for name in selected_metrics:
-                    if name in case["ragas"]:
+                    if isinstance(case["ragas"].get(name), (int, float)) and math.isfinite(case["ragas"][name]):
                         continue
+                    case['ragas'].pop(name, None)
                     if name in case["ragas_errors"]:
                         case.setdefault("ragas_retry_history", []).append({"metric": name, "previous_error": case["ragas_errors"][name], "retry_max_output_tokens": judge_max_output_tokens})
-                    futures[pool.submit(score_task, case, name)] = (case, name)
-            for future in as_completed(futures):
-                case, name = futures[future]
-                value, error, usage, judgements = future.result()
+                    tasks.append((case,name))
+        def on_result(task,result):
+                case, name = task
+                value, error, usage, judgements = result
                 case.setdefault("ragas_usage", {})[name] = usage
                 case.setdefault("ragas_judgements", {})[name] = judgements
                 if error:
                     case["ragas_errors"][name] = error
-                else:
+                elif value is not None:
                     case["ragas"][name] = value
                     case["ragas_errors"].pop(name, None)
+                else:
+                    case['ragas_errors'][name] = 'Judge returned a non-finite score; remains unscored'
                 print(f"Saved {case['id']:02d}/{len(report['cases'])} {name}: {error or value}", flush=True)
                 summarize(report)
                 save_report(output, report)
+        bounded_scoring(tasks,score_task,on_result,QUOTA,score_workers)
         return
     for case in report["cases"][:limit]:
         if ids is not None and case["id"] not in ids:
@@ -392,8 +407,9 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
             user_input = "Sau yêu cầu tìm phòng từ 18 m², có máy lạnh, giá không quá 2,5 triệu đồng/tháng: " + user_input
         for name in selected_metrics:
             scorer = scorers[name]
-            if name in case["ragas"]:
+            if isinstance(case["ragas"].get(name), (int, float)) and math.isfinite(case["ragas"][name]):
                 continue
+            case['ragas'].pop(name, None)
             if name in case["ragas_errors"]:
                 case.setdefault("ragas_retry_history", []).append({
                     "metric": name, "previous_error": case["ragas_errors"][name],
@@ -462,12 +478,18 @@ def main() -> None:
         unknown = selected - {case["id"] for case in report["cases"]}
         if unknown:
             parser.error(f"Unknown IDs: {sorted(unknown)}")
-    if args.phase in ("collect", "all"):
-        collect(report, args.output, args.limit, args.ids)
-    if args.phase in ("score", "all"):
-        score(report, args.output, args.limit, args.judge_url, args.judge_model, args.metrics,
-              args.reset_selected_metrics, args.ids, args.score_abstentions, args.judge_max_output_tokens,
-              args.judge_provider, args.score_workers)
+    report.pop('quota_state',None)
+    try:
+        if args.phase in ("collect", "all"):
+            collect(report, args.output, args.limit, args.ids)
+        if args.phase in ("score", "all"):
+            score(report, args.output, args.limit, args.judge_url, args.judge_model, args.metrics,
+                  args.reset_selected_metrics, args.ids, args.score_abstentions, args.judge_max_output_tokens,
+                  args.judge_provider, args.score_workers)
+    except QuotaPause:
+        checkpoint_pause(report,args.output,QUOTA,args.phase)
+        print('HTTP 429: saved checkpoint; wait until '+report['quota_state']['retry_at_utc'],flush=True)
+        raise SystemExit(75)
     summarize(report)
     report["updated_at_utc"] = datetime.now(timezone.utc).isoformat()
     save_report(args.output, report)

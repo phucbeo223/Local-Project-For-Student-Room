@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 manifest_path=ROOT/'docs/legal_corpus_v2/manifest.json'
 manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
 lines=['# Sổ nguồn kho pháp lý legal_v2','',
-       'Được tạo từ manifest và metadata thực tế. Bản gốc do cơ quan nhà nước công bố; bản OCR/trích cấu trúc do dự án tạo, không phải một bản hợp nhất được Chính phủ phê duyệt.',
+       'Được tạo từ manifest và metadata thực tế. Bản gốc lấy từ cơ quan nhà nước hoặc đơn vị cấp nước công khai quyết định có chữ ký; bản OCR/trích cấu trúc do dự án tạo, không phải một bản hợp nhất được Chính phủ phê duyệt.',
        'Không suy ra hiệu lực hiện hành chỉ từ việc tải được tệp. Tài liệu trích tuyển kế thừa chưa được xác nhận từng chữ với toàn văn.',
        '`source_start` và `source_end` là vị trí ký tự trong văn bản trích đã chuẩn hóa, không phải vị trí byte/trang của PDF gốc. Số trang PDF là trang vật lý; nguồn DOC/DOCX/Markdown dùng trang trong bản trích.', '',
        f"Manifest SHA-256: `{hashlib.sha256(manifest_path.read_bytes()).hexdigest()}`.", '',
@@ -16,9 +16,10 @@ for entry in manifest['documents']:
     path=ROOT/entry['file']
     assert hashlib.sha256(path.read_bytes()).hexdigest()==entry['sha256']
     data=json.loads(path.read_text(encoding='utf-8'));s=data['source']
-    articles=', '.join(str(a) for a in entry['articles'] if a is not None) or 'Khuyến cáo, không đánh số điều'
+    articles=', '.join(str(a) for a in entry['articles'] if a is not None) or 'Hướng dẫn/khuyến cáo, không đánh số điều'
+    publisher='Đơn vị cấp nước công bố bản ký' if entry['id']=='water215' else 'Cơ quan nhà nước'
     values=[s['title'],entry['category'],articles,str(entry['provisions']),
-            f"[Cơ quan nhà nước]({s['source_url']})",s.get('extraction','')+'; '+str(s.get('verification',''))]
+            f"[{publisher}]({s['source_url']})",s.get('extraction','')+'; '+str(s.get('verification',''))]
     lines.append('| '+' | '.join(v.replace('|','\\|').replace('\n',' ') for v in values)+' |')
 lines+=['','## Dấu vết từng nguồn','',
         'SHA đầu vào dưới đây áp dụng cho tệp đầu vào nêu trong metadata. Với bản trích kế thừa, đây là hash bản trích; hash bản gốc được lưu riêng trong manifest tải nguồn và `origin_documents` nếu đã xác thực.', '']

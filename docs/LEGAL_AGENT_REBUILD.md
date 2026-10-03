@@ -44,7 +44,7 @@ Kiểm tra truy xuất ban đầu thiếu quy định trực tiếp về đăng 
 
 ### Nước
 
-Quyết định 215/QĐ-UBND năm 2024 chưa có bản gốc từ máy chủ chính quyền được xác thực trong lần sửa này, nên chưa đưa vào kho mới. Nghị định 117/2007, bản sửa đổi 124/2011 và bản hợp nhất hướng dẫn 57/VBHN-BXD đã được tải từ Cổng Chính phủ. Chỉ nạp các điều đã tách được về hợp đồng cấp nước, đo đếm, thanh toán, thẩm quyền và trách nhiệm. Chưa khẳng định biểu giá hiện tại của Cần Thơ. Hợp đồng cấp nước và hợp đồng thuê trọ có các chủ thể khác nhau, không tự suy ra công thức chia tiền nước theo đầu người.
+Ở lượt 03/10, Quyết định 215/QĐ-UBND năm 2024 chưa có bản gốc từ máy chủ chính quyền được xác thực nên chưa đưa vào kho mới. Cập nhật 04/10: đã lấy bản ký do đơn vị cấp nước công khai, đối chiếu số/ngày/tên với cổng Cần Thơ; nạp phần căn cứ đã xem ảnh, giữ giới hạn địa bàn/hiệu lực và loại bảng tiền. Chi tiết tại `LEGAL_FIXES_20261004.md`. Nghị định 117/2007, bản sửa đổi 124/2011 và bản hợp nhất hướng dẫn 57/VBHN-BXD đã được tải từ Cổng Chính phủ. Chỉ nạp các điều đã tách được về hợp đồng cấp nước, đo đếm, thanh toán, thẩm quyền và trách nhiệm. Chưa khẳng định biểu giá hiện tại của Cần Thơ. Hợp đồng cấp nước và hợp đồng thuê trọ có các chủ thể khác nhau, không tự suy ra công thức chia tiền nước theo đầu người.
 
 ## Giới hạn cần ghi nhận
 
@@ -88,7 +88,7 @@ RAGAS đo faithfulness, answer relevancy và context utilization. Không có đ�
 - V10 đã chạy đủ 36 câu, 0 lỗi thực thi; Qwen local chọn đoạn ở cả 36 câu. Gemini phân tích 34 câu, 2 câu dự phòng do HTTP 503. 12 phản hồi được đánh dấu một phần, so với 5 của bản lịch sử; tổng cờ chưa đủ căn cứ tăng từ 6 lên 12.
 - HTTP bản thử v10 đạt: health 200, người dùng thường có xác thực nhận 200, không xác thực 403; tài khoản test đã xóa. Kiểm tra nguyên văn 36/36 khớp ngữ cảnh, nhưng rà nội dung còn vấn đề chặn chuyển ở câu 8, 14, 15, 16, 18, 24, 36.
 - RAGAS Gemini chạm quota 429. Một lượt thử lại cùng cấu hình giữ nguyên câu trả lời/ngữ cảnh/điểm hợp lệ và baseline, vẫn hết quota. Điểm hiện có: faithfulness 0,8981 (7/36), answer relevancy 0,6609 (12/36), context utilization 0,7870 (9/36). Có 80/108 metric còn thiếu, giữ N/A. Đây không phải trung bình đủ 36 câu; chưa kết luận chất lượng tổng thể tăng.
-- Gate chuyển kho **không đạt**: còn điểm thiếu, lỗi phạm vi/cắt khoản và phản hồi thiếu tăng. API chính giữ kho `public`; không thực thi thu hồi kho cũ. Kho `legal_v2`, các bản gốc và backup giữ để sửa/đối chiếu. Không có tác vụ đánh giá đang chạy lại tự động.
+- Gate chuyển kho **v10 không đạt**: còn điểm thiếu, lỗi phạm vi/cắt khoản và phản hồi thiếu tăng. API chính giữ kho `public`; không thực thi thu hồi kho cũ. Kho `legal_v2`, các bản gốc và backup giữ để sửa/đối chiếu. Lượt v10 đã dừng; lượt v15 ngày 04/10 có worker chờ quota và heartbeat riêng, xem `LEGAL_FIXES_20261004.md`.
 - Báo cáo cuối: `eval/ragas_reports/legal_agent_comparison_2026-10-03.md`. Nhận xét từng câu: `eval/reports/legal_agent_source_review_2026-10-03.json`. Quyết định gate: `eval/reports/legal_agent_release_gate_2026-10-03.json`. Tên tệp giữ ngày bắt đầu 03/10; lượt v10 hoàn tất ngày 04/10 giờ Việt Nam.
 
 - `eval/validate_legal_agent_release.py` chỉ đọc dữ liệu và ghi báo cáo gate: đủ 36 phản hồi/điểm thật, cùng cấu hình chấm lịch sử, vai trò model, nguồn, review đúng hash phản hồi và backup đã khôi phục. Chính sách gate hiện giữ cả mức hoàn tất và ba metric không thấp hơn baseline; đây là tiêu chí kỹ thuật của lần sửa, không phải chứng nhận đúng luật.

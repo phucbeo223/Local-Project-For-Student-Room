@@ -32,6 +32,9 @@ def rental_electricity_question(query: str) -> bool:
 def expand_legal_query(query: str) -> str:
     value = normalize_text(query)
     additions: list[str] = []
+    from .evidence_units import human_reporting_question
+    if 'criminal_law' in question_categories(query) and human_reporting_question(query):
+        additions.append('khuyến cáo lưu giữ tài liệu tin nhắn chứng từ chuyển tiền lịch sử giao dịch trình báo cơ quan Công an tiếp nhận tố giác')
     if has_phrase(value, "hop dong") and any(term in value for term in ("truoc khi ky", "dieu khoan", "ghi ro")):
         additions.append("hợp đồng về nhà ở nội dung của hợp đồng giá thuê thời hạn phương thức thanh toán quyền nghĩa vụ")
     if any(term in value for term in ("tam tru", "thu tuc cu tru", "dang ky cu tru")) and not any(term in value for term in ("phat", "vi pham")):
@@ -42,6 +45,8 @@ def expand_legal_query(query: str) -> str:
         additions.append('thay đổi chỗ ở đăng ký tạm trú mới')
     if any(term in value for term in ('phong chay', 'pccc', 'chay no')) and any(term in value for term in ('xem phong', 'dieu kien', 'nhieu phong')):
         additions.append('phòng cháy đối với nhà ở thiết bị điện bếp đun nấu phương tiện chữa cháy lối thoát nạn')
+        if 'nhieu phong' in value:
+            additions.append('danh mục cơ sở dịch vụ lưu trú nhà ở tập thể nhà đa năng nhà hỗn hợp')
     if any(term in value for term in ("thong tin ca nhan", "du lieu ca nhan", "anh can cuoc", "so dien thoai", "anh giay to")):
         additions.append("bảo vệ dữ liệu cá nhân quyền chủ thể sự đồng ý cung cấp tiết lộ công khai xử lý dữ liệu")
         if has_phrase(value, 'hop dong'):
@@ -57,6 +62,12 @@ def expand_legal_query(query: str) -> str:
                          else "người thuê nhà")
     if rental_electricity_question(query):
         additions.append("thu tiền điện người thuê nhà giá bán lẻ điện sinh hoạt hóa đơn")
+    if 'moi gioi' in value and any(t in value for t in ('phi','giay to','thoa thuan')):
+        additions.append('hợp đồng dịch vụ trả tiền dịch vụ giá dịch vụ quyền nghĩa vụ bên sử dụng dịch vụ')
+    if 'nuoc' in value and 'can tho' in value:
+        additions.append('Quy định giá nước sạch sinh hoạt trên địa bàn thành phố Cần Thơ giá tiêu thụ nước')
+    if any(t in value for t in ('chia se sai','xu ly nhu the nao','rut lai')) and 'privacy_data' in question_categories(query):
+        additions.append('thực hiện quyền chủ thể dữ liệu cá nhân yêu cầu rút lại hạn chế xử lý xóa dữ liệu thủ tục thời hạn')
     if any(term in value for term in ("phat", "xu ly", "thu thua", "hoan tra")):
         additions.append("xử phạt vi phạm hoàn trả số tiền thu thừa khắc phục hậu quả")
     return query + (". " + ". ".join(additions) if additions else "")
@@ -102,6 +113,18 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 row["similarity_score"] = 0.0
                 continue
             heading = normalize_text(str(row.get("heading") or ""))
+            from .evidence_units import human_reporting_question, reporting_evidence_row
+            if row['category']=='criminal_law' and human_reporting_question(query):
+                if reporting_evidence_row(row):base += 1.25
+                if 'dieu 146.' in heading and 'khoan 1' in heading:base += .9
+                if 'dieu 145.' in heading and 'khoan 2' in heading:base += .6
+                if 'kien nghi khoi to' in value and 'co quan nha nuoc' in value and 'ca nhan' not in value:base -= 1.1
+                if 'thong bao bang van ban' in value and 'vien kiem sat' in value:base -= 1.0
+            if row.get('source_id')=='electricity-cantho-guidance':
+                if any(t in question for t in ('thong bao','so dien da su dung','cach tinh')):
+                    base += 1.2
+                else:
+                    base -= .7
             meaningful = set(legal_tokens(query)) - {"sinh", "vien", "nguoi", "thue", "nha", "tro", "phong", "can", "nen", "nhung", "gi"}
             overlap = len(meaningful & set(legal_tokens(value))) / max(1, len(meaningful))
             heading_overlap = len(meaningful & set(legal_tokens(heading))) / max(1, len(meaningful))
@@ -135,6 +158,10 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             if "residence" in categories and not penalty and ("xu phat" in value or "phat tien" in value):
                 base -= 0.25
             if "privacy_data" in categories and any(term in question for term in ("cong khai", "chia se", "luu", "su dung", "ca nhan")):
+                if 'cong khai' in question and 'cong khai du lieu ca nhan' in heading:
+                    base += 1.0
+                if any(t in question for t in ('chia se sai','xu ly nhu the nao')) and 'thuc hien quyen cua chu the' in heading:
+                    base += 1.0
                 if any(term in heading + " " + value for term in ("quyen cua chu the", "su dong y", "hanh vi bi nghiem cam", "nguyen tac bao ve", "cung cap du lieu", "tiet lo du lieu")):
                     base += 0.3
                 if "xuat nhap canh" in value:
@@ -173,12 +200,16 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 if 'dang ky tam tru' in heading and 'dang ky tam tru moi' in value:
                     base += 1.25
             if row['category'] == 'fire_safety':
+                if 'nhieu phong' in question and 'phu luc i.' in heading and 'co so dich vu luu tru' in value:
+                    base += 1.1
                 if any(term in question for term in ('xem phong', 'dieu kien', 'nhieu phong')) and 'phong chay doi voi nha o' in heading:
                     base += .55
                     if 'ket hop' not in heading:
                         base += .25
                     if any(term in value for term in ('dieu kien an toan', 'dieu kien ve chua chay')):
                         base += .3
+                if 'nhieu phong' in question and any(t in heading for t in ('phong chay doi voi co so','phong chay doi voi nha o')):
+                    base += .5
                     if 'huong dan viec ket noi' in value and 'ket noi' not in question:
                         base -= .5
                 if 'trach nhiem' in question and 'trach nhiem' in heading and any(term in value for term in ('nguoi thue', 'chu ho gia dinh')):
@@ -186,6 +217,14 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             if row['category']=='criminal_law' and 'lua dao' in question and 'toi lua dao' in heading:
                 if 'thu doan gian doi' in value and not any(term in question for term in ('muc phat','muc an','bao nhieu nam')):
                     base += .8
+            if row['category']=='criminal_law' and any(t in question for t in ('co quan co tham quyen','trinh bao','to giac')):
+                if any(t in heading for t in ('thu tuc tiep nhan to giac','trach nhiem tiep nhan','to giac, tin bao')):
+                    base += .85
+            if row['category']=='real_estate_brokerage' and 'moi gioi' in question and any(t in question for t in ('phi','giay to','thoa thuan')):
+                if 'ca nhan moi gioi' in value and 'doanh nghiep' in value and 'khach hang' not in value:
+                    base -= .9
+                if any(t in heading for t in ('tra tien dich vu','hop dong dich vu','quyen cua ben su dung dich vu','noi dung cua hop dong')):
+                    base += .85
             if row['category'] in ('criminal_law', 'ecommerce_platform') and 'khuyen cao' in value:
                 if any(term in question for term in ('kiem tra', 'bang chung', 'cung cap thong tin', 'luu lai', 'lien ket la')):
                     base += .45
@@ -228,6 +267,16 @@ def diversified_legal_rows(query: str, rows: list[dict], limit: int) -> list[dic
     """Reserve a relevant candidate for each explicit facet before extra matches."""
     categories = required_evidence_categories(query)
     reserved = []
+    from .evidence_units import requested_contract_facets, contract_facets, human_reporting_question, reporting_evidence_row
+    if human_reporting_question(query):
+        candidate=next((r for r in rows if reporting_evidence_row(r)),None)
+        if candidate is not None:reserved.append(candidate)
+    needed = requested_contract_facets(query)
+    for facet in ('deposit','rent','payment'):
+        if facet in needed:
+            candidate = next((r for r in rows if facet in contract_facets(r)), None)
+            if candidate is not None:
+                reserved.append(candidate)
     if len(categories) > 1:
         for category in categories:
             candidate = next((row for row in rows if row.get('category') == category), None)

@@ -5,12 +5,53 @@
     "category": "residence",
     "path": "Data/residence/Nghị-định-282-2025-NĐ-CP.docx",
     "sha256": "88364570c14e3ec6a3d4160348014653792c29381215eba9c67fe3de75c503bb",
-    "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160",
-    "origin_documents": [],
+    "source_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+    "origin_documents": [
+      {
+        "path": "docs/legal_fix_originals_20261004/residence282.html",
+        "source_page_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+        "download_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+        "sha256": "278e34aac6da223d07dec92c4558267064b05cfaa396ddcb47ae60945b879c8f",
+        "downloaded_at_utc": "2026-10-03T20:04:36.646053+00:00",
+        "verification": "Official page number/title/date verified; PDF preserved, legacy selected text not independently certified word by word"
+      },
+      {
+        "path": "docs/legal_fix_originals_20261004/residence282.pdf",
+        "source_page_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/11/282-cp.signed.pdf",
+        "sha256": "84b0a58b766bb85826ea22e91bf78a7da3efa5c71568459fdf56bf78fe3f8750",
+        "downloaded_at_utc": "2026-10-03T20:04:37.226484+00:00",
+        "verification": "Official page number/title/date verified; PDF preserved, legacy selected text not independently certified word by word"
+      }
+    ],
     "extraction": "existing selected text; editorial header excluded by article parser",
     "verification": "not verified word by word against full government original",
     "page_kind": "logical_document",
-    "not_exhaustive": true
+    "not_exhaustive": true,
+    "source_url_correction": {
+      "source_path": "Data/residence/Nghị-định-282-2025-NĐ-CP.docx",
+      "old_url": "https://vanban.chinhphu.vn/?classid=1&docid=219411&orggroupid=2&pageid=27160",
+      "new_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+      "reason": "Legacy link pointed to amending decree 347/2026 rather than the base decree 282/2025; keep amending decree as a separate source",
+      "origin_documents": [
+        {
+          "path": "docs/legal_fix_originals_20261004/residence282.html",
+          "source_page_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+          "download_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+          "sha256": "278e34aac6da223d07dec92c4558267064b05cfaa396ddcb47ae60945b879c8f",
+          "downloaded_at_utc": "2026-10-03T20:04:36.646053+00:00",
+          "verification": "Official page number/title/date verified; PDF preserved, legacy selected text not independently certified word by word"
+        },
+        {
+          "path": "docs/legal_fix_originals_20261004/residence282.pdf",
+          "source_page_url": "https://vanban.chinhphu.vn/?classid=0&docid=215770&pageid=27160",
+          "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/11/282-cp.signed.pdf",
+          "sha256": "84b0a58b766bb85826ea22e91bf78a7da3efa5c71568459fdf56bf78fe3f8750",
+          "downloaded_at_utc": "2026-10-03T20:04:37.226484+00:00",
+          "verification": "Official page number/title/date verified; PDF preserved, legacy selected text not independently certified word by word"
+        }
+      ]
+    }
   },
   "provisions": [
     {

@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 import sys
+import argparse
 from sqlalchemy import create_engine, text
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +45,10 @@ def pieces(value, maximum=1200):
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--report',type=Path,default=ROOT/'eval/reports/legal_agent_index_2026-10-03.json')
+    parser.add_argument('--sync-audit',type=Path)
+    args=parser.parse_args()
     engine = create_engine(settings.database_url,pool_pre_ping=True)
     corpus = ROOT/'docs/legal_corpus_v2'
     manifest = json.loads((corpus/'manifest.json').read_text(encoding='utf-8'))
@@ -88,6 +93,9 @@ def main():
                     {'id':doc_id,'index':index,'pid':parent['provision_id'],'parent':complete_parent,'meta':json.dumps(meta,ensure_ascii=False)})
         indexed.append({'id':source['id'],'chunks':len(chunks),'provisions':len(data['provisions'])})
         print('indexed',source['id'],len(chunks),flush=True)
+    deactivated=0
+    if args.sync_audit:
+        deactivated=repo.deactivate_missing_sources([e['file'] for e in manifest['documents']],args.sync_audit)
     with engine.begin() as conn:
         after=snapshot(conn)
         assert after==before, 'The original corpus or listings changed during isolated rebuild'
@@ -97,8 +105,9 @@ def main():
         conn.execute(text('UPDATE public.legal_corpus_releases SET manifest_sha256=:sha WHERE schema_name=\'legal_v2\''),
                      {'sha':sha(corpus/'manifest.json')})
     report={'schema':'legal_v2','original_before':before,'original_after':after,'counts':counts,'indexed':indexed,
+            'deactivated_superseded_sources':deactivated,
             'manifest_sha256':sha(corpus/'manifest.json'),'activation':'not activated; evaluation pending'}
-    (ROOT/'eval/reports/legal_agent_index_2026-10-03.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    args.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,ensure_ascii=False),flush=True)
     engine.dispose()
 

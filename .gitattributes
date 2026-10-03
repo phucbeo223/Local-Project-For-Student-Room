@@ -6,3 +6,4 @@ Data/**/*.md -text
 # Release evidence is bound by SHA-256; preserve its exact bytes across hosts.
 eval/reports/legal_agent*.json -text
 eval/reports/legal_model_upgrade_after_2026-10-02.json -text
+docs/legal_fix_originals_20261004/** -text

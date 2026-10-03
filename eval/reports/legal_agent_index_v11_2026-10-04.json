@@ -1,0 +1,68 @@
+{
+  "schema": "legal_v2",
+  "original_before": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "original_after": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "counts": {
+    "chunks": 1782,
+    "vectors": 1782,
+    "identified": 1782,
+    "parented": 1782
+  },
+  "indexed": [
+    {
+      "id": "legacy-c689645e534f",
+      "chunks": 73,
+      "provisions": 71
+    },
+    {
+      "id": "legacy-95df8751459d",
+      "chunks": 38,
+      "provisions": 37
+    },
+    {
+      "id": "electricity60",
+      "chunks": 34,
+      "provisions": 30
+    },
+    {
+      "id": "water50",
+      "chunks": 21,
+      "provisions": 19
+    },
+    {
+      "id": "privacy91-cb",
+      "chunks": 184,
+      "provisions": 183
+    },
+    {
+      "id": "privacy356-cb",
+      "chunks": 223,
+      "provisions": 218
+    },
+    {
+      "id": "water215",
+      "chunks": 4,
+      "provisions": 4
+    },
+    {
+      "id": "civil-service-contract",
+      "chunks": 22,
+      "provisions": 22
+    }
+  ],
+  "deactivated_superseded_sources": 3,
+  "manifest_sha256": "fa6091bcd543d7d60eb385a74e5db89de6b3c06bdd756044fc829d04725bdec6",
+  "activation": "not activated; evaluation pending"
+}

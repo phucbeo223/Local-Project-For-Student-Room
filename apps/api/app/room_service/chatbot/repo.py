@@ -309,6 +309,9 @@ class ChatRepository:
                                   "identity_query": 'privacy_data' in categories and 'housing_contract' in categories}
         params['privacy_query'] = 'privacy_data' in categories
         params['contract_contents_query'] = 'housing_contract' in categories
+        from .evidence_units import requested_contract_facets, whole_supplementary_units, human_reporting_question
+        params['deposit_query'] = 'deposit' in requested_contract_facets(query)
+        params['reporting_query'] = 'criminal_law' in categories and human_reporting_question(query)
         if vector is not None:
             vector_sql = (
                 "CASE WHEN c.embedding_vector IS NULL THEN 0 ELSE "
@@ -317,7 +320,7 @@ class ChatRepository:
             params["query_vector"] = _vector_literal(vector)
         else:
             vector_sql = "0"
-        metadata_sql = "d.source_metadata->>'source_url' AS source_url,d.source_metadata->>'page_kind' AS page_kind," if self.legal_schema != "public" else ""
+        metadata_sql = "d.source_metadata->>'source_url' AS source_url,d.source_metadata->>'page_kind' AS page_kind,d.source_metadata->>'id' AS source_id," if self.legal_schema != "public" else ""
         provision_sql = "c.parent_content,c.provision_id,c.source_metadata AS provision_metadata," if self.legal_schema != "public" else ""
         base_sql = (
             "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
@@ -340,10 +343,13 @@ class ChatRepository:
                    "AND (heading ILIKE '%Nguyên tắc bảo vệ%' OR heading ILIKE '%Sự đồng ý%' OR heading ILIKE '%Thu thập, phân tích%')) "
                    ", contract_contents AS (SELECT * FROM candidates WHERE :contract_contents_query AND category='housing_contract' "
                    "AND (heading ILIKE '%Hợp đồng về nhà ở%' OR heading ILIKE '%Nội dung của hợp đồng%')) "
+                   ", deposits AS (SELECT * FROM candidates WHERE :deposit_query AND category='housing_contract' AND heading ILIKE '%Đặt cọc%') "
+                   ", reporting AS (SELECT * FROM candidates WHERE :reporting_query AND category='criminal_law' "
+                   "AND heading ILIKE '%Khuyến cáo%' AND (content ILIKE '%chứng từ chuyển tiền%' OR content ILIKE '%lịch sử giao dịch%')) "
                    + (", semantic_ids AS (SELECT chunk_id,ROW_NUMBER() OVER(PARTITION BY category ORDER BY vector_score DESC,chunk_id) AS position FROM candidates), "
                       "semantic AS (SELECT c.* FROM candidates c JOIN semantic_ids r ON c.chunk_id=r.chunk_id WHERE r.position<=:category_limit) "
-                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents" if vector is not None
-                      else "SELECT * FROM lexical UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents"))
+                      "SELECT * FROM lexical UNION SELECT * FROM semantic UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents UNION SELECT * FROM deposits UNION SELECT * FROM reporting" if vector is not None
+                      else "SELECT * FROM lexical UNION SELECT * FROM phrases UNION SELECT * FROM identity UNION SELECT * FROM privacy UNION SELECT * FROM contract_contents UNION SELECT * FROM deposits UNION SELECT * FROM reporting"))
         try:
             with self.engine.connect() as conn:
                 rows = [dict(row) for row in conn.execute(sql, params).mappings().all()]
@@ -396,8 +402,11 @@ class ChatRepository:
         with self.engine.connect() as conn:
             for item in rows:
                 article_heading = re.sub(r' \| Khoản .*$', '', item.get('heading') or '')
-                include_article = (self.legal_schema != 'public' and general_contract_contents and
-                    any(term in normalize_text(article_heading) for term in ('hop dong ve nha o', 'noi dung cua hop dong')))
+                whole_heading = normalize_text(article_heading)
+                include_article = (self.legal_schema != 'public' and (
+                    (general_contract_contents and any(term in whole_heading for term in ('hop dong ve nha o', 'noi dung cua hop dong')))
+                    or (item.get('category')=='fire_safety' and any(term in whole_heading for term in ('phong chay doi voi nha o','phong chay doi voi co so')))
+                    or (item.get('category')=='privacy_data' and any(term in whole_heading for term in ('yeu cau rut lai','thuc hien quyen cua chu the','cung cap du lieu ca nhan','cong khai du lieu ca nhan')))))
                 group = (item["document_id"], article_heading if include_article else re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])
                 if group in seen:
                     continue
@@ -456,14 +465,56 @@ class ChatRepository:
                         item['heading'] = clause_heading
                         item["page_from"] = min((row["page_from"] for row in included if row["page_from"] is not None), default=None)
                         item["page_to"] = max((row["page_to"] for row in included if row["page_to"] is not None), default=None)
+                if self.legal_schema != 'public':
+                    # Resolve only unambiguous references within this document.
+                    # Never substitute an article from a different cited law.
+                    matches=re.findall(r'(?:khoản\s+(\d+)\s+)?Điều\s+(\d+)\s+(?:của\s+)?(?:Luật|Thông tư|Nghị định)\s+này',item['content'],re.I)
+                    for clause,article in list(dict.fromkeys(matches))[:4]:
+                        referenced=[dict(r) for r in conn.execute(self._legal_sql(
+                            'SELECT parent_content,provision_id,source_metadata,page_from,page_to,heading FROM legal_chunks '
+                            'WHERE document_id=:doc AND source_metadata->>\'article\'=:article '
+                            'AND (:clause=\'\' OR source_metadata->>\'clause\'=:clause) ORDER BY chunk_index'),
+                            {'doc':item['document_id'],'article':article,'clause':clause}).mappings()]
+                        refs=list({r['provision_id']:r for r in referenced}.values())
+                        supplement='\n\n'.join(r['heading']+'\n'+r['parent_content'] for r in refs)
+                        if refs and all(r['parent_content'] in item['content'] for r in refs):continue
+                        if supplement and len(item['content'])+len(supplement)+2<=5500:
+                            item['content']+='\n\n'+supplement
+                            item.setdefault('resolved_references',[]).append({'article':article,'clause':clause or None,'provision_ids':[r['provision_id'] for r in refs]})
+                            item['page_from']=min([n for n in [item.get('page_from'),*(r['page_from'] for r in refs)] if n is not None],default=None)
+                            item['page_to']=max([n for n in [item.get('page_to'),*(r['page_to'] for r in refs)] if n is not None],default=None)
+                        else:
+                            item.setdefault('unresolved_references',[]).append({'article':article,'clause':clause or None})
                 selected.append(item)
                 if len(selected) >= core_limit:
                     break
+            # Named external law references get their own real document citation.
+            external=[]
+            for item in selected:
+                for clause,article in re.findall(r'(?:khoản\s+(\d+)\s+)?Điều\s+(\d+)\s+(?:của\s+)?Luật\s+Bảo vệ dữ liệu cá nhân',item['content'],re.I):
+                    refs=[dict(r) for r in conn.execute(self._legal_sql(
+                        'SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,'
+                        +metadata_sql+provision_sql+'c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c '
+                        'JOIN legal_documents d ON d.id=c.document_id WHERE d.status=\'ready\' '
+                        'AND d.source_metadata->>\'id\'=\'privacy91-cb\' AND c.source_metadata->>\'article\'=:article '
+                        'AND (:clause=\'\' OR c.source_metadata->>\'clause\'=:clause) ORDER BY c.chunk_index'),
+                        {'article':article,'clause':clause}).mappings()] if self.legal_schema!='public' else []
+                    parts=list({r['provision_id']:r for r in refs}.values())
+                    if not parts or all(any(r['parent_content'] in s['content'] for s in selected) for r in parts):continue
+                    body='\n\n'.join(r['heading']+'\n'+r['parent_content'] for r in parts)
+                    if len(body)>5500:continue
+                    citation=dict(parts[0],content=body,context_complete=True,similarity_score=item['similarity_score'])
+                    citation['page_from']=min((r['page_from'] for r in parts if r['page_from'] is not None),default=None)
+                    citation['page_to']=max((r['page_to'] for r in parts if r['page_to'] is not None),default=None)
+                    external.append(citation)
+            for item in external:
+                if len(selected)>=limit-1:break
+                if not any(item['content']==s['content'] for s in selected):selected.append(item)
             doc_ids = list(dict.fromkeys(item["document_id"] for item in selected))
             if doc_ids and len(selected) < limit:
                 effect_rows = [dict(row) for row in conn.execute(self._legal_sql(
                     "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
-                    + metadata_sql + "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
+                    + metadata_sql + provision_sql + "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
                     "JOIN legal_documents d ON d.id=c.document_id WHERE d.id=ANY(:ids) "
                     "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%chuyển tiếp%' "
                     "OR c.heading ILIKE '%hình thức xử phạt%' OR c.heading ILIKE '%Mức phạt tiền%') "
@@ -480,6 +531,7 @@ class ChatRepository:
                         heading=normalize_text(row.get('heading') or '')
                         return (0 if 'hieu luc' in heading else 1 if 'muc phat tien' in heading else 2 if 'chuyen tiep' in heading else 3,row['chunk_index'])
                     effects.sort(key=effect_priority)
+                    effects = whole_supplementary_units(effects)
                     included = []
                     size = 0
                     for row in effects:
@@ -490,7 +542,7 @@ class ChatRepository:
                             continue
                         if re.search(r'^(?:\d+[.,]\s*)?(?:bai bo\b|cac quy dinh sau(?: day)? het hieu luc\b)',normalized_content):
                             continue
-                        if size + len(row["content"]) <= 2400:
+                        if size + len(row["content"]) <= 5500:
                             included.append(row)
                             size += len(row["content"])
                     if included:

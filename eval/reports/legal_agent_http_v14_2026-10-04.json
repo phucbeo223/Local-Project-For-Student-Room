@@ -1,0 +1,126 @@
+{
+  "base_url": "http://nckh-api-legal-preview-v14:8000",
+  "started_at_utc": "2026-10-03T19:59:56.212788+00:00",
+  "temporary_user_removed": true,
+  "passed": true,
+  "health_status": 200,
+  "anonymous_status": 403,
+  "http_status": 200,
+  "latency_ms": 61291,
+  "response": {
+    "agent_trace": [
+      {
+        "agent": "question_analysis",
+        "provider": "rules",
+        "model": null,
+        "requested_model": null,
+        "status": "fallback",
+        "duration_ms": 1
+      },
+      {
+        "agent": "legal_retrieval",
+        "provider": "hybrid",
+        "status": "completed",
+        "corpus_schema": "legal_v2",
+        "sources_found": 3,
+        "duration_ms": 13660
+      },
+      {
+        "agent": "answer",
+        "provider": "qwen-local",
+        "model": "qwen3.5:9b",
+        "status": "complete",
+        "attempted_provider": "qwen-local",
+        "attempted_model": "qwen3.5:9b"
+      },
+      {
+        "agent": "source_verification",
+        "provider": "exact_source_match",
+        "status": "accepted",
+        "scope": "verbatim source text only; no legal application inferred"
+      },
+      {
+        "agent": "citation_and_rule_checks",
+        "provider": "rules",
+        "status": "accepted"
+      }
+    ],
+    "corpus_schema": "legal_v2",
+    "partial_answer": false,
+    "conversation_state": null,
+    "applied_filters": null,
+    "citation_applicable": true,
+    "answer": "Các đoạn trả lời trực tiếp trong nguồn:\n\n- rental_warning-Bo-Cong-an-20261003 — Khuyến cáo cơ quan Công an: “KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.” [1].\n\n- Văn-bản-hợp-nhất-17-VBHN-VPQH — Điều 146. Thủ tục tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 1: “1. Khi cơ quan, tổ chức, cá nhân trực tiếp tố giác, báo tin về tội phạm, kiến nghị khởi tố thì Cơ quan điều tra, Viện kiểm sát, cơ quan được giao nhiệm vụ tiến hành một số hoạt động điều tra có thẩm quyền quy định tại khoản 2 Điều 145 của Bộ luật này phải lập biên bản tiếp nhận và ghi vào sổ tiếp nhận; có thể ghi âm hoặc ghi hình có âm thanh việc tiếp nhận.\n\nTrường hợp tố giác, tin báo về tội phạm, kiến nghị khởi tố gửi qua dịch vụ bưu chính, điện thoại hoặc qua phương tiện thông tin khác thì ghi vào sổ tiếp nhận.” [2].\n\n- Văn-bản-hợp-nhất-17-VBHN-VPQH — Điều 145. Trách nhiệm tiếp nhận và thẩm quyền giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 2: “2. Cơ quan, tổ chức có trách nhiệm tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố gồm:\n\na) Cơ quan điều tra, Viện kiểm sát tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố;\n\nb) Cơ quan, tổ chức khác tiếp nhận tố giác, tin báo về tội phạm.” [3].\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.",
+    "intent": "legal_question",
+    "confidence": 0.97,
+    "listings": [],
+    "sources": [
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 3,
+        "chunk_id": 1875,
+        "rank": 1,
+        "similarity_score": 1.0,
+        "title": "rental_warning-Bo-Cong-an-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+        "source_path": "docs/legal_corpus_v2/legacy-092b57ace14c.json",
+        "category": "criminal_law",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Khuyến cáo cơ quan Công an",
+        "excerpt": "KHUYẾN CÁO PHÒNG NGỪA LỪA ĐẢO — KHÔNG PHẢI ĐIỀU LUẬT\n\nKhuyến cáo của cơ quan Công an về đặt cọc thuê nhà qua mạng\n\nĐể phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 2,
+        "chunk_id": 3458,
+        "rank": 2,
+        "similarity_score": 1.0,
+        "title": "Văn-bản-hợp-nhất-17-VBHN-VPQH",
+        "source": "legal_corpus",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+        "source_path": "docs/legal_corpus_v2/legacy-95df8751459d.json",
+        "category": "criminal_law",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 146. Thủ tục tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 1",
+        "excerpt": "1. Khi cơ quan, tổ chức, cá nhân trực tiếp tố giác, báo tin về tội phạm, kiến nghị khởi tố thì Cơ quan điều tra, Viện kiểm sát, cơ quan được giao nhiệm vụ tiến hành một số hoạt động điều tra có thẩm quyền quy định tại khoản 2 Điều 145 của Bộ luật này phải lập biên bản tiếp nhận và ghi vào sổ tiếp nhận; có thể ghi âm hoặc ghi hình có âm thanh việc tiếp nhận.\n\nTrường hợp tố giác, tin báo về tội phạm, kiến nghị khởi tố gửi qua dịch vụ bưu chính, điện thoại hoặc qua phương tiện thông tin khác thì ghi vào sổ tiếp nhận."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 2,
+        "chunk_id": 3455,
+        "rank": 3,
+        "similarity_score": 1.0,
+        "title": "Văn-bản-hợp-nhất-17-VBHN-VPQH",
+        "source": "legal_corpus",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+        "source_path": "docs/legal_corpus_v2/legacy-95df8751459d.json",
+        "category": "criminal_law",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 145. Trách nhiệm tiếp nhận và thẩm quyền giải quyết tố giác, tin báo về tội phạm, kiến nghị khởi tố | Khoản 2",
+        "excerpt": "2. Cơ quan, tổ chức có trách nhiệm tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố gồm:\n\na) Cơ quan điều tra, Viện kiểm sát tiếp nhận tố giác, tin báo về tội phạm, kiến nghị khởi tố;\n\nb) Cơ quan, tổ chức khác tiếp nhận tố giác, tin báo về tội phạm."
+      }
+    ],
+    "no_answer": false,
+    "degraded": true,
+    "degraded_reasons": [
+      "Chưa cấu hình Gemini phân tích câu hỏi; dùng định tuyến chủ đề dự phòng."
+    ],
+    "retrieval_mode": "legal_hybrid",
+    "generation_provider": "qwen-local",
+    "generation_model": "qwen3.5:9b",
+    "latency_ms": 61062,
+    "event_id": 39,
+    "citation_accuracy": 1.0,
+    "evaluation_contexts": []
+  }
+}

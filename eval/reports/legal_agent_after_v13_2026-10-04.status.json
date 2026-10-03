@@ -1,0 +1,59 @@
+{
+  "phase": "waiting_for_server",
+  "output": "/eval/reports/legal_agent_after_v13_2026-10-04.json",
+  "started_at_utc": "2026-10-03T19:25:31.749213+00:00",
+  "max_runtime_hours": 48.0,
+  "quota_events": [
+    {
+      "status": "paused",
+      "http_status": 429,
+      "paused_at_utc": "2026-10-03T18:53:29.493847+00:00",
+      "retry_at_utc": "2026-10-04T07:00:05+00:00",
+      "delay_seconds": 43595.506153,
+      "daily_quota": true,
+      "quota": [
+        {
+          "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+          "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+          "quotaValue": "500"
+        }
+      ],
+      "reset_policy": "server Retry-After/RetryInfo; RPD midnight America/Los_Angeles; probe availability before resuming",
+      "phase": "collect"
+    }
+  ],
+  "cutover": "retain original corpus pending verified release gate",
+  "quota": {
+    "status": "paused",
+    "http_status": 429,
+    "paused_at_utc": "2026-10-03T18:53:29.493847+00:00",
+    "retry_at_utc": "2026-10-04T07:00:05+00:00",
+    "delay_seconds": 43595.506153,
+    "daily_quota": true,
+    "quota": [
+      {
+        "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+        "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+        "quotaValue": "500"
+      }
+    ],
+    "reset_policy": "server Retry-After/RetryInfo; RPD midnight America/Los_Angeles; probe availability before resuming",
+    "phase": "collect"
+  },
+  "updated_at_utc": "2026-10-03T19:25:31.767271+00:00",
+  "completed_answers": 0,
+  "scores": {
+    "faithfulness": {
+      "mean": null,
+      "scored": 0
+    },
+    "answer_relevancy": {
+      "mean": null,
+      "scored": 0
+    },
+    "context_utilization": {
+      "mean": null,
+      "scored": 0
+    }
+  }
+}

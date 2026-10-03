@@ -1,0 +1,72 @@
+{
+  "source": {
+    "id": "fire105-annex-I",
+    "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+    "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+    "path": "docs/legal_sources_originals_20261003/fire105.pdf",
+    "sha256": "21f2c7373b57fdf0c88617a504521e72b31f1948a71279a8d2f52a40b0ae116d",
+    "bytes": 6565982,
+    "pages": 181,
+    "text_chars": 149,
+    "category": "fire_safety",
+    "title": "Nghị định 105/2025/NĐ-CP — Phụ lục I",
+    "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+    "extraction": "original cached government PDF text; complete selected annex items, retained annex introduction",
+    "page_kind": "physical_pdf",
+    "not_exhaustive": true,
+    "verification": "Classification candidates only; no inference that an unspecified many-room house is a lodging business, collective housing or mixed-use building"
+  },
+  "provisions": [
+    {
+      "provision_id": "21f2c7373b57fdf0c886:annexI:1",
+      "article": null,
+      "clause": "1",
+      "heading": "Phụ lục I. Danh mục cơ sở thuộc diện quản lý về phòng cháy, chữa cháy | Mục 1",
+      "content": "1. Nhà chung cư; nhà ở tập thể.",
+      "source_start": 29197,
+      "source_end": 29230,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_annex",
+      "article_context": "Phụ lục I\n\nDANH MỤC CƠ SỞ\n\nTHUỘC DIỆN QUẢN LÝ VỀ PHÒNG CHÁY, CHỮA CHÁY\n\n(Kèm theo Nghị định số 105/2025/NĐ-CP\n\nngày 15 tháng 5 năm 2025 của Chính phủ)\n\n______________\n\nCơ sở thuộc diện quản lý về phòng cháy, chữa cháy là các cơ sở được quy định tại khoản 7 Điều 2 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, gồm:",
+      "content_sha256": "cf703bfd5281903c12556cb0393e1c7f984779b36dc653339112f08129e3414d",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "21f2c7373b57fdf0c886:annexI:14",
+      "article": null,
+      "clause": "14",
+      "heading": "Phụ lục I. Danh mục cơ sở thuộc diện quản lý về phòng cháy, chữa cháy | Mục 14",
+      "content": "14. Khách sạn, nhà khách, nhà nghỉ; cơ sở nghỉ dưỡng, cơ sở dịch vụ lưu trú khác cao từ 2 tầng trở lên hoặc có tổng diện tích sàn từ 50 m2 trở lên.",
+      "source_start": 31352,
+      "source_end": 31501,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_annex",
+      "article_context": "Phụ lục I\n\nDANH MỤC CƠ SỞ\n\nTHUỘC DIỆN QUẢN LÝ VỀ PHÒNG CHÁY, CHỮA CHÁY\n\n(Kèm theo Nghị định số 105/2025/NĐ-CP\n\nngày 15 tháng 5 năm 2025 của Chính phủ)\n\n______________\n\nCơ sở thuộc diện quản lý về phòng cháy, chữa cháy là các cơ sở được quy định tại khoản 7 Điều 2 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, gồm:",
+      "content_sha256": "69a3f91340473d685cdb1329c6106550748e45c61ccd4e686e44015566f86b30",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "21f2c7373b57fdf0c886:annexI:17",
+      "article": null,
+      "clause": "17",
+      "heading": "Phụ lục I. Danh mục cơ sở thuộc diện quản lý về phòng cháy, chữa cháy | Mục 17",
+      "content": "17. Nhà đa năng, nhà hỗn hợp có từ 2 tầng trở lên hoặc có tổng diện tích sàn từ 100 m2 trở lên, trừ nhà ở kết hợp sản xuất, kinh doanh.",
+      "source_start": 31819,
+      "source_end": 31956,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_annex",
+      "article_context": "Phụ lục I\n\nDANH MỤC CƠ SỞ\n\nTHUỘC DIỆN QUẢN LÝ VỀ PHÒNG CHÁY, CHỮA CHÁY\n\n(Kèm theo Nghị định số 105/2025/NĐ-CP\n\nngày 15 tháng 5 năm 2025 của Chính phủ)\n\n______________\n\nCơ sở thuộc diện quản lý về phòng cháy, chữa cháy là các cơ sở được quy định tại khoản 7 Điều 2 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, gồm:",
+      "content_sha256": "df76ea59141e770b8a7fdf7967aa4dd65a142b1669ef57139b566529dadfdc4a",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

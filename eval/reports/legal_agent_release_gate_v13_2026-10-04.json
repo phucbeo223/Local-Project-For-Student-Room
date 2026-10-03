@@ -1,0 +1,40 @@
+{
+  "passed": false,
+  "gates": {
+    "retrieval_checks_passed": true,
+    "all_36_answered_without_execution_error": false,
+    "all_cases_used_legal_agents": false,
+    "all_36_native_scores": false,
+    "same_judge_and_method": false,
+    "same_corpus_as_database": true,
+    "all_embeddings_identified_and_parented": true,
+    "qwen_attempted_all_answers": false,
+    "no_gemini_answer_generation": false,
+    "gemini_analysis_observed": false,
+    "backup_restored_and_hash_matches": true,
+    "reviewed_actual_answer_file": false,
+    "no_critical_source_review_issues": false,
+    "faithfulness_not_regressed": false,
+    "answer_relevancy_not_regressed": false,
+    "context_utilization_not_regressed": false,
+    "incomplete_answers_not_increased": false
+  },
+  "after": "/eval/reports/legal_agent_after_v13_2026-10-04.json",
+  "evaluation_file": "legal_agent_after_v13_2026-10-04.json",
+  "evaluation_sha256": "53c850069fc29716c7d796a26e2fb9925876f512b2139b77cedd6d9949615fc3",
+  "corpus_manifest_sha256": "b44ef9ac1757d9ed65254e618beb9867e1fe17c188965cd715247686a15d0633",
+  "score_counts": {
+    "faithfulness": 0,
+    "answer_relevancy": 0,
+    "context_utilization": 0
+  },
+  "scores": {
+    "faithfulness": null,
+    "answer_relevancy": null,
+    "context_utilization": null
+  },
+  "no_answer": 0,
+  "source_review_critical_case_ids": [],
+  "policy": "Engineering release gate: all cases scored with the historical judge, no metric/completeness regression, source review and restored backup. Not an independent legal correctness certification.",
+  "action": "retain_original_corpus"
+}

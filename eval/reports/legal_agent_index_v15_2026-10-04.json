@@ -1,0 +1,33 @@
+{
+  "schema": "legal_v2",
+  "original_before": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "original_after": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "counts": {
+    "chunks": 1782,
+    "vectors": 1782,
+    "identified": 1782,
+    "parented": 1782
+  },
+  "indexed": [
+    {
+      "id": "legacy-27f5c84dac1d",
+      "chunks": 41,
+      "provisions": 41
+    }
+  ],
+  "deactivated_superseded_sources": 0,
+  "manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "activation": "not activated; evaluation pending"
+}

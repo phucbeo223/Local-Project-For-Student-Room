@@ -1,0 +1,98 @@
+{
+  "downloaded_at_utc": "2026-10-03T18:33:08.601694+00:00",
+  "sources": [
+    {
+      "id": "privacy356",
+      "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=216387&pageid=27160",
+      "path": "docs/legal_fix_originals_20261004/privacy356.html",
+      "sha256": "c44f1c5415717effc126e6ca22097cd224341f56cefff3d3901cf2ffc04883bc",
+      "attachments": [
+        {
+          "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/356-nd.signed.pdf",
+          "path": "docs/legal_fix_originals_20261004/privacy356.pdf",
+          "sha256": "5b36a060c22db1df6c32b8c66da63b0c36571a1f7fa01765e719baac215b6c12"
+        }
+      ]
+    },
+    {
+      "id": "privacy91",
+      "source_url": "https://vanban.chinhphu.vn/?docid=214590&pageid=27160",
+      "path": "docs/legal_fix_originals_20261004/privacy91.html",
+      "sha256": "f63a0132cd10b91d8cc3b447024fa065edb185e01a329ad60b741dc4c0a96e87",
+      "attachments": [
+        {
+          "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/91qh.signed.pdf",
+          "path": "docs/legal_fix_originals_20261004/privacy91.pdf",
+          "sha256": "c3b87f994cedcedb69d38c590dcca2bb7700aab65e518a2a3a5ffbf22048b9ee"
+        }
+      ]
+    },
+    {
+      "id": "electricity60",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-60-2025-tt-bct-46756/60185.htm",
+      "path": "docs/legal_fix_originals_20261004/electricity60.html",
+      "sha256": "e6d082c1a17e3f9ec69325d896eced8400f9c96c6b830e0589bce59cf7a3e8fb",
+      "attachments": [
+        {
+          "download_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/12/46756/60185-1-20251687-168860-2025-tt-bct.pdf",
+          "path": "docs/legal_fix_originals_20261004/electricity60.pdf",
+          "sha256": "b7b38e43d13fa44a9e67d30074fc0c0795bf1a4aa7fc9e098489330639cc9505"
+        }
+      ]
+    },
+    {
+      "id": "water50",
+      "source_url": "https://pbgdpl.cantho.gov.vn/attachment/8224",
+      "path": "docs/legal_fix_originals_20261004/water50.html",
+      "sha256": "d88b64cff85518bb97bcd971d0d53b1847f0692219a2e35a3203ac60315a1044",
+      "attachments": [
+        {
+          "download_url": "https://drive.google.com/uc?export=download&id=1cVnGqbd2bQ_ZWkLFeGh-cnz4O0XRcUfu",
+          "official_attachment_link": "https://drive.google.com/file/d/1cVnGqbd2bQ_ZWkLFeGh-cnz4O0XRcUfu/view?usp=sharing",
+          "path": "docs/legal_fix_originals_20261004/water50.pdf",
+          "sha256": "2cb0838bd33e9fe360d7b6c0f8854eb16a107a82378c4f4bd1cca304cd4af2ee",
+          "provenance": "public Drive file explicitly linked by Can Tho Justice Department government publication"
+        }
+      ]
+    },
+    {
+      "id": "privacy91-cb",
+      "source_url": "https://congbao.chinhphu.vn/detail/tai-ve?id=45578&slug=91-2025-qh15",
+      "path": "docs/legal_fix_originals_20261004/privacy91-cb.html",
+      "sha256": "4ae5fdd8c686e32ebbbee8a9c9d8ba17a72599ad3dbab6b72f48299002994b2a",
+      "attachments": [
+        {
+          "download_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45578/57730-1-2025971-97291-2025-qh15.pdf",
+          "path": "docs/legal_fix_originals_20261004/privacy91-cb.pdf",
+          "sha256": "226dd6da66a6eea348e04db0f8c496d884021b730298991c6f6683720a0dfa2e"
+        }
+      ]
+    },
+    {
+      "id": "privacy356-cb",
+      "source_url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/1/17/356signed-1768638052103952849513.pdf",
+      "attachments": [
+        {
+          "download_url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/1/17/356signed-1768638052103952849513.pdf",
+          "path": "docs/legal_fix_originals_20261004/privacy356-cb.pdf",
+          "sha256": "f24747bf3c374b04901e66704423ea1e1a60460376c4d052d649ecc8a2a2f1eb"
+        }
+      ]
+    },
+    {
+      "id": "water215",
+      "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=63&wp=332",
+      "path": "docs/legal_fix_originals_20261004/water215.html",
+      "sha256": "9578e0c019a1379f8ecee9bf418b4d66a30dff5e79b6eb549f1b58b32f55f4b8",
+      "attachments": [
+        {
+          "download_url": "https://drive.google.com/uc?export=download&id=1048r34Uoou90dWXo09lp5kE591jRGacR",
+          "official_attachment_link": "https://drive.google.com/file/d/1048r34Uoou90dWXo09lp5kE591jRGacR/view?usp=drive_link",
+          "path": "docs/legal_fix_originals_20261004/water215.pdf",
+          "sha256": "1b476f823340e632b5fe9213c4e55ad92487eb568d81fe03f51fc59080321871",
+          "provenance": "signed government decision explicitly linked by the accountable water utility; corroborate number/date/title with government publication; verify territorial/current application separately"
+        }
+      ]
+    }
+  ]
+}
