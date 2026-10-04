@@ -1,0 +1,90 @@
+{
+  "created_at_utc": "2026-10-04T07:35:52.501977+00:00",
+  "git_revision_before_test_fixes": "8488b5cebdf0cf1007185a87b990ba248a249dd9",
+  "run": "/eval/reports/legal_gemini38_retest_2026-10-04_fixed.json",
+  "run_sha256": "e1474a6f9523521af2163a15058318cb58fa05b75e0de70837130245d135da34",
+  "corpus_audit_sha256": "ba76300d960cc118ccf8d2b2e1dbb588303f2e10b25da4c5eea2b5e5617831a4",
+  "source_sha256": {
+    "/workspace/apps/api/app/room_service/chatbot/__init__.py": "3c72152e951b808325d5ba100993d28af0939cd1e89fc8fa1e8b1b044edb1970",
+    "/workspace/apps/api/app/room_service/chatbot/agents.py": "8a5f7425875468fa6fe400cb9f56181fa72bda6cd3838b7938f019d55b811029",
+    "/workspace/apps/api/app/room_service/chatbot/evidence_units.py": "1ead9c60917b1584149c7f59174a4ed9b6222d8b81581a22a79a41d2dc338815",
+    "/workspace/apps/api/app/room_service/chatbot/legal_answer.py": "037b9e5fc4162ee79b07a442d320f9f0dfb4fc357095474538bb343be0cde847",
+    "/workspace/apps/api/app/room_service/chatbot/legal_retrieval.py": "301afbf73e8aaa54f75d03426950a87c8fa64a972cc7c61f769d79a68da7abac",
+    "/workspace/apps/api/app/room_service/chatbot/parser.py": "226431c6c39f4891b6598ad77a6cbd890b2efa311bcbab3b91c7b982b32336ac",
+    "/workspace/apps/api/app/room_service/chatbot/providers.py": "1799d51065d98d9724d75d6a8bfd5f821a3dc8917217138bbdd755cc1759bf51",
+    "/workspace/apps/api/app/room_service/chatbot/repo.py": "6187622ce691c2ac9002f4f94d2f9ce647e1929074f3f827b7188c087fc171fb",
+    "/workspace/apps/api/app/room_service/chatbot/router.py": "ce328bb7dd4950ed56472db443adb88967b27b709052d13f728a42ecd861b159",
+    "/workspace/apps/api/app/room_service/chatbot/schemas.py": "fc73833a4f02e2067e4727d96f5b9978c753aa24c8e7ed171dfe75f8049e5b50",
+    "/workspace/apps/api/app/room_service/chatbot/service.py": "8e4927818c6ef73148b5970d94e28403ecaf69a0b55a63a1dcb631d56470000f",
+    "/workspace/apps/api/app/room_service/chatbot/source_selection.py": "d6ce5673d2bbb1a5c929c6eedfbb1bcec869c06efffaa064812f0a5bc9951c50",
+    "/workspace/apps/api/app/room_service/chatbot/topics.py": "89e25110de7a39c5590197fe014e31e34820757b077754036b52adb6d6940d33",
+    "/workspace/apps/api/app/config.py": "5d18c29d4ce19296b36eb07b2194dced5576d8201f2f2136f438459fd37808c2",
+    "/eval/report_gemini_proxy_retest.py": "fce7deb4d562f756cc4a3dc6e4005ac0daab312b6f72f7c127ced27acfefbc59",
+    "/eval/question_bank_ragas.py": "b6bc0c471900776a5df3e3fd02eab3fb7484a3ab9a5b31aacb0429739a8af814"
+  },
+  "answer_model": "gemini-3.8-flash-high",
+  "judge": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "score_workers": 4,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.1-flash-lite",
+      "answer_relevancy": "gemini-3.1-flash-lite",
+      "context_utilization": "gemini-3.1-flash-lite"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "http://host.docker.internal:8317/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 8192,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window"
+  },
+  "legal_schema": "public",
+  "judge_min_request_interval_seconds": 0,
+  "agents_enabled": false,
+  "regression_tests_passed": 37,
+  "summary": {
+    "questions": 36,
+    "completed": 36,
+    "errors": 0,
+    "with_contexts": 36,
+    "no_answer": 24,
+    "partial_answer": 22,
+    "degraded": 24,
+    "vector_retrieval": 36,
+    "category_source_match": 36,
+    "category_source_evaluated": 36,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 18194.5,
+    "latency_p95_ms": 25338,
+    "ragas": {
+      "faithfulness": {
+        "mean": 0.7871,
+        "scored": 36
+      },
+      "answer_relevancy": {
+        "mean": 0.7252,
+        "scored": 36
+      },
+      "context_utilization": {
+        "mean": 0.6551,
+        "scored": 36
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "final_providers": {
+    "template": 2,
+    "legal-partial-extractive": 13,
+    "gemini": 19,
+    "legal-extractive": 2
+  },
+  "evidence_sha256": "714b55cab19d026fe3c309a4f530a53997bac8dc9dbce46ac66e1c207cfba991"
+}

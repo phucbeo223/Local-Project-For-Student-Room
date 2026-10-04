@@ -562,6 +562,12 @@ class GeminiGenerator:
         result = _extract_gemini_text(data)
         if not result:
             raise RuntimeError("Gemini trả về JSON rỗng")
+        # Some compatible proxies wrap structured output in a Markdown block.
+        # Only unwrap a complete block; leave extra prose/malformed JSON for
+        # the caller's JSON/schema validation to reject.
+        fenced = re.fullmatch(r"```(?:json)?\s*\n([\s\S]*?)\n```", result, re.IGNORECASE)
+        if fenced:
+            result = fenced.group(1).strip()
         return result, data.get("usageMetadata", {})
 
     def check_legal_evidence(self, question: str, answer: str, contexts: Sequence[dict]) -> list[str]:

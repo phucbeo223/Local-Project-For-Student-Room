@@ -260,7 +260,7 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
             from app.room_service.chatbot.providers import GeminiGenerator
             self.model = model
             self.url = settings.gemini_base_url
-            self.client = GeminiGenerator("", model, api_keys=settings.configured_gemini_keys,
+            self.client = GeminiGenerator("", model, base_url=self.url, api_keys=settings.configured_gemini_keys,
                                           legal_timeout_seconds=180, per_request_timeout_seconds=180,
                                           min_request_interval_seconds=settings.gemini_min_request_interval_seconds)
             self.usage = []

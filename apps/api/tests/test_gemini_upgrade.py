@@ -75,6 +75,34 @@ def test_structured_response_excludes_thinking_and_rejects_token_truncation():
         generator.request_json("prompt", {"type": "object"})
 
 
+@pytest.mark.parametrize("wrapper", ["{}", "```json\n{}\n```", "```\n{}\n```"])
+def test_proxy_structured_response_can_be_read_by_evidence_checker(wrapper):
+    output = wrapper.format('{"supported":true,"issues":[]}')
+    def handler(request):
+        assert request.url.host == "proxy.local"
+        return httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": output}]}}]})
+    generator = GeminiGenerator("working", "gemini-test", base_url="http://proxy.local/v1beta",
+                                transport=httpx.MockTransport(handler))
+    try:
+        assert generator.check_legal_evidence("Question?", "Source statement [1].",
+                                             [{"rank": 1, "content": "Source statement."}]) == []
+    finally:
+        generator.close()
+
+
+def test_proxy_structured_response_does_not_hide_prose_outside_json_block():
+    output = 'Result:\n```json\n{"supported":true,"issues":[]}\n```'
+    def handler(request):
+        return httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": output}]}}]})
+    generator = GeminiGenerator("working", "gemini-test", transport=httpx.MockTransport(handler))
+    try:
+        with pytest.raises(json.JSONDecodeError):
+            generator.check_legal_evidence("Question?", "Source statement [1].",
+                                          [{"rank": 1, "content": "Source statement."}])
+    finally:
+        generator.close()
+
+
 def test_evidence_checker_preserves_semantic_rejection_and_falls_back_only_on_unavailability():
     class Checker:
         def __init__(self, unavailable=False, issues=()):

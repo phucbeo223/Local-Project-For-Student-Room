@@ -1,0 +1,23 @@
+{
+  "data_files": 44,
+  "indexed_documents": 32,
+  "missing_from_index": [
+    "cantho_contacts.md",
+    "criminal_law/Bo-sung-thuc-te-20261004.md",
+    "ecommerce_platform/Bo-sung-thuc-te-20261004.md",
+    "electricity/Bo-sung-thuc-te-20261004.md",
+    "fire_safety/Bo-sung-thuc-te-20261004.md",
+    "housing_contract/Bo-sung-thuc-te-20261004.md",
+    "legal_templates.md",
+    "privacy_data/Bo-sung-thuc-te-20261004.md",
+    "real_estate_brokerage/Bo-sung-thuc-te-20261004.md",
+    "residence/Bo-sung-thuc-te-20261004.md",
+    "residence/CT01-116-2026-trich-ban-goc.pdf",
+    "water_cantho/Bo-sung-thuc-te-20261004.md"
+  ],
+  "indexed_but_missing_from_data": [],
+  "current_document_chunks": 1927,
+  "current_document_vectors": 1927,
+  "listing_records": 919,
+  "listing_vectors": 915
+}

@@ -28,6 +28,7 @@ services:
       GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
       GEMINI_FALLBACK_MODEL: ${GEMINI_FALLBACK_MODEL:-gemini-3.1-flash-lite}
       GEMINI_MIN_REQUEST_INTERVAL_SECONDS: ${GEMINI_MIN_REQUEST_INTERVAL_SECONDS:-5}
+      GEMINI_BASE_URL: ${GEMINI_DOCKER_BASE_URL:-${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}}
       RAGAS_JUDGE_MODEL: ${RAGAS_JUDGE_MODEL:-qwen3.5:9b}
       RAGAS_JUDGE_PROVIDER: ${RAGAS_JUDGE_PROVIDER:-ollama}
       RAGAS_JUDGE_URL: http://host.docker.internal:11434
