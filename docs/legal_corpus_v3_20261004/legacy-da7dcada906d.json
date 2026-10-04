@@ -1,0 +1,541 @@
+{
+  "source": {
+    "id": "legacy-da7dcada906d",
+    "title": "Luat-55-2024-QH15-dieu-8-20-21-23-24",
+    "category": "fire_safety",
+    "path": "Data/fire_safety/Luat-55-2024-QH15-dieu-8-20-21-23-24.md",
+    "sha256": "0ccafc9e862919a86083ac57ecd07b265cc3f7ceb11c32c53c0659700d502434",
+    "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+    "origin_documents": [
+      {
+        "id": "fire55",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/luat55.pdf",
+        "path": "docs/legal_sources_originals_20261003/fire55.pdf",
+        "sha256": "1b1942dbf11e912a28ac2004d1f3cca3b6e7356796507dda7450ccf27a250462",
+        "bytes": 429765,
+        "pages": 43,
+        "text_chars": 92538
+      },
+      {
+        "id": "amend118",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+        "path": "docs/legal_sources_originals_20261003/amend118.pdf",
+        "sha256": "a9798bfab6120963834d26559ab8614003ca3012de1d1846305495e8bb4300b6",
+        "bytes": 12531681,
+        "pages": 28,
+        "text_chars": 0
+      }
+    ],
+    "extraction": "existing selected text; editorial header excluded by article parser",
+    "verification": {
+      "articles": [
+        8,
+        20,
+        21,
+        23,
+        24
+      ],
+      "extraction": "Văn bản PDF có lớp chữ; bỏ đầu trang Công báo, nối dòng; giữ nguyên khoản, điểm.",
+      "amendment": "Luật 118 Điều 10 không sửa các điều được trích này; không suy rộng sang điều khác."
+    },
+    "page_kind": "logical_document",
+    "not_exhaustive": true
+  },
+  "provisions": [
+    {
+      "provision_id": "0ccafc9e862919a86083:65:1",
+      "article": "8",
+      "clause": "1",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 1",
+      "content": "1. Phòng cháy, chữa cháy, cứu nạn, cứu hộ là trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân hoạt động, sinh sống trên lãnh thổ nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+      "source_start": 184,
+      "source_end": 361,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "f6e485bd4d2956b7db71bbb89990d5b775bbb91a1bca4da9d1f6de4992fccda4",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:2",
+      "article": "8",
+      "clause": "2",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 2",
+      "content": "2. Công dân từ đủ 18 tuổi trở lên, đủ sức khỏe có trách nhiệm tham gia vào Đội phòng cháy, chữa cháy và cứu nạn, cứu hộ cơ sở, Đội phòng cháy, chữa cháy và cứu nạn, cứu hộ chuyên ngành hoặc Đội dân phòng khi có yêu cầu.",
+      "source_start": 361,
+      "source_end": 582,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4fbe0818b93fcd00495576c78ca286584575775d3301c08851a7732a9e8612fc",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:3",
+      "article": "8",
+      "clause": "3",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 3",
+      "content": "3. Người đứng đầu cơ sở có trách nhiệm sau đây:\n\na) Tổ chức tuyên truyền, phổ biến, giáo dục kiến thức, pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ; tổ chức huấn luyện, bồi dưỡng nghiệp vụ phòng cháy, chữa cháy, cứu nạn, cứu hộ cho các đối tượng thuộc phạm vi quản lý;\n\nb) Thành lập, duy trì hoạt động Đội phòng cháy, chữa cháy và cứu nạn, cứu hộ cơ sở hoặc Đội phòng cháy, chữa cháy và cứu nạn, cứu hộ chuyên ngành theo quy định tại Điều 37 của Luật này hoặc phân công người thực hiện nhiệm vụ phòng cháy, chữa cháy, cứu nạn, cứu hộ thuộc phạm vi quản lý;\n\nc) Ban hành hoặc tham mưu người có thẩm quyền ban hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nd) Tổ chức thực hiện, kiểm tra, đôn đốc, giám sát cơ quan, tổ chức, cá nhân thuộc phạm vi quản lý về việc thực hiện quy định, nội quy, biện pháp, yêu cầu và duy trì điều kiện an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nđ) Xây dựng, tổ chức thực tập phương án chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật;\n\ne) Quyết định hoặc đề xuất người có thẩm quyền quyết định trang bị, duy trì tính năng sử dụng của phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ; tổ chức chữa cháy, cứu nạn, cứu hộ; khắc phục hậu quả do cháy, tai nạn, sự cố gây ra;\n\ng) Lập, quản lý hồ sơ về phòng cháy, chữa cháy, cứu nạn, cứu hộ thuộc phạm vi quản lý; khai báo, cập nhật dữ liệu về phòng cháy, chữa cháy;\n\nh) Thực hiện nhiệm vụ khác về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật.",
+      "source_start": 582,
+      "source_end": 2055,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ",
+        "e",
+        "g",
+        "h"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 37"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "28e195a869e3f1aa467b05794b29b2bb81d28ba545e560cf081c23dc21f271a8",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:4",
+      "article": "8",
+      "clause": "4",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 4",
+      "content": "4. Chủ phương tiện giao thông có trách nhiệm sau đây:\n\na) Tổ chức tuyên truyền, phổ biến kiến thức, pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ; tổ chức huấn luyện, bồi dưỡng nghiệp vụ phòng cháy, chữa cháy, cứu nạn, cứu hộ cho các đối tượng thuộc phạm vi quản lý;\n\nb) Ban hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nc) Tổ chức thực hiện, kiểm tra, đôn đốc, giám sát cá nhân thuộc phạm vi quản lý về việc thực hiện quy định, nội quy, biện pháp, yêu cầu và duy trì điều kiện an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nd) Trang bị, duy trì tính năng sử dụng của phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ; tổ chức chữa cháy, cứu nạn, cứu hộ; khắc phục hậu quả do cháy, tai nạn, sự cố gây ra;\n\nđ) Xây dựng, tổ chức thực tập phương án chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật;\n\ne) Thực hiện nhiệm vụ khác về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật.",
+      "source_start": 2055,
+      "source_end": 2979,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ",
+        "e"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "662d947d00d45f5762d0b847c6cbaa55b7a61b37a6633cc41975103714725844",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:5",
+      "article": "8",
+      "clause": "5",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 5",
+      "content": "5. Người quyết định đầu tư, chủ đầu tư, chủ sở hữu công trình, chủ phương tiện giao thông, cơ quan, tổ chức, cá nhân trong hoạt động đầu tư xây dựng công trình, sản xuất, lắp ráp, đóng mới, hoán cải phương tiện giao thông có trách nhiệm thực hiện các yêu cầu về phòng cháy và chữa cháy trong việc áp dụng tiêu chuẩn, quy chuẩn kỹ thuật, thẩm định, thi công, giám sát thi công, nghiệm thu về phòng cháy và chữa cháy.",
+      "source_start": 2979,
+      "source_end": 3396,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "a6a8ba051a0b52c0b868ce667b428e0f222947563817d243cee5908fbfe5b0ea",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:6",
+      "article": "8",
+      "clause": "6",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 6",
+      "content": "6. Chủ hộ gia đình trực tiếp sử dụng nhà ở mà không phải là người đứng đầu cơ sở có trách nhiệm sau đây:\n\na) Thực hiện quy định tại Điều 20 và Điều 21 của Luật này;\n\nb) Tuyên truyền, đôn đốc, nhắc nhở thành viên khác trong gia đình thực hiện pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\nc) Thường xuyên tự kiểm tra, phát hiện và khắc phục kịp thời nguy cơ gây cháy, nổ, tai nạn, sự cố;\n\nd) Thực hiện các nhiệm vụ khác về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật.",
+      "source_start": 3396,
+      "source_end": 3897,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 20",
+        "Điều 21"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "ff0f1599bd1871198390fbd600cbd4a39999b53080fe0ec52d0ea9794473ab15",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:7",
+      "article": "8",
+      "clause": "7",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 7",
+      "content": "7. Cá nhân có trách nhiệm sau đây:\n\na) Chấp hành quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ của cơ quan, tổ chức hoặc người có thẩm quyền theo quy định của pháp luật;\n\nb) Tìm hiểu kiến thức về phòng cháy, chữa cháy, cứu nạn, cứu hộ và kỹ năng thoát nạn, sử dụng dụng cụ, phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ thông dụng;\n\nc) Bảo đảm an toàn trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nd) Phát hiện, ngăn chặn nguy cơ trực tiếp gây cháy, nổ và các hành vi vi phạm quy định an toàn về phòng cháy, chữa cháy, cứu nạn, cứu hộ trong điều kiện, khả năng cho phép;\n\nđ) Tham gia chữa cháy, cứu nạn, cứu hộ khi được cơ quan, người có thẩm quyền huy động; chấp hành yêu cầu, quyết định của người chỉ huy chữa cháy, người chỉ huy cứu nạn, cứu hộ khi tham gia chữa cháy, cứu nạn, cứu hộ.",
+      "source_start": 3897,
+      "source_end": 4777,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "92b3ac9290f9a9082c2a8adb071db03e33c98f0d73fa5e6db7b3f1e729744da5",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:8",
+      "article": "8",
+      "clause": "8",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 8",
+      "content": "8. Trách nhiệm về phòng cháy, chữa cháy, cứu nạn, cứu hộ đối với trường hợp thuê, mượn, ở nhờ nhà ở được quy định như sau:\n\na) Người cho thuê, cho mượn, cho ở nhờ nhà ở có trách nhiệm tuyên truyền, đôn đốc, nhắc nhở người thuê, mượn, ở nhờ thực hiện quy định của pháp luật về phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\nb) Người thuê, mượn, ở nhờ nhà ở có trách nhiệm theo quy định tại khoản 6 Điều này, trừ trường hợp có thỏa thuận khác với người cho thuê, mượn, ở nhờ nhà ở. Trường hợp thuê, mượn, ở nhờ nhà ở kết hợp sản xuất, kinh doanh thì người thuê, mượn, ở nhờ còn có trách nhiệm bảo đảm điều kiện an toàn về phòng cháy theo quy định tại Điều 21 của Luật này.",
+      "source_start": 4777,
+      "source_end": 5445,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [
+        "b) Người thuê, mượn, ở nhờ nhà ở có trách nhiệm theo quy định tại khoản 6 Điều này, trừ trường hợp có thỏa thuận khác với người cho thuê, mượn, ở nhờ nhà ở."
+      ],
+      "cross_references": [
+        "Điều 21"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d0fa6bc809f1c7ed79141fe1888d19bf292a0c7137871e177ff11af6876111c5",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:9",
+      "article": "8",
+      "clause": "9",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 9",
+      "content": "9. Cơ quan, tổ chức, cá nhân không thuộc đối tượng quy định tại khoản 3 Điều 50 của Luật này có trách nhiệm bảo đảm kinh phí cho hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ trong phạm vi quản lý.",
+      "source_start": 5445,
+      "source_end": 5647,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 3 Điều 50"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "da331ca6a78cda5936e2f8e99781198655439e5414c9c41d583e25ad5a88ba8d",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:65:10",
+      "article": "8",
+      "clause": "10",
+      "heading": "Điều 8. Trách nhiệm của cơ quan, tổ chức, hộ gia đình, cá nhân trong hoạt động phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 10",
+      "content": "10. Chính phủ quy định chi tiết điểm c và điểm g khoản 3, điểm b khoản 4 và khoản 5 Điều này.",
+      "source_start": 5647,
+      "source_end": 5742,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4dc37ded28703688d14dbe89da5ea10e9c316286ffb97a5161c24d152bab1fe6",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:1",
+      "article": "20",
+      "clause": "1",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 1",
+      "content": "1. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Lắp đặt, sử dụng thiết bị điện bảo đảm điều kiện an toàn về phòng cháy quy định tại điểm c khoản 1 Điều 24 của Luật này;\n\nb) Bố trí bếp đun nấu, nơi thờ cúng, đốt vàng mã bảo đảm an toàn; không để vật, chất dễ cháy, nổ gần nguồn lửa, nguồn nhiệt.",
+      "source_start": 5777,
+      "source_end": 6159,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 1 Điều 24"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "02c48ea0c986bab91b1318aa864376c431b91797017a6afe279dcada7e31adc8",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:2",
+      "article": "20",
+      "clause": "2",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 2",
+      "content": "2. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện về chữa cháy, thoát nạn sau đây:\n\na) Có phương tiện phòng cháy, chữa cháy phù hợp với khả năng, điều kiện thực tế để sẵn sàng chữa cháy, thoát nạn;\n\nb) Bố trí, duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn.",
+      "source_start": 6159,
+      "source_end": 6494,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "cc01d1170ca64bd114afd4887b20e603a4e79e4ce5c0ef5175d7a5ed13c54520",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:3",
+      "article": "20",
+      "clause": "3",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 3",
+      "content": "3. Nhà ở có quy chuẩn kỹ thuật, tiêu chuẩn được viện dẫn trong văn bản quy phạm pháp luật hoặc trong quy chuẩn kỹ thuật về phòng cháy, chữa cháy và cứu nạn, cứu hộ thực hiện theo tiêu chuẩn, quy chuẩn kỹ thuật đó.",
+      "source_start": 6494,
+      "source_end": 6709,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "59bb02797b83d445fb607b88da2ba8a60e581377a00d1579d59aa38844d9a11c",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:4",
+      "article": "20",
+      "clause": "4",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 4",
+      "content": "4. Nhà ở trong danh mục cơ sở thuộc diện quản lý về phòng cháy và chữa cháy thực hiện theo quy định tại Điều 23 của Luật này.",
+      "source_start": 6709,
+      "source_end": 6836,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 23"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "bcc65f61e5673807610081e2c2db257e49989a99cbe7b210e5fa8b57c94ef39f",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:5",
+      "article": "20",
+      "clause": "5",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 5",
+      "content": "5. Đối với nhà ở tại thành phố trực thuộc Trung ương thuộc khu vực không bảo đảm hạ tầng giao thông hoặc nguồn nước phục vụ chữa cháy theo quy định của pháp luật, quy chuẩn kỹ thuật trong hoạt động phòng cháy, chữa cháy thì phải trang bị bình chữa cháy, thiết bị truyền tin báo cháy kết nối với hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy theo lộ trình do Chính phủ quy định. Đối với nhà ở tại khu vực khác thì khuyến khích trang bị thiết bị truyền tin báo cháy kết nối với hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy. Ủy ban nhân dân thành phố trực thuộc Trung ương xác định khu vực không bảo đảm hạ tầng giao thông hoặc nguồn nước phục vụ chữa cháy.",
+      "source_start": 6836,
+      "source_end": 7577,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "9d58a3350daf74e3587b8d1a98c2d24b960d8f1008c80c137a49dbdbc68161cf",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:5742:6",
+      "article": "20",
+      "clause": "6",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở | Khoản 6",
+      "content": "6. Lực lượng Cảnh sát phòng cháy, chữa cháy và cứu nạn, cứu hộ có trách nhiệm hướng dẫn việc kết nối thiết bị truyền tin báo cháy với hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy khi có yêu cầu.",
+      "source_start": 7577,
+      "source_end": 7816,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "094c38bcad94501714999e0e5198518c471d3fd588784011130f1398582bc49e",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:7816:1",
+      "article": "21",
+      "clause": "1",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh | Khoản 1",
+      "content": "1. Nhà ở kết hợp sản xuất, kinh doanh phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Các điều kiện an toàn về phòng cháy quy định tại Điều 20 của Luật này;\n\nb) Có biển cấm, biển báo, biển chỉ dẫn theo quy định;\n\nc) Khu vực sản xuất, kinh doanh hàng hóa có nguy cơ cháy, nổ phải có giải pháp ngăn cách hoặc ngăn cháy với khu vực để ở.",
+      "source_start": 7880,
+      "source_end": 8230,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 20"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "5d203b6e7fb825535914e726d6549083327c190f6b5e72539db9a87bb21aa876",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:7816:2",
+      "article": "21",
+      "clause": "2",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh | Khoản 2",
+      "content": "2. Nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Các điều kiện an toàn về phòng cháy quy định tại khoản 1 Điều này;\n\nb) Không bố trí chỗ ngủ trong khu vực sản xuất, kinh doanh;\n\nc) Có phương tiện báo cháy, giải pháp thông gió, thiết bị phát hiện sự cố rò rỉ chất khí nguy hiểm về cháy, nổ phù hợp với công năng, đặc điểm của nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ;\n\nd) Khu vực sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải được ngăn cháy với lối thoát nạn của khu vực để ở.",
+      "source_start": 8230,
+      "source_end": 8825,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "eb1aa5f88522eab854ab7c6796d19ae4f9dda1951f8444c4c6fac26115cf2754",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:8825:1",
+      "article": "23",
+      "clause": "1",
+      "heading": "Điều 23. Phòng cháy đối với cơ sở | Khoản 1",
+      "content": "1. Cơ sở phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Có nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ phù hợp với từng loại hình cơ sở;\n\nb) Trang bị phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định của pháp luật;\n\nc) Trang bị thiết bị truyền tin báo cháy kết nối với hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy; khai báo, cập nhật dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo lộ trình do Chính phủ quy định;\n\nd) Thực hiện các yêu cầu về phòng cháy và chữa cháy quy định tại các điểm a, b, c, d, đ và e khoản 1 Điều 16 của Luật này;\n\nđ) Có phương án chữa cháy, cứu nạn, cứu hộ;\n\ne) Thành lập lực lượng phòng cháy, chữa cháy và cứu nạn, cứu hộ cơ sở hoặc lực lượng phòng cháy, chữa cháy và cứu nạn, cứu hộ chuyên ngành theo quy định tại Điều 37 của Luật này hoặc phân công người thực hiện nhiệm vụ phòng cháy, chữa cháy, cứu nạn, cứu hộ.",
+      "source_start": 8860,
+      "source_end": 9796,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ",
+        "e"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 1 Điều 16",
+        "Điều 37"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "99c509428e406b5f9a885dcd9b107d2393fb25f9d2e8a26ea5c2e29cc28d70af",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:8825:2",
+      "article": "23",
+      "clause": "2",
+      "heading": "Điều 23. Phòng cháy đối với cơ sở | Khoản 2",
+      "content": "2. Cơ quan, tổ chức hoạt động trong phạm vi một cơ sở phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Có nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ phù hợp với tính chất hoạt động của cơ quan, tổ chức;\n\nb) Bảo đảm an toàn trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ trong phạm vi quản lý;\n\nc) Cử người tham gia lực lượng phòng cháy, chữa cháy và cứu nạn, cứu hộ cơ sở hoặc lực lượng phòng cháy, chữa cháy và cứu nạn, cứu hộ chuyên ngành theo quy định của pháp luật;\n\nd) Thực hiện, duy trì điều kiện an toàn về phòng cháy và chữa cháy trong phạm vi quản lý.",
+      "source_start": 9796,
+      "source_end": 10423,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "0b89e363a74ae225c6caf93c7bde381b99822035361983cc7a945f8a6082f23b",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:10423:1",
+      "article": "24",
+      "clause": "1",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất | Khoản 1",
+      "content": "1. Trong lắp đặt, sử dụng điện cho sinh hoạt phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Chấp hành quy định về an toàn trong sử dụng điện cho sinh hoạt theo quy định của pháp luật về điện lực;\n\nb) Đơn vị bán lẻ điện khi đấu nối điện sinh hoạt phải tư vấn việc lắp đặt, sử dụng đối với hệ thống, thiết bị điện để bảo đảm an toàn về phòng cháy;\n\nc) Việc lắp đặt, sử dụng dây dẫn điện, thiết bị điện trong nhà phải bảo đảm yêu cầu về an toàn điện theo quy định của pháp luật; thường xuyên kiểm tra, kịp thời sửa chữa, thay thế dây dẫn điện, thiết bị điện không bảo đảm an toàn về phòng cháy;\n\nd) Chỉ được sử dụng thiết bị sạc điện cho xe động cơ điện bảo đảm quy chuẩn kỹ thuật quốc gia; nơi sạc điện cho xe động cơ điện trong nhà phải có giải pháp bảo đảm an toàn về phòng cháy; khu vực sạc điện cho xe động cơ điện tập trung trong nhà còn phải có giải pháp ngăn cháy và trang bị phương tiện chữa cháy phù hợp, bảo đảm tiêu chuẩn.",
+      "source_start": 10496,
+      "source_end": 11444,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "b60dffae00a1c61902310ca1ba79fa1f05fabd8868c3482807fbce8ed2cf5b45",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:10423:2",
+      "article": "24",
+      "clause": "2",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất | Khoản 2",
+      "content": "2. Trong lắp đặt, sử dụng điện cho sản xuất phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\n\na) Chấp hành quy định về an toàn trong sử dụng điện cho sản xuất theo quy định của pháp luật về điện lực và quy định tại điểm b và điểm c khoản 1 Điều này;\n\nb) Thiết bị điện được sử dụng trong môi trường nguy hiểm về cháy, nổ phải là thiết bị chuyên dụng theo quy định của pháp luật.",
+      "source_start": 11444,
+      "source_end": 11832,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "dcccf95b4db7b6846df5855427a4c8fc9f9ae8c4340d28a19e7945db477ad89a",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:10423:3",
+      "article": "24",
+      "clause": "3",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất | Khoản 3",
+      "content": "3. Tổ chức, cá nhân kinh doanh sản phẩm, thiết bị điện có trách nhiệm tư vấn, cung cấp thông tin về chất lượng, thông số kỹ thuật của sản phẩm, thiết bị điện phù hợp với mục đích sử dụng.",
+      "source_start": 11832,
+      "source_end": 12021,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d0c09d30efc5e6bb30cf9439ef7a9ecab748407518087e97149fdd403c4f6b41",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "0ccafc9e862919a86083:10423:4",
+      "article": "24",
+      "clause": "4",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất | Khoản 4",
+      "content": "4. Đơn vị bán lẻ điện có trách nhiệm tuyên truyền, hướng dẫn về bảo đảm an toàn sử dụng điện trong sinh hoạt, sản xuất và thực hiện các nhiệm vụ khác về an toàn sử dụng điện theo quy định của pháp luật về điện lực.",
+      "source_start": 12021,
+      "source_end": 12237,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "12aa595864f9d26ec12f75c3c55e572326b054334b4d7b8de6afc382e19b2b95",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

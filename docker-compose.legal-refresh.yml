@@ -1,0 +1,18 @@
+# October 4 legal corpus refresh; layer after the base/local/evaluation files.
+services:
+  api:
+    environment:
+      CHATBOT_LEGAL_SCHEMA: legal_v3_20261004
+  ragas-eval:
+    environment:
+      CHATBOT_LEGAL_SCHEMA: legal_v3_20261004
+      CHATBOT_AGENTS_ENABLED: "true"
+      GEMINI_MIN_REQUEST_INTERVAL_SECONDS: "0"
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      TOKENIZERS_PARALLELISM: "false"
+    volumes:
+      - ./docs:/workspace/docs:ro
+      - ./Data:/workspace/Data:ro
+      - ./eval:/workspace/eval
+      - ./backups:/workspace/backups

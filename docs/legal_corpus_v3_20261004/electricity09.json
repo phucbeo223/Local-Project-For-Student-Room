@@ -1,0 +1,39 @@
+{
+  "source": {
+    "id": "electricity09",
+    "title": "Thông tư 09/2023/TT-BCT — sửa quy định giá điện",
+    "source_url": "https://congbao.chinhphu.vn/van-ban-dang-cong-bao/thong-tu-l3/trang-195.htm",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRvfVfCos6uF_uofctpC9TsE-9xQRMK3QNXf4cD6N6pwp_rO50ShLMrycpLsG4wkdTyAfEqUPaOLdKxA18LXbOJQ~~&file_name=2023_687+%2b+688_09-2023-TT-BCT.pdf",
+    "path": "docs/legal_web_supplement_20261004/originals/electricity09.pdf",
+    "sha256": "ab6254e72ba990ad41327fd4bc2fbfb069bdbcd36a864e753dcb5df3ad85320f",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "reviewed_excerpt_in_refresh_corpus",
+    "category": "electricity"
+  },
+  "provisions": [
+    {
+      "source_id": "electricity09",
+      "article": "2",
+      "clause": "2",
+      "heading": "Điều 2 khoản 2 Thông tư 09/2023 — sửa khoản 5 Điều 1 Thông tư 25/2018 và điểm c khoản 4 Điều 10 Thông tư 16/2014",
+      "content": "2. Sửa đổi khoản 5 Điều 1 như sau:\n“5. Sửa đổi điểm c khoản 4 Điều 10 như sau:\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo Thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp ký hợp đồng mua bán điện hoặc đại diện bên thuê nhà ký hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 3: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.\nTrường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì Bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào Thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 1 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện.\nBên bán điện được phép yêu cầu bên mua điện cung cấp Thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.”.",
+      "page_from": 4,
+      "page_to": 5,
+      "review_images": [
+        "qa/electricity09-4.png",
+        "qa/electricity09-5.png"
+      ],
+      "applicability_note": "Đọc cùng Điều 20 khoản 1 điểm d và Điều 21 Thông tư 60; đây là nhánh chuyển tiếp, không khẳng định toàn bộ các thông tư cũ còn hiệu lực.",
+      "kind": "legal_provision",
+      "content_sha256": "cabd2f64a8b6b73de874109ead8e582c319e4f964591083817e2aa67176103c5",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:electricity09:2:2"
+    }
+  ]
+}

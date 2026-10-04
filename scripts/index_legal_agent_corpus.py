@@ -13,6 +13,7 @@ from app.room_service.chatbot.providers import E5EmbeddingProvider
 from app.room_service.legal_knowledge.repo import LegalKnowledgeRepository
 from app.room_service.legal_knowledge.extractor import ExtractedDocument, ExtractedPage
 from app.room_service.legal_knowledge.chunker import LegalChunk
+from app.room_service.legal_knowledge.storage import legal_schema
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -48,14 +49,19 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--report',type=Path,default=ROOT/'eval/reports/legal_agent_index_2026-10-03.json')
     parser.add_argument('--sync-audit',type=Path)
+    parser.add_argument('--schema',default='legal_v2')
+    parser.add_argument('--corpus',type=Path,default=ROOT/'docs/legal_corpus_v2')
     args=parser.parse_args()
     engine = create_engine(settings.database_url,pool_pre_ping=True)
-    corpus = ROOT/'docs/legal_corpus_v2'
+    schema = legal_schema(args.schema)
+    if schema == 'public': raise ValueError('Fresh indexing requires an isolated legal schema')
+    corpus = args.corpus
     manifest = json.loads((corpus/'manifest.json').read_text(encoding='utf-8'))
     with engine.begin() as conn:
         before=snapshot(conn)
-        conn.exec_driver_sql((ROOT/'infra/db/migrations/101_isolated_legal_corpus.sql').read_text(encoding='utf-8'))
-    repo=LegalKnowledgeRepository(engine,'legal_v2')
+        migration=(ROOT/'infra/db/migrations/101_isolated_legal_corpus.sql').read_text(encoding='utf-8')
+        conn.exec_driver_sql(migration.replace('legal_v2',schema))
+    repo=LegalKnowledgeRepository(engine,schema)
     embedder=E5EmbeddingProvider(settings.chatbot_embedding_model)
     embedder.warmup()
     indexed=[]
@@ -82,13 +88,13 @@ def main():
                               for n in range(1,source.get('pages',1)+1)), 'tesseract' if 'OCR' in source['extraction'] else None)
         doc_id=repo.replace_document(doc,chunks,vectors,settings.chatbot_embedding_model)
         with engine.begin() as conn:
-            conn.execute(text('UPDATE legal_v2.legal_documents SET source_metadata=CAST(:meta AS jsonb) WHERE id=:id'),
+            conn.execute(text(f'UPDATE {schema}.legal_documents SET source_metadata=CAST(:meta AS jsonb) WHERE id=:id'),
                          {'id':doc_id,'meta':json.dumps(source,ensure_ascii=False)})
             for index,parent in enumerate(parents):
                 meta={k:v for k,v in parent.items() if k!='content'}
                 meta['selected_points_only']=bool(source.get('contains_selected_points'))
                 complete_parent = ((parent.get('article_context')+'\n\n') if parent.get('article_context') else '')+parent['content']
-                conn.execute(text('UPDATE legal_v2.legal_chunks SET provision_id=:pid,parent_content=:parent,'
+                conn.execute(text(f'UPDATE {schema}.legal_chunks SET provision_id=:pid,parent_content=:parent,'
                     'source_metadata=CAST(:meta AS jsonb) WHERE document_id=:id AND chunk_index=:index'),
                     {'id':doc_id,'index':index,'pid':parent['provision_id'],'parent':complete_parent,'meta':json.dumps(meta,ensure_ascii=False)})
         indexed.append({'id':source['id'],'chunks':len(chunks),'provisions':len(data['provisions'])})
@@ -100,11 +106,11 @@ def main():
         after=snapshot(conn)
         assert after==before, 'The original corpus or listings changed during isolated rebuild'
         counts=dict(conn.execute(text('SELECT count(*) AS chunks,count(embedding_vector) AS vectors,'
-            'count(provision_id) AS identified,count(parent_content) AS parented FROM legal_v2.legal_chunks')).mappings().one())
+            f'count(provision_id) AS identified,count(parent_content) AS parented FROM {schema}.legal_chunks')).mappings().one())
         assert counts['chunks']==counts['vectors']==counts['identified']==counts['parented']>0
-        conn.execute(text('UPDATE public.legal_corpus_releases SET manifest_sha256=:sha WHERE schema_name=\'legal_v2\''),
-                     {'sha':sha(corpus/'manifest.json')})
-    report={'schema':'legal_v2','original_before':before,'original_after':after,'counts':counts,'indexed':indexed,
+        conn.execute(text('UPDATE public.legal_corpus_releases SET manifest_sha256=:sha WHERE schema_name=:schema'),
+                     {'sha':sha(corpus/'manifest.json'),'schema':schema})
+    report={'schema':schema,'original_before':before,'original_after':after,'counts':counts,'indexed':indexed,
             'deactivated_superseded_sources':deactivated,
             'manifest_sha256':sha(corpus/'manifest.json'),'activation':'not activated; evaluation pending'}
     args.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

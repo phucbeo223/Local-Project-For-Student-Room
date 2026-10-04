@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--output',type=Path,default=Path('/eval/reports/legal_agent_http_preview_2026-10-03.json'))
     parser.add_argument('--message',default='Khi chuyển sang phòng trọ khác, sinh viên nên cập nhật thông tin cư trú như thế nào?')
     parser.add_argument('--expect-web-source',action='store_true')
+    parser.add_argument('--expect-schema',default='legal_v2')
     args=parser.parse_args()
     address=urlparse(args.base_url)
     if address.scheme!='http' or address.hostname not in ('nckh-api-legal-preview-v10','nckh-api-legal-preview-v11','nckh-api-legal-preview-v12','nckh-api-legal-preview-v13','nckh-api-legal-preview-v14','api','127.0.0.1','localhost'):
@@ -44,8 +45,10 @@ def main():
             body=response.json()
             result['response']=body
             result['passed']=(health.status_code==200 and anonymous.status_code in (401,403) and
-                body.get('corpus_schema')=='legal_v2' and bool(body.get('sources')) and
-                any(t.get('agent')=='answer' and t.get('attempted_provider')=='qwen-local' for t in body.get('agent_trace',[])) and
+                body.get('corpus_schema')==args.expect_schema and bool(body.get('sources')) and
+                any((t.get('agent')=='answer' and t.get('attempted_provider')=='qwen-local') or
+                    (t.get('agent')=='evidence_selection' and t.get('provider')=='qwen-local')
+                    for t in body.get('agent_trace',[])) and
                 body.get('generation_provider')!='gemini')
             if args.expect_web_source:
                 result['web_source_returned']=any(s.get('page_kind')=='web_excerpt' for s in body.get('sources',[]))

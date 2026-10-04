@@ -84,7 +84,7 @@ class ChatSource(BaseModel):
     source_url: str | None = None
     source_path: str | None = None
     category: str | None = None
-    page_kind: Literal['physical_pdf', 'logical_document', 'web_excerpt'] | None = None
+    page_kind: Literal['physical_pdf', 'logical_document', 'web_excerpt', 'editorial_guidance'] | None = None
     page_from: int | None = None
     page_to: int | None = None
     heading: str | None = None

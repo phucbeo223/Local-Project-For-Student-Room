@@ -1,0 +1,214 @@
+{
+  "source": {
+    "id": "legacy-8fb07729dbcb",
+    "title": "Nghị-định-105-2025-NĐ-CP",
+    "category": "fire_safety",
+    "path": "Data/fire_safety/Nghị-định-105-2025-NĐ-CP.docx",
+    "sha256": "96d3c8812018b49f0968bf43f4d9785c8e7d87536cec262e2a904f7cb4021b23",
+    "source_url": "https://vanban.chinhphu.vn/?classid=0&docid=213702&pageid=27160",
+    "origin_documents": [],
+    "extraction": "existing selected text; editorial header excluded by article parser",
+    "verification": "not verified word by word against full government original",
+    "page_kind": "logical_document",
+    "not_exhaustive": true,
+    "editorial_annotations": [
+      {
+        "page": 1,
+        "text": "Ghi chú tuyển chọn: Chỉ tuyển các điểm của khoản 1 liên quan nhà ở, người thuê và an toàn thoát nạn; điểm a, b khoản 2 đã thay bằng nội dung Nghị định 347/2026/NĐ-CP Điều 17."
+      },
+      {
+        "page": 1,
+        "text": "Ghi chú tuyển chọn: Chỉ giữ khoản 6 mới về cơ sở hoạt động trước 01/07/2025; được bổ sung tại Điều 29 khoản 2 Nghị định 347/2026/NĐ-CP. Bản PDF nguồn ghi “Nghị này” ở cuối câu, giữ nguyên cách ghi của nguồn."
+      },
+      {
+        "page": 1,
+        "text": "Ghi chú tuyển chọn: Dòng dưới đây chỉ nói về nhà chung cư, nhà ở tập thể; không áp ngưỡng này cho mọi nhà trọ."
+      }
+    ],
+    "contains_selected_points": true
+  },
+  "provisions": [
+    {
+      "provision_id": "96d3c8812018b49f0968:802:1",
+      "article": "3",
+      "clause": "1",
+      "heading": "Điều 3. Nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 1",
+      "content": "1. Nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ đối với cơ sở gồm các nội dung cơ bản sau:\n\na) Quy định việc quản lý, sử dụng điện, nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nb) Quy định việc quản lý, sử dụng phương tiện, thiết bị phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nc) Quy định nội dung cần thực hiện khi có cháy, nổ, tai nạn, sự cố xảy ra.",
+      "source_start": 858,
+      "source_end": 1248,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "fb3fe741a0ec371efac58a9f5a3b97ff849c1605996f48fce27cb3fa05a9b6af",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:802:3",
+      "article": "3",
+      "clause": "3",
+      "heading": "Điều 3. Nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ | Khoản 3",
+      "content": "3. Người đứng đầu cơ sở, chủ phương tiện giao thông ban hành hoặc tham mưu người có thẩm quyền ban hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ; nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ phải phù hợp với tính chất, đặc điểm hoạt động của cơ sở, phương tiện giao thông và được phổ biến, niêm yết ở vị trí dễ thấy.",
+      "source_start": 1248,
+      "source_end": 1574,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "f4b1e733eba45c390ddf6018b68ca45cc048df2d8c207d018fc6cc296d04b0b7",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:1574:1",
+      "article": "13",
+      "clause": "1",
+      "heading": "Điều 13. Nội dung, thẩm quyền kiểm tra về phòng cháy, chữa cháy | Khoản 1",
+      "content": "1. Nội dung kiểm tra về phòng cháy, chữa cháy theo quy định tại khoản 2 Điều 11 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ trong việc:\n\na) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của người đứng đầu cơ sở bao gồm: trách nhiệm trong việc thực hiện quy định tại các điểm a, b, c, đ, e, g và điểm h khoản 3 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; tổ chức thực hiện, kiểm tra, đôn đốc, giám sát cơ quan, tổ chức, cá nhân thuộc phạm vi quản lý về việc thực hiện quy định, nội quy, biện pháp, yêu cầu về phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nc) Trang bị phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy, nguồn nước chữa cháy theo quy định;\n\nd) Duy trì hoạt động các phương tiện, hệ thống phòng cháy, chữa cháy, cứu nạn, cứu hộ, hệ thống điện phục vụ phòng cháy và chữa cháy; nguồn nước chữa cháy;\n\ne) Duy trì điều kiện an toàn phòng cháy trong sử dụng nguồn lửa, nguồn nhiệt, thiết bị, dụng cụ sinh lửa, sinh nhiệt, chất dễ cháy, nổ;\n\nh) Duy trì giải pháp thoát nạn, ngăn cháy, chống cháy lan, chống khói;\n\nl) Chấp hành nội quy phòng cháy, chữa cháy, cứu nạn, cứu hộ;\n\nm) Duy trì các biển cấm, biển báo, biển chỉ dẫn;\n\nn) Thực hiện trách nhiệm phòng cháy, chữa cháy, cứu nạn, cứu hộ của chủ hộ gia đình trực tiếp sử dụng nhà ở, người thuê, mượn, ở nhờ nhà ở theo quy định tại khoản 6 và khoản 8 Điều 8 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ;\n\no) Duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn;",
+      "source_start": 1641,
+      "source_end": 3163,
+      "points": [
+        "a",
+        "c",
+        "d",
+        "e",
+        "h",
+        "l",
+        "m",
+        "n",
+        "o"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 11",
+        "khoản 3 Điều 8",
+        "khoản 8 Điều 8"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "684f20ca13d4ef24a104cd4850f380a266247aaa623c37dc961b6dc97bf413c0",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:1574:2",
+      "article": "13",
+      "clause": "2",
+      "heading": "Điều 13. Nội dung, thẩm quyền kiểm tra về phòng cháy, chữa cháy | Khoản 2",
+      "content": "2. Thẩm quyền kiểm tra:\n\na) Cơ quan Công an theo phân cấp tổ chức kiểm tra: Kiểm tra định kỳ 01 năm một lần đối với cơ sở thuộc nhóm 1 quy định tại Phụ lục II kèm theo Nghị định này, công trình xây dựng trong quá trình thi công thuộc diện phải thẩm duyệt thiết kế, thẩm định thiết kế về phòng cháy và chữa cháy, phương tiện giao thông quy định tại Phụ lục III kèm theo Nghị định này; kiểm tra định kỳ 02 năm một lần đối với cơ sở thuộc nhóm 2 quy định tại Phụ lục II kèm theo Nghị định này. Kiểm tra đột xuất khi có dấu hiệu vi phạm pháp luật, có đơn khiếu nại, tố cáo về vi phạm pháp luật liên quan đến phòng cháy, chữa cháy theo quy định hoặc theo yêu cầu phục vụ bảo đảm an ninh, trật tự của cơ quan có thẩm quyền đối với cơ sở quy định tại Phụ lục II kèm theo Nghị định này và phương tiện giao thông quy định tại Phụ lục III kèm theo Nghị định này. Nội dung kiểm tra định kỳ, đột xuất: đối với cơ sở theo quy định tại các điểm a, c, d và điểm đ khoản 1 Điều này; đối với công trình xây dựng trong quá trình thi công thuộc diện phải thẩm duyệt thiết kế, thẩm định thiết kế về phòng cháy và chữa cháy theo quy định tại các điểm c, d, l và điểm m khoản 1 Điều này; đối với phương tiện giao thông quy định tại Phụ lục III kèm theo Nghị định này theo quy định tại các điểm b, c, d, l và điểm m khoản 1 Điều này;\n\nb) Ủy ban nhân dân cấp tỉnh phân công, phân cấp cơ quan chuyên môn về xây dựng tổ chức kiểm tra: Kiểm tra định kỳ 01 năm một lần đối với cơ sở thuộc nhóm 1 quy định tại Phụ lục II kèm theo Nghị định này, 02 năm một lần đối với cơ sở thuộc nhóm 2 quy định tại Phụ lục II kèm theo Nghị định này. Kiểm tra đột xuất khi có dấu hiệu vi phạm pháp luật, có đơn khiếu nại, tố cáo về vi phạm pháp luật liên quan đến phòng cháy, chữa cháy và cứu nạn, cứu hộ theo quy định hoặc khi có yêu cầu phối hợp để phục vụ bảo đảm an ninh, trật tự của cơ quan có thẩm quyền đối với cơ sở thuộc Phụ lục II kèm theo Nghị định này. Nội dung kiểm tra định kỳ, đột xuất theo quy định tại điểm g và điểm h khoản 1 Điều này;\n\nc) Ủy ban nhân dân cấp xã tổ chức kiểm tra:\n\nKiểm tra định kỳ 03 năm một lần đối với cơ sở thuộc Phụ lục I, trừ cơ sở có nguy hiểm về cháy, nổ quy định tại Phụ lục II kèm theo Nghị định này.\n\nKiểm tra đột xuất khi có dấu hiệu vi phạm pháp luật, có đơn khiếu nại, tố cáo về vi phạm pháp luật liên quan đến phòng cháy, chữa cháy và cứu nạn, cứu hộ theo quy định hoặc theo yêu cầu phục vụ bảo đảm an ninh, trật tự của cơ quan có thẩm quyền đối với: nhà ở, nhà ở kết hợp sản xuất, kinh doanh; cơ sở thuộc Phụ lục I, trừ cơ sở có nguy hiểm về cháy, nổ quy định tại Phụ lục II kèm theo Nghị định này.\n\nNội dung kiểm tra định kỳ, đột xuất theo quy định tại các điểm a, c, d, đ, g, h và điểm n khoản 1 Điều này;\n\nđ) Người đứng đầu cơ sở tự tổ chức kiểm tra thường xuyên, định kỳ đối với cơ sở thuộc phạm vi quản lý. Nội dung kiểm tra thường xuyên theo quy định tại các điểm d, e, h và điểm l khoản 1 Điều này; nội dung kiểm tra định kỳ theo quy định tại các điểm c, d, đ, e, g, h, l và điểm m khoản 1 Điều này;\n\nh) Chủ hộ gia đình trực tiếp sử dụng nhà ở, người thuê, mượn, ở nhờ nhà ở tự tổ chức kiểm tra thường xuyên đối với nhà ở thuộc phạm vi quản lý. Nội dung kiểm tra theo quy định tại điểm c và điểm d về trang bị phương tiện, duy trì hoạt động của phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ và quy định tại điểm e và điểm o khoản 1 Điều này.\n\nĐối với nhà ở thuộc trường hợp quy định tại khoản 5 Điều 20 Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ, ngoài kiểm tra các nội dung quy định nêu trên thì còn phải kiểm tra việc duy trì hoạt động của thiết bị truyền tin báo cháy kết nối với hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy;",
+      "source_start": 3163,
+      "source_end": 6857,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "đ",
+        "h"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 5 Điều 20"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "29612d2d44e8b5dd90690626c38ebb0f67f373612beb00c619a0b9e452a62746",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:6857:1",
+      "article": "14",
+      "clause": "1",
+      "heading": "Điều 14. Trình tự, thủ tục kiểm tra về phòng cháy, chữa cháy | Khoản 1",
+      "content": "1. Người đứng đầu cơ sở, chủ phương tiện giao thông, chủ đầu tư, chủ sở hữu công trình, chủ hộ gia đình, người thuê, mượn, ở nhờ nhà ở quyết định thời gian, phạm vi và hình thức ghi nhận kết quả tự kiểm tra thường xuyên đối với cơ sở, phương tiện giao thông, công trình xây dựng trong quá trình thi công, nhà ở, nhà ở kết hợp sản xuất, kinh doanh thuộc phạm vi quản lý nhưng không quá 01 tháng một lần.",
+      "source_start": 6919,
+      "source_end": 7323,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d91cd928e05996fe8f9df8b8bb5bef3bbfc1f8f1f19fbd96fa5d42e3ad0730a5",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:6857:2",
+      "article": "14",
+      "clause": "2",
+      "heading": "Điều 14. Trình tự, thủ tục kiểm tra về phòng cháy, chữa cháy | Khoản 2",
+      "content": "2. Người đứng đầu cơ sở hoặc người được phân công thực hiện kiểm tra về phòng cháy, chữa cháy tại cơ sở kiểm tra định kỳ: 06 tháng một lần đối với cơ sở thuộc Phụ lục II kèm theo Nghị định này, 01 năm một lần đối với các cơ sở còn lại thuộc Phụ lục I kèm theo Nghị định này, kết thúc kiểm tra lập biên bản theo Mẫu số PC02 kèm theo Nghị định này. Gửi báo cáo kết quả thực hiện công tác phòng cháy, chữa cháy của cơ sở theo Mẫu số PC04 kèm theo Nghị định này đến Ủy ban nhân dân cấp xã, cơ quan Công an, cơ quan chuyên môn về xây dựng trực tiếp quản lý hoặc cập nhật thông tin, dữ liệu trên hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy trước ngày 15 tháng 6 và trước ngày 15 tháng 12 hằng năm.",
+      "source_start": 7323,
+      "source_end": 8060,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "e2bbfde1ff5005ae18fa8fbf88450a3f2b67404ddf313d5f5f8cff8f14e94956",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:6857:3",
+      "article": "14",
+      "clause": "3",
+      "heading": "Điều 14. Trình tự, thủ tục kiểm tra về phòng cháy, chữa cháy | Khoản 3",
+      "content": "3. Cơ quan Công an, cơ quan chuyên môn về xây dựng, Ủy ban nhân dân cấp xã theo phân cấp tổ chức kiểm tra định kỳ đối với cơ sở quy định tại Phụ lục I kèm theo Nghị định này, công trình xây dựng thuộc diện phải thẩm duyệt thiết kế hoặc thẩm định thiết kế về phòng cháy và chữa cháy trong quá trình thi công, phương tiện giao thông quy định tại Phụ lục III kèm theo Nghị định này thuộc phạm vi quản lý theo trình tự, thủ tục như sau: a) Trước ngày 15 tháng 12 hằng năm, cơ quan Công an, cơ quan chuyên môn về xây dựng, Ủy ban nhân dân cấp xã theo phân cấp xây dựng kế hoạch kiểm tra định kỳ của năm kế tiếp đối với cơ sở, công trình, phương tiện giao thông thuộc phạm vi quản lý và được điều chỉnh khi cần thiết; b) Thành lập Đoàn kiểm tra hoặc phân công cán bộ thực hiện kiểm tra và gửi văn bản thông báo về thời gian, nội dung và thành phần tham gia kiểm tra cho đối tượng được kiểm tra trước 03 ngày làm việc; c) Trưởng đoàn hoặc cán bộ được phân công giới thiệu thành phần, nội dung, phương pháp và phân công thành viên trong đoàn thực hiện kiểm tra về phòng cháy, chữa cháy theo thẩm quyền; d) Kết thúc kiểm tra phải lập biên bản theo Mẫu số PC03 kèm theo Nghị định này; trường hợp đối tượng kiểm tra không ký biên bản thì ghi rõ lý do vào biên bản kiểm tra.",
+      "source_start": 8060,
+      "source_end": 9324,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "7988766a8ce37e6cfd4fedafa8f98fe745ada8e08f7206a5c9ac4e3d338d1b8f",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:9324:1",
+      "article": "45",
+      "clause": "1",
+      "heading": "Điều 45. Hiệu lực thi hành | Khoản 1",
+      "content": "1. Nghị định này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2025.",
+      "source_start": 9352,
+      "source_end": 9420,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "f4f0ced204798bf9398d9c90efdfa17a0aa59697be5f2b6aa17a0764569c1e66",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "96d3c8812018b49f0968:9420:6",
+      "article": "46",
+      "clause": "6",
+      "heading": "Điều 46. Quy định chuyển tiếp | Khoản 6",
+      "content": "6. Đối với cơ sở được xây dựng và hoạt động trước ngày 01 tháng 7 năm 2025 đã được quản lý về phòng cháy, chữa cháy, cứu nạn, cứu hộ theo quy định tại Nghị định số 136/2020/NĐ-CP, Nghị định số 50/2024/NĐ-CP và thuộc danh mục quy định tại Phụ lục I kèm theo Nghị định này, tiếp tục thực hiện việc quản lý, kiểm tra về phòng cháy, chữa cháy đối với cơ sở theo quy định tại Điều 13 và Điều 14 Nghị này.",
+      "source_start": 9453,
+      "source_end": 9854,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 13",
+        "Điều 14"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "e85d7feca138d3dd2956e9e62107813e54796b046f79b4134a69c0822a23b6f8",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

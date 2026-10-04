@@ -1,0 +1,74 @@
+{
+  "source": {
+    "id": "legacy-d9f68871fe49",
+    "title": "Quyết-định-1279-QĐ-BCT",
+    "category": "electricity",
+    "path": "Data/electricity/Quyết-định-1279-QĐ-BCT.docx",
+    "sha256": "1d243991970650c5dc4bcf2bea1cb21289444f6eace2fcf183a6bae299724486",
+    "source_url": "https://vanban.chinhphu.vn/?classid=2&docid=213617&pageid=27160",
+    "origin_documents": [],
+    "extraction": "existing selected text; editorial header excluded by article parser",
+    "verification": "not verified word by word against full government original",
+    "page_kind": "logical_document",
+    "not_exhaustive": true
+  },
+  "provisions": [
+    {
+      "provision_id": "1d243991970650c5dc4b:1132:body",
+      "article": "1",
+      "clause": null,
+      "heading": "Điều 1. Ban hành giá bán lẻ điện cho các nhóm khách hàng sử dụng điện và giá bán điện cho các đơn vị bán lẻ điện tại Phụ lục kèm theo Quyết định này. Giá bán điện quy định tại Phụ lục kèm theo Quyết định này chưa bao gồm thuế giá trị gia tăng.",
+      "content": "Điều 1. Ban hành giá bán lẻ điện cho các nhóm khách hàng sử dụng điện và giá bán điện cho các đơn vị bán lẻ điện tại Phụ lục kèm theo Quyết định này. Giá bán điện quy định tại Phụ lục kèm theo Quyết định này chưa bao gồm thuế giá trị gia tăng.",
+      "source_start": 1132,
+      "source_end": 1377,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 1"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "e09e340b091807cfcd1ac9d010effda2ca28d6b41117714da50fcc234e8e180f",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "1d243991970650c5dc4b:1377:body",
+      "article": "2",
+      "clause": null,
+      "heading": "Điều 2. Mức giá bán lẻ điện bình quân là 2.204,0655 đồng/kWh (chưa bao gồm thuế giá trị gia tăng).",
+      "content": "Điều 2. Mức giá bán lẻ điện bình quân là 2.204,0655 đồng/kWh (chưa bao gồm thuế giá trị gia tăng).",
+      "source_start": 1377,
+      "source_end": 1477,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 2"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "d77a90656527e7225143de6110a6a758ef216a43ae1b18c805bebd3978c84da5",
+      "page_from": 1,
+      "page_to": 1
+    },
+    {
+      "provision_id": "1d243991970650c5dc4b:1477:body",
+      "article": "3",
+      "clause": null,
+      "heading": "Điều 3. Thời gian áp dụng giá bán điện: từ ngày 10 tháng 5 năm 2025.",
+      "content": "Điều 3. Thời gian áp dụng giá bán điện: từ ngày 10 tháng 5 năm 2025.",
+      "source_start": 1477,
+      "source_end": 1547,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 3"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "7732c6e2225beee71407d5d4df9411075e3148e337719d174809ff40630fd567",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

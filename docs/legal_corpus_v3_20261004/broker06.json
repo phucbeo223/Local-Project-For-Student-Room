@@ -1,0 +1,39 @@
+{
+  "source": {
+    "id": "broker06",
+    "title": "Văn bản hợp nhất 06/VBHN-VPQH năm 2025 — Luật Kinh doanh bất động sản",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-06-vbhn-vpqh-44399/55348.htm",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRnga5qArxZr1w1r1PrCkVxjEvjPKMUotYqvMwxG8qc5iJyPH7yyOWRiE5dSFBNa42MO7IMtVn8Bg-zUonLgUzzQ~~&file_name=2025_493+%2b+494_06-VBHN-VPQH.pdf",
+    "path": "docs/legal_web_supplement_20261004/originals/broker06.pdf",
+    "sha256": "bd64ed0b976598f88204513418850f5825fa8afce3397d3ce044b1dc0e48b3c4",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "reviewed_excerpt_in_refresh_corpus",
+    "category": "real_estate_brokerage"
+  },
+  "provisions": [
+    {
+      "source_id": "broker06",
+      "article": "46",
+      "clause": "4",
+      "heading": "Điều 46. Nội dung chính của hợp đồng trong kinh doanh bất động sản",
+      "content": "4. Hợp đồng kinh doanh dịch vụ bất động sản phải có các nội dung chính sau đây:\na) Tên, địa chỉ của các bên;\nb) Đối tượng và nội dung dịch vụ;\nc) Yêu cầu và kết quả dịch vụ;\nd) Thời hạn thực hiện dịch vụ;\nđ) Phí dịch vụ, thù lao, hoa hồng dịch vụ;\ne) Phương thức và thời hạn thanh toán;\ng) Quyền, nghĩa vụ của các bên;\nh) Phương thức giải quyết tranh chấp;\ni) Thời điểm có hiệu lực của hợp đồng.",
+      "page_from": 47,
+      "page_to": 47,
+      "printed_page": 73,
+      "review_images": [
+        "qa/broker06-47.png"
+      ],
+      "applicability_note": "Đối chiếu dịch vụ thuộc luật chuyên ngành; không mặc định mọi người giới thiệu phòng đều kinh doanh môi giới.",
+      "kind": "legal_provision",
+      "content_sha256": "cc7e5d9a3dab036ab6d7cd03840622d3fd143c636c717fcf502204902fe38d8a",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:broker06:46:4"
+    }
+  ]
+}

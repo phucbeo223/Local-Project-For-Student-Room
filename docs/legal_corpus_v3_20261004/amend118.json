@@ -1,0 +1,398 @@
+{
+  "source": {
+    "id": "amend118",
+    "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+    "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+    "path": "docs/legal_sources_originals_20261003/amend118.pdf",
+    "sha256": "a9798bfab6120963834d26559ab8614003ca3012de1d1846305495e8bb4300b6",
+    "bytes": 12531681,
+    "pages": 28,
+    "text_chars": 0,
+    "category": "residence",
+    "title": "Luật 118/2025/QH15",
+    "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+    "extraction": "government PDF text/OCR",
+    "page_kind": "physical_pdf",
+    "not_exhaustive": true,
+    "verification": "OCR/raw text; not all words visually reviewed"
+  },
+  "provisions": [
+    {
+      "provision_id": "a9798bfab6120963834d:21929:1",
+      "article": "4",
+      "clause": "1",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 1",
+      "content": "1. Sửa đổi, bé sung một số khoản của Điều 2 như sau:\n\na) Sửa đối, bỗ sung khoản 2 như sau:\n\n“2. Cu tru là việc công dân sinh sống tại một địa điểm thuộc đơn vị hành\nchính câp xã.”;\n\nb) Sửa đổi, bổ sung khoản 4 như sau:\n\n“4. Cơ quan đăng ky cư trv là cơ quan quan lý cư trú trực tiếp thực hiện\nviệc đăng ký cư trú của công dân, bao gôm Công an xã, phường, đặc khu (sau đây\ngọi chung là Công an câp xã).”.",
+      "source_start": 21983,
+      "source_end": 22388,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 2"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "69fff0cc1deb8ca527e9b7b5a328af56bb693ade79979d5fef57ea68035325b5",
+      "page_from": 10,
+      "page_to": 10
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:2",
+      "article": "4",
+      "clause": "2",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 2",
+      "content": "2. Sửa đổi, bổ sung khoản 11 Điều 7 như sau:\n\n“11. Giải quyết cho đăng ký thường trú, đăng ký tạm trú khi biết rõ người\nđăng ký thường trú, đăng ký tạm trú không sinh sông tại cho ở đó, trừ trường hợp\nđăng ký thường trú hoặc đăng ký tạm trú cho trẻ em dưới 6 tuôi về với cha hoặc\nmẹ hoặc người giám hộ.”.\n\nll",
+      "source_start": 22388,
+      "source_end": 22698,
+      "points": [],
+      "exceptions": [
+        "đăng ký thường trú, đăng ký tạm trú không sinh sông tại cho ở đó, trừ trường hợp"
+      ],
+      "cross_references": [
+        "khoản 11 Điều 7"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "281d2c45c979bf035acfe7fcf9ee0ce0945d351009e9c68dcf595510df70f63e",
+      "page_from": 10,
+      "page_to": 11
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:3",
+      "article": "4",
+      "clause": "3",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 3",
+      "content": "3. Sửa đổi, bổ sung khoản 2 Điều 12 như sau:\n\n„2. Người chưa thành niên có thé có nơi cư trú khác với nơi cư trú của cha,\nmẹ néu được cha hoặc mẹ đông ý hoặc pháp luật có quy định.”.",
+      "source_start": 22698,
+      "source_end": 22882,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 12"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "0c61f1969b3d4eda06c45288d2e379f30a81746ef3e1c06ff0b0b3d90e2a4ee8",
+      "page_from": 11,
+      "page_to": 11
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:4",
+      "article": "4",
+      "clause": "4",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 4",
+      "content": "4. Sửa đối, bổ sung một số khoản của Điều 20 như sau:\n\na) Sửa đổi, bé sung khoản 2 như sau:\n\n“2. Người dưới 6 tuổi được đăng ký thường trú tại chỗ ở hợp pháp không\nthuộc quyên sở hữu của mình khi về ở với cha, mẹ, người giám hộ mà không can\nsự dong ý của chủ hộ và chủ sở hữu chỗ ở hợp pháp đó.\n\nCông dân được đăng ký thường trú tại chỗ ở hợp pháp không thuộc quyền\nsở hữu của mình khi được chủ hộ và chủ sở hữu chỗ ở hợp pháp đó đồng ý trong\ncác trường hợp sau đây:\n\na) Vợ về ở với chồng; chồng về ở với VỢ; người từ đủ 6 tuổi trở lên về ở với\ncha, mẹ, người giám hộ; cha, mẹ về ở với con; người mat nang lực hành vi dân sự,\nngười có khó khăn trong nhận thức, làm chủ hành vi về ở với người giám hộ;\n\nb) Người cao tuổi về ở với anh ruột, chị ruột, em ruột, cháu ruột; người\nkhuyết tật đặc biệt nặng, người khuyết tật nặng, người không có khả năng lao\nđộng, người mat năng lực hành vi dân sự, người có khó khăn trong nhận thức, làm\nchủ hành vi về ở với ông nội, bà nội, ông ngoại, bà ngoại, anh ruột, chị ruột, em\nruột, bác ruột, chú ruột, cậu ruột, cô ruột, dì ruột, cháu ruột;\n\nc) Người chưa thành niên được cha, mẹ hoặc người giám hộ đồng ý hoặc\nkhông còn cha, mẹ về ở với cụ nội, cụ ngoại, ông nội, bà nội, ông ngoại, bà ngoại,\nanh ruột, chi ruột, em ruột, bác ruột, chú ruột, cậu ruột, cô ruột, di ruột.”;\n\nb) Sửa đôi, bé sung khoản 8 như sau:\n\n_ “8. Công dân không được đăng ký thường trú mới tại chỗ ở quy định tại\nĐiều 23 của Luật này, trừ trường hợp người dưới 6 tuôi được đăng ký thường trú\ntại cho ở hợp pháp không thuộc quyên sở hữu của mình khi về ở với cha, mẹ,\nngười giám hộ và quy định tại điểm a khoản 2 Điều này.”.",
+      "source_start": 22882,
+      "source_end": 24516,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [
+        "Điều 23 của Luật này, trừ trường hợp người dưới 6 tuôi được đăng ký thường trú"
+      ],
+      "cross_references": [
+        "Điều 20",
+        "Điều 23"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "2ebc2df124ed0b3fda2ea12a8f54c064cddd9456c9c2810f23b6fd3ee8eec016",
+      "page_from": 11,
+      "page_to": 11
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:5",
+      "article": "4",
+      "clause": "5",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 5",
+      "content": "5. Sửa đổi, bỗ sung một số khoản của Điều 21 như sau:\n\na) Sửa đôi, bổ sung khoản 2 như sau:\n\n“2. Hồ sơ đăng ký thường trú đối với người quy định tại khoản 2 Điều 20\ncủa Luật này bao gom:\n\na) Tờ khai thay đôi thông tin cư trú, trong đó ghi rõ ý kiến đồng ý cho đăng\nký thường trú của chủ hộ, chủ sở hữu cho ở hợp pháp hoặc người được ủy quyên,\ntrừ trường hợp đã có ý kiên dong ý bang văn bản. Trường hợp người dưới 6 tuôi\nđăng ký thường trú về ở với cha, mẹ, người giám hộ thì Tờ khai thay đổi thông\ntin vê cư trú không cân có ý kiên đông ý cho đăng ký thường trú của chủ hộ, chủ\nsở hữu chỗ ở hợp pháp hoặc người được ủy quyên;\n\nb) Giấy tờ, tài liệu chứng minh quan hệ nhân thân với chủ hộ, thành viên\nhộ gia đình, trừ trường hợp đã có thông tin thê hiện quan hệ này trong Cơ sở dữ\nliệu quôc gia về dân cư, Co sở dữ liệu vé cư trú;\n\n_ oc) Giấy tờ, tài liệu chứng minh các điều kiện khác quy định tại khoản 2\nĐiêu 20 của Luật này.”;\n\nb) Sửa đổi, bổ sung khoản 9 như sau:\n\n“9. Trường hợp người đăng ký thường trú quy định tai các khoản 1, 2, 3, 4,\n5, 6 và 7 Điêu này là người Việt Nam định cư ở nước ngoài còn quốc tịch Việt\nNam thì trong hô sơ đăng ký thường trú phải có hộ chiêu Việt Nam còn giá trị sử\ndụng; trường hợp không có hộ chiêu Việt Nam còn giá trị sử dụng thì phải có giấy\ntờ, tài liệu khác chứng minh có quốc tịch Việt Nam.”.",
+      "source_start": 24516,
+      "source_end": 25854,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [
+        "trừ trường hợp đã có ý kiên dong ý bang văn bản.",
+        "hộ gia đình, trừ trường hợp đã có thông tin thê hiện quan hệ này trong Cơ sở dữ"
+      ],
+      "cross_references": [
+        "Điều 21",
+        "khoản 2 Điều 20"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "dfe2b4f911c9a88fb3a4af353d2358f4237aeed1d9a7ef4fe4f70ff95940ca5e",
+      "page_from": 11,
+      "page_to": 12
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:6",
+      "article": "4",
+      "clause": "6",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 6",
+      "content": "6. Sửa đổi, bé sung điểm đ khoản 1 Điều 24 như sau:\n\n__ “d) Đã được cơ quan có thắm quyền cho thôi quốc tịch Việt Nam, tước\nquôc tịch Việt Nam, hủy bỏ quyết định cho nhập quốc tịch Việt Nam, huỷ bỏ\nquyết định cho trở lại quốc tịch Việt Nam;”.",
+      "source_start": 25854,
+      "source_end": 26098,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 1 Điều 24"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "af67d5f6b6868d814eb104cccb385e1fe34e7e0decea4c524f2fea09c720225a",
+      "page_from": 12,
+      "page_to": 12
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:7",
+      "article": "4",
+      "clause": "7",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 7",
+      "content": "7. Sửa đỗi, bổ sung một số điểm, khoản của Điều 26 như sau:\n\na) Sửa đổi, bỗ sung khoản 2 như sau:\n\n2: Hồ sơ điều chỉnh thông tin về cư trú quy định tại điểm a khoản 1 Điều\nnày bao gôm:\n\na) Tờ khai thay đổi thông tin cư trú;\n\nb) Giấy tờ, tài liệu chứng minh việc điều chỉnh thông tin.”;\n\nb) Sửa đổi, bố sung điểm b khoản 3 như sau:\n\n“b) Đối với trường hợp quy định tại điểm b khoản 1 Điều này, khi có sự\nthay đôi thông tin về hộ tịch của cơ quan có thẩm quyên, thông tin thay đôi về hộ\ntịch của công dân được cập nhật từ Cơ sở dữ liệu quốc gia về dân cư cho Cơ sở\ndir liệu về cư trú;”.",
+      "source_start": 26098,
+      "source_end": 26684,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 26"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "52b15f842e0e5069f0411dac4874b15c9a56b1419033d3b34b4bfcc8abb291ba",
+      "page_from": 12,
+      "page_to": 12
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:8",
+      "article": "4",
+      "clause": "8",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 8",
+      "content": "8. Sửa déi, bỗ sung điểm d khoản 1 Điều 29 như sau:\n\n“đ) Đã được cơ quan có thẩm quyền cho thôi quốc tịch Việt Nam, tước\nquôc tịch Việt Nam, hủy bỏ quyét định cho nhập quốc tịch Việt Nam, huỷ bỏ\nquyét định cho trở lại quốc tịch Việt Nam;”.\n\n9, Sửa đổi, bé sung Điều 30 như sau:\n\n“Điều 30. Thông báo lưu trú\n\n1, Khi có người lưu trú qua đêm, thành viên hộ gia đình, người đại diện cơ\nsở chữa bệnh, cơ sở lưu trú du lịch, chủ sở hữu hoặc người được giao quản lý\nphương tiện, các cơ sở lưu trú khác có trách nhiệm thông báo việc lưu trú với cơ\nquan đăng ký cư trú; trường hợp người đên lưu trú tại chỗ ở của cá nhân, hộ gia\nđình mà cá nhân, thành viên hộ gia đình không có mặt tại chỗ ở đó thì người đến\nlưu trú có trách nhiệm thông báo việc lưu trú với cơ quan đăng ký cư trú.\n\n2. Nội dung thông báo về lưu trú bao gồm: họ và tên, ngày, tháng, năm sinh,\nsô định danh cá nhân hoặc sô hộ chiêu của người lưu trú; lý do lưu trú; thời gian\nlưu trú; địa chỉ lưu trú.\n\n` 13\n\n3. Việc thông báo lưu trú được thực hiện trước 23 giờ của ngày bắt đầu lưu\ntrú; trường hợp người dén lưu trú sau 23 giờ thì việc thông báo lưu trú được thực\nhiện trước 08 giờ ngày hôm sau.\n\n4. Bộ trưởng Bộ Công an quy định chỉ tiết việc thông báo lưu trú.”.",
+      "source_start": 26684,
+      "source_end": 27910,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 1 Điều 29",
+        "Điều 30"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "8b6e767c7b3263ee923fcadc1c3ca75f97a2c91b8aaa85cfd1360410d7adb0b5",
+      "page_from": 12,
+      "page_to": 13
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:10",
+      "article": "4",
+      "clause": "10",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 10",
+      "content": "10. Sửa đổi, bỗ sung một số khoản của Điều 31 như sau:\n\n“2. Trước khi đi khỏi nơi cư trú, người quy định tại điểm a và điểm b\nkhoản 1 Điêu này phải có ý kiến đồng ý của cơ quan có thâm quyên giám sát,\nquản lý, giáo dục người đó. Công dân khai báo tạm văng với cơ quan đăng ký\ncư trú nơi người đó cư trú qua Cổng dịch vụ công quốc gia hoặc ứng dụng định\ndanh quôc gia.\n\nCơ quan đăng ký cư trú tiếp nhận nội dung khai báo tạm vắng, kiểm tra nội\ndung khai báo và trao đổi với cơ quan có thâm quyên giám sát, quản lý, giáo dục\nngười đó. Trong thời hạn 01 ngày làm việc kê từ ngày nhận được dé nghị khai báo\ntạm văng, cơ quan đăng ký cư trú cap phiêu khai báo tạm văng cho công dân;\ntrường hợp phức tạp thì thời gian giải quyết có thể kéo dài hơn nhưng không quá\n02 ngày làm việc.\n\n3. Người quy định tại điểm c và điểm d khoản 1 Điều này khai báo qua điện\nthoại, phương tiện điện tử hoặc hình thức khác do Bộ trưởng Bộ Công an quy\nđịnh. Trường hợp người quy định tại điểm d khoản 1 Điều này là người chưa thành\nniên thì người thực hiện khai báo là cha, mẹ hoặc người giám hộ.”.",
+      "source_start": 27910,
+      "source_end": 28984,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "Điều 31"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "977ed7ea1b8e2fc1605933b59abc75530de79cb157f4e879543418e471b05c37",
+      "page_from": 13,
+      "page_to": 13
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:11",
+      "article": "4",
+      "clause": "11",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 11",
+      "content": "11. Sửa đổi, bổ sung khoản 2 Điều 33 như sau:\n\n“2. Cập nhật thông tin về cư trú của công dân vào Cơ sở dữ liệu quốc gia\nvê dân cư, Cơ sở dữ liệu vé cư trú. Tiếp nhận phản hồi của người dân về việc\nthông tin sai lệch, phôi hợp với cơ quan có liên quan xác minh, kịp thời cập nhật,\nđiêu chỉnh thông tin công dân.”.",
+      "source_start": 28984,
+      "source_end": 29298,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 33"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "de90184a88a49dd0fef16cb56e9cf12ac0563453bf922a621c372e1afbdc469b",
+      "page_from": 13,
+      "page_to": 13
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:12",
+      "article": "4",
+      "clause": "12",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 12",
+      "content": "12. Thay thế một số từ, cụm từ tại một số điểm, khoản, điều như sau:\n\na) Thay thế từ “thị trấn” bằng từ “đặc khu” tại điểm b khoản 2 Điều 4 và\nđiêm b khoản 1 Điều 31;\n\nb) Thay thé từ “huyện” bằng từ “xã” tại điểm c khoản 1 Điều 31;\n\nc) Thay thế cụm từ “an toàn” bằng cụm từ “an ninh” tại điểm c khoản 3\nĐiêu 36.",
+      "source_start": 29298,
+      "source_end": 29611,
+      "points": [
+        "a",
+        "b",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 2 Điều 4",
+        "khoản 1 Điều 31"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "2364c2e935e61b1e2d18881cd4b495c6011c4118fe610c1af80ddb10edd77471",
+      "page_from": 13,
+      "page_to": 13
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:21929:13",
+      "article": "4",
+      "clause": "13",
+      "heading": "Điều 4. Sửa đổi, bỗ sung một số điều của Luật Cư trú | Khoản 13",
+      "content": "13. Bỏ một số cụm từ tại một số khoản, điều như sau:\n\na) Bỏ số “2,” tại khoản 8 Điều 21;\n\nb) Bỏ cum từ “số Chứng minh nhân dân,” tại khoản 4 Điều 31.",
+      "source_start": 29611,
+      "source_end": 29762,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 8 Điều 21",
+        "khoản 4 Điều 31"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "05406ff471a7ba9a56d34e6c77c423b0cecfc68ae3b1c0a4b09cc03b141dab88",
+      "page_from": 13,
+      "page_to": 13
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:65411:body",
+      "article": "10",
+      "clause": null,
+      "heading": "Điều 10. Sửa đỗi, bd sung một số điều của Luật Phòng cháy, chữa cháy",
+      "content": "và cứu nạn, cứu hộ",
+      "source_start": 65479,
+      "source_end": 65500,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "2677c30534bf415320f5ec87a155c12af06e085769cf28f30bb6186ea6cf45a2",
+      "page_from": 28,
+      "page_to": 28
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:65411:1",
+      "article": "10",
+      "clause": "1",
+      "heading": "Điều 10. Sửa đỗi, bd sung một số điều của Luật Phòng cháy, chữa cháy | Khoản 1",
+      "content": "1. Sửa đổi, bổ sung khoản 4 Điều 7 như sau:\n\n“4. Ủy ban nhân dân các cấp thực hiện quản lý nhà nước về phòng cháy,\nchữa cháy, cứu nạn, cứu hộ tại địa phương.”.",
+      "source_start": 65500,
+      "source_end": 65661,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 4 Điều 7"
+      ],
+      "kind": "legal_provision",
+      "article_context": "và cứu nạn, cứu hộ",
+      "content_sha256": "66521b8090e76c2f99f987bf018af15738c3dcfb5d6caead754fd68ee841031d",
+      "page_from": 28,
+      "page_to": 28
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:65411:2",
+      "article": "10",
+      "clause": "2",
+      "heading": "Điều 10. Sửa đỗi, bd sung một số điều của Luật Phòng cháy, chữa cháy | Khoản 2",
+      "content": "2. Thay thế một số từ, cụm từ tại một số điểm, khoản, điều như sau:\n\na) Thay thế cụm từ “Bộ Giao thông vận tải” bằng cụm từ “Bộ Xây dựng”\ntại khoản 3 Điêu 9;\n\nb) Thay thé từ “huyện” bang từ “xã” tại điểm c khoản 5 Điều 26 và điểm c\nkhoản 5 Điều 35.",
+      "source_start": 65661,
+      "source_end": 65911,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 5 Điều 26",
+        "khoản 5 Điều 35"
+      ],
+      "kind": "legal_provision",
+      "article_context": "và cứu nạn, cứu hộ",
+      "content_sha256": "82aa2f072a2e24534b4bd4bd72f48e5220b2862ed62b3d395ad1a84c86142638",
+      "page_from": 28,
+      "page_to": 28
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:65411:3",
+      "article": "10",
+      "clause": "3",
+      "heading": "Điều 10. Sửa đỗi, bd sung một số điều của Luật Phòng cháy, chữa cháy | Khoản 3",
+      "content": "3. Bỏ một số cụm từ tại một số khoản, điều như sau:\n\na) Bỏ cum tir“, Bộ Lao động - Thương binh và Xã hội,” tại khoản 4 Điều 9;\n\nb) Bỏ cụm từ “hoặc tại huyện nơi không tổ chức don vị hành chính cấp xã”\ntại khoản 3 Điêu 37.",
+      "source_start": 65911,
+      "source_end": 66134,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 4 Điều 9"
+      ],
+      "kind": "legal_provision",
+      "article_context": "và cứu nạn, cứu hộ",
+      "content_sha256": "4271fdc74817dd0ab650b90c669f7f9cd59bd978b8808c5b532ea07d73d4d47f",
+      "page_from": 28,
+      "page_to": 28
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:66134:1",
+      "article": "11",
+      "clause": "1",
+      "heading": "Điều 11. Điều khoản thi hành | Khoản 1",
+      "content": "1. Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026, trừ quy định\ntại khoản 2 Điêu này.",
+      "source_start": 66164,
+      "source_end": 66262,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "de97d4d0854080b2aaccfd7d86b032d503cf70a8d028efec043f2ee69cb09e8a",
+      "page_from": 28,
+      "page_to": 28
+    },
+    {
+      "provision_id": "a9798bfab6120963834d:66134:2",
+      "article": "11",
+      "clause": "2",
+      "heading": "Điều 11. Điều khoản thi hành | Khoản 2",
+      "content": "2. Quy định tại điểm a khoản 20 Điều 7 của Luật này có hiệu lực thi hành\ntừ ngày 01 tháng 01 năm 2026.\n\n,3. Thay thế cụm từ “Bộ Giao thông vận tải” bằng cụm từ “Bộ Xây dựng”\ntại điểm 1.1a, tiêu mục 1 thuộc phân V- Phí thuộc lĩnh vực giao thông vận tải\ntrong Danh mục phí, lệ phí ban hành kèm theo Luật Phí và lệ phí số\n27/2015/QH13 đã được sửa đôi, bô sung một sô điêu theo Luật sô 09/201 7/QH14,\nLuật sô 23/2018/QH14, Luật số 72/2020/QH14, Luật số 16/2023/QH15, Luật sô\n20/2023/QH15, Luật SỐ 24/2023/QHI5, Luật SỐ 33/2024/QH15, Luật so\n35/2024/QHI5, Luật số 47/2024/QHI5, Luật sô 60/2024/QHI5, Luật sô\n74/2025/QH15, Luật sô 89/2025/QHI5, Luật sô 94/2025/QH15, Luật số\n95/2025/QH15 và Luật sô 116/2025/QH15.\n\nLuật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XV,\nKỳ họp thứ 10 thông qua ngày 10 tháng 12 năm 2025. bn-\n\nJ. SCH NCH QUOC HỘI\n‘ /\n*s=ffân Thanh Mẫn",
+      "source_start": 66262,
+      "source_end": 67142,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [
+        "khoản 20 Điều 7"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "2c4f568ac10c033a1e31f8f5c72ded84a19b62ef3aa3f70110c283cd54bbded2",
+      "page_from": 28,
+      "page_to": 28
+    }
+  ]
+}

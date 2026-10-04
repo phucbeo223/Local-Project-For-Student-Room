@@ -1,0 +1,500 @@
+{
+  "schema": "legal_v3_20261004",
+  "documents": [
+    {
+      "id": "amend118",
+      "file": "docs/legal_corpus_v3_20261004/amend118.json",
+      "sha256": "4c03827ef1b0c9f40cfc575e1f6977baa5a90e860c7c56d8ec7177440614eac7",
+      "category": "residence",
+      "provisions": 18
+    },
+    {
+      "id": "amend347",
+      "file": "docs/legal_corpus_v3_20261004/amend347.json",
+      "sha256": "d742ee42a2fe293734ba592f88c55eaa73574caab65b26ba59cd0c8765a7b9a8",
+      "category": "residence",
+      "provisions": 20
+    },
+    {
+      "id": "amend58",
+      "file": "docs/legal_corpus_v3_20261004/amend58.json",
+      "sha256": "310a873b601936091bf4464b26603c3434d009cd259e61344bd0890d23f83db6",
+      "category": "residence",
+      "provisions": 18
+    },
+    {
+      "id": "broker06",
+      "file": "docs/legal_corpus_v3_20261004/broker06.json",
+      "sha256": "3dbcd68667ac90b6a9ad1fefde24fd54a5dbfec79abdb39cf9a8e0bac2394bf0",
+      "category": "real_estate_brokerage",
+      "provisions": 1
+    },
+    {
+      "id": "civil-service-contract",
+      "file": "docs/legal_corpus_v3_20261004/civil-service-contract.json",
+      "sha256": "f44b0f06bad4fc2a310d0643b76e5adc0d0c13d9ee12c9467dcb3f91038058e0",
+      "category": "real_estate_brokerage",
+      "provisions": 19
+    },
+    {
+      "id": "ecommerce122",
+      "file": "docs/legal_corpus_v3_20261004/ecommerce122.json",
+      "sha256": "0fa075b8cc2b78ca9fee34d6b24ef41e56c6531dbe1cd05e4b249d987c4098a2",
+      "category": "ecommerce_platform",
+      "provisions": 56
+    },
+    {
+      "id": "ecommerce248",
+      "file": "docs/legal_corpus_v3_20261004/ecommerce248.json",
+      "sha256": "4a7050f8bdfa332086645d3f0f5bc7efbc8699a1e47cf7f91d841ad7e034abcc",
+      "category": "ecommerce_platform",
+      "provisions": 57
+    },
+    {
+      "id": "electricity-cantho-guidance",
+      "file": "docs/legal_corpus_v3_20261004/electricity-cantho-guidance.json",
+      "sha256": "cfa9702a0c033b59fa6cf0e09e760996c40c8067f78b3cab04e2e04bfe024419",
+      "category": "electricity",
+      "provisions": 1
+    },
+    {
+      "id": "electricity09",
+      "file": "docs/legal_corpus_v3_20261004/electricity09.json",
+      "sha256": "cd7fa1cc220bb9ae8606af550aef6cd387b2b435d3870c8593013d9ce2a965cb",
+      "category": "electricity",
+      "provisions": 1
+    },
+    {
+      "id": "electricity133",
+      "file": "docs/legal_corpus_v3_20261004/electricity133.json",
+      "sha256": "c02dbbd6d3365e049fca100d61c1ee213a1bd75435510b4301bf6ceabc3f2b49",
+      "category": "electricity",
+      "provisions": 24
+    },
+    {
+      "id": "electricity14",
+      "file": "docs/legal_corpus_v3_20261004/electricity14.json",
+      "sha256": "b7c5f7ef995c2f8c47572332ad24138efa530bce6b9917602fafee3527b5e2e0",
+      "category": "electricity",
+      "provisions": 23
+    },
+    {
+      "id": "electricity60",
+      "file": "docs/legal_corpus_v3_20261004/electricity60.json",
+      "sha256": "6570b154293a80ba51365e5b7efa39fa357bbb0d7d4f24499fd38a208335ed91",
+      "category": "electricity",
+      "provisions": 30
+    },
+    {
+      "id": "fire105-annex-I",
+      "file": "docs/legal_corpus_v3_20261004/fire105-annex-I.json",
+      "sha256": "7168a109125d3d4ccf0bbe5d7c67c5c2c760cf0be7501474ed2a3506bd123f3e",
+      "category": "fire_safety",
+      "provisions": 3
+    },
+    {
+      "id": "fire106",
+      "file": "docs/legal_corpus_v3_20261004/fire106.json",
+      "sha256": "fca246586a7165f3a0d2e31fb0657b82b2cc6ea4e68a009211fd434b8d47ecf6",
+      "category": "fire_safety",
+      "provisions": 90
+    },
+    {
+      "id": "fire58",
+      "file": "docs/legal_corpus_v3_20261004/fire58.json",
+      "sha256": "c99eb6adc53e9f0d38b09bf69552d4b0830409186eb04633f80d1990422bdd42",
+      "category": "fire_safety",
+      "provisions": 7
+    },
+    {
+      "id": "guidance-20261004-cantho_contacts",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-cantho_contacts.json",
+      "sha256": "ec52e1e874b9fc3cad8e74d0a31f37a391216aa14962ece9a288f42cc9139e04",
+      "category": "general_legal",
+      "provisions": 3
+    },
+    {
+      "id": "guidance-20261004-criminal_law",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-criminal_law.json",
+      "sha256": "a06091fcf7c18a01f44441b4f8fc7e92785955917900d3e73ec5c93c093ba6dd",
+      "category": "criminal_law",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-ecommerce_platform",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-ecommerce_platform.json",
+      "sha256": "d46010f6ca71bd41f6f7f2ebbea56a6e699a20e6eae9f51cfffc3bb8a81dceb7",
+      "category": "ecommerce_platform",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-electricity",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-electricity.json",
+      "sha256": "7d23600ded17ed5d9a497ee750d59fdcefe51144983959962fad5ffce16244d4",
+      "category": "electricity",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-fire_safety",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-fire_safety.json",
+      "sha256": "db091b0eb4d531621830da86e08fb70ace9067441474c37dda229adb4b26efe5",
+      "category": "fire_safety",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-housing_contract",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-housing_contract.json",
+      "sha256": "16621129eae7a475219f22b0d078ea9af5903c1150efaf590177b263b513dcaf",
+      "category": "housing_contract",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-legal_templates",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-legal_templates.json",
+      "sha256": "5f6c06d1c007d95e2f707a71e660c79f1aab298c1cd527d05cf0b665a7d3f542",
+      "category": "residence",
+      "provisions": 8
+    },
+    {
+      "id": "guidance-20261004-privacy_data",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-privacy_data.json",
+      "sha256": "1b3cc794e4a6edd5a1b27a2646342121ae3a18ef40ed15bf79f9339aaaadf2ad",
+      "category": "privacy_data",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-real_estate_brokerage",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-real_estate_brokerage.json",
+      "sha256": "b1b5cb186047d4daba4cb44501476a80b833bf92c3fe2df99f8a4499d0b96463",
+      "category": "real_estate_brokerage",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-residence",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-residence.json",
+      "sha256": "4653f16bf75c33b8e9f4e0926688847edbaefbca87cf13ffe911ed4e7af18489",
+      "category": "residence",
+      "provisions": 9
+    },
+    {
+      "id": "guidance-20261004-water_cantho",
+      "file": "docs/legal_corpus_v3_20261004/guidance-20261004-water_cantho.json",
+      "sha256": "c3dde29d975bb7172da95e2dac1886f69661db381abf54c18ae668d25d2c0d48",
+      "category": "water_cantho",
+      "provisions": 9
+    },
+    {
+      "id": "legacy-092b57ace14c",
+      "file": "docs/legal_corpus_v3_20261004/legacy-092b57ace14c.json",
+      "sha256": "41b38cff374b5e2dab8761bbd6f28b93db5d16d5529845b175fdb2185b868f62",
+      "category": "criminal_law",
+      "provisions": 1
+    },
+    {
+      "id": "legacy-101ff31eaab8",
+      "file": "docs/legal_corpus_v3_20261004/legacy-101ff31eaab8.json",
+      "sha256": "66f3075ebda9f753a8fc7d4cefb78c928cd2a843abb9124aeee3eb0d1f611b2a",
+      "category": "residence",
+      "provisions": 13
+    },
+    {
+      "id": "legacy-27f5c84dac1d",
+      "file": "docs/legal_corpus_v3_20261004/legacy-27f5c84dac1d.json",
+      "sha256": "4e7a2d6b9b14670afc5c084b16dc1674367b07bf2fc2d27ce5e807afe09aedf2",
+      "category": "residence",
+      "provisions": 41
+    },
+    {
+      "id": "legacy-3c1db7d7a4f0",
+      "file": "docs/legal_corpus_v3_20261004/legacy-3c1db7d7a4f0.json",
+      "sha256": "bb301513b34df48b4b0a4b4afb4ab83533c65e9855b994139273de69d14ffb0f",
+      "category": "privacy_data",
+      "provisions": 10
+    },
+    {
+      "id": "legacy-4bcf6ab450b3",
+      "file": "docs/legal_corpus_v3_20261004/legacy-4bcf6ab450b3.json",
+      "sha256": "93f52162d6a0e4589e70a5fcaa2bcd11267a39b37de85a3e4d0d36834e8484ac",
+      "category": "housing_contract",
+      "provisions": 58
+    },
+    {
+      "id": "legacy-60dd067ea62d",
+      "file": "docs/legal_corpus_v3_20261004/legacy-60dd067ea62d.json",
+      "sha256": "93f13a2c29043175325ad32cab9aa8c1202bb63f083184399cfddde45d295bf8",
+      "category": "housing_contract",
+      "provisions": 10
+    },
+    {
+      "id": "legacy-6f667af18760",
+      "file": "docs/legal_corpus_v3_20261004/legacy-6f667af18760.json",
+      "sha256": "2b69bfec54d4b4f032f10bc3032d260176c4c50ec1d434970017ea58a2211947",
+      "category": "housing_contract",
+      "provisions": 38
+    },
+    {
+      "id": "legacy-790737668504",
+      "file": "docs/legal_corpus_v3_20261004/legacy-790737668504.json",
+      "sha256": "76d687893d37b6de884e80a651afac6864846985fc03a9cb2fc6f23796b3c7e6",
+      "category": "electricity",
+      "provisions": 50
+    },
+    {
+      "id": "legacy-8fb07729dbcb",
+      "file": "docs/legal_corpus_v3_20261004/legacy-8fb07729dbcb.json",
+      "sha256": "71b80095213201655590ba782f5932ed13b738bcbadbe77481269d8744749596",
+      "category": "fire_safety",
+      "provisions": 9
+    },
+    {
+      "id": "legacy-95df8751459d",
+      "file": "docs/legal_corpus_v3_20261004/legacy-95df8751459d.json",
+      "sha256": "b6ba3d73a0574e726c381f3b06d991a70e2043f1e03c189bdbfb4239314d249c",
+      "category": "criminal_law",
+      "provisions": 37
+    },
+    {
+      "id": "legacy-97260a1a9fb2",
+      "file": "docs/legal_corpus_v3_20261004/legacy-97260a1a9fb2.json",
+      "sha256": "a6591fda832c18467d3115c1fead17a7f37174ec28fb66ebeef740fd1b1b0162",
+      "category": "real_estate_brokerage",
+      "provisions": 83
+    },
+    {
+      "id": "legacy-a2219789861b",
+      "file": "docs/legal_corpus_v3_20261004/legacy-a2219789861b.json",
+      "sha256": "da7cb05d7b80796537c5187b6950de2db2d68bceb215cc253abd046f390bf998",
+      "category": "residence",
+      "provisions": 10
+    },
+    {
+      "id": "legacy-c689645e534f",
+      "file": "docs/legal_corpus_v3_20261004/legacy-c689645e534f.json",
+      "sha256": "366159d69d034b7bf3bdab83314e6073cefe83d238f8509831f5fe722bca5919",
+      "category": "criminal_law",
+      "provisions": 71
+    },
+    {
+      "id": "legacy-d9f68871fe49",
+      "file": "docs/legal_corpus_v3_20261004/legacy-d9f68871fe49.json",
+      "sha256": "e946a55db074428ebd278e8c3e44042ed43facce8c354539ae5e80ddf53389ad",
+      "category": "electricity",
+      "provisions": 3
+    },
+    {
+      "id": "legacy-da7dcada906d",
+      "file": "docs/legal_corpus_v3_20261004/legacy-da7dcada906d.json",
+      "sha256": "2643a1aa052f3482076f1c6f8844411d78c3cae450c207ff2fcc1868712c0f17",
+      "category": "fire_safety",
+      "provisions": 24
+    },
+    {
+      "id": "legacy-e010a14386b4",
+      "file": "docs/legal_corpus_v3_20261004/legacy-e010a14386b4.json",
+      "sha256": "2c9ac66b41b7a5e152ef202ba5477fef6b139834399f1a0c5c83ec9916e14bcc",
+      "category": "housing_contract",
+      "provisions": 108
+    },
+    {
+      "id": "legacy-e9adeff06c7a",
+      "file": "docs/legal_corpus_v3_20261004/legacy-e9adeff06c7a.json",
+      "sha256": "582b53c3afc80786fd87123b7c7a2095db22db220fdd57d217be6db1d639b325",
+      "category": "ecommerce_platform",
+      "provisions": 1
+    },
+    {
+      "id": "legacy-f29b4cc9f353",
+      "file": "docs/legal_corpus_v3_20261004/legacy-f29b4cc9f353.json",
+      "sha256": "8e22881b7e2e44947a2ce9b3b78cbed3aa5e3122384339dbb078b0cb8588da6e",
+      "category": "privacy_data",
+      "provisions": 19
+    },
+    {
+      "id": "privacy356-cb",
+      "file": "docs/legal_corpus_v3_20261004/privacy356-cb.json",
+      "sha256": "9e1186caf1197eba21faa8d6f28728b9a6240786d5b0c15b4bb36e06996808f1",
+      "category": "privacy_data",
+      "provisions": 218
+    },
+    {
+      "id": "privacy91-cb",
+      "file": "docs/legal_corpus_v3_20261004/privacy91-cb.json",
+      "sha256": "02c6cdebcffd8502db9bf2988e00174ed1343f3849c2a051c8e8c090004236b4",
+      "category": "privacy_data",
+      "provisions": 183
+    },
+    {
+      "id": "residence116",
+      "file": "docs/legal_corpus_v3_20261004/residence116.json",
+      "sha256": "f532864f098f19cd096eabf4299b49a96bc1cdce1f99b6a877795cd9f781f68c",
+      "category": "residence",
+      "provisions": 38
+    },
+    {
+      "id": "residence154",
+      "file": "docs/legal_corpus_v3_20261004/residence154.json",
+      "sha256": "df8e0f259565603e4622ad07caa274d3c0214b42e3bab0805ed1350639326984",
+      "category": "residence",
+      "provisions": 35
+    },
+    {
+      "id": "residence68",
+      "file": "docs/legal_corpus_v3_20261004/residence68.json",
+      "sha256": "dce2ef974ef566dee53e440ddb0195bf766c05e5e7d99e37d0eb6cf43c3f79ed",
+      "category": "residence",
+      "provisions": 3
+    },
+    {
+      "id": "water117",
+      "file": "docs/legal_corpus_v3_20261004/water117.json",
+      "sha256": "fb7243eed28a57b3bbb9bc4978dfd99987021eff5c06ec91b2a867b8d48a9258",
+      "category": "water_cantho",
+      "provisions": 51
+    },
+    {
+      "id": "water124",
+      "file": "docs/legal_corpus_v3_20261004/water124.json",
+      "sha256": "68a96425af2de5accc33e9f60cc206feb475dac76786459502578ea61690c628",
+      "category": "water_cantho",
+      "provisions": 17
+    },
+    {
+      "id": "water215",
+      "file": "docs/legal_corpus_v3_20261004/water215.json",
+      "sha256": "3c43bc19e9b6ee766cf0853950788d19314219a0c4afbc47a4bfb9f2fe8125ca",
+      "category": "water_cantho",
+      "provisions": 2
+    },
+    {
+      "id": "water50",
+      "file": "docs/legal_corpus_v3_20261004/water50.json",
+      "sha256": "4ec82452e8ec1b4c383f18d7a8c87e4cd31950940089aaaf8db39c65004b341d",
+      "category": "water_cantho",
+      "provisions": 19
+    }
+  ],
+  "input_sha256": {
+    "docs/legal_corpus_v2/manifest.json": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+    "docs/legal_corpus_v2/legacy-c689645e534f.json": "65d96085a6d64d99cc682fb69563270f7995f5de6e551cebeb286811f236fca9",
+    "docs/legal_corpus_v2/legacy-95df8751459d.json": "d2a1264cf51fda32407952933359176ce8a9ed5964db325c327d2c13bf46f8d0",
+    "docs/legal_corpus_v2/legacy-092b57ace14c.json": "71ab2356b7e18b92af80e82383d9521649750176a11041e94f652055d13d4883",
+    "docs/legal_corpus_v2/legacy-e9adeff06c7a.json": "67e6c9c792a73bd385e8cdef723ad9549487d07d84c3566cf5ed358aa2704a38",
+    "docs/legal_corpus_v2/legacy-790737668504.json": "b69dd3ed61457bd0e1541730e09a246159a0133966681426565b8cee370624a7",
+    "docs/legal_corpus_v2/legacy-d9f68871fe49.json": "ee7cd62a87858ef0265562052ce2d9ea2fc05fbc3c4d3f07710f0d3e237b4780",
+    "docs/legal_corpus_v2/legacy-da7dcada906d.json": "135c654518b25fc849bfb87807b9091bddd2c7205b5da9998bcecd5958d76b16",
+    "docs/legal_corpus_v2/legacy-8fb07729dbcb.json": "5535f7c1e609b68bb0ea6c41be99d9f61c680c26c04abbc77fce59cee12ddeed",
+    "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json": "b917938825b162618e93e0b15767c20065064a8ac3f3d3f9689089d904a63821",
+    "docs/legal_corpus_v2/legacy-e010a14386b4.json": "87a1ae7eaf6bfeebe3eab70eacc6f155481012d90b121f1bf6610da2daf1fdff",
+    "docs/legal_corpus_v2/legacy-6f667af18760.json": "4d4d64426444319fc2bc31014d30c1737f68a86d59fadf9397506139bd772349",
+    "docs/legal_corpus_v2/legacy-60dd067ea62d.json": "be5397b73084eda7df8a831115f1ce16faab0802e163ba617a7e00e4fd9c9cc9",
+    "docs/legal_corpus_v2/legacy-f29b4cc9f353.json": "4d334b001ac6251738fa2070dbad25066849dac32d35856016788d3e77bcc084",
+    "docs/legal_corpus_v2/legacy-3c1db7d7a4f0.json": "64708895fd138be27ee85db53cce4160e365c256df219ba17d7d10cc55529a27",
+    "docs/legal_corpus_v2/legacy-97260a1a9fb2.json": "bbac9c32b02779c532a66fa47f5c672fb979712e8984e26bd967ea7e2fa7b338",
+    "docs/legal_corpus_v2/legacy-101ff31eaab8.json": "504d09ee1cc9a8b2c12b5d7483bc7149b7697dd149d6207c2e5d5960a32df2fc",
+    "docs/legal_corpus_v2/legacy-27f5c84dac1d.json": "c3a1d659d10f9b23955611a65d9893470b0f734628b13ef2072b66ac75debba3",
+    "docs/legal_corpus_v2/legacy-a2219789861b.json": "2cbab24d6059b40dbf12ee63be42df4b0c1ad8666b36e9cf58b91c26a189e2e7",
+    "docs/legal_corpus_v2/ecommerce122.json": "53773c789ec7862a0930de1efb5322d20cc136a659f702da843f0edabfa93b6f",
+    "docs/legal_corpus_v2/ecommerce248.json": "36137bf37a16c4bb91d2faf4aa7c749c00c947881c3797b7b24b9eed72b988b8",
+    "docs/legal_corpus_v2/electricity14.json": "16bb9431cfb32038e39ca546f4c63140334c4f21040c16ebc8d40f91f57cc591",
+    "docs/legal_corpus_v2/electricity133.json": "95c1689896df8597c4a4c80d6d37918b9b1d39505e9bb9d89cd706464e9ef4c9",
+    "docs/legal_corpus_v2/fire106.json": "90afa0841844d897e47f379ce141908c6d5a6443004b1ba3b1834ca148283df9",
+    "docs/legal_corpus_v2/residence154.json": "cbd0d85706d90c1f84d1d70a221008691aa472c5205480168a818bc2d3d0477f",
+    "docs/legal_corpus_v2/amend58.json": "0650ebf3b4b060078faac667332a8aeec0652e8a715052d918cf4ae58b902a17",
+    "docs/legal_corpus_v2/residence116.json": "e755800decdf7e4fd0ef19981a1580fd52ff89b0d9c47bbdf03e99b7499bd64b",
+    "docs/legal_corpus_v2/residence68.json": "9a7bc350bfffb3ca645f9f3e6041fd1651ee876a11995575ea0a82c87800dffc",
+    "docs/legal_corpus_v2/amend118.json": "8bccc00fdab432625772a53a628fbd757757ef6ae18104e2aeaa36abef66eb7a",
+    "docs/legal_corpus_v2/amend347.json": "b9f8583d30e831f4f3b0f1f1fa9d42d009faa34efdbd85ebbfbe6cb7ab555f94",
+    "docs/legal_corpus_v2/water117.json": "ee27cf156658d95519ef6e066796e189c3b930f4c05247e623a999a9990e54cf",
+    "docs/legal_corpus_v2/water124.json": "e6f28a04aeb8c3937848e9a9946d86f1cf7a3f8d07a3d26b866bfd5298f90ac8",
+    "docs/legal_corpus_v2/electricity60.json": "9c2d59936cb9e13b4845698d66d663a588b9a3a9875d6623ac596694cff847eb",
+    "docs/legal_corpus_v2/water50.json": "233b7e40a033641d37d5efff1c40175ca347111e9bbbab3a2005b56573d91dec",
+    "docs/legal_corpus_v2/privacy91-cb.json": "4b6d6aeb8730cef54992c0edf78fc3984d6229ab6272dc2a397b240acaad7770",
+    "docs/legal_corpus_v2/privacy356-cb.json": "eebfbd53aa7195e0f473c3bc1f5c1cbd330b0cb0a1a1f84ac590fb2c239239dd",
+    "docs/legal_corpus_v2/water215.json": "04622ea7e4a1f50f1acbfd96275b3efd04aa7db8130a5f31df95b94bab2dc290",
+    "docs/legal_corpus_v2/civil-service-contract.json": "b93bc621f0a4fd4ef092df8349f20ffbfc660bc91ae783c1bd3c438ee8123ea0",
+    "docs/legal_corpus_v2/electricity-cantho-guidance.json": "9e91d3cfc399ece4ff6676e05bd036634161bea98485afb9679f4b22aed66473",
+    "docs/legal_corpus_v2/fire105-annex-I.json": "a0630ed888585c7ade5120743ffe257955e33be958e7e52510eb5efcc582bde4",
+    "docs/legal_web_supplement_20261004/candidate_corpus/residence116.json": "02f61cf813d45b41feec642aa458067b59da74ca3f79500e76ceb5a434844631",
+    "docs/legal_web_supplement_20261004/candidate_corpus/commerce122.json": "921279056019d8309871e0460031c213e529b1615bcb9ef2f518e7043744e806",
+    "docs/legal_web_supplement_20261004/candidate_corpus/broker06.json": "448242ac5368e323077b3b474e9c54263555f769c38467cb87a6b970e47aed4e",
+    "docs/legal_web_supplement_20261004/candidate_corpus/electricity09.json": "3138c832796729762300d37be46f40af0278c3db0b78ac551c5ee7fd8a1294c3",
+    "docs/legal_web_supplement_20261004/candidate_corpus/fire58.json": "b8ab7156d4423c79dfc68a794e43edd112fd029ee5d2e99565c986d4b3d63d60",
+    "docs/legal_web_supplement_20261004/candidate_corpus/water215.json": "eb47d270f4d1b0a34bf5d65cf17f27b0618572adbb49d6e46a7f79cdfcd5f1f9",
+    "Data/criminal_law/Bo-sung-thuc-te-20261004.md": "00a75b1aa1a2ef61b96cc172ac46f10d26ab37303014dd51595b5a43f355d916",
+    "Data/ecommerce_platform/Bo-sung-thuc-te-20261004.md": "75e1ef34b59c72178e00fe4955af6f42ea157e42e1ba41a32a65dd17a41a5db3",
+    "Data/electricity/Bo-sung-thuc-te-20261004.md": "2744962e282ed7720cab1aaeb11ab484e3bead52ca285f28771575d0c88fc1c7",
+    "Data/fire_safety/Bo-sung-thuc-te-20261004.md": "d27e9bd571367e6d7be4189d954ab08786df4fd5d08cbb06c70816dbe3bb9731",
+    "Data/housing_contract/Bo-sung-thuc-te-20261004.md": "2198c3d89d7745e5ffcd25a2decb5f252211303712b1137fa283111fd079363d",
+    "Data/privacy_data/Bo-sung-thuc-te-20261004.md": "c8e40bfd28dd8bcad8cafadcef6bb02aebfd00f63b949f984f1060ca36c0a932",
+    "Data/real_estate_brokerage/Bo-sung-thuc-te-20261004.md": "73e645e4504844053139abe2f3f9ff2fdf329309e9532939794cf5f0124366e4",
+    "Data/residence/Bo-sung-thuc-te-20261004.md": "77db625e8d5e11de93bd9f2edfc5640b3e04c7d3c31b476827f94627b9bd3469",
+    "Data/water_cantho/Bo-sung-thuc-te-20261004.md": "f29f6047df2131cd26edb3009f504034d08a6c6bb8464e0f394231415bff4adc",
+    "Data/cantho_contacts.md": "f15c0ca01e63d58959a727679b7b655e8cf09b9a65e7dc8f5530526c37a8bd6a",
+    "Data/legal_templates.md": "b841c7a84f5ddc2579cc13d3545eb94d4eedbf2c3036f25bdb529cca9e95ec7f"
+  },
+  "baseline_manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "updated_guidance_documents": 11,
+  "evaluation_policy": "Post-update regression on 36 known topics. Guidance overlaps questions; not an unseen benchmark. User answers are comparison-only and never indexed.",
+  "excluded": [
+    {
+      "path": "ecommerce_platform/Luật-122-2025-QH15-trích-tuyển.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "ecommerce_platform/Nghị-định-248-2026-NĐ-CP-trích-tuyển.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "electricity/Nghị-định-133-2026-NĐ-CP-trích-tuyển.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "electricity/Quyết-định-14-2025-QĐ-TTg-trích-tuyển.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "electricity/Thông-tư-60-2025-TT-BCT.docx",
+      "reason": "replace selected legacy text with full official original downloaded 2026-10-04"
+    },
+    {
+      "path": "fire_safety/Nghị-định-106-2025-NĐ-CP-trích-tuyển-cập-nhật.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "privacy_data/Luật-91-2025-QH15.docx",
+      "reason": "replace selected legacy text with full official original downloaded 2026-10-04"
+    },
+    {
+      "path": "privacy_data/Nghị-định-356-2025-NĐ-CP.docx",
+      "reason": "replace selected legacy text with full official original downloaded 2026-10-04"
+    },
+    {
+      "path": "residence/Luật-118-2025-QH15-trích-tuyển-điều-chỉnh-Luật-Cư-trú.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "residence/Nghị-định-154-2024-NĐ-CP-trích-tuyển-cập-nhật.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "residence/Thông-tư-116-2026-TT-BCA-trích-tuyển-thay-Thông-tư-53-2025.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "student_housing/CTU-KTX-thong-tin-2026-2027.docx",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "water_cantho/215-QD-UBND-pham-vi-doi-chieu.md",
+      "reason": "editorial summary; replace with original source or quarantine"
+    },
+    {
+      "path": "water_cantho/Quyết-định-215-QĐ-UBND.docx",
+      "reason": "original government attachment not yet authenticated; do not claim current tariff"
+    },
+    {
+      "path": "docs/legal_agent_originals_20261003/water57.pdf",
+      "reason": "downloaded consolidated guidance; section parser not yet reviewed, not indexed as an article"
+    }
+  ]
+}
