@@ -1,0 +1,44 @@
+{
+  "source": {
+    "id": "water-cantho2-invoice-faq",
+    "title": "Cấp nước CT2 — tra cứu",
+    "category": "water_cantho",
+    "source_url": "https://capnuoccantho2.com.vn/View.aspx?wp=253",
+    "path": "docs/provider_excerpts_20261005/water-cantho2-invoice-faq.txt",
+    "sha256": "6b692d37fbba074a3f518c8eafc0f296bb92ddedd1f566b5f47294bd7cd1b7a7",
+    "original_sha256": "ae7d8e418a70ae079f7e79014413b3052bbac00fd9fefa7cf8f17a2556e18242",
+    "origin_documents": [
+      {
+        "path": "eval/provider_sources_20261005/water-cantho2-invoice-faq.html",
+        "sha256": "ae7d8e418a70ae079f7e79014413b3052bbac00fd9fefa7cf8f17a2556e18242",
+        "source_url": "https://capnuoccantho2.com.vn/View.aspx?wp=253",
+        "retrieved_at_utc": "2026-10-04T20:05:36.000623+00:00"
+      }
+    ],
+    "pages": 1,
+    "page_kind": "web_excerpt",
+    "not_exhaustive": true,
+    "extraction": "Bounded literal native HTML text/form labels; whitespace normalization only.",
+    "source_policy": "Public publisher excerpts only; complete fetched HTML retained locally for hash verification.",
+    "verification": "Publisher-specific instructions, not a universal water tariff or rental allocation rule."
+  },
+  "provisions": [
+    {
+      "provision_id": "water-cantho2-invoice-faq:def3385aef273d5559f0",
+      "article": null,
+      "clause": null,
+      "heading": "Tra cứu hóa đơn — thông tin công bố",
+      "content": "Mã khách hàng trên biên nhận tiền nước (mục IDKH)\nZalo OA Cấp nước Cần Thơ 2",
+      "content_sha256": "def3385aef273d5559f034cea40328b56cfd82661cb2d064ce28c4f0c02b7917",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    }
+  ]
+}

@@ -94,6 +94,11 @@ def summarize(report: dict) -> None:
     report["by_category"] = by_category
 
 
+def pipeline_sha256(pipeline: Path) -> str:
+    files = sorted([*pipeline.glob('*.py'), *pipeline.parent.joinpath('legal_knowledge').glob('*.py')])
+    return hashlib.sha256(b''.join(p.relative_to(pipeline.parent).as_posix().encode()+p.read_bytes() for p in files)).hexdigest()
+
+
 def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None = None) -> None:
     from sqlalchemy import create_engine
     from app.config import settings
@@ -110,8 +115,7 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     if settings.chatbot_agents_enabled:
         from sqlalchemy import text
         import app.room_service.chatbot as chatbot_package
-        pipeline_files = sorted(Path(chatbot_package.__file__).parent.glob('*.py'))
-        pipeline_sha = hashlib.sha256(b''.join(p.name.encode()+p.read_bytes() for p in pipeline_files)).hexdigest()
+        pipeline_sha = pipeline_sha256(Path(chatbot_package.__file__).parent)
         if report.get('pipeline_sha256') and report['pipeline_sha256'] != pipeline_sha:
             raise ValueError('Generation pipeline changed; use a new evaluation output')
         report['pipeline_sha256'] = pipeline_sha

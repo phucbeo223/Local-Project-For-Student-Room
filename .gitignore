@@ -53,6 +53,7 @@ tmp/
 eval/source_supplement_20261003/
 eval/agent_source_ocr/
 eval/legal_fix_ocr_20261004/
+eval/provider_sources_20261005/
 *.lock
 # Supplied internal rental ads and raw evaluation payloads stay local.
 Datehouse/

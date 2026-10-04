@@ -37,7 +37,7 @@ def main():
     engine.dispose()
     bank_sha = hashlib.sha256(args.questions.read_bytes()).hexdigest()
     pipeline = Path('/workspace/apps/api/app/room_service/chatbot')
-    pipeline_sha = hashlib.sha256(b''.join(p.name.encode() + p.read_bytes() for p in sorted(pipeline.glob('*.py')))).hexdigest()
+    pipeline_sha = bank.pipeline_sha256(pipeline)
     identity = {'question_bank_sha256': bank_sha, 'pipeline_sha256': pipeline_sha,
                 'listing_schema': settings.chatbot_listing_schema, 'legal_schema': settings.chatbot_legal_schema,
                 'graph_schema': settings.chatbot_graph_schema,

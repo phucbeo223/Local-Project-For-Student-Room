@@ -1,0 +1,71 @@
+{
+  "source": {
+    "id": "rental_warning",
+    "source_page_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+    "download_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+    "path": "docs/legal_sources_originals_20261003/rental_warning.html",
+    "sha256": "07146994c89f2a470e49a16b23a819cb0ac92b8bc2ee2d0d6728fa6c2a19cc30",
+    "bytes": 415347,
+    "pages": 1,
+    "text_chars": 10457,
+    "category": "criminal_law",
+    "title": "Khởi tố 02 đối tượng lừa đảo chiếm đoạt tài sản bằng thủ đoạn lừa đảo đặt cọc thuê nhà trọ đẹp, giá rẻ qua mạng",
+    "source_url": "https://www.bocongan.gov.vn/bai-viet/canh-giac-voi-chieu-tro-lua-dao-dat-coc-thue-nha-tro-qua-mang-1782485063",
+    "page_kind": "web_excerpt",
+    "extraction": "Literal complete native HTML paragraphs",
+    "verification": "Paragraphs copied from hash-verified original HTML"
+  },
+  "provisions": [
+    {
+      "provision_id": "rental_warning:a3a15a33564dbc39140e",
+      "article": null,
+      "clause": null,
+      "heading": "Khuyến cáo công khai",
+      "content": "Ngày 26/6/2026, Công an tỉnh Bắc Ninh cho biết, Cơ quan Cảnh sát điều tra Công an tỉnh vừa khởi tố vụ án, khởi tố 02 bị can đối với Trần Công Anh (sinh năm 2002) và Trần Công Phố (sinh năm 2004, cùng trú tại xã Nghĩa Lâm, tỉnh Nghệ An) về tội lừa đảo chiếm đoạt tài sản. Bằng thủ đoạn lừa đảo đặt cọc thuê nhà trọ đẹp, giá rẻ qua mạng mà nhiều người dân đã trở thành nạn nhân của các đối tượng lừa đảo này.",
+      "content_sha256": "a3a15a33564dbc39140ee97481986d567c5a3f87ba914ffedef6a3184f3f9a1e",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    },
+    {
+      "provision_id": "rental_warning:8cbb44d19f3f675f313d",
+      "article": null,
+      "clause": null,
+      "heading": "Khuyến cáo công khai",
+      "content": "Sau khi có người cần tìm thuê nhắn tin qua Facebook thì Công Anh chuyển hướng kết bạn và nhắn tin với bị hại qua tài khoản Zalo tên “Anh Phố Trang”. Sau khi nhắn tin trao đổi thông tin phòng và chốt tiền thuê với khách, Công Anh sẽ viện ra nhiều lý do như “phòng đang có nhiều người hỏi thuê”, “cần đặt cọc ngay để giữ chỗ” nhằm thúc ép nạn nhân chuyển tiền trước với giá trị là 50% tiền thuê 1 tháng. Cho đến khi bị hại chuyển đủ tiền cọc thì Công Anh chặn Facebook, Zalo và chiếm đoạt toàn bộ số tiền trên. Công Anh đã nhờ Trần Công Phố- là em ruột đứng ra nhận tiền đặt cọc của các bị hại chuyển khoản đến tài khoản ngân hàng của Phố.",
+      "content_sha256": "8cbb44d19f3f675f313d1c8bbdb54d4c0b0edbd2e7b5e98fcaea0c7035b19c4c",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    },
+    {
+      "provision_id": "rental_warning:f640250f2f06ddab2762",
+      "article": null,
+      "clause": null,
+      "heading": "Khuyến cáo công khai",
+      "content": "Để phòng ngừa loại tội phạm này, cơ quan Công an khuyến cáo người dân cần trực tiếp đến xem phòng trọ, xác minh rõ danh tính chủ nhà hoặc người cho thuê trước khi giao dịch; tuyệt đối không chuyển tiền đặt cọc khi trao đổi qua mạng xã hội hoặc điện thoại mà chưa gặp mặt, chưa kiểm chứng thông tin. Khi phát hiện dấu hiệu nghi vấn hoặc đã trở thành nạn nhân của hành vi lừa đảo, người dân cần nhanh chóng lưu giữ các tài liệu, tin nhắn, chứng từ chuyển tiền và trình báo cơ quan Công an để được hỗ trợ, xử lý kịp thời.",
+      "content_sha256": "f640250f2f06ddab276246d4530d5a2e07de4a54e7b8d34eef6e9035e8ca8d65",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    }
+  ]
+}

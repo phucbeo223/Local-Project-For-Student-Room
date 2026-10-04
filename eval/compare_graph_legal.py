@@ -89,7 +89,7 @@ def main():
     bank.save_report(args.output, report)
     lines = ['# Đối chiếu Graph RAG với đáp án người dùng', '',
         f"Đã đối chiếu {len(report['cases'])} câu có tham chiếu bằng Qwen cục bộ. Nhãn đo mức khớp văn bản; không phải tỷ lệ đúng pháp luật.", '',
-        'Mô hình đánh giá cùng Qwen với bước chọn bằng chứng; có thể thiên lệch. Tham chiếu chưa xác minh. Đổi mô hình chấm so với bước 1 nên không suy ra mức tăng/giảm accuracy.', '',
+        'Mô hình đánh giá cùng Qwen với bước chọn bằng chứng; có thể thiên lệch. Tham chiếu chưa xác minh. So sánh nhãn cần đối chiếu cùng câu hỏi, phiên bản prompt và mô hình; không tự suy ra mức tăng/giảm accuracy.', '',
         '| ID gốc | Mức khớp | Nhận xét |', '|---|---|---|']
     for case in report['cases']:
         comparison = case['comparison']

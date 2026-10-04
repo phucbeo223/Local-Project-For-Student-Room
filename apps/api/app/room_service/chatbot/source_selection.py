@@ -43,6 +43,7 @@ def selection_prompt(question,candidates):
         'Không chọn đoạn mua bán/thuê mua cho câu hỏi thuê trọ thông thường nếu đoạn chỉ áp dụng giao dịch đó. '
         'Khi hỏi nội dung hợp đồng, ưu tiên toàn bộ điều liệt kê nội dung. '
         'Phân biệt chủ trọ/người thuê với đơn vị cấp nước/khách hàng; không tự coi họ là cùng chủ thể. '
+        'Khi hỏi tra cứu hoặc đối chiếu hóa đơn nước, chọn hướng dẫn mã khách hàng, mã xác nhận và cổng tra cứu; không thay trọng tâm bằng khiếu nại, hòa giải hay khởi kiện khi chưa hỏi tranh chấp. '
         'Không tự coi trả phòng là hủy hợp đồng. Chọn cả mốc hiệu lực nếu nguồn quy định thời điểm áp dụng có điều kiện. '
         'Đọc từng ý của câu hỏi và chọn nguồn cho TẤT CẢ các ý; tiền cọc, giá thuê, thanh toán là các ý khác nhau. '
         'Với câu hỏi chung về nguyên tắc, điều kiện hoặc thủ tục, có thể trích quy tắc có điều kiện mà không cần biết tình huống cá nhân. '
@@ -96,6 +97,8 @@ def render_selection(question,contexts,candidates,raw,provider,model):
         issues.append('Chưa đủ căn cứ để kết luận nghĩa vụ thông báo bắt buộc cho mọi chủ trọ từ hướng dẫn công khai cách tính điện tại Cần Thơ; nguồn là hướng dẫn thực tế và chưa xác minh sự kiện kích hoạt quy định điện có điều kiện.')
     if any(p.get('source_id')=='water215' for p in parts):
         issues.append('Nguồn giá nước năm 2024: cần xác nhận địa bàn, đơn vị cấp nước và hiệu lực tại thời điểm áp dụng; bảng tiền chưa được dùng để kết luận mức thu.')
+    if any(str(p.get('source_id') or '').startswith(('water-cantho-invoice-', 'water-cantho2-invoice-')) for p in parts):
+        issues.append('Chưa đủ căn cứ áp dụng hướng dẫn của một đơn vị cấp nước cho mọi nhà trọ; cần xác nhận tên đơn vị trên hóa đơn và đúng cổng tra cứu. Nguồn này không quy định mức thu theo người hoặc cách chia tiền giữa các phòng.')
     if any(p.get('unresolved_references') for p in parts):
         issues.append('Cần đối chiếu điều/khoản được dẫn chiếu còn thiếu; đoạn trích chưa đủ để kết luận toàn bộ điều kiện và ngoại lệ.')
     insufficient = insufficient or bool(missing_facets or issues)

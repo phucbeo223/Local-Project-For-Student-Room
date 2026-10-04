@@ -1,0 +1,465 @@
+{
+  "schema": "legal_v6_20261005",
+  "documents": [
+    {
+      "id": "amend118",
+      "file": "docs/legal_corpus_v6_20261005/amend118.json",
+      "sha256": "b81d67623cc28f55dea51fd51eb4a800abfb2282b07bb6a7fadcf51ab5380e77",
+      "category": "residence",
+      "provisions": 18
+    },
+    {
+      "id": "amend347",
+      "file": "docs/legal_corpus_v6_20261005/amend347.json",
+      "sha256": "3897cd99b14839f85180f3283db200cfe5f29b3b77bf752ae1164d4879728633",
+      "category": "residence",
+      "provisions": 20
+    },
+    {
+      "id": "amend58",
+      "file": "docs/legal_corpus_v6_20261005/amend58.json",
+      "sha256": "31a82c15ba1f8e708e3a50fb1fb5cf6cee341b3dc14d5a3bf87a841070ee16c2",
+      "category": "residence",
+      "provisions": 18
+    },
+    {
+      "id": "broker06",
+      "file": "docs/legal_corpus_v6_20261005/broker06.json",
+      "sha256": "602f2a768be85b2cbf2df1382b80a317ff44b61086764506f91eaea2558c8348",
+      "category": "real_estate_brokerage",
+      "provisions": 1
+    },
+    {
+      "id": "broker29",
+      "file": "docs/legal_corpus_v6_20261005/broker29.json",
+      "sha256": "e279d6966783daf18daa41e99790159d776c8ba174a35151e1159fbe8773e79a",
+      "category": "real_estate_brokerage",
+      "provisions": 22
+    },
+    {
+      "id": "civil-service-contract",
+      "file": "docs/legal_corpus_v6_20261005/civil-service-contract.json",
+      "sha256": "f0b99c8a891463354a5cbe8481840ab0256b8453ce8c1d0ac8c4bf3a03e061ab",
+      "category": "real_estate_brokerage",
+      "provisions": 19
+    },
+    {
+      "id": "civil91",
+      "file": "docs/legal_corpus_v6_20261005/civil91.json",
+      "sha256": "b413e679cbba214bc6d2d14e3292e1abd298fbd566f0a54658361dd179a499d3",
+      "category": "housing_contract",
+      "provisions": 24
+    },
+    {
+      "id": "civil91first",
+      "file": "docs/legal_corpus_v6_20261005/civil91first.json",
+      "sha256": "bc04d265c4b9fe66028e391953f700143fd46692166eb39359946af208c83d19",
+      "category": "housing_contract",
+      "provisions": 30
+    },
+    {
+      "id": "criminal135",
+      "file": "docs/legal_corpus_v6_20261005/criminal135.json",
+      "sha256": "03d2ead7a58b8a7834bdfc148de3bb597027769fed4bf1fd117339382d68db3a",
+      "category": "criminal_law",
+      "provisions": 10
+    },
+    {
+      "id": "ctu-2026-registration",
+      "file": "docs/legal_corpus_v6_20261005/ctu-2026-registration.json",
+      "sha256": "025d1db156308f7a2176bf858a3a876b305c8a1ae3e0b94568b574607dc3f92e",
+      "category": "student_housing",
+      "provisions": 2
+    },
+    {
+      "id": "ctu-ktx-rules",
+      "file": "docs/legal_corpus_v6_20261005/ctu-ktx-rules.json",
+      "sha256": "d6f823bd26f9e5684ea40f9c0ce55d5be4940d31f3afa03ed604f348e49431a9",
+      "category": "student_housing",
+      "provisions": 42
+    },
+    {
+      "id": "ctu-new-students",
+      "file": "docs/legal_corpus_v6_20261005/ctu-new-students.json",
+      "sha256": "864d120102aa77b372988ba3f5d80b9d0dd71e16c1342f9c0c769aee9fe8738e",
+      "category": "student_housing",
+      "provisions": 1
+    },
+    {
+      "id": "ecommerce122",
+      "file": "docs/legal_corpus_v6_20261005/ecommerce122.json",
+      "sha256": "9a0c20e4ac2b1ca073406e90000e592f017f36e1f9824552ef1a5b206fa1aa85",
+      "category": "ecommerce_platform",
+      "provisions": 56
+    },
+    {
+      "id": "ecommerce248",
+      "file": "docs/legal_corpus_v6_20261005/ecommerce248.json",
+      "sha256": "5b86a8fd615c7f0109fae56d05b6b73f119dd3a9aed892bdc9d57d336be4aafc",
+      "category": "ecommerce_platform",
+      "provisions": 57
+    },
+    {
+      "id": "electricity-cantho-guidance",
+      "file": "docs/legal_corpus_v6_20261005/electricity-cantho-guidance.json",
+      "sha256": "ea19ff14a5e45335d054beecb58f32b55aa874d2bc03dba76145c465845731b6",
+      "category": "electricity",
+      "provisions": 1
+    },
+    {
+      "id": "electricity09",
+      "file": "docs/legal_corpus_v6_20261005/electricity09.json",
+      "sha256": "2fd7967f892b532533551952600114e3043fce35536d8c1e2bf94f5bebd0b092",
+      "category": "electricity",
+      "provisions": 1
+    },
+    {
+      "id": "electricity133",
+      "file": "docs/legal_corpus_v6_20261005/electricity133.json",
+      "sha256": "272f77f832d9f300e88e50d7c5637fef81cd8efdbe060fb23afb7bfa48ef3cab",
+      "category": "electricity",
+      "provisions": 24
+    },
+    {
+      "id": "electricity14",
+      "file": "docs/legal_corpus_v6_20261005/electricity14.json",
+      "sha256": "113bc0052b90417d14cacba882ce1f0f124848d666ee86c8e63c7538a6953803",
+      "category": "electricity",
+      "provisions": 23
+    },
+    {
+      "id": "electricity60",
+      "file": "docs/legal_corpus_v6_20261005/electricity60.json",
+      "sha256": "ea5db18ea63b2be487e902d8a4b6f4b257a1e654286d8e75c863caa7835da3de",
+      "category": "electricity",
+      "provisions": 30
+    },
+    {
+      "id": "fire105-annex-I",
+      "file": "docs/legal_corpus_v6_20261005/fire105-annex-I.json",
+      "sha256": "7525b734827337b2dee77036e937648c6f3b2694e1cb7de421e4ee24e78b2049",
+      "category": "fire_safety",
+      "provisions": 3
+    },
+    {
+      "id": "fire106",
+      "file": "docs/legal_corpus_v6_20261005/fire106.json",
+      "sha256": "96305a942ca56a518563a2c75f31270eb77bcb11a303aebd4911d5aaa0da8f5b",
+      "category": "fire_safety",
+      "provisions": 90
+    },
+    {
+      "id": "fire55",
+      "file": "docs/legal_corpus_v6_20261005/fire55.json",
+      "sha256": "4d3a78713442f6ced0c3c0d0a58b54465d4d663bfe1d09e6a125242ca254ac0a",
+      "category": "fire_safety",
+      "provisions": 25
+    },
+    {
+      "id": "fire58",
+      "file": "docs/legal_corpus_v6_20261005/fire58.json",
+      "sha256": "7ee28540acc3d5bb32cf1dee676bc5141d9948ec6bbb17d535347fe2a990ea05",
+      "category": "fire_safety",
+      "provisions": 7
+    },
+    {
+      "id": "housing79",
+      "file": "docs/legal_corpus_v6_20261005/housing79.json",
+      "sha256": "81a3eb23671e0f40daf25e9bac686357726ba29d7e0d0fb0a857e5a8c6e8e981",
+      "category": "housing_contract",
+      "provisions": 61
+    },
+    {
+      "id": "online_warning",
+      "file": "docs/legal_corpus_v6_20261005/online_warning.json",
+      "sha256": "72dd45aff40380c4eb1b800c95827ecdeadc47b03c869c582ca0c1c0ae954515",
+      "category": "ecommerce_platform",
+      "provisions": 3
+    },
+    {
+      "id": "privacy356-cb",
+      "file": "docs/legal_corpus_v6_20261005/privacy356-cb.json",
+      "sha256": "6bff40121aba554033fab89fee15da2480a123510529f2b5157a40635a5f6057",
+      "category": "privacy_data",
+      "provisions": 218
+    },
+    {
+      "id": "privacy91-cb",
+      "file": "docs/legal_corpus_v6_20261005/privacy91-cb.json",
+      "sha256": "5de037b7c65913e687703c8707328ecef33cc9f4a90240f24c280fb6c08e958a",
+      "category": "privacy_data",
+      "provisions": 183
+    },
+    {
+      "id": "procedure17",
+      "file": "docs/legal_corpus_v6_20261005/procedure17.json",
+      "sha256": "a411a78ca6908ee2f1db5124fdc96acefc5f6c77bf28b6d7ac8d666da81f281f",
+      "category": "criminal_law",
+      "provisions": 24
+    },
+    {
+      "id": "rental_warning",
+      "file": "docs/legal_corpus_v6_20261005/rental_warning.json",
+      "sha256": "79086cd57f58479e29c785364494d9c8df2682f4523e18354ca512fe05e4a422",
+      "category": "criminal_law",
+      "provisions": 3
+    },
+    {
+      "id": "residence116",
+      "file": "docs/legal_corpus_v6_20261005/residence116.json",
+      "sha256": "126cd48b36689404f1f5b9ed15d773ded867b8c918a20092fd48bf3d13d1dfb8",
+      "category": "residence",
+      "provisions": 38
+    },
+    {
+      "id": "residence154",
+      "file": "docs/legal_corpus_v6_20261005/residence154.json",
+      "sha256": "472c6485cd320c65c9100f0aeae6f5c6211153c911c45081358bba9ccd97bbe8",
+      "category": "residence",
+      "provisions": 35
+    },
+    {
+      "id": "residence68",
+      "file": "docs/legal_corpus_v6_20261005/residence68.json",
+      "sha256": "5fa691b7697d0ce2c0f8acaa94e10b02d6744b1c14b360c204449a88e8c34dff",
+      "category": "residence",
+      "provisions": 26
+    },
+    {
+      "id": "water117",
+      "file": "docs/legal_corpus_v6_20261005/water117.json",
+      "sha256": "355e406733b6067fcc958f887dc122bd47a27db66367a7c7f29eef51a8cc0b8c",
+      "category": "water_cantho",
+      "provisions": 51
+    },
+    {
+      "id": "water124",
+      "file": "docs/legal_corpus_v6_20261005/water124.json",
+      "sha256": "d2cfda32e94d2385437187480491e39a7e672ddef2f98c81cffc432a51b99a99",
+      "category": "water_cantho",
+      "provisions": 17
+    },
+    {
+      "id": "water215",
+      "file": "docs/legal_corpus_v6_20261005/water215.json",
+      "sha256": "6160148d54ab51b8656a5a1aa269dcb790c43656429f9ab651dec72cdc856a78",
+      "category": "water_cantho",
+      "provisions": 2
+    },
+    {
+      "id": "water50",
+      "file": "docs/legal_corpus_v6_20261005/water50.json",
+      "sha256": "e7425f88db342c83102708f343060fd0b33b2f6b0889f6606cea1be4771df7d4",
+      "category": "water_cantho",
+      "provisions": 19
+    },
+    {
+      "id": "water-cantho-invoice-guide",
+      "file": "docs/legal_corpus_v6_20261005/water-cantho-invoice-guide.json",
+      "sha256": "9a66e627af8edaf7e00925cc1d3bdb286e8fe250f25e8c83e329f75883bc6320",
+      "category": "water_cantho",
+      "provisions": 1
+    },
+    {
+      "id": "water-cantho-invoice-portal",
+      "file": "docs/legal_corpus_v6_20261005/water-cantho-invoice-portal.json",
+      "sha256": "aff3d95d608f6842f98980e48f9966a0dbc62fa259891c647867d5f1ea8d036a",
+      "category": "water_cantho",
+      "provisions": 1
+    },
+    {
+      "id": "water-cantho2-invoice-faq",
+      "file": "docs/legal_corpus_v6_20261005/water-cantho2-invoice-faq.json",
+      "sha256": "d577f5710fb493b8c32ad52f0ac514ecf52fb133d925d1b441b233b11ee4177b",
+      "category": "water_cantho",
+      "provisions": 1
+    }
+  ],
+  "excluded": [
+    {
+      "id": "guidance-20261004-cantho_contacts",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-criminal_law",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-ecommerce_platform",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-electricity",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-fire_safety",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-housing_contract",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-legal_templates",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-privacy_data",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-real_estate_brokerage",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-residence",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "guidance-20261004-water_cantho",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-092b57ace14c",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-101ff31eaab8",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-27f5c84dac1d",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-3c1db7d7a4f0",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-4bcf6ab450b3",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-60dd067ea62d",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-6f667af18760",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-790737668504",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-8fb07729dbcb",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-95df8751459d",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-97260a1a9fb2",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-a2219789861b",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-c689645e534f",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-d9f68871fe49",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-da7dcada906d",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-e010a14386b4",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-e9adeff06c7a",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    },
+    {
+      "id": "legacy-f29b4cc9f353",
+      "reason": "Project editorial/selected local derivative removed; original-only replacements below."
+    }
+  ],
+  "new_downloads": [
+    {
+      "id": "procedure17",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+      "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwi5HLdd5X7TSCIYhIFgZbBh8deeIDUWGXkpjSRDH5BzC8jeDiB3XxnSUMtEfQWm84DkyEtM1WmrwvLrhFZZ2tJA~~&amp;file_name=2026_132_17%2fVBHN-VPQH.docx",
+      "path": "docs/source_grounded_originals_20261004/procedure17.docx",
+      "sha256": "43575fb4e5f6adcb8bcb0c6d2b7ca9e273af590643e89123a7736ddd6a994e7c"
+    },
+    {
+      "path": "docs/source_grounded_originals_20261004/criminal135-1.doc",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+      "sha256": "57336f626c4687da33ff6df56bb979032673a21cde3d58b8be7e8a98a173c0ed",
+      "id": "criminal135-1",
+      "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5khc2n7IJhtNwd-Zu02BkBFXMsQB8E4ni2vd1MZdKjpfES7Kpsq7moMTLwmPPCtolg~~&file_name=2025_1351+%2b+1352_135-VBHN-VPQH.doc"
+    },
+    {
+      "path": "docs/source_grounded_originals_20261004/criminal135-2.doc",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+      "sha256": "2677b71710d70f0558125a94c0979f997720db92d5557f77c15ce3afa1042ee7",
+      "id": "criminal135-2",
+      "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5sc6InDGx4atL69jHzTMF9Prug1ZJKY5YJwOTM6Vh_jZ94Zi4BNtN2MpPBGMstmc2w~~&file_name=2025_1353+%2b+1354_135-VBHN-VPQH.doc"
+    },
+    {
+      "path": "docs/source_grounded_originals_20261004/criminal135-3.doc",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+      "sha256": "1344921bb621cfbc55adc0976cb63ebe5e31c1cc27366ab9514f4dd337852ff8",
+      "id": "criminal135-3",
+      "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5k95NYPru_C8HcRQ2Wyr9LECo-4f5KRIYhAlsmw_uMRT0_kpIheiCjf2l8W16p-Z8Q~~&file_name=2025_1355+%2b+1356_135-VBHN-VPQH.doc"
+    },
+    {
+      "path": "docs/source_grounded_originals_20261004/criminal135-4.doc",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+      "sha256": "52b51f47877b22e6dc01167529e90db3f1db6130a84138143868cb9a73542c0f",
+      "id": "criminal135-4",
+      "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5reOHTYKlv4cqWcXKUvCAX3K7lba7XgeWw0x4YcZPCGfWYp9SMShBzBuBWIjxcoYUQ~~&file_name=2025_1357+%2b+1358_135-VBHN-VPQH.doc"
+    },
+    {
+      "id": "ctu-2026-registration",
+      "source_url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html",
+      "resolved_url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html",
+      "path": "docs/source_grounded_originals_20261004/ctu-2026-registration.html",
+      "sha256": "4efb8c9cb1dd2f49e42912bbb00e47e8f74ef5caf594e335b1ec6495af2a3e4d",
+      "retrieved_at_utc": "2026-10-04T16:13:48.124708+00:00",
+      "http_status": 200,
+      "bytes": 24075
+    },
+    {
+      "id": "ctu-new-students",
+      "source_url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa",
+      "resolved_url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa",
+      "path": "docs/source_grounded_originals_20261004/ctu-new-students.html",
+      "sha256": "87142f4c05447e5406ca0ef1c2ce29f7962c40ecaf17b20f357f24e172bb0f81",
+      "retrieved_at_utc": "2026-10-04T16:13:48.596063+00:00",
+      "http_status": 200,
+      "bytes": 16779
+    },
+    {
+      "id": "ctu-ktx-rules",
+      "source_url": "https://ssc.ctu.edu.vn/images/upload/Noiquy_KTX_trich_092025.pdf",
+      "resolved_url": "https://ssc.ctu.edu.vn/images/upload/Noiquy_KTX_trich_092025.pdf",
+      "path": "docs/source_grounded_originals_20261004/ctu-ktx-rules.pdf",
+      "sha256": "a58a8b7e2cc39d5d92e3c8cb6a956468d1e1158f96440fa19325b1273f7b8976",
+      "retrieved_at_utc": "2026-10-04T16:13:48.727241+00:00",
+      "http_status": 200,
+      "bytes": 196387
+    }
+  ],
+  "policy": "Immutable v5 originals plus bounded literal provider excerpts; private references never read or indexed.",
+  "parent_manifest_sha256": "1078209503f34030408492642128986684ebf80b798c39c77ba3fca25ca54f59"
+}

@@ -62,7 +62,7 @@ def main():
                 retired=[s for s in ('graph_rag_v1','housing_graph_v1','housing_v2','graph_rag_v2','housing_graph_v2') if s not in (graph,listing)]
                 for schema in retired:
                     c.execute(text(f'DROP SCHEMA IF EXISTS {schema} CASCADE'))
-                c.execute(text("UPDATE public.legal_corpus_releases SET status='retired' WHERE schema_name IN ('legal_v3_20261004','legal_v4_20261004') AND schema_name<>:schema"),{'schema':legal})
+                c.execute(text("UPDATE public.legal_corpus_releases SET status='retired' WHERE status='active' AND schema_name<>:schema"),{'schema':legal})
                 c.execute(text("UPDATE public.legal_corpus_releases SET status='active',activated_at=now() WHERE schema_name=:schema"),{'schema':legal})
                 report['retired_housing_schemas']=retired
                 report['active_schemas']={'graph':graph,'housing':listing,'legal':legal}

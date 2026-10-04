@@ -29,6 +29,12 @@ def rental_electricity_question(query: str) -> bool:
     return electricity_question(query) and not any(term in value for term in ("trom cap", "hanh lang", "duong day"))
 
 
+def water_invoice_lookup_question(query: str) -> bool:
+    value = normalize_text(query)
+    return ('nuoc' in value and any(term in value for term in ('tra cuu', 'doi chieu', 'ma khach hang', 'danh bo'))
+            and not any(term in value for term in ('khieu nai', 'tranh chap', 'thu cao', 'thu sai', 'hoa giai', 'khong dong y')))
+
+
 def expand_legal_query(query: str) -> str:
     value = normalize_text(query)
     additions: list[str] = []
@@ -66,6 +72,8 @@ def expand_legal_query(query: str) -> str:
         additions.append('hợp đồng dịch vụ trả tiền dịch vụ giá dịch vụ quyền nghĩa vụ bên sử dụng dịch vụ')
     if 'nuoc' in value and 'can tho' in value:
         additions.append('Quy định giá nước sạch sinh hoạt trên địa bàn thành phố Cần Thơ giá tiêu thụ nước')
+    if water_invoice_lookup_question(query):
+        additions.append('tra cứu hóa đơn IDKH mã xác nhận giấy báo biên nhận')
     if any(t in value for t in ('chia se sai','xu ly nhu the nao','rut lai')) and 'privacy_data' in question_categories(query):
         additions.append('thực hiện quyền chủ thể dữ liệu cá nhân yêu cầu rút lại hạn chế xử lý xóa dữ liệu thủ tục thời hạn')
     if any(term in value for term in ("phat", "xu ly", "thu thua", "hoan tra")):
@@ -89,6 +97,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
     for row in rows:
         value = normalize_text(row["content"])
         base = float(row.get("similarity_score", 0))
+        if water_invoice_lookup_question(query) and row.get('category')=='water_cantho' and any(term in value for term in ('xem xet lai so tien nuoc', 'hoa giai')):
+            row['similarity_score'] = 0.0
+            continue
         if rental and 'ky tuc xa' in value and 'ky tuc xa' not in question and 'nguoi thue nha' not in value:
             row['similarity_score']=0.0
             continue
@@ -125,6 +136,11 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                     base += 1.2
                 else:
                     base -= .7
+            if str(row.get('source_id') or '').startswith(('water-cantho-invoice-', 'water-cantho2-invoice-')):
+                if any(t in question for t in ('tra cuu', 'hoa don', 'doi chieu', 'ma khach hang', 'danh bo')):
+                    base += 1.8
+                else:
+                    base -= 1.5
             meaningful = set(legal_tokens(query)) - {"sinh", "vien", "nguoi", "thue", "nha", "tro", "phong", "can", "nen", "nhung", "gi"}
             overlap = len(meaningful & set(legal_tokens(value))) / max(1, len(meaningful))
             heading_overlap = len(meaningful & set(legal_tokens(heading))) / max(1, len(meaningful))

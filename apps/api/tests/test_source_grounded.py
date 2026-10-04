@@ -90,3 +90,43 @@ def test_writer_can_cover_more_than_five_requested_facets_without_uncited_claims
     line={'text':'Kiểm tra nội dung có căn cứ trong nguồn.','source_ranks':[1]}
     value=SynthesizedLegalAnswer.model_validate(dict(summary=line,steps=[line]*7,limitations=[],follow_up_questions=[],coverage='complete'))
     assert len(value.steps)==7
+
+def test_provider_lookup_excerpt_has_provenance_and_beats_unrelated_complaint():
+    corpus=ROOT/'docs/legal_corpus_v6_20261005'
+    doc=json.loads((corpus/'water-cantho-invoice-guide.json').read_text(encoding='utf-8'))
+    source=doc['source'];part=doc['provisions'][0]
+    assert source['source_url'].startswith('https://ctn-cantho.com.vn/')
+    assert hashlib.sha256((ROOT/source['path']).read_bytes()).hexdigest()==source['sha256']
+    assert source['origin_documents'][0]['sha256']==source['original_sha256']
+    assert 'IDKH' in part['content'] and 'Giấy báo/Biên nhận' in part['content']
+    assert len(part['content'].split())<=25
+    rows=[dict(chunk_id=1,category='water_cantho',title=source['title'],heading=part['heading'],
+               content=part['content'],source_id=source['id'],similarity_score=.5),
+          dict(chunk_id=2,category='water_cantho',title='Giải quyết khiếu nại',heading='Khiếu nại',
+               content='Giải quyết khiếu nại về tiền nước trong thời hạn quy định.',source_id='water117',similarity_score=.8)]
+    assert rerank_legal('Muốn tra cứu hóa đơn tiền nước để đối chiếu thì làm như thế nào?',rows,5)[0]['chunk_id']==1
+
+def test_water_publisher_scope_is_preserved_without_inventing_rental_tariff():
+    from app.room_service.chatbot.source_selection import selection_candidates,render_selection
+    doc=json.loads((ROOT/'docs/legal_corpus_v6_20261005/water-cantho-invoice-guide.json').read_text(encoding='utf-8'))
+    row=dict(rank=1,title=doc['source']['title'],category='water_cantho',source_id=doc['source']['id'],
+             heading=doc['provisions'][0]['heading'],content=doc['provisions'][0]['content'])
+    query='Tôi muốn tra cứu hóa đơn tiền nước để đối chiếu số tiền.'
+    draft=render_selection(query,[row],selection_candidates([row]),'{"selected_ids":[1],"insufficient":false}','qwen-local','test')
+    assert any('đơn vị trên hóa đơn' in value for value in draft.evidence_limitations)
+    assert not any('chưa gắn trích dẫn' in issue for issue in evidence_issues('\n'.join(draft.evidence_limitations),[row],query))
+
+def test_water_lookup_expands_customer_code_without_suppressing_dispute_questions():
+    from app.room_service.chatbot.legal_retrieval import expand_legal_query
+    query='Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?'
+    assert 'IDKH' in expand_legal_query(query)
+    row=dict(chunk_id=2,category='water_cantho',title='Tiền nước',heading='Yêu cầu xem xét',
+             content='Khách hàng yêu cầu xem xét lại số tiền nước; có thể đề nghị hòa giải.',source_id='water117',similarity_score=.8)
+    assert not rerank_legal(query,[dict(row)],5)
+    assert rerank_legal('Tôi muốn khiếu nại tranh chấp tiền nước và đề nghị hòa giải',[dict(row)],5)
+
+def test_native_uppercase_form_labels_are_usable_but_broken_font_text_is_not():
+    from app.room_service.legal_knowledge.quality import usable_legal_text
+    doc=json.loads((ROOT/'docs/legal_corpus_v6_20261005/water-cantho-invoice-portal.json').read_text(encoding='utf-8'))
+    assert usable_legal_text(doc['provisions'][0]['content'])
+    assert not usable_legal_text('diQn diQn diQn chri th6ng b6n')

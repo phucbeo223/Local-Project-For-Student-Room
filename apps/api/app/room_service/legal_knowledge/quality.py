@@ -13,7 +13,7 @@ def text_quality(text: str) -> float:
     if not letters:
         return 0.0
     damaged = sum(
-        bool(re.search(r"[a-zà-ỹ][A-Z]", word))
+        any(left.islower() and right.isupper() for left, right in zip(word, word[1:]))
         or (any(ch.isdigit() for ch in word) and any(ch.isalpha() for ch in word))
         for word in letters
     )

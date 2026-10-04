@@ -17,7 +17,10 @@ function publicSource(value?: string | null): string | null {
   try {
     const url = new URL(value || '');
     const signedWaterDecision = url.hostname === 'capnuoccantho2.com.vn' && url.pathname === '/View.aspx' && url.searchParams.get('wc') === '63' && url.searchParams.get('wp') === '332';
-    return url.protocol === 'https:' && (url.hostname.endsWith('.gov.vn') || url.hostname.endsWith('.chinhphu.vn') || signedWaterDecision) ? url.href : null;
+    const providerInstructions = (url.hostname === 'ctn-cantho.com.vn' && url.pathname === '/tin-khoa-hoc-cong-nghe/huong-dan-truy-cap-website-de-tra-cuu-va-tai-hoa-don-tien-nuoc-331.html')
+      || (url.hostname === 'hddt.ctn-cantho.com.vn' && url.pathname === '/')
+      || (url.hostname === 'capnuoccantho2.com.vn' && url.pathname === '/View.aspx' && url.searchParams.get('wp') === '253');
+    return url.protocol === 'https:' && !url.username && !url.password && !url.port && (url.hostname.endsWith('.gov.vn') || url.hostname.endsWith('.chinhphu.vn') || url.hostname.endsWith('.ctu.edu.vn') || signedWaterDecision || providerInstructions) ? url.href : null;
   } catch { return null; }
 }
 

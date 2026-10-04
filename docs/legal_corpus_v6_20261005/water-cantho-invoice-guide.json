@@ -1,0 +1,44 @@
+{
+  "source": {
+    "id": "water-cantho-invoice-guide",
+    "title": "CANTHOWASSCO — tra cứu",
+    "category": "water_cantho",
+    "source_url": "https://ctn-cantho.com.vn/tin-khoa-hoc-cong-nghe/huong-dan-truy-cap-website-de-tra-cuu-va-tai-hoa-don-tien-nuoc-331.html",
+    "path": "docs/provider_excerpts_20261005/water-cantho-invoice-guide.txt",
+    "sha256": "53cbf0dac0b71b8a38862460289fdc04a925952cb498fc456b18bfc31a0c9a76",
+    "original_sha256": "fc55bfb8985de8963d3b10e1bed380a42630a09caceae27fa293b46139aeb67c",
+    "origin_documents": [
+      {
+        "path": "eval/provider_sources_20261005/water-cantho-invoice-guide.html",
+        "sha256": "fc55bfb8985de8963d3b10e1bed380a42630a09caceae27fa293b46139aeb67c",
+        "source_url": "https://ctn-cantho.com.vn/tin-khoa-hoc-cong-nghe/huong-dan-truy-cap-website-de-tra-cuu-va-tai-hoa-don-tien-nuoc-331.html",
+        "retrieved_at_utc": "2026-10-04T20:05:35.889531+00:00"
+      }
+    ],
+    "pages": 1,
+    "page_kind": "web_excerpt",
+    "not_exhaustive": true,
+    "extraction": "Bounded literal native HTML text/form labels; whitespace normalization only.",
+    "source_policy": "Public publisher excerpts only; complete fetched HTML retained locally for hash verification.",
+    "verification": "Publisher-specific instructions, not a universal water tariff or rental allocation rule."
+  },
+  "provisions": [
+    {
+      "provision_id": "water-cantho-invoice-guide:3eac2a317c439bab91e1",
+      "article": null,
+      "clause": null,
+      "heading": "Tra cứu hóa đơn — thông tin công bố",
+      "content": "IDKH và Mã xác nhận (số này được in trên Giấy báo/Biên nhận tiền nước).\nTRA CỨU HÓA ĐƠN",
+      "content_sha256": "3eac2a317c439bab91e1519bf8a6f43f22ff13d68512f8bdb8b848ee3bc49f12",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    }
+  ]
+}

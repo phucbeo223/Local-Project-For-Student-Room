@@ -1,0 +1,44 @@
+{
+  "source": {
+    "id": "water-cantho-invoice-portal",
+    "title": "CANTHOWASSCO — cổng hóa đơn",
+    "category": "water_cantho",
+    "source_url": "https://hddt.ctn-cantho.com.vn/",
+    "path": "docs/provider_excerpts_20261005/water-cantho-invoice-portal.txt",
+    "sha256": "0c0cf1c01d19c2cd233a356e740b4de884022c6d273a9f9d8325eef6177ed756",
+    "original_sha256": "8427a25a514347d3312a1233c109293261bec06a36b5a401e485a2d646cd0b23",
+    "origin_documents": [
+      {
+        "path": "eval/provider_sources_20261005/water-cantho-invoice-portal.html",
+        "sha256": "8427a25a514347d3312a1233c109293261bec06a36b5a401e485a2d646cd0b23",
+        "source_url": "https://hddt.ctn-cantho.com.vn/",
+        "retrieved_at_utc": "2026-10-04T20:05:35.942628+00:00"
+      }
+    ],
+    "pages": 1,
+    "page_kind": "web_excerpt",
+    "not_exhaustive": true,
+    "extraction": "Bounded literal native HTML text/form labels; whitespace normalization only.",
+    "source_policy": "Public publisher excerpts only; complete fetched HTML retained locally for hash verification.",
+    "verification": "Publisher-specific instructions, not a universal water tariff or rental allocation rule."
+  },
+  "provisions": [
+    {
+      "provision_id": "water-cantho-invoice-portal:8b7d2938027caadbf09e",
+      "article": null,
+      "clause": null,
+      "heading": "Tra cứu hóa đơn — thông tin công bố",
+      "content": "TRA CỨU HÓA ĐƠN ĐIỆN TỬ\nNhập IDKH để tra cứu\nMã xác nhận\nTra cứu hóa đơn",
+      "content_sha256": "8b7d2938027caadbf09e09234a5b5b4afa50640357249d68433943e439752a41",
+      "page_from": 1,
+      "page_to": 1,
+      "kind": "official_information",
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "article_context": "",
+      "source_start": null,
+      "source_end": null
+    }
+  ]
+}

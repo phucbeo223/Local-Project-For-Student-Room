@@ -46,7 +46,7 @@ def main():
     references = {case['original_question_id']: case for case in read(reference_path)['cases']}
     expected_comparison = sorted(case['id'] for case in comparison_run['cases'] if case['id'] in references)
     pipeline = Path('/workspace/apps/api/app/room_service/chatbot')
-    current_pipeline = hashlib.sha256(b''.join(p.name.encode() + p.read_bytes() for p in sorted(pipeline.glob('*.py')))).hexdigest()
+    current_pipeline = bank.pipeline_sha256(pipeline)
     engine = create_engine(settings.database_url)
     with engine.connect() as conn:
         graph_release = dict(conn.execute(text(f'SELECT * FROM {settings.chatbot_graph_schema}.release WHERE id=1')).mappings().one())
@@ -135,7 +135,7 @@ def main():
         '- Câu 15 sau 14; câu 16 sau 14,15; câu 17–18 độc lập sau 14, có cả lịch sử và conversation state.',
         '- Không vi phạm bộ lọc nghĩa là trường trả về khớp dữ liệu đã nhập; không xác minh quảng cáo, giá hay phòng còn trống.',
         '- Cờ no_answer ở pháp lý có thể đi cùng partial_answer và nội dung trả lời; không đồng nghĩa hoàn toàn không trả lời.',
-        '- Nhãn high/partial/low đo khớp văn bản với tham chiếu chưa xác minh; không phải tỷ lệ đúng pháp luật. Mô hình chấm khác bước 1 nên không suy ra tăng/giảm accuracy.',
+        '- Nhãn high/partial/low đo khớp văn bản với tham chiếu chưa xác minh; không phải tỷ lệ đúng pháp luật. So sánh nhãn cần đối chiếu cùng câu hỏi, phiên bản prompt và mô hình; không tự suy ra tăng/giảm accuracy.',
         '- Đáp án tham chiếu chỉ dùng sau sinh câu trả lời; bộ câu hỏi đã dùng trong phát triển nên đây là hồi quy trên chủ đề đã biết, chưa phải kiểm thử mù.',
         '- Không có đáp án độc lập cho nhà trọ/KTX và không có điểm RAGAS mới. Confidence chưa được hiệu chuẩn thành xác suất đúng.',
         '- Độ trễ là quan sát vận hành trên máy local với tài nguyên dùng chung, chưa phải benchmark tài nguyên cô lập.', '',
@@ -162,7 +162,8 @@ def main():
                 host = address.hostname or ''
                 trusted = address.scheme == 'https' and (host == 'chotot.com' or host.endswith('.chotot.com')
                     or host.endswith('.gov.vn') or host.endswith('.chinhphu.vn')
-                    or host.endswith('.ctu.edu.vn') or host.endswith('.cdnchinhphu.vn') or host=='capnuoccantho2.com.vn')
+                    or host.endswith('.ctu.edu.vn') or host.endswith('.cdnchinhphu.vn') or host=='capnuoccantho2.com.vn'
+                    or host=='ctn-cantho.com.vn' or host.endswith('.ctn-cantho.com.vn'))
                 label = f"[{title}]({quote(url, safe=':/?#=%&-._~')})" if trusted else title
                 source_kind = source.get('page_kind') or source.get('kind')
                 unit = 'đơn vị trích' if source_kind=='logical_document' else 'trang'
