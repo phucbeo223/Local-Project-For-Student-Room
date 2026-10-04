@@ -59,7 +59,7 @@ Có graph trace ở 53/56 câu và không có lệnh gọi cloud cho dữ liệu
 
 Đối chiếu cơ sở v12 đủ 36 đáp án: high 1, partial 27, low 8. Câu 30 chuyển từ low ở cơ sở sang high sau khi thêm nguồn tra cứu thực tế và sửa bộ lọc chữ. Lượt cuối v15 được sinh và chấm lại từ đầu, không ghép kết quả cơ sở vào báo cáo mới. Đây là hồi quy trên chủ đề đã biết; không phải kiểm thử mù hay tỷ lệ chính xác pháp lý đã được xác minh. Không quy thay đổi nhãn thành mức tăng accuracy.
 
-Báo cáo nghiệm thu cuối đạt toàn bộ 24 điều kiện hoàn tất/toàn vẹn, gồm đúng pipeline sinh, đúng phiên bản graph/corpus, đủ embedding thật, kho public không thay đổi sau test, không vi phạm bộ lọc nhà trọ, đủ 36 đối chiếu có ràng buộc mã băm và nguồn gốc tài liệu. Các điều kiện này không chứng nhận hệ thống đã sẵn sàng triển khai sản xuất. Báo cáo chi tiết từng câu, đáp án mẫu, ghi chú chấm và bản sao lưu giữ local; GitHub chứa mã nguồn, tài liệu nguồn công khai và số liệu tổng hợp.
+Báo cáo nghiệm thu cuối đạt toàn bộ 23 điều kiện hoàn tất/toàn vẹn, gồm đúng pipeline sinh, đúng phiên bản graph/corpus, đủ embedding thật, kho public không thay đổi sau test, không vi phạm bộ lọc nhà trọ, đủ 36 đối chiếu có ràng buộc mã băm và nguồn gốc tài liệu. Các điều kiện này không chứng nhận hệ thống đã sẵn sàng triển khai sản xuất. Báo cáo chi tiết từng câu, đáp án mẫu, ghi chú chấm và bản sao lưu giữ local; GitHub chứa mã nguồn, tài liệu nguồn công khai và số liệu tổng hợp.
 
 Các lệnh đánh giá dùng những output riêng cho phiên bản cuối, chạy tuần tự để Qwen không bị tranh tài nguyên:
 
