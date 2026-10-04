@@ -1,0 +1,90 @@
+{
+  "answer": "Khuyến nghị sinh viên cần đối chiếu các điều khoản cơ bản của hợp đồng theo quy định pháp luật cùng điều kiện có hiệu lực trước khi ký kết [3] [4].\n\n- Khuyến nghị sinh viên kiểm tra nội dung về đối tượng, mô tả đặc điểm nhà ở, số lượng và chất lượng phòng trọ theo văn bản thỏa thuận [2] [3].\n- Khuyến nghị sinh viên rà soát các điều khoản về giá thuê, phương thức thanh toán cũng như thời hạn, địa điểm và phương thức thực hiện hợp đồng [3].\n- Khuyến nghị sinh viên xác định rõ quyền, nghĩa vụ giữa các bên, trách nhiệm do vi phạm hợp đồng và phương thức giải quyết tranh chấp [3].\n- Khuyến nghị sinh viên đối chiếu điều kiện năng lực hành vi dân sự, sự tự nguyện của các bên và tính hợp pháp của mục đích, nội dung hợp đồng [4].\n\nNguồn tài liệu hiện tại chỉ nêu các nội dung cơ bản của hợp đồng và giao dịch dân sự nói chung mà chưa có quy định chuyên biệt riêng cho đối tượng sinh viên thuê trọ [3] [4].\n\nChưa đủ căn cứ để kết luận toàn bộ yêu cầu; cần đối chiếu phần còn thiếu.\n\nĐể áp dụng vào trường hợp của bạn:\n- Hợp đồng thuê trọ của bạn thuộc loại hình nhà ở riêng lẻ hay căn hộ chung cư?\n- Bạn và bên cho thuê đã có thỏa thuận cụ thể nào về tiền đặt cọc và chi phí dịch vụ chưa?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+  "intent": "legal_question",
+  "generation_provider": "gemini-agent",
+  "generation_model": "gemini-3.8-flash-high",
+  "latency_ms": 50189,
+  "partial_answer": true,
+  "no_answer": true,
+  "degraded": true,
+  "degraded_reasons": [
+    "Phản hồi chưa đáp ứng đầy đủ yêu cầu chính; đánh dấu theo nội dung thay vì provider."
+  ],
+  "agent_trace": [
+    {
+      "agent": "question_analysis",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-high",
+      "status": "completed",
+      "plan": {
+        "search_queries": [
+          "điều khoản hợp đồng thuê phòng trọ sinh viên",
+          "quy định hợp đồng thuê nhà ở",
+          "lưu ý ký hợp đồng thuê trọ"
+        ],
+        "categories": [
+          "housing_contract",
+          "student_housing"
+        ],
+        "missing_information": [
+          "Loại hình nhà trọ (nhà nguyên căn, phòng trọ riêng lẻ, ký túc xá)",
+          "Các thỏa thuận cụ thể dự kiến có trong hợp đồng (tiền cọc, chi phí dịch vụ, thời hạn thuê)"
+        ],
+        "as_of_date": null
+      },
+      "duration_ms": 2928
+    },
+    {
+      "agent": "legal_retrieval",
+      "provider": "hybrid",
+      "status": "completed",
+      "corpus_schema": "public",
+      "sources_found": 4,
+      "duration_ms": 1659
+    },
+    {
+      "agent": "evidence_selection",
+      "provider": "qwen-local",
+      "model": "qwen3.5:9b",
+      "status": "complete",
+      "selected_ranks": [
+        2,
+        3,
+        4
+      ],
+      "duration_ms": 38373
+    },
+    {
+      "agent": "answer_synthesis",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-high",
+      "status": "partial",
+      "repair": false,
+      "duration_ms": 4712
+    },
+    {
+      "agent": "source_verification",
+      "provider": "gemini",
+      "model": "gemini-3.8-flash-high",
+      "status": "accepted",
+      "duration_ms": 2446
+    },
+    {
+      "agent": "answer",
+      "provider": "gemini-agent",
+      "model": "gemini-3.8-flash-high",
+      "status": "partial",
+      "attempted_provider": "gemini-agent",
+      "attempted_model": "gemini-3.8-flash-high"
+    },
+    {
+      "agent": "citation_and_rule_checks",
+      "provider": "rules",
+      "status": "accepted"
+    }
+  ],
+  "citation_accuracy": 1.0,
+  "http_status": 200,
+  "pipeline_sha256": "31878076bf02a6a6d8e5b5a8a3200a2bb3ad23a80b13a86e150cbe8be904f1be",
+  "source_count": 4
+}

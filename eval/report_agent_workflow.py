@@ -112,18 +112,19 @@ def main():
     for c in cases:
         lines.append(f"| {c['id']} | {c.get('generation_provider')} | {c.get('partial_answer')} | {c['latency_ms']/1000:.1f} |")
     lines.extend(['', '## Nguyên văn đối chiếu', '',
-                  'Các câu trả lời dưới đây được giữ nguyên; đặt cạnh nhau để kiểm tra nội dung, chưa chấm mức khớp hoặc kết luận bên nào đúng pháp luật.', ''])
+                  'Các câu trả lời được đặt cạnh nhau để kiểm tra nội dung, chưa chấm mức khớp hoặc kết luận bên nào đúng pháp luật. JSON giữ nguyên toàn bộ đáp án; bản Markdown chuẩn hóa khoảng trắng cuối dòng.', ''])
     for c in data['cases']:
         lines.extend([f"### Câu {c['id']}: {c['question']}", ''])
         for label, key in [('A — Gemini chatbot', 'A_gemini_chatbot'), ('B — Gemini phân tích + Qwen trích nguồn', 'B_gemini_analysis_qwen_quotes'), ('C — Đáp án bạn gửi', 'C_user_reference'), ('D — Chatbot dạng agent', 'D_agent_chatbot')]:
             lines.extend([f'#### {label}', '', c[key], ''])
         if c['sources']:
             lines.extend(['Nguồn truy xuất của D (rank dùng trong trích dẫn):', '', *[
-                f"- [{s['rank']}] {s.get('title', '')} — {s.get('heading') or ''}"
+                f"- [{s['rank']}] {s.get('title', '')}" + (f" — {s['heading']}" if s.get('heading') else '')
                 for s in c['sources']], ''])
         if c['degraded_reasons']:
             lines.extend(['Lý do giới hạn/fallback của D:', '', *['- ' + item for item in c['degraded_reasons']], ''])
-    args.output.with_suffix('.md').write_text('\n'.join(lines), encoding='utf-8')
+    markdown = '\n'.join(line.rstrip() for line in '\n'.join(lines).splitlines()) + '\n'
+    args.output.with_suffix('.md').write_text(markdown, encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False))
 
 

@@ -72,6 +72,14 @@ python eval/report_agent_workflow.py --run eval/reports/legal_agent_synthesis_36
 
 Script từ chối lượt chưa đủ 36 câu. A/B là các lượt chatbot cũ, C là đáp án bạn cung cấp, D là workflow agent mới; việc đặt cạnh nhau không tự chấm độ đúng pháp luật. Các file `smoke*` và `trial` là lượt phát triển với pipeline khác, không cộng vào kết quả 36 câu cuối.
 
+Lượt cuối ngày 04/10/2026 đã hoàn tất **36/36 câu, không có lỗi thu thập**: 28 câu giữ bản tổng hợp Gemini, 8 câu dùng lại trích nguồn sau kiểm chứng/sửa. Gemini phân tích thành công 31 câu; 5 câu dùng định tuyến dự phòng. Có 13 câu gọi sửa writer, không có lỗi định dạng writer trong lượt cuối. Vẫn có 22 câu trả lời một phần theo cờ của hệ thống.
+
+Trung vị độ trễ là 43,4 giây và độ dài 1.299 ký tự; lượt B cũ tương ứng 30,7 giây và 2.473 ký tự. Đây là quan sát trên các lượt khác thời điểm, chưa đo độ đúng pháp luật hoặc kết luận cấu hình tối ưu. Mã chatbot trong API triển khai có cùng pipeline hash với lượt đánh giá.
+
+[Báo cáo và nguyên văn 144 đáp án A/B/C/D](../eval/ragas_reports/legal_agent_workflow_36_2026-10-04.md) · [Dữ liệu lượt 36 câu](../eval/reports/legal_agent_synthesis_36_2026-10-04.json).
+
+Kiểm tra endpoint API đang chạy với tài khoản sẵn có nhận **HTTP 200**, provider `gemini-agent`, đủ các vai trò phân tích/truy xuất/chọn nguồn/tổng hợp/kiểm chứng; độ trễ 50,2 giây. [Kết quả HTTP](../eval/reports/legal_agent_synthesis_http_2026-10-04.json) không chứa token đăng nhập hoặc khóa model.
+
 Để triển khai cục bộ sau khi sửa `.env`:
 
 ```powershell
