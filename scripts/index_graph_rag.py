@@ -25,11 +25,20 @@ VERSION = 'typed-local-graph-1.2'
 
 
 def main():
+    global GRAPH, HOUSING, SOURCE
     parser = argparse.ArgumentParser()
     parser.add_argument('--catalog-dir', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--rebuild', action='store_true', help='Atomically rebuild this isolated graph, retaining verified housing rows')
+    parser.add_argument('--graph-schema', default=GRAPH)
+    parser.add_argument('--housing-schema', default=HOUSING)
+    parser.add_argument('--source-schema', default=SOURCE)
     args = parser.parse_args()
+    from app.room_service.chatbot.graph_retrieval import graph_schema
+    GRAPH = graph_schema(args.graph_schema)
+    if not all(re.fullmatch(r'housing_[a-z0-9_]{1,48}',s) for s in (args.housing_schema,args.source_schema)):
+        raise ValueError('Invalid isolated housing namespace')
+    HOUSING, SOURCE = args.housing_schema, args.source_schema
     catalog = args.catalog_dir / 'CATALOG.jsonl'
     digest = hashlib.sha256(catalog.read_bytes()).hexdigest()
     manifest = json.loads((args.catalog_dir.parent / 'SOURCE_MANIFEST.json').read_text(encoding='utf-8'))
@@ -70,7 +79,7 @@ def main():
             raise ValueError('Different graph release already exists; create a new version')
         conn.execute(text(f'CREATE TABLE IF NOT EXISTS {HOUSING}.aggregated_listings '
                           '(LIKE public.aggregated_listings INCLUDING ALL)'))
-        conn.execute(text(f'CREATE TABLE IF NOT EXISTS {HOUSING}.release (LIKE housing_v2.release INCLUDING ALL)'))
+        conn.execute(text(f'CREATE TABLE IF NOT EXISTS {HOUSING}.release (LIKE {SOURCE}.release INCLUDING ALL)'))
         if not existing:
             count = conn.execute(text(f'SELECT count(*) FROM {HOUSING}.aggregated_listings')).scalar_one()
             if count:

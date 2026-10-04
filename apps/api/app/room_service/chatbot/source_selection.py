@@ -93,7 +93,7 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     missing_facets=requested_contract_facets(question)-found_facets
     issues=scope_issues(question,parts)
     if any(p.get('source_id')=='electricity-cantho-guidance' for p in parts):
-        issues.append('Nguồn công khai cách tính điện tại Cần Thơ là hướng dẫn thực tế, chưa phải điều khoản xác lập nghĩa vụ thông báo bắt buộc cho mọi chủ trọ; chưa xác nhận sự kiện kích hoạt hiệu lực của quy định điện có điều kiện.')
+        issues.append('Chưa đủ căn cứ để kết luận nghĩa vụ thông báo bắt buộc cho mọi chủ trọ từ hướng dẫn công khai cách tính điện tại Cần Thơ; nguồn là hướng dẫn thực tế và chưa xác minh sự kiện kích hoạt quy định điện có điều kiện.')
     if any(p.get('source_id')=='water215' for p in parts):
         issues.append('Nguồn giá nước năm 2024: cần xác nhận địa bàn, đơn vị cấp nước và hiệu lực tại thời điểm áp dụng; bảng tiền chưa được dùng để kết luận mức thu.')
     if any(p.get('unresolved_references') for p in parts):

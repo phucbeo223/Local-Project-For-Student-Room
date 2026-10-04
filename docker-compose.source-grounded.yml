@@ -1,0 +1,25 @@
+# Fresh original-only corpus and freshly embedded supplied housing; local evaluation.
+services:
+  api:
+    environment:
+      CRAWLER_ENABLED: "false"
+      CHATBOT_GRAPH_ENABLED: "true"
+      CHATBOT_GRAPH_SCHEMA: graph_rag_v3
+      CHATBOT_LISTING_SCHEMA: housing_graph_v3
+      CHATBOT_LEGAL_SCHEMA: legal_v5_20261004
+      CHATBOT_LLM_PROVIDER: qwen
+      CHATBOT_AGENTS_ENABLED: "true"
+      CHATBOT_ANSWER_SYNTHESIS_ENABLED: "true"
+  ragas-eval:
+    environment:
+      CHATBOT_GRAPH_ENABLED: "true"
+      CHATBOT_GRAPH_SCHEMA: graph_rag_v3
+      CHATBOT_LISTING_SCHEMA: housing_graph_v3
+      CHATBOT_LEGAL_SCHEMA: legal_v5_20261004
+      CHATBOT_LLM_PROVIDER: qwen
+      CHATBOT_AGENTS_ENABLED: "true"
+      CHATBOT_ANSWER_SYNTHESIS_ENABLED: "true"
+    volumes:
+      - ./docs:/workspace/docs
+      - ./Datehouse:/catalog:ro
+      - ./docs/CHATBOT_QUESTION_BANK.md:/housing_bank.md:ro

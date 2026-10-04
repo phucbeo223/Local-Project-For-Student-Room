@@ -1,0 +1,166 @@
+{
+  "source": {
+    "id": "fire58",
+    "title": "Văn bản hợp nhất 58/VBHN-VPQH năm 2026 — Luật PCCC và CNCH",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-58-vbhn-vpqh-469188.htm",
+    "download_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/4/9/469188-1775627122_v1_1775697185_signed.pdf",
+    "path": "docs/legal_web_supplement_20261004/originals/fire58.pdf",
+    "sha256": "4baee8c12ccfe54c9ecf4655c7f602471f5e6833c884f5c9adc15026f6990aab",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "reviewed_excerpt_in_refresh_corpus",
+    "category": "fire_safety",
+    "original_sha256": "4baee8c12ccfe54c9ecf4655c7f602471f5e6833c884f5c9adc15026f6990aab",
+    "source_policy": "Published original or explicitly reviewed literal excerpt; no project-authored guidance."
+  },
+  "provisions": [
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "1",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "1. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Lắp đặt, sử dụng thiết bị điện bảo đảm điều kiện an toàn về phòng cháy quy định tại điểm c khoản 1 Điều 24 của Luật này;\nb) Bố trí bếp đun nấu, nơi thờ cúng, đốt vàng mã bảo đảm an toàn; không để vật, chất dễ cháy, nổ gần nguồn lửa, nguồn nhiệt.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": [
+        "qa/fire58-17.png"
+      ],
+      "applicability_note": "Phải giữ phạm vi loại nhà và đối chiếu khoản 3, 4; không đưa checklist này thay yêu cầu cơ sở tại Điều 23.",
+      "kind": "legal_provision",
+      "content_sha256": "cc5519bf69e9e3f91220c54b90199cd320caccc661ea216db350cfc1e948041d",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:20:1"
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "2",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "2. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện về chữa cháy, thoát nạn sau đây:\na) Có phương tiện phòng cháy, chữa cháy phù hợp với khả năng, điều kiện thực tế để sẵn sàng chữa cháy, thoát nạn;\nb) Bố trí, duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": [
+        "qa/fire58-17.png"
+      ],
+      "applicability_note": "Không có số bình hoặc số lối thoát cố định áp cho tất cả nhà trọ trong khoản này.",
+      "kind": "legal_provision",
+      "content_sha256": "32b334935fdec1d7ace043ac069426c8c6c4a928bde150f8f3dd8e3e777cca20",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:20:2"
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "3",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "3. Nhà ở có quy chuẩn kỹ thuật, tiêu chuẩn được viện dẫn trong văn bản quy phạm pháp luật hoặc trong quy chuẩn kỹ thuật về phòng cháy, chữa cháy và cứu nạn, cứu hộ thì thực hiện theo tiêu chuẩn, quy chuẩn kỹ thuật đó.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": [
+        "qa/fire58-17.png"
+      ],
+      "applicability_note": "Kiểm tra quy chuẩn, tiêu chuẩn được viện dẫn áp dụng đúng công trình.",
+      "kind": "legal_provision",
+      "content_sha256": "5568dd9839821e7970aa7626ba0c691111abcaf735220aae978036296c427673",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:20:3"
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "4",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "4. Nhà ở trong danh mục cơ sở thuộc diện quản lý về phòng cháy và chữa cháy thực hiện theo quy định tại Điều 23 của Luật này.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": [
+        "qa/fire58-18.png"
+      ],
+      "applicability_note": "Đối chiếu danh mục Nghị định 105 theo loại hình, quy mô thực tế.",
+      "kind": "legal_provision",
+      "content_sha256": "bcc65f61e5673807610081e2c2db257e49989a99cbe7b210e5fa8b57c94ef39f",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:20:4"
+    },
+    {
+      "source_id": "fire58",
+      "article": "21",
+      "clause": "1",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh",
+      "content": "1. Nhà ở kết hợp sản xuất, kinh doanh phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Các điều kiện an toàn về phòng cháy quy định tại Điều 20 của Luật này;\nb) Có biển cấm, biển báo, biển chỉ dẫn theo quy định;\nc) Khu vực sản xuất, kinh doanh hàng hóa có nguy cơ cháy, nổ phải có giải pháp ngăn cách hoặc ngăn cháy với khu vực để ở.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": [
+        "qa/fire58-18.png"
+      ],
+      "applicability_note": "Giữ phạm vi nhà ở kết hợp sản xuất, kinh doanh.",
+      "kind": "legal_provision",
+      "content_sha256": "e728716034bf1e45c57c03a34a9cd8ab9a70b37bcce46c9108fb886134754755",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:21:1"
+    },
+    {
+      "source_id": "fire58",
+      "article": "21",
+      "clause": "2",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh",
+      "content": "2. Nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Các điều kiện an toàn về phòng cháy quy định tại khoản 1 Điều này;\nb) Không bố trí chỗ ngủ trong khu vực sản xuất, kinh doanh;\nc) Có phương tiện báo cháy, giải pháp thông gió, thiết bị phát hiện sự cố rò rỉ chất, khí nguy hiểm về cháy, nổ phù hợp với công năng sử dụng của nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ;\nd) Khu vực sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải được ngăn cháy với lối thoát nạn của khu vực để ở.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": [
+        "qa/fire58-18.png"
+      ],
+      "applicability_note": "Nhóm kết hợp hàng hóa nguy hiểm về cháy, nổ, không gán cho mọi phòng trọ.",
+      "kind": "legal_provision",
+      "content_sha256": "9ed9293c503b75f6bca3b425d7544572d56a344c2470a8b4d963ae8bbec2b13d",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:21:2"
+    },
+    {
+      "source_id": "fire58",
+      "article": "24",
+      "clause": "1",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất",
+      "content": "1. Trong lắp đặt, sử dụng điện cho sinh hoạt phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Chấp hành quy định về an toàn trong sử dụng điện cho sinh hoạt theo quy định của pháp luật về điện lực;\nb) Đơn vị bán lẻ điện khi đấu nối điện sinh hoạt phải tư vấn việc lắp đặt, sử dụng đối với hệ thống, thiết bị điện để bảo đảm an toàn về phòng cháy;\nc) Việc lắp đặt, sử dụng dây dẫn điện, thiết bị điện trong nhà phải bảo đảm yêu cầu về an toàn điện theo quy định của pháp luật; thường xuyên kiểm tra, kịp thời sửa chữa, thay thế dây dẫn điện, thiết bị điện không bảo đảm an toàn về phòng cháy;\nd) Chỉ được sử dụng thiết bị sạc điện cho xe động cơ điện bảo đảm quy chuẩn kỹ thuật quốc gia; nơi sạc điện cho xe động cơ điện trong nhà phải có giải pháp bảo đảm an toàn về phòng cháy; khu vực sạc điện cho xe động cơ điện tập trung trong nhà còn phải có giải pháp ngăn cháy và trang bị phương tiện chữa cháy phù hợp, bảo đảm tiêu chuẩn.",
+      "page_from": 20,
+      "page_to": 20,
+      "review_images": [
+        "qa/fire58-20.png"
+      ],
+      "applicability_note": "An toàn điện sinh hoạt; không chỉ dẫn tự sửa điện nguy hiểm.",
+      "kind": "legal_provision",
+      "content_sha256": "fe2f099b07c7520fffdd694e412b5bc9895bb108db13d0e04639f9b6f7ee7e10",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:fire58:24:1"
+    }
+  ]
+}

@@ -55,7 +55,7 @@ def main():
             report['passed'] = (report['health_status'] == 200 and report['anonymous_status'] in (401, 403)
                 and body['retrieval_mode'] == detail['retrieval_mode'] == 'graph_hybrid'
                 and body['generation_provider'] == detail['generation_provider'] == 'structured'
-                and all(item['corpus_schema'] == 'housing_graph_v1' for item in body['listings'] + detail['listings'])
+                and all(item['corpus_schema'] == settings.chatbot_listing_schema for item in body['listings'] + detail['listings'])
                 and any(step.get('stage') == 'graph_retrieval' for step in body['agent_trace'])
                 and report['same_listing_follow_up'])
     except Exception as exc:

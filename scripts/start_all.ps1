@@ -2,6 +2,7 @@
 param(
     [switch]$SkipBuild,
     [switch]$SkipSeed,
+    [switch]$SeedDemoData,
     [switch]$IndexLegal
 )
 
@@ -20,8 +21,8 @@ function Invoke-Compose {
 
 Push-Location $projectRoot
 try {
-    # The research/demo stack uses controlled synthetic data. Crawling is owned by
-    # another team and must only be enabled explicitly outside this launcher.
+    # Preserve the supplied catalog on restart. Demo data is an explicit opt-in
+    # for an empty database; ordinary startup must never reintroduce old rooms.
     $env:CRAWLER_ENABLED = "false"
 
     $infraArgs = @("up", "-d")
@@ -60,7 +61,11 @@ try {
         Invoke-Compose -ComposeArgs @("exec", "-T", "db", "sh", "-ec", $sql)
     }
 
-    if (-not $SkipSeed) {
+    if ($SeedDemoData -and -not $SkipSeed) {
+        $listingCount = & docker compose exec -T db sh -ec 'psql -v ON_ERROR_STOP=1 -At -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT count(*) FROM public.aggregated_listings"'
+        if ($LASTEXITCODE -ne 0 -or [long]$listingCount -gt 0) {
+            throw "Demo seed requires an empty listings table; preserve the supplied Datahouse catalog."
+        }
         $seedPath = Join-Path $projectRoot "infra\db\seeds\dev_chatbot.sql"
         if (-not (Test-Path -LiteralPath $seedPath)) {
             throw "Missing synthetic seed: $seedPath. Run scripts/generate_fake_listings.py first."

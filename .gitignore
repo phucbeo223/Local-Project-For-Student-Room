@@ -56,6 +56,7 @@ eval/legal_fix_ocr_20261004/
 *.lock
 # Supplied internal rental ads and raw evaluation payloads stay local.
 Datehouse/
+infra/db/seeds/dev_chatbot.sql
 eval/reports/housing_cases_*.json
 eval/reports/housing_cases_*.status.json
 eval/reports/housing_cases_*.json.tmp

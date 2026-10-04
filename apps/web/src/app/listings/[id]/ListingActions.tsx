@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { readCompared } from "@/lib/compare";
+import { COMPARED_STORAGE_KEY, readCompared } from "@/lib/compare";
 
 export default function ListingActions({
   listingId,
@@ -66,7 +66,7 @@ export default function ListingActions({
       ? ids.filter((id) => id !== listingId)
       : [...ids, listingId];
     try {
-      localStorage.setItem("compare-listings", JSON.stringify(next));
+      localStorage.setItem(COMPARED_STORAGE_KEY, JSON.stringify(next));
     } catch {
       setError("Trình duyệt không cho phép lưu danh sách so sánh.");
       return;

@@ -51,6 +51,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--run', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--index', type=Path, default=Path('/eval/reports/graph_rag_index_2026-10-04.json'))
+    parser.add_argument('--primary-release',type=Path)
     parser.add_argument('--interim', action='store_true', help='Audit completed housing cases while legal generation continues')
     args = parser.parse_args()
     run = json.loads(args.run.read_text(encoding='utf-8'))
@@ -61,9 +63,9 @@ def main():
     engine = create_engine(settings.database_url)
     checks = []
     with engine.connect() as conn:
-        rows = {row['id']: dict(row) for row in conn.execute(text('SELECT * FROM housing_graph_v1.aggregated_listings')).mappings()}
+        rows = {row['id']: dict(row) for row in conn.execute(text(f'SELECT * FROM {settings.chatbot_listing_schema}.aggregated_listings')).mappings()}
         locations = {}
-        for row in conn.execute(text("SELECT n.record_id,e.target FROM graph_rag_v1.edges e JOIN graph_rag_v1.nodes n "
+        for row in conn.execute(text(f"SELECT n.record_id,e.target FROM {settings.chatbot_graph_schema}.edges e JOIN {settings.chatbot_graph_schema}.nodes n "
                                     "ON n.id=e.source WHERE e.relation='located_in' AND n.kind='listing'")).mappings():
             locations.setdefault(row['record_id'], set()).add(row['target'])
         for case in run['cases']:
@@ -79,7 +81,7 @@ def main():
                 issues.extend(f"{listing['id']}:{issue}" for issue in violations(source, filters))
                 if requested_locations and not set(requested_locations) & locations.get(listing['id'], set()):
                     issues.append(f"{listing['id']}:location")
-                if listing.get('corpus_schema') != 'housing_graph_v1':
+                if listing.get('corpus_schema') != settings.chatbot_listing_schema:
                     issues.append(f"{listing['id']}:wrong_namespace")
                 for field in ('price', 'area', 'district', 'distance_to_ctu', 'source_url'):
                     if listing.get(field) != source.get(field):
@@ -95,13 +97,18 @@ def main():
                 'confidence_abstention_with_matches': bool(matches) and not case.get('listings'),
                 'unknown_capacity': 'hai sinh vien' in normalize_text(case['question']),
                 'distance_policy': 'approximate coordinates/haversine, no route or time claim'})
-        index = json.loads(Path('/eval/reports/graph_rag_index_2026-10-04.json').read_text(encoding='utf-8'))
+        index = json.loads(args.index.read_text(encoding='utf-8'))
         protected = dict(conn.execute(text("SELECT count(*) AS rows,count(embedding_vector) AS vectors, "
             "md5(string_agg(id::text||coalesce(content_hash,'')||coalesce(embedding_vector::text,''),'|' ORDER BY id)) AS digest "
             'FROM public.aggregated_listings')).mappings().one())
         full_protected = dict(conn.execute(text("SELECT count(*) AS rows,count(embedding_vector) AS vectors, "
             "md5(string_agg(row_to_json(t)::text,'|' ORDER BY id)) AS digest FROM public.aggregated_listings t")).mappings().one())
-        previous = json.loads(Path('/eval/reports/legal_refresh_acceptance_2026-10-04.json').read_text(encoding='utf-8'))
+        if args.primary_release:
+            primary=json.loads(args.primary_release.read_text(encoding='utf-8'))
+            index['public_before']=primary['public_after_projection']
+            previous={'listings':primary['public_after']}
+        else:
+            previous = json.loads(Path('/eval/reports/legal_refresh_acceptance_2026-10-04.json').read_text(encoding='utf-8'))
     engine.dispose()
     violations_count = sum(len(check['constraint_violations']) for check in checks)
     summary = {'questions_completed': sum(bool(case.get('answer')) for case in run['cases']), 'runtime_errors': 0,
@@ -118,6 +125,7 @@ def main():
         'phase': 'interim' if args.interim else 'final',
         'run_sha256': hashlib.sha256(args.run.read_bytes()).hexdigest(), 'summary': summary, 'housing_cases': checks,
         'limitations': ['Constraint audit verifies returned fields against the supplied records, not source truth or vacancy.',
+            'Nominal filter matches do not establish unparsed travel convenience or two-person occupancy; these remain unverified.',
             'No verified independent answers for housing or KTX; no invented overall accuracy percentage.',
             'Legal guide question overlap makes this a known-topic regression; not an unseen benchmark.',
             'Confidence is a heuristic, not calibrated correctness probability.']}

@@ -105,7 +105,7 @@ class GraphChatRepository(ChatRepository):
                 included = []
                 for link in additions:
                     part = conn.execute(self._legal_sql(
-                        "SELECT heading,parent_content FROM legal_chunks WHERE document_id=:doc "
+                        "SELECT heading,parent_content,page_from,page_to FROM legal_chunks WHERE document_id=:doc "
                         "AND provision_id=:pid ORDER BY chunk_index LIMIT 1"),
                         {"doc": link["document_id"], "pid": link["provision_id"]}).mappings().first()
                     if not part or not part["parent_content"]:
@@ -116,6 +116,9 @@ class GraphChatRepository(ChatRepository):
                     supplement = "\n\n" + (part["heading"] or "") + "\n" + part["parent_content"]
                     if len(row["content"]) + len(supplement) <= 5500:
                         row["content"] += supplement
+                        for field, reducer in (('page_from', min), ('page_to', max)):
+                            bounds = [v for v in (row.get(field), part.get(field)) if v is not None]
+                            row[field] = reducer(bounds) if bounds else None
                         included.append(link["provision_id"])
                 row["graph_provision_ids"] = included
                 row["_graph_trace"] = {"stage": "graph_retrieval", "domain": "legal",

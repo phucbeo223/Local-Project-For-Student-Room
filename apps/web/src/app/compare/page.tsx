@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import SiteHeader from "../SiteHeader";
 import type { ListingOut } from "@/lib/api";
-import { readCompared } from "@/lib/compare";
+import { COMPARED_STORAGE_KEY, readCompared } from "@/lib/compare";
 import { AMENITY_LABELS } from "@/lib/amenities";
 import {
   formatArea,
@@ -40,7 +40,7 @@ export default function ComparePage() {
     setItems(next);
     try {
       localStorage.setItem(
-        "compare-listings",
+        COMPARED_STORAGE_KEY,
         JSON.stringify(next.map((item) => item.id)),
       );
     } catch {

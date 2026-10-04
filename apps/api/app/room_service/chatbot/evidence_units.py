@@ -35,7 +35,8 @@ def contract_facets(row):
     value = normalize_text(' '.join(str(row.get(k) or '') for k in ('heading','text','content','parent_content')))
     return {name for name, terms in {
         'deposit':('dat coc', 'tien coc'),
-        'rent':('gia giao dich', 'gia thue', 'tien thue'),
+        # Literal PDF OCR can split "dịch"; this changes matching only.
+        'rent':('gia giao dich', 'gia giao d ich', 'gia thue', 'tien thue'),
         'payment':('thoi han thanh toan', 'phuong thuc thanh toan', 'tra tien thue', 'ngay thanh toan'),
     }.items() if any(t in value for t in terms)}
 

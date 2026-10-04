@@ -468,6 +468,10 @@ class ChatService:
             elif filters.sort_by == "price_asc" and listings:
                 item = listings[0]
                 generated = GenerationResult(text=f"Tin có giá thuê thấp nhất trong tập tin hợp lệ khớp bộ lọc: {item['title']} — {item['price'] / 1_000_000:g} triệu đồng/tháng [1]. Giá này chưa bao gồm các chi phí mà tin không nêu.", provider="structured")
+            elif getattr(self.repo, 'graph_enabled', False):
+                # Render verified housing fields directly, avoiding model
+                # timeouts and re-writing numbers, amenities or distances.
+                generated = GroundedTemplateGenerator().generate(query, listings)
             else:
                 generated = self.generator.generate(query, listings)
             listing_issues = listing_evidence_issues(generated.text, listings) if listings and generated.provider not in {"template", "structured"} else []

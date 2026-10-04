@@ -400,7 +400,7 @@ class ChatRepository:
         selected = []
         seen: set[tuple] = set()
         general_contract_contents = ('housing_contract' in categories and
-            any(term in normalize_text(query) for term in ('truoc khi ky', 'nhung dieu khoan', 'noi dung hop dong')))
+            any(term in normalize_text(query) for term in ('truoc khi ky', 'nhung dieu khoan', 'noi dung hop dong', 'ghi ro', 'ghi trong')))
         # Keep complete clauses and associated effectiveness/transition provisions.
         with self.engine.connect() as conn:
             for item in rows:
@@ -408,6 +408,7 @@ class ChatRepository:
                 whole_heading = normalize_text(article_heading)
                 include_article = (self.legal_schema != 'public' and (
                     (general_contract_contents and any(term in whole_heading for term in ('hop dong ve nha o', 'noi dung cua hop dong')))
+                    or (item.get('category')=='housing_contract' and 'coc' in normalize_text(query) and 'dat coc' in whole_heading)
                     or (item.get('category')=='fire_safety' and any(term in whole_heading for term in ('phong chay doi voi nha o','phong chay doi voi co so')))
                     or (item.get('category')=='privacy_data' and any(term in whole_heading for term in ('yeu cau rut lai','thuc hien quyen cua chu the','cung cap du lieu ca nhan','cong khai du lieu ca nhan')))))
                 group = (item["document_id"], article_heading if include_article else re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])

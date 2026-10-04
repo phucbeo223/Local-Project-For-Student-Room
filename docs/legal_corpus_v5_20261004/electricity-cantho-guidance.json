@@ -1,0 +1,40 @@
+{
+  "source": {
+    "id": "electricity-cantho-guidance",
+    "source_url": "https://btgdv.cantho.gov.vn/vi/news/thong-tin-tong-hop/nha-tro-minh-bach-gia-dien-nguoi-thue-them-yen-tam-4629.html",
+    "path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.html",
+    "sha256": "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f",
+    "kind": "public_official_guidance_not_statutory_provision",
+    "indexed": true,
+    "excerpt_path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.txt",
+    "excerpt_sha256": "3fb190ff42b56aa7027531997246b405456b8e84cfc0557733884709caf2ae30",
+    "limitation": "Local guidance supports checking how electricity is charged; not a statutory article establishing a universal notification obligation or conditional commencement event.",
+    "category": "electricity",
+    "title": "Hướng dẫn công khai cách tính tiền điện nhà trọ Cần Thơ — 21/09/2026",
+    "extraction": "Two complete native HTML paragraphs, no LLM paraphrase; public local guidance, not a legal article",
+    "page_kind": "web_excerpt",
+    "not_exhaustive": true,
+    "verification": "Local guidance supports checking how electricity is charged; not a statutory article establishing a universal notification obligation or conditional commencement event.",
+    "original_sha256": "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f",
+    "source_policy": "Published original or explicitly reviewed literal excerpt; no project-authored guidance."
+  },
+  "provisions": [
+    {
+      "provision_id": "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f:guidance",
+      "article": null,
+      "clause": null,
+      "heading": "Hướng dẫn công khai cách tính tiền điện nhà trọ Cần Thơ",
+      "content": "Đoàn kiểm tra cũng hướng dẫn người thuê trọ cách tính tiền điện sinh hoạt theo quy định, giúp chủ động kiểm tra, đối chiếu số tiền phải thanh toán hằng tháng. Đối với chủ nhà trọ, đoàn lưu ý cần thực hiện đúng quy định về giá bán điện, công khai cách tính và thu tiền điện theo đúng hóa đơn do Điện lực phát hành.\n\nTại các điểm giao dịch và thanh toán trung gian, công ty tiếp tục công khai thông tin về giá điện, việc ghi chỉ số công tơ, lập hóa đơn, mua bán điện, các quy định về đo đếm, an toàn điện, sử dụng điện tiết kiệm cũng như các trường hợp ngừng, giảm hoặc chấm dứt cung cấp điện. Qua đó, người thuê trọ có thêm thông tin để bảo vệ quyền lợi của mình khi sử dụng điện.",
+      "source_start": 0,
+      "source_end": 679,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "official_guidance",
+      "article_context": "",
+      "content_sha256": "b581b8b8cd9d2149392fd1ec7c4dd7569d3f016e5d4df444f01b3194d8159db0",
+      "page_from": 1,
+      "page_to": 1
+    }
+  ]
+}

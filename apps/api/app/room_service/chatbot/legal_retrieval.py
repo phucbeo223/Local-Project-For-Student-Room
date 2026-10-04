@@ -121,7 +121,7 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 if 'kien nghi khoi to' in value and 'co quan nha nuoc' in value and 'ca nhan' not in value:base -= 1.1
                 if 'thong bao bang van ban' in value and 'vien kiem sat' in value:base -= 1.0
             if row.get('source_id')=='electricity-cantho-guidance':
-                if any(t in question for t in ('thong bao','so dien da su dung','cach tinh')):
+                if any(t in question for t in ('thong bao','so dien da su dung','cach tinh','kiem tra','hoa don','doi chieu')):
                     base += 1.2
                 else:
                     base -= .7
@@ -225,6 +225,9 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                     base -= .9
                 if any(t in heading for t in ('tra tien dich vu','hop dong dich vu','quyen cua ben su dung dich vu','noi dung cua hop dong')):
                     base += .85
+                if ('noi dung chinh cua hop dong' in heading and 'hop dong kinh doanh dich vu' in value
+                        and all(t in value for t in ('phi dich vu','phuong thuc','thoi han thanh toan'))):
+                    base += 1.2
             if row['category'] in ('criminal_law', 'ecommerce_platform') and 'khuyen cao' in value:
                 if any(term in question for term in ('kiem tra', 'bang chung', 'cung cap thong tin', 'luu lai', 'lien ket la')):
                     base += .45
@@ -373,6 +376,12 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             segment_normalized = normalize_text(segment)
             legal_assertion = re.search(r"\b(phải|bắt buộc|được phép|có quyền|có nghĩa vụ|vi phạm|chịu trách nhiệm|bị xử lý|xử phạt|bồi thường|hoàn trả)\b", segment, re.I)
             numeric_claim = re.search(r"\b(?:\d+(?:[.,]\d+)*|một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười)\s*(?:triệu|đồng|ngày|tháng|năm)\b", segment, re.I)
+            # Asking for a case fact (e.g. a 12-month lease) is not asserting a
+            # legal entitlement, deadline or amount. Legal premises stay checked.
+            contract_fact_question = (re.search(r'\bhop dong\b.*\b(?:dieu khoan|quy dinh|thoa thuan)\b', segment_normalized)
+                                      and not re.search(r'\b(?:phai|bat buoc|duoc phep|co quyen|co nghia vu)\b', segment_normalized))
+            if segment.rstrip().endswith('?') and (not legal_assertion or contract_fact_question):
+                continue
             limitation = any(term in segment_normalized for term in ("chua tim thay", "chua du can cu", "khong du can cu", "chua xac minh", "chua ket luan"))
             advice = any(term in segment_normalized for term in ("kiem tra", "doi chieu", "khuyen nghi", "loi khuyen"))
             if not limitation and (legal_assertion or (numeric_claim and not advice)):
@@ -383,8 +392,16 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             issues.append("Trích dẫn không có nguồn tương ứng.")
             continue
         segment_normalized = normalize_text(segment)
-        scoped_absence = any(term in segment_normalized for term in ('chua tim thay can cu', 'chua du can cu', 'chua xac minh'))
-        additional_assertion = re.search(r'(?:\bnhung\b|\btuy nhien\b|\bdo do\b|\bvi vay\b|\bva\b|[,;]).*\b(?:phai|co quyen|co nghia vu|bi phat|boi thuong|hoan tra)\b', segment_normalized)
+        scoped_absence = (any(term in segment_normalized for term in ('chua tim thay can cu', 'chua du can cu', 'chua xac minh'))
+                          or re.search(r'\bnguon(?: tai lieu)?\b.{0,40}\bchua (?:neu|cung cap)\b', segment_normalized))
+        # A list of missing topics ("mức phạt, bồi thường, hoàn trả") is not
+        # an affirmative entitlement. Keep checking any separate modal or
+        # actor/action clause appended to the disclosure of missing evidence.
+        additional_assertion = re.search(
+            r'(?:\bnhung\b|\btuy nhien\b|\bdo do\b|\bvi vay\b|\bva\b|[,;]).*'
+            r'(?:\b(?:phai|bat buoc|co quyen|co nghia vu|bi phat)\b'
+            r'|\b(?:chu nha|chu tro|ben cho thue|nguoi thue|ben thue)\b.{0,40}\b(?:boi thuong|hoan tra|hoan lai)\b'
+            r'|\b(?:duoc|se)\s+(?:boi thuong|hoan tra|hoan lai)\b)', segment_normalized)
         if scoped_absence and not additional_assertion:
             # A statement about missing evidence cannot share vocabulary with the
             # missing rule. General claims that no law exists are rejected above.

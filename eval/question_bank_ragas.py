@@ -173,6 +173,12 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
             try:
                 result = original_request(prompt, schema, **kwargs)
                 call.update(success=True, usage=result[1])
+                # Preserve the public-legal synthesis/check decision locally so
+                # rule rejections can be diagnosed against the actual output.
+                try:
+                    call['structured_decision']=json.loads(result[0])
+                except (ValueError,TypeError):
+                    pass
                 return result
             except Exception as exc:
                 call.update(success=False, error_type=type(exc).__name__)

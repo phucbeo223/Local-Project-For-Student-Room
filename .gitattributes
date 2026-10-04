@@ -7,3 +7,8 @@ Data/**/*.md -text
 eval/reports/legal_agent*.json -text
 eval/reports/legal_model_upgrade_after_2026-10-02.json -text
 docs/legal_fix_originals_20261004/** -text
+docs/legal_corpus_v3_20261004/** -text
+docs/legal_corpus_v5_20261004/** -text
+docs/legal_web_supplement_20261004/** -text
+# Published payload whitespace is evidence, not code formatting to normalize.
+docs/source_grounded_originals_20261004/** -text -whitespace

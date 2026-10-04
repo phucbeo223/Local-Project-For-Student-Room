@@ -23,7 +23,7 @@ def main():
     args = parser.parse_args()
     if args.baseline:
         settings.chatbot_graph_enabled = False
-    if settings.chatbot_listing_schema != 'housing_graph_v1' or settings.chatbot_llm_provider != 'qwen':
+    if not settings.chatbot_listing_schema.startswith('housing_graph_') or settings.chatbot_llm_provider != 'qwen':
         raise ValueError('Use isolated graph housing corpus with local Qwen housing provider')
     all_cases = bank.load_questions(args.questions)
     selected = [case for case in all_cases if case['id'] in args.ids]
@@ -31,14 +31,16 @@ def main():
         raise ValueError('Selected question IDs are missing or duplicated')
     engine = create_engine(settings.database_url)
     with engine.connect() as conn:
-        release = dict(conn.execute(text('SELECT * FROM graph_rag_v1.release WHERE id=1')).mappings().one())
-        if conn.execute(text('SELECT count(embedding_vector) FROM housing_graph_v1.aggregated_listings')).scalar_one() != 789:
+        release = dict(conn.execute(text(f'SELECT * FROM {settings.chatbot_graph_schema}.release WHERE id=1')).mappings().one())
+        if conn.execute(text(f'SELECT count(embedding_vector) FROM {settings.chatbot_listing_schema}.aggregated_listings')).scalar_one() != 789:
             raise ValueError('Housing embedding corpus is incomplete')
     engine.dispose()
     bank_sha = hashlib.sha256(args.questions.read_bytes()).hexdigest()
     pipeline = Path('/workspace/apps/api/app/room_service/chatbot')
     pipeline_sha = hashlib.sha256(b''.join(p.name.encode() + p.read_bytes() for p in sorted(pipeline.glob('*.py')))).hexdigest()
     identity = {'question_bank_sha256': bank_sha, 'pipeline_sha256': pipeline_sha,
+                'listing_schema': settings.chatbot_listing_schema, 'legal_schema': settings.chatbot_legal_schema,
+                'graph_schema': settings.chatbot_graph_schema,
                 'selected_original_ids': sorted(args.ids), 'graph_enabled': settings.chatbot_graph_enabled,
                 'graph_extractor_version': release['extractor_version'],
                 'housing_catalog_sha256': release['housing_sha256'], 'legal_manifest_sha256': release['legal_sha256']}

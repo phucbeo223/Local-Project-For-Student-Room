@@ -1,0 +1,263 @@
+{
+  "source": {
+    "path": "docs/source_grounded_originals_20261004/criminal135-1.doc",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+    "sha256": "57336f626c4687da33ff6df56bb979032673a21cde3d58b8be7e8a98a173c0ed",
+    "id": "criminal135",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5khc2n7IJhtNwd-Zu02BkBFXMsQB8E4ni2vd1MZdKjpfES7Kpsq7moMTLwmPPCtolg~~&file_name=2025_1351+%2b+1352_135-VBHN-VPQH.doc",
+    "title": "Văn bản hợp nhất 135/VBHN-VPQH — Bộ luật Hình sự",
+    "category": "criminal_law",
+    "origin_documents": [
+      {
+        "path": "docs/source_grounded_originals_20261004/criminal135-1.doc",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+        "sha256": "57336f626c4687da33ff6df56bb979032673a21cde3d58b8be7e8a98a173c0ed",
+        "id": "criminal135-1",
+        "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5khc2n7IJhtNwd-Zu02BkBFXMsQB8E4ni2vd1MZdKjpfES7Kpsq7moMTLwmPPCtolg~~&file_name=2025_1351+%2b+1352_135-VBHN-VPQH.doc"
+      },
+      {
+        "path": "docs/source_grounded_originals_20261004/criminal135-2.doc",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+        "sha256": "2677b71710d70f0558125a94c0979f997720db92d5557f77c15ce3afa1042ee7",
+        "id": "criminal135-2",
+        "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5sc6InDGx4atL69jHzTMF9Prug1ZJKY5YJwOTM6Vh_jZ94Zi4BNtN2MpPBGMstmc2w~~&file_name=2025_1353+%2b+1354_135-VBHN-VPQH.doc"
+      },
+      {
+        "path": "docs/source_grounded_originals_20261004/criminal135-3.doc",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+        "sha256": "1344921bb621cfbc55adc0976cb63ebe5e31c1cc27366ab9514f4dd337852ff8",
+        "id": "criminal135-3",
+        "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5k95NYPru_C8HcRQ2Wyr9LECo-4f5KRIYhAlsmw_uMRT0_kpIheiCjf2l8W16p-Z8Q~~&file_name=2025_1355+%2b+1356_135-VBHN-VPQH.doc"
+      },
+      {
+        "path": "docs/source_grounded_originals_20261004/criminal135-4.doc",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-135-vbhn-vpqh-46165/58894.htm",
+        "sha256": "52b51f47877b22e6dc01167529e90db3f1db6130a84138143868cb9a73542c0f",
+        "id": "criminal135-4",
+        "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRV73MpDRyILE1kEhW6LcD5reOHTYKlv4cqWcXKUvCAX3K7lba7XgeWw0x4YcZPCGfWYp9SMShBzBuBWIjxcoYUQ~~&file_name=2025_1357+%2b+1358_135-VBHN-VPQH.doc"
+      }
+    ],
+    "page_kind": "logical_document",
+    "extraction": "Native official DOC/DOCX text; complete downloaded parts; whitespace/layout only",
+    "verification": "TLS-verified download via Windows, original hashes retained; no project-authored paragraphs",
+    "pages": 4,
+    "source_policy": "Literal original text/OCR; article/clause parsing only, no generated legal content.",
+    "original_sha256": "57336f626c4687da33ff6df56bb979032673a21cde3d58b8be7e8a98a173c0ed",
+    "not_exhaustive": true
+  },
+  "provisions": [
+    {
+      "provision_id": "57336f626c4687da33ff:140667:1",
+      "article": "174",
+      "clause": "1",
+      "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 1",
+      "content": "1. Người nào bằng thủ đoạn gian dối chiếm đoạt tài sản của người khác\ntrị giá từ 2.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới 2.000.000 đồng\nnhưng thuộc một trong các trường hợp sau đây, thì bị phạt cải tạo không\ngiam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm:\n a) Đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt tài sản mà còn\nvi phạm;\n b) Đã bị kết án về tội này hoặc về một trong các tội quy định tại các\nđiều 168, 169, 170, 171, 172, 173, 175 và 290 của Bộ luật này, chưa được\nxóa án tích mà còn vi phạm;\n c) Gây ảnh hưởng xấu đến an ninh, trật tự, an toàn xã hội;\n d) Tài sản là phương tiện kiếm sống chính của người bị hại và gia đình\nhọ[70].",
+      "source_start": 140709,
+      "source_end": 141380,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "điều 168"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4d22e567e38995dbc99117664cfd8ad0f7a7efe80b6ed4ffcbebae1b18b6eccd",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:140667:2",
+      "article": "174",
+      "clause": "2",
+      "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 2",
+      "content": "2. Phạm tội thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 02\nnăm đến 07 năm:\n a) Có tổ chức;\n b) Có tính chất chuyên nghiệp;\n c) Chiếm đoạt tài sản trị giá từ 50.000.000 đồng đến dưới 200.000.000\nđồng;\n d) Tái phạm nguy hiểm;\n đ) Lợi dụng chức vụ, quyền hạn hoặc lợi dụng danh nghĩa cơ quan, tổ\nchức;\n e) Dùng thủ đoạn xảo quyệt;\n g)[71] (được bãi bỏ)",
+      "source_start": 141380,
+      "source_end": 141745,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ",
+        "e"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "b0753b5254a84bdf1f1585307e86d4603ff00850972d581803ab366cf281cc86",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:140667:3",
+      "article": "174",
+      "clause": "3",
+      "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 3",
+      "content": "3. Phạm tội thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 07\nnăm đến 15 năm:\n a) Chiếm đoạt tài sản trị giá từ 200.000.000 đồng đến dưới 500.000.000\nđồng;\n b)[72] (được bãi bỏ)\n c) Lợi dụng thiên tai, dịch bệnh.",
+      "source_start": 141745,
+      "source_end": 141970,
+      "points": [
+        "a",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "5a07f25720ff48e4401ec5184e5153c450735da59d12b97dc1aed7c067d83478",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:140667:4",
+      "article": "174",
+      "clause": "4",
+      "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 4",
+      "content": "4. Phạm tội thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 12\nnăm đến 20 năm hoặc tù chung thân:\n a) Chiếm đoạt tài sản trị giá 500.000.000 đồng trở lên;\n b)[73] (được bãi bỏ)\n c) Lợi dụng hoàn cảnh chiến tranh, tình trạng khẩn cấp.",
+      "source_start": 141970,
+      "source_end": 142215,
+      "points": [
+        "a",
+        "c"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "ff78776cc1901dd8a629d867985b5279c9835aa1ef81e3902e5545157c89178c",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:140667:5",
+      "article": "174",
+      "clause": "5",
+      "heading": "Điều 174. Tội lừa đảo chiếm đoạt tài sản | Khoản 5",
+      "content": "5. Người phạm tội còn có thể bị phạt tiền từ 10.000.000 đồng đến\n100.000.000 đồng, cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc\nnhất định từ 01 năm đến 05 năm hoặc tịch thu một phần hoặc toàn bộ tài sản.",
+      "source_start": 142215,
+      "source_end": 142431,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4a2619bfc5a8423491bc2a0d4b214415d6fd23d2f62d65a5043c3fa94114a6bf",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:142431:1",
+      "article": "175",
+      "clause": "1",
+      "heading": "Điều 175. Tội lạm dụng tín nhiệm chiếm đoạt tài sản[74] | Khoản 1",
+      "content": "1. Người nào thực hiện một trong các hành vi sau đây chiếm đoạt tài sản\ncủa người khác trị giá từ 4.000.000 đồng đến dưới 50.000.000 đồng hoặc dưới\n4.000.000 đồng nhưng đã bị xử phạt vi phạm hành chính về hành vi chiếm đoạt\ntài sản hoặc đã bị kết án về tội này hoặc về một trong các tội quy định tại\ncác điều 168, 169, 170, 171, 172, 173, 174 và 290 của Bộ luật này, chưa\nđược xóa án tích mà còn vi phạm hoặc tài sản là phương tiện kiếm sống chính\ncủa người bị hại và gia đình họ, thì bị phạt cải tạo không giam giữ đến 03\nnăm hoặc phạt tù từ 06 tháng đến 03 năm:\n a) Vay, mượn, thuê tài sản của người khác hoặc nhận được tài sản của\nngười khác bằng hình thức hợp đồng rồi dùng thủ đoạn gian dối hoặc bỏ trốn\nđể chiếm đoạt tài sản đó hoặc đến thời hạn trả lại tài sản mặc dù có điều\nkiện, khả năng nhưng cố tình không trả;\n b) Vay, mượn, thuê tài sản của người khác hoặc nhận được tài sản của\nngười khác bằng hình thức hợp đồng và đã sử dụng tài sản đó vào mục đích\nbất hợp pháp dẫn đến không có khả năng trả lại tài sản.",
+      "source_start": 142488,
+      "source_end": 143511,
+      "points": [
+        "a",
+        "b"
+      ],
+      "exceptions": [],
+      "cross_references": [
+        "điều 168"
+      ],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "bedc8de11a01e98aa8053c1baf58b8db9a5232e31a89bfa56e5699a7993064b6",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:142431:2",
+      "article": "175",
+      "clause": "2",
+      "heading": "Điều 175. Tội lạm dụng tín nhiệm chiếm đoạt tài sản[74] | Khoản 2",
+      "content": "2. Phạm tội thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 02\nnăm đến 07 năm:\n a) Có tổ chức;\n b) Có tính chất chuyên nghiệp;\n c) Chiếm đoạt tài sản trị giá từ 50.000.000 đồng đến dưới 200.000.000\nđồng;\n d) Lợi dụng chức vụ, quyền hạn hoặc lợi dụng danh nghĩa cơ quan, tổ\nchức;\n đ) Dùng thủ đoạn xảo quyệt;\n e) Gây ảnh hưởng xấu đến an ninh, trật tự, an toàn xã hội;\n g) Tái phạm nguy hiểm.",
+      "source_start": 143511,
+      "source_end": 143914,
+      "points": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "đ",
+        "e",
+        "g"
+      ],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "a501339ea49e8d16231ec44dbfb008256a9680d72b3acc83bb860387a41b2d72",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:142431:3",
+      "article": "175",
+      "clause": "3",
+      "heading": "Điều 175. Tội lạm dụng tín nhiệm chiếm đoạt tài sản[74] | Khoản 3",
+      "content": "3. Phạm tội chiếm đoạt tài sản trị giá từ 200.000.000 đồng đến dưới\n500.000.000 đồng, thì bị phạt tù từ 05 năm đến 12 năm.",
+      "source_start": 143914,
+      "source_end": 144038,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "aa006a70168b18236bd65869e334db73569dbdb3f7da0e50bb85a4d10eb3bbe3",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:142431:4",
+      "article": "175",
+      "clause": "4",
+      "heading": "Điều 175. Tội lạm dụng tín nhiệm chiếm đoạt tài sản[74] | Khoản 4",
+      "content": "4. Phạm tội chiếm đoạt tài sản trị giá 500.000.000 đồng trở lên, thì bị\nphạt tù từ 12 năm đến 20 năm.",
+      "source_start": 144038,
+      "source_end": 144141,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "ed096d59027970ee7d09efe25c7efec90a12c9af1298439e981e675ffa06563c",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    },
+    {
+      "provision_id": "57336f626c4687da33ff:142431:5",
+      "article": "175",
+      "clause": "5",
+      "heading": "Điều 175. Tội lạm dụng tín nhiệm chiếm đoạt tài sản[74] | Khoản 5",
+      "content": "5. Người phạm tội còn có thể bị phạt tiền từ 10.000.000 đồng đến\n100.000.000 đồng, cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc\nnhất định từ 01 năm đến 05 năm hoặc tịch thu một phần hoặc toàn bộ tài sản.",
+      "source_start": 144141,
+      "source_end": 144357,
+      "points": [],
+      "exceptions": [],
+      "cross_references": [],
+      "kind": "legal_provision",
+      "article_context": "",
+      "content_sha256": "4a2619bfc5a8423491bc2a0d4b214415d6fd23d2f62d65a5043c3fa94114a6bf",
+      "page_from": 2,
+      "page_to": 2,
+      "extraction_text_sha256": "5ebc49bafce84d7f102c2ad57f2283ddf9acca1963ff339feaf8f230910edd65"
+    }
+  ]
+}
