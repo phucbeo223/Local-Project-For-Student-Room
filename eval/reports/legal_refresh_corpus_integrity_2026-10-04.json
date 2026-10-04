@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "schema": "legal_v3_20261004",
+  "manifest_sha256": "d3b2f2d4cb302bd85b1cf996d96baa9fc1333a812ee09a140517396e2ea602fe",
+  "documents": 53,
+  "provisions": 1612,
+  "categories": {
+    "residence": 11,
+    "real_estate_brokerage": 4,
+    "ecommerce_platform": 4,
+    "electricity": 8,
+    "fire_safety": 6,
+    "general_legal": 1,
+    "criminal_law": 4,
+    "housing_contract": 5,
+    "privacy_data": 5,
+    "water_cantho": 5
+  },
+  "reviewed_new_excerpts_preserved": 20,
+  "exact_question_header_overlap": 35,
+  "questions_without_exact_guidance_header": [
+    "N\u1ec1n t\u1ea3ng \u0111\u0103ng tin c\u00f3 tr\u00e1ch nhi\u1ec7m g\u00ec \u0111\u1ed1i v\u1edbi th\u00f4ng tin ng\u01b0\u1eddi b\u00e1n ho\u1eb7c ng\u01b0\u1eddi cho thu\u00ea theo t\u00e0i li\u1ec7u hi\u1ec7n c\u00f3?"
+  ],
+  "input_hashes_verified": 57,
+  "user_reference_not_indexed": true,
+  "evaluation_note": "35 question headers match exactly; the platform-responsibility topic is phrased differently. Regression on known topics, not an unseen benchmark"
+}

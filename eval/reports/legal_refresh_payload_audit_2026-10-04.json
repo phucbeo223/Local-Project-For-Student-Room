@@ -1,0 +1,14 @@
+{
+  "public_repository": "https://github.com/phucbeo223/Local-Project-For-Student-Room",
+  "public_baseline_commit": "432aed25f4bae151738449b9c10d620df6f0840b",
+  "input_files_checked": 59,
+  "unpublished_inputs": [],
+  "changed_since_publication": [],
+  "private_or_secret_marker_hits": [],
+  "questions": 36,
+  "runtime_destination": "Configured local Gemini-compatible proxy at http://host.docker.internal/v1beta; downstream provider is not independently verified",
+  "evaluation_scope": "36 generic legal questions; legal_v3_20261004 only. No rental listings, Datehouse, authentication rows, .env files, or housing case reports in prompts.",
+  "generation_reference_isolation": "User answers are loaded only by the separate comparison stage after generation.",
+  "corpus_kind": "Public legal texts and public student guidance, including published government contact details. Prepared source metadata labels editorial guidance.",
+  "passed": true
+}

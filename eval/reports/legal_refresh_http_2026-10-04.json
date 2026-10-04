@@ -1,0 +1,179 @@
+{
+  "base_url": "http://api:8000",
+  "started_at_utc": "2026-10-04T11:56:17.939835+00:00",
+  "temporary_user_removed": true,
+  "passed": true,
+  "health_status": 200,
+  "anonymous_status": 403,
+  "http_status": 200,
+  "latency_ms": 77812,
+  "response": {
+    "agent_trace": [
+      {
+        "agent": "question_analysis",
+        "provider": "gemini",
+        "model": "gemini-3.8-flash-high",
+        "status": "completed",
+        "plan": {
+          "search_queries": [
+            "điều khoản hợp đồng thuê phòng trọ",
+            "lưu ý ký hợp đồng thuê nhà sinh viên",
+            "nội dung hợp đồng thuê nhà ở"
+          ],
+          "categories": [
+            "housing_contract",
+            "student_housing"
+          ],
+          "missing_information": [
+            "Các điều khoản cụ thể đang được thỏa thuận trong hợp đồng dự thảo",
+            "Loại hình nhà trọ (ký túc xá, phòng trọ tư nhân, căn hộ chung cư)"
+          ],
+          "as_of_date": null
+        },
+        "duration_ms": 3588
+      },
+      {
+        "agent": "legal_retrieval",
+        "provider": "hybrid",
+        "status": "completed",
+        "corpus_schema": "legal_v3_20261004",
+        "sources_found": 4,
+        "duration_ms": 11950
+      },
+      {
+        "agent": "evidence_selection",
+        "provider": "qwen-local",
+        "model": "qwen3.5:9b",
+        "status": "complete",
+        "selected_ranks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "duration_ms": 53554
+      },
+      {
+        "agent": "answer_synthesis",
+        "provider": "gemini",
+        "model": "gemini-3.8-flash-high",
+        "status": "completed",
+        "repair": false,
+        "duration_ms": 5936
+      },
+      {
+        "agent": "source_verification",
+        "provider": "gemini",
+        "model": "gemini-3.8-flash-high",
+        "status": "accepted",
+        "duration_ms": 2553
+      },
+      {
+        "agent": "answer",
+        "provider": "gemini-agent",
+        "model": "gemini-3.8-flash-high",
+        "status": "complete",
+        "attempted_provider": "gemini-agent",
+        "attempted_model": "gemini-3.8-flash-high"
+      },
+      {
+        "agent": "citation_and_rule_checks",
+        "provider": "rules",
+        "status": "accepted"
+      }
+    ],
+    "corpus_schema": "legal_v3_20261004",
+    "partial_answer": false,
+    "conversation_state": null,
+    "applied_filters": null,
+    "citation_applicable": true,
+    "answer": "Trước khi ký hợp đồng, sinh viên nên kiểm tra người có quyền cho thuê, đối tượng phòng trọ, giá thuê cùng chi phí dịch vụ, thời hạn thuê, quy định sửa chữa, chấm dứt hợp đồng và điều khoản đặt cọc nếu có [1].\n\n- Kiểm tra chủ thể có quyền cho thuê phòng và xác định chính xác phòng trọ cùng hiện trạng bàn giao [1].\n- Kiểm tra giá thuê, kỳ hạn thanh toán cùng các khoản chi phí điện, nước và dịch vụ phát sinh [1].\n- Kiểm tra thời hạn thuê, điều khoản sửa chữa, trường hợp chấm dứt hợp đồng và việc bàn giao lại phòng [1].\n- Kiểm tra mục đích bảo đảm, số tiền, điều kiện xử lý và thời hạn hoàn trả nếu hai bên có thỏa thuận tiền cọc [1].\n- Khuyến nghị lập phụ lục tài sản, chụp ảnh hiện trạng, ghi nhận chỉ số công tơ khi nhận phòng và mỗi bên giữ một bản hợp đồng đầy đủ thông tin [1].\n\nHợp đồng về nhà ở phải lập thành văn bản nhưng không bắt buộc công chứng hoặc chứng thực trừ trường hợp các bên có nhu cầu [1] [2].\nThời điểm có hiệu lực của hợp đồng thuê nhà ở do các bên tự thỏa thuận hoặc là thời điểm ký kết nếu không có thỏa thuận khác [2].\n\nĐể áp dụng vào trường hợp của bạn:\n- Bạn đã có dự thảo hợp đồng thuê trọ để rà soát các điều khoản cụ thể chưa?\n- Hợp đồng thuê trọ của bạn có kèm thỏa thuận đặt cọc tiền hay không?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+    "intent": "legal_question",
+    "confidence": 0.97,
+    "listings": [],
+    "sources": [
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 18,
+        "chunk_id": 453,
+        "rank": 1,
+        "similarity_score": 1.0,
+        "title": "Hướng dẫn thực tế: CHỦ ĐỀ: Hợp đồng thuê và tiền cọc",
+        "source": "legal_corpus",
+        "source_url": null,
+        "source_path": "docs/legal_corpus_v3_20261004/guidance-20261004-housing_contract.json",
+        "category": "housing_contract",
+        "page_kind": "editorial_guidance",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Q: Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+        "excerpt": "HƯỚNG DẪN BIÊN SOẠN — không phải nguyên văn điều luật.\n### Q: Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?\n\nA: Kiểm tra người có quyền cho thuê, đúng phòng và hiện trạng bàn giao; giá thuê, kỳ trả tiền, các khoản điện/nước/dịch vụ; thời hạn thuê, sửa chữa, chấm dứt và bàn giao. Hợp đồng về nhà ở phải lập thành văn bản theo Điều 163; thuê nhà không bắt buộc công chứng, chứng thực nếu các bên không có nhu cầu theo khoản 2 Điều 164. Nếu có cọc, ghi mục đích bảo đảm, số tiền, điều kiện xử lý và thời hạn hoàn trả được thỏa thuận.\n\n**Khuyến nghị thực tế:** Lập phụ lục tài sản, ảnh hiện trạng và chỉ số công tơ khi nhận phòng; mỗi bên giữ một bản hợp đồng đã điền đủ thông tin.\n\n**Căn cứ:**\n\n- [Văn bản hợp nhất 79/VBHN-VPQH — Luật Nhà ở](https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm) — Điều 160, 161, 163, 164.\n- [Bộ luật Dân sự 91/2015/QH13](https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf) — Điều 328, 472–482."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 28,
+        "chunk_id": 626,
+        "rank": 2,
+        "similarity_score": 1.0,
+        "title": "2026_204_79_VBHN-VPQH",
+        "source": "legal_corpus",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+        "source_path": "docs/legal_corpus_v3_20261004/legacy-4bcf6ab450b3.json",
+        "category": "housing_contract",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 164. Công chứng, chứng thực hợp đồng và thời điểm có hiệu lực của hợp đồng về nhà ở",
+        "excerpt": "1. Trường hợp mua bán, thuê mua, tặng cho, đổi, góp vốn, thế chấp nhà ở thì phải thực hiện công chứng hoặc chứng thực hợp đồng, trừ trường hợp quy định tại khoản 2 Điều này.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là thời điểm hoàn thành việc công chứng hoặc chứng thực theo quy định của pháp luật về công chứng, chứng thực.\n\n2. Trường hợp tổ chức tặng cho nhà tình nghĩa, nhà tình thương, nhà đại đoàn kết; mua bán, thuê mua nhà ở thuộc tài sản công; mua bán, thuê mua nhà ở mà một bên là tổ chức, bao gồm: nhà ở xã hội, nhà ở cho lực lượng vũ trang nhân dân, nhà ở phục vụ tái định cư; góp vốn bằng nhà ở mà có một bên là tổ chức; thuê, mượn, ở nhờ, ủy quyền quản lý nhà ở thì không phải thực hiện công chứng, chứng thực hợp đồng, trừ trường hợp các bên có nhu cầu.\n\nĐối với giao dịch quy định tại khoản này thì thời điểm có hiệu lực của hợp đồng là do các bên thỏa thuận; trường hợp các bên không có thỏa thuận thì thời điểm có hiệu lực của hợp đồng là thời điểm ký kết hợp đồng.\n\n3. Văn bản thừa kế nhà ở được công chứng hoặc chứng thực theo quy định của pháp luật về dân sự.\n\n4. Việc công chứng hợp đồng về nhà ở được thực hiện tại tổ chức hành nghề công chứng; việc chứng thực hợp đồng về nhà ở được thực hiện tại Ủy ban nhân dân cấp xã nơi có nhà ở.\n\nMục 2\n\nMUA BÁN NHÀ Ở"
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 39,
+        "chunk_id": 1042,
+        "rank": 3,
+        "similarity_score": 0.99998,
+        "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+        "source_path": "docs/legal_corpus_v3_20261004/legacy-e010a14386b4.json",
+        "category": "housing_contract",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Điều 398. Nội dung của hợp đồng",
+        "excerpt": "1. Các bên trong hợp đồng có quyền thỏa thuận về nội dung trong hợp đồng.\n\n2. Hợp đồng có thể có các nội dung sau đây:\na) Đối tượng của hợp đồng;\nb) Số lượng, chất lượng;\nc) Giá, phương thức thanh toán;\nd) Thời hạn, địa điểm, phương thức thực hiện hợp đồng;\nđ) Quyền, nghĩa vụ của các bên;\ne) Trách nhiệm do vi phạm hợp đồng;\ng) Phương thức giải quyết tranh chấp."
+      },
+      {
+        "kind": "legal_document",
+        "listing_id": null,
+        "document_id": 39,
+        "chunk_id": 1014,
+        "rank": 4,
+        "similarity_score": 1.0,
+        "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+        "source": "legal_corpus",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+        "source_path": "docs/legal_corpus_v3_20261004/legacy-e010a14386b4.json",
+        "category": "housing_contract",
+        "page_kind": "logical_document",
+        "page_from": 1,
+        "page_to": 1,
+        "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+        "excerpt": "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 1\n1. Giao dịch dân sự có hiệu lực khi có đủ các điều kiện sau đây:\na) Chủ thể có năng lực pháp luật dân sự, năng lực hành vi dân sự phù hợp với giao dịch dân sự được xác lập;\nb) Chủ thể tham gia giao dịch dân sự hoàn toàn tự nguyện;\nc) Mục đích và nội dung của giao dịch dân sự không vi phạm điều cấm của luật, không trái đạo đức xã hội.\n\nĐiều 117. Điều kiện có hiệu lực của giao dịch dân sự | Khoản 2\n2. Hình thức của giao dịch dân sự là điều kiện có hiệu lực của giao dịch dân sự trong trường hợp luật có quy định.\n\nĐiều 689. Hiệu lực thi hành\nĐiều 689. Hiệu lực thi hành\nBộ luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2017.\nBộ luật dân sự số 33/2005/QH11 hết hiệu lực kể từ ngày Bộ luật này có hiệu lực.\n\nĐiều 688. Điều khoản chuyển tiếp | Khoản 1\n1. Đối với giao dịch dân sự được xác lập trước ngày Bộ luật này có hiệu lực thì việc áp dụng pháp luật được quy định như sau:\na) Giao dịch dân sự chưa được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì chủ thể giao dịch tiếp tục thực hiện theo quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11, trừ trường hợp các bên của giao dịch dân sự có thỏa thuận về việc sửa đổi, bổ sung nội dung, hình thức của giao dịch để phù hợp với Bộ luật này và để áp dụng quy định của Bộ luật này.\nGiao dịch dân sự đang được thực hiện mà có nội dung, hình thức khác với quy định của Bộ luật này thì áp dụng quy định của Bộ luật dân sự số 33/2005/QH11 và các văn bản quy phạm pháp luật quy định chi tiết Bộ luật dân sự số 33/2005/QH11;\nb) Giao dịch dân sự chưa được thực hiện hoặc đang được thực hiện mà có nội dung và hình thức phù hợp với quy định của Bộ luật này thì áp dụng quy định của Bộ…"
+      }
+    ],
+    "no_answer": false,
+    "degraded": false,
+    "degraded_reasons": [],
+    "retrieval_mode": "legal_hybrid",
+    "generation_provider": "gemini-agent",
+    "generation_model": "gemini-3.8-flash-high",
+    "latency_ms": 77615,
+    "event_id": 43,
+    "citation_accuracy": 1.0,
+    "evaluation_contexts": []
+  }
+}

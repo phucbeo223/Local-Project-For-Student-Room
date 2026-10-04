@@ -1,0 +1,66 @@
+{
+  "original": {
+    "public.legal_documents": {
+      "rows": 59,
+      "digest": "05bbf81b7bbffef86c45992cf1e18ade"
+    },
+    "public.legal_chunks": {
+      "rows": 5185,
+      "digest": "8f9034bb6dac3aec0e1a9ba4f43b09a8"
+    },
+    "legal_v2.legal_documents": {
+      "rows": 42,
+      "digest": "23dec5354482b2db5f911043335c67d5"
+    },
+    "legal_v2.legal_chunks": {
+      "rows": 1782,
+      "digest": "fec36de3d43c16e1ac9cfc8ebd813a67"
+    }
+  },
+  "listings": {
+    "rows": 1130,
+    "vectors": 915,
+    "digest": "e157dcd80dff5c8fd83f3d8bf35a5497"
+  },
+  "started_at_utc": "2026-10-04T11:46:13.292715+00:00",
+  "restore_verified": true,
+  "backup_sha256": "3640dc1ffca937c1dfa45c61cfb7504aa4b57e24c39be474ea3bc7851e30aeb4",
+  "backup_path": "backups/legal_refresh_20261004/before_refresh.dump",
+  "active_schemas_before": [
+    "public"
+  ],
+  "retired": true,
+  "original_after": {
+    "public.legal_documents": {
+      "rows": 0,
+      "digest": null
+    },
+    "public.legal_chunks": {
+      "rows": 0,
+      "digest": null
+    },
+    "legal_v2.legal_documents": {
+      "rows": 0,
+      "digest": null
+    },
+    "legal_v2.legal_chunks": {
+      "rows": 0,
+      "digest": null
+    }
+  },
+  "new_counts": {
+    "chunks": 1732,
+    "vectors": 1732,
+    "identified": 1732,
+    "parented": 1732
+  },
+  "new_schema": "legal_v3_20261004",
+  "listings_after": {
+    "rows": 1130,
+    "vectors": 915,
+    "digest": "e157dcd80dff5c8fd83f3d8bf35a5497"
+  },
+  "regression_evaluation": "completed",
+  "evaluation_sha256": "ed3052353cc48502054246a8bd9fd74ec7ba9202a098e7d83d80d4d7f1000919",
+  "comparison_sha256": "2cd872dbc3786d3f16d8e17afdeb44b305cc7f59ec4bec7c21532ce8e24ee3cc"
+}

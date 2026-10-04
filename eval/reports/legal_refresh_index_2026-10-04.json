@@ -1,0 +1,69 @@
+{
+  "schema": "legal_v3_20261004",
+  "original_before": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "original_after": {
+    "old_documents": 59,
+    "old_chunks": 5185,
+    "old_vectors": 5185,
+    "listings": 1130,
+    "listing_vectors": 915
+  },
+  "counts": {
+    "chunks": 1732,
+    "vectors": 1732,
+    "identified": 1732,
+    "parented": 1732
+  },
+  "indexed": [
+    {
+      "id": "broker06",
+      "chunks": 1,
+      "provisions": 1
+    },
+    {
+      "id": "ecommerce122",
+      "chunks": 61,
+      "provisions": 56
+    },
+    {
+      "id": "electricity09",
+      "chunks": 2,
+      "provisions": 1
+    },
+    {
+      "id": "fire58",
+      "chunks": 7,
+      "provisions": 7
+    },
+    {
+      "id": "residence116",
+      "chunks": 40,
+      "provisions": 38
+    },
+    {
+      "id": "water215",
+      "chunks": 2,
+      "provisions": 2
+    }
+  ],
+  "deactivated_superseded_sources": 4,
+  "manifest_sha256": "d3b2f2d4cb302bd85b1cf996d96baa9fc1333a812ee09a140517396e2ea602fe",
+  "activation": "active; 36-question regression and reference comparison completed",
+  "counts_before_draft_cleanup": {
+    "chunks": 1744,
+    "vectors": 1744,
+    "identified": 1744,
+    "parented": 1744
+  },
+  "superseded_draft_cleanup": {
+    "documents_removed": 4,
+    "chunks_removed": 12,
+    "evidence": "Four inactive draft documents listed in legal_refresh_source_sync_2026-10-04.json were removed; database counts rechecked"
+  }
+}

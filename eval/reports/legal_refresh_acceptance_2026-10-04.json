@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "gates": {
+    "all_36_completed": true,
+    "all_36_used_new_schema": true,
+    "all_36_have_retrieval_contexts": true,
+    "comparison_complete": true,
+    "comparison_input_unchanged": true,
+    "same_live_and_evaluated_manifest": true,
+    "active_new_release": true,
+    "old_legal_tables_empty": true,
+    "old_releases_retired": true,
+    "listings_unchanged": true,
+    "complete_embeddings": true,
+    "backup_verified": true,
+    "corpus_integrity": true,
+    "public_payload_audit": true,
+    "http_healthy": true
+  },
+  "completed_at_utc": "2026-10-04T12:36:13.881470+00:00",
+  "schema": "legal_v3_20261004",
+  "counts": {
+    "chunks": 1732,
+    "vectors": 1732,
+    "identified": 1732,
+    "parented": 1732
+  },
+  "old_counts": {
+    "public": {
+      "documents": 0,
+      "chunks": 0
+    },
+    "legal_v2": {
+      "documents": 0,
+      "chunks": 0
+    }
+  },
+  "listings": {
+    "rows": 1130,
+    "vectors": 915,
+    "digest": "e157dcd80dff5c8fd83f3d8bf35a5497"
+  },
+  "evaluation_sha256": "ed3052353cc48502054246a8bd9fd74ec7ba9202a098e7d83d80d4d7f1000919",
+  "comparison_sha256": "2cd872dbc3786d3f16d8e17afdeb44b305cc7f59ec4bec7c21532ce8e24ee3cc",
+  "manifest_sha256": "d3b2f2d4cb302bd85b1cf996d96baa9fc1333a812ee09a140517396e2ea602fe",
+  "summary": {
+    "completed": 36,
+    "agreement": {
+      "partial": 29,
+      "low": 4,
+      "high": 3
+    },
+    "generation_providers": {
+      "qwen-local": 9,
+      "gemini-agent": 27
+    },
+    "partial_answers": 10,
+    "no_answer": 10,
+    "errors": 0,
+    "retrieval_with_contexts": 36,
+    "latency_median_ms": 43580.0
+  },
+  "checks": {
+    "unit_tests_passed": 83,
+    "production_api_and_web_build": "passed including TypeScript and lint",
+    "authenticated_http_smoke": "passed; anonymous blocked; temporary account removed"
+  },
+  "interpretation": "Completion/integrity checks, not independent legal accuracy. Qualitative reference agreement is model judged; known-topic regression only; no new RAGAS scores."
+}

@@ -6,6 +6,7 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
+if not (ROOT / 'apps/api/app').is_dir(): ROOT = Path('/workspace')
 CORPUS = ROOT / 'docs/legal_corpus_v3_20261004'
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 def read(path): return json.loads(path.read_text(encoding='utf-8'))
