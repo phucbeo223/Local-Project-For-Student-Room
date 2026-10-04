@@ -106,7 +106,7 @@ def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch)
     from app.room_service.chatbot.providers import GeminiGenerator
     client=GeminiGenerator('test','gemini-test')
     def request(prompt,schema):
-        payload=json.loads(prompt[prompt.index('{'):])
+        payload=json.JSONDecoder().raw_decode(prompt[prompt.index('{"QUESTION"'):])[0]
         assert [s['rank'] for s in payload['CLAIMS'][0]['cited_sources']]==[1]
         assert [s['rank'] for s in payload['CLAIMS'][1]['cited_sources']]==[2]
         assert 'unused evidence' not in prompt
@@ -196,7 +196,7 @@ def test_gemini_verification_scopes_each_claim_to_its_own_citations(monkeypatch)
     from app.room_service.chatbot.providers import GeminiGenerator
     client=GeminiGenerator('test','gemini-test')
     def request(prompt,schema):
-        payload=json.loads(prompt[prompt.index('{'):])
+        payload=json.JSONDecoder().raw_decode(prompt[prompt.index('{"QUESTION"'):])[0]
         assert [s['rank'] for s in payload['CLAIMS'][0]['cited_sources']]==[1]
         assert [s['rank'] for s in payload['CLAIMS'][1]['cited_sources']]==[2]
         assert 'unused evidence' not in prompt

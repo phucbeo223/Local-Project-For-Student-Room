@@ -125,6 +125,7 @@ function providerLabel(provider?: string, model?: string | null) {
   if (!provider) return null;
   if (provider === "qwen-local") return `Qwen local${model ? ` · ${model}` : ""}`;
   if (provider === "gemini") return `Gemini${model ? ` · ${model}` : ""}`;
+  if (provider === "gemini-agent") return "Gemini + Qwen";
   if (provider === "template") return "Mẫu trả lời an toàn";
   if (provider === "rule") return "Bộ phân loại yêu cầu";
   return provider;

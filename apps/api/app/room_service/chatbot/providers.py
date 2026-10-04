@@ -140,6 +140,10 @@ class GenerationResult:
     model: str | None = None
     degraded_reasons: tuple[str, ...] = ()
     literal_source_answer: bool = False
+    selected_evidence: tuple[dict, ...] = ()
+    evidence_limitations: tuple[str, ...] = ()
+    agent_trace: tuple[dict, ...] = ()
+    source_fallback: GenerationResult | None = None
 
 
 class EvidenceIssues(list[str]):
@@ -593,12 +597,25 @@ class GeminiGenerator:
             "nêu rõ là khuyến nghị không cần là một nghĩa vụ luật định; không bác bỏ lời khuyên chỉ "
             "vì nguồn không bắt buộc thực hiện. Tiêu đề và heading là metadata của chính nguồn. "
             "Số chú thích trong đoạn luật được trích nguyên văn không phải rank nguồn. "
+            "Thông báo phần chưa đủ căn cứ là giới hạn truy xuất, không phải khẳng định luật không quy định; "
+            "không bác bỏ riêng thông báo thiếu căn cứ vì nguồn không có quy tắc bị thiếu. "
             "supported=true và issues=[] chỉ khi không có kết luận sai hoặc thiếu căn cứ. "
             "Nếu có lỗi, nêu tối đa 5 kết luận cần sửa, mỗi lý do dưới 200 ký tự.\n"
-            + json.dumps({"QUESTION":question,"CLAIMS":claims},ensure_ascii=False)
+            + "\nKiểm tra cả ANSWER: kết luận pháp lý hoặc số liệu không gắn nguồn cũng là lỗi. "
+            "Bỏ qua tiêu đề, lưu ý tham khảo và câu hỏi bổ sung không khẳng định quy tắc pháp lý.\n"
+            "Chỉ trả một JSON object: {\"supported\": boolean, \"issues\": [string]}. "
+            "Mỗi issue là một string ngắn, không phải object; không trả văn bản ngoài JSON.\n"
+            + json.dumps({"QUESTION":question,"ANSWER":answer,"CLAIMS":claims},ensure_ascii=False)
         )
+        # Compatible proxies may ignore responseJsonSchema; state the shape in
+        # the prompt as well, and validate it before trusting a positive verdict.
+        prompt += '\nOUTPUT_SCHEMA:\n' + json.dumps(schema, ensure_ascii=False)
         raw, _ = self.request_json(prompt, schema)
         result = json.loads(raw)
+        if (not isinstance(result, dict) or type(result.get('supported')) is not bool
+                or not isinstance(result.get('issues'), list)
+                or any(not isinstance(issue, str) for issue in result['issues'])):
+            raise ValueError('Invalid source verification JSON shape')
         if result.get("supported") is True and result.get("issues") == []:
             return []
         return [str(issue)[:300] for issue in result.get("issues", [])[:5]] or ["Kiểm tra nguồn chưa xác nhận kết luận."]
@@ -743,6 +760,10 @@ class FallbackResponseGenerator:
                     model=result.model,
                     degraded_reasons=tuple(reasons) + tuple(result.degraded_reasons),
                     literal_source_answer=result.literal_source_answer,
+                    selected_evidence=result.selected_evidence,
+                    evidence_limitations=result.evidence_limitations,
+                    agent_trace=result.agent_trace,
+                    source_fallback=result.source_fallback,
                 )
             except Exception as exc:  # provider lỗi không được làm chết chatbot
                 reasons.append(f"{provider_name} không khả dụng ({type(exc).__name__})")

@@ -78,7 +78,17 @@ def init_chatbot(engine: Engine) -> None:
             per_request_timeout_seconds=settings.chatbot_question_analysis_timeout_seconds,
             min_request_interval_seconds=settings.gemini_min_request_interval_seconds) if settings.configured_gemini_keys else None
         analyzer = QuestionAnalysisAgent(analysis_client)
-        generator = QwenAnswerAgent(generator, verifier=analysis_client)
+        if settings.chatbot_answer_synthesis_enabled:
+            from .agent_workflow import GeminiAnswerSynthesisAgent, LegalAgentWorkflow
+            synthesis_client = GeminiGenerator("",
+                settings.chatbot_answer_synthesis_model or settings.gemini_model,
+                base_url=settings.gemini_base_url, api_keys=settings.configured_gemini_keys,
+                legal_timeout_seconds=settings.chatbot_answer_synthesis_timeout_seconds,
+                per_request_timeout_seconds=settings.chatbot_answer_synthesis_timeout_seconds,
+                min_request_interval_seconds=settings.gemini_min_request_interval_seconds)
+            generator = LegalAgentWorkflow(generator, GeminiAnswerSynthesisAgent(synthesis_client), synthesis_client)
+        else:
+            generator = QwenAnswerAgent(generator, verifier=analysis_client)
     _service = ChatService(
         ChatRepository(engine, settings.chatbot_legal_schema),
         E5EmbeddingProvider(settings.chatbot_embedding_model),
@@ -114,8 +124,12 @@ def close_chatbot() -> None:
         for provider in _service.generator.providers:
             if hasattr(provider, "close"):
                 provider.close()
-        if _service.question_analyzer and _service.question_analyzer.client:
-            _service.question_analyzer.client.close()
+        clients = [getattr(_service.question_analyzer, 'client', None),
+                   getattr(_service.generator, 'verifier', None),
+                   getattr(getattr(_service.generator, 'writer', None), 'client', None)]
+        unique_clients = {id(client): client for client in clients if client is not None}
+        for client in unique_clients.values():
+            client.close()
 
 
 @router.post("/ask", response_model=ChatAskResponse)

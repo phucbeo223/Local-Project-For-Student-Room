@@ -125,4 +125,11 @@ def render_selection(question,contexts,candidates,raw,provider,model):
         lines.append('Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng; cần đối chiếu phần còn thiếu.')
         lines.extend(issues)
     lines.append('Thông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.')
-    return GenerationResult('\n\n'.join(lines),provider,model,literal_source_answer=True)
+    limitations = tuple(dict.fromkeys([
+        *(['Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng.'] if insufficient else []),
+        *issues,
+    ]))
+    ranks = {p['rank'] for p in parts}
+    return GenerationResult('\n\n'.join(lines),provider,model,literal_source_answer=True,
+        selected_evidence=tuple(dict(row) for row in contexts if row['rank'] in ranks),
+        evidence_limitations=limitations)

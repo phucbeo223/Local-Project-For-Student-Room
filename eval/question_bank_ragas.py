@@ -125,7 +125,9 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
             'question_analysis_model':settings.chatbot_question_analysis_model,'answer_model':settings.ollama_model,
             'embedding_model':settings.chatbot_embedding_model,
             'analysis_provider_available':'gemini' if settings.configured_gemini_keys else 'rules-local',
-            'legal_answer_mode':'source_select'}
+            'legal_answer_mode':'source_select_then_synthesis' if settings.chatbot_answer_synthesis_enabled else 'source_select',
+            'answer_synthesis_enabled':settings.chatbot_answer_synthesis_enabled,
+            'answer_synthesis_model':(settings.chatbot_answer_synthesis_model or settings.gemini_model) if settings.chatbot_answer_synthesis_enabled else None}
         if report.get('run_configuration') and report['run_configuration'] != configuration:
             raise ValueError('Provider configuration changed; use a new evaluation output')
         report['run_configuration'] = configuration
@@ -161,6 +163,25 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                           f"{call.get('http_status', 'ok' if call.get('success') else call.get('error_type'))} "
                           f"{call['latency_ms']}ms", flush=True)
             setattr(provider, method, traced)
+    writer_client = getattr(getattr(service.generator, 'writer', None), 'client', None)
+    if writer_client is not None:
+        original_request = writer_client.request_json
+        def traced_request(prompt, schema, **kwargs):
+            started = time.perf_counter()
+            stage = 'answer_synthesis' if 'summary' in schema.get('properties', {}) else 'source_verification'
+            call = {'provider': 'gemini', 'model': writer_client.model, 'method': 'request_json', 'agent': stage}
+            try:
+                result = original_request(prompt, schema, **kwargs)
+                call.update(success=True, usage=result[1])
+                return result
+            except Exception as exc:
+                call.update(success=False, error_type=type(exc).__name__)
+                raise
+            finally:
+                call['latency_ms'] = round((time.perf_counter() - started) * 1000)
+                provider_calls.append(call)
+                print(f"  gemini/{writer_client.model} {stage}: {'ok' if call.get('success') else call.get('error_type')} {call['latency_ms']}ms", flush=True)
+        writer_client.request_json = traced_request
     prior = {case["id"]: case for case in report["cases"]}
     try:
         for case in report["cases"][:limit]:

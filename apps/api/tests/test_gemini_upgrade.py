@@ -80,12 +80,33 @@ def test_proxy_structured_response_can_be_read_by_evidence_checker(wrapper):
     output = wrapper.format('{"supported":true,"issues":[]}')
     def handler(request):
         assert request.url.host == "proxy.local"
+        prompt = json.loads(request.content)['contents'][0]['parts'][0]['text']
+        assert 'OUTPUT_SCHEMA:' in prompt
+        assert '"supported": boolean, "issues": [string]' in prompt
         return httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": output}]}}]})
     generator = GeminiGenerator("working", "gemini-test", base_url="http://proxy.local/v1beta",
                                 transport=httpx.MockTransport(handler))
     try:
         assert generator.check_legal_evidence("Question?", "Source statement [1].",
                                              [{"rank": 1, "content": "Source statement."}]) == []
+    finally:
+        generator.close()
+
+
+@pytest.mark.parametrize('result', [
+    {'supported': 'true', 'issues': []},
+    {'supported': True, 'issues': None},
+    {'supported': True, 'issues': [{'reason': 'unknown shape'}]},
+    [],
+])
+def test_evidence_checker_cannot_accept_invalid_proxy_verdict(result):
+    def handler(request):
+        return httpx.Response(200, json={'candidates': [{'content': {'parts': [{'text': json.dumps(result)}]}}]})
+    generator = GeminiGenerator('working', 'gemini-test', transport=httpx.MockTransport(handler))
+    try:
+        with pytest.raises(ValueError, match='Invalid source verification JSON shape'):
+            generator.check_legal_evidence('Question?', 'Source statement [1].',
+                                          [{'rank': 1, 'content': 'Source statement.'}])
     finally:
         generator.close()
 

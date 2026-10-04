@@ -167,9 +167,12 @@ class ChatService:
     ) -> ChatAskResponse:
         degraded_reasons: list[str] = []
         agent_trace = []
+        question_plan = None
+        generation_trace = []
         if self.question_analyzer is not None:
             from .agents import LegalRetrievalAgent
             analyzed = self.question_analyzer.analyze(query)
+            question_plan = analyzed.plan
             degraded_reasons.extend(analyzed.degraded_reasons)
             agent_trace.append(analyzed.step)
             chunks, embedded, step = LegalRetrievalAgent(self.repo, self.embedder, self.max_results).retrieve(query, analyzed.plan)
@@ -192,43 +195,68 @@ class ChatService:
         # not inherit the stricter listing recommendation threshold.
         if confidence < self.confidence_threshold:
             chunks = []
-        generated = (extract_legal_answer(query, chunks) if self.question_analyzer is None else None) or self.generator.generate(query, chunks, context_kind="legal")
+        if hasattr(self.generator, 'generate_legal'):
+            generated = self.generator.generate_legal(query, chunks, question_plan=question_plan)
+        else:
+            generated = (extract_legal_answer(query, chunks) if self.question_analyzer is None else None) or self.generator.generate(query, chunks, context_kind="legal")
+        generation_trace.extend(generated.agent_trace)
+        # Synthesized claims may use only the selected evidence, not other
+        # retrieved rows that Qwen omitted. Keep original ranks for the UI.
+        verification_chunks = list(generated.selected_evidence) or chunks
         attempted_provider, attempted_model = generated.provider, generated.model
-        semantic_checked = False
-        verification_trace = []
+        # Record verification in the same per-request stream as generation so
+        # a repair appears after its rejection, in execution order.
+        verification_trace = generation_trace
         if chunks and generated.provider != "template" and not generated.literal_source_answer:
-            generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
-        issues = evidence_issues(generated.text, chunks, query) if chunks and not generated.literal_source_answer else []
+            generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
+        issues = evidence_issues(generated.text, verification_chunks, query) if chunks and not generated.literal_source_answer else []
         if generated.literal_source_answer:
             verification_trace.append({'agent':'source_verification','provider':'exact_source_match',
                 'status':'accepted','scope':'verbatim source text only; no legal application inferred'})
         repairable = bool(issues)
         if chunks and not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-            semantic_checked = True
-            checked = self.generator.check_legal_evidence(query, generated.text, chunks)
+            checked = self.generator.check_legal_evidence(query, generated.text, verification_chunks)
             if hasattr(checked,'trace'):
                 verification_trace.append(checked.trace)
                 degraded_reasons.extend(checked.degraded_reasons)
             issues.extend(checked)
             repairable = repairable or (bool(checked) and not getattr(checked, "unavailable", False))
         if issues and repairable and generated.provider not in {"template", "legal-extractive", "legal-insufficient"}:
-            generated = self.generator.generate(
-                query + "\nYêu cầu kiểm tra lại: " + " ".join(issues)
+            if generated.source_fallback is not None and hasattr(self.generator, 'repair_legal_answer'):
+                generated = self.generator.repair_legal_answer(query, generated,
+                    question_plan=question_plan, issues=issues)
+            else:
+                generated = self.generator.generate(
+                    query + "\nYêu cầu kiểm tra lại: " + " ".join(issues)
                 + " Sửa đúng các kết luận bị chỉ ra, không thêm quyền/nghĩa vụ hoặc từ 'chỉ' nếu nguồn chưa loại trừ ngoại lệ. "
                 + "Giới hạn của một tài liệu không phải giới hạn của toàn bộ pháp luật. "
                 + "Chỉ kết luận theo nguồn trực tiếp; nếu thiếu hãy nói chưa tìm thấy căn cứ.",
-                chunks, context_kind="legal",
-            )
-            if generated.provider != "template":
-                generated = replace(generated, text=append_commencement_evidence(generated.text, chunks, query))
-            issues = evidence_issues(generated.text, chunks, query)
-            if generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-                checked = self.generator.check_legal_evidence(query, generated.text, chunks)
+                    chunks, context_kind="legal",
+                )
+            generation_trace.extend(generated.agent_trace)
+            verification_chunks = list(generated.selected_evidence) or chunks
+            if generated.provider != "template" and not generated.literal_source_answer:
+                generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
+            issues = evidence_issues(generated.text, verification_chunks, query) if not generated.literal_source_answer else []
+            if generated.literal_source_answer:
+                verification_trace.append({'agent': 'source_verification', 'provider': 'exact_source_match',
+                    'status': 'accepted', 'fallback': True, 'scope': 'verbatim source text only; no legal application inferred'})
+            if not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
+                checked = self.generator.check_legal_evidence(query, generated.text, verification_chunks)
                 issues.extend(checked)
                 if hasattr(checked,'trace'):
                     verification_trace.append(checked.trace)
                     degraded_reasons.extend(checked.degraded_reasons)
-        rejected = bool(issues) or _citation_accuracy(generated.text, chunks) < 1
+        rejected = bool(issues) or _citation_accuracy(generated.text, verification_chunks) < 1
+        if rejected and generated.source_fallback is not None:
+            fallback = generated.source_fallback
+            if fallback.literal_source_answer and _citation_accuracy(fallback.text, verification_chunks) == 1:
+                degraded_reasons.extend(issues)
+                degraded_reasons.append('Bản tổng hợp chưa được nguồn xác nhận sau lần sửa; dùng trích đoạn Qwen đã chọn.')
+                generated = fallback
+                rejected = False
+                verification_trace.append({'agent': 'source_verification', 'provider': 'exact_source_match',
+                    'status': 'accepted', 'fallback': True, 'scope': 'verbatim source text only; no legal application inferred'})
         partial = None
         if chunks and (rejected or generated.provider == "template"):
             partial = extract_partial_provisions(query, chunks)
@@ -281,10 +309,9 @@ class ChatService:
             else []
         )
         response = ChatAskResponse(
-            agent_trace=agent_trace + ([{"agent": "answer", "provider": generated.provider,
+            agent_trace=agent_trace + generation_trace + ([{"agent": "answer", "provider": generated.provider,
                 "model": generated.model, "status": completion,
                 "attempted_provider":attempted_provider,"attempted_model":attempted_model},
-                *verification_trace,
                 {"agent": "citation_and_rule_checks", "provider": "rules",
                  "status": "rejected" if rejected else "accepted"}]
                 if self.question_analyzer is not None else []),
