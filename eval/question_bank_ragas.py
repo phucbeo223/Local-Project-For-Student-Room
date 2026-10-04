@@ -72,7 +72,7 @@ def summarize(report: dict) -> None:
         "no_answer": sum(bool(case.get("no_answer")) for case in completed),
         "partial_answer": sum(bool(case.get("partial_answer")) for case in completed),
         "degraded": sum(bool(case.get("degraded")) for case in completed),
-        "vector_retrieval": sum(case.get("retrieval_mode") in {"hybrid", "legal_hybrid"} for case in completed),
+        "vector_retrieval": sum(case.get("retrieval_mode") in {"hybrid", "legal_hybrid", "graph_hybrid", "legal_graph_hybrid"} for case in completed),
         "category_source_match": sum(case.get("category_source_match") is True for case in completed),
         "category_source_evaluated": sum(case.get("category_source_match") is not None for case in completed),
         "citation_format_accuracy_mean": round(statistics.mean(citation), 4) if citation else None,
@@ -190,9 +190,11 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
             if "answer" in case:
                 continue
             history = []
+            conversation_state = None
             # Questions 15 and 16 intentionally test follow-up memory after Q14.
-            if case["category"] == "find_listing" and case["id"] in (15, 16):
-                for previous_id in (14, 15):
+            if case["category"] == "find_listing" and case["id"] in (15, 16, 17, 18):
+                previous_ids = (14, 15) if case['id'] in (15, 16) else (14,)
+                for previous_id in previous_ids:
                     if previous_id >= case["id"]:
                         break
                     previous = prior[previous_id]
@@ -202,11 +204,13 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                         {"role": "user", "content": previous["question"][:2000]},
                         {"role": "assistant", "content": previous["answer"][:2000]},
                     ])
+                    conversation_state = previous.get('conversation_state')
             print(f"Collecting {case['id']:02d}/{len(report['cases'])} {case['category']}", flush=True)
             provider_calls.clear()
             try:
                 result = service.ask(ChatAskRequest(
                     message=case["question"], conversation_history=history,
+                    conversation_state=conversation_state,
                     include_evaluation_contexts=True,
                 ))
                 data = result.model_dump(mode="json")
@@ -230,6 +234,9 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                     "contexts": [item["content"] for item in data["evaluation_contexts"]],
                     "sources": sources,
                     "listing_ids": [item["id"] for item in data["listings"]],
+                    "listings": data['listings'],
+                    "applied_filters": data.get('applied_filters'),
+                    "conversation_state": data.get('conversation_state'),
                     "category_source_match": (
                         any(item.get("category") == case["category"] for item in sources)
                         if case["category"] != "find_listing" else None

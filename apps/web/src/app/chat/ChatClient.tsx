@@ -26,6 +26,7 @@ type Source = {
 
 type Listing = {
   id: number;
+  corpus_schema?: string;
   title: string;
   price: number | null;
   area: number | null;
@@ -92,6 +93,14 @@ const QUICK_PROMPTS = [
   "Phòng nữ, cách trường dưới 2 km",
   "Chủ trọ được thu tiền điện như thế nào theo quy định?",
 ];
+
+function catalogSource(value: string | null): string | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && (url.hostname === "chotot.com" || url.hostname.endsWith(".chotot.com")) ? url.href : null;
+  } catch { return null; }
+}
 
 const amenityLabels: Record<string, string> = {
   wifi: "Wi-Fi",
@@ -350,6 +359,8 @@ export default function ChatClient() {
                 {turn.listings && turn.listings.length > 0 && (
                   <div className={`mt-3 grid gap-3 ${expanded ? "md:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"}`}>
                     {turn.listings.map((listing) => {
+                      const suppliedCatalog = Boolean(listing.corpus_schema && listing.corpus_schema !== "public");
+                      const sourceLink = catalogSource(listing.source_url);
                       const amenities = Object.entries(listing.amenities)
                         .filter(([key, value]) => value === true && amenityLabels[key])
                         .slice(0, 3);
@@ -366,7 +377,8 @@ export default function ChatClient() {
                             <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-500">
                               {listing.area ? `${listing.area} m² · ` : ""}{listing.address || listing.district || "Chưa rõ địa chỉ"}
                             </p>
-                            {distance(listing.distance_to_ctu) && <p className="mt-1 text-xs font-medium text-[#005baa]">⌖ {distance(listing.distance_to_ctu)}</p>}
+                            {distance(listing.distance_to_ctu) && <p className="mt-1 text-xs font-medium text-[#005baa]">⌖ {distance(listing.distance_to_ctu)}{suppliedCatalog ? " · đường chim bay ước tính" : ""}</p>}
+                            {suppliedCatalog && <p className="mt-1 text-xs text-slate-500">Thông tin theo tin đăng; cần xác nhận giá và phòng còn trống.</p>}
                             {listing.match_reasons.length > 0 && (
                               <div className="mt-2 flex flex-wrap gap-1">
                                 {listing.match_reasons.map((reason) => <span key={reason} className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">✓ {reason}</span>)}
@@ -377,9 +389,9 @@ export default function ChatClient() {
                                 {amenities.map(([key]) => <span key={key} className="rounded-md bg-slate-100 px-2 py-1 text-[10px] text-slate-600">{amenityLabels[key]}</span>)}
                               </div>
                             )}
-                            <Link onClick={() => recordListingView(listing.id)} href={`/listings/${listing.id}`} className="mt-3 flex items-center justify-center rounded-xl bg-blue-50 px-3 py-2 text-xs font-bold text-[#005baa] transition group-hover:bg-[#005baa] group-hover:text-white">
+                            {suppliedCatalog ? (sourceLink ? <a href={sourceLink} target="_blank" rel="noopener noreferrer" className="mt-3 flex items-center justify-center rounded-xl bg-blue-50 px-3 py-2 text-xs font-bold text-[#005baa]">Đối chiếu tin nguồn</a> : <p className="mt-3 text-xs text-slate-500">Chưa có liên kết nguồn để đối chiếu.</p>) : <Link onClick={() => recordListingView(listing.id)} href={`/listings/${listing.id}`} className="mt-3 flex items-center justify-center rounded-xl bg-blue-50 px-3 py-2 text-xs font-bold text-[#005baa] transition group-hover:bg-[#005baa] group-hover:text-white">
                               Xem chi tiết phòng
-                            </Link>
+                            </Link>}
                           </div>
                         </div>
                       );

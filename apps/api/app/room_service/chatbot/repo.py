@@ -141,8 +141,11 @@ def _preference_score(
 class ChatRepository:
     """Read-only repository for stateless hybrid housing retrieval."""
 
-    def __init__(self, engine: Engine, legal_schema: str = "public"):
+    def __init__(self, engine: Engine, legal_schema: str = "public", listing_schema: str = "public"):
         self.engine = engine
+        if not re.fullmatch(r"public|housing_[a-z0-9_]{1,48}", listing_schema):
+            raise ValueError("Invalid listing schema")
+        self.listing_schema = listing_schema
         from ..legal_knowledge.storage import legal_schema as validate_schema
         self.legal_schema = validate_schema(legal_schema)
 
@@ -221,7 +224,7 @@ class ChatRepository:
             "SELECT id, title, price, area, address, district, description, parsed_amenities, "
             "distance_to_ctu, route_time_campus, source, source_url, quality_score, "
             "freshness_score, risk_score, risk_evaluated_at, listing_type, first_seen, last_seen, updated_at, "
-            f"{vector_sql} AS vector_score FROM aggregated_listings "
+            f"{vector_sql} AS vector_score FROM {self.listing_schema}.aggregated_listings "
             f"WHERE {' AND '.join(clauses)} ORDER BY {order_sql} LIMIT :candidate_limit"
         )
         with self.engine.connect() as conn:

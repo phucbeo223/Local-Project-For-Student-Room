@@ -53,6 +53,7 @@ class ChatHistoryMessage(BaseModel):
 
 class ChatListing(BaseModel):
     id: int
+    corpus_schema: str = "public"
     title: str
     price: int | None = None
     area: float | None = None

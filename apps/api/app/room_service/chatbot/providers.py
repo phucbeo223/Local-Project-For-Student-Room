@@ -250,6 +250,12 @@ def _grounded_prompt(question: str, listings: Sequence[dict]) -> str:
                 "route_time_campus_minutes": item.get("route_time_campus"),
                 "risk_score": item.get("risk_score"),
                 "source": item.get("source"),
+                "graph_relations": [
+                    {"relation": fact["relation"], "entity": fact["target"],
+                     "source_field": fact["evidence"].get("field"),
+                     "method": fact["evidence"].get("method")}
+                    for fact in (item.get("graph_facts") or [])[:16]
+                ],
             }
         )
     return (

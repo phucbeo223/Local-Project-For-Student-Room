@@ -90,13 +90,21 @@ def init_chatbot(engine: Engine) -> None:
         else:
             generator = QwenAnswerAgent(generator, verifier=analysis_client)
     _service = ChatService(
-        ChatRepository(engine, settings.chatbot_legal_schema),
+        _repository(engine),
         E5EmbeddingProvider(settings.chatbot_embedding_model),
         generator,
         confidence_threshold=settings.chatbot_confidence_threshold,
         max_results=settings.chatbot_max_results,
         question_analyzer=analyzer,
     )
+
+
+def _repository(engine: Engine):
+    if settings.chatbot_graph_enabled:
+        from .graph_retrieval import GraphChatRepository
+        return GraphChatRepository(engine, settings.chatbot_legal_schema,
+                                   settings.chatbot_listing_schema, settings.chatbot_graph_schema)
+    return ChatRepository(engine, settings.chatbot_legal_schema, settings.chatbot_listing_schema)
 
 
 def get_service() -> ChatService:

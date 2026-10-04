@@ -189,6 +189,10 @@ class ChatService:
         retrieval_mode = (
             "legal_hybrid" if embedded.vector is not None else "legal_lexical"
         )
+        if getattr(self.repo, "graph_enabled", False):
+            retrieval_mode = "legal_graph_hybrid" if embedded.vector is not None else "legal_graph_lexical"
+            if chunks and chunks[0].get("_graph_trace"):
+                agent_trace.append(chunks[0]["_graph_trace"])
         top_score = float(chunks[0]["similarity_score"]) if chunks else 0.0
         confidence = min(0.97, 0.22 + 0.75 * top_score) if chunks else 0.0
         # Legal BM25 scores are normalized inside the candidate corpus and should
@@ -393,6 +397,7 @@ class ChatService:
 
         degraded_reasons: list[str] = []
         listings: list[dict] = []
+        graph_trace = None
         retrieval_mode = "rule"
         if parsed.intent == "out_of_scope":
             answer = "Mình chỉ hỗ trợ tìm và so sánh nhà trọ quanh Đại học Cần Thơ."
@@ -414,10 +419,18 @@ class ChatService:
             retrieval_mode = (
                 "hybrid" if embedded.vector is not None else "lexical_structured"
             )
+            graph_trace = listings[0].get("_graph_trace") if listings else None
+            if getattr(self.repo, "graph_enabled", False):
+                retrieval_mode = "graph_hybrid" if embedded.vector is not None else "graph_lexical_structured"
             filter_count = sum(
                 value not in (None, False, [], "phong_tro")
                 for value in filters.model_dump().values()
             )
+            # A verified location graph intersection is one applied constraint,
+            # including when the user names two alternatives. Count it once,
+            # using the same weight as the existing structured filter policy.
+            if graph_trace and any(key.startswith('location:') for key in graph_trace.get('seed_entities', [])):
+                filter_count += 1
             top_score = listings[0]["similarity_score"] if listings else 0.0
             second_score = listings[1]["similarity_score"] if len(listings) > 1 else 0.0
             margin = max(0.0, top_score - second_score)
@@ -473,6 +486,7 @@ class ChatService:
         listing_models = [
             ChatListing(
                 id=item["id"],
+                corpus_schema=getattr(self.repo, "listing_schema", "public"),
                 title=item["title"],
                 price=item.get("price"),
                 area=item.get("area"),
@@ -524,6 +538,7 @@ class ChatService:
         response = ChatAskResponse(
             answer=answer,
             intent=parsed.intent,
+            agent_trace=[graph_trace] if parsed.intent not in {"out_of_scope", "clarify"} and graph_trace else [],
             confidence=round(confidence, 4),
             listings=listing_models,
             sources=sources,

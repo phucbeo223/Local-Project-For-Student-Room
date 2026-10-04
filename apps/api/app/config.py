@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     chatbot_confidence_threshold: float = 0.65
     chatbot_max_results: int = 5
     chatbot_legal_schema: str = Field(default="public", pattern=r"^(public|legal_[a-z0-9_]{1,48})$")
+    chatbot_listing_schema: str = Field(default="public", pattern=r"^(public|housing_[a-z0-9_]{1,48})$")
+    chatbot_graph_enabled: bool = False
+    chatbot_graph_schema: str = Field(default="graph_rag_v1", pattern=r"^graph_[a-z0-9_]{1,48}$")
     chatbot_agents_enabled: bool = False
     chatbot_question_analysis_model: str = "gemini-3.1-flash-lite"
     chatbot_question_analysis_timeout_seconds: float = Field(default=30, gt=0, le=120)

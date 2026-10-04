@@ -2,6 +2,7 @@ services:
   ragas-eval:
     environment:
       PGOPTIONS: "-c search_path=housing_v2,public"
+      CHATBOT_LISTING_SCHEMA: housing_v2
     volumes:
       - ./Datehouse:/catalog:ro
       - ./docs/CHATBOT_QUESTION_BANK.md:/housing_bank.md:ro
