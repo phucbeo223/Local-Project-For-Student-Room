@@ -1,0 +1,964 @@
+{
+  "documents": [
+    {
+      "source_id": "legacy-e010a14386b4",
+      "source_file": "docs/legal_corpus_v2/legacy-e010a14386b4.json",
+      "source_file_sha256": "87a1ae7eaf6bfeebe3eab70eacc6f155481012d90b121f1bf6610da2daf1fdff",
+      "source": {
+        "id": "legacy-e010a14386b4",
+        "title": "Bo-luat-91-2015-QH13-doi-chieu-20261003",
+        "category": "housing_contract",
+        "path": "Data/housing_contract/Bo-luat-91-2015-QH13-doi-chieu-20261003.md",
+        "sha256": "e36235277d9ced3a03df409f0a7a167ef48b2156fae4504ebcb3ec46bf2dffde",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+        "origin_documents": [
+          {
+            "id": "civil91first",
+            "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+            "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+            "path": "docs/legal_sources_originals_20261003/civil91first.pdf",
+            "sha256": "d2f9e486faa8aa205dff952c813251acb82475a614b388d2a52449a05dd37205",
+            "bytes": 6675593,
+            "pages": 94,
+            "text_chars": 147
+          },
+          {
+            "id": "civil91",
+            "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+            "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+            "path": "docs/legal_sources_originals_20261003/civil91.pdf",
+            "sha256": "dd2c45f8dee4e0d7b0416786b236e9588092863edcef64db07ef2b74954bba50",
+            "bytes": 5498558,
+            "pages": 78,
+            "text_chars": 0
+          }
+        ],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": {
+          "replaced": [
+            328,
+            689
+          ],
+          "visual_pages_328": [
+            86,
+            87
+          ],
+          "other_articles": "Giữ nguyên bản trích trước; kiểm tra đuôi đoạn, không khẳng định đã đối chiếu toàn văn từng chữ."
+        },
+        "page_kind": "logical_document",
+        "not_exhaustive": true,
+        "editorial_annotations": [
+          {
+            "page": 1,
+            "text": "Ghi chú tuyển chọn: Chỉ giữ khoản 1 và khoản 4 về tình trạng tài sản khi trả và trách nhiệm khi chậm trả; bỏ phần về động sản, gia súc ngoài phạm vi nhà trọ."
+          }
+        ],
+        "contains_selected_points": false
+      },
+      "provision_ids": [
+        "e36235277d9ced3a03df:699:1",
+        "e36235277d9ced3a03df:699:2",
+        "e36235277d9ced3a03df:2959:1",
+        "e36235277d9ced3a03df:2959:2",
+        "e36235277d9ced3a03df:4787:body",
+        "e36235277d9ced3a03df:5514:body",
+        "e36235277d9ced3a03df:6149:1",
+        "e36235277d9ced3a03df:6149:2",
+        "e36235277d9ced3a03df:7242:1",
+        "e36235277d9ced3a03df:7242:2",
+        "e36235277d9ced3a03df:12817:1",
+        "e36235277d9ced3a03df:12817:2",
+        "e36235277d9ced3a03df:12817:3",
+        "e36235277d9ced3a03df:16774:body",
+        "e36235277d9ced3a03df:17137:1",
+        "e36235277d9ced3a03df:17137:2",
+        "e36235277d9ced3a03df:18451:1",
+        "e36235277d9ced3a03df:18451:2",
+        "e36235277d9ced3a03df:18451:3",
+        "e36235277d9ced3a03df:19803:1",
+        "e36235277d9ced3a03df:19803:2",
+        "e36235277d9ced3a03df:20538:1",
+        "e36235277d9ced3a03df:20538:2",
+        "e36235277d9ced3a03df:21097:1",
+        "e36235277d9ced3a03df:21097:4"
+      ],
+      "articles_found": [
+        "119",
+        "328",
+        "360",
+        "385",
+        "398",
+        "401",
+        "421",
+        "472",
+        "473",
+        "477",
+        "479",
+        "481",
+        "482"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "legacy-4bcf6ab450b3",
+      "source_file": "docs/legal_corpus_v2/legacy-4bcf6ab450b3.json",
+      "source_file_sha256": "b917938825b162618e93e0b15767c20065064a8ac3f3d3f9689089d904a63821",
+      "source": {
+        "id": "legacy-4bcf6ab450b3",
+        "title": "2026_204_79_VBHN-VPQH",
+        "category": "housing_contract",
+        "path": "Data/housing_contract/2026_204_79_VBHN-VPQH.docx",
+        "sha256": "74e00cffe24839460eddf3b266c84eda90bf31370d27498c68a96442dd9172a2",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-79-vbhn-vpqh-469209.htm",
+        "origin_documents": [],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": "not verified word by word against full government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true
+      },
+      "provision_ids": [
+        "74e00cffe24839460edd:8109:1",
+        "74e00cffe24839460edd:8109:2",
+        "74e00cffe24839460edd:8109:3",
+        "74e00cffe24839460edd:10149:1",
+        "74e00cffe24839460edd:10149:2",
+        "74e00cffe24839460edd:10149:3",
+        "74e00cffe24839460edd:12930:body",
+        "74e00cffe24839460edd:12930:1",
+        "74e00cffe24839460edd:12930:2",
+        "74e00cffe24839460edd:12930:3",
+        "74e00cffe24839460edd:12930:4",
+        "74e00cffe24839460edd:12930:5",
+        "74e00cffe24839460edd:12930:6",
+        "74e00cffe24839460edd:12930:7",
+        "74e00cffe24839460edd:12930:8",
+        "74e00cffe24839460edd:12930:9",
+        "74e00cffe24839460edd:12930:10",
+        "74e00cffe24839460edd:12930:11",
+        "74e00cffe24839460edd:14750:1",
+        "74e00cffe24839460edd:14750:2",
+        "74e00cffe24839460edd:14750:3",
+        "74e00cffe24839460edd:14750:4",
+        "74e00cffe24839460edd:16898:1",
+        "74e00cffe24839460edd:16898:2",
+        "74e00cffe24839460edd:16898:3",
+        "74e00cffe24839460edd:16898:4",
+        "74e00cffe24839460edd:17821:1",
+        "74e00cffe24839460edd:17821:2",
+        "74e00cffe24839460edd:19212:1",
+        "74e00cffe24839460edd:19212:2",
+        "74e00cffe24839460edd:19212:3",
+        "74e00cffe24839460edd:19212:4"
+      ],
+      "articles_found": [
+        "160",
+        "161",
+        "163",
+        "164",
+        "170",
+        "171",
+        "172"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "legacy-97260a1a9fb2",
+      "source_file": "docs/legal_corpus_v2/legacy-97260a1a9fb2.json",
+      "source_file_sha256": "bbac9c32b02779c532a66fa47f5c672fb979712e8984e26bd967ea7e2fa7b338",
+      "source": {
+        "id": "legacy-97260a1a9fb2",
+        "title": "Luật-29-2023-QH15",
+        "category": "real_estate_brokerage",
+        "path": "Data/real_estate_brokerage/Luật-29-2023-QH15.docx",
+        "sha256": "147363772a45ea4beb11b6983111046beea45d9ba61d71884353b79c7160a4d9",
+        "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3",
+        "origin_documents": [],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": "not verified word by word against full government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true
+      },
+      "provision_ids": [
+        "147363772a45ea4beb11:33180:1",
+        "147363772a45ea4beb11:33180:2",
+        "147363772a45ea4beb11:33180:3",
+        "147363772a45ea4beb11:33180:4",
+        "147363772a45ea4beb11:33180:5",
+        "147363772a45ea4beb11:33180:6",
+        "147363772a45ea4beb11:33180:7",
+        "147363772a45ea4beb11:36574:1",
+        "147363772a45ea4beb11:36574:2",
+        "147363772a45ea4beb11:36574:3",
+        "147363772a45ea4beb11:36574:4",
+        "147363772a45ea4beb11:40843:1",
+        "147363772a45ea4beb11:40843:2",
+        "147363772a45ea4beb11:42426:1",
+        "147363772a45ea4beb11:42426:2",
+        "147363772a45ea4beb11:43830:1",
+        "147363772a45ea4beb11:43830:2"
+      ],
+      "articles_found": [
+        "44",
+        "46",
+        "61",
+        "63",
+        "65"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "civil-service-contract",
+      "source_file": "docs/legal_corpus_v2/civil-service-contract.json",
+      "source_file_sha256": "b93bc621f0a4fd4ef092df8349f20ffbfc660bc91ae783c1bd3c438ee8123ea0",
+      "source": {
+        "id": "civil-service-contract",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+        "path": "docs/legal_sources_originals_20261003/civil91.pdf",
+        "sha256": "dd2c45f8dee4e0d7b0416786b236e9588092863edcef64db07ef2b74954bba50",
+        "bytes": 5498558,
+        "pages": 78,
+        "text_chars": 0,
+        "category": "real_estate_brokerage",
+        "title": "Bộ luật Dân sự 91/2015/QH13 — hợp đồng dịch vụ",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+        "extraction": "Manual transcription checked word by word against rendered physical PDF pages 34 and 35; printed pages 128 and 129. Only articles 513-519, no inferred legal words or clauses. Excludes scan margins, handwriting and following sections.",
+        "page_kind": "physical_pdf",
+        "reviewed_extract": "docs/legal_fix_originals_20261004/civil_service_verified_extract.json",
+        "not_exhaustive": true,
+        "verification": "Articles 513-519 checked against physical pages 34/35. General service contract rules; does not establish a mandatory broker fee or infer employment relationship"
+      },
+      "provision_ids": [
+        "dd2c45f8dee4e0d7b041:0:body",
+        "dd2c45f8dee4e0d7b041:218:body",
+        "dd2c45f8dee4e0d7b041:387:1",
+        "dd2c45f8dee4e0d7b041:387:2",
+        "dd2c45f8dee4e0d7b041:660:1",
+        "dd2c45f8dee4e0d7b041:660:2",
+        "dd2c45f8dee4e0d7b041:995:1",
+        "dd2c45f8dee4e0d7b041:995:2",
+        "dd2c45f8dee4e0d7b041:995:3",
+        "dd2c45f8dee4e0d7b041:995:4",
+        "dd2c45f8dee4e0d7b041:995:5",
+        "dd2c45f8dee4e0d7b041:995:6",
+        "dd2c45f8dee4e0d7b041:1751:1",
+        "dd2c45f8dee4e0d7b041:1751:2",
+        "dd2c45f8dee4e0d7b041:1751:3",
+        "dd2c45f8dee4e0d7b041:2179:1",
+        "dd2c45f8dee4e0d7b041:2179:2",
+        "dd2c45f8dee4e0d7b041:2179:3",
+        "dd2c45f8dee4e0d7b041:2179:4"
+      ],
+      "articles_found": [
+        "513",
+        "514",
+        "515",
+        "516",
+        "517",
+        "518",
+        "519"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "electricity60",
+      "source_file": "docs/legal_corpus_v2/electricity60.json",
+      "source_file_sha256": "9c2d59936cb9e13b4845698d66d663a588b9a3a9875d6623ac596694cff847eb",
+      "source": {
+        "download_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/12/46756/60185-1-20251687-168860-2025-tt-bct.pdf",
+        "path": "docs/legal_fix_originals_20261004/electricity60.pdf",
+        "sha256": "b7b38e43d13fa44a9e67d30074fc0c0795bf1a4aa7fc9e098489330639cc9505",
+        "id": "electricity60",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-60-2025-tt-bct-46756/60185.htm",
+        "category": "electricity",
+        "title": "Thông tư 60/2025/TT-BCT",
+        "extraction": "official original PDF text/Tesseract vie+eng; clause structure generated locally",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "original provenance/hash verified; critical extracted pages reviewed separately; no blanket current-effectiveness claim"
+      },
+      "provision_ids": [
+        "b7b38e43d13fa44a9e67:22648:1",
+        "b7b38e43d13fa44a9e67:22648:2",
+        "b7b38e43d13fa44a9e67:22648:3",
+        "b7b38e43d13fa44a9e67:22648:4",
+        "b7b38e43d13fa44a9e67:22648:5",
+        "b7b38e43d13fa44a9e67:22648:6",
+        "b7b38e43d13fa44a9e67:22648:7",
+        "b7b38e43d13fa44a9e67:22648:8",
+        "b7b38e43d13fa44a9e67:22648:9",
+        "b7b38e43d13fa44a9e67:22648:10",
+        "b7b38e43d13fa44a9e67:22648:11",
+        "b7b38e43d13fa44a9e67:48508:1",
+        "b7b38e43d13fa44a9e67:48508:2",
+        "b7b38e43d13fa44a9e67:48508:3",
+        "b7b38e43d13fa44a9e67:52268:1",
+        "b7b38e43d13fa44a9e67:52268:2",
+        "b7b38e43d13fa44a9e67:52268:3"
+      ],
+      "articles_found": [
+        "12",
+        "20",
+        "21"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "electricity133",
+      "source_file": "docs/legal_corpus_v2/electricity133.json",
+      "source_file_sha256": "95c1689896df8597c4a4c80d6d37918b9b1d39505e9bb9d89cd706464e9ef4c9",
+      "source": {
+        "id": "electricity133",
+        "source_url": "https://vanban.chinhphu.vn/?docid=217612&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/133-ndcp.signed.pdf",
+        "path": "docs/legal_agent_originals_20261003/electricity133.pdf",
+        "sha256": "87be0af90b962085aa6a4c56fea6d10f6273d0a1ea9841f66aeaf5034628c885",
+        "pages": 45,
+        "native_chars": 149,
+        "verified_at_utc": "2026-10-03T05:53:21.598431+00:00",
+        "category": "electricity",
+        "title": "Nghị định 133/2026/NĐ-CP",
+        "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "OCR; selected critical pages visually checked, other text requires review"
+      },
+      "provision_ids": [
+        "87be0af90b962085aa6a:5993:1",
+        "87be0af90b962085aa6a:5993:2",
+        "87be0af90b962085aa6a:5993:3",
+        "87be0af90b962085aa6a:32096:1",
+        "87be0af90b962085aa6a:32096:2",
+        "87be0af90b962085aa6a:32096:3",
+        "87be0af90b962085aa6a:32096:4",
+        "87be0af90b962085aa6a:32096:5",
+        "87be0af90b962085aa6a:32096:6",
+        "87be0af90b962085aa6a:32096:7",
+        "87be0af90b962085aa6a:32096:8",
+        "87be0af90b962085aa6a:32096:9",
+        "87be0af90b962085aa6a:32096:10",
+        "87be0af90b962085aa6a:32096:11"
+      ],
+      "articles_found": [
+        "13",
+        "4"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "water117",
+      "source_file": "docs/legal_corpus_v2/water117.json",
+      "source_file_sha256": "ee27cf156658d95519ef6e066796e189c3b930f4c05247e623a999a9990e54cf",
+      "source": {
+        "id": "water117",
+        "source_url": "https://vanban.chinhphu.vn/?docid=33015&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2007/07/34374_nd117cp.doc",
+        "path": "docs/legal_agent_originals_20261003/water117.doc",
+        "sha256": "baa30359ccb0743198f23d02fe2b8461603c50e1fe99e4a0d6c02601ded21dd6",
+        "verified_at_utc": "2026-10-03T06:06:29.119893+00:00",
+        "category": "water_cantho",
+        "title": "Nghị định 117/2007/NĐ-CP",
+        "extraction": "antiword from government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true,
+        "verification": "original attachment; no OCR; supply-contract parties distinct from landlord/tenant"
+      },
+      "provision_ids": [
+        "baa30359ccb0743198f2:38661:1",
+        "baa30359ccb0743198f2:38661:2",
+        "baa30359ccb0743198f2:38661:3",
+        "baa30359ccb0743198f2:41746:1",
+        "baa30359ccb0743198f2:41746:2",
+        "baa30359ccb0743198f2:41746:3",
+        "baa30359ccb0743198f2:41746:4",
+        "baa30359ccb0743198f2:41746:5",
+        "baa30359ccb0743198f2:43367:1",
+        "baa30359ccb0743198f2:43367:2",
+        "baa30359ccb0743198f2:43367:3",
+        "baa30359ccb0743198f2:43367:4",
+        "baa30359ccb0743198f2:44205:1",
+        "baa30359ccb0743198f2:44205:2",
+        "baa30359ccb0743198f2:44205:3",
+        "baa30359ccb0743198f2:44205:4",
+        "baa30359ccb0743198f2:44205:5",
+        "baa30359ccb0743198f2:48564:1",
+        "baa30359ccb0743198f2:48564:2",
+        "baa30359ccb0743198f2:48564:3",
+        "baa30359ccb0743198f2:48564:4"
+      ],
+      "articles_found": [
+        "44",
+        "48",
+        "49",
+        "50",
+        "54"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "water124",
+      "source_file": "docs/legal_corpus_v2/water124.json",
+      "source_file_sha256": "e6f28a04aeb8c3937848e9a9946d86f1cf7a3f8d07a3d26b866bfd5298f90ac8",
+      "source": {
+        "id": "water124",
+        "source_url": "https://vanban.chinhphu.vn/?docid=153298&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2012/04/124nd.doc",
+        "path": "docs/legal_agent_originals_20261003/water124.doc",
+        "sha256": "f3fae17d5f680300060ea959bd352658866bf15b63747ebaf3942684d8582c67",
+        "verified_at_utc": "2026-10-03T06:06:30.189478+00:00",
+        "category": "water_cantho",
+        "title": "Nghị định 124/2011/NĐ-CP",
+        "extraction": "antiword from government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true,
+        "verification": "original attachment; no OCR; supply-contract parties distinct from landlord/tenant"
+      },
+      "provision_ids": [
+        "f3fae17d5f680300060e:566:body",
+        "f3fae17d5f680300060e:566:1",
+        "f3fae17d5f680300060e:566:2",
+        "f3fae17d5f680300060e:566:3",
+        "f3fae17d5f680300060e:566:4",
+        "f3fae17d5f680300060e:566:5",
+        "f3fae17d5f680300060e:566:6",
+        "f3fae17d5f680300060e:566:7",
+        "f3fae17d5f680300060e:566:8",
+        "f3fae17d5f680300060e:566:9",
+        "f3fae17d5f680300060e:566:10",
+        "f3fae17d5f680300060e:566:11",
+        "f3fae17d5f680300060e:566:12"
+      ],
+      "articles_found": [
+        "1"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "water215",
+      "source_file": "docs/legal_corpus_v2/water215.json",
+      "source_file_sha256": "04622ea7e4a1f50f1acbfd96275b3efd04aa7db8130a5f31df95b94bab2dc290",
+      "source": {
+        "download_url": "https://drive.google.com/uc?export=download&id=1048r34Uoou90dWXo09lp5kE591jRGacR",
+        "official_attachment_link": "https://drive.google.com/file/d/1048r34Uoou90dWXo09lp5kE591jRGacR/view?usp=drive_link",
+        "path": "docs/legal_fix_originals_20261004/water215.pdf",
+        "sha256": "1b476f823340e632b5fe9213c4e55ad92487eb568d81fe03f51fc59080321871",
+        "provenance": "signed government decision explicitly linked by the accountable water utility; corroborate number/date/title with government publication; verify territorial/current application separately",
+        "id": "water215",
+        "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=63&wp=332",
+        "category": "water_cantho",
+        "title": "Quyết định 215/QĐ-UBND ngày 01/02/2024 Cần Thơ",
+        "extraction": "Transcribed against rendered signed pages 1 and 3. Tariff tables and numerical adjustment limit excluded. This is a project extract, not an official consolidation.",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "Number/date/title corroborated with government reply; selected clauses transcribed against signed pages 1/3; tables/numeric adjustment limit excluded; current territory/effectiveness requires confirmation",
+        "reviewed_extract": "docs/legal_fix_originals_20261004/water215_verified_extract.json",
+        "tariff_tables_excluded": true,
+        "application_verified": false
+      },
+      "provision_ids": [
+        "1b476f823340e632b5fe:0:body",
+        "1b476f823340e632b5fe:207:2",
+        "1b476f823340e632b5fe:609:body"
+      ],
+      "articles_found": [
+        "1",
+        "2",
+        "3"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "legacy-101ff31eaab8",
+      "source_file": "docs/legal_corpus_v2/legacy-101ff31eaab8.json",
+      "source_file_sha256": "504d09ee1cc9a8b2c12b5d7483bc7149b7697dd149d6207c2e5d5960a32df2fc",
+      "source": {
+        "id": "legacy-101ff31eaab8",
+        "title": "Luat-68-2020-QH14-doi-chieu-20261003",
+        "category": "residence",
+        "path": "Data/residence/Luat-68-2020-QH14-doi-chieu-20261003.md",
+        "sha256": "1b2041ad5663165a8fcf7c4a3ba17d16dcdf972ce7fcb663cf07a2c224efd467",
+        "source_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+        "origin_documents": [
+          {
+            "id": "residence68",
+            "source_page_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+            "download_url": "https://congan.lamdong.gov.vn/UpLoaded/files/luat/68_2020_QH14.pdf",
+            "path": "docs/legal_sources_originals_20261003/residence68.pdf",
+            "sha256": "fda03bdaa433b3e86807d9fa0e6cdae50d1ea2ae37aa59ffe992f1de1c7f17d1",
+            "bytes": 620655,
+            "pages": 23,
+            "text_chars": 0
+          },
+          {
+            "id": "amend118",
+            "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+            "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luatso118.2025.pdf",
+            "path": "docs/legal_sources_originals_20261003/amend118.pdf",
+            "sha256": "a9798bfab6120963834d26559ab8614003ca3012de1d1846305495e8bb4300b6",
+            "bytes": 12531681,
+            "pages": 28,
+            "text_chars": 0
+          }
+        ],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": {
+          "articles": [
+            9,
+            27,
+            28,
+            30
+          ],
+          "visual_pages": {
+            "residence68": [
+              5,
+              15,
+              16
+            ],
+            "amend118": [
+              12,
+              13
+            ]
+          },
+          "amendment": "Điều 4 khoản 9 Luật 118 thay Điều 30, áp dụng từ 01/07/2026; Điều 9,27,28 giữ nội dung gốc.",
+          "ocr": "Chép đối chiếu ảnh: sửa Điền/Hỗ/tài Hiệu/tam tri; giữ đủ khoản, điểm và ngoại lệ.",
+          "article31": "Nội dung sửa đổi vẫn có trong tài liệu Luật 118 riêng."
+        },
+        "page_kind": "logical_document",
+        "not_exhaustive": true
+      },
+      "provision_ids": [
+        "1b2041ad5663165a8fcf:66:1",
+        "1b2041ad5663165a8fcf:66:2",
+        "1b2041ad5663165a8fcf:66:3",
+        "1b2041ad5663165a8fcf:473:1",
+        "1b2041ad5663165a8fcf:473:2",
+        "1b2041ad5663165a8fcf:473:3",
+        "1b2041ad5663165a8fcf:880:1",
+        "1b2041ad5663165a8fcf:880:2",
+        "1b2041ad5663165a8fcf:880:3",
+        "1b2041ad5663165a8fcf:2421:1",
+        "1b2041ad5663165a8fcf:2421:2",
+        "1b2041ad5663165a8fcf:2421:3",
+        "1b2041ad5663165a8fcf:2421:4"
+      ],
+      "articles_found": [
+        "27",
+        "28",
+        "30",
+        "9"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "residence116",
+      "source_file": "docs/legal_corpus_v2/residence116.json",
+      "source_file_sha256": "e755800decdf7e4fd0ef19981a1580fd52ff89b0d9c47bbdf03e99b7499bd64b",
+      "source": {
+        "id": "residence116",
+        "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+        "download_url": "https://bocongan.gov.vn/media/bca-media/library-20260717110413-0c32870e-3f4d-41d8-9da4-8f90638543ff-thong-tu-116-2026.pdf",
+        "path": "docs/legal_agent_originals_20261003/residence116.pdf",
+        "sha256": "c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f",
+        "pages": 48,
+        "native_chars": 0,
+        "verified_at_utc": "2026-10-03T05:53:21.666495+00:00",
+        "category": "residence",
+        "title": "Thông tư 116/2026/TT-BCA",
+        "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "OCR; selected critical pages visually checked, other text requires review",
+        "reviewed_ocr_corrections": [
+          {
+            "source_id": "residence116",
+            "page": 2,
+            "before": "§. Việc thông báo",
+            "after": "8. Việc thông báo",
+            "reason": "Clause 8 misrecognized as section symbol; visually checked against signed government PDF",
+            "review_image": "docs/legal_agent_originals_20261003/qa/residence116-2.png"
+          }
+        ]
+      },
+      "provision_ids": [
+        "c7f081986711630f8ecd:1432:body",
+        "c7f081986711630f8ecd:1432:1",
+        "c7f081986711630f8ecd:1432:2",
+        "c7f081986711630f8ecd:1432:3",
+        "c7f081986711630f8ecd:1432:4",
+        "c7f081986711630f8ecd:1432:5",
+        "c7f081986711630f8ecd:1432:6",
+        "c7f081986711630f8ecd:1432:7",
+        "c7f081986711630f8ecd:1432:8",
+        "c7f081986711630f8ecd:1432:9",
+        "c7f081986711630f8ecd:7188:body",
+        "c7f081986711630f8ecd:7188:1",
+        "c7f081986711630f8ecd:7188:2",
+        "c7f081986711630f8ecd:7188:3",
+        "c7f081986711630f8ecd:7188:4",
+        "c7f081986711630f8ecd:7188:5",
+        "c7f081986711630f8ecd:7188:6",
+        "c7f081986711630f8ecd:7188:7",
+        "c7f081986711630f8ecd:16426:1",
+        "c7f081986711630f8ecd:16426:2",
+        "c7f081986711630f8ecd:16426:3"
+      ],
+      "articles_found": [
+        "12",
+        "3",
+        "6"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "privacy91-cb",
+      "source_file": "docs/legal_corpus_v2/privacy91-cb.json",
+      "source_file_sha256": "4b6d6aeb8730cef54992c0edf78fc3984d6229ab6272dc2a397b240acaad7770",
+      "source": {
+        "download_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45578/57730-1-2025971-97291-2025-qh15.pdf",
+        "path": "docs/legal_fix_originals_20261004/privacy91-cb.pdf",
+        "sha256": "226dd6da66a6eea348e04db0f8c496d884021b730298991c6f6683720a0dfa2e",
+        "id": "privacy91-cb",
+        "source_url": "https://congbao.chinhphu.vn/detail/tai-ve?id=45578&slug=91-2025-qh15",
+        "category": "privacy_data",
+        "title": "Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15",
+        "extraction": "official original PDF text/Tesseract vie+eng; clause structure generated locally",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": false,
+        "verification": "original provenance/hash verified; critical extracted pages reviewed separately; no blanket current-effectiveness claim"
+      },
+      "provision_ids": [
+        "226dd6da66a6eea348e0:3429:1",
+        "226dd6da66a6eea348e0:3429:2",
+        "226dd6da66a6eea348e0:3429:3",
+        "226dd6da66a6eea348e0:3429:4",
+        "226dd6da66a6eea348e0:3429:5",
+        "226dd6da66a6eea348e0:3429:6",
+        "226dd6da66a6eea348e0:4461:1",
+        "226dd6da66a6eea348e0:4461:2",
+        "226dd6da66a6eea348e0:4461:3",
+        "226dd6da66a6eea348e0:4461:4",
+        "226dd6da66a6eea348e0:4461:5",
+        "226dd6da66a6eea348e0:11518:1",
+        "226dd6da66a6eea348e0:11518:2",
+        "226dd6da66a6eea348e0:11518:3",
+        "226dd6da66a6eea348e0:11518:4",
+        "226dd6da66a6eea348e0:11518:5",
+        "226dd6da66a6eea348e0:12692:1",
+        "226dd6da66a6eea348e0:12692:2",
+        "226dd6da66a6eea348e0:12692:3",
+        "226dd6da66a6eea348e0:12692:4",
+        "226dd6da66a6eea348e0:19298:1",
+        "226dd6da66a6eea348e0:19298:2",
+        "226dd6da66a6eea348e0:19298:3",
+        "226dd6da66a6eea348e0:19298:4",
+        "226dd6da66a6eea348e0:19298:5",
+        "226dd6da66a6eea348e0:22816:body",
+        "226dd6da66a6eea348e0:22816:1",
+        "226dd6da66a6eea348e0:22816:2",
+        "226dd6da66a6eea348e0:51655:1",
+        "226dd6da66a6eea348e0:51655:2",
+        "226dd6da66a6eea348e0:51655:3",
+        "226dd6da66a6eea348e0:51655:4"
+      ],
+      "articles_found": [
+        "10",
+        "16",
+        "19",
+        "3",
+        "38",
+        "4",
+        "9"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "privacy356-cb",
+      "source_file": "docs/legal_corpus_v2/privacy356-cb.json",
+      "source_file_sha256": "eebfbd53aa7195e0f473c3bc1f5c1cbd330b0cb0a1a1f84ac590fb2c239239dd",
+      "source": {
+        "download_url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/1/17/356signed-1768638052103952849513.pdf",
+        "path": "docs/legal_fix_originals_20261004/privacy356-cb.pdf",
+        "sha256": "f24747bf3c374b04901e66704423ea1e1a60460376c4d052d649ecc8a2a2f1eb",
+        "id": "privacy356-cb",
+        "source_url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/1/17/356signed-1768638052103952849513.pdf",
+        "category": "privacy_data",
+        "title": "Nghị định 356/2025/NĐ-CP",
+        "extraction": "official original PDF text/Tesseract vie+eng; clause structure generated locally",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": false,
+        "verification": "original provenance/hash verified; critical extracted pages reviewed separately; no blanket current-effectiveness claim"
+      },
+      "provision_ids": [
+        "f24747bf3c374b04901e:4472:1",
+        "f24747bf3c374b04901e:4472:2",
+        "f24747bf3c374b04901e:4472:3",
+        "f24747bf3c374b04901e:4472:4",
+        "f24747bf3c374b04901e:4472:5",
+        "f24747bf3c374b04901e:66830:1",
+        "f24747bf3c374b04901e:66830:2",
+        "f24747bf3c374b04901e:66830:3",
+        "f24747bf3c374b04901e:66830:4",
+        "f24747bf3c374b04901e:66830:5"
+      ],
+      "articles_found": [
+        "42",
+        "5"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "ecommerce122",
+      "source_file": "docs/legal_corpus_v2/ecommerce122.json",
+      "source_file_sha256": "53773c789ec7862a0930de1efb5322d20cc136a659f702da843f0edabfa93b6f",
+      "source": {
+        "id": "ecommerce122",
+        "source_url": "https://vanban.chinhphu.vn/?docid=216503&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/01/luat122.2025.qh15.pdf",
+        "path": "docs/legal_agent_originals_20261003/ecommerce122.pdf",
+        "sha256": "10eb9faf1384bebaff64c30beccdc4dbd2713dc251f5d1c2714c6514c9b58e44",
+        "pages": 28,
+        "native_chars": 0,
+        "verified_at_utc": "2026-10-03T05:53:29.165610+00:00",
+        "category": "ecommerce_platform",
+        "title": "Luật Thương mại điện tử 122/2025/QH15",
+        "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "OCR; selected critical pages visually checked, other text requires review"
+      },
+      "provision_ids": [
+        "10eb9faf1384bebaff64:320:body",
+        "10eb9faf1384bebaff64:848:body",
+        "10eb9faf1384bebaff64:848:1",
+        "10eb9faf1384bebaff64:848:2",
+        "10eb9faf1384bebaff64:848:4",
+        "10eb9faf1384bebaff64:848:5",
+        "10eb9faf1384bebaff64:848:6",
+        "10eb9faf1384bebaff64:848:7",
+        "10eb9faf1384bebaff64:848:8",
+        "10eb9faf1384bebaff64:848:9",
+        "10eb9faf1384bebaff64:848:10",
+        "10eb9faf1384bebaff64:848:11",
+        "10eb9faf1384bebaff64:848:12",
+        "10eb9faf1384bebaff64:848:13",
+        "10eb9faf1384bebaff64:848:14",
+        "10eb9faf1384bebaff64:848:15",
+        "10eb9faf1384bebaff64:848:16",
+        "10eb9faf1384bebaff64:4836:1",
+        "10eb9faf1384bebaff64:4836:2",
+        "10eb9faf1384bebaff64:4836:3",
+        "10eb9faf1384bebaff64:4836:4",
+        "10eb9faf1384bebaff64:4836:6",
+        "10eb9faf1384bebaff64:17127:1",
+        "10eb9faf1384bebaff64:17127:2",
+        "10eb9faf1384bebaff64:17127:3",
+        "10eb9faf1384bebaff64:17127:4",
+        "10eb9faf1384bebaff64:21127:1",
+        "10eb9faf1384bebaff64:21127:2",
+        "10eb9faf1384bebaff64:21127:3",
+        "10eb9faf1384bebaff64:21127:4",
+        "10eb9faf1384bebaff64:21127:5",
+        "10eb9faf1384bebaff64:58276:body"
+      ],
+      "articles_found": [
+        "1",
+        "15",
+        "17",
+        "3",
+        "40",
+        "5"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "ecommerce248",
+      "source_file": "docs/legal_corpus_v2/ecommerce248.json",
+      "source_file_sha256": "36137bf37a16c4bb91d2faf4aa7c749c00c947881c3797b7b24b9eed72b988b8",
+      "source": {
+        "id": "ecommerce248",
+        "source_url": "https://vanban.chinhphu.vn/?docid=218747&pageid=27160",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/248-ndcp.signed.pdf",
+        "path": "docs/legal_agent_originals_20261003/ecommerce248.pdf",
+        "sha256": "9829949d91358428be627a613474efebb31748175d133c70410b02118e8c7f3e",
+        "pages": 93,
+        "native_chars": 149,
+        "verified_at_utc": "2026-10-03T05:53:23.243380+00:00",
+        "category": "ecommerce_platform",
+        "title": "Nghị định 248/2026/NĐ-CP",
+        "extraction": "Tesseract vie+eng from signed government PDF; no automatic legal-word correction",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "OCR; selected critical pages visually checked, other text requires review"
+      },
+      "provision_ids": [
+        "9829949d91358428be62:17818:1",
+        "9829949d91358428be62:17818:2",
+        "9829949d91358428be62:17818:3",
+        "9829949d91358428be62:20394:body",
+        "9829949d91358428be62:20394:1",
+        "9829949d91358428be62:20394:2",
+        "9829949d91358428be62:20394:3",
+        "9829949d91358428be62:20394:4"
+      ],
+      "articles_found": [
+        "17",
+        "18"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "legacy-c689645e534f",
+      "source_file": "docs/legal_corpus_v2/legacy-c689645e534f.json",
+      "source_file_sha256": "65d96085a6d64d99cc682fb69563270f7995f5de6e551cebeb286811f236fca9",
+      "source": {
+        "id": "legacy-c689645e534f",
+        "title": "Văn-bản-hợp-nhất-135-VBHN-VPQH",
+        "category": "criminal_law",
+        "path": "Data/criminal_law/Văn-bản-hợp-nhất-135-VBHN-VPQH.docx",
+        "sha256": "75794b3769abfb6aa6682494adab15f4856a853a4564b88a42a33bcec29138f1",
+        "source_url": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-135-vbhn-vpqh-46165-58894?format=pdf",
+        "origin_documents": [],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": "not verified word by word against full government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true
+      },
+      "provision_ids": [
+        "75794b3769abfb6aa668:15609:1",
+        "75794b3769abfb6aa668:15609:2",
+        "75794b3769abfb6aa668:15609:3",
+        "75794b3769abfb6aa668:15609:4",
+        "75794b3769abfb6aa668:15609:5",
+        "75794b3769abfb6aa668:17385:1",
+        "75794b3769abfb6aa668:17385:2",
+        "75794b3769abfb6aa668:17385:3",
+        "75794b3769abfb6aa668:17385:4",
+        "75794b3769abfb6aa668:17385:5"
+      ],
+      "articles_found": [
+        "174",
+        "175"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "legacy-95df8751459d",
+      "source_file": "docs/legal_corpus_v2/legacy-95df8751459d.json",
+      "source_file_sha256": "d2a1264cf51fda32407952933359176ce8a9ed5964db325c327d2c13bf46f8d0",
+      "source": {
+        "id": "legacy-95df8751459d",
+        "title": "Văn-bản-hợp-nhất-17-VBHN-VPQH",
+        "category": "criminal_law",
+        "path": "Data/criminal_law/Văn-bản-hợp-nhất-17-VBHN-VPQH.docx",
+        "sha256": "da4fbd8f39bc46ad96059d54e4baa40236cfbe41e69aaceb11dcedadcb3e1ff5",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-17-vbhn-vpqh-468961.htm",
+        "origin_documents": [],
+        "extraction": "existing selected text; editorial header excluded by article parser",
+        "verification": "not verified word by word against full government original",
+        "page_kind": "logical_document",
+        "not_exhaustive": true
+      },
+      "provision_ids": [
+        "da4fbd8f39bc46ad9605:8181:1",
+        "da4fbd8f39bc46ad9605:8181:2",
+        "da4fbd8f39bc46ad9605:8181:3",
+        "da4fbd8f39bc46ad9605:8181:4",
+        "da4fbd8f39bc46ad9605:8181:5",
+        "da4fbd8f39bc46ad9605:9060:1",
+        "da4fbd8f39bc46ad9605:9060:2",
+        "da4fbd8f39bc46ad9605:9060:3",
+        "da4fbd8f39bc46ad9605:9060:4",
+        "da4fbd8f39bc46ad9605:10606:1",
+        "da4fbd8f39bc46ad9605:10606:2",
+        "da4fbd8f39bc46ad9605:10606:3",
+        "da4fbd8f39bc46ad9605:10606:4",
+        "da4fbd8f39bc46ad9605:10606:5"
+      ],
+      "articles_found": [
+        "144",
+        "145",
+        "146"
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "fire105-annex-I",
+      "source_file": "docs/legal_corpus_v2/fire105-annex-I.json",
+      "source_file_sha256": "a0630ed888585c7ade5120743ffe257955e33be958e7e52510eb5efcc582bde4",
+      "source": {
+        "id": "fire105-annex-I",
+        "source_page_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+        "download_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+        "path": "docs/legal_sources_originals_20261003/fire105.pdf",
+        "sha256": "21f2c7373b57fdf0c88617a504521e72b31f1948a71279a8d2f52a40b0ae116d",
+        "bytes": 6565982,
+        "pages": 181,
+        "text_chars": 149,
+        "category": "fire_safety",
+        "title": "Nghị định 105/2025/NĐ-CP — Phụ lục I",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/105-ndcp.signed.pdf",
+        "extraction": "original cached government PDF text; complete selected annex items, retained annex introduction",
+        "page_kind": "physical_pdf",
+        "not_exhaustive": true,
+        "verification": "Classification candidates only; no inference that an unspecified many-room house is a lodging business, collective housing or mixed-use building"
+      },
+      "provision_ids": [
+        "21f2c7373b57fdf0c886:annexI:1",
+        "21f2c7373b57fdf0c886:annexI:14",
+        "21f2c7373b57fdf0c886:annexI:17"
+      ],
+      "articles_found": [
+        null
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    },
+    {
+      "source_id": "electricity-cantho-guidance",
+      "source_file": "docs/legal_corpus_v2/electricity-cantho-guidance.json",
+      "source_file_sha256": "9e91d3cfc399ece4ff6676e05bd036634161bea98485afb9679f4b22aed66473",
+      "source": {
+        "id": "electricity-cantho-guidance",
+        "source_url": "https://btgdv.cantho.gov.vn/vi/news/thong-tin-tong-hop/nha-tro-minh-bach-gia-dien-nguoi-thue-them-yen-tam-4629.html",
+        "path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.html",
+        "sha256": "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f",
+        "kind": "public_official_guidance_not_statutory_provision",
+        "indexed": true,
+        "excerpt_path": "docs/legal_fix_originals_20261004/electricity-cantho-guidance.txt",
+        "excerpt_sha256": "3fb190ff42b56aa7027531997246b405456b8e84cfc0557733884709caf2ae30",
+        "limitation": "Local guidance supports checking how electricity is charged; not a statutory article establishing a universal notification obligation or conditional commencement event.",
+        "category": "electricity",
+        "title": "Hướng dẫn công khai cách tính tiền điện nhà trọ Cần Thơ — 21/09/2026",
+        "extraction": "Two complete native HTML paragraphs, no LLM paraphrase; public local guidance, not a legal article",
+        "page_kind": "web_excerpt",
+        "not_exhaustive": true,
+        "verification": "Local guidance supports checking how electricity is charged; not a statutory article establishing a universal notification obligation or conditional commencement event."
+      },
+      "provision_ids": [
+        "b1e775cb343c715208e919f7055c75b65a3e04f8e9fea35011a5244476102d9f:guidance"
+      ],
+      "articles_found": [
+        null
+      ],
+      "requested_articles_not_in_existing_selection": [],
+      "verification": "inherited_from_existing_corpus_not_new_full_word_verification"
+    }
+  ]
+}

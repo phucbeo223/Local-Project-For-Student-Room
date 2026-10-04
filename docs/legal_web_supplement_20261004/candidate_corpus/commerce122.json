@@ -1,0 +1,123 @@
+{
+  "source": {
+    "id": "web20261004-commerce122",
+    "title": "Luật Thương mại điện tử 122/2025/QH15",
+    "source_url": "https://vanban.chinhphu.vn/?docid=216503&pageid=27160",
+    "download_url": null,
+    "path": "docs/legal_agent_originals_20261003/ecommerce122.pdf",
+    "sha256": "10eb9faf1384bebaff64c30beccdc4dbd2713dc251f5d1c2714c6514c9b58e44",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "candidate_not_indexed",
+    "category": "review_before_category_assignment"
+  },
+  "provisions": [
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "1",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "1. Các nội dung cơ bản về điều kiện hoạt động phải công khai trên nền tảng thương mại điện tử bao gồm:\na) Thông tin về chủ quản nền tảng thương mại điện tử;\nb) Chính sách bảo mật;\nc) Quyền và nghĩa vụ của các bên;\nd) Phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu nại.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": [
+        "qa/commerce122-07.png"
+      ],
+      "applicability_note": "Dùng sau khi xác định nền tảng thuộc phạm vi luật; không suy ra giao diện bắt buộc có nút tên Báo cáo.",
+      "kind": "legal_provision",
+      "content_sha256": "e50e78d9e24254c69ea4fc71655b427d09dd6998efaef3e336c61160bcd5c69e",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:commerce122:11:1"
+    },
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "2",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "2. Nội dung công khai trên nền tảng thương mại điện tử quy định tại khoản 1 Điều này phải được thể hiện tại vị trí dễ thấy trên nền tảng, bằng ngôn ngữ tiếng Việt, dễ hiểu, không gây nhầm lẫn, không vi phạm điều cấm của luật, không trái đạo đức xã hội, bảo đảm bình đẳng giữa các bên, tuân thủ quy định của pháp luật về dân sự, thương mại, quảng cáo, cạnh tranh, bảo vệ quyền lợi người tiêu dùng và pháp luật khác có liên quan.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": [
+        "qa/commerce122-07.png"
+      ],
+      "applicability_note": "Vị trí công khai, ngôn ngữ và tính rõ ràng; không có nghĩa nền tảng bảo đảm toàn bộ quyền cho thuê.",
+      "kind": "legal_provision",
+      "content_sha256": "c1f7b3c319b79befd3e7e7b9f073d63667079690e441a746d6b460518f4ff51a",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:commerce122:11:2"
+    },
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "3",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "3. Nền tảng thương mại điện tử có chức năng đặt hàng trực tuyến phải thực hiện quy định tại khoản 1 và khoản 2 Điều này, công khai trên nền tảng thương mại điện tử các nội dung điều kiện giao dịch sau đây:\na) Nội dung áp dụng chung cho hàng hóa, dịch vụ: chính sách về giá, bao gồm giá hàng hóa, dịch vụ cung cấp trên nền tảng, các loại chi phí sử dụng dịch vụ trên nền tảng; các điều kiện hoặc hạn chế trong việc bán hàng hóa hoặc cung cấp dịch vụ, trong đó bao gồm giới hạn về thời gian, phạm vi địa lý; chính sách về thanh toán; chính sách về ưu tiên hiển thị; quy chế hoạt động livestream bán hàng;\nb) Nội dung áp dụng cho hàng hóa thực hiện theo quy định tại điểm a khoản này và các nội dung về chính sách giao hàng, chính sách đổi trả hàng và hoàn tiền;\nc) Nội dung áp dụng cho dịch vụ thực hiện theo quy định tại điểm a khoản này và các nội dung về phương thức cung cấp dịch vụ, chính sách chấm dứt dịch vụ và hoàn tiền.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": [
+        "qa/commerce122-07.png"
+      ],
+      "applicability_note": "Khoản này chỉ cho nền tảng có chức năng đặt hàng trực tuyến, không gán cho mọi trang đăng tin.",
+      "kind": "legal_provision",
+      "content_sha256": "4f7545082d993a3a1e91040b98f7f7bca763966ec6c8ece0c3e25c3a32998815",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:commerce122:11:3"
+    },
+    {
+      "source_id": "commerce122",
+      "article": "21",
+      "clause": "1",
+      "heading": "Điều 21. Trách nhiệm của người bán trên nền tảng thương mại điện tử trung gian, mạng xã hội hoạt động thương mại điện tử",
+      "content": "1. Người bán trên nền tảng thương mại điện tử trung gian không có chức năng đặt hàng trực tuyến, mạng xã hội hoạt động thương mại điện tử không có chức năng đặt hàng trực tuyến thực hiện các trách nhiệm sau đây:\na) Cung cấp thông tin cho chủ quản nền tảng thương mại điện tử để phục vụ xác thực danh tính người bán;\nb) Cung cấp cho chủ quản nền tảng thương mại điện tử thông tin về tên, địa điểm kinh doanh của doanh nghiệp, hộ kinh doanh theo nội dung đăng ký đã thực hiện với cơ quan đăng ký kinh doanh; tên, địa chỉ nơi đặt trụ sở của tổ chức; tên, địa chỉ cư trú của cá nhân;\nc) Công khai thông tin về dịch vụ theo quy định của pháp luật có liên quan; thông tin về chất lượng sản phẩm, hàng hóa trên nền tảng thương mại điện tử theo quy định của pháp luật về chất lượng sản phẩm, hàng hóa; thông tin bắt buộc thể hiện trên nhãn hàng hóa theo quy định của pháp luật về nhãn hàng hóa, trừ thông tin có tính chất riêng biệt được thể hiện trên nhãn hàng hóa về ngày, tháng, năm sản xuất, thời hạn sử dụng, số lô sản xuất, số khung, số máy;\nd) Cung cấp thông tin về hoạt động thương mại điện tử khi có yêu cầu của cơ quan nhà nước có thẩm quyền.",
+      "page_from": 15,
+      "page_to": 16,
+      "review_images": [
+        "qa/commerce122-15.png",
+        "qa/commerce122-16.png"
+      ],
+      "applicability_note": "Chỉ đối tượng người bán và loại nền tảng khoản này quy định.",
+      "kind": "legal_provision",
+      "content_sha256": "5b75906b9544bc868b204db3aed1e6229ad914261a9ec2aa154fcdf1a1025be3",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:commerce122:21:1"
+    },
+    {
+      "source_id": "commerce122",
+      "article": "21",
+      "clause": "2",
+      "heading": "Điều 21. Trách nhiệm của người bán trên nền tảng thương mại điện tử trung gian, mạng xã hội hoạt động thương mại điện tử",
+      "content": "2. Người bán trên nền tảng thương mại điện tử trung gian có chức năng đặt hàng trực tuyến, mạng xã hội hoạt động thương mại điện tử có chức năng đặt hàng trực tuyến thực hiện các trách nhiệm sau đây:\na) Trách nhiệm quy định tại khoản 1 Điều này;\nb) Chỉ sử dụng tài khoản thanh toán của mình trên nền tảng thương mại điện tử;\nc) Cung cấp cho chủ quản nền tảng thương mại điện tử đầy đủ giấy tờ chứng minh đáp ứng điều kiện đầu tư kinh doanh đối với ngành, nghề đầu tư kinh doanh có điều kiện trước khi thực hiện hoạt động bán hàng hóa, cung ứng dịch vụ trên nền tảng;\nd) Trường hợp phát hiện hàng hóa có khuyết tật theo quy định của pháp luật về bảo vệ quyền lợi người tiêu dùng, người bán phải cung cấp thông tin về hàng hóa có khuyết tật cho chủ quản nền tảng thương mại điện tử để công khai thông tin trên nền tảng, thực hiện thu hồi, xử lý hàng hóa có khuyết tật và bồi thường thiệt hại theo quy định của pháp luật về bảo vệ quyền lợi người tiêu dùng và quy định khác của pháp luật có liên quan.",
+      "page_from": 16,
+      "page_to": 16,
+      "review_images": [
+        "qa/commerce122-16.png"
+      ],
+      "applicability_note": "Có chức năng đặt hàng trực tuyến; không biến khoản nhận lại hàng thành quyền áp dụng chung cho phòng trọ.",
+      "kind": "legal_provision",
+      "content_sha256": "953aacb22e36634b58f47f286fb82b7b5c89b37ccbe93e9fe28d633755f8070b",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:commerce122:21:2"
+    }
+  ]
+}

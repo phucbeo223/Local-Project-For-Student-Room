@@ -1,0 +1,230 @@
+{
+  "verification_policy": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+  "provisions": [
+    {
+      "source_id": "residence116",
+      "article": "3",
+      "clause": "5",
+      "heading": "Điều 3 — trích khoản 5 về khai thác dữ liệu",
+      "content": "5. Trường hợp thông tin giấy tờ chứng minh điều kiện đăng ký cư trú đã được chia sẻ và khai thác từ cơ sở dữ liệu, hệ thống thông tin hoặc Ứng dụng định danh quốc gia (VNeID) thì cơ quan đăng ký cư trú không được yêu cầu công dân nộp, xuất trình giấy tờ đó để giải quyết đăng ký cư trú.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": ["../legal_agent_originals_20261003/qa/residence116-2.png"],
+      "applicability_note": "Phải thỏa điều kiện đã chia sẻ và khai thác được; không đồng nghĩa miễn mọi giấy tờ trong mọi hồ sơ."
+    },
+    {
+      "source_id": "residence116",
+      "article": "3",
+      "clause": "6",
+      "heading": "Điều 3 — trích khoản 6 khi không khai thác được thông tin",
+      "content": "6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống thông tin hoặc Ứng dụng định danh quốc gia (VNeID) thì cơ quan đăng ký cư trú có trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dân có trách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê khai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác vào biên bản khi thực hiện xác minh.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": ["../legal_agent_originals_20261003/qa/residence116-2.png"],
+      "applicability_note": "Phân biệt với khoản 5, đây là trường hợp không khai thác được dữ liệu."
+    },
+    {
+      "source_id": "residence116",
+      "article": "12",
+      "clause": "1",
+      "heading": "Điều 12. Đăng ký tạm trú",
+      "content": "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm thực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành chính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3 Điều 6 Thông tư này.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": ["../legal_agent_originals_20261003/qa/residence116-7.png"],
+      "applicability_note": "Không nhầm cùng xã nơi thường trú với cùng xã nơi tạm trú."
+    },
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "1",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "1. Các nội dung cơ bản về điều kiện hoạt động phải công khai trên nền tảng thương mại điện tử bao gồm:\na) Thông tin về chủ quản nền tảng thương mại điện tử;\nb) Chính sách bảo mật;\nc) Quyền và nghĩa vụ của các bên;\nd) Phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu nại.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": ["qa/commerce122-07.png"],
+      "applicability_note": "Dùng sau khi xác định nền tảng thuộc phạm vi luật; không suy ra giao diện bắt buộc có nút tên Báo cáo."
+    },
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "2",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "2. Nội dung công khai trên nền tảng thương mại điện tử quy định tại khoản 1 Điều này phải được thể hiện tại vị trí dễ thấy trên nền tảng, bằng ngôn ngữ tiếng Việt, dễ hiểu, không gây nhầm lẫn, không vi phạm điều cấm của luật, không trái đạo đức xã hội, bảo đảm bình đẳng giữa các bên, tuân thủ quy định của pháp luật về dân sự, thương mại, quảng cáo, cạnh tranh, bảo vệ quyền lợi người tiêu dùng và pháp luật khác có liên quan.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": ["qa/commerce122-07.png"],
+      "applicability_note": "Vị trí công khai, ngôn ngữ và tính rõ ràng; không có nghĩa nền tảng bảo đảm toàn bộ quyền cho thuê."
+    },
+    {
+      "source_id": "commerce122",
+      "article": "11",
+      "clause": "3",
+      "heading": "Điều 11. Nội dung công khai về điều kiện hoạt động, điều kiện giao dịch trên nền tảng thương mại điện tử",
+      "content": "3. Nền tảng thương mại điện tử có chức năng đặt hàng trực tuyến phải thực hiện quy định tại khoản 1 và khoản 2 Điều này, công khai trên nền tảng thương mại điện tử các nội dung điều kiện giao dịch sau đây:\na) Nội dung áp dụng chung cho hàng hóa, dịch vụ: chính sách về giá, bao gồm giá hàng hóa, dịch vụ cung cấp trên nền tảng, các loại chi phí sử dụng dịch vụ trên nền tảng; các điều kiện hoặc hạn chế trong việc bán hàng hóa hoặc cung cấp dịch vụ, trong đó bao gồm giới hạn về thời gian, phạm vi địa lý; chính sách về thanh toán; chính sách về ưu tiên hiển thị; quy chế hoạt động livestream bán hàng;\nb) Nội dung áp dụng cho hàng hóa thực hiện theo quy định tại điểm a khoản này và các nội dung về chính sách giao hàng, chính sách đổi trả hàng và hoàn tiền;\nc) Nội dung áp dụng cho dịch vụ thực hiện theo quy định tại điểm a khoản này và các nội dung về phương thức cung cấp dịch vụ, chính sách chấm dứt dịch vụ và hoàn tiền.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": ["qa/commerce122-07.png"],
+      "applicability_note": "Khoản này chỉ cho nền tảng có chức năng đặt hàng trực tuyến, không gán cho mọi trang đăng tin."
+    },
+    {
+      "source_id": "commerce122",
+      "article": "21",
+      "clause": "1",
+      "heading": "Điều 21. Trách nhiệm của người bán trên nền tảng thương mại điện tử trung gian, mạng xã hội hoạt động thương mại điện tử",
+      "content": "1. Người bán trên nền tảng thương mại điện tử trung gian không có chức năng đặt hàng trực tuyến, mạng xã hội hoạt động thương mại điện tử không có chức năng đặt hàng trực tuyến thực hiện các trách nhiệm sau đây:\na) Cung cấp thông tin cho chủ quản nền tảng thương mại điện tử để phục vụ xác thực danh tính người bán;\nb) Cung cấp cho chủ quản nền tảng thương mại điện tử thông tin về tên, địa điểm kinh doanh của doanh nghiệp, hộ kinh doanh theo nội dung đăng ký đã thực hiện với cơ quan đăng ký kinh doanh; tên, địa chỉ nơi đặt trụ sở của tổ chức; tên, địa chỉ cư trú của cá nhân;\nc) Công khai thông tin về dịch vụ theo quy định của pháp luật có liên quan; thông tin về chất lượng sản phẩm, hàng hóa trên nền tảng thương mại điện tử theo quy định của pháp luật về chất lượng sản phẩm, hàng hóa; thông tin bắt buộc thể hiện trên nhãn hàng hóa theo quy định của pháp luật về nhãn hàng hóa, trừ thông tin có tính chất riêng biệt được thể hiện trên nhãn hàng hóa về ngày, tháng, năm sản xuất, thời hạn sử dụng, số lô sản xuất, số khung, số máy;\nd) Cung cấp thông tin về hoạt động thương mại điện tử khi có yêu cầu của cơ quan nhà nước có thẩm quyền.",
+      "page_from": 15,
+      "page_to": 16,
+      "review_images": ["qa/commerce122-15.png", "qa/commerce122-16.png"],
+      "applicability_note": "Chỉ đối tượng người bán và loại nền tảng khoản này quy định."
+    },
+    {
+      "source_id": "commerce122",
+      "article": "21",
+      "clause": "2",
+      "heading": "Điều 21. Trách nhiệm của người bán trên nền tảng thương mại điện tử trung gian, mạng xã hội hoạt động thương mại điện tử",
+      "content": "2. Người bán trên nền tảng thương mại điện tử trung gian có chức năng đặt hàng trực tuyến, mạng xã hội hoạt động thương mại điện tử có chức năng đặt hàng trực tuyến thực hiện các trách nhiệm sau đây:\na) Trách nhiệm quy định tại khoản 1 Điều này;\nb) Chỉ sử dụng tài khoản thanh toán của mình trên nền tảng thương mại điện tử;\nc) Cung cấp cho chủ quản nền tảng thương mại điện tử đầy đủ giấy tờ chứng minh đáp ứng điều kiện đầu tư kinh doanh đối với ngành, nghề đầu tư kinh doanh có điều kiện trước khi thực hiện hoạt động bán hàng hóa, cung ứng dịch vụ trên nền tảng;\nd) Trường hợp phát hiện hàng hóa có khuyết tật theo quy định của pháp luật về bảo vệ quyền lợi người tiêu dùng, người bán phải cung cấp thông tin về hàng hóa có khuyết tật cho chủ quản nền tảng thương mại điện tử để công khai thông tin trên nền tảng, thực hiện thu hồi, xử lý hàng hóa có khuyết tật và bồi thường thiệt hại theo quy định của pháp luật về bảo vệ quyền lợi người tiêu dùng và quy định khác của pháp luật có liên quan.",
+      "page_from": 16,
+      "page_to": 16,
+      "review_images": ["qa/commerce122-16.png"],
+      "applicability_note": "Có chức năng đặt hàng trực tuyến; không biến khoản nhận lại hàng thành quyền áp dụng chung cho phòng trọ."
+    },
+    {
+      "source_id": "broker06",
+      "article": "46",
+      "clause": "4",
+      "heading": "Điều 46. Nội dung chính của hợp đồng trong kinh doanh bất động sản",
+      "content": "4. Hợp đồng kinh doanh dịch vụ bất động sản phải có các nội dung chính sau đây:\na) Tên, địa chỉ của các bên;\nb) Đối tượng và nội dung dịch vụ;\nc) Yêu cầu và kết quả dịch vụ;\nd) Thời hạn thực hiện dịch vụ;\nđ) Phí dịch vụ, thù lao, hoa hồng dịch vụ;\ne) Phương thức và thời hạn thanh toán;\ng) Quyền, nghĩa vụ của các bên;\nh) Phương thức giải quyết tranh chấp;\ni) Thời điểm có hiệu lực của hợp đồng.",
+      "page_from": 47,
+      "page_to": 47,
+      "printed_page": 73,
+      "review_images": ["qa/broker06-47.png"],
+      "applicability_note": "Đối chiếu dịch vụ thuộc luật chuyên ngành; không mặc định mọi người giới thiệu phòng đều kinh doanh môi giới."
+    },
+    {
+      "source_id": "residence116",
+      "article": "12",
+      "clause": "3",
+      "heading": "Điều 12 — trích khoản 3 về kết thúc thuê, mượn, ở nhờ",
+      "content": "3. Trường hợp người thuê, mượn, ở nhờ chấm dứt việc thuê, mượn, ở nhờ thì người cho thuê, cho mượn, cho ở nhờ có trách nhiệm thông báo cho cơ quan đăng ký cư trú để thực hiện xóa đăng ký tạm trú.",
+      "page_from": 8,
+      "page_to": 8,
+      "review_images": ["qa/residence116-08.png"],
+      "applicability_note": "Trách nhiệm khi kết thúc việc thuê; không nói chủ trọ phải làm thay mọi thủ tục của người thuê."
+    },
+    {
+      "source_id": "electricity09",
+      "article": "2",
+      "clause": "2",
+      "heading": "Điều 2 khoản 2 Thông tư 09/2023 — sửa khoản 5 Điều 1 Thông tư 25/2018 và điểm c khoản 4 Điều 10 Thông tư 16/2014",
+      "content": "2. Sửa đổi khoản 5 Điều 1 như sau:\n“5. Sửa đổi điểm c khoản 4 Điều 10 như sau:\nc) Trường hợp cho sinh viên và người lao động thuê nhà (bên thuê nhà không phải là một hộ gia đình):\n- Đối với trường hợp bên thuê nhà có hợp đồng thuê nhà từ 12 tháng trở lên và có đăng ký tạm trú, thường trú (xác định theo Thông tin về cư trú tại địa điểm sử dụng điện) thì chủ nhà trực tiếp ký hợp đồng mua bán điện hoặc đại diện bên thuê nhà ký hợp đồng mua bán điện (có cam kết thanh toán tiền điện của chủ nhà);\n- Trường hợp thời hạn cho thuê nhà dưới 12 tháng và chủ nhà không thực hiện kê khai được đầy đủ số người sử dụng điện thì áp dụng giá bán lẻ điện sinh hoạt của bậc 3: Từ 101 - 200 kWh cho toàn bộ sản lượng điện đo đếm được tại công tơ.\nTrường hợp chủ nhà kê khai được đầy đủ số người sử dụng điện thì Bên bán điện có trách nhiệm cấp định mức cho chủ nhà căn cứ vào Thông tin về cư trú tại địa điểm sử dụng điện; cứ 04 (bốn) người được tính là một hộ sử dụng điện để tính số định mức áp dụng giá bán lẻ điện sinh hoạt, cụ thể: 01 (một) người được tính là 1/4 định mức, 02 (hai) người được tính là 1/2 định mức, 03 (ba) người được tính là 3/4 định mức, 04 (bốn) người được tính là 1 định mức. Khi có thay đổi về số người thuê nhà, chủ nhà cho thuê có trách nhiệm thông báo cho bên bán điện để điều chỉnh định mức tính toán tiền điện.\nBên bán điện được phép yêu cầu bên mua điện cung cấp Thông tin về cư trú tại địa điểm sử dụng điện để làm căn cứ xác định số người tính số định mức khi tính toán hóa đơn tiền điện.”.",
+      "page_from": 4,
+      "page_to": 5,
+      "review_images": ["qa/electricity09-4.png", "qa/electricity09-5.png"],
+      "applicability_note": "Đọc cùng Điều 20 khoản 1 điểm d và Điều 21 Thông tư 60; đây là nhánh chuyển tiếp, không khẳng định toàn bộ các thông tư cũ còn hiệu lực."
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "1",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "1. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Lắp đặt, sử dụng thiết bị điện bảo đảm điều kiện an toàn về phòng cháy quy định tại điểm c khoản 1 Điều 24 của Luật này;\nb) Bố trí bếp đun nấu, nơi thờ cúng, đốt vàng mã bảo đảm an toàn; không để vật, chất dễ cháy, nổ gần nguồn lửa, nguồn nhiệt.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": ["qa/fire58-17.png"],
+      "applicability_note": "Phải giữ phạm vi loại nhà và đối chiếu khoản 3, 4; không đưa checklist này thay yêu cầu cơ sở tại Điều 23."
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "2",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "2. Nhà ở không thuộc loại hình quy định tại khoản 3 và khoản 4 Điều này phải bảo đảm các điều kiện về chữa cháy, thoát nạn sau đây:\na) Có phương tiện phòng cháy, chữa cháy phù hợp với khả năng, điều kiện thực tế để sẵn sàng chữa cháy, thoát nạn;\nb) Bố trí, duy trì lối thoát nạn, lối ra khẩn cấp hoặc lối đi bảo đảm việc thoát nạn.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": ["qa/fire58-17.png"],
+      "applicability_note": "Không có số bình hoặc số lối thoát cố định áp cho tất cả nhà trọ trong khoản này."
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "3",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "3. Nhà ở có quy chuẩn kỹ thuật, tiêu chuẩn được viện dẫn trong văn bản quy phạm pháp luật hoặc trong quy chuẩn kỹ thuật về phòng cháy, chữa cháy và cứu nạn, cứu hộ thì thực hiện theo tiêu chuẩn, quy chuẩn kỹ thuật đó.",
+      "page_from": 17,
+      "page_to": 17,
+      "review_images": ["qa/fire58-17.png"],
+      "applicability_note": "Kiểm tra quy chuẩn, tiêu chuẩn được viện dẫn áp dụng đúng công trình."
+    },
+    {
+      "source_id": "fire58",
+      "article": "20",
+      "clause": "4",
+      "heading": "Điều 20. Phòng cháy đối với nhà ở",
+      "content": "4. Nhà ở trong danh mục cơ sở thuộc diện quản lý về phòng cháy và chữa cháy thực hiện theo quy định tại Điều 23 của Luật này.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": ["qa/fire58-18.png"],
+      "applicability_note": "Đối chiếu danh mục Nghị định 105 theo loại hình, quy mô thực tế."
+    },
+    {
+      "source_id": "fire58",
+      "article": "21",
+      "clause": "1",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh",
+      "content": "1. Nhà ở kết hợp sản xuất, kinh doanh phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Các điều kiện an toàn về phòng cháy quy định tại Điều 20 của Luật này;\nb) Có biển cấm, biển báo, biển chỉ dẫn theo quy định;\nc) Khu vực sản xuất, kinh doanh hàng hóa có nguy cơ cháy, nổ phải có giải pháp ngăn cách hoặc ngăn cháy với khu vực để ở.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": ["qa/fire58-18.png"],
+      "applicability_note": "Giữ phạm vi nhà ở kết hợp sản xuất, kinh doanh."
+    },
+    {
+      "source_id": "fire58",
+      "article": "21",
+      "clause": "2",
+      "heading": "Điều 21. Phòng cháy đối với nhà ở kết hợp sản xuất, kinh doanh",
+      "content": "2. Nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Các điều kiện an toàn về phòng cháy quy định tại khoản 1 Điều này;\nb) Không bố trí chỗ ngủ trong khu vực sản xuất, kinh doanh;\nc) Có phương tiện báo cháy, giải pháp thông gió, thiết bị phát hiện sự cố rò rỉ chất, khí nguy hiểm về cháy, nổ phù hợp với công năng sử dụng của nhà ở kết hợp sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ;\nd) Khu vực sản xuất, kinh doanh hàng hóa nguy hiểm về cháy, nổ phải được ngăn cháy với lối thoát nạn của khu vực để ở.",
+      "page_from": 18,
+      "page_to": 18,
+      "review_images": ["qa/fire58-18.png"],
+      "applicability_note": "Nhóm kết hợp hàng hóa nguy hiểm về cháy, nổ, không gán cho mọi phòng trọ."
+    },
+    {
+      "source_id": "fire58",
+      "article": "24",
+      "clause": "1",
+      "heading": "Điều 24. Phòng cháy trong lắp đặt, sử dụng điện cho sinh hoạt, sản xuất",
+      "content": "1. Trong lắp đặt, sử dụng điện cho sinh hoạt phải bảo đảm các điều kiện an toàn về phòng cháy sau đây:\na) Chấp hành quy định về an toàn trong sử dụng điện cho sinh hoạt theo quy định của pháp luật về điện lực;\nb) Đơn vị bán lẻ điện khi đấu nối điện sinh hoạt phải tư vấn việc lắp đặt, sử dụng đối với hệ thống, thiết bị điện để bảo đảm an toàn về phòng cháy;\nc) Việc lắp đặt, sử dụng dây dẫn điện, thiết bị điện trong nhà phải bảo đảm yêu cầu về an toàn điện theo quy định của pháp luật; thường xuyên kiểm tra, kịp thời sửa chữa, thay thế dây dẫn điện, thiết bị điện không bảo đảm an toàn về phòng cháy;\nd) Chỉ được sử dụng thiết bị sạc điện cho xe động cơ điện bảo đảm quy chuẩn kỹ thuật quốc gia; nơi sạc điện cho xe động cơ điện trong nhà phải có giải pháp bảo đảm an toàn về phòng cháy; khu vực sạc điện cho xe động cơ điện tập trung trong nhà còn phải có giải pháp ngăn cháy và trang bị phương tiện chữa cháy phù hợp, bảo đảm tiêu chuẩn.",
+      "page_from": 20,
+      "page_to": 20,
+      "review_images": ["qa/fire58-20.png"],
+      "applicability_note": "An toàn điện sinh hoạt; không chỉ dẫn tự sửa điện nguy hiểm."
+    },
+    {
+      "source_id": "water215",
+      "article": "1",
+      "clause": "1",
+      "heading": "Điều 1 khoản 1 — bảng giá năm 2024 do các đơn vị cấp nước cung cấp",
+      "kind": "legal_price_table",
+      "content": "1. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn năm 2024 do các đơn vị cấp nước cung cấp:\nKhu vực đô thị (đồng/m³): Hộ dân cư là Hộ nghèo có sổ: 5.640; Hộ dân cư: 9.020; Nhóm 2 cơ quan hành chính, đơn vị sự nghiệp công lập, trường học, bệnh viện, cơ sở khám chữa bệnh (công lập và tư nhân), phục vụ mục đích công cộng (phi lợi nhuận): 11.170; Tổ chức, cá nhân sản xuất vật chất: 12.400; Tổ chức, cá nhân kinh doanh, dịch vụ: 15.580.\nKhu vực nông thôn (đồng/m³): Hộ dân cư là Hộ nghèo có sổ: 4.820; Hộ dân cư: 8.240; Nhóm 2 như trên: 9.310; Tổ chức, cá nhân sản xuất vật chất: 9.930; Tổ chức, cá nhân kinh doanh, dịch vụ: 11.520.\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)",
+      "transcription": "Bảng được chuyển thành các dòng, các số và chú thích đã kiểm tra ảnh ký. Tên Nhóm 2 được tóm bố cục, không coi toàn bộ content là trích nguyên văn từng chữ.",
+      "page_from": 1,
+      "page_to": 2,
+      "review_images": ["qa/water215-1.png", "qa/water215-2.png"],
+      "applicability_note": "Phiên bản năm 2024, đúng đơn vị và vùng áp dụng; cần xác nhận quyết định giá của kỳ hỏi. Trang đơn vị còn ghi chưa tiền dịch vụ môi trường rừng; phần này không có trong chú thích bảng ký nên phân biệt nguồn."
+    },
+    {
+      "source_id": "water215",
+      "article": "1",
+      "clause": "2",
+      "heading": "Điều 1 khoản 2 — giá Trung tâm Nước sạch và Vệ sinh môi trường nông thôn",
+      "kind": "legal_price_table",
+      "content": "2. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn do Trung tâm Nước sạch và Vệ sinh môi trường nông thôn cung cấp cho mục đích sinh hoạt:\nNhóm 1 (đồng/m³): Hộ dân cư là hộ nghèo có sổ, hộ gia đình chính sách (gia đình Mẹ Việt Nam anh hùng, gia đình thương binh, gia đình liệt sĩ), hộ hiến đất: 4.000.\nNhóm 2 (đồng/m³): Hộ dân cư và các nhóm đối tượng khác: 7.450.\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)",
+      "transcription": "Chuyển cấu trúc bảng thành dòng; giá, nhóm đối tượng, chú thích đã đối chiếu ảnh ký.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": ["qa/water215-2.png"],
+      "applicability_note": "Bảng dành riêng Trung tâm, không thay bằng bảng của các công ty cấp nước; kiểm tra kỳ và địa chỉ."
+    }
+  ]
+}

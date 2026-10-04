@@ -1,0 +1,70 @@
+Ran command: `dir data`
+
+Dựa trên toàn bộ 10 chủ đề trong kho tri thức của dự án và các yêu cầu kiểm thử pháp lý/thực tế cho sinh viên Đại học Cần Thơ, thư mục `data/` của bạn cần hoàn thiện các tài liệu sau. 
+
+Dưới đây là **danh mục rà soát và những phần thường bị THIẾU hoặc LẠC HẬU** mà bạn cần bổ sung ngay để chatbot phản hồi chính xác, không bị "ảo giác" (hallucination):
+
+---
+
+### 1. BẢNG ĐỐI CHIẾU 10 FILE TRI THỨC PHÁP LÝ TRỌNG TÂM
+
+Kiểm tra trong thư mục `data/` (thường là định dạng `.md`, `.txt` hoặc `.json`) xem đã có đủ 10 chủ đề này chưa:
+
+| STT | Tên file / Chủ đề (`category`) | Nội dung bắt buộc phải có | Tình trạng thường gặp & Cần bổ sung |
+| :--- | :--- | :--- | :--- |
+| 1 | `housing_contract` (Hợp đồng thuê) | Bộ luật Dân sự 2015, **Luật Nhà ở 2023** (hiệu lực 01/08/2024). | ⚠️ **Thường thiếu:** Điều khoản về khấu trừ tiền cọc, biên bản bàn giao hiện trạng tài sản, và quy định báo trước khi trả phòng. |
+| 2 | `electricity` (Điện thuê trọ) | **Thông tư 25/2018/TT-BCT & TT 09/2023/TT-BCT**; mức phạt theo Nghị định 17/2022/NĐ-CP. | ⚠️ **Thường thiếu:** Công thức tính bậc thang cho nhóm lẻ người (1, 2, 3 người) và quy định áp biểu giá Bậc 3 khi không đủ điều kiện định mức. |
+| 3 | `water_cantho` (Nước sinh hoạt Cần Thơ) | Khung giá nước sinh hoạt của **UBND TP. Cần Thơ**; Quy định định mức nước của **Cantho Water**. | ⚠️ **Rất hay thiếu:** Dữ liệu đặc thù Cần Thơ (mức 4m³/người/tháng, mã danh bộ tra cứu, mức khoán trung bình 30k-50k/người). |
+| 4 | `residence` (Cư trú, tạm trú) | **Luật Cư trú 2020**, Thông tư 55/2021/TT-BCA; mức phạt Nghị định 144/2021/NĐ-CP. | ⚠️ **Thường thiếu:** Hướng dẫn đăng ký tạm trú trực tuyến qua **VNeID mức 2** và Tờ khai mẫu CT01. |
+| 5 | `fire_safety` (PCCC nhà trọ) | **Nghị định 50/2024/NĐ-CP** (mới nhất), **Chỉ thị 19/CT-TTg (24/06/2024)** của Thủ tướng về PCCC nhà trọ; TCVN 3890:2023. | ⚠️ **Rất hay thiếu:** Quy định bắt buộc về lối thoát nạn thứ 2, cửa thoát hiểm chuồng cọp và ngăn cháy lan chỗ sạc xe điện. |
+| 6 | `real_estate_brokerage` (Môi giới) | **Luật Kinh doanh BĐS 2023** (hiệu lực 01/08/2024 - quy định mới về thù lao, hợp đồng môi giới). | ⚠️ **Thường thiếu:** Quyền từ chối trả phí xem phòng; nghĩa vụ kiểm tra người cho thuê chính chủ. |
+| 7 | `ecommerce_platform` (Sàn/Nền tảng) | Nghị định 52/2013/NĐ-CP & **Nghị định 85/2021/NĐ-CP** về trách nhiệm của sàn TMĐT/đăng tin. | ⚠️ **Thường thiếu:** Cơ chế báo cáo tin giả (Report), trách nhiệm gỡ bỏ tin rác, dấu hiệu nhận biết link phishing. |
+| 8 | `privacy_data` (Dữ liệu cá nhân) | **Nghị định 13/2023/NĐ-CP** (Bảo vệ dữ liệu cá nhân); Điều 102 Nghị định 15/2020/NĐ-CP. | ⚠️ **Thường thiếu:** Xử lý hành vi đăng CCCD/SĐT bóc phốt lên mạng; hướng dẫn watermark ảnh CCCD. |
+| 9 | `criminal_law` (Dấu hiệu lừa đảo) | **Điều 174, 175 Bộ luật Hình sự 2015** (Lừa đảo, lạm dụng tín nhiệm chiếm đoạt tài sản); Bộ luật Tố tụng Hình sự. | ⚠️ **Thường thiếu:** Mức định lượng khởi tố (từ 2 triệu đồng trở lên, hoặc dưới 2 triệu có tổ chức); mẫu đơn tố giác. |
+| 10 | `emergency_contacts_cantho` (Danh bạ Cần Thơ) | Số điện thoại Công an các phường quanh ĐH Cần Thơ, đường dây nóng EVNSPC, Cantho Water. | ⚠️ **Chưa có:** Danh bạ hỗ trợ thực tế khi sinh viên gặp sự cố khẩn cấp. |
+
+---
+
+### 2. NHỮNG PHẦN DỮ LIỆU ĐỊA PHƯƠNG CẦN BỔ SUNG NGAY
+
+Để câu trả lời mang đậm tính thực tế hỗ trợ **sinh viên Đại học Cần Thơ**, bạn nên thêm 2 file dữ liệu địa phương này vào thư mục `data/`:
+
+#### A. File `data/cantho_contacts.md` (Danh bạ & Hotline hỗ trợ khẩn cấp)
+* **Tổng công ty Điện lực miền Nam (EVNSPC):** Hotline `1900 1006` hoặc `1900 9000` (tiếp nhận phản ánh giá điện nhà trọ).
+* **Công ty CP Cấp thoát nước Cần Thơ (Cantho Water):** `(0292) 3830 248`, tra cứu tại `canthowater.vn`.
+* **Công an các phường trọng điểm quanh các khu ĐH Cần Thơ:**
+  * Phường Xuân Khánh (quận Ninh Kiều - cổng 3/2 Khu II ĐHCT): `(0292) 3830 081`
+  * Phường An Khánh (quận Ninh Kiều - gần cổng phụ, hồ Búng Xáng, KTX): `(0292) 3897 456`
+  * Phường Hưng Lợi (quận Ninh Kiều - khu vực đường 30/4, Tầm Vu): `(0292) 3838 527`
+  * Phường An Bình (quận Ninh Kiều - gần cầu Cái Răng, chợ Da Liễu): `(0292) 3846 113`
+* **Cảnh sát PCCC & CNCH Công an TP. Cần Thơ:** `114`
+
+#### B. File `data/legal_templates.md` (Các biểu mẫu hướng dẫn thực tế)
+* **Mẫu Tờ khai thay đổi thông tin cư trú CT01** (hướng dẫn cách ghi mục "Ý kiến của chủ hộ/chủ chỗ ở hợp pháp").
+* **Mẫu Hợp đồng thuê nhà trọ chuẩn** (có sẵn các điều khoản bảo vệ sinh viên về tiền cọc, số điện thoại chủ nhà, đơn giá điện nước minh bạch).
+* **Mẫu Đơn tố giác tội phạm lừa đảo chiếm đoạt tiền cọc trọ** gửi cơ quan Công an.
+
+---
+
+### 3. CẤU TRÚC CHUẨN ĐỂ FORMAT FILE TRONG `data/` CHO CHATBOT (RAG)
+
+Khi bổ sung file vào thư mục `data/`, hãy cấu trúc theo định dạng Markdown có **Metadata đầu mục** để mô hình Retrieval (Embedding/BM25) tìm kiếm chính xác nhất:
+
+```markdown
+# CHỦ ĐỀ: [Tên chủ đề]
+Tags: [housing_contract | electricity | water_cantho | fire_safety | ...]
+Văn bản áp dụng: [Tên Luật / Nghị định / Thông tư cụ thể]
+Thời điểm áp dụng: [Hiện hành - năm 2024 / 2025 / 2026]
+
+## 1. TÓM TẮT QUY ĐỊNH
+... (Nội dung súc tích, gạch đầu dòng) ...
+
+## 2. ĐIỀU KHOẢN TRÍCH DẪN NGUYÊN VĂN
+... (Trích dẫn nguyên văn Điều... Khoản...) ...
+
+## 3. CÁC TÌNH HUỐNG THỰC TẾ & CÂU HỎI THƯỜNG GẶP CỦA SINH VIÊN
+Q: ...
+A: ...
+```
+
+👉 **Việc bạn cần làm ngay:** Kiểm tra danh sách file trong thư mục `data/` của bạn, đối chiếu với 10 chủ đề trên. Nếu thiếu file nào (đặc biệt là **PCCC theo Nghị định 50/2024**, **Luật Nhà ở & Kinh doanh BĐS 2023 mới**, hoặc **Danh bạ Công an phường tại Cần Thơ**), bạn hãy tạo thêm file tương ứng. Nếu bạn cần tôi soạn sẵn nội dung đầy đủ của file nào, bạn chỉ cần gọi tên file đó!

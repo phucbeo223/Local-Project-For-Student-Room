@@ -1,5 +1,5 @@
 {
-  "phase": "waiting_for_server",
+  "phase": "paused_until_documents_and_system_ready",
   "output": "/eval/reports/legal_agent_after_v15_2026-10-04.json",
   "started_at_utc": "2026-10-03T20:06:51.049022+00:00",
   "max_runtime_hours": 48.0,
@@ -40,7 +40,7 @@
     "reset_policy": "server Retry-After/RetryInfo; RPD midnight America/Los_Angeles; probe availability before resuming",
     "phase": "collect"
   },
-  "updated_at_utc": "2026-10-03T20:06:51.062084+00:00",
+  "updated_at_utc": "2026-10-04T04:21:57.906735+00:00",
   "completed_answers": 0,
   "scores": {
     "faithfulness": {
@@ -55,5 +55,14 @@
       "mean": null,
       "scored": 0
     }
-  }
+  },
+  "previous_phase": "waiting_for_server",
+  "worker_running": false,
+  "user_pause_active": true,
+  "paused_by_user_at_utc": "2026-10-04T03:38:46.775811+00:00",
+  "pause_control": "tmp/test_pause_until_gemini.json",
+  "previous_pause_phase": "paused_until_gemini_recovery",
+  "auto_resume_enabled": false,
+  "gemini_probe_enabled": false,
+  "resume_condition": "Documents and system repaired and readiness established, or user directs resuming; changed corpus/pipeline requires new evaluation version"
 }

@@ -1,0 +1,101 @@
+{
+  "source": {
+    "id": "web20261004-residence116",
+    "title": "Thông tư 116/2026/TT-BCA — đăng ký, quản lý cư trú",
+    "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+    "download_url": null,
+    "path": "docs/legal_agent_originals_20261003/residence116.pdf",
+    "sha256": "c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "candidate_not_indexed",
+    "category": "review_before_category_assignment"
+  },
+  "provisions": [
+    {
+      "source_id": "residence116",
+      "article": "3",
+      "clause": "5",
+      "heading": "Điều 3 — trích khoản 5 về khai thác dữ liệu",
+      "content": "5. Trường hợp thông tin giấy tờ chứng minh điều kiện đăng ký cư trú đã được chia sẻ và khai thác từ cơ sở dữ liệu, hệ thống thông tin hoặc Ứng dụng định danh quốc gia (VNeID) thì cơ quan đăng ký cư trú không được yêu cầu công dân nộp, xuất trình giấy tờ đó để giải quyết đăng ký cư trú.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": [
+        "../legal_agent_originals_20261003/qa/residence116-2.png"
+      ],
+      "applicability_note": "Phải thỏa điều kiện đã chia sẻ và khai thác được; không đồng nghĩa miễn mọi giấy tờ trong mọi hồ sơ.",
+      "kind": "legal_provision",
+      "content_sha256": "85db212cebeff9975df96e653c703e0beccfa16baf9b3e69198a3a21042b79f5",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:residence116:3:5"
+    },
+    {
+      "source_id": "residence116",
+      "article": "3",
+      "clause": "6",
+      "heading": "Điều 3 — trích khoản 6 khi không khai thác được thông tin",
+      "content": "6. Trường hợp không khai thác được thông tin trong cơ sở dữ liệu, hệ thống thông tin hoặc Ứng dụng định danh quốc gia (VNeID) thì cơ quan đăng ký cư trú có trách nhiệm kiểm tra, xác minh để giải quyết thủ tục về cư trú. Công dân có trách nhiệm xuất trình bản gốc giấy tờ, tài liệu chứng minh thông tin đã kê khai để cơ quan đăng ký cư trú kiểm tra, đối chiếu và ghi nhận tính chính xác vào biên bản khi thực hiện xác minh.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": [
+        "../legal_agent_originals_20261003/qa/residence116-2.png"
+      ],
+      "applicability_note": "Phân biệt với khoản 5, đây là trường hợp không khai thác được dữ liệu.",
+      "kind": "legal_provision",
+      "content_sha256": "75a9e8cd0e0c351d002c74f4ba86164cb9927faf1747a24d0eaed3b1faad2dca",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:residence116:3:6"
+    },
+    {
+      "source_id": "residence116",
+      "article": "12",
+      "clause": "1",
+      "heading": "Điều 12. Đăng ký tạm trú",
+      "content": "1. Công dân thay đổi chỗ ở ngoài nơi đã đăng ký tạm trú có trách nhiệm thực hiện đăng ký tạm trú mới. Trường hợp chỗ ở đó trong phạm vi đơn vị hành chính cấp xã nơi đã đăng ký thường trú thì thực hiện theo quy định tại khoản 3 Điều 6 Thông tư này.",
+      "page_from": 7,
+      "page_to": 7,
+      "review_images": [
+        "../legal_agent_originals_20261003/qa/residence116-7.png"
+      ],
+      "applicability_note": "Không nhầm cùng xã nơi thường trú với cùng xã nơi tạm trú.",
+      "kind": "legal_provision",
+      "content_sha256": "68a316fa81baae1361b959893ee98a3523f5d89f8bea3476568b131db4b61056",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:residence116:12:1"
+    },
+    {
+      "source_id": "residence116",
+      "article": "12",
+      "clause": "3",
+      "heading": "Điều 12 — trích khoản 3 về kết thúc thuê, mượn, ở nhờ",
+      "content": "3. Trường hợp người thuê, mượn, ở nhờ chấm dứt việc thuê, mượn, ở nhờ thì người cho thuê, cho mượn, cho ở nhờ có trách nhiệm thông báo cho cơ quan đăng ký cư trú để thực hiện xóa đăng ký tạm trú.",
+      "page_from": 8,
+      "page_to": 8,
+      "review_images": [
+        "qa/residence116-08.png"
+      ],
+      "applicability_note": "Trách nhiệm khi kết thúc việc thuê; không nói chủ trọ phải làm thay mọi thủ tục của người thuê.",
+      "kind": "legal_provision",
+      "content_sha256": "d0fc3f1e307f3705279cb3e7e3a9e9ff9a19de6fffd5aac35b3ee44c808a0c41",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:residence116:12:3"
+    }
+  ]
+}

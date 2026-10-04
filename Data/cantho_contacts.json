@@ -1,0 +1,221 @@
+{
+  "category": "emergency_contacts_cantho",
+  "kind": "public_contact_directory",
+  "checked_date": "2026-10-04",
+  "contacts": [
+    {
+      "name": "Báo cháy, cứu nạn cứu hộ",
+      "phones": [
+        "114"
+      ],
+      "source_id": "cantho_fire_call",
+      "source_url": "https://congan.cantho.gov.vn/phong-chay-chua-chay/chu-dong-phong-ngua-chay-no-tu-nhung-viec-lam-nho-hang-ngay-9651.html",
+      "usage": "Có cháy/nguy hiểm: cung cấp địa chỉ, tình trạng và số người mắc kẹt.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Tổng đài khẩn cấp quốc gia",
+      "phones": [
+        "112"
+      ],
+      "source_id": "national112",
+      "source_url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
+      "usage": "Sự cố, thiên tai, thảm họa, tình huống nguy cấp cần trợ giúp; tiếp nhận 24/7.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Trực ban Công an TP. Cần Thơ",
+      "phones": [
+        "0693672010"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Liên hệ trực ban, hỏi đơn vị tiếp nhận theo địa chỉ/sự việc.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Trực ban hình sự Công an TP. Cần Thơ",
+      "phones": [
+        "0693672216"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Cung cấp thông tin dấu hiệu chiếm đoạt; hỏi hướng tiếp nhận hồ sơ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Phòng Cảnh sát quản lý hành chính về trật tự xã hội",
+      "phones": [
+        "0693672664"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Hỏi hướng dẫn cư trú theo địa chỉ và hồ sơ cụ thể.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Ninh Kiều",
+      "phones": [
+        "02923820938"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế, không chỉ theo tên phường cũ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường An Bình",
+      "phones": [
+        "02923846024"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Tân An",
+      "phones": [
+        "02923894939",
+        "02923838025"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Cái Khế",
+      "phones": [
+        "02923890379"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Bình Thủy",
+      "phones": [
+        "02923841019"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Cái Răng",
+      "phones": [
+        "02923836205"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công an phường Hưng Phú",
+      "phones": [
+        "02923916009",
+        "02923836311",
+        "02923916555"
+      ],
+      "source_id": "cantho_police_contacts",
+      "source_url": "https://congan.cantho.gov.vn/page/",
+      "usage": "Chọn theo địa chỉ thực tế.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "CSKH Điện lực miền Nam (EVNSPC)",
+      "phones": [
+        "19001006",
+        "19009000"
+      ],
+      "source_id": "evnspc_contacts",
+      "source_url": "https://cskh.evnspc.vn/Home/Index",
+      "usage": "Hỏi công tơ, hợp đồng mua điện, kê khai người thuê và cách áp giá điện.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công ty CP Cấp thoát nước Cần Thơ",
+      "phones": [
+        "02923810188"
+      ],
+      "source_id": "cantho_water_contacts",
+      "source_url": "https://ctn-cantho.com.vn/contact/",
+      "usage": "Hỏi theo mã khách hàng và đơn vị trên hóa đơn.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Chi nhánh Cấp nước Số 1",
+      "phones": [
+        "02923839946"
+      ],
+      "source_id": "cantho_water_contacts",
+      "source_url": "https://ctn-cantho.com.vn/contact/",
+      "usage": "Đối chiếu đơn vị quản lý cấp nước của phòng trọ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Chi nhánh Cấp nước An Bình",
+      "phones": [
+        "02923914757"
+      ],
+      "source_id": "cantho_water_contacts",
+      "source_url": "https://ctn-cantho.com.vn/contact/",
+      "usage": "Đối chiếu đơn vị quản lý cấp nước của phòng trọ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Chi nhánh Cấp nước Bông Vang",
+      "phones": [
+        "02923933329"
+      ],
+      "source_id": "cantho_water_contacts",
+      "source_url": "https://ctn-cantho.com.vn/contact/",
+      "usage": "Đối chiếu đơn vị quản lý cấp nước của phòng trọ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Chi nhánh Cấp nước Hưng Phú",
+      "phones": [
+        "02923837565"
+      ],
+      "source_id": "cantho_water_contacts",
+      "source_url": "https://ctn-cantho.com.vn/contact/",
+      "usage": "Đối chiếu đơn vị quản lý cấp nước của phòng trọ.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    },
+    {
+      "name": "Công ty CP Cấp nước Cần Thơ 2",
+      "phones": [
+        "02923881690"
+      ],
+      "source_id": "water_tariff2",
+      "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=53&wp=331",
+      "usage": "Đây là đơn vị khác với Công ty CP Cấp thoát nước Cần Thơ; xem đúng hóa đơn.",
+      "verified_date": "2026-10-04",
+      "verification": "published_on_official_site_not_call_tested"
+    }
+  ],
+  "live_index_updated": false
+}

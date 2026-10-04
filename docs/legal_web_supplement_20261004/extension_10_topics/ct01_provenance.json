@@ -1,0 +1,21 @@
+{
+  "kind": "official_form_extract",
+  "source_id": "residence116",
+  "original_path": "docs/legal_agent_originals_20261003/residence116.pdf",
+  "original_sha256": "c7f081986711630f8ecd80a2ef3a07c3c7bf7208ae6c48d37b3effb18994af9f",
+  "source_url": "https://vanban.bocongan.gov.vn/co-so-du-lieu-van-ban/thong-tu-quy-dinh-chi-tiet-mot-so-dieu-va-bien-phap-thi-hanh-luat-cu-tru-1784261073",
+  "download_url": "https://bocongan.gov.vn/media/bca-media/library-20260717110413-0c32870e-3f4d-41d8-9da4-8f90638543ff-thong-tu-116-2026.pdf",
+  "physical_pages_one_based": [
+    20,
+    21
+  ],
+  "output_path": "Data/residence/CT01-116-2026-trich-ban-goc.pdf",
+  "output_sha256": "6bf0002349eb77c74dc24f9bdb0c0a806514634e4f07291a9642619ee023010e",
+  "output_pages": 2,
+  "altered_page_content": false,
+  "visual_review_images": [
+    "qa/ct01-full-20.png",
+    "qa/ct01-full-21.png"
+  ],
+  "verification": "Đã đọc trực tiếp cả hai ảnh trang; bản trích giữ nguyên nội dung trang."
+}

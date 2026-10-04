@@ -1,0 +1,188 @@
+{
+  "version": "legal-practical-extension-20261004",
+  "created_at_utc": "2026-10-04T05:22:56.476016+00:00",
+  "scope": "9 existing legal topics + supplemental emergency directory + CT01 and reporting guidance",
+  "contract_templates_created": false,
+  "legal_contract_knowledge_retained": true,
+  "thematic_guide_count": 9,
+  "faq_count": 36,
+  "public_contact_entries": 19,
+  "official_ct01_pages": 2,
+  "original_user_sha256": "6dfd57d6d292498c1a855c4c020b03aef65b03488a5caf03a00764056213f19a",
+  "source_count": 53,
+  "new_source_captures": [
+    {
+      "id": "cantho_police_contacts",
+      "title": "Công an Cần Thơ — đường dây nóng",
+      "url": "https://congan.cantho.gov.vn/page/",
+      "role": "primary_public_directory",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đọc trên trang công khai; chưa gọi thử số điện thoại.",
+      "full_article_saved": false,
+      "http_status": 200,
+      "resolved_url": "https://congan.cantho.gov.vn/page/",
+      "response_sha256": "699033801aa53f9319dc03f964706dca55f42fabad2c34cc405cfc1d0a994196",
+      "response_bytes": 167224,
+      "retrieved_at_utc": "2026-10-04T12:19:50.380638+07:00"
+    },
+    {
+      "id": "cantho_water_contacts",
+      "title": "Cấp thoát nước Cần Thơ — liên hệ",
+      "url": "https://ctn-cantho.com.vn/contact/",
+      "role": "provider_public_directory",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đọc trên trang công khai; chưa gọi thử số điện thoại.",
+      "full_article_saved": false,
+      "http_status": 200,
+      "resolved_url": "https://ctn-cantho.com.vn/contact/",
+      "response_sha256": "00670596827124e9a6686a20829a05766b3fa6f8eef7a15d32a35641da0df6cf",
+      "response_bytes": 61878,
+      "retrieved_at_utc": "2026-10-04T12:19:50.703818+07:00"
+    },
+    {
+      "id": "evnspc_contacts",
+      "title": "Trung tâm CSKH Điện lực miền Nam",
+      "url": "https://cskh.evnspc.vn/Home/Index",
+      "role": "provider_public_directory",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đọc trên trang công khai; chưa gọi thử số điện thoại.",
+      "full_article_saved": false,
+      "http_status": 200,
+      "resolved_url": "https://cskh.evnspc.vn/Home/Index",
+      "response_sha256": "b785283154a8079bd592f845d563d543b0738cb73022859547eea8ffd0c1ffc8",
+      "response_bytes": 37554,
+      "retrieved_at_utc": "2026-10-04T12:19:50.294931+07:00"
+    },
+    {
+      "id": "cantho_fire_call",
+      "title": "Công an Cần Thơ — chủ động phòng ngừa cháy, nổ",
+      "url": "https://congan.cantho.gov.vn/phong-chay-chua-chay/chu-dong-phong-ngua-chay-no-tu-nhung-viec-lam-nho-hang-ngay-9651.html",
+      "role": "primary_safety_guidance",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đọc trên trang công khai; chưa gọi thử số điện thoại.",
+      "full_article_saved": false,
+      "http_status": 200,
+      "resolved_url": "https://congan.cantho.gov.vn/phong-chay-chua-chay/chu-dong-phong-ngua-chay-no-tu-nhung-viec-lam-nho-hang-ngay-9651.html",
+      "response_sha256": "cd1ed87eb31c568604af7672574234d0f135bdb1de0a97c96e8ff9dd5869ea60",
+      "response_bytes": 53829,
+      "retrieved_at_utc": "2026-10-04T12:19:50.303981+07:00"
+    },
+    {
+      "id": "national112",
+      "title": "Báo điện tử Chính phủ — tổng đài khẩn cấp quốc gia 112",
+      "url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
+      "role": "government_public_guidance",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đọc trên trang công khai; chưa gọi thử số điện thoại.",
+      "full_article_saved": false,
+      "http_status": 200,
+      "resolved_url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
+      "response_sha256": "c2e7db8bdd82758d885991f9f44f896076d9e969933cc4c3e3e5fedd9d98e39e",
+      "response_bytes": 75195,
+      "retrieved_at_utc": "2026-10-04T12:19:50.448203+07:00"
+    },
+    {
+      "id": "fire_directive19",
+      "title": "Chỉ thị 19/CT-TTg ngày 24/06/2024 — tăng cường PCCC",
+      "url": "https://chinhphu.vn/?classid=2&docid=210485&pageid=27160",
+      "role": "primary_directive_metadata",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đối chiếu trang công khai; không xác nhận toàn văn. Số điện thoại nếu có chưa gọi thử.",
+      "full_article_saved": false,
+      "review_note": "Chỉ thị ngày 24/06/2024 là văn bản chỉ đạo; không dùng thay luật/nghị định mới hoặc kết luận yêu cầu kỹ thuật mọi nhà trọ.",
+      "http_status": 200,
+      "resolved_url": "https://chinhphu.vn/?classid=2&docid=210485&pageid=27160",
+      "response_sha256": "b9fab352f8df1bb9e415f02f3348243a8764a5489f8ef22c94d38e533993aa5b",
+      "response_bytes": 82023,
+      "retrieved_at_utc": "2026-10-04T12:21:53.630224+07:00"
+    },
+    {
+      "id": "fire_standard3890",
+      "title": "VSQI — danh mục TCVN 3890:2023",
+      "url": "https://tieuchuan.vsqi.gov.vn/tieuchuan/view?sohieu=TCVN+3890%3A2023",
+      "role": "official_standard_catalog",
+      "accessed_date": "2026-10-04",
+      "verification": "Nội dung chọn lọc đã đối chiếu trang công khai; không xác nhận toàn văn. Số điện thoại nếu có chưa gọi thử.",
+      "full_article_saved": false,
+      "review_note": "Chỉ xác minh danh mục, tên và tình trạng tiêu chuẩn; chưa lưu/đọc toàn bộ nội dung kỹ thuật của tiêu chuẩn.",
+      "http_status": 200,
+      "response_text_sha256": "5be03bd56cf27c37b5d2aadc81d3baccea2de4403079e2a1b68299f08bf0a0ca",
+      "response_text_chars": 37382,
+      "retrieved_at_utc": "2026-10-04T05:22:41.7682187Z",
+      "retrieval_note": "Retrieved with Windows TLS trust; hash of UTF-8 encoded response text, not raw HTTP bytes."
+    }
+  ],
+  "generated_data_files": [
+    {
+      "path": "Data/residence/CT01-116-2026-trich-ban-goc.pdf",
+      "sha256": "6bf0002349eb77c74dc24f9bdb0c0a806514634e4f07291a9642619ee023010e",
+      "bytes": 174363
+    },
+    {
+      "path": "Data/housing_contract/Bo-sung-thuc-te-20261004.md",
+      "sha256": "2198c3d89d7745e5ffcd25a2decb5f252211303712b1137fa283111fd079363d",
+      "bytes": 7030
+    },
+    {
+      "path": "Data/electricity/Bo-sung-thuc-te-20261004.md",
+      "sha256": "2744962e282ed7720cab1aaeb11ab484e3bead52ca285f28771575d0c88fc1c7",
+      "bytes": 13418
+    },
+    {
+      "path": "Data/water_cantho/Bo-sung-thuc-te-20261004.md",
+      "sha256": "f29f6047df2131cd26edb3009f504034d08a6c6bb8464e0f394231415bff4adc",
+      "bytes": 13880
+    },
+    {
+      "path": "Data/residence/Bo-sung-thuc-te-20261004.md",
+      "sha256": "77db625e8d5e11de93bd9f2edfc5640b3e04c7d3c31b476827f94627b9bd3469",
+      "bytes": 13307
+    },
+    {
+      "path": "Data/fire_safety/Bo-sung-thuc-te-20261004.md",
+      "sha256": "d27e9bd571367e6d7be4189d954ab08786df4fd5d08cbb06c70816dbe3bb9731",
+      "bytes": 13492
+    },
+    {
+      "path": "Data/real_estate_brokerage/Bo-sung-thuc-te-20261004.md",
+      "sha256": "73e645e4504844053139abe2f3f9ff2fdf329309e9532939794cf5f0124366e4",
+      "bytes": 10235
+    },
+    {
+      "path": "Data/ecommerce_platform/Bo-sung-thuc-te-20261004.md",
+      "sha256": "75e1ef34b59c72178e00fe4955af6f42ea157e42e1ba41a32a65dd17a41a5db3",
+      "bytes": 9804
+    },
+    {
+      "path": "Data/privacy_data/Bo-sung-thuc-te-20261004.md",
+      "sha256": "c8e40bfd28dd8bcad8cafadcef6bb02aebfd00f63b949f984f1060ca36c0a932",
+      "bytes": 9880
+    },
+    {
+      "path": "Data/criminal_law/Bo-sung-thuc-te-20261004.md",
+      "sha256": "00a75b1aa1a2ef61b96cc172ac46f10d26ab37303014dd51595b5a43f355d916",
+      "bytes": 9210
+    },
+    {
+      "path": "Data/cantho_contacts.json",
+      "sha256": "b1f45fa5630bc8578ee31660b3867305512328f3827472afc9657aacccd21bcd",
+      "bytes": 8373
+    },
+    {
+      "path": "Data/cantho_contacts.md",
+      "sha256": "f15c0ca01e63d58959a727679b7b655e8cf09b9a65e7dc8f5530526c37a8bd6a",
+      "bytes": 6248
+    },
+    {
+      "path": "Data/legal_templates.md",
+      "sha256": "b841c7a84f5ddc2579cc13d3545eb94d4eedbf2c3036f25bdb529cca9e95ec7f",
+      "bytes": 9315
+    }
+  ],
+  "corpus_manifest_path": "docs/legal_corpus_v2/manifest.json",
+  "corpus_manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "pause_status": "paused_until_documents_and_system_ready",
+  "live_index_updated": false,
+  "model_evaluations_run": false,
+  "student_housing_modified": false
+}

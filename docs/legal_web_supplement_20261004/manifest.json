@@ -1,0 +1,108 @@
+{
+  "version": "legal-web-supplement-2026-10-04",
+  "created_at_utc": "2026-10-04T05:04:37.668670+00:00",
+  "purpose": "Bổ sung nguồn và giải thích có căn cứ cho 36 câu thuê trọ; tách khỏi bản đánh giá v15 đang tạm dừng.",
+  "live_index_updated": false,
+  "model_evaluations_run": false,
+  "baseline_manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "current_legal_v2_manifest_sha256": "db830c71bd0d4c9eed5ed5980f9538a43283bf66d671f917afacf94d953f28da",
+  "baseline_preserved": true,
+  "counts": {
+    "faq_cases": 36,
+    "catalog_sources": 52,
+    "luatvietnam_sources": 10,
+    "downloaded_original_pdfs": 9,
+    "existing_evidence_documents": 19,
+    "existing_provision_references": 305,
+    "new_reviewed_provisions": 20
+  },
+  "faq_file": "docs/legal_web_supplement_20261004/faq_36.json",
+  "sources_file": "docs/legal_web_supplement_20261004/sources.json",
+  "existing_evidence_file": "docs/legal_web_supplement_20261004/existing_evidence_map.json",
+  "new_original_texts": [
+    {
+      "source_id": "housing79",
+      "file": "docs/legal_web_supplement_20261004/extracted/housing79.pages.json",
+      "sha256": "54d492a533d0333fdc6142968ea37152a45866ded5f57c3c3fc67287967a3421",
+      "pages": 140,
+      "native_chars": 356463,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": []
+    },
+    {
+      "source_id": "broker06",
+      "file": "docs/legal_web_supplement_20261004/extracted/broker06.pages.json",
+      "sha256": "eac1354fea7b177f6cf58d5660ff78d5434ff5c76075ca6734f8856097365704",
+      "pages": 70,
+      "native_chars": 149382,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": [
+        "46"
+      ]
+    },
+    {
+      "source_id": "electricity25",
+      "file": "docs/legal_web_supplement_20261004/extracted/electricity25.pages.json",
+      "sha256": "4bf279f85ce357e804fed66794cdec6f9dd8264cc79754c6594bca20cd1c9b54",
+      "pages": 4,
+      "native_chars": 6982,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": []
+    },
+    {
+      "source_id": "electricity09",
+      "file": "docs/legal_web_supplement_20261004/extracted/electricity09.pages.json",
+      "sha256": "052ba5ec30438e1c483cb281dc1e61b50a2eeb86298bca391285c71c425a7617",
+      "pages": 5,
+      "native_chars": 10330,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": [
+        "2"
+      ]
+    },
+    {
+      "source_id": "fire58",
+      "file": "docs/legal_web_supplement_20261004/extracted/fire58.pages.json",
+      "sha256": "6ae951d4ccf47aa2c279dfa0b566c3a151f2dd91605917a5cb2fb2fd5dfa8597",
+      "pages": 40,
+      "native_chars": 98271,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": [
+        "20",
+        "20",
+        "20",
+        "20",
+        "21",
+        "21",
+        "24"
+      ]
+    },
+    {
+      "source_id": "fire69",
+      "file": "docs/legal_web_supplement_20261004/extracted/fire69.pages.json",
+      "sha256": "7d13651ad6c7b292aaf476e5c617fc70ecf2c74721282cf2da63310c4aa3f281",
+      "pages": 18,
+      "native_chars": 30215,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": []
+    },
+    {
+      "source_id": "water57",
+      "file": "docs/legal_web_supplement_20261004/extracted/water57.pages.json",
+      "sha256": "56c957e4d0fb58fe2ce3d1b91a2379946b3554c51a74cf37beb4ac9a2d693fb4",
+      "pages": 18,
+      "native_chars": 36599,
+      "status": "native_text_supporting_original_not_live_index",
+      "reviewed_articles": []
+    }
+  ],
+  "reviewed_provisions_file": "docs/legal_web_supplement_20261004/reviewed_new_provisions.json",
+  "not_indexable_as_statute": [
+    "editorial_guidance",
+    "secondary_explanation",
+    "provider_procedure_historical",
+    "historical_explanation_excluded",
+    "historical_procedure_excluded",
+    "draft_excluded"
+  ]
+}

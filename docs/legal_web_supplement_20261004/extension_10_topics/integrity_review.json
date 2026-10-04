@@ -1,0 +1,26 @@
+{
+  "kind": "artifact_integrity_review_only",
+  "model_called": false,
+  "tests_resumed": false,
+  "checks": {
+    "13_data_files_match_saved_hashes": true,
+    "user_attachment_preserved": true,
+    "baseline_corpus_manifest_preserved": true,
+    "pause_retained": true,
+    "36_unique_cases_nine_topics": true,
+    "faq_source_ids_resolve": true,
+    "seven_new_source_captures_succeeded": true,
+    "ct01_original_page_content_and_geometry_preserved": true,
+    "local_markdown_links_resolve": true,
+    "contract_templates_excluded": true
+  },
+  "missing_links": [],
+  "source_count": 53,
+  "source_count_luatvietnam": 9,
+  "all_passed": true,
+  "contract_template_review": {
+    "scope": "New Data outputs only; contract-law explanations retained, original user suggestion preserved separately.",
+    "form_headings_or_party_placeholders_found": [],
+    "manual_review": "Only official CT01 and editorial criminal-reporting outline supplied; no contract form supplied."
+  }
+}

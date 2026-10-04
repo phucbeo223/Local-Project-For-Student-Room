@@ -1,0 +1,62 @@
+{
+  "source": {
+    "id": "web20261004-water215",
+    "title": "Quyết định 215/QĐ-UBND Cần Thơ ngày 01/02/2024",
+    "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=63&wp=332",
+    "download_url": null,
+    "path": "docs/legal_fix_originals_20261004/water215.pdf",
+    "sha256": "1b476f823340e632b5fe9213c4e55ad92487eb568d81fe03f51fc59080321871",
+    "extraction": "manual_verified_excerpt_transcription",
+    "not_exhaustive": true,
+    "verification": "Các đoạn sau đã đọc trực tiếp trên ảnh trang PDF gốc. Chỉ xác nhận đoạn được liệt kê; không xác nhận toàn văn hay toàn bộ lịch sử hiệu lực. Văn bản dạng bảng được chép lại có cấu trúc, không nhận là trích xuất máy nguyên dạng.",
+    "activation_status": "candidate_not_indexed",
+    "category": "review_before_category_assignment"
+  },
+  "provisions": [
+    {
+      "source_id": "water215",
+      "article": "1",
+      "clause": "1",
+      "heading": "Điều 1 khoản 1 — bảng giá năm 2024 do các đơn vị cấp nước cung cấp",
+      "kind": "legal_price_table",
+      "content": "1. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn năm 2024 do các đơn vị cấp nước cung cấp:\nKhu vực đô thị (đồng/m³): Hộ dân cư là Hộ nghèo có sổ: 5.640; Hộ dân cư: 9.020; Nhóm 2 cơ quan hành chính, đơn vị sự nghiệp công lập, trường học, bệnh viện, cơ sở khám chữa bệnh (công lập và tư nhân), phục vụ mục đích công cộng (phi lợi nhuận): 11.170; Tổ chức, cá nhân sản xuất vật chất: 12.400; Tổ chức, cá nhân kinh doanh, dịch vụ: 15.580.\nKhu vực nông thôn (đồng/m³): Hộ dân cư là Hộ nghèo có sổ: 4.820; Hộ dân cư: 8.240; Nhóm 2 như trên: 9.310; Tổ chức, cá nhân sản xuất vật chất: 9.930; Tổ chức, cá nhân kinh doanh, dịch vụ: 11.520.\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)",
+      "transcription": "Bảng được chuyển thành các dòng, các số và chú thích đã kiểm tra ảnh ký. Tên Nhóm 2 được tóm bố cục, không coi toàn bộ content là trích nguyên văn từng chữ.",
+      "page_from": 1,
+      "page_to": 2,
+      "review_images": [
+        "qa/water215-1.png",
+        "qa/water215-2.png"
+      ],
+      "applicability_note": "Phiên bản năm 2024, đúng đơn vị và vùng áp dụng; cần xác nhận quyết định giá của kỳ hỏi. Trang đơn vị còn ghi chưa tiền dịch vụ môi trường rừng; phần này không có trong chú thích bảng ký nên phân biệt nguồn.",
+      "content_sha256": "c011c7c66fddd9e77aa2b395849ba5127995d9a993a2efd968a456bcc5d188a2",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:water215:1:1"
+    },
+    {
+      "source_id": "water215",
+      "article": "1",
+      "clause": "2",
+      "heading": "Điều 1 khoản 2 — giá Trung tâm Nước sạch và Vệ sinh môi trường nông thôn",
+      "kind": "legal_price_table",
+      "content": "2. Giá nước sạch sinh hoạt tại đô thị, khu vực nông thôn do Trung tâm Nước sạch và Vệ sinh môi trường nông thôn cung cấp cho mục đích sinh hoạt:\nNhóm 1 (đồng/m³): Hộ dân cư là hộ nghèo có sổ, hộ gia đình chính sách (gia đình Mẹ Việt Nam anh hùng, gia đình thương binh, gia đình liệt sĩ), hộ hiến đất: 4.000.\nNhóm 2 (đồng/m³): Hộ dân cư và các nhóm đối tượng khác: 7.450.\n(Giá đã bao gồm thuế giá trị gia tăng, chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt)",
+      "transcription": "Chuyển cấu trúc bảng thành dòng; giá, nhóm đối tượng, chú thích đã đối chiếu ảnh ký.",
+      "page_from": 2,
+      "page_to": 2,
+      "review_images": [
+        "qa/water215-2.png"
+      ],
+      "applicability_note": "Bảng dành riêng Trung tâm, không thay bằng bảng của các công ty cấp nước; kiểm tra kỳ và địa chỉ.",
+      "content_sha256": "bf124f80ebdea437cb8773be0b95d9dd437f6384f8cb609403d7a084261001f1",
+      "page_kind": "physical_pdf",
+      "verification": "listed_excerpt_visually_checked_against_original",
+      "source_start": null,
+      "source_end": null,
+      "not_exhaustive": true,
+      "provision_id": "web20261004:water215:1:2"
+    }
+  ]
+}

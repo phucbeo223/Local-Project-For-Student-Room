@@ -1,0 +1,43 @@
+{
+  "version": "legal-web-supplement-2026-10-04",
+  "status": "candidate_not_indexed",
+  "documents": [
+    {
+      "id": "web20261004-residence116",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/residence116.json",
+      "sha256": "02f61cf813d45b41feec642aa458067b59da74ca3f79500e76ceb5a434844631",
+      "provisions": 4
+    },
+    {
+      "id": "web20261004-commerce122",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/commerce122.json",
+      "sha256": "921279056019d8309871e0460031c213e529b1615bcb9ef2f518e7043744e806",
+      "provisions": 5
+    },
+    {
+      "id": "web20261004-broker06",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/broker06.json",
+      "sha256": "448242ac5368e323077b3b474e9c54263555f769c38467cb87a6b970e47aed4e",
+      "provisions": 1
+    },
+    {
+      "id": "web20261004-electricity09",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/electricity09.json",
+      "sha256": "3138c832796729762300d37be46f40af0278c3db0b78ac551c5ee7fd8a1294c3",
+      "provisions": 1
+    },
+    {
+      "id": "web20261004-fire58",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/fire58.json",
+      "sha256": "b8ab7156d4423c79dfc68a794e43edd112fd029ee5d2e99565c986d4b3d63d60",
+      "provisions": 7
+    },
+    {
+      "id": "web20261004-water215",
+      "file": "docs/legal_web_supplement_20261004/candidate_corpus/water215.json",
+      "sha256": "eb47d270f4d1b0a34bf5d65cf17f27b0618572adbb49d6e46a7f79cdfcd5f1f9",
+      "provisions": 2
+    }
+  ],
+  "policy": "Preserve parent clauses and applicability; assign category and review effective periods before activation. Editorial FAQ is not statute or model ground truth."
+}
