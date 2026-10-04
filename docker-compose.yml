@@ -75,7 +75,7 @@ services:
       GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
       GEMINI_FALLBACK_MODEL: ${GEMINI_FALLBACK_MODEL:-gemini-3.1-flash-lite}
       GEMINI_MIN_REQUEST_INTERVAL_SECONDS: ${GEMINI_MIN_REQUEST_INTERVAL_SECONDS:-5}
-      GEMINI_BASE_URL: ${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}
+      GEMINI_BASE_URL: ${GEMINI_DOCKER_BASE_URL:-${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}}
       RISK_AUTO_ASSESS: ${RISK_AUTO_ASSESS:-true}
       RISK_AUTO_ASSESS_LIMIT: ${RISK_AUTO_ASSESS_LIMIT:-1000}
     volumes:
