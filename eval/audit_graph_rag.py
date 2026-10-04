@@ -99,6 +99,9 @@ def main():
         protected = dict(conn.execute(text("SELECT count(*) AS rows,count(embedding_vector) AS vectors, "
             "md5(string_agg(id::text||coalesce(content_hash,'')||coalesce(embedding_vector::text,''),'|' ORDER BY id)) AS digest "
             'FROM public.aggregated_listings')).mappings().one())
+        full_protected = dict(conn.execute(text("SELECT count(*) AS rows,count(embedding_vector) AS vectors, "
+            "md5(string_agg(row_to_json(t)::text,'|' ORDER BY id)) AS digest FROM public.aggregated_listings t")).mappings().one())
+        previous = json.loads(Path('/eval/reports/legal_refresh_acceptance_2026-10-04.json').read_text(encoding='utf-8'))
     engine.dispose()
     violations_count = sum(len(check['constraint_violations']) for check in checks)
     summary = {'questions_completed': sum(bool(case.get('answer')) for case in run['cases']), 'runtime_errors': 0,
@@ -106,6 +109,7 @@ def main():
         'housing_constraint_violations': violations_count,
         'housing_abstentions_with_matching_records': [case['id'] for case in checks if case['confidence_abstention_with_matches']],
         'protected_public_unchanged': protected == index['public_before'],
+        'protected_public_full_rows_unchanged': full_protected == previous['listings'],
         'graph_traced_cases': sum(any(step.get('stage') == 'graph_retrieval' for step in case.get('agent_trace', [])) for case in run['cases']),
         'no_answer_ids': [case['id'] for case in run['cases'] if case.get('no_answer')],
         'partial_answer_ids': [case['id'] for case in run['cases'] if case.get('partial_answer')],
@@ -119,7 +123,7 @@ def main():
             'Confidence is a heuristic, not calibrated correctness probability.']}
     bank.save_report(args.output, report)
     print(json.dumps(summary, ensure_ascii=False), flush=True)
-    if violations_count or not summary['protected_public_unchanged']:
+    if violations_count or not summary['protected_public_unchanged'] or not summary['protected_public_full_rows_unchanged']:
         raise SystemExit(2)
 
 

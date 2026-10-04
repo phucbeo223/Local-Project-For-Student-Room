@@ -370,7 +370,7 @@ export default function ChatClient() {
                           <div className="p-3.5">
                             <div className="flex items-start justify-between gap-2">
                               <span className="rounded-full bg-blue-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-[#005baa]">Gợi ý #{listing.rank}</span>
-                              <span className="text-[11px] font-semibold text-slate-400">{Math.round(listing.similarity_score * 100)}% phù hợp</span>
+                              <span className="text-[11px] font-semibold text-slate-400">Điểm gợi ý {Math.round(listing.similarity_score * 100)}/100</span>
                             </div>
                             <h3 className="mt-2 line-clamp-2 text-sm font-bold leading-5 text-slate-900">{listing.title}</h3>
                             <p className="mt-2 text-base font-black text-[#e34b4b]">{money(listing.price)}</p>

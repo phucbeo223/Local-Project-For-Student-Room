@@ -65,4 +65,5 @@ eval/reports/housing_import_2026-10-04.json
 eval/reports/housing_audit_2026-10-04.json
 eval/ragas_reports/housing_evaluation_2026-10-04.md
 eval/reports/graph_rag_*.json*
+eval/reports/graph_rag_*.md
 eval/ragas_reports/graph_rag_*.md

@@ -30,7 +30,8 @@ def main():
         raise ValueError('No overlapping user references')
     identity = {'run_sha256': hashlib.sha256(args.run.read_bytes()).hexdigest(),
                 'reference_sha256': hashlib.sha256(reference_path.read_bytes()).hexdigest(),
-                'selected_original_ids': [case['id'] for case in selected], 'judge_model': settings.ollama_model}
+                'selected_original_ids': [case['id'] for case in selected], 'judge_model': settings.ollama_model,
+                'judge_prompt_policy': 'answer_reference_text_with_source_metadata_only_v1'}
     report = json.loads(args.output.read_text(encoding='utf-8')) if args.output.exists() else dict(identity, cases=[],
         method='local Qwen qualitative text agreement after generation; user references unverified; no legal accuracy percentage',
         judge_provider='ollama-local',
@@ -47,14 +48,16 @@ def main():
             'Tham chiếu người dùng chưa xác minh, không coi mọi ý là đúng pháp luật và không dùng kiến thức ngoài để phán xử. '
             'matched_points là ý thực sự có trong cả hai; missing_reference_points là ý reference thiếu ở answer; '
             'differing_points ghi khác biệt về chủ thể, số liệu, thời hạn, điều kiện; useful_additions là ý answer thêm. '
-            'source_cautions chỉ dựa vào nguồn cung cấp, phân biệt editorial_guidance với nguyên văn điều luật. '
+            'SOURCE_METADATA chỉ mô tả nguồn, không chứa nguyên văn. source_cautions chỉ dựa vào metadata, '
+            'phân biệt editorial_guidance với văn bản, không kết luận một claim được luật hỗ trợ chỉ từ metadata. '
             'agreement=high nếu trả lời trực tiếp và bao phủ hầu hết ý chính; partial nếu chỉ bao phủ một phần đáng kể; '
             'low nếu thiếu câu trả lời chính. Không thưởng cho trích điều dài mà không trả lời. Khác biệt có thể là sửa reference, '
             'không tự coi đó là lỗi chatbot. Nếu hai câu hỏi khác nhau, so phần chung và ghi khác biệt phạm vi. '
             'explanation giải thích nhãn bằng tiếng Việt. Không tạo điểm phần trăm. Giữ mỗi danh sách tối đa 4 ý ngắn. '
             'Trả JSON theo schema.\n' + json.dumps({'QUESTION': case['question'], 'ANSWER': case['answer'],
                 'USER_REFERENCE_QUESTION': reference['question'], 'USER_REFERENCE': reference['external_answer'],
-                'SOURCES': case.get('sources', []), 'CONTEXTS': case.get('contexts', [])}, ensure_ascii=False))
+                'SOURCE_METADATA': [{key: source.get(key) for key in ('title', 'category', 'heading', 'page_kind', 'page_from', 'page_to')}
+                                    for source in case.get('sources', [])]}, ensure_ascii=False))
         for attempt in range(3):
             try:
                 comparison = judge.generate(prompt, Comparison).model_dump()
