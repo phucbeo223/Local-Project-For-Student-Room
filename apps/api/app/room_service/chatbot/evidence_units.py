@@ -15,6 +15,53 @@ OPERATOR_LABELS = {'identity': 'thông tin định danh và thời điểm xác 
                    'authority_data': 'cung cấp dữ liệu theo yêu cầu cơ quan có thẩm quyền'}
 
 
+def practical_facets(question, row):
+    """Locate separate source facets, without supplying rules or reference facts."""
+    q = normalize_text(question)
+    body = normalize_text(row.get('text', row.get('parent_content') or row.get('content', '')))
+    heading = normalize_text(row.get('heading') or '')
+    category = row.get('category')
+    found = set()
+    if 'tien dien' in q and any(t in q for t in ('thong bao', 'cach tinh', 'so dien', 'minh bach')):
+        if category == 'electricity' and 'hoa don' in body and 'nguoi thue' in body:
+            found.add('giới hạn thu tiền điện theo hóa đơn, đúng điều kiện áp dụng')
+        if 'cong khai cach tinh' in body or ('quyen cua nguoi tieu dung' in heading and 'hoa don' in body):
+            found.add('thông tin cách tính và hóa đơn, phân biệt quyền với khuyến nghị')
+        if category == 'electricity' and 'do dem' in heading:
+            found.add('đo đếm và đối chiếu sản lượng')
+    if 'nuoc' in q and any(t in q for t in ('dau nguoi', 'dung chung', 'phan chia', 'thoa thuan', 'khoan')):
+        if category == 'housing_contract' and any(t in heading for t in ('nguyen tac co ban', 'noi dung cua hop dong')):
+            found.add('thỏa thuận nội dung, giá và cách thanh toán')
+        if category == 'housing_contract' and 'quyen cua nguoi tieu dung' in heading and 'hoa don' in body:
+            found.add('đối chiếu hóa đơn và thông tin giao dịch')
+        if category == 'water_cantho':
+            found.add('biểu giá nước và phạm vi của nguồn giá')
+        if category == 'housing_contract' and 'tien nuoc' in body and 'doc ky' in body:
+            found.add('kiểm tra điều khoản tiền nước trước khi thuê')
+    if 'tam tru' in q and 'cung cap' in q and 'trach nhiem' in q:
+        if category == 'residence' and 'nghia vu cua cong dan' in heading and 'cung cap' in body:
+            found.add('nghĩa vụ cung cấp thông tin của công dân')
+        if category == 'residence' and 'chu ho co quyen va nghia vu' in body:
+            found.add('phối hợp của chủ hộ, không đồng nhất với mọi chủ trọ')
+        if category == 'residence' and 'ho so' in heading and 'cho o hop phap' in body:
+            found.add('giấy tờ chỗ ở hợp pháp trong hồ sơ cơ bản')
+    if 'thoat nan' in q and any(t in q for t in ('khoa', 'chan', 'can tro')):
+        if category == 'fire_safety' and 'thong thoang' in body and 'chu nha tro' in body:
+            found.add('khắc phục lối thoát bị cản trở khi chưa có cháy')
+        if category == 'fire_safety' and '114' in body:
+            found.add('báo cháy khẩn cấp 114')
+        if category == 'fire_safety' and 'ket trong phong' in body:
+            found.add('thoát nạn và chờ cứu hộ khi xảy ra cháy')
+    if any(t in q for t in ('anh can cuoc', 'anh cccd', 'anh giay to')) and any(t in q for t in ('luu', 'su dung')):
+        if category == 'privacy_data' and 'muc dich' in body and 'pham vi' in body:
+            found.add('mục đích và phạm vi xử lý dữ liệu')
+        if category == 'privacy_data' and any(t in body for t in ('luu tru', 'bao ve du lieu ca nhan')) and any(t in body for t in ('khoang thoi gian', 'ky thuat')):
+            found.add('thời gian lưu trữ và biện pháp bảo vệ')
+        if category == 'privacy_data' and 'cung cap du lieu ca nhan' in heading and 'dong y' in body:
+            found.add('điều kiện cung cấp cho bên khác và ngoại lệ pháp luật')
+    return found
+
+
 def platform_reporting_question(question):
     q = normalize_text(question)
     return (any(t in q for t in ('bao cao', 'bao tin', 'phan anh'))

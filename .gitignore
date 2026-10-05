@@ -69,3 +69,5 @@ eval/ragas_reports/housing_evaluation_2026-10-04.md
 eval/reports/graph_rag_*.json*
 eval/reports/graph_rag_*.md
 eval/ragas_reports/graph_rag_*.md
+# Superseded local experiment retained; final priority corpus is v13.
+docs/legal_word_priority7_corpus_v12_20261006/

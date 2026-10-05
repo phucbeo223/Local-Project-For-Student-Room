@@ -16,3 +16,11 @@ docs/legal_web_supplement_20261004/** -text
 docs/source_grounded_originals_20261004/** -text -whitespace
 docs/legal_word_corpus_v7_20261005/** -text
 Data/word_originals/** -text whitespace=cr-at-eol
+# Word release manifests and human references are checked by exact byte hashes.
+docs/legal_word*/** -text whitespace=cr-at-eol
+eval/datasets/external_legal_20261004/** -text -whitespace
+# Evaluation records bind these modules to their exact tested bytes.
+apps/api/app/room_service/chatbot/*.py -text whitespace=cr-at-eol
+apps/api/app/room_service/legal_knowledge/*.py -text whitespace=cr-at-eol
+eval/compare_grounded_references.py -text whitespace=cr-at-eol
+eval/report_priority7_36.py -text whitespace=cr-at-eol

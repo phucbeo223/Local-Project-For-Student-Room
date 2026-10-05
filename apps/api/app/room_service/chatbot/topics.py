@@ -46,6 +46,9 @@ def question_categories(query: str) -> tuple[str, ...]:
         found.append("housing_contract")
     if "water_cantho" in found and "housing_contract" not in found:
         found.append("housing_contract")
+    if ('electricity' in found and any(t in text for t in ('thong bao', 'cach tinh', 'minh bach'))
+            and 'housing_contract' not in found):
+        found.append('housing_contract')
     return tuple(found)
 
 

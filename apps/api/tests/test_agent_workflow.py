@@ -131,6 +131,29 @@ def test_writer_cannot_erase_partial_selection_or_missing_evidence():
     assert any(s['agent'] == 'answer_synthesis' and s['status'] == 'partial' for s in result.agent_trace)
 
 
+def test_schema_retry_keeps_evidence_and_validates_repaired_claims():
+    class RepairClient(Client):
+        def request_json(self, prompt, schema, **kwargs):
+            self.result = answer()
+            if self.writes == 0:
+                self.result['summary']['title'] = 'Unwanted title'
+            else:
+                assert 'extra_forbidden' in prompt_data(prompt)['ISSUES'][-1]
+            return super().request_json(prompt, schema, **kwargs)
+    agent, selector, client = workflow(RepairClient())
+    result = service(agent).ask(ChatAskRequest(message=QUESTION))
+    assert client.writes == 2 and client.checks == selector.calls == 1
+    assert result.generation_provider == 'gemini-agent'
+    assert any(s.get('status') == 'schema_retry' for s in result.agent_trace)
+
+
+def test_invalid_schema_retry_stops_after_two_attempts():
+    agent, selector, client = workflow(Client(result={'summary':'malformed'}))
+    result = service(agent).ask(ChatAskRequest(message=QUESTION))
+    assert client.writes == 2 and selector.calls == 1 and client.checks == 0
+    assert result.generation_provider == 'qwen-local'
+
+
 def test_semantic_rejection_repairs_once_reuses_selection_then_falls_back():
     agent, selector, client = workflow(Client(rejection=['Kết luận chưa được nguồn xác nhận.']))
     result = service(agent).ask(ChatAskRequest(message=QUESTION))

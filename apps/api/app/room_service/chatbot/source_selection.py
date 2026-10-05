@@ -75,6 +75,10 @@ def selection_prompt(question,candidates):
     return ('Chọn những đoạn nguồn trả lời trực tiếp CÂU HỎI, tối đa 4 ID. '
         'Bạn chỉ tìm câu trả lời trong đoạn đã cho; không tự viết kết luận luật. '
         'Chọn đầy đủ các phần được hỏi, giữ điều kiện và ngoại lệ. '
+        'Điện/nước: chọn nguồn hóa đơn/thông tin giao dịch và thỏa thuận ngoài biểu giá nếu câu hỏi hỏi minh bạch hoặc cách chia; không coi giá nước là quy định cách chia. '
+        'Ảnh căn cước: chọn cả mục đích, lưu trữ/biện pháp bảo vệ và cung cấp cho bên khác; không chỉ chọn sự đồng ý thu thập. '
+        'Lối thoát bị chặn: chọn cả giữ lối thoát thông thoáng khi chưa có cháy và xử lý khi có cháy/114 nếu đang có nguồn. '
+        'Tạm trú: chọn nghĩa vụ công dân, giấy tờ cơ bản và chủ hộ tạo điều kiện, phân biệt chủ hộ với chủ trọ. '
         'Khi người thuê hỏi cách kiểm tra người đăng hoặc nguồn tin trên mạng, ưu tiên hướng dẫn người thuê tự kiểm tra; không thay câu trả lời bằng nghĩa vụ kiểm duyệt của nền tảng. '
         'Với kiểm tra tin đăng, chọn đủ các nguồn đang có về tài khoản/người đăng, địa chỉ/liên hệ, hình ảnh và giá; không thay các hướng dẫn cụ thể bằng nhiều bài cảnh báo cùng một thủ đoạn. '
         'Khi hỏi cách báo cáo tin đăng sai, ưu tiên thao tác báo cáo, kênh hỗ trợ và thông tin/bằng chứng gửi; không thay bằng hòa giải, khởi kiện hoặc xử lý tranh chấp hợp đồng. '
@@ -101,12 +105,16 @@ def missing_selection_facets(question,candidates,raw):
         if not isinstance(selected,list) or any(type(i) is not int or i not in indexed for i in selected):return []
     except (ValueError,KeyError,TypeError):return []
     parts=[indexed[i] for i in selected]
+    from .evidence_units import practical_facets
+    practical_available = set().union(*(practical_facets(question, c) for c in candidates))
+    practical_found = set().union(*(practical_facets(question, p) for p in parts)) if parts else set()
     if human_reporting_question(question) and any(reporting_evidence_row(c) for c in candidates) and not any(reporting_evidence_row(p) for p in parts):
         evidence_missing=['bằng chứng người trình báo cần lưu/cung cấp']
     else:evidence_missing=[]
     available={c.get('category') for c in candidates}
     found={p.get('category') for p in parts}
     missing=evidence_missing+sorted(set(required_evidence_categories(question)) & available - found)
+    missing += sorted(practical_available - practical_found)
     available_facets=set().union(*(contract_facets(c) for c in candidates))
     found_facets=set().union(*(contract_facets(p) for p in parts)) if parts else set()
     missing += [FACET_LABELS[f] for f in sorted(requested_contract_facets(question) & available_facets - found_facets)]
@@ -142,13 +150,25 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     if not isinstance(selected,list) or not 0<len(selected)<=4 or any(type(i) is not int or i not in indexed for i in selected):
         raise ValueError('Unknown/empty evidence IDs')
     if len(set(selected))!=len(selected):raise ValueError('Duplicate evidence IDs')
+    from .evidence_units import practical_facets
+    selected = list(selected)
+    available = set().union(*(practical_facets(question, c) for c in candidates))
+    present = set().union(*(practical_facets(question, indexed[i]) for i in selected))
+    added = []
+    for facet in sorted(available - present):
+        if facet in present or len(selected) >= 4: continue
+        candidate = next((c for c in candidates if c['id'] not in selected
+                          and facet in practical_facets(question, c)), None)
+        if candidate is not None:
+            selected.append(candidate['id']); added.append(candidate['rank'])
+            present.update(practical_facets(question, candidate))
     parts=[indexed[i] for i in selected]
     original={int(c['rank']):c for c in contexts}
     if any(p['text'] not in original[p['rank']]['content'] for p in parts):
         raise ValueError('Selected text is not verbatim evidence')
     required=set(required_evidence_categories(question))
     found={p.get('category') for p in parts}
-    insufficient=data['insufficient'] or bool(required-found) or any(not p['context_complete'] for p in parts)
+    insufficient=data['insufficient'] or bool(required-found) or bool(available-present) or any(not p['context_complete'] for p in parts)
     found_facets=set().union(*(contract_facets(p) for p in parts))
     missing_facets=requested_contract_facets(question)-found_facets
     issues=scope_issues(question,parts)
@@ -198,4 +218,7 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     ranks = {p['rank'] for p in parts}
     return GenerationResult('\n\n'.join(lines),provider,model,literal_source_answer=True,
         selected_evidence=tuple(dict(row) for row in contexts if row['rank'] in ranks),
-        evidence_limitations=limitations)
+        evidence_limitations=limitations,
+        agent_trace=({'agent':'evidence_coverage_completion','provider':'rules',
+                      'status':'supplemented','added_ranks':added,
+                      'scope':'whole retrieved source units only; maximum four selected IDs'},) if added else ())

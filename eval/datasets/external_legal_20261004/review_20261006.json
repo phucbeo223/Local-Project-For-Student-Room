@@ -1,0 +1,230 @@
+{
+  "reference_sha256": "876e38dba5c2faeba797d02503680b82c1eb7d6bd30b148737cf47db84e36983",
+  "reference_version": "external-legal-user-2026-10-06",
+  "original_answers_unchanged": true,
+  "policy": "Review flags do not rewrite answers or silently boost text agreement. Unsupported selected-source claims mean verification is still needed, not proof that no law exists. Basic rental guidance only; no form drafting.",
+  "source_basis": [
+    "docs/legal_word_priority7_corpus_v13_20261006/manifest.json",
+    "docs/FOCUS3_IMPROVEMENT_20261006.md",
+    "https://xaydungchinhsach.chinhphu.vn/muc-phat-hanh-vi-khong-thuc-hien-dung-quy-dinh-cua-phap-luat-ve-dang-ky-tam-tru-119251104164040733.htm",
+    "https://cskh.evnspc.vn/TinTuc/TinTucChiTiet?LoaiTinBai=ALL&MaTinBai=3103"
+  ],
+  "cases": [
+    {
+      "original_question_id": 19,
+      "reference_id": 1,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+    },
+    {
+      "original_question_id": 20,
+      "reference_id": 2,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+    },
+    {
+      "original_question_id": 21,
+      "reference_id": 3,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+    },
+    {
+      "original_question_id": 22,
+      "reference_id": 4,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Hoàn/khấu trừ cọc phụ thuộc mục đích bảo đảm, nghĩa vụ và thỏa thuận; Điều 328 không phải danh sách đóng tất cả tình huống khấu trừ. Tách khuyến nghị bàn giao khỏi quy định luật."
+    },
+    {
+      "original_question_id": 23,
+      "reference_id": 5,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Mệnh đề không vượt hóa đơn nhưng lại cộng hao hụt có thể tự mâu thuẫn; nguồn Điều 12 khoản 5 TT60 không xác nhận khoản cộng thêm này. Giữ điều kiện chuyển tiếp trước khi áp bậc giá."
+    },
+    {
+      "original_question_id": 24,
+      "reference_id": 6,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+    },
+    {
+      "original_question_id": 25,
+      "reference_id": 7,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+    },
+    {
+      "original_question_id": 26,
+      "reference_id": 8,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Nguồn EVNSPC Cần Thơ hướng dẫn công khai cách tính theo hóa đơn; chưa chứng minh mọi chủ trọ bị luật buộc lập bảng kê đủ bốn trường hoặc cho người thuê cùng chốt công tơ. Tách quyền thông tin trong giao dịch kinh doanh và khuyến nghị đối chiếu."
+    },
+    {
+      "original_question_id": 27,
+      "reference_id": 9,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Cần xác minh phạm vi Cần Thơ sau sắp xếp, nhà cung cấp và biểu giá hiện hành. Mức 4 m3/người/tháng và phần trăm phụ phí không được dùng làm mức chung nếu thiếu nguồn."
+    },
+    {
+      "original_question_id": 28,
+      "reference_id": 10,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Chưa có khảo sát có phương pháp xác nhận 30–50 nghìn/người là mức phổ biến hoặc 3–5 m3 là tiêu thụ thực tế. Khoán, hóa đơn, số người và điều kiện đổi mức thu là nội dung kiểm tra/thỏa thuận; không tạo ngưỡng đắt trái luật."
+    },
+    {
+      "original_question_id": 29,
+      "reference_id": 11,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Hai phương án có thể là khuyến nghị thỏa thuận, không phải hai phương án luật bắt buộc hoặc chứng minh tối ưu. Cần phân biệt hóa đơn nhà cung cấp, đồng hồ phụ và phân bổ hao hụt theo thỏa thuận."
+    },
+    {
+      "original_question_id": 30,
+      "reference_id": 12,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Hướng dẫn tra cứu phải gắn đúng nhà cung cấp; không mặc nhiên mọi địa bàn dùng CANTHOWASSCO. Không yêu cầu truy cập thông tin/hóa đơn không được chủ tài khoản cho phép."
+    },
+    {
+      "original_question_id": 31,
+      "reference_id": 13,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Điều 27 nêu sinh sống từ 30 ngày trở lên là điều kiện đăng ký; không tự đổi thành thời hạn nộp hồ sơ trong 30 ngày nếu không có căn cứ riêng."
+    },
+    {
+      "original_question_id": 32,
+      "reference_id": 14,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Điều 9: nghĩa vụ công dân; Điều 10: chủ hộ hỗ trợ, không đồng nhất mọi chủ trọ với chủ hộ. Yêu cầu giấy tờ còn phụ thuộc dữ liệu đã có. Căn cứ xử phạt cần đối chiếu NĐ282/2025 có hiệu lực 15/12/2025 thay vì chỉ dẫn NĐ144/2021; không cần thêm phạt trong câu hỏi ai cung cấp."
+    },
+    {
+      "original_question_id": 33,
+      "reference_id": 15,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+    },
+    {
+      "original_question_id": 34,
+      "reference_id": 16,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Cần nguồn riêng cho tự động xóa tại nơi cũ, điều chỉnh cùng phường và thời hạn 30 ngày; không suy ra từ điều kiện sinh sống 30 ngày. Không hướng dẫn điền tờ khai."
+    },
+    {
+      "original_question_id": 35,
+      "reference_id": 17,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+    },
+    {
+      "original_question_id": 36,
+      "reference_id": 18,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Hai lối thoát và ít nhất hai bình mỗi tầng chưa được chứng minh là yêu cầu chung cho mọi nhà nhiều phòng; cần quy mô, số tầng, diện tích, công năng và quy chuẩn tương ứng."
+    },
+    {
+      "original_question_id": 37,
+      "reference_id": 19,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Tách lối bị chặn khi chưa cháy với tình huống cháy khẩn cấp. Nguồn có thông thoáng, cầu thang bộ, kẹt phòng và 114; hộp khóa đập kính và kênh xử phạt cụ thể cần nguồn riêng, không tự thêm."
+    },
+    {
+      "original_question_id": 38,
+      "reference_id": 20,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+    },
+    {
+      "original_question_id": 43,
+      "reference_id": 21,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Phân biệt cá nhân môi giới, doanh nghiệp và quyền khách hàng; thông tin/chứng chỉ và phí phải đọc đúng đối tượng. Không chuyển thù lao cá nhân làm việc với doanh nghiệp thành phí người thuê."
+    },
+    {
+      "original_question_id": 44,
+      "reference_id": 22,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Khuyến nghị không trả trước khi xác minh là phù hợp nguồn; chưa có số liệu chứng minh phí thông thường do chủ trọ trả hoặc mọi giao dịch phải trực tiếp, loại trừ ủy quyền."
+    },
+    {
+      "original_question_id": 45,
+      "reference_id": 23,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Quyền từ chối, hoàn phí và bồi thường phụ thuộc thỏa thuận, vi phạm và thiệt hại; không coi mọi mô tả sai tự động cho quyền không trả mọi phí và hoàn 100%."
+    },
+    {
+      "original_question_id": 46,
+      "reference_id": 24,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Phải tách nghĩa vụ ghi nội dung hợp đồng dịch vụ với điều kiện phí sau ký thuê thành công/hoàn tiền: các điều kiện đó cần thỏa thuận hoặc căn cứ cụ thể, không tự thành quy tắc bắt buộc."
+    },
+    {
+      "original_question_id": 47,
+      "reference_id": 25,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+    },
+    {
+      "original_question_id": 48,
+      "reference_id": 26,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Các bước báo tin/kênh hỗ trợ phụ thuộc nền tảng. 24 giờ gỡ tin trong nguồn gắn yêu cầu cơ quan có thẩm quyền, không phải cam kết mọi báo cáo người dùng; link tin/điện thoại người báo không đồng nhất ID tin/điện thoại người đăng."
+    },
+    {
+      "original_question_id": 49,
+      "reference_id": 27,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Giữ đúng loại nền tảng. Xác thực điện tử nguồn NĐ248 áp dụng từ 01/01/2027; không trình bày là đã bắt buộc ngày 06/10/2026. 24 giờ cung cấp dữ liệu cần yêu cầu cơ quan và loại nền tảng tương ứng."
+    },
+    {
+      "original_question_id": 50,
+      "reference_id": 28,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+    },
+    {
+      "original_question_id": 51,
+      "reference_id": 29,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Không coi mọi trường ngày/nơi cấp, điện thoại, thông tin cha mẹ là dữ liệu tối thiểu bắt buộc cho mọi giao dịch. Thu thập đúng mục đích và căn cứ; giải thích cơ bản, không điền tờ khai."
+    },
+    {
+      "original_question_id": 52,
+      "reference_id": 30,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Điều 15 khoản 2 và Điều 17 có trường hợp cung cấp/chuyển giao hợp pháp; không cấm tuyệt đối mọi bên thứ ba. Mục đích phải cụ thể, lưu đủ thời gian cần thiết và bảo vệ. Chưa có căn cứ rằng watermark ngăn được việc lạm dụng."
+    },
+    {
+      "original_question_id": 53,
+      "reference_id": 31,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Không được bêu riếu/trái mục đích nhưng luật Điều 16 có các trường hợp công khai hợp pháp; không kết luận mọi công khai đều cấm. Căn cứ/mức phạt cần xác minh hiện hành."
+    },
+    {
+      "original_question_id": 54,
+      "reference_id": 32,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Ưu tiên quyền yêu cầu chấm dứt, hạn chế/xóa theo điều kiện và lưu chứng cứ. Vi bằng, thủ tục tố cáo chuyên sâu và tên cơ quan cần cập nhật; không mặc định xóa ngay trong mọi trường hợp."
+    },
+    {
+      "original_question_id": 55,
+      "reference_id": 33,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+    },
+    {
+      "original_question_id": 56,
+      "reference_id": 34,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+    },
+    {
+      "original_question_id": 57,
+      "reference_id": 35,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Thủ đoạn, ý định chiếm đoạt và chứng cứ quyết định phân biệt; không suy ra mọi cắt liên lạc là tội phạm. Tên TAND quận/huyện cần cập nhật theo tổ chức hiện hành; tránh tư vấn tố tụng chuyên sâu."
+    },
+    {
+      "original_question_id": 58,
+      "reference_id": 36,
+      "review_status": "scope_and_high_risk_claims_reviewed_not_certified_ground_truth",
+      "review_note": "Nhiều người bị hại không tự chứng minh tính chuyên nghiệp hoặc tự động một khung tăng nặng. Tổng hợp giao dịch/chứng cứ hữu ích; không lập đơn tập thể hoặc kết luận định tội thay cơ quan có thẩm quyền."
+    }
+  ]
+}

@@ -397,7 +397,8 @@ class ChatRepository:
         core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
         from .topics import user_listing_check_question
         from .evidence_units import platform_reporting_question
-        if user_listing_check_question(query) or platform_reporting_question(query):
+        from .evidence_units import practical_facets
+        if user_listing_check_question(query) or platform_reporting_question(query) or any(practical_facets(query, r) for r in rows):
             core_limit = max(1, limit - 1)
         # Relevance filtering runs first; diversity never introduces an unrelated row.
         rows = diversified_legal_rows(query, rows, core_limit) + rows
@@ -415,6 +416,9 @@ class ChatRepository:
                     or (item.get('category')=='housing_contract' and 'coc' in normalize_text(query) and 'dat coc' in whole_heading)
                     or (item.get('category')=='fire_safety' and any(term in whole_heading for term in ('phong chay doi voi nha o','phong chay doi voi co so')))
                     or (item.get('category')=='privacy_data' and any(term in whole_heading for term in ('yeu cau rut lai','thuc hien quyen cua chu the','cung cap du lieu ca nhan','cong khai du lieu ca nhan')))))
+                if item.get('category') == 'privacy_data' and 'nguyen tac bao ve' in whole_heading and any(
+                        t in normalize_text(query) for t in ('luu', 'su dung', 'anh can cuoc')):
+                    include_article = self.legal_schema != 'public'
                 group = (item["document_id"], article_heading if include_article else re.sub(r' \| Điểm [a-zđ]$', '', item.get('heading') or '') or item['chunk_id'])
                 if group in seen:
                     continue

@@ -38,6 +38,16 @@ def water_invoice_lookup_question(query: str) -> bool:
 def expand_legal_query(query: str) -> str:
     value = normalize_text(query)
     additions: list[str] = []
+    if 'nuoc' in value and any(t in value for t in ('dau nguoi', 'dung chung', 'phan chia', 'khoan')):
+        additions.append('nguyên tắc tự do tự nguyện thỏa thuận nội dung hợp đồng giá phương thức thanh toán quyền người tiêu dùng hóa đơn chứng từ tiền nước')
+    if 'tien dien' in value and any(t in value for t in ('thong bao', 'cach tinh', 'so dien')):
+        additions.append('công khai cách tính hóa đơn chỉ số đo đếm quyền người tiêu dùng thông tin giao dịch')
+    if 'tam tru' in value and 'cung cap' in value and 'trach nhiem' in value:
+        additions.append('chủ hộ tạo điều kiện hướng dẫn thành viên nghĩa vụ công dân cung cấp đầy đủ chính xác thông tin')
+    if 'thoat nan' in value and any(t in value for t in ('khoa', 'chan')):
+        additions.append('chủ nhà trọ lối thoát thông thoáng không cản trở báo cháy 114 kẹt trong phòng')
+    if 'can cuoc' in value and any(t in value for t in ('luu', 'su dung')):
+        additions.append('nguyên tắc bảo vệ dữ liệu thời gian lưu trữ kỹ thuật cung cấp dữ liệu cá nhân bên khác đồng ý ngoại lệ')
     from .evidence_units import human_reporting_question
     if 'criminal_law' in question_categories(query) and human_reporting_question(query):
         additions.append('khuyến cáo lưu giữ tài liệu tin nhắn chứng từ chuyển tiền lịch sử giao dịch trình báo cơ quan Công an tiếp nhận tố giác')
@@ -158,13 +168,16 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             rental_authority = (row['category'] == 'housing_contract' and 'quyen cho thue' in question
                                 and any(term in heading for term in ('dieu kien', 'ben tham gia'))
                                 and any(term in value for term in ('chu so huu', 'uy quyen', 'cho thue')))
-            from .evidence_units import listing_check_facets
+            from .evidence_units import listing_check_facets, practical_facets
             checking_guidance = user_listing_check_question(query) and bool(listing_check_facets(row))
-            if not primary and not direct and not contract_identity and not rental_authority and not checking_guidance and not (own_evidence and overlap >= 0.2):
+            practical = bool(practical_facets(query, row))
+            if not primary and not direct and not contract_identity and not rental_authority and not checking_guidance and not practical and not (own_evidence and overlap >= 0.2):
                 row["similarity_score"] = 0.0
                 continue
             base = 0.5 * base + 0.3 * overlap + (0.18 if primary else 0.1)
             base += 0.12 * heading_overlap
+            if practical:
+                base += .6
             if user_listing_check_question(query):
                 if any(has_phrase(value, p) for p in ('kiem tra', 'xac minh', 'canh giac', 'tim hieu')):
                     base += .8
@@ -285,7 +298,8 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                 continue
             if heading and any(has_phrase(heading, p) for p in TOPICS.get(categories[0], ())):
                 base += 0.1
-        if rental:
+        from .evidence_units import practical_facets
+        if rental and not practical_facets(query, row):
             if not rental_evidence(str(row.get("heading") or "") + " " + row["content"]):
                 row["similarity_score"] = 0.0
                 continue
@@ -307,6 +321,14 @@ def diversified_legal_rows(query: str, rows: list[dict], limit: int) -> list[dic
     """Reserve a relevant candidate for each explicit facet before extra matches."""
     categories = required_evidence_categories(query)
     reserved = []
+    from .evidence_units import practical_facets
+    # One high-ranked complete source for each distinct practical question facet.
+    # Deduplication below prevents a whole article from consuming several slots.
+    needed_facets = sorted(set().union(*(practical_facets(query, row) for row in rows)))
+    for facet in needed_facets:
+        candidate = next((row for row in rows if facet in practical_facets(query, row)), None)
+        if candidate is not None:
+            reserved.append(candidate)
     if user_listing_check_question(query):
         from .evidence_units import listing_check_facets
         for facet in ('account', 'image', 'contact', 'price'):
@@ -403,13 +425,19 @@ def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
         issues.append('Số khoản được khẳng định không khớp khoản của nguồn trích dẫn.')
     evidence = normalize_text(' '.join(str(row.get('heading') or '') + ' ' + row['content'] for row in cited))
     normative = re.search(r'\b(?:phai|bat buoc|co nghia vu|nghia vu cua|co trach nhiem|trach nhiem cua)\b', norm)
-    if re.search(r'\bchi (?:duoc|co quyen|co the|phai)\b',norm) and not re.search(r'\bchi\b',evidence):
+    if re.search(r'\bchi (?:duoc|co quyen|co the|phai|ap dung)\b',norm) and not re.search(r'\bchi\b',evidence):
         issues.append('Nguồn nêu một trường hợp cụ thể, chưa loại trừ các căn cứ khác; không tự kết luận chỉ được áp dụng trong trường hợp đó.')
-    if normative and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam')):
+    imperative_protection = ('nguyen tac bao ve du lieu ca nhan' in evidence
+                             and 'thuc hien dong bo' in evidence and 'bien phap' in evidence)
+    validity_conditions = 'dieu kien co hieu luc' in evidence and 'co hieu luc khi co du cac dieu kien' in evidence
+    conditional_consent = ('dong y' in norm and 'khi duoc' in evidence and 'dong y' in evidence)
+    if normative and not (imperative_protection or validity_conditions or conditional_consent) and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam', 'chi duoc')):
         issues.append('Nguồn mô tả nội dung/công việc chưa xác nhận nghĩa vụ được khẳng định.')
     if any(has_phrase(norm, p) for p in ('co quyen', 'duoc phep')) and not any(has_phrase(evidence, p) for p in ('quyen', 'duoc', 'cho phep')):
         issues.append('Nguồn được trích chưa xác nhận quyền hoặc sự cho phép được khẳng định.')
-    if normative and any(has_phrase(norm, p) for p in ('nguoi thue', 'ben thue')):
+    tenant_obligation = (re.search(r'\b(?:nguoi thue|ben thue)\b[^,;]{0,60}\b(?:phai|bat buoc|co nghia vu|co trach nhiem)\b', norm)
+                         or re.search(r'\b(?:nghia vu|trach nhiem) cua (?:nguoi thue|ben thue)\b', norm))
+    if tenant_obligation:
         if any(has_phrase(evidence, p) for p in ('uy ban nhan dan', 'co quan cong an')) and not any(has_phrase(evidence, p) for p in ('nguoi thue', 'ben thue', 'nguoi su dung')):
             issues.append('Không chuyển trách nhiệm của cơ quan kiểm tra thành nghĩa vụ của người thuê.')
     if any(re.search(r'(?:\btru(?: truong(?: hop)?)?|\btheo quy|\btru tru[o]?)[ .…]*$', normalize_text(row['content'])) for row in cited):
@@ -461,7 +489,10 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             # legal entitlement, deadline or amount. Legal premises stay checked.
             contract_fact_question = (re.search(r'\bhop dong\b.*\b(?:dieu khoan|quy dinh|thoa thuan)\b', segment_normalized)
                                       and not re.search(r'\b(?:phai|bat buoc|duoc phep|co quyen|co nghia vu)\b', segment_normalized))
-            if segment.rstrip().endswith('?') and (not legal_assertion or contract_fact_question):
+            agreement_fact_question = (re.search(r'\b(?:ban|cac ben|ben cho thue|chu tro)\b', segment_normalized)
+                and re.search(r'\b(?:da|hien|dang)\b.*\b(?:thoa thuan|thong nhat)\b', segment_normalized)
+                and not re.search(r'\b(?:phai|bat buoc|duoc phep|co quyen|co nghia vu)\b', segment_normalized))
+            if segment.rstrip().endswith('?') and (not legal_assertion or contract_fact_question or agreement_fact_question):
                 continue
             limitation = any(term in segment_normalized for term in ("chua tim thay", "chua du can cu", "khong du can cu", "chua xac minh", "chua ket luan"))
             advice = any(term in segment_normalized for term in ("kiem tra", "doi chieu", "khuyen nghi", "loi khuyen"))
@@ -492,16 +523,35 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             if not (str(commencement.year) in segment_normalized and any(t in segment_normalized for t in ('tu ngay', 'ke tu', 'ap dung tu'))
                     or any(t in segment_normalized for t in ('chua ap dung', 'chua bat buoc'))):
                 issues.append('Quy định xác thực điện tử có mốc áp dụng muộn; phải giữ điều kiện thời gian ngay trong câu khẳng định.')
-        scoped_absence = (any(term in segment_normalized for term in ('chua tim thay can cu', 'chua du can cu', 'chua xac minh'))
-                          or re.search(r'\bnguon(?: tai lieu)?\b.{0,40}\bchua (?:neu|cung cap)\b', segment_normalized))
+        gap_phrases = ('chua tim thay can cu', 'chua du can cu', 'chua co can cu', 'chua xac minh',
+                       'khong du de xac dinh', 'khong du can cu', 'chua cung cap can cu',
+                       'khong cung cap quy trinh', 'chua cung cap can cu phap ly',
+                       'khong phai dieu luat', 'khong phai quy dinh bat buoc',
+                       'khong phai van ban quy pham phap luat', 'khong the khang dinh',
+                       'khong du de ket luan',
+                       'khong cau thanh quy dinh phap luat bat buoc')
+        source_gap_pattern = (r'\b(?:nguon(?: tai lieu)?|cac tai lieu|tai lieu|doan trich|bieu gia|van ban|huong dan)\b'
+                              r'.{0,120}\b(?:chua|khong) (?:neu|cung cap|xac nhan|quy dinh)\b')
+        source_classification_pattern = (r'\bkhong phai(?: la)? '
+            r'(?:dieu luat|(?:quy dinh|dieu khoan)(?: phap luat| luat)?|van ban quy pham phap luat)\b')
+        scoped_absence = (any(term in segment_normalized for term in gap_phrases)
+                          or re.search(source_gap_pattern, segment_normalized)
+                          or re.search(source_classification_pattern, segment_normalized))
         # A list of missing topics ("mức phạt, bồi thường, hoàn trả") is not
         # an affirmative entitlement. Keep checking any separate modal or
         # actor/action clause appended to the disclosure of missing evidence.
+        # A negated classification ("không phải quy định bắt buộc") contains
+        # modal vocabulary but is not an affirmative obligation. Check separate
+        # actor/action clauses before exempting the source-gap disclosure.
+        affirmative_text = ' ; '.join(p for p in re.split(
+            r'[,;]|\b(?:nhung|tuy nhien|do do|vi vay|va)\b', segment_normalized)
+            if not any(t in p for t in gap_phrases)
+            and not re.search(source_gap_pattern, p) and not re.search(source_classification_pattern, p))
         additional_assertion = re.search(
             r'(?:\bnhung\b|\btuy nhien\b|\bdo do\b|\bvi vay\b|\bva\b|[,;]).*'
-            r'(?:\b(?:phai|bat buoc|co quyen|co nghia vu|bi phat)\b'
+            r'(?:\b(?:phai|bat buoc|co quyen|co nghia vu|bi phat|chi duoc|chi ap dung|chi co the)\b'
             r'|\b(?:chu nha|chu tro|ben cho thue|nguoi thue|ben thue)\b.{0,40}\b(?:boi thuong|hoan tra|hoan lai)\b'
-            r'|\b(?:duoc|se)\s+(?:boi thuong|hoan tra|hoan lai)\b)', segment_normalized)
+            r'|\b(?:duoc|se)\s+(?:boi thuong|hoan tra|hoan lai)\b)', '; '+affirmative_text)
         if scoped_absence and not additional_assertion:
             # A statement about missing evidence cannot share vocabulary with the
             # missing rule. General claims that no law exists are rejected above.
