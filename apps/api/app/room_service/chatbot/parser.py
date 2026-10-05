@@ -83,6 +83,11 @@ def _prices(text: str) -> tuple[int | None, int | None]:
 
 def parse_query(message: str) -> ParsedQuery:
     text = normalize_text(message)
+    # Basic tenant support does not compose documents or perform legal filing.
+    drafting = any(has_phrase(text,t) for t in ('soan','soan thao','viet giup','viet cho','tao mau','dien ho','dien giup','lam giup'))
+    documents = any(has_phrase(text,t) for t in ('hop dong','to khai','don khoi kien','don to cao','don to giac','ho so'))
+    if (drafting and documents) or any(has_phrase(text,t) for t in ('mau to khai','mau hop dong','huong dan dien to khai','dien mau ct01')):
+        return ParsedQuery('out_of_scope', ChatFilters(), 0.98)
     housing_terms = ("phong", "tro", "nha", "thue", "cho o", "can ho", "mat bang", "ctu", "truong")
     legal_terms = (
         "luat", "nghi dinh", "thong tu", "quyet dinh",

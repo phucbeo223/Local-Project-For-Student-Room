@@ -32,6 +32,8 @@ def selection_candidates(contexts):
             candidates[-1]['trigger_verified'] = row.get('trigger_verified', False)
             candidates[-1]['unresolved_references'] = row.get('unresolved_references', [])
             candidates[-1]['source_id'] = row.get('source_id')
+            candidates[-1]['source_content_kind'] = row.get('source_content_kind')
+            candidates[-1]['source_scope_warning'] = row.get('source_scope_warning')
     return candidates
 
 
@@ -95,7 +97,7 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     issues=scope_issues(question,parts)
     if any(p.get('source_id')=='electricity-cantho-guidance' for p in parts):
         issues.append('Chưa đủ căn cứ để kết luận nghĩa vụ thông báo bắt buộc cho mọi chủ trọ từ hướng dẫn công khai cách tính điện tại Cần Thơ; nguồn là hướng dẫn thực tế và chưa xác minh sự kiện kích hoạt quy định điện có điều kiện.')
-    if any(p.get('source_id')=='water215' for p in parts):
+    if any(p.get('source_id') in ('water215','water215-word') for p in parts):
         issues.append('Nguồn giá nước năm 2024: cần xác nhận địa bàn, đơn vị cấp nước và hiệu lực tại thời điểm áp dụng; bảng tiền chưa được dùng để kết luận mức thu.')
     if any(str(p.get('source_id') or '').startswith(('water-cantho-invoice-', 'water-cantho2-invoice-')) for p in parts):
         issues.append('Chưa đủ căn cứ áp dụng hướng dẫn của một đơn vị cấp nước cho mọi nhà trọ; cần xác nhận tên đơn vị trên hóa đơn và đúng cổng tra cứu. Nguồn này không quy định mức thu theo người hoặc cách chia tiền giữa các phòng.')
@@ -128,9 +130,13 @@ def render_selection(question,contexts,candidates,raw,provider,model):
         lines.append('Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng; cần đối chiếu phần còn thiếu.')
         lines.extend(issues)
     lines.append('Thông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.')
+    source_notices = [p['source_scope_warning'] for p in parts if p.get('source_scope_warning')]
+    if source_notices:
+        lines.extend(dict.fromkeys(source_notices))
     limitations = tuple(dict.fromkeys([
         *(['Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng.'] if insufficient else []),
         *issues,
+        *source_notices,
     ]))
     ranks = {p['rank'] for p in parts}
     return GenerationResult('\n\n'.join(lines),provider,model,literal_source_answer=True,

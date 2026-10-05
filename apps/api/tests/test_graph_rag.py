@@ -105,7 +105,7 @@ def test_rental_payment_question_retains_price_and_deadline_from_same_article(gr
     rows=graph_repo.retrieve_legal('Hợp đồng thuê phòng có cần ghi rõ tiền thuê, tiền cọc và ngày thanh toán không?',None)
     contract=[row for row in rows if 'Hợp đồng về nhà ở' in (row.get('heading') or '')]
     assert contract
-    # The original PDF's OCR splits "dịch"; retain its literal source wording.
+    # Native Word must retain both price and payment conditions.
     assert any('Giá trị góp vốn' in row['content'] and 'phương thức thanh toán' in row['content'] for row in contract)
     assert all(len(row['content'])<=5500 for row in contract)
 
@@ -113,10 +113,15 @@ def test_deposit_question_retains_return_and_forfeiture_conditions(graph_repo):
     rows=graph_repo.retrieve_legal('Tiền cọc trong hợp đồng thuê được trả lại hay mất trong trường hợp nào?',None)
     deposit=[row for row in rows if 'Đặt cọc' in (row.get('heading') or '')]
     assert deposit
-    assert any('trả lại' in row['content'] and 'thuộc về' in row['content'] and 'thoả thuận khác' in row['content'] for row in deposit)
-    assert all(row['page_from']==86 and row['page_to']==87 for row in deposit)
+    from app.room_service.chatbot.legal_retrieval import normalize_text
+    assert any(all(term in normalize_text(row['content']) for term in
+        ('tra lai', 'thuoc ve', 'thoa thuan khac')) for row in deposit)
+    assert all(row['source_id']=='civil91-word' and row['page_kind']=='logical_document'
+        and row['page_from']==row['page_to']==1 for row in deposit)
 
-def test_invoice_check_retrieves_actual_published_guidance(graph_repo):
+def test_invoice_check_retrieves_word_rental_billing_rule_and_commencement(graph_repo):
     rows=graph_repo.retrieve_legal('Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?',None)
-    guidance=[row for row in rows if row.get('source_id')=='electricity-cantho-guidance']
-    assert guidance and 'đối chiếu' in guidance[0]['content'] and 'hóa đơn' in guidance[0]['content']
+    guidance=[row for row in rows if row.get('source_id')=='electricity60-word']
+    assert any('không được vượt quá' in row['content'] and 'hoá đơn tiền điện' in row['content'] for row in guidance)
+    assert any('ngày thực hiện điều chỉnh' in row['content'] for row in guidance)
+    assert all(row['page_kind']=='logical_document' for row in guidance)

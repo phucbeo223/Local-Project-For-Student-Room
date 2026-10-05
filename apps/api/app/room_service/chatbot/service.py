@@ -400,7 +400,7 @@ class ChatService:
         graph_trace = None
         retrieval_mode = "rule"
         if parsed.intent == "out_of_scope":
-            answer = "Mình chỉ hỗ trợ tìm và so sánh nhà trọ quanh Đại học Cần Thơ."
+            answer = "Mình hỗ trợ tìm, so sánh nhà trọ quanh Đại học Cần Thơ và giải thích pháp lý thuê trọ cơ bản; không soạn hợp đồng, điền tờ khai hoặc thực hiện thủ tục pháp lý chuyên sâu."
             confidence = 0.0
             generation_provider = "rule"
             generation_model = None

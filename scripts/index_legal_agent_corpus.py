@@ -85,7 +85,7 @@ def main():
         assert len(vectors)==len(chunks) and all(len(v)==384 for v in vectors)
         doc=ExtractedDocument(path,entry['file'],source['title'],source['category'],'structured_json','application/json',
                               entry['sha256'],tuple(ExtractedPage(n,'',source.get('page_kind')=='physical_pdf')
-                              for n in range(1,source.get('pages',1)+1)), 'tesseract' if 'OCR' in source['extraction'] else None)
+                              for n in range(1,source.get('pages',1)+1)), 'tesseract' if source.get('ocr_used', 'OCR' in source['extraction']) else None)
         doc_id=repo.replace_document(doc,chunks,vectors,settings.chatbot_embedding_model)
         with engine.begin() as conn:
             conn.execute(text(f'UPDATE {schema}.legal_documents SET source_metadata=CAST(:meta AS jsonb) WHERE id=:id'),

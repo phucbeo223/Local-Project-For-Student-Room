@@ -13,7 +13,11 @@ $previousCrawlerEnabled = $env:CRAWLER_ENABLED
 function Invoke-Compose {
     param([Parameter(Mandatory = $true)][string[]]$ComposeArgs)
 
-    & docker compose @ComposeArgs
+    $releaseCompose = @('-f','docker-compose.yml')
+    foreach($file in @('docker-compose.override.yml','docker-compose.ragas.yml','docker-compose.legal-refresh.yml','docker-compose.graph-rag.yml','docker-compose.source-grounded.yml','docker-compose.word-legal.yml')){
+        if(Test-Path -LiteralPath $file){$releaseCompose += @('-f',$file)}
+    }
+    & docker compose @releaseCompose @ComposeArgs
     if ($LASTEXITCODE -ne 0) {
         throw "docker compose $($ComposeArgs -join ' ') failed with exit code $LASTEXITCODE"
     }
@@ -76,8 +80,7 @@ try {
     }
 
     if ($IndexLegal) {
-        Write-Host "Indexing OCR/legal corpus from Data/..."
-        Invoke-Compose -ComposeArgs @("--profile", "tools", "run", "--rm", "legal-indexer")
+        throw 'The active release is Word-only. Rebuild it with prepare_word_legal_corpus.py, index_legal_agent_corpus.py and index_graph_rag.py as documented; the old mixed OCR indexer is disabled here.'
     }
 
     $appArgs = @("up", "-d")

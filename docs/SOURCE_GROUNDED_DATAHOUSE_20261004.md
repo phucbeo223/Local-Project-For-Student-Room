@@ -1,5 +1,7 @@
 # Datahouse làm kho chính và Graph RAG chỉ dùng nguồn có xuất xứ
 
+> Tài liệu này lưu kết quả lịch sử v15. Các kho `legal_v6_20261005` và `graph_rag_v4` đã được thay thế và xóa khỏi DB. Phiên bản đang chạy dùng [Word và pháp lý thuê trọ cơ bản](WORD_ONLY_TENANT_SUPPORT_20261005.md); không dùng các lệnh dựng corpus cũ dưới đây cho phiên bản hiện tại.
+
 Nhánh `codex/source-grounded-datahouse-20261004` tiếp tục từ bản Graph RAG đã đẩy lên GitHub cá nhân. Mục tiêu là cải thiện truy xuất và câu trả lời thực hành có nguồn; đáp án người dùng chỉ dùng để đối chiếu sau sinh, không trở thành tài liệu truy xuất hay câu trả lời cài sẵn.
 
 ## Dữ liệu đang dùng

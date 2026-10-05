@@ -323,7 +323,7 @@ class ChatRepository:
             params["query_vector"] = _vector_literal(vector)
         else:
             vector_sql = "0"
-        metadata_sql = "d.source_metadata->>'source_url' AS source_url,d.source_metadata->>'page_kind' AS page_kind,d.source_metadata->>'id' AS source_id," if self.legal_schema != "public" else ""
+        metadata_sql = "d.source_metadata->>'source_url' AS source_url,d.source_metadata->>'page_kind' AS page_kind,d.source_metadata->>'id' AS source_id,d.source_metadata->>'source_content_kind' AS source_content_kind,d.source_metadata->>'source_scope_warning' AS source_scope_warning," if self.legal_schema != "public" else ""
         provision_sql = "c.parent_content,c.provision_id,c.source_metadata AS provision_metadata," if self.legal_schema != "public" else ""
         base_sql = (
             "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"

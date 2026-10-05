@@ -315,7 +315,10 @@ def legal_completion_status(answer: str) -> str:
     """Report incomplete answers independently of provider or citation validity."""
     # A quoted statutory condition is evidence, not the assistant's abstention.
     visible = re.sub(r'“[^”]*”|"[^"\n]*"', '', answer, flags=re.S)
-    limitation = re.compile(r'\b(?:chua (?:tim thay|co (?:can cu|du lieu|thong tin)|du can cu|xac minh|ket luan|tong hop)|khong (?:du can cu|the ket luan))\b')
+    # This fixed application notice describes provenance, not a missing answer
+    # facet. Keep it visible to users, but do not conflate the two statuses.
+    visible = visible.replace('Nguồn là bản Word/trích tuyển được cung cấp, chưa xác minh toàn bộ câu chữ với bản chính thức; không coi ghi chú biên tập là quy định pháp luật.', '')
+    limitation = re.compile(r'\b(?:chua (?:tim thay|co (?:can cu|du lieu|thong tin|nguon)|du can cu|xac minh|ket luan|tong hop)|khong (?:du can cu|the ket luan))\b')
     if not limitation.search(normalize_text(visible)):
         return 'complete'
     supported = []

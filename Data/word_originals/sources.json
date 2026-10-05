@@ -1,0 +1,32 @@
+[
+  {
+    "category": "housing_contract",
+    "download_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/?download=1&id=0",
+    "path": "Data/word_originals/civil91-word.doc",
+    "id": "civil91-word",
+    "source_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/",
+    "tls_verified": true,
+    "retrieved_at_utc": "2026-10-05T11:52:47.6612629Z",
+    "sha256": "f800141c4107c1c03c9009eddf3fc3dbed0001da8f7670f924b3d8089c649c35"
+  },
+  {
+    "category": "fire_safety",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRhmuVum67-Bn9VEkAaeLh1gasFxkOucOYCjY8cL61eq7iJe54o0El413son5KANH1E3Ur_ZI6rhthk3s5Z_JpLw~~&file_name=2024_1535+%2b+1536_55-2024-QH15.doc",
+    "path": "Data/word_originals/fire55-word.doc",
+    "id": "fire55-word",
+    "source_url": "https://congbao.chinhphu.vn/van-ban-dang-cong-bao/quoc-hoi-c31/trang-19.htm",
+    "tls_verified": true,
+    "retrieved_at_utc": "2026-10-05T11:52:48.6121973Z",
+    "sha256": "20c798987a98eb1b0bf7d9526656de54e2fd928fd00110f242abc9af571af6ce"
+  },
+  {
+    "category": "residence",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRNrNSxQZcIVxROlbOBMPyFCakHIAcxbiImTALBx5katzIlwtElvJCWxXpfDiVJl4Br2g7oT6pC-CQC6BvsNJdmw~~&file_name=2020_1179+%2b+1180_68-2020-QH14.doc",
+    "path": "Data/word_originals/residence68-word.doc",
+    "id": "residence68-word",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684/33716.htm",
+    "tls_verified": true,
+    "retrieved_at_utc": "2026-10-05T11:52:49.1388386Z",
+    "sha256": "7fc5cda418466120284106896ad8aba938abc1174f8eb591a35a6e1435745d75"
+  }
+]
