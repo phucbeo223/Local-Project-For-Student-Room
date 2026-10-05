@@ -24,9 +24,22 @@ def has_phrase(text: str, phrase: str) -> bool:
     return re.search(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", text) is not None
 
 
+def user_listing_check_question(query: str) -> bool:
+    """A renter checking a post is distinct from a platform's legal duties."""
+    text = normalize_text(query)
+    return (any(has_phrase(text, p) for p in ('kiem tra', 'xac minh', 'doi chieu'))
+            and any(has_phrase(text, p) for p in ('nguoi dang', 'nguon tin', 'tin dang', 'tai khoan'))
+            and any(has_phrase(text, p) for p in ('nen tang', 'truc tuyen', 'tren mang', 'qua mang'))
+            and not any(has_phrase(text, p) for p in ('trach nhiem cua nen tang', 'nen tang co trach nhiem')))
+
+
 def question_categories(query: str) -> tuple[str, ...]:
     text = normalize_text(query)
     found = [key for key, phrases in TOPICS.items() if any(has_phrase(text, p) for p in phrases)]
+    if user_listing_check_question(query):
+        # Include published rental/fraud checking advice; do not route a human
+        # checklist exclusively to provisions imposing duties on the operator.
+        found = list(dict.fromkeys(['criminal_law', *found, 'housing_contract']))
     # Contracts and identity documents often accompany a more specific question.
     # Keep them as supporting categories, rather than replacing the primary topic.
     if "criminal_law" in found and "housing_contract" not in found:
@@ -41,6 +54,10 @@ def required_evidence_categories(query: str) -> tuple[str, ...]:
     text = normalize_text(query)
     requested = []
     for category in question_categories(query):
+        if category == 'ecommerce_platform' and user_listing_check_question(query):
+            # An online platform is the setting of the practical question, not
+            # a request for statutory duties of its operator.
+            continue
         if category=='housing_contract' and any(t in text for t in ('dau hieu rui ro','khong cho xem phong')) and not has_phrase(text,'hop dong'):
             continue
         phrases = TOPICS[category]

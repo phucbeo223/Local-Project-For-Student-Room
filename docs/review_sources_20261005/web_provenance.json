@@ -1,0 +1,173 @@
+[
+  {
+    "id": "S01",
+    "requested_url": "https://trogiup.chotot.com/nguoi-mua/meo-khi-thue-phong/",
+    "resolved_url": "https://trogiup.chotot.com/nguoi-mua/meo-khi-thue-phong/",
+    "http_status": 200,
+    "response_sha256": "b42f81179e8a820a622badbbb255e6830d5cef3b70801aaad322b03216a5bd7c",
+    "retrieved_at_utc": "2026-10-05T15:15:09.687178+00:00",
+    "tls_verified": true,
+    "html_title": "Mẹo khi thuê phòng - Trợ Giúp Chợ Tốt",
+    "body_bytes": 101131
+  },
+  {
+    "id": "S02",
+    "requested_url": "https://library.hust.edu.vn/vi/node/822",
+    "resolved_url": "https://library.hust.edu.vn/vi/node/822",
+    "http_status": 200,
+    "response_sha256": "c226d880dbfb69351b55b70979a520a5ca113f46001acd2f9ffbdb72022004c6",
+    "retrieved_at_utc": "2026-10-05T15:15:09.545777+00:00",
+    "tls_verified": true,
+    "html_title": "Kinh nghiệm tìm nhà trọ cho tân sinh viên | Thư viện",
+    "body_bytes": 27665
+  },
+  {
+    "id": "S03",
+    "requested_url": "https://cskh.evnspc.vn/TraCuu/ThongTinGiaDien",
+    "resolved_url": "https://cskh.evnspc.vn/TraCuu/ThongTinGiaDien",
+    "http_status": 200,
+    "response_sha256": "e47517501dd45d28d46b099eecfc5d6e509ce306333bdb392c1ceab2a2707b55",
+    "retrieved_at_utc": "2026-10-05T15:15:09.367338+00:00",
+    "tls_verified": true,
+    "html_title": "Trung tâm CSKH Điện lực miền Nam",
+    "body_bytes": 118257
+  },
+  {
+    "id": "S04",
+    "requested_url": "https://trogiup.chotot.com/nguoi-mua/co-che-giai-quyet-tranh-chap-cua-cho-tot/",
+    "resolved_url": "https://trogiup.chotot.com/nguoi-mua/co-che-giai-quyet-tranh-chap-cua-cho-tot/",
+    "http_status": 200,
+    "response_sha256": "99aa1a8b361a616c284c6aae4fac9b1235575f51be9e84a1f2719db1564801e4",
+    "retrieved_at_utc": "2026-10-05T15:15:09.699196+00:00",
+    "tls_verified": true,
+    "html_title": "Cơ chế giải quyết tranh chấp của Chợ Tốt - Trợ Giúp Chợ Tốt",
+    "body_bytes": 98904
+  },
+  {
+    "id": "S05",
+    "requested_url": "https://hddt.ctn-cantho.com.vn/huong-dan",
+    "resolved_url": "https://hddt.ctn-cantho.com.vn/huong-dan",
+    "http_status": 200,
+    "response_sha256": "7019ebaf9f80745166146a3f0735c0012bd698f5eb8bdd740bdefb21fccbb6ed",
+    "retrieved_at_utc": "2026-10-05T15:15:09.497408+00:00",
+    "tls_verified": true,
+    "html_title": "Hóa đơn điện tử - Công ty Cổ phần Cấp thoát nước Cần Thơ",
+    "body_bytes": 21586
+  },
+  {
+    "id": "S06",
+    "requested_url": "https://ctn-cantho.com.vn/tin-khoa-hoc-cong-nghe/huong-dan-cai-dat-ung-dung-cham-soc-khach-hang-ctwcare-822.html",
+    "resolved_url": "https://ctn-cantho.com.vn/tin-khoa-hoc-cong-nghe/huong-dan-cai-dat-ung-dung-cham-soc-khach-hang-ctwcare-822.html",
+    "http_status": 200,
+    "response_sha256": "224f2769743576137d317ccaea9f153dc8427cd07329aed67bc5d2ac8fefa7fc",
+    "retrieved_at_utc": "2026-10-05T15:15:09.982859+00:00",
+    "tls_verified": true,
+    "html_title": "Hướng dẫn cài đặt ứng dụng Chăm sóc khách hàng CTWCare",
+    "body_bytes": 75542
+  },
+  {
+    "id": "S07",
+    "requested_url": "https://ctn-cantho.com.vn/Tin-hoat-dong-cong-ty/gia-nuoc-sach-khu-vuc-do-thi-va-nong-thon-nam-2024-690.html",
+    "resolved_url": "https://ctn-cantho.com.vn/Tin-hoat-dong-cong-ty/gia-nuoc-sach-khu-vuc-do-thi-va-nong-thon-nam-2024-690.html",
+    "http_status": 200,
+    "response_sha256": "ef2203a274b092bcf9938bf7a77446d1ee8f59b3298d01060bfc7920b61b6107",
+    "retrieved_at_utc": "2026-10-05T15:15:09.978827+00:00",
+    "tls_verified": true,
+    "html_title": "Giá nước sạch khu vực đô thị và nông thôn năm 2024",
+    "body_bytes": 79200
+  },
+  {
+    "id": "S08",
+    "requested_url": "https://trogiup.chotot.com/nguoi-mua/lam-the-nao-de-bao-cao-tin-dang/",
+    "resolved_url": "https://trogiup.chotot.com/nguoi-mua/lam-the-nao-de-bao-cao-tin-dang/",
+    "http_status": 200,
+    "response_sha256": "d4af2d0f55b62c1fe4b247b44c119b867591d3b7b14bec84f477aa6ed031b991",
+    "retrieved_at_utc": "2026-10-05T15:15:10.074730+00:00",
+    "tls_verified": true,
+    "html_title": "Làm thế nào để báo cáo tin đăng? - Trợ Giúp Chợ Tốt",
+    "body_bytes": 105762
+  },
+  {
+    "id": "S09",
+    "requested_url": "https://trogiup.chotot.com/nguoi-mua/nha-tot-bao-ve-nguoi-dung-nhu-the-nao/",
+    "resolved_url": "https://trogiup.chotot.com/nguoi-mua/nha-tot-bao-ve-nguoi-dung-nhu-the-nao/",
+    "http_status": 200,
+    "response_sha256": "3e52a56427d3d24701a3e4e1aabe5450c4f35cb84b89b60cc35721ffbdae24f4",
+    "retrieved_at_utc": "2026-10-05T15:15:10.147308+00:00",
+    "tls_verified": true,
+    "html_title": "Nhà Tốt bảo vệ người dùng như thế nào? - Trợ Giúp Chợ Tốt",
+    "body_bytes": 106275
+  },
+  {
+    "id": "S10",
+    "requested_url": "https://trogiup.chotot.com/nguoi-mua/hoat-dong/",
+    "resolved_url": "https://trogiup.chotot.com/nguoi-mua/hoat-dong/",
+    "http_status": 200,
+    "response_sha256": "3a2fecec649880622b9c0bd59823a8eb60818eae8c8d2f03d33192176e53d25b",
+    "retrieved_at_utc": "2026-10-05T15:15:10.490253+00:00",
+    "tls_verified": true,
+    "html_title": "Quy chế hoạt động website cung cấp dịch vụ thương mại điện tử Chợ Tốt - Trợ Giúp Chợ Tốt",
+    "body_bytes": 189396
+  },
+  {
+    "id": "S11",
+    "requested_url": "https://bocongan.gov.vn/bai-viet/catp-hai-phong-canh-bao-cac-thu-doan-lua-dao-bua-vay-hoc-sinh-tan-sinh-vien-mua-tuu-truong-1787629964",
+    "resolved_url": "https://bocongan.gov.vn/bai-viet/catp-hai-phong-canh-bao-cac-thu-doan-lua-dao-bua-vay-hoc-sinh-tan-sinh-vien-mua-tuu-truong-1787629964",
+    "http_status": 200,
+    "response_sha256": "873749c86b580507ebb536bda00225b16d2bcc15b10c606f996dfa86b9fd55db",
+    "retrieved_at_utc": "2026-10-05T15:15:10.624060+00:00",
+    "tls_verified": true,
+    "html_title": "Cảnh báo các thủ đoạn lừa đảo học sinh, tân sinh viên mùa tựu trường",
+    "body_bytes": 413590
+  },
+  {
+    "id": "S12",
+    "requested_url": "https://bocongan.gov.vn/bai-viet/canh-giac-thu-doan-lua-dao-mao-danh-fanpage-khach-san-nha-hang-dat-coc-truc-tuyen-dip-le-hoi-thanh-tuyen-2026-1790041513",
+    "resolved_url": "https://bocongan.gov.vn/bai-viet/canh-giac-thu-doan-lua-dao-mao-danh-fanpage-khach-san-nha-hang-dat-coc-truc-tuyen-dip-le-hoi-thanh-tuyen-2026-1790041513",
+    "http_status": 200,
+    "response_sha256": "55407e841f497bc68b7ffd8fd38a0b9778ce344d13a1d02e0944e94951bb6b98",
+    "retrieved_at_utc": "2026-10-05T15:15:10.979794+00:00",
+    "tls_verified": true,
+    "html_title": "Cảnh giác thủ đoạn lừa đảo “mạo danh Fanpage khách sạn, nhà hàng” đặt cọc trực tuyến dịp Lễ hội Thành Tuyên 2026",
+    "body_bytes": 413259
+  },
+  {
+    "id": "S13",
+    "requested_url": "https://congan.cantho.gov.vn/thong-tin-chuyen-de/siet-chat-phong-ngua-tu-co-so-cong-an-phuong-cai-rang-chu-dong-tuyen-truyen-kiem-tra-phong-chay-chua-chay-trong-mua-nang-nong-6837.html",
+    "fetch_error": "HTTPError",
+    "web_tool_content_read": true
+  },
+  {
+    "id": "S14",
+    "requested_url": "https://congan.phutho.gov.vn/article/Tang-cuong-bao-dam-an-toan-phong-chay-chua-chay-27208-57",
+    "resolved_url": "https://congan.phutho.gov.vn/article/Tang-cuong-bao-dam-an-toan-phong-chay-chua-chay-27208-57",
+    "http_status": 200,
+    "response_sha256": "a73e718dd3a1b1bf4083e509661e5f4a4926cb4b8d9bc54f1723b566cc698400",
+    "retrieved_at_utc": "2026-10-05T15:15:10.552666+00:00",
+    "tls_verified": true,
+    "html_title": "Tăng cường bảo đảm an toàn phòng cháy, chữa cháy và kỹ năng thoát nạn tại các khu chung cư, nhà trọ | Công an tỉnh Phú Thọ",
+    "body_bytes": 58086
+  },
+  {
+    "id": "S15",
+    "requested_url": "https://congbao.chinhphu.vn/van-ban/luat-so-122-2025-qh15-468683/61714.htm",
+    "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-122-2025-qh15-468683/61714.htm",
+    "http_status": 200,
+    "response_sha256": "1477ad1b77ab2fa8960f9aabb76c57dcb7834f60270f05316b44b778694a5dce",
+    "retrieved_at_utc": "2026-10-05T15:15:10.690130+00:00",
+    "tls_verified": true,
+    "html_title": "Luật số 122/2025/QH15 luật Thương mại điện tử",
+    "body_bytes": 147819
+  },
+  {
+    "id": "S16",
+    "requested_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-248-2026-nd-cp-469983.htm",
+    "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-248-2026-nd-cp-469983.htm",
+    "http_status": 200,
+    "response_sha256": "3b507dc113758bb16a68be500bbe3d993ad339f1c715bd70383eb7fe98b1beae",
+    "retrieved_at_utc": "2026-10-05T15:15:10.739230+00:00",
+    "tls_verified": true,
+    "html_title": "Nghị định số 248/2026/NĐ-CP quy định chi tiết một số điều của Luật Thương mại điện tử",
+    "body_bytes": 148859
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "sources": 16,
+  "pending_review": false,
+  "original_word_files": 2,
+  "native_word_valid": true,
+  "active_manifest_unchanged": true,
+  "active_manifest_sha256": "dc64f0cf38c5dd9e6afef8984c44eb0b03b0197cb76c35d51983dd15a59f6736",
+  "active_corpus_files_unchanged": true,
+  "user_authorized_isolated_embedding": true,
+  "embedded_sources": 14,
+  "excluded_sources": [
+    "S07",
+    "S13"
+  ],
+  "active_store_unchanged": true,
+  "comparison_completed": 36
+}

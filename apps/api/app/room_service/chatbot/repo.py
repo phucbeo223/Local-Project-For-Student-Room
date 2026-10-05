@@ -395,6 +395,10 @@ class ChatRepository:
         rows = rerank_legal(query, rows, limit=max(30, len(categories) * 80))
         from .legal_retrieval import diversified_legal_rows
         core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
+        from .topics import user_listing_check_question
+        from .evidence_units import platform_reporting_question
+        if user_listing_check_question(query) or platform_reporting_question(query):
+            core_limit = max(1, limit - 1)
         # Relevance filtering runs first; diversity never introduces an unrelated row.
         rows = diversified_legal_rows(query, rows, core_limit) + rows
         selected = []
@@ -520,7 +524,7 @@ class ChatRepository:
                     "SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,"
                     + metadata_sql + provision_sql + "c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c "
                     "JOIN legal_documents d ON d.id=c.document_id WHERE d.id=ANY(:ids) "
-                    "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%chuyển tiếp%' "
+                    "AND (c.heading ILIKE '%Hiệu lực%' OR c.heading ILIKE '%Điều khoản thi hành%' OR c.heading ILIKE '%chuyển tiếp%' "
                     "OR c.heading ILIKE '%hình thức xử phạt%' OR c.heading ILIKE '%Mức phạt tiền%') "
                     "ORDER BY d.id,c.chunk_index"
                 ), {"ids": doc_ids}).mappings()]
@@ -533,7 +537,7 @@ class ChatRepository:
                     # transition clauses. Each document gets its own citation.
                     def effect_priority(row):
                         heading=normalize_text(row.get('heading') or '')
-                        return (0 if 'hieu luc' in heading else 1 if 'muc phat tien' in heading else 2 if 'chuyen tiep' in heading else 3,row['chunk_index'])
+                        return (0 if any(t in heading for t in ('hieu luc', 'dieu khoan thi hanh')) else 1 if 'muc phat tien' in heading else 2 if 'chuyen tiep' in heading else 3,row['chunk_index'])
                     effects.sort(key=effect_priority)
                     effects = whole_supplementary_units(effects)
                     included = []

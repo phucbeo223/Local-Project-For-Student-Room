@@ -5,7 +5,7 @@ from datetime import date
 import json
 import re
 import time
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 from .topics import TOPICS, question_categories
 
 
@@ -15,6 +15,17 @@ class QuestionPlan(BaseModel):
     categories: list[str] = Field(default_factory=list, max_length=10)
     missing_information: list[str] = Field(default_factory=list, max_length=4)
     as_of_date: date | None = None
+
+    @field_validator('missing_information', mode='before')
+    @classmethod
+    def normalize_missing_information(cls, value):
+        # Compatible Gemini endpoints sometimes return one textual observation
+        # rather than a JSON array. Preserve it as one item, never split/guess it.
+        if value is None:
+            return []
+        if isinstance(value, str):
+            return [value] if value.strip() else []
+        return value
 
 
 @dataclass
@@ -45,6 +56,11 @@ class QuestionAnalysisAgent:
                     'ghi dữ kiện tình huống còn thiếu. as_of_date=null nếu người dùng không nêu ngày cụ thể. '
                     'Không tự bổ sung nghĩa vụ hoặc kết luận.\nCATEGORIES: '+json.dumps(list(TOPICS))+
                     '\nQUESTION: '+json.dumps(question, ensure_ascii=False))
+                prompt += ('\nTrả object với search_queries, categories và missing_information là array string; '
+                           'không có dữ kiện cần hỏi thì missing_information=[]; as_of_date là null hoặc YYYY-MM-DD. '
+                           'Câu hỏi kiểm tra tin đăng là checklist cho người thuê, không đổi thành nghĩa vụ của nền tảng. '
+                           'Câu hỏi về trách nhiệm nền tảng cần tìm trách nhiệm chung trước, rồi mới đến điều kiện riêng theo loại nền tảng. '
+                           '\nOUTPUT_SCHEMA:\n' + json.dumps(QuestionPlan.model_json_schema(), ensure_ascii=False))
                 raw, _ = self.client.request_json(prompt, QuestionPlan.model_json_schema(), max_output_tokens=1024)
                 plan = QuestionPlan.model_validate_json(raw)
                 if any(c not in TOPICS for c in plan.categories):
@@ -67,6 +83,9 @@ class QuestionAnalysisAgent:
                 status=re.search(r'HTTP (\d{3})',str(exc))
                 failure={'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None,
                          'error_code':'output_limit' if 'giới hạn token' in str(exc) else 'quota' if status and status[1]=='429' else 'analysis_failed'}
+                if isinstance(exc, ValidationError):
+                    failure['validation_errors'] = [{'field': '.'.join(map(str, error['loc'])), 'type': error['type']}
+                                                    for error in exc.errors()]
                 reason = f'Gemini phân tích câu hỏi chưa khả dụng ({type(exc).__name__}); dùng định tuyến chủ đề dự phòng.'
         else:
             reason = 'Chưa cấu hình Gemini phân tích câu hỏi; dùng định tuyến chủ đề dự phòng.'

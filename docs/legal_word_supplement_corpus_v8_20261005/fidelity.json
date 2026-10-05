@@ -1,0 +1,100 @@
+[
+  {
+    "id": "S01",
+    "word_sha256": "654828a504c9e6dc01c902e20691815376c35697c43fd206ad72697956e2970c",
+    "literal_word_roundtrip": true,
+    "provisions": 2,
+    "selected_characters": 2731
+  },
+  {
+    "id": "S02",
+    "word_sha256": "873d379e92bfd3e6854f1298f4afc7ab622d7d5f64698624251c462ab01784c0",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 806
+  },
+  {
+    "id": "S03",
+    "word_sha256": "eb15a5d4fa9aa5ddc0458d5ed944d8c91dc3b5205bd68aa9e69c4e8a39e4d420",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 238
+  },
+  {
+    "id": "S04",
+    "word_sha256": "de47ae4b06ea0c94c221302907fc5b62188839c5acb9b78d48c190d22ddd03b4",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 1315
+  },
+  {
+    "id": "S05",
+    "word_sha256": "52349eed9cd79ce223aa985d694dd161efb4f2756ac5f152d8443808d2f0fa19",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 465
+  },
+  {
+    "id": "S06",
+    "word_sha256": "e155eac6ac6c953d709b299963c0e9a122c137438f06f46256eaea700d9aa83e",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 922
+  },
+  {
+    "id": "S08",
+    "word_sha256": "fac6853cc43fe8c800f8d43f75c707a4e9c724383751201e9bef473b4711e0ff",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 1338
+  },
+  {
+    "id": "S09",
+    "word_sha256": "8cbf2a1284a4f39c8ec7387d8eb12076b90539f425e8d768211eae86c1987743",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 2196
+  },
+  {
+    "id": "S10",
+    "word_sha256": "b4ce579cdf338ef07b1e561da447fbb1a2ffbb4361801d799252e2808ab515fb",
+    "literal_word_roundtrip": true,
+    "provisions": 4,
+    "selected_characters": 7052
+  },
+  {
+    "id": "S11",
+    "word_sha256": "beda39c0a93ad3f6124c9f24ab51fe96c381d871d65d0bf27581e4bb867d44d7",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 791
+  },
+  {
+    "id": "S12",
+    "word_sha256": "4dc0802b7844f38970c017a60d43088a6855d5499cf80f7edbe3f6a3b7133926",
+    "literal_word_roundtrip": true,
+    "provisions": 1,
+    "selected_characters": 1459
+  },
+  {
+    "id": "S14",
+    "word_sha256": "245738d3a1f1cbead4b4e74a4283b8b3b47bcb9c76d248d5b76ccd66362f298d",
+    "literal_word_roundtrip": true,
+    "provisions": 2,
+    "selected_characters": 2640
+  },
+  {
+    "id": "S15",
+    "word_sha256": "da1b3752010e23fa085f694f56e8c663675e293a9932372909235331a49f4c43",
+    "literal_word_roundtrip": true,
+    "provisions": 41,
+    "selected_characters": 17001
+  },
+  {
+    "id": "S16",
+    "word_sha256": "7b9fb5accb581974888b7d2b8ef8805cd26d07a6d855d661ede3e56746a48bb7",
+    "literal_word_roundtrip": true,
+    "provisions": 21,
+    "selected_characters": 14376
+  }
+]

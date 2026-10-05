@@ -4,12 +4,46 @@ import json,re
 from .providers import GenerationResult
 from .topics import required_evidence_categories
 from .legal_retrieval import normalize_text
+from .topics import user_listing_check_question
 from .evidence_units import requested_contract_facets, contract_facets, FACET_LABELS, scope_issues, human_reporting_question, reporting_evidence_row
 
 
 SELECTION_SCHEMA={'type':'object','properties':{
     'selected_ids':{'type':'array','minItems':0,'maxItems':4,'uniqueItems':True,'items':{'type':'integer'}},
     'insufficient':{'type':'boolean'}},'required':['selected_ids','insufficient'],'additionalProperties':False}
+
+
+def render_source_fallback(parts, limitations, *, insufficient=False):
+    """Bound display length without cutting a legal condition or exception.
+
+    Complete evidence stays available to synthesis/verification. Long units are
+    linked by their citation instead of dumping, or slicing, the whole clause.
+    """
+    lines = ['Chưa tổng hợp được câu trả lời ngắn đã kiểm chứng; dưới đây là nguồn để đối chiếu.']
+    suffix = [*dict.fromkeys(limitations),
+              'Thông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng, hiệu lực và bản gốc.']
+    labels = [f"{str(part.get('document') or 'Nguồn')[:160]} — {str(part.get('heading') or 'trích đoạn')[:140]}"
+              for part in parts]
+    navigation = [f"- {label} [{part['rank']}]: xem nội dung nguồn."
+                  for label, part in zip(labels, parts)]
+    gap = 'Chưa đủ căn cứ trong phần hiển thị ngắn để kết luận toàn bộ yêu cầu; cần đọc điều kiện và ngoại lệ trong nguồn được dẫn.'
+    # Reserve exact navigation/notice space before choosing complete quotations.
+    quote_budget = max(0, min(1200, 3500 - len('\n\n'.join([*lines, *navigation, gap, *suffix])) - 10 * len(parts)))
+    omitted = False
+    for label, part in zip(labels, parts):
+        unit = part['text']
+        if len(unit) <= 650 and len(unit) <= quote_budget:
+            lines.append(f"- {label}: “{unit}” [{part['rank']}].")
+            quote_budget -= len(unit)
+        else:
+            omitted = True
+            lines.append(f"- {label} [{part['rank']}]: xem nội dung nguồn.")
+    if omitted:
+        lines.append(gap)
+    elif insufficient:
+        lines.append('Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng; cần đối chiếu phần còn thiếu.')
+    lines.extend(suffix)
+    return '\n\n'.join(lines)
 
 
 def selection_candidates(contexts):
@@ -41,6 +75,11 @@ def selection_prompt(question,candidates):
     return ('Chọn những đoạn nguồn trả lời trực tiếp CÂU HỎI, tối đa 4 ID. '
         'Bạn chỉ tìm câu trả lời trong đoạn đã cho; không tự viết kết luận luật. '
         'Chọn đầy đủ các phần được hỏi, giữ điều kiện và ngoại lệ. '
+        'Khi người thuê hỏi cách kiểm tra người đăng hoặc nguồn tin trên mạng, ưu tiên hướng dẫn người thuê tự kiểm tra; không thay câu trả lời bằng nghĩa vụ kiểm duyệt của nền tảng. '
+        'Với kiểm tra tin đăng, chọn đủ các nguồn đang có về tài khoản/người đăng, địa chỉ/liên hệ, hình ảnh và giá; không thay các hướng dẫn cụ thể bằng nhiều bài cảnh báo cùng một thủ đoạn. '
+        'Khi hỏi cách báo cáo tin đăng sai, ưu tiên thao tác báo cáo, kênh hỗ trợ và thông tin/bằng chứng gửi; không thay bằng hòa giải, khởi kiện hoặc xử lý tranh chấp hợp đồng. '
+        'Khi hỏi trách nhiệm nền tảng chưa nêu loại cụ thể, chọn trách nhiệm chung trước và giữ điều kiện riêng của nền tảng có chức năng đặt hàng. '
+        'Không bỏ nhóm lọc từ khóa/gỡ tin/tiếp nhận phản ánh hoặc cung cấp dữ liệu cơ quan có thẩm quyền nếu nguồn có các nhóm đó. Các đoạn hiệu lực/chuyển tiếp của tài liệu được chọn sẽ tự được ứng dụng giữ lại; ưu tiên ID cho nội dung trả lời chính. '
         'Khi người bị lừa hỏi lưu/cung cấp bằng chứng, chọn khuyến cáo lưu tài liệu, tin nhắn, chứng từ và nơi tiếp nhận; không thay bằng thời hạn cơ quan điều tra thông báo Viện kiểm sát hoặc kiến nghị khởi tố của cơ quan nhà nước. '
         'Không chọn đoạn mua bán/thuê mua cho câu hỏi thuê trọ thông thường nếu đoạn chỉ áp dụng giao dịch đó. '
         'Khi hỏi nội dung hợp đồng, ưu tiên toàn bộ điều liệt kê nội dung. '
@@ -71,6 +110,24 @@ def missing_selection_facets(question,candidates,raw):
     available_facets=set().union(*(contract_facets(c) for c in candidates))
     found_facets=set().union(*(contract_facets(p) for p in parts)) if parts else set()
     missing += [FACET_LABELS[f] for f in sorted(requested_contract_facets(question) & available_facets - found_facets)]
+    if user_listing_check_question(question):
+        from .evidence_units import listing_check_facets, LISTING_CHECK_LABELS
+        available_checks = set().union(*(listing_check_facets(c) for c in candidates))
+        found_checks = set().union(*(listing_check_facets(p) for p in parts)) if parts else set()
+        missing += [LISTING_CHECK_LABELS[f] for f in sorted(available_checks - found_checks)]
+    from .evidence_units import platform_reporting_question, report_proof_row, operator_facets, OPERATOR_LABELS
+    if platform_reporting_question(question) and any(report_proof_row(c) for c in candidates) and not any(report_proof_row(p) for p in parts):
+        missing.append('bằng chứng/hình ảnh trao đổi hỗ trợ phản ánh tin vi phạm')
+    if platform_reporting_question(question):
+        def handling(part):
+            text = normalize_text(part['text'])
+            return all(term in text for term in ('go bo', '24 gio', 'co quan nha nuoc co tham quyen'))
+        if any(handling(c) for c in candidates) and not any(handling(p) for p in parts):
+            missing.append('xử lý tin vi phạm và đúng điều kiện yêu cầu cơ quan có thẩm quyền')
+    if 'nen tang' in normalize_text(question) and 'trach nhiem' in normalize_text(question):
+        available_duties = set().union(*(operator_facets(c) for c in candidates))
+        found_duties = set().union(*(operator_facets(p) for p in parts)) if parts else set()
+        missing += [OPERATOR_LABELS[f] for f in sorted(available_duties - found_duties)]
     if ('coc' in normalize_text(question) and any('coc' in normalize_text(c['text']) for c in candidates)
             and not any('coc' in normalize_text(p['text']) for p in parts)):
         missing.append('tiền cọc')

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 47,
+    "trace": {
+      "agent": "question_analysis",
+      "provider": "rules",
+      "model": null,
+      "requested_model": "gemini-3.8-flash-high",
+      "status": "fallback",
+      "error_type": "ValidationError",
+      "http_status": null,
+      "error_code": "analysis_failed",
+      "duration_ms": 3420
+    },
+    "errors": [
+      {
+        "field": "missing_information",
+        "type": "list_type",
+        "message": "Input should be a valid array"
+      }
+    ],
+    "public_question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+    "captures": [
+      {
+        "raw": "{\n  \"search_queries\": [\n    \"thông tin người đăng tin cho thuê nhà sàn thương mại điện tử\",\n    \"trách nhiệm nền tảng trực tuyến xác thực thông tin bất động sản\",\n    \"kiểm tra thông tin giao dịch bất động sản qua mạng\"\n  ],\n  \"categories\": [\n    \"ecommerce_platform\",\n    \"real_estate_brokerage\"\n  ],\n  \"missing_information\": \"Người dùng không nêu rõ loại nền tảng trực tuyến cụ thể (mạng xã hội, website thương mại điện tử, ứng dụng môi giới), tư cách của người đăng tin (chính chủ hay môi giới), và có xảy ra tranh chấp hoặc hành vi lừa đảo nào chưa.\",\n  \"as_of_date\": null\n}",
+        "usage": {
+          "promptTokenCount": 211,
+          "candidatesTokenCount": 170,
+          "totalTokenCount": 381
+        }
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "trace": {
+      "agent": "question_analysis",
+      "provider": "rules",
+      "model": null,
+      "requested_model": "gemini-3.8-flash-high",
+      "status": "fallback",
+      "error_type": "ValidationError",
+      "http_status": null,
+      "error_code": "analysis_failed",
+      "duration_ms": 3017
+    },
+    "errors": [
+      {
+        "field": "missing_information",
+        "type": "list_type",
+        "message": "Input should be a valid array"
+      }
+    ],
+    "public_question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+    "captures": [
+      {
+        "raw": "{\n  \"search_queries\": [\n    \"báo cáo tin đăng sai sự thật nền tảng\",\n    \"xử lý tin đăng thông tin không chính xác trên website\",\n    \"khiếu nại thông tin sai lệch thương mại điện tử\"\n  ],\n  \"categories\": [\n    \"ecommerce_platform\"\n  ],\n  \"missing_information\": \"Tên hoặc loại nền tảng đăng tin cụ thể; quy chế hoạt động của nền tảng; nội dung thông tin sai sự thật.\",\n  \"as_of_date\": null\n}",
+        "usage": {
+          "promptTokenCount": 212,
+          "candidatesTokenCount": 125,
+          "totalTokenCount": 337
+        }
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "trace": {
+      "agent": "question_analysis",
+      "provider": "rules",
+      "model": null,
+      "requested_model": "gemini-3.8-flash-high",
+      "status": "fallback",
+      "error_type": "ValidationError",
+      "http_status": null,
+      "error_code": "analysis_failed",
+      "duration_ms": 4406
+    },
+    "errors": [
+      {
+        "field": "missing_information",
+        "type": "list_type",
+        "message": "Input should be a valid array"
+      }
+    ],
+    "public_question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người bán hoặc người cho thuê theo tài liệu hiện có?",
+    "captures": [
+      {
+        "raw": "{\n  \"search_queries\": [\n    \"trách nhiệm nền tảng đăng tin thông tin người bán cho thuê\",\n    \"nghĩa vụ sàn thương mại điện tử xác thực thông tin người bán\",\n    \"quản lý thông tin người bán cho thuê trên nền tảng trực tuyến\"\n  ],\n  \"categories\": [\n    \"ecommerce_platform\"\n  ],\n  \"missing_information\": \"Chưa có thông tin về loại hình nền tảng cụ thể (mạng xã hội, sàn giao dịch thương mại điện tử, hay website phân loại rao vặt), và tài liệu hiện có được đề cập là văn bản nào.\",\n  \"as_of_date\": null\n}",
+        "usage": {
+          "promptTokenCount": 213,
+          "candidatesTokenCount": 153,
+          "totalTokenCount": 366
+        }
+      }
+    ]
+  }
+]

@@ -8,7 +8,7 @@ import re
 
 from .providers import normalize_text
 from ..legal_knowledge.quality import usable_legal_text
-from .topics import question_categories, required_evidence_categories, TOPICS, has_phrase
+from .topics import question_categories, required_evidence_categories, TOPICS, has_phrase, user_listing_check_question
 
 LEGAL_STOP_WORDS = {"toi", "minh", "giup", "xin", "hoi", "the", "nao", "sao", "la",
                     "va", "cua", "theo", "quy", "dinh", "duoc", "co", "khong", "ve"}
@@ -74,6 +74,11 @@ def expand_legal_query(query: str) -> str:
         additions.append('Quy định giá nước sạch sinh hoạt trên địa bàn thành phố Cần Thơ giá tiêu thụ nước')
     if water_invoice_lookup_question(query):
         additions.append('tra cứu hóa đơn IDKH mã xác nhận giấy báo biên nhận')
+    if user_listing_check_question(query):
+        additions.append('kiểm tra tài khoản xác thực số điện thoại địa chỉ giá thấp đáng ngờ hình ảnh tương tự Google Ống kính')
+    from .evidence_units import platform_reporting_question
+    if platform_reporting_question(query):
+        additions.append('báo cáo tin đăng bằng chứng hình ảnh trao đổi vi phạm gỡ bỏ thông tin')
     if any(t in value for t in ('chia se sai','xu ly nhu the nao','rut lai')) and 'privacy_data' in question_categories(query):
         additions.append('thực hiện quyền chủ thể dữ liệu cá nhân yêu cầu rút lại hạn chế xử lý xóa dữ liệu thủ tục thời hạn')
     if any(term in value for term in ("phat", "xu ly", "thu thua", "hoan tra")):
@@ -153,11 +158,27 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             rental_authority = (row['category'] == 'housing_contract' and 'quyen cho thue' in question
                                 and any(term in heading for term in ('dieu kien', 'ben tham gia'))
                                 and any(term in value for term in ('chu so huu', 'uy quyen', 'cho thue')))
-            if not primary and not direct and not contract_identity and not rental_authority and not (own_evidence and overlap >= 0.2):
+            from .evidence_units import listing_check_facets
+            checking_guidance = user_listing_check_question(query) and bool(listing_check_facets(row))
+            if not primary and not direct and not contract_identity and not rental_authority and not checking_guidance and not (own_evidence and overlap >= 0.2):
                 row["similarity_score"] = 0.0
                 continue
             base = 0.5 * base + 0.3 * overlap + (0.18 if primary else 0.1)
             base += 0.12 * heading_overlap
+            if user_listing_check_question(query):
+                if any(has_phrase(value, p) for p in ('kiem tra', 'xac minh', 'canh giac', 'tim hieu')):
+                    base += .8
+                if any(has_phrase(heading, p) for p in ('trach nhiem cua chu quan', 'trach nhiem cua nguoi ban')):
+                    base -= .7
+            elif 'ecommerce_platform' in categories and 'trach nhiem' in question:
+                general_operator = 'trach nhiem cua chu quan nen tang' in heading
+                if general_operator and 'khoan 1' in heading:
+                    base += 1.0
+                if general_operator and 'co chuc nang dat hang truc tuyen' in value:
+                    if 'dat hang' not in question:
+                        base -= .4
+                if general_operator and 'xac thuc' in value and 'kiem duyet' in value:
+                    base += .6
             if "housing_contract" in categories and any(term in question for term in ("truoc khi ky", "ghi ro")):
                 if any(term in heading for term in ("noi dung cua hop dong", "hop dong ve nha o")):
                     base += 0.25
@@ -286,6 +307,39 @@ def diversified_legal_rows(query: str, rows: list[dict], limit: int) -> list[dic
     """Reserve a relevant candidate for each explicit facet before extra matches."""
     categories = required_evidence_categories(query)
     reserved = []
+    if user_listing_check_question(query):
+        from .evidence_units import listing_check_facets
+        for facet in ('account', 'image', 'contact', 'price'):
+            candidate = next((r for r in rows if facet in listing_check_facets(r)), None)
+            if candidate is not None:
+                reserved.append(candidate)
+    elif 'ecommerce_platform' in categories and 'trach nhiem' in normalize_text(query):
+        # Start with duties for the general operator, then an authority request
+        # if available. Do not begin an unspecified-platform answer with a
+        # special-case clause about online ordering and returned goods.
+        from .evidence_units import operator_facets
+        for facet in ('moderation', 'identity', 'authority_data'):
+            candidates = [r for r in rows if facet in operator_facets(r)]
+            if facet == 'identity':
+                # Prefer actual identity fields over a clause which only
+                # points elsewhere for them. Conditions remain in the parent.
+                candidates.sort(key=lambda r: not all(t in normalize_text(r.get('parent_content') or r['content'])
+                                                       for t in ('ho va ten', 'so dinh danh')))
+            candidate = next(iter(candidates), None)
+            if candidate is not None:
+                reserved.append(candidate)
+    from .evidence_units import platform_reporting_question, report_proof_row
+    if platform_reporting_question(query):
+        for predicate in (
+            lambda r: 'bao cao tin dang' in normalize_text(r['content']),
+            lambda r: report_proof_row(r) and 'hinh anh' in normalize_text(r.get('parent_content') or r['content']),
+            lambda r: '24 gio' in normalize_text(r.get('parent_content') or r['content'])
+                and 'go bo' in normalize_text(r.get('parent_content') or r['content'])
+                and 'co quan nha nuoc co tham quyen' in normalize_text(r.get('parent_content') or r['content']),
+        ):
+            candidate = next((r for r in rows if predicate(r)), None)
+            if candidate is not None:
+                reserved.append(candidate)
     from .evidence_units import requested_contract_facets, contract_facets, human_reporting_question, reporting_evidence_row
     if human_reporting_question(query):
         candidate=next((r for r in rows if reporting_evidence_row(r)),None)
@@ -367,6 +421,14 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
     """Deterministic guard, not a claim of full semantic entailment verification."""
     issues = []
     normalized = normalize_text(answer)
+    question = normalize_text(query)
+    if ('nen tang' in question and 'trach nhiem' in question
+            and any(t in question for t in ('thong tin nguoi', 'nguoi dang', 'nguoi ban', 'nguoi cho thue'))):
+        from .evidence_units import operator_facets, OPERATOR_LABELS
+        available = set().union(*(operator_facets(row) for row in chunks))
+        expressed = operator_facets({'category': 'ecommerce_platform', 'content': answer})
+        issues += ['Chưa trình bày nhóm trách nhiệm có trong nguồn đã chọn: ' + OPERATOR_LABELS[facet]
+                   for facet in sorted(available - expressed)]
     if any(term in normalized for term in (
         "phap luat khong co quy dinh", "khong co quy dinh cu the", "khong co quy dinh ve",
         "khong co van ban nao", "luat khong quy dinh",
@@ -411,6 +473,25 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             issues.append("Trích dẫn không có nguồn tương ứng.")
             continue
         segment_normalized = normalize_text(segment)
+        for address in re.findall(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', segment):
+            cited_text = ' '.join(row['content'] for row in chunks if int(row['rank']) in refs)
+            if address.lower() not in cited_text.lower():
+                issues.append('Địa chỉ email chưa có nguyên văn trong nguồn được trích; không suy đoán địa chỉ bị che.')
+        # Keep a delayed identity obligation conditional in the claim itself.
+        # A footer warning cannot repair an unconditional present-tense claim.
+        for row in chunks:
+            warning = str(row.get('source_scope_warning') or '')
+            delayed = re.search(r'quy định xác thực điện tử áp dụng từ (\d{2}/\d{2}/\d{4})', warning, re.I)
+            if int(row['rank']) not in refs or not delayed or 'xac thuc' not in segment_normalized:
+                continue
+            from datetime import datetime
+            from zoneinfo import ZoneInfo
+            commencement = datetime.strptime(delayed[1], '%d/%m/%Y').date()
+            if datetime.now(ZoneInfo('Asia/Ho_Chi_Minh')).date() >= commencement:
+                continue
+            if not (str(commencement.year) in segment_normalized and any(t in segment_normalized for t in ('tu ngay', 'ke tu', 'ap dung tu'))
+                    or any(t in segment_normalized for t in ('chua ap dung', 'chua bat buoc'))):
+                issues.append('Quy định xác thực điện tử có mốc áp dụng muộn; phải giữ điều kiện thời gian ngay trong câu khẳng định.')
         scoped_absence = (any(term in segment_normalized for term in ('chua tim thay can cu', 'chua du can cu', 'chua xac minh'))
                           or re.search(r'\bnguon(?: tai lieu)?\b.{0,40}\bchua (?:neu|cung cap)\b', segment_normalized))
         # A list of missing topics ("mức phạt, bồi thường, hoàn trả") is not
@@ -426,6 +507,11 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             # missing rule. General claims that no law exists are rejected above.
             continue
         issues.extend(_citation_scope_issues(segment, [row for row in chunks if int(row['rank']) in refs]))
+        if ('24 gio' in segment_normalized and '24 gio' in evidence
+                and 'co quan nha nuoc co tham quyen' in evidence
+                and any(t in segment_normalized for t in ('go bo', 'cham dut', 'tam ngung', 'khoa tai khoan', 'cung cap thong tin'))
+                and not any(t in segment_normalized for t in ('co quan nha nuoc', 'co quan co tham quyen', 'yeu cau cua cong an'))):
+            issues.append('Thời hạn 24 giờ trong nguồn gắn với yêu cầu của cơ quan có thẩm quyền; không chuyển thành cam kết cho mọi phản ánh của người dùng.')
         for predicates, source_terms in (
             (("xu ly hanh chinh", "xu phat", "bi phat"), ("xu ly hanh chinh", "xu phat", "bi phat", "phat tien", "canh cao")),
             (("boi thuong",), ("boi thuong",)),

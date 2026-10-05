@@ -1,361 +1,370 @@
-Ran command: `dir`
-Viewed d:\AI-powered-system-to-assist-Can-Tho-University-students-in-finding-accommodation--main\LEGAL_QUESTION_BANK.md
-Invoked subagent
 
-Dưới đây là **Bộ câu trả lời mẫu chuẩn mực (Benchmark Answers)** dành cho Trợ lý AI Trọ CTU, đã loại bỏ toàn bộ các câu về tìm phòng theo giá thuê, vị trí, tiện ích và ký túc xá, **tập trung 100% vào các vấn đề Pháp lý, Điều ước/Nghị định/Thông tư, Quy định tính tiền Điện - Nước (tại Cần Thơ), Đăng ký cư trú, Phòng cháy chữa cháy (PCCC) và Cảnh giác lừa đảo**.
+## 1. Hợp đồng thuê nhà (`housing_contract`)
 
----
+### Câu 1: Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?
+- **Căn cứ pháp lý:** Điều 163 *Luật Nhà ở* (VBHN số 79/VBHN-VPQH); Điều 472 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  Trước khi đặt bút ký hợp đồng, sinh viên cần rà soát kỹ **6 nhóm điều khoản cốt lõi**:
+  1. **Thông tin các bên & thẩm quyền cho thuê:** Họ tên, số CCCD/Căn cước, địa chỉ thường trú của chủ trọ. Nếu ký với người đại diện/quản lý, yêu cầu xuất trình văn bản ủy quyền hợp pháp từ chủ sở hữu.
+  2. **Giá thuê & phương thức thanh toán:** Mức tiền thuê phòng cố định trong bao lâu? Ngày thanh toán định kỳ hàng tháng? Phương thức trả (chuyển khoản hay tiền mặt)?
+  3. **Tiền đặt cọc & điều kiện hoàn cọc:** Mức cọc (thông thường 01 tháng), điều kiện để được hoàn lại 100% cọc khi hết hạn hợp đồng, thời hạn chủ nhà phải trả lại tiền (ví dụ: trong vòng 3 – 5 ngày sau khi bàn giao phòng).
+  4. **Các chi phí dịch vụ phát sinh:** Đơn giá điện (VNĐ/kWh), nước (VNĐ/m³ hoặc VNĐ/người), tiền rác, internet, gửi xe, vệ sinh chung.
+  5. **Biên bản hiện trạng tài sản & sửa chữa:** Liệt kê chi tiết danh mục trang thiết bị trong phòng (quạt, đèn, khóa cửa, máy lạnh, tình trạng tường/nhà vệ sinh); phân định rõ bên nào chịu phí bảo trì hao mòn tự nhiên. Chốt chỉ số công tơ điện nước trước khi dọn vào.
+  6. **Chấm dứt hợp đồng trước hạn:** Thời gian phải báo trước (thường 15 – 30 ngày) để không bị mất cọc nếu muốn chuyển đi sớm.
 
-# BỘ CÂU TRẢ LỜI MẪU PHÁP LÝ & ĐỜI SỐNG THUÊ TRỌ CTU
+### Câu 2: Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?
+- **Căn cứ pháp lý:** Điều 328, 472, 473 *Bộ luật Dân sự 2015*; Điều 163 *Luật Nhà ở* (VBHN số 79/VBHN-VPQH).
+- **Câu trả lời mẫu:**
+  **Rất cần thiết và bắt buộc phải ghi rõ bằng văn bản.**
+  - **Tiền đặt cọc:** Là biện pháp bảo đảm thực hiện nghĩa vụ theo Điều 328 BLDS 2015. Hợp đồng phải nêu rõ mức tiền cọc, mục đích giữ cọc và điều kiện cụ thể để được hoàn trả hoặc cấn trừ tiền phòng.
+  - **Tiền thuê phòng:** Phải được ấn định con số cụ thể nhằm bảo vệ người thuê khỏi việc chủ trọ tự ý tăng giá bất thường giữa chừng.
+  - **Ngày thanh toán:** Xác định rõ mốc thời gian hoàn thành nghĩa vụ trả tiền để tránh tranh chấp bị phạt tiền trễ hạn vô lý.
+  *Lưu ý:* Tuyệt đối không ký các mẫu hợp đồng bỏ trống mục tiền cọc/tiền thuê hoặc chỉ thỏa thuận miệng.
 
----
+### Câu 3: Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?
+- **Căn cứ pháp lý:** Khoản 2 Điều 170 *Luật Nhà ở* (VBHN số 79/VBHN-VPQH); Điều 472, 477 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  Khi chủ trọ đòi tăng giá thuê giữa chừng, bạn cần xem xét 3 điểm:
+  1. **Thỏa thuận trong hợp đồng:** Trong thời hạn hợp đồng còn hiệu lực, bên cho thuê **không được tự ý tăng giá thuê** trừ trường hợp hợp đồng có điều khoản quy định rõ lộ trình điều chỉnh giá.
+  2. **Trường hợp cải tạo nhà ở:** Theo Khoản 2 Điều 170 Luật Nhà ở, bên cho thuê chỉ được quyền điều chỉnh giá thuê nếu đã thực hiện cải tạo nhà ở, **được bên thuê đồng ý** và thời gian thuê còn lại từ $1/3$ thời hạn hợp đồng trở xuống.
+  3. **Quyền của sinh viên:** Nếu không có thỏa thuận tăng giá, người thuê có quyền từ chối mức giá mới và tiếp tục trả giá cũ đến hết hạn hợp đồng. Nếu chủ trọ đơn phương chấm dứt hợp đồng trái luật để đuổi người thuê, chủ trọ phải trả lại toàn bộ tiền cọc và bồi thường thiệt hại theo thỏa thuận.
 
-## CHỦ ĐỀ 1: HỢP ĐỒNG THUÊ NHÀ TRỌ (`housing_contract`)
-*Căn cứ chính: Bộ luật Dân sự 2015 (Điều 328, Điều 472 - 482); Luật Nhà ở 2023 (có hiệu lực từ 01/08/2024).*
-
-### Câu 1 (Gốc câu 19): Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?
-**Câu trả lời mẫu:**
-> Khi kiểm tra hợp đồng thuê trọ, sinh viên cần rà soát kỹ 6 nhóm điều khoản cốt lõi sau:
-> 1. **Thông tin các bên & quyền sở hữu:** Tên, CCCD của chủ nhà hoặc người được ủy quyền hợp pháp; địa chỉ chính xác của phòng trọ.
-> 2. **Giá thuê và phương thức thanh toán:** Tiền thuê cố định trong bao lâu? Ngày đóng tiền hàng tháng? Hình thức chuyển khoản hay tiền mặt?
-> 3. **Tiền đặt cọc và điều kiện hoàn cọc:** Số tiền cọc (thường 1 tháng), điều kiện để nhận lại 100% cọc khi hết hạn hợp đồng, và thời hạn chủ nhà phải hoàn trả (ví dụ: trong vòng 3–5 ngày sau khi bàn giao phòng).
-> 4. **Chi phí phát sinh:** Đơn giá điện (VNĐ/kWh), nước (VNĐ/người hoặc VNĐ/m³), internet, rác, gửi xe, phí dịch vụ chung.
-> 5. **Hiện trạng tài sản & sửa chữa:** Biên bản bàn giao liệt kê chi tiết bóng đèn, vòi nước, máy lạnh, quạt, khóa cửa; quy định bên nào chịu phí bảo trì hao mòn tự nhiên.
-> 6. **Chấm dứt hợp đồng trước hạn:** Thời gian phải báo trước (thường 30 ngày) để không bị mất cọc nếu muốn chuyển đi sớm.
-
----
-
-### Câu 2 (Gốc câu 20): Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?
-**Câu trả lời mẫu:**
-> **Rất cần thiết và bắt buộc phải ghi rõ.** 
-> Theo Điều 472 và Điều 473 Bộ luật Dân sự 2015, hợp đồng thuê tài sản là sự thỏa thuận giữa các bên. Việc ghi rõ:
-> - **Tiền đặt cọc:** Là biện pháp bảo đảm thực hiện nghĩa vụ theo Điều 328 BLDS 2015. Hợp đồng phải ghi rõ mục đích cọc, mức cọc và điều kiện hoàn trả cọc.
-> - **Tiền thuê:** Tránh việc chủ trọ tự ý tăng giá bất ngờ.
-> - **Ngày thanh toán:** Xác định mốc thời gian để người thuê không bị coi là chậm trễ nghĩa vụ thanh toán hoặc bị phạt tiền trễ hạn vô lý.
-> *Lưu ý:* Sinh viên tuyệt đối không ký các mẫu hợp đồng để trống mục tiền cọc hoặc chỉ thỏa thuận miệng về chi phí.
-
----
-
-### Câu 3 (Gốc câu 21): Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?
-**Câu trả lời mẫu:**
-> Theo quy định tại Luật Nhà ở 2023 và Bộ luật Dân sự 2015:
-> 1. **Kiểm tra điều khoản thỏa thuận trong hợp đồng:** Trong thời hạn hợp đồng còn hiệu lực, bên cho thuê **không được quyền tự ý điều chỉnh tăng giá thuê** trừ trường hợp trong hợp đồng có điều khoản cho phép tăng giá theo định kỳ hoặc có thỏa thuận trước.
-> 2. **Nếu hợp đồng không quy định việc tăng giá:** Chủ trọ đơn phương tăng giá là **vi phạm hợp đồng**. Người thuê có quyền từ chối mức tăng này và tiếp tục đóng mức giá cũ đến hết thời hạn hợp đồng.
-> 3. **Nếu chủ trọ ép buộc hoặc đòi đuổi người thuê:** Đây là hành vi vi phạm nghĩa vụ bàn giao và duy trì tài sản thuê (Điều 477 BLDS 2015). Người thuê có quyền yêu cầu hoàn trả cọc và bồi thường thiệt hại (nếu có).
+### Câu 4: Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?
+- **Căn cứ pháp lý:** Khoản 2 Điều 328 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  Theo Khoản 2 Điều 328 BLDS 2015:
+  1. **Nghĩa vụ trả lại tiền cọc:** Khi hợp đồng chấm dứt đúng thời hạn, người thuê đã thanh toán đủ tiền nhà, điện nước và bàn giao lại phòng theo đúng hiện trạng ban đầu (trừ hao mòn tự nhiên theo thời gian), **chủ trọ có nghĩa vụ hoàn trả lại toàn bộ tài sản đặt cọc**.
+  2. **Các trường hợp được khấu trừ cọc hợp pháp:** Chủ nhà chỉ được trừ cọc khi: (i) Người thuê làm hư hại tài sản trong phòng do lỗi chủ quan; (ii) Còn nợ tiền nhà hoặc điện nước chưa đóng; (iii) Đơn phương dọn đi sớm mà không báo trước đúng thời hạn đã cam kết.
+  3. **Khuyến nghị thực tế:** Chụp ảnh/quay video phòng lúc nhận phòng và lúc dọn đi; cùng chủ trọ lập biên bản bàn giao phòng và chốt chỉ số công tơ điện nước làm căn cứ nhận lại cọc minh bạch.
 
 ---
 
-### Câu 4 (Gốc câu 22): Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?
-**Câu trả lời mẫu:**
-> Căn cứ theo **Khoản 2 Điều 328 Bộ luật Dân sự 2015**:
-> - Khi hợp đồng thuê chấm dứt đúng thời hạn, bên thuê đã thanh toán đủ tiền nhà, điện nước và bàn giao lại phòng theo đúng hiện trạng (trừ hao mòn tự nhiên), thì **chủ nhà có nghĩa vụ hoàn trả lại toàn bộ số tiền đặt cọc cho người thuê**.
-> - Chủ nhà chỉ có quyền khấu trừ cọc khi: Người thuê làm hư hỏng tài sản do lỗi chủ quan, nợ tiền nhà/điện nước chưa trả, hoặc đơn phương chấm dứt hợp đồng trái với thời gian báo trước đã cam kết.
-> - **Kinh nghiệm:** Sinh viên nên chụp ảnh/quay video phòng lúc nhận phòng và lúc dọn đi để làm bằng chứng đối chiếu.
+## 2. Điện thuê trọ (`electricity`)
+
+### Câu 5: Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?
+- **Căn cứ pháp lý:** Khoản 5 Điều 12 *Thông tư 60/2025/TT-BCT*; *Luật Điện lực 2024* (Luật số 61/2024/QH15); *Quyết định 1279/QĐ-BCT*; Khoản 6 Điều 12 *Nghị định 134/2013/NĐ-CP* (sửa đổi bởi *Nghị định 17/2022/NĐ-CP*).
+- **Câu trả lời mẫu:**
+  Theo quy định pháp luật hiện hành về giá bán lẻ điện sinh hoạt:
+  1. **Ký hợp đồng trực tiếp:** Sinh viên có hợp đồng thuê từ 12 tháng trở lên và có đăng ký tạm trú được quyền trực tiếp ký hợp đồng mua bán điện với đơn vị Điện lực hoặc chủ nhà đại diện ký kết.
+  2. **Thu tiền qua chủ nhà:** Khi không ký trực tiếp với bên bán điện, **tổng số tiền điện chủ nhà thu từ người thuê không được vượt quá số tiền ghi trên hóa đơn tiền điện hằng tháng do đơn vị bán lẻ điện phát hành** (cộng tỷ lệ hao hụt hợp lý theo quy chuẩn kỹ thuật nếu có).
+  3. **Áp dụng định mức sinh hoạt:** Nếu chủ trọ kê khai đủ thông tin cư trú hợp pháp của người thuê với bên bán điện, cứ **04 người được cấp 01 định mức hộ gia đình** theo biểu giá bậc thang sinh hoạt.
+  4. **Trường hợp không kê khai định mức:** Nếu thuê dưới 12 tháng và chủ trọ không kê khai đủ số người, bên bán điện áp dụng mức giá bán lẻ điện sinh hoạt theo quy định (theo TT 60/2025 áp dụng Bậc 2 từ 101 – 200 kWh; trước đây theo TT 25/2018 áp dụng Bậc 3) cho toàn bộ sản lượng đo đếm tại công tơ.
+  5. **Cấm trục lợi:** Pháp luật nghiêm cấm hành vi chủ trọ tự đặt ra mức giá điện cao (3.500 – 4.500 VNĐ/kWh) để thu lời bất chính.
+
+### Câu 6: Ba sinh viên ở chung một phòng được tính tiền điện ra sao?
+- **Căn cứ pháp lý:** Điểm c Khoản 5 Điều 12 *Thông tư 60/2025/TT-BCT*; *Thông tư 25/2018/TT-BCT*; *Quyết định 1279/QĐ-BCT*.
+- **Câu trả lời mẫu:**
+  Việc tính tiền điện cho 3 sinh viên ở chung phòng được áp dụng theo 2 trường hợp:
+  1. **Chủ trọ kê khai đầy đủ thông tin cư trú với Điện lực:**
+     - Căn cứ quy tắc 4 người bằng 1 định mức hộ gia đình, **3 sinh viên được cấp $3/4$ (75%) định mức** của từng bậc thang điện sinh hoạt:
+       - *Bậc 1 (mức chuẩn 50 kWh):* Được tính là \(50 \times \frac{3}{4} = 37,5\text{ kWh}\).
+       - *Bậc 2 (mức chuẩn 50 kWh):* Được tính là \(50 \times \frac{3}{4} = 37,5\text{ kWh}\).
+       - *Các bậc tiếp theo:* Tính tương tự theo tỷ lệ $3/4$ định mức hộ gia đình.
+  2. **Chủ trọ không kê khai định mức (hợp đồng dưới 12 tháng):**
+     - Toàn bộ sản lượng điện tiêu thụ của phòng bị áp dụng giá bán lẻ điện sinh hoạt quy định (Bậc 2 theo TT 60/2025 hoặc Bậc 3 theo TT 25/2018).
+  3. **Lời khuyên:** 3 sinh viên nên cung cấp CCCD và yêu cầu chủ trọ làm thủ tục kê khai định mức với Điện lực để được hưởng giá điện bậc thang ưu đãi.
+
+### Câu 7: Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?
+- **Căn cứ pháp lý:** Khoản 5 Điều 12 *Thông tư 60/2025/TT-BCT*; Khoản 6 Điều 12 *Nghị định 134/2013/NĐ-CP* (sửa đổi bởi *Nghị định 17/2022/NĐ-CP*).
+- **Câu trả lời mẫu:**
+  Thực hiện kiểm tra và đối chiếu theo 4 bước:
+  1. **Chốt công tơ phòng:** Ghi lại chỉ số điện đầu kỳ và cuối kỳ trên công tơ riêng của phòng mình để xác định chính xác số kWh đã dùng.
+  2. **Yêu cầu đối chiếu hóa đơn gốc:** Đề nghị chủ trọ cung cấp hóa đơn tiền điện hằng tháng do Điện lực phát hành (hoặc lấy Mã khách hàng "PK..."/"PE..." để tra cứu trên App EVNSPC CSKH).
+  3. **Căn cứ pháp lý xử phạt:** Căn cứ Khoản 6 Điều 12 Nghị định 134/2013/NĐ-CP (sửa đổi bởi Nghị định 17/2022/NĐ-CP), hành vi thu tiền điện của người thuê nhà cao hơn giá quy định bị **phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng**, đồng thời buộc hoàn trả lại toàn bộ số tiền đã thu chênh lệch.
+  4. **Kênh tiếp nhận phản ánh:**
+     - Tổng đài Chăm sóc khách hàng Tổng công ty Điện lực Miền Nam (EVNSPC): **1900 1006** hoặc **1900 9000**;
+     - Công ty Điện lực TP. Cần Thơ / Điện lực quận Ninh Kiều;
+     - UBND hoặc Đội Quản lý thị trường phường/xã nơi đặt phòng trọ.
+
+### Câu 8: Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?
+- **Căn cứ pháp lý:** Khoản 5 Điều 12 *Thông tư 60/2025/TT-BCT*; Điều 472 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  **Có, chủ trọ có nghĩa vụ minh bạch số liệu đo đếm và cách tính tiền điện.**
+  - **Nguyên tắc:** Tổng số tiền điện thu từ người thuê không được vượt quá số tiền trên hóa đơn thực tế của Điện lực. Do đó, chủ nhà phải công khai dữ liệu đo đếm để làm cơ sở thu tiền.
+  - **Bảng kê tiền điện hàng tháng phải thể hiện rõ:**
+    1. Chỉ số công tơ cũ và chỉ số công tơ mới;
+    2. Tổng số kWh điện phòng đã tiêu thụ trong kỳ;
+    3. Đơn giá áp dụng (kèm theo cách phân bổ định mức bậc thang hoặc tỷ lệ phân bổ);
+    4. Thành tiền cuối cùng.
+  - Người thuê có quyền cùng chủ trọ đối chiếu trực tiếp mặt số công tơ vào ngày chốt điện định kỳ.
 
 ---
 
-## CHỦ ĐỀ 2: ĐIỆN SINH HOẠT NHÀ TRỌ (`electricity`)
-*Căn cứ chính: Quyết định giá điện của Bộ Công Thương; Thông tư 16/2014/TT-BCT, Thông tư 25/2018/TT-BCT, Thông tư 09/2023/TT-BCT; Nghị định 134/2013/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 17/2022/NĐ-CP).*
+## 3. Nước sinh hoạt tại Cần Thơ (`water_cantho`)
 
-### Câu 5 (Gốc câu 23): Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?
-**Câu trả lời mẫu:**
-> Theo Thông tư 25/2018/TT-BCT và Thông tư 09/2023/TT-BCT của Bộ Công Thương:
-> - **Trường hợp người thuê có hợp đồng từ 12 tháng trở lên và có đăng ký tạm trú:** Được cấp định mức điện riêng. Cứ **4 người** được tính là **1 hộ dùng điện** để áp biểu giá bán lẻ điện sinh hoạt bậc thang (từ Bậc 1 đến Bậc 6).
-> - **Trường hợp thời hạn thuê dưới 12 tháng hoặc chủ trọ không kê khai định mức:** Chủ trọ được lựa chọn:
->   1. Tính theo biểu giá bán lẻ bậc thang của công tơ tổng; hoặc
->   2. **Áp dụng giá bán lẻ điện bậc 3** (mức 101 - 200 kWh) cộng thêm thuế GTGT (hiện nay khoảng 2.167 VNĐ/kWh chưa VAT, sau VAT khoảng 2.300 - 2.400 VNĐ/kWh) cho toàn bộ sản lượng đo được tại công tơ của phòng trọ.
-> - **Nghiêm cấm:** Chủ trọ tự ý đặt ra mức giá cao vô lý (như 3.500 – 4.500 VNĐ/kWh) để trục lợi.
+### Câu 9: Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?
+- **Căn cứ pháp lý:** *Quyết định số 215/QĐ-UBND của UBND TP. Cần Thơ*; *Thông tư 44/2021/TT-BTC*; Biểu giá nước sinh hoạt của CANTHOWASSCO.
+- **Câu trả lời mẫu:**
+  Giá nước sạch sinh hoạt tại Cần Thơ được xác định dựa trên:
+  1. **Khung giá do UBND TP. Cần Thơ ban hành:** Ban hành biểu giá nước sạch áp dụng trên địa bàn thành phố (như Quyết định số 215/QĐ-UBND), phân chia theo khu vực đô thị (quận Ninh Kiều, Cái Răng, Bình Thủy...) và nông thôn.
+  2. **Mục đích sử dụng:** Phân biệt giữa khách hàng sử dụng cho sinh hoạt hộ dân cư (được tính giá bậc thang ưu đãi) và nhóm kinh doanh dịch vụ.
+  3. **Định mức nước cho người thuê trọ:** Sinh viên có đăng ký tạm trú hợp pháp được đăng ký cấp định mức nước sinh hoạt hộ gia đình (phổ biến là **4 m³/người/tháng** theo mức giá ưu đãi bậc 1).
+  4. **Cơ cấu hóa đơn:** Đơn giá nước theo bảng giá nhà nước chưa bao gồm Thuế VAT (5%) và Tiền dịch vụ thoát nước/phí bảo vệ môi trường đối với nước thải sinh hoạt (khoảng 10% – 15%).
 
----
+### Câu 10: Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?
+- **Căn cứ pháp lý:** *Quyết định số 215/QĐ-UBND TP. Cần Thơ*; Điều 472 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  Khi chủ trọ thu tiền nước khoán theo đầu người, bạn cần kiểm tra 3 nội dung:
+  1. **Mức giá khoán mặt bằng chung:** Tại Cần Thơ, mức thu khoán tiền nước phổ biến đối với sinh viên dao động từ **30.000 – 50.000 VNĐ/người/tháng** (tương đương khối lượng tiêu thụ thực tế khoảng 3 – 5 m³/người).
+  2. **Yêu cầu giải trình khi mức khoán quá cao:** Nếu chủ trọ thu từ 70.000 – 100.000 VNĐ/người/tháng, sinh viên có quyền yêu cầu chủ nhà cho xem hóa đơn tiền nước thực tế của đơn vị cấp nước, sau đó lấy tổng tiền chia đều cho tổng số người đang ở để đối chiếu.
+  3. **Thỏa thuận bằng văn bản:** Mức khoán cố định phải được ghi rõ trong hợp đồng thuê phòng, cam kết không tự ý nâng giá đột xuất vào mùa khô hoặc khi có người ở thêm ngắn hạn.
 
-### Câu 6 (Gốc câu 24): Ba sinh viên ở chung một phòng được tính tiền điện ra sao?
-**Câu trả lời mẫu:**
-> Theo quy định tại Điều 10 Thông tư 16/2014/TT-BCT (được sửa đổi bởi Thông tư 25/2018/TT-BCT):
-> - Quy chuẩn định mức: **1 người được tính là 1/4 định mức, 2 người là 2/4 định mức, 3 người được tính là 3/4 định mức hộ gia đình**.
-> - Cụ thể với **3 sinh viên** có đăng ký tạm trú: Sẽ được hưởng **75% định mức của từng bậc thang điện** sinh hoạt:
->   - Bậc 1 (0 - 50 kWh): Định mức được tính là $50 \times 3/4 = 37,5\text{ kWh}$.
->   - Bậc 2 (51 - 100 kWh): Định mức là $37,5\text{ kWh}$.
->   - Các bậc tiếp theo tính tương tự theo tỷ lệ 3/4.
-> - Nếu chủ trọ không làm thủ tục kê khai định mức với bên Điện lực thì phải áp dụng **giá điện Bậc 3** cho toàn bộ số điện phòng tiêu thụ.
+### Câu 11: Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?
+- **Căn cứ pháp lý:** Nguyên tắc tự do giao kết hợp đồng theo *Bộ luật Dân sự 2015*; Quyết định giá nước Cần Thơ.
+- **Câu trả lời mẫu:**
+  Có **2 phương án thỏa thuận tối ưu** khi dùng chung đồng hồ nước tổng:
+  1. **Phương án 1 — Chia đều theo số người thực tế (Theo đầu người):**
+     - Lấy tổng số tiền trên hóa đơn nước nhà máy trong tháng chia đều cho tổng số nhân khẩu thực tế đang ở tại dãy trọ.
+     - *Ưu điểm:* Đơn giản, sát với chi phí thực tế phát sinh trên hóa đơn gốc.
+  2. **Phương án 2 — Lắp đồng hồ nước phụ (tiểu ly) cho từng phòng:**
+     - Mỗi phòng đo đếm riêng, dùng bao nhiêu m³ trả bấy nhiêu tiền theo đơn giá quy định.
+     - Phần chênh lệch do hao hụt hoặc nước dùng chung khu vực giặt giũ/sân bãi sẽ chia đều cho các phòng theo tỷ lệ thống nhất.
+     - *Ưu điểm:* Đây là phương án minh bạch nhất, hạn chế tối đa mâu thuẫn giữa các phòng.
 
----
-
-### Câu 7 (Gốc câu 25): Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?
-**Câu trả lời mẫu:**
-> Bạn cần thực hiện các bước kiểm tra sau:
-> 1. **Kiểm tra công tơ điện:** Ghi lại chỉ số điện đầu tháng và cuối tháng của đồng hồ phòng mình, tính ra số kWh thực tế đã dùng.
-> 2. **Yêu cầu đối chiếu hóa đơn tiền điện gốc:** Đề nghị chủ trọ cho xem hóa đơn tiền điện tháng đó của Điện lực cấp (hoặc mã khách hàng PE... trên ứng dụng EVNSPC CSKH).
-> 3. **Căn cứ pháp lý xử phạt:** Căn cứ theo **Khoản 6 Điều 12 Nghị định 134/2013/NĐ-CP** (được sửa đổi bởi **Nghị định 17/2022/NĐ-CP**), hành vi thu tiền điện của người thuê nhà cao hơn giá quy định trong trường hợp mua điện theo giá bán lẻ điện sinh hoạt bị **phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng**.
-> 4. **Kênh phản ánh:** Nếu chủ trọ cố tình vi phạm, bạn có thể gọi hotline CSKH Tổng công ty Điện lực miền Nam (EVNSPC: **1900 1006** hoặc **1900 9000**) hoặc phản ánh qua UBND phường/xã nơi đặt phòng trọ.
-
----
-
-### Câu 8 (Gốc câu 26): Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?
-**Câu trả lời mẫu:**
-> **Có.** Theo quy định của Bộ Công Thương và nguyên tắc giao kết hợp đồng dân sự:
-> - Chủ trọ có trách nhiệm công khai, minh bạch số điện tiêu thụ bằng việc cho phép người thuê cùng chốt chỉ số công tơ vào kỳ thanh toán.
-> - Bảng kê thanh toán hàng tháng phải nêu rõ: Chỉ số cũ, chỉ số mới, lượng điện tiêu thụ (kWh), đơn giá áp dụng và thành tiền.
+### Câu 12: Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?
+- **Căn cứ pháp lý:** Quy trình tra cứu hóa đơn điện tử của *Công ty Cổ phần Cấp thoát nước Cần Thơ (CANTHOWASSCO)*.
+- **Câu trả lời mẫu:**
+  Sinh viên có thể tra cứu và đối chiếu hóa đơn tiền nước theo các bước:
+  1. **Bước 1 — Lấy thông tin khách hàng:** Xem trên hóa đơn giấy/phiếu thu tiền nước của chủ nhà để lấy **IDKH (Mã khách hàng / Danh bộ)** và **Mã xác nhận**.
+  2. **Bước 2 — Truy cập cổng tra cứu:** Vào website tra cứu hóa đơn điện tử chính thức của CANTHOWASSCO tại: `https://hddt.ctn-cantho.com.vn` (hoặc qua Zalo OA "Cấp thoát nước Cần Thơ").
+  3. **Bước 3 — Nhập dữ liệu:** Điền IDKH và Mã xác nhận vào hệ thống rồi nhấn **"Tra cứu hóa đơn"**.
+  4. **Bước 4 — Đối chiếu chi tiết:** Màn hình sẽ hiển thị hóa đơn gốc (tải được file PDF/XML) gồm: số m³ nước tiêu thụ thực tế, đơn giá, phí thoát nước, VAT và tổng tiền phải trả để đối chiếu với mức thu của chủ nhà.
 
 ---
 
-## CHỦ ĐỀ 3: NƯỚC SINH HOẠT TẠI CẦN THƠ (`water_cantho`)
-*Căn cứ chính: Quyết định giá nước sinh hoạt của UBND TP. Cần Thơ; Quy định cấp nước của Công ty Cổ phần Cấp thoát nước Cần Thơ (Cantho Water).*
+## 4. Đăng ký cư trú (`residence`)
 
-### Câu 9 (Gốc câu 27): Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?
-**Câu trả lời mẫu:**
-> - Giá nước sạch sinh hoạt tại Cần Thơ do **UBND TP. Cần Thơ ban hành khung giá** áp dụng cho đơn vị cấp nước (như Cantho Water).
-> - Đối với sinh viên, người thuê trọ có đăng ký tạm trú: Có thể được chủ trọ đăng ký cấp **định mức nước sinh hoạt hộ gia đình** (thường là **4 m³/người/tháng** theo mức giá ưu đãi bậc 1).
-> - Mức giá nước sinh hoạt bậc thang dân cư tại Cần Thơ dao động từ khoảng 7.000 – 11.000 VNĐ/m³ (tùy theo khối lượng sử dụng và đã gồm thuế VAT, phí bảo vệ môi trường/thoát nước).
+### Câu 13: Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?
+- **Căn cứ pháp lý:** Khoản 1 Điều 27 *Luật Cư trú 2020* (Luật số 68/2020/QH14).
+- **Câu trả lời mẫu:**
+  - **Thủ tục bắt buộc:** Sinh viên thuê trọ phải làm thủ tục **Đăng ký tạm trú**.
+  - **Điều kiện:** Căn cứ Khoản 1 Điều 27 Luật Cư trú 2020, công dân đến sinh sống tại chỗ ở hợp pháp ngoài phạm vi xã/phường nơi thường trú từ **30 ngày trở lên** thì bắt buộc phải đăng ký tạm trú.
+  - **Thời hạn đăng ký:** Trong vòng **30 ngày** kể từ ngày chuyển đến ở trọ.
+  - **Thời hạn tạm trú:** Tối đa là **02 năm** và có thể làm thủ tục gia hạn nhiều lần.
 
----
+### Câu 14: Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?
+- **Căn cứ pháp lý:** Điều 28 *Luật Cư trú 2020*; Điều 9 *Nghị định 144/2021/NĐ-CP*.
+- **Câu trả lời mẫu:**
+  Đây là trách nhiệm phối hợp giữa cả hai bên:
+  1. **Trách nhiệm của chủ trọ:**
+     - Cung cấp giấy tờ chứng minh chỗ ở hợp pháp (sổ hồng, hợp đồng mua bán hoặc giấy phép xây dựng nhà ở).
+     - Ký hợp đồng thuê trọ hợp pháp và ký xác nhận đồng ý cho đăng ký tạm trú vào Tờ khai CT01 (hoặc chủ trọ có thể trực tiếp làm thủ tục đăng ký tạm trú cho người thuê).
+  2. **Trách nhiệm của sinh viên:** Cung cấp thông tin CCCD, kê khai trung thực Tờ khai CT01 và nộp hồ sơ.
+  3. **Mức phạt vi phạm:** Căn cứ Điều 9 Nghị định 144/2021/NĐ-CP, hành vi không thực hiện đúng quy định về đăng ký tạm trú sẽ bị **phạt tiền từ 500.000 đến 1.000.000 đồng** đối với cá nhân/chủ cơ sở vi phạm.
 
-### Câu 10 (Gốc câu 28): Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?
-**Câu trả lời mẫu:**
-> Thu tiền nước theo đầu người là hình thức khoán phổ biến khi nhà trọ không lắp đồng hồ nước riêng cho từng phòng. Bạn nên kiểm tra:
-> 1. **Mức khoán trung bình:** Tại Cần Thơ, mức thu khoán tiền nước phổ biến cho sinh viên dao động từ **30.000 – 50.000 VNĐ/người/tháng** (tương đương 3 – 5 m³ nước sinh hoạt).
-> 2. **Nếu chủ trọ thu quá cao (80.000 – 100.000 VNĐ/người/tháng):** Bạn có quyền yêu cầu chủ trọ giải trình dựa trên hóa đơn tiền nước thực tế của đơn vị cấp nước chia bình quân cho tổng số nhân khẩu đang ở trọ.
-> 3. **Thỏa thuận bằng văn bản:** Mức khoán theo đầu người phải được ghi cụ thể trong hợp đồng thuê nhà để tránh việc chủ trọ tăng giá tùy tiện vào mùa khô hoặc khi có người ở thêm.
+### Câu 15: Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?
+- **Căn cứ pháp lý:** Điều 28 *Luật Cư trú 2020* (Luật số 68/2020/QH14).
+- **Câu trả lời mẫu:**
+  Hồ sơ đăng ký tạm trú gồm:
+  1. **Tờ khai thay đổi thông tin cư trú (Mẫu CT01):** Có thông tin người đăng ký và chữ ký đồng ý của chủ sở hữu chỗ ở hợp pháp (chủ trọ). Nếu sinh viên dưới 18 tuổi, phải có ý kiến đồng ý của cha, mẹ hoặc người giám hộ.
+  2. **Giấy tờ chứng minh chỗ ở hợp pháp:** Bản sao Hợp đồng thuê phòng trọ còn hiệu lực (không bắt buộc công chứng).
+  3. **Giấy tờ tùy thân:** Thẻ Căn cước công dân / Thẻ căn cước của người đăng ký.
+  - **Kênh nộp hồ sơ:**
+    + *Trực tuyến:* Qua **Cổng Dịch vụ công Quốc gia**, **Cổng Dịch vụ công Bộ Công an** (`dichvucong.bocongan.gov.vn`) hoặc ứng dụng **VNeID** (định danh mức 2).
+    + *Trực tiếp:* Nộp tại Công an xã/phường nơi đặt phòng trọ.
+  - **Thời gian xử lý:** Trong thời hạn **03 ngày làm việc** kể từ ngày nhận đủ hồ sơ hợp lệ, công an sẽ cập nhật dữ liệu và gửi thông báo kết quả.
 
----
-
-### Câu 11 (Gốc câu 29): Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?
-**Câu trả lời mẫu:**
-> Khi dùng chung đồng hồ nước tổng, các bên có thể thỏa thuận 1 trong 2 phương án:
-> 1. **Phương án chia theo đầu người:** Lấy tổng số tiền trên hóa đơn nhà nước chia đều cho tổng số người thực tế đang cư trú tại dãy trọ trong tháng.
-> 2. **Lắp đồng hồ nước phụ (tiểu ly) cho từng phòng:** Mỗi phòng tự thanh toán theo số m³ thực tế trên đồng hồ phụ; phần chênh lệch hao hụt hoặc nước dùng chung sân bãi sẽ chia đều cho các phòng theo tỷ lệ thỏa thuận. Đây là phương án minh bạch và ít phát sinh tranh chấp nhất.
-
----
-
-### Câu 12 (Gốc câu 30): Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?
-**Câu trả lời mẫu:**
-> - Bạn có thể xem trên hóa đơn giấy/điện tử của chủ nhà để lấy **Mã khách hàng / Danh bộ** (thường in trên hóa đơn của Cantho Water).
-> - Truy cập website tra cứu hoặc cổng dịch vụ của **Công ty Cổ phần Cấp thoát nước Cần Thơ** (hoặc qua Zalo OA "Cấp thoát nước Cần Thơ") nhập mã danh bộ để kiểm tra chính xác sản lượng nước tiêu thụ và số tiền thực tế phải thanh toán.
-
----
-
-## CHỦ ĐỀ 4: ĐĂNG KÝ CƯ TRÚ VÀ TẠM TRÚ (`residence`)
-*Căn cứ chính: Luật Cư trú 2020; Thông tư 55/2021/TT-BCA; Nghị định 144/2021/NĐ-CP.*
-
-### Câu 13 (Gốc câu 31): Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?
-**Câu trả lời mẫu:**
-> Căn cứ theo **Điều 27 Luật Cư trú 2020**:
-> - Công dân đến sinh sống tại chỗ ở hợp pháp ngoài phạm vi đơn vị hành chính cấp xã nơi đã đăng ký thường trú từ **30 ngày trở lên** phải thực hiện **Đăng ký tạm trú**.
-> - **Thời hạn làm thủ tục:** Trong vòng **30 ngày** kể từ ngày chuyển đến phòng trọ mới.
-> - **Thời hạn tạm trú:** Tối đa là **02 năm** cho một lần đăng ký và có thể gia hạn nhiều lần.
+### Câu 16: Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?
+- **Căn cứ pháp lý:** Điều 27, 28, 29 *Luật Cư trú 2020*.
+- **Câu trả lời mẫu:**
+  - **Chuyển sang trọ mới ở phường/xã khác:** Trong thời hạn 30 ngày, sinh viên nộp hồ sơ **Đăng ký tạm trú tại nơi ở mới** (qua VNeID hoặc Công an phường mới). Sau khi nơi mới tiếp nhận và phê duyệt, hệ thống Cơ sở dữ liệu quốc gia về cư trú sẽ **tự động xóa đăng ký tạm trú tại nơi ở cũ**.
+  - **Chuyển phòng trong cùng phạm vi xã/phường:** Làm thủ tục điều chỉnh thông tin về cư trú trong Cơ sở dữ liệu về cư trú (nộp Tờ khai CT01 và hợp đồng trọ mới để cập nhật địa chỉ cụ thể).
+  - **Lưu ý gia hạn:** Nếu tiếp tục ở lại trọ cũ sau 02 năm, phải nộp hồ sơ gia hạn trước 15 ngày tính đến ngày hết hạn tạm trú.
 
 ---
 
-### Câu 14 (Gốc câu 32): Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?
-**Câu trả lời mẫu:**
-> - **Trách nhiệm của chủ nhà trọ:** Phải tạo điều kiện, cung cấp thông tin chỗ ở hợp pháp, ký hợp đồng thuê và phối hợp làm thủ tục (hoặc chủ trọ có thể trực tiếp làm thủ tục đăng ký tạm trú thay cho người thuê trọ theo quy định).
-> - **Trách nhiệm của sinh viên:** Cung cấp ảnh CCCD, điền Tờ khai thay đổi thông tin cư trú (mẫu CT01).
-> - **Mức phạt nếu không đăng ký:** Theo Điều 9 Nghị định 144/2021/NĐ-CP, cả người thuê và chủ trọ không thực hiện đúng quy định về đăng ký tạm trú có thể bị phạt tiền từ **500.000 đến 1.000.000 đồng**.
+## 5. Phòng cháy, chữa cháy (`fire_safety`)
+
+### Câu 17: Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?
+- **Căn cứ pháp lý:** Điều 20, 21, 24 *Luật PCCC và CNCH 2024* (Luật số 55/2024/QH15); *Nghị định 105/2025/NĐ-CP*.
+- **Câu trả lời mẫu:**
+  Sinh viên cần kiểm tra trực tiếp **5 điều kiện PCCC sống còn**:
+  1. **Lối thoát nạn thứ hai:** Ngoài cửa chính, phòng hoặc dãy trọ có ban công thoáng, lối lên mái thông sang nhà bên, hoặc thang sắt thoát hiểm ngoài trời hay không?
+  2. **Chuồng cọp / Rào sắt lồng bảo vệ:** Nếu ban công hoặc cửa sổ có chuồng cọp, bắt buộc phải có **cửa mở khẩn cấp** và chìa khóa treo ở vị trí dễ lấy ngay cạnh cửa.
+  3. **Bình chữa cháy tại chỗ:** Hành lang/lối đi chung có trang bị bình chữa cháy bột (ABC) hoặc khí (CO2) không? Chốt kẹp chì còn nguyên vẹn, kim đồng hồ áp suất ở vạch xanh.
+  4. **Hệ thống điện:** Đường dây điện có luồn trong ống gen chống cháy không? Phòng có aptomat (CB) riêng tự ngắt khi quá tải hoặc chập mạch không?
+  5. **Bãi xe & sạc xe điện:** Khu vực để xe máy có bịt kín lối ra vào duy nhất không? Có giải pháp an toàn và bình chữa cháy chuyên dụng cho khu vực sạc xe đạp/xe máy điện không?
+
+### Câu 18: Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?
+- **Căn cứ pháp lý:** Điều 20, 21, 23 *Luật PCCC và CNCH 2024*; *Nghị định 105/2025/NĐ-CP*; *Nghị định 136/2020/NĐ-CP* (sửa đổi bởi *Nghị định 50/2024/NĐ-CP*).
+- **Câu trả lời mẫu:**
+  Nhà trọ có nhiều phòng cho thuê phải tuân thủ nghiêm ngặt các tiêu chuẩn:
+  1. **Nội quy & biển báo:** Niêm yết nội quy PCCC, tiêu lệnh chữa cháy, số điện thoại 114 và biển chỉ dẫn thoát nạn (đèn Exit, đèn chiếu sáng sự cố tại cầu thang, hành lang).
+  2. **Lối thoát nạn thông suốt:** Tối thiểu 02 lối thoát nạn độc lập; tuyệt đối không để xe cộ, đồ đạc chắn hành lang và cầu thang thoát hiểm.
+  3. **Ngăn cách khu vực nguy cơ cao:** Phải có giải pháp ngăn cháy lan giữa bãi để xe máy/xe điện ở tầng trệt với khu vực phòng trọ và cầu thang bộ dẫn lên các tầng.
+  4. **Trang bị phương tiện chữa cháy:** Bố trí đủ bình chữa cháy xách tay (bình quân mỗi tầng ít nhất 02 bình chữa cháy đạt chuẩn ở vị trí thuận tiện), dụng cụ phá dỡ thô sơ (búa, kìm cộng lực).
+  5. **Tập huấn quản lý:** Chủ nhà trọ hoặc người quản lý vận hành phải được tập huấn nghiệp vụ PCCC định kỳ.
+
+### Câu 19: Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?
+- **Căn cứ pháp lý:** Điều 8, 20 *Luật PCCC và CNCH 2024*; Hướng dẫn kỹ năng an toàn PCCC của Cục Cảnh sát PCCC & CNCH.
+- **Câu trả lời mẫu:**
+  1. **Yêu cầu chủ trọ giải tỏa ngay:** Kiến nghị trực tiếp yêu cầu chủ trọ dọn dẹp xe cộ, đồ đạc chắn lối đi, hành lang; mở khóa cửa sân thượng/ban công hoặc đặt hộp đập kính chứa chìa khóa thoát hiểm khẩn cấp ngay tại cửa.
+  2. **Phản ánh đến cơ quan quản lý:** Nếu chủ nhà phớt lờ, phản ánh ngay đến **Công an phường/xã** hoặc **Đội Cảnh sát PCCC & CNCH địa phương** để kiểm tra, xử phạt vi phạm an toàn PCCC.
+  3. **Kỹ năng thoát nạn khi xảy ra hỏa hoạn:**
+     - Ưu tiên thang bộ (tuyệt đối không dùng thang máy).
+     - Nếu lối thoát bị khói lửa bít kín: Quay lại phòng, đóng kín cửa, dùng khăn/chăn ướt chèn kín khe cửa ngăn khói độc.
+     - Di chuyển ra ban công/cửa sổ, dùng đèn pin hoặc vải màu sáng ra hiệu cầu cứu; gọi ngay **114**; tuyệt đối không nhảy từ tầng cao.
+
+### Câu 20: Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?
+- **Căn cứ pháp lý:** Khoản 6, 8 Điều 8 và Điều 24 *Luật PCCC và CNCH 2024* (Luật số 55/2024/QH15).
+- **Câu trả lời mẫu:**
+  Theo Điều 8 và Điều 24 Luật PCCC và CNCH 2024:
+  1. **Trách nhiệm của chủ trọ:**
+     - Tuyên truyền, đôn đốc người thuê chấp hành quy định PCCC.
+     - Lắp đặt hệ thống điện an toàn, có aptomat bảo vệ tự ngắt; định kỳ kiểm tra, sửa chữa đường dây; bảo dưỡng phương tiện chữa cháy tại chỗ.
+     - Bố trí khu vực sạc xe điện an toàn có giải pháp ngăn cháy.
+  2. **Trách nhiệm của người thuê (sinh viên):**
+     - Chấp hành nghiêm nội quy PCCC; không tự ý câu móc, đấu nối điện hoặc dùng thiết bị công suất quá lớn gây quá tải.
+     - Tắt toàn bộ thiết bị điện sinh nhiệt (bếp điện, bàn ủi, ấm siêu tốc) trước khi ra khỏi phòng.
+     - Sạc xe điện an toàn: Không sạc qua đêm khi không có người trông coi hoặc sạc cạnh các vật dụng dễ cháy.
 
 ---
 
-### Câu 15 (Gốc câu 33): Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?
-**Câu trả lời mẫu:**
-> Căn cứ **Điều 28 Luật Cư trú 2020**, hồ sơ gồm:
-> 1. **Tờ khai thay đổi thông tin cư trú (Mẫu CT01)** (có chữ ký xác nhận đồng ý của chủ trọ/chủ sở hữu chỗ ở hợp pháp).
-> 2. **Giấy tờ chứng minh chỗ ở hợp pháp:** Hợp đồng thuê nhà trọ hợp pháp còn hiệu lực (không bắt buộc công chứng).
-> 3. **Bản sao CCCD/Thẻ căn cước** của người đăng ký.
-> *Hình thức nộp:* Sinh viên có thể nộp trực tiếp tại Công an phường/xã hoặc **nộp trực tuyến cực kỳ thuận tiện qua Cổng dịch vụ công Bộ Công an** hoặc **Ứng dụng VNeID (định danh mức 2)**.
+## 6. Môi giới bất động sản (`real_estate_brokerage`)
+
+### Câu 21: Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?
+- **Căn cứ pháp lý:** Điều 6, 46, 61, 65 *Luật Kinh doanh bất động sản 2023* (Luật số 29/2023/QH15).
+- **Câu trả lời mẫu:**
+  Người làm dịch vụ môi giới phòng trọ khi thu phí phải công khai:
+  1. **Tư cách hành nghề:** Họ tên, số điện thoại, thông tin doanh nghiệp môi giới hoặc chứng chỉ hành nghề môi giới BĐS cá nhân.
+  2. **Thông tin phòng trọ trung thực:** Tình trạng thực tế của phòng, diện tích, giá thuê, tiền cọc, chi phí điện nước, hiện trạng pháp lý và chịu trách nhiệm về thông tin đã cung cấp.
+  3. **Biểu phí dịch vụ:** Mức phí/thù lao môi giới, điều kiện và thời điểm phát sinh nghĩa vụ thanh toán.
+
+### Câu 22: Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?
+- **Căn cứ pháp lý:** Điều 65 *Luật Kinh doanh bất động sản 2023*; Điều 160, 161 *Luật Nhà ở* (VBHN số 79/VBHN-VPQH).
+- **Câu trả lời mẫu:**
+  1. **Nguyên tắc cốt lõi:** **Tuyệt đối không chuyển tiền cọc giữ phòng hay phí xem phòng** khi chưa đến xem phòng thực tế và chưa gặp chủ nhà.
+  2. **Kiểm tra quyền cho thuê:** Yêu cầu bên môi giới chỉ rõ ai là chủ nhà; kiểm tra giấy tờ nhà hoặc văn bản ủy quyền cho thuê hợp pháp giữa chủ nhà và môi giới.
+  3. **Giao dịch trực tiếp với chủ trọ:** Hợp đồng và tiền cọc phải được ký kết, bàn giao trực tiếp với chủ trọ (đối chiếu CCCD với giấy tờ nhà).
+  4. **Quy tắc về phí môi giới:** Phí môi giới thông thường do chủ trọ chi trả, sinh viên không phải trả khoản phí này trừ khi có văn bản thỏa thuận riêng trước đó.
+
+### Câu 23: Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?
+- **Căn cứ pháp lý:** Điều 65 *Luật Kinh doanh bất động sản 2023*; quy định bồi thường thiệt hại theo *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  - Có toàn quyền **từ chối thuê phòng và kiên quyết không thanh toán bất kỳ khoản phí môi giới nào** vì bên môi giới đã vi phạm nghĩa vụ cung cấp thông tin trung thực theo Điều 65 Luật Kinh doanh BĐS.
+  - Yêu cầu hoàn trả lại 100% số tiền đã thu (nếu bị ép đóng phí xem phòng trước đó) và yêu cầu bồi thường thiệt hại nếu thông tin sai gây tổn thất thực tế.
+  - Báo cáo tài khoản môi giới vi phạm cho nền tảng đăng tin hoặc báo cơ quan Công an nếu có dấu hiệu ép buộc, lừa đảo.
+
+### Câu 24: Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?
+- **Căn cứ pháp lý:** Khoản 4 Điều 46, Điều 63, Điều 65 *Luật Kinh doanh bất động sản 2023*.
+- **Câu trả lời mẫu:**
+  Phí môi giới phải được lập thành văn bản (Hợp đồng dịch vụ môi giới hoặc phiếu thu xác nhận dịch vụ) với các nội dung:
+  1. Họ tên, thông tin pháp nhân/CCCD của hai bên.
+  2. Nội dung dịch vụ, yêu cầu về phòng trọ và thời hạn thực hiện.
+  3. Mức phí dịch vụ cụ thể và phương thức thanh toán.
+  4. **Điều kiện phát sinh phí:** Phải ghi rõ *phí môi giới chỉ được thanh toán sau khi người thuê đã ký hợp đồng thuê phòng trọ thành công với chủ trọ*.
+  5. Cam kết hoàn tiền nếu giao dịch bất thành do lỗi thông tin sai từ bên môi giới.
 
 ---
 
-### Câu 16 (Gốc câu 34): Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?
-**Câu trả lời mẫu:**
-> - Khi chuyển sang chỗ ở trọ mới ngoài xã/phường cũ: Trong thời hạn 30 ngày, bạn phải làm thủ tục **đăng ký tạm trú tại chỗ ở mới**. Khi công an xã/phường mới duyệt tạm trú, hệ thống Cơ sở dữ liệu quốc gia về dân cư sẽ **tự động xóa đăng ký tạm trú tại nơi ở cũ**.
-> - Nếu chuyển trọ cùng xã/phường nhưng đổi địa chỉ: Làm thủ tục điều chỉnh thông tin về cư trú trên Cổng dịch vụ công/VNeID.
+## 7. Nền tảng đăng tin trực tuyến (`ecommerce_platform`)
+
+### Câu 25: Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?
+- **Căn cứ pháp lý:** Điều 17, 18 *Luật Thương mại điện tử 2025* (Luật số 122/2025/QH15); *Nghị định 248/2026/NĐ-CP*; Quy chế sàn TMĐT Chợ Tốt.
+- **Câu trả lời mẫu:**
+  Thực hiện 4 bước kiểm chứng:
+  1. **Kiểm tra tài khoản người đăng:** Xem tài khoản đã được xác thực danh tính/SĐT trên nền tảng chưa, thâm niên hoạt động, đánh giá từ người dùng khác.
+  2. **Xác minh nội dung bài đăng:** Địa chỉ phòng có chi tiết số nhà, tên đường, phường tại Cần Thơ không; có số điện thoại liên hệ rõ ràng không.
+  3. **Tìm kiếm bằng hình ảnh (Reverse Image Search):** Dùng Google Hình ảnh để kiểm tra ảnh phòng có bị sao chép từ các bài đăng ở tỉnh thành khác hay không.
+  4. **Cảnh giác giá rẻ bất thường:** Phòng đầy đủ nội thất, máy lạnh ở trung tâm Ninh Kiều nhưng để giá vài trăm ngàn là dấu hiệu mồi nhử lừa cọc.
+
+### Câu 26: Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?
+- **Căn cứ pháp lý:** Điều 18 *Nghị định 248/2026/NĐ-CP*; Quy chế hoạt động sàn TMĐT Chợ Tốt.
+- **Câu trả lời mẫu:**
+  - **Cách 1 — Báo cáo trực tiếp trên bài đăng:** Nhấn vào nút **"Báo cáo tin đăng"** (Report) bên dưới bài; chọn lý do (*Lừa đảo*, *Thông tin không đúng thực tế*, *Hàng/phòng đã bán*); nhập mô tả và đính kèm ảnh chụp màn hình bằng chứng.
+  - **Cách 2 — Liên hệ Chăm sóc khách hàng của sàn:** Gửi email hoặc liên hệ tổng đài của sàn, cung cấp ID tin đăng, số điện thoại người đăng và nội dung sai lệch. Sàn có nghĩa vụ tiếp nhận và gỡ bỏ tin vi phạm trong vòng 24 giờ.
+
+### Câu 27: Nền tảng đăng tin có trách nhiệm gì đối với thông tin người cho thuê theo tài liệu hiện có?
+- **Căn cứ pháp lý:** Điều 17 *Luật Thương mại điện tử 2025* (Luật số 122/2025/QH15); Điều 18 *Nghị định 248/2026/NĐ-CP*; *Nghị định 52/2013/NĐ-CP* (sửa đổi bởi *Nghị định 85/2021/NĐ-CP*).
+- **Câu trả lời mẫu:**
+  Trách nhiệm của chủ quản nền tảng TMĐT trung gian:
+  1. **Định danh người đăng:** Yêu cầu người cho thuê cung cấp thông tin xác thực danh tính (họ tên, SĐT, địa chỉ, mã số thuế hoặc định danh điện tử) trước khi đăng tin.
+  2. **Kiểm duyệt và ngăn chặn:** Thiết lập bộ lọc từ khóa, tiếp nhận phản ánh để kịp thời ngăn chặn các bài đăng sai lệch, lừa đảo.
+  3. **Gỡ bỏ tin vi phạm:** Duy trì cơ chế giải quyết khiếu nại công khai; gỡ bỏ tin đăng và khóa tài khoản vi phạm.
+  4. **Cung cấp dữ liệu cho cơ quan điều tra:** Cung cấp thông tin tài khoản người đăng cho cơ quan Công an có thẩm quyền trong thời hạn 24 giờ kể từ khi nhận được yêu cầu phục vụ điều tra xử lý vi phạm.
+
+### Câu 28: Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?
+- **Căn cứ pháp lý:** Điều 17 *Nghị định 248/2026/NĐ-CP*; Khuyến cáo từ Cục An ninh mạng và PCTP công nghệ cao (A05) — Bộ Công an.
+- **Câu trả lời mẫu:**
+  Đây là **dấu hiệu lừa đảo chiếm đoạt tài khoản ngân hàng**. Cần nhận diện các điểm sau:
+  1. **Đường link giả mạo:** Link rút gọn (bit.ly, tinyurl...) hoặc có tên miền lạ mạo danh cổng thanh toán/ngân hàng (ví dụ: `vnpay-xacnhancoc.com`, `vietcombank-nhantien.site`...).
+  2. **Đòi thông tin bảo mật:** Yêu cầu nhập Tên đăng nhập ngân hàng, Mật khẩu, hoặc **Mã xác thực OTP/Smart OTP** để "xác nhận phòng" hoặc "nhận tiền hoàn cọc".
+  3. **Tạo áp lực gấp gáp:** Thúc ép "chuyển cọc qua link trong 10 phút kẻo người khác lấy mất phòng".
+  - **Quy tắc vàng:** **Không bấm vào link lạ; Không cung cấp mã OTP cho bất kỳ ai; Dừng ngay giao dịch.**
 
 ---
 
-## CHỦ ĐỀ 5: AN TOÀN PHÒNG CHÁY, CHỮA CHÁY (`fire_safety`)
-*Căn cứ chính: Luật Phòng cháy và chữa cháy; Nghị định 136/2020/NĐ-CP, Nghị định 50/2024/NĐ-CP; Chỉ thị 19/CT-TTg năm 2024 của Thủ tướng Chính phủ; Tiêu chuẩn TCVN 3890:2023.*
+## 8. Dữ liệu cá nhân (`privacy_data`)
 
-### Câu 17 (Gốc câu 35): Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?
-**Câu trả lời mẫu:**
-> Khi đi xem phòng, sinh viên cần quan sát trực tiếp 5 yếu tố sinh mạng sau:
-> 1. **Lối thoát hiểm thứ hai:** Ngoài cửa chính đi vào, phòng hoặc tầng trọ có ban công, lối lên mái thông sang nhà bên cạnh, hoặc thang thoát hiểm bên ngoài không?
-> 2. **Chuồng cọp / Rào sắt lồng bảo vệ:** Nếu ban công bị rào chắn (chuồng cọp), bắt buộc phải có **cửa mở thoát hiểm khẩn cấp** và chìa khóa treo ngay cạnh cửa.
-> 3. **Thiết bị PCCC tại chỗ:** Hành lang có trang bị **bình chữa cháy xách tay** (bình bột ABC hoặc khí CO2) còn nguyên chốt kẹp chì, đồng hồ áp suất vạch xanh hay không.
-> 4. **Hệ thống điện:** Đường dây điện có được đi trong ống gen bảo vệ không? Có aptomat (CB) riêng tự ngắt khi chập điện không?
-> 5. **Khu vực để xe:** Chỗ để xe máy/xe đạp điện có lối đi thông thoáng không, hay bị bít kín chắn ngang cửa thoát nạn chính?
+### Câu 29: Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?
+- **Căn cứ pháp lý:** Điều 163 *Luật Nhà ở* (VBHN số 79/VBHN-VPQH); Điều 28 *Luật Cư trú 2020*; Điều 3, 9 *Luật Bảo vệ dữ liệu cá nhân 2025* (Luật số 91/2025/QH15).
+- **Câu trả lời mẫu:**
+  1. **Thông tin hợp pháp được phép yêu cầu:** Họ tên, số CCCD/Căn cước, ngày cấp/nơi cấp, địa chỉ thường trú, số điện thoại liên hệ (và thông tin cha mẹ/người giám hộ nếu người thuê dưới 18 tuổi). Đây là thông tin tối thiểu để lập hợp đồng thuê và điền Tờ khai CT01 đăng ký tạm trú.
+  2. **Nguyên tắc thu thập:** Chỉ thu thập đúng phạm vi, mục đích rõ ràng và dựa trên sự đồng ý tự nguyện của người thuê.
+  3. **Thông tin chủ trọ KHÔNG ĐƯỢC PHÉP yêu cầu:** Mật khẩu mạng xã hội, thông tin tài khoản ngân hàng, mật khẩu thiết bị cá nhân hoặc đời tư không liên quan đến quan hệ thuê trọ.
 
----
+### Câu 30: Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?
+- **Căn cứ pháp lý:** Điều 3, 9, 11 *Luật Bảo vệ dữ liệu cá nhân 2025*; *Nghị định 13/2023/NĐ-CP*; *Luật Căn cước 2023*.
+- **Câu trả lời mẫu:**
+  1. **Mục đích sử dụng:** Chỉ được sử dụng cho mục đích đã thông báo: (i) Lưu hồ sơ quản lý phòng trọ; (ii) Nộp cho Công an xã/phường để đăng ký tạm trú theo quy định.
+  2. **Trách nhiệm bảo mật:** Chủ trọ có trách nhiệm lưu trữ an toàn, tuyệt đối không được chuyển giao, mua bán hoặc phát tán ảnh CCCD của người thuê cho bất kỳ bên thứ ba nào.
+  3. **Mẹo watermark cho sinh viên:** Khi gửi ảnh CCCD, hãy chèn dòng chữ chìm đè chéo lên ảnh:
+     > *"Bản chụp chỉ dùng để đăng ký tạm trú tại phòng trọ [Địa chỉ] ngày [dd/mm/yyyy]"*.
+     Cách này ngăn chặn kẻ xấu lợi dụng ảnh CCCD để đăng ký tài khoản ảo hoặc vay tiền qua ứng dụng.
 
-### Câu 18 (Gốc câu 36): Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?
-**Câu trả lời mẫu:**
-> Theo quy định tại Nghị định 136/2020/NĐ-CP, Nghị định 50/2024/NĐ-CP và Chỉ thị 19/CT-TTg (2024):
-> - Nhà trọ phải có **nội quy, tiêu lệnh PCCC**, biển chỉ dẫn thoát nạn (đèn Exit/đèn sự cố nếu quy mô từ nhiều tầng trở lên).
-> - Phải bố trí giải pháp **ngăn cháy lan** giữa khu vực để xe máy/xe điện với khu vực phòng ở và cầu thang bộ thoát hiểm.
-> - Có tối thiểu **2 lối thoát nạn độc lập**; không để đồ đạc, hàng quán lấn chiếm hành lang và cầu thang.
-> - Đảm bảo đủ số lượng bình chữa cháy xách tay (bình quân 1 bình/50–100 m² sàn, mỗi tầng tối thiểu 2 bình).
-> - Người quản lý/chủ nhà trọ phải được tập huấn nghiệp vụ PCCC.
+### Câu 31: Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?
+- **Căn cứ pháp lý:** Điều 16 *Luật Bảo vệ dữ liệu cá nhân 2025*; Điều 38 *Bộ luật Dân sự 2015*; Điều 102 *Nghị định 15/2020/NĐ-CP* (sửa đổi bởi *Nghị định 14/2022/NĐ-CP*).
+- **Câu trả lời mẫu:**
+  **Hoàn toàn KHÔNG ĐƯỢC PHÉP và là hành vi vi phạm pháp luật.**
+  1. **Xâm phạm đời tư:** Dữ liệu cá nhân chỉ được công khai khi có sự đồng ý của bạn. Chủ trọ không được lấy cớ nợ tiền phòng hay tranh chấp cọc để đăng ảnh CCCD, số điện thoại của người thuê lên mạng xã hội để bêu rếu, đòi nợ.
+  2. **Chế tài xử phạt:**
+     - Phạt hành chính: Căn cứ Điểm e Khoản 3 Điều 102 Nghị định 15/2020/NĐ-CP, hành vi thu thập, sử dụng thông tin cá nhân sai mục đích hoặc chưa được đồng ý bị **phạt tiền từ 10.000.000 đến 20.000.000 đồng**.
+     - Bồi thường dân sự: Người vi phạm buộc phải gỡ bài, xin lỗi công khai và bồi thường tổn thất danh dự, nhân phẩm cho nạn nhân.
 
----
-
-### Câu 19 (Gốc câu 37): Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?
-**Câu trả lời mẫu:**
-> 1. **Yêu cầu chủ nhà giải phóng ngay chướng ngại vật:** Góp ý trực tiếp hoặc nhắn tin vào nhóm trọ yêu cầu dọn dẹp xe cộ, đồ đạc chắn lối đi/cầu thang và mở cửa thoát hiểm ban công/sân thượng.
-> 2. **Chìa khóa khẩn cấp:** Đề nghị chủ trọ cung cấp chìa khóa hoặc đặt hộp chứa chìa khóa thoát hiểm đập kính tại cửa thoát nạn.
-> 3. **Phản ánh đến chính quyền địa phương:** Nếu chủ trọ cố tình phớt lờ, sinh viên có thể phản ánh đến **Công an phường/xã hoặc Đội Cảnh sát PCCC & CNCH quận/huyện** để kiểm tra an toàn PCCC cơ sở trọ theo chuyên đề của Thủ tướng Chính phủ.
-
----
-
-### Câu 20 (Gốc câu 38): Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?
-**Câu trả lời mẫu:**
-> - **Trách nhiệm của chủ trọ:**
->   - Đầu tư hệ thống điện đạt chuẩn an toàn, lắp aptomat chống giật/quá tải cho từng phòng và toàn dãy trọ.
->   - Bảo dưỡng, thay thế bình PCCC định kỳ khi hết hạn; hướng dẫn người thuê kỹ năng PCCC.
-> - **Trách nhiệm của sinh viên (người thuê):**
->   - Không tự ý câu móc, đấu nối dây điện bừa bãi hoặc dùng các thiết bị tiêu thụ công suất quá lớn gây quá tải.
->   - Tắt các thiết bị điện sinh nhiệt (bếp từ, bàn ủi, ấm siêu tốc) khi ra khỏi phòng.
->   - Chú ý an toàn khi sạc pin xe máy điện/xe đạp điện (không sạc liên tục qua đêm khi không có người trông coi hoặc tại nơi dễ cháy).
+### Câu 32: Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?
+- **Căn cứ pháp lý:** Điều 4, 10 *Luật Bảo vệ dữ liệu cá nhân 2025*; Điều 5 *Nghị định 356/2025/NĐ-CP*; *Nghị định 15/2020/NĐ-CP*.
+- **Câu trả lời mẫu:**
+  Thực hiện xử lý theo 3 bước:
+  1. **Bước 1 — Yêu cầu gỡ bỏ ngay lập tức:** Gửi tin nhắn/văn bản yêu cầu chủ trọ rút lại hành vi, xóa bài đăng và chấm dứt chia sẻ thông tin theo quy định của Luật Bảo vệ dữ liệu cá nhân.
+  2. **Bước 2 — Thu thập bằng chứng:** Chụp ảnh màn hình toàn bộ bài đăng, link bài viết, các bình luận liên quan, thời gian đăng; yêu cầu Thừa phát lại lập vi bằng nếu cần thiết.
+  3. **Bước 3 — Trình báo cơ quan chức năng:** Làm đơn tố cáo gửi đến **Thanh tra Sở Thông tin và Truyền thông TP. Cần Thơ** hoặc **Phòng An ninh mạng & PCTP công nghệ cao (PA05) Công an TP. Cần Thơ** để can thiệp xử phạt hành chính và bảo vệ quyền lợi.
 
 ---
 
-## CHỦ ĐỀ 6: MÔI GIỚI VÀ NỀN TẢNG ĐĂNG TIN (`brokerage_platform`)
-*Căn cứ chính: Luật Kinh doanh Bất động sản 2023 (hiệu lực 01/08/2024); Nghị định 52/2013/NĐ-CP & Nghị định 85/2021/NĐ-CP về Thương mại điện tử.*
+## 9. Dấu hiệu lừa đảo và pháp luật hình sự (`criminal_law`)
 
-### Câu 21 (Gốc câu 43): Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?
-**Câu trả lời mẫu:**
-> Theo quy định của Luật Kinh doanh Bất động sản 2023:
-> - Người hành nghề môi giới BĐS phải công khai: Họ tên, số điện thoại, chứng chỉ hành nghề môi giới (nếu hoạt động độc lập/doanh nghiệp), biểu phí dịch vụ môi giới.
-> - Thông tin phòng trọ cung cấp phải **trung thực, chính xác**: Giá thuê thực tế, tiền cọc, chi phí điện nước, tình trạng pháp lý và hiện trạng phòng ở.
+### Câu 33: Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?
+- **Căn cứ pháp lý:** Điều 174 *Bộ luật Hình sự* (VBHN số 135/VBHN-VPQH); Cảnh báo thủ đoạn lừa đảo của Cục Cảnh sát hình sự — Bộ Công an.
+- **Câu trả lời mẫu:**
+  Đây là **thủ đoạn lừa cọc kinh điển** đối với tân sinh viên. Các dấu hiệu điển hình:
+  1. **Viện lý do không gặp trực tiếp:** Viện cớ chủ nhà đi vắng/bận công tác, hoặc "phòng đang có nhiều người hỏi, chuyển cọc 300k – 500k giữ chỗ rồi mới dắt đi xem".
+  2. **Phòng ảnh đẹp, giá rẻ bất thường:** Hình ảnh phòng rất đẹp, giá rẻ hơn mặt bằng chung, nhưng địa chỉ mập mờ hoặc đến nơi thì là nhà của người khác không hề cho thuê.
+  3. **Tài khoản ảo, từ chối video call:** Sử dụng tài khoản mạng xã hội ảo, số điện thoại rác; từ chối gọi video xem phòng thực tế; tên tài khoản ngân hàng không khớp với tên người trao đổi.
+  - **Nguyên tắc an toàn:** **Không xem được phòng tận mắt $\rightarrow$ Tuyệt đối không chuyển bất kỳ khoản tiền nào.**
 
----
+### Câu 34: Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?
+- **Căn cứ pháp lý:** Điều 87, 88, 144, 145 *Bộ luật Tố tụng hình sự* (VBHN số 17/VBHN-VPQH); Điều 174 *Bộ luật Hình sự*.
+- **Câu trả lời mẫu:**
+  1. **Thu thập tài liệu, bằng chứng:**
+     - Biên lai chuyển tiền ngân hàng (chụp rõ số tài khoản người nhận, tên chủ tài khoản, ngân hàng, mã giao dịch, thời gian chuyển).
+     - Toàn bộ ảnh chụp màn hình tin nhắn thỏa thuận qua Zalo/Messenger từ đầu đến khi bị chặn.
+     - Số điện thoại, link trang cá nhân, ảnh đại diện, ảnh bài đăng phòng trọ giả mạo.
+  2. **Nơi trình báo:**
+     - Nộp Đơn tố giác tội phạm tại **Công an phường/xã nơi bạn thực hiện chuyển tiền**, hoặc Công an quận/huyện sở tại.
+     - Trình báo đến **Đội Cảnh sát hình sự** hoặc **Phòng An ninh mạng & PCTP công nghệ cao (PA05) Công an TP. Cần Thơ**.
+  3. **Liên hệ ngân hàng:** Gọi ngay tổng đài ngân hàng của bạn thông báo về giao dịch lừa đảo để nhân viên hỗ trợ gắn cờ cảnh báo tài khoản gian lận.
 
-### Câu 22 (Gốc câu 44): Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?
-**Câu trả lời mẫu:**
-> - **Nguyên tắc vàng:** **Tuyệt đối không chuyển tiền cọc xem phòng hay phí giữ chỗ** cho người tự xưng là môi giới khi chưa đến xem phòng trực tiếp và chưa gặp chủ nhà.
-> - Khi đến xem phòng, yêu cầu người môi giới chỉ rõ: Ai là chủ nhà trọ thực sự? Có văn bản ủy quyền cho thuê không?
-> - Hợp đồng thuê và tiền cọc phải được **ký và trao trực tiếp cho chủ nhà** (kèm xem CCCD đối chiếu giấy tờ nhà). Khoản phí hoa hồng môi giới thông thường do chủ nhà trọ chi trả, không phải nghĩa vụ của sinh viên trừ khi có thỏa thuận riêng từ trước.
+### Câu 35: Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?
+- **Căn cứ pháp lý:** Điều 174 *Bộ luật Hình sự* (VBHN số 135/VBHN-VPQH); Điều 328, 472 *Bộ luật Dân sự 2015*.
+- **Câu trả lời mẫu:**
+  - **Tranh chấp hợp đồng dân sự:** Phòng trọ có thật, người cho thuê đúng là chủ nhà hoặc người được ủy quyền hợp pháp. Tranh chấp phát sinh do bất đồng về tiền cọc hoàn trả, hư hỏng đồ đạc, tiền điện nước hoặc việc chuyển đi sớm. Vụ việc thuộc thẩm quyền của **Tòa án nhân dân cấp quận/huyện**.
+  - **Dấu hiệu lừa đảo chiếm đoạt tài sản (Điều 174 BLHS):** Đối tượng dùng **thủ đoạn gian dối ngay từ đầu**: dùng phòng ảo, giả mạo chủ nhà, lấy cọc của nhiều người cho một phòng rồi cố tình chặn liên lạc, bỏ trốn để chiếm đoạt tiền. Vụ việc thuộc thẩm quyền tiếp nhận, điều tra của **Cơ quan Cảnh sát điều tra (Công an)**.
 
----
-
-### Câu 23 (Gốc câu 45): Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?
-**Câu trả lời mẫu:**
-> - Bạn có toàn quyền **từ chối thuê và từ chối thanh toán bất kỳ khoản phí môi giới nào** vì người môi giới đã cung cấp thông tin sai sự thật, vi phạm nguyên tắc trung thực theo Luật Kinh doanh Bất động sản.
-> - Nếu người môi giới đã ép bạn đóng phí "dẫn đi xem phòng" từ trước, bạn có quyền yêu cầu hoàn trả và báo cáo sự việc với ban quản trị nền tảng hoặc cơ quan công an nếu có dấu hiệu cưỡng đoạt/lừa đảo.
-
----
-
-### Câu 24 (Gốc câu 46): Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?
-**Câu trả lời mẫu:**
-> - Phí môi giới phải được lập thành **Hợp đồng dịch vụ môi giới** hoặc phiếu thu có chữ ký xác nhận của hai bên.
-> - Giấy tờ phải ghi rõ: Mức phí dịch vụ, điều kiện phát sinh phí (chỉ trả khi ký kết hợp đồng thuê trọ thành công), cam kết hoàn tiền nếu giao dịch không thành do lỗi của bên môi giới.
-
----
-
-### Câu 25 (Gốc câu 47): Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?
-**Câu trả lời mẫu:**
-> - **Kiểm tra tài khoản người đăng:** Tài khoản mới tạo hay đã hoạt động lâu năm? Có tích xanh xác thực danh tính không? Lịch sử đăng tin có nhiều phòng ảo giá rẻ bất thường không?
-> - **Kiểm tra hình ảnh tin đăng:** Sử dụng tính năng "Tìm kiếm bằng hình ảnh trên Google" để kiểm tra xem ảnh phòng trọ có bị copy từ các khách sạn, căn hộ cao cấp khác ở TP.HCM/Hà Nội hay không.
-> - **Cảnh giác mức giá "quá hời":** Ví dụ phòng máy lạnh full nội thất tại Ninh Kiều mà đăng giá chỉ 800k - 1 triệu đồng là 99% bẫy lừa cọc.
-
----
-
-### Câu 26 (Gốc câu 48): Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?
-**Câu trả lời mẫu:**
-> - Sử dụng nút **"Báo cáo tin đăng" (Report)** trực tiếp trên giao diện của website/ứng dụng đó, chọn lý do như: "Tin giả/Phòng không có thật", "Sai giá thuê", "Có dấu hiệu lừa đảo cọc".
-> - Đính kèm ảnh chụp tin nhắn bằng chứng nếu người đăng yêu cầu chuyển khoản qua link lạ hoặc có hành vi gian dối.
-
----
-
-### Câu 27 (Gốc câu 49): Nền tảng đăng tin có trách nhiệm gì đối với thông tin người cho thuê theo tài liệu hiện có?
-**Câu trả lời mẫu:**
-> Căn cứ theo **Nghị định 52/2013/NĐ-CP** (được sửa đổi bởi **Nghị định 85/2021/NĐ-CP**) về thương mại điện tử:
-> - Nền tảng có trách nhiệm: Yêu cầu người đăng tin cung cấp thông tin định danh (tên, số điện thoại, địa chỉ);
-> - Phải thiết lập cơ chế tiếp nhận khiếu nại, phản ánh và **ngăn chặn, gỡ bỏ ngay lập tức** các tin đăng vi phạm pháp luật, tin đăng giả mạo hoặc lừa đảo;
-> - Cung cấp thông tin của đối tượng vi phạm cho cơ quan công an khi có yêu cầu điều tra.
-
----
-
-### Câu 28 (Gốc câu 50): Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?
-**Câu trả lời mẫu:**
-> **Dấu hiệu cảnh báo lừa đảo chiếm đoạt tài khoản:**
-> 1. Bắt nhấn vào liên kết lạ (đường link rút gọn như bit.ly, link giả mạo ngân hàng, cổng thanh toán giả) để "xác nhận giữ phòng" hoặc "nhận mã hoàn cọc".
-> 2. Yêu cầu nhập số tài khoản ngân hàng, mật khẩu internet banking hoặc **mã OTP**.
-> 3. Hối thúc dồn dập: "Đang có nhiều người muốn thuê, chuyển ngay trong 15 phút nếu không sẽ mất phòng".
-> *Quy tắc an toàn:* Tuyệt đối không bao giờ nhấp link lạ hoặc cung cấp mã OTP cho bất kỳ ai.
-
----
-
-## CHỦ ĐỀ 7: BẢO VỆ DỮ LIỆU CÁ NHÂN (`privacy_data`)
-*Căn cứ chính: Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân; Luật An ninh mạng 2018.*
-
-### Câu 29 (Gốc câu 51): Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?
-**Câu trả lời mẫu:**
-> - Chủ trọ chỉ có quyền yêu cầu các **thông tin cơ bản cần thiết phục vụ cho việc lập hợp đồng và đăng ký tạm trú** theo quy định pháp luật: Họ và tên, Ngày tháng năm sinh, Số CCCD/Định danh cá nhân, Địa chỉ thường trú, Số điện thoại liên hệ, Giấy xác nhận là sinh viên (nếu có chính sách ưu đãi).
-> - Chủ trọ **không có quyền** đòi hỏi các thông tin nhạy cảm như: Mật khẩu mạng xã hội, thông tin tài khoản ngân hàng, thu nhập chi tiết của cha mẹ hay lịch sử duyệt web.
-
----
-
-### Câu 30 (Gốc câu 52): Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?
-**Câu trả lời mẫu:**
-> Căn cứ theo **Nghị định 13/2023/NĐ-CP**:
-> - Ảnh/bản sao CCCD chỉ được phép sử dụng **cho mục đích hợp pháp đã được thông báo trước** (lưu hồ sơ thuê trọ và nộp cho Công an phường để đăng ký tạm trú).
-> - Bên lưu trữ (chủ trọ) có trách nhiệm áp dụng các biện pháp bảo mật, không được làm rò rỉ hoặc chuyển giao cho bên thứ ba khi chưa có sự đồng ý của chủ thể dữ liệu.
-> *Mẹo cho sinh viên:* Khi gửi ảnh CCCD, hãy chèn dòng chữ chìm (watermark) đè lên ảnh: *"Chỉ sử dụng để đăng ký tạm trú tại phòng trọ X - ngày..."*.
-
----
-
-### Câu 31 (Gốc câu 53): Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?
-**Câu trả lời mẫu:**
-> **Hoàn toàn không được phép và là hành vi vi phạm pháp luật.**
-> - Đăng công khai hình ảnh cá nhân, số CCCD hoặc số điện thoại lên mạng xã hội (kể cả với lý do đòi nợ tiền phòng hoặc bóc phốt) là hành vi **xâm phạm quyền về đời sống riêng tư, bí mật cá nhân** theo Điều 38 BLDS 2015 và vi phạm Nghị định 13/2023/NĐ-CP.
-> - Người có hành vi này có thể bị xử phạt hành chính từ **10.000.000 đến 20.000.000 đồng** theo Điều 102 Nghị định 15/2020/NĐ-CP và phải bồi thường thiệt hại danh dự, nhân phẩm cho nạn nhân.
-
----
-
-### Câu 32 (Gốc câu 54): Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?
-**Câu trả lời mẫu:**
-> 1. Gửi yêu cầu bằng văn bản/tin nhắn cho chủ trọ buộc gỡ bỏ ngay lập tức thông tin đã đăng tải.
-> 2. Lập vi bằng hoặc chụp ảnh màn hình lưu giữ bằng chứng vi phạm.
-> 3. Làm đơn tố cáo gửi đến Thanh tra Sở Thông tin và Truyền thông hoặc cơ quan Công an có thẩm quyền để can thiệp xử lý theo Nghị định 15/2020/NĐ-CP.
-
----
-
-## CHỦ ĐỀ 8: DẤU HIỆU LỪA ĐẢO VÀ PHÁP LUẬT HÌNH SỰ (`criminal_law`)
-*Căn cứ chính: Bộ luật Hình sự 2015 (sửa đổi, bổ sung 2017) - Điều 174, 175; Bộ luật Tố tụng Hình sự 2015.*
-
-### Câu 33 (Gốc câu 55): Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?
-**Câu trả lời mẫu:**
-> Đây là **thủ đoạn lừa đảo chiếm đoạt tiền cọc kinh điển** nhắm vào tân sinh viên. Các dấu hiệu điển hình:
-> 1. Viện cớ: "Chủ nhà đang ở xa / đi công tác / có nhiều người đang xếp hàng đòi cọc, muốn xem phòng thì phải cọc trước 200k - 500k để giữ chân".
-> 2. Địa chỉ trọ mập mờ, hình ảnh phòng lung linh nhưng không trùng khớp với vị trí thực tế tại Cần Thơ.
-> 3. Chỉ giao tiếp qua Zalo/Facebook ảo, từ chối gặp mặt trực tiếp hoặc gọi video xem phòng thực tế.
-> **Lời khuyên dứt khoát:** Không xem được phòng thực tế tận mắt $\rightarrow$ **Tuyệt đối không chuyển dù chỉ 1 đồng.**
-
----
-
-### Câu 34 (Gốc câu 56): Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?
-**Câu trả lời mẫu:**
-> **1. Thu thập và lưu lại toàn bộ chứng cứ:**
-> - Biên lai chuyển khoản ngân hàng (lưu rõ số tài khoản, tên chủ tài khoản, mã giao dịch, thời gian).
-> - Toàn bộ ảnh chụp màn hình tin nhắn thỏa thuận (từ lúc bắt đầu đến khi bị chặn/xóa).
-> - Số điện thoại, đường link trang cá nhân Facebook/Zalo của đối tượng, hình ảnh bài đăng phòng trọ.
-> 
-> **2. Nơi trình báo:**
-> - Nộp đơn tố giác tội phạm tại **Công an phường/xã nơi bạn thực hiện giao dịch chuyển tiền**, hoặc **Đội Cảnh sát hình sự / Đội An ninh mạng (PA05) Công an TP. Cần Thơ**.
-> - Liên hệ ngay với tổng đài ngân hàng của bạn thông báo tài khoản bị lừa đảo để đề nghị hỗ trợ đánh dấu giao dịch gian lận.
-
----
-
-### Câu 35 (Gốc câu 57): Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?
-**Câu trả lời mẫu:**
-> - **Trường hợp là Tranh chấp dân sự (Hợp đồng):** 
->   - Phòng trọ có thật, hai bên có giao kết hợp đồng, người cho thuê đúng là chủ sở hữu hoặc người có thẩm quyền. 
->   - Tranh chấp phát sinh do bất đồng ý kiến về điều kiện trừ cọc, hư hỏng tài sản hay thời gian báo trước dọn đi. Vụ việc thuộc thẩm quyền giải quyết của **Tòa án nhân dân cấp quận/huyện**.
-> - **Trường hợp có dấu hiệu Tội phạm hình sự (Lừa đảo - Điều 174 BLHS):** 
->   - Đối tượng đưa ra thông tin gian dối ngay từ đầu: Dùng phòng ảo, nhà của người khác đóng giả làm chủ trọ để nhận cọc, hứa hẹn cho thuê nhưng thực tế không có quyền cho thuê, sau khi nhận được tiền thì lập tức chặn liên lạc, bỏ trốn để chiếm đoạt tài sản. Vụ việc thuộc thẩm quyền xử lý của **Cơ quan Cảnh sát điều tra (Công an)**.
-
----
-
-### Câu 36 (Gốc câu 58): Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?
-**Câu trả lời mẫu:**
-> Khi có nhiều nạn nhân, hành vi có tính chất chuyên nghiệp, mức độ nguy hiểm cao và giá trị thiệt hại cộng dồn sẽ cấu thành khung hình phạt nặng hơn theo Điều 174 Bộ luật Hình sự:
-> 1. **Lập Đơn tố giác tội phạm tập thể (đồng đứng tên các nạn nhân):** Liệt kê danh sách từng người, số tiền bị chiếm đoạt, phương thức liên lạc.
-> 2. **Tài liệu chứng minh kèm theo:** Bảng sao kê giao dịch ngân hàng của tất cả nạn nhân chuyển vào cùng số tài khoản thụ hưởng của kẻ lừa đảo; các cuộc hội thoại thể hiện cùng một kịch bản gian dối.
-> 3. **Nơi tiếp nhận:** Nộp đơn đến **Cơ quan Cảnh sát điều tra Công an quận/huyện** nơi đối tượng cư trú hoặc nơi người thuê nhà thực hiện chuyển khoản. Cơ quan điều tra sẽ thụ lý và khởi tố vụ án theo thẩm quyền.
+### Câu 36: Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?
+- **Căn cứ pháp lý:** Điều 144, 145 *Bộ luật Tố tụng hình sự* (VBHN số 17/VBHN-VPQH); Điều 174 *Bộ luật Hình sự*.
+- **Câu trả lời mẫu:**
+  Khi có nhiều nạn nhân, hành vi lừa đảo có tính chất chuyên nghiệp, mức độ nguy hiểm cao và tổng số tiền thiệt hại cộng dồn sẽ cấu thành khung hình phạt tăng nặng theo Điều 174 BLHS. Nhóm sinh viên cần chuẩn bị:
+  1. **Đơn tố giác tội phạm tập thể:** Có chữ ký, thông tin CCCD, số điện thoại của toàn bộ nạn nhân; tường trình chi tiết thủ đoạn gian dối của đối tượng.
+  2. **Bảng thống kê danh sách nạn nhân:** Liệt kê họ tên, số tiền bị chiếm đoạt, ngày chuyển tiền, số tài khoản thụ hưởng.
+  3. **Tài liệu chứng cứ tập thể:** Toàn bộ sao kê/biên lai chuyển tiền của tất cả các nạn nhân vào cùng tài khoản đối tượng; ảnh chụp các đoạn tin nhắn thể hiện cùng một kịch bản lừa đảo.
+  4. **Nơi tiếp nhận:** Nộp trực tiếp tại **Cơ quan Cảnh sát điều tra Công an quận/huyện** nơi xảy ra vụ việc hoặc **Phòng Cảnh sát hình sự Công an TP. Cần Thơ** để thụ lý và khởi tố vụ án theo thẩm quyền.

@@ -48,7 +48,8 @@ def test_public_guidance_is_not_presented_as_a_statutory_obligation():
         'content':'Đoàn kiểm tra lưu ý công khai cách tính cho người thuê và ghi chỉ số công tơ.'}]
     result=render_selection('Chủ trọ có phải thông báo cách tính tiền điện không?',contexts,
         selection_candidates(contexts),' {"selected_ids":[1],"insufficient":false}', 'qwen-local','model')
-    assert 'chưa phải điều khoản xác lập nghĩa vụ' in result.text
+    assert any('Chưa đủ căn cứ để kết luận nghĩa vụ thông báo bắt buộc' in notice
+               for notice in result.evidence_limitations)
     assert 'Chưa đủ căn cứ' in result.text
 
 

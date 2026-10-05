@@ -213,13 +213,13 @@ class ChatService:
         verification_trace = generation_trace
         if chunks and generated.provider != "template" and not generated.literal_source_answer:
             generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
-        issues = evidence_issues(generated.text, verification_chunks, query) if chunks and not generated.literal_source_answer else []
+        issues = evidence_issues(generated.text_for_verification, verification_chunks, query) if chunks and not generated.literal_source_answer else []
         if generated.literal_source_answer:
             verification_trace.append({'agent':'source_verification','provider':'exact_source_match',
                 'status':'accepted','scope':'verbatim source text only; no legal application inferred'})
         repairable = bool(issues)
         if chunks and not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-            checked = self.generator.check_legal_evidence(query, generated.text, verification_chunks)
+            checked = self.generator.check_legal_evidence(query, generated.text_for_verification, verification_chunks)
             if hasattr(checked,'trace'):
                 verification_trace.append(checked.trace)
                 degraded_reasons.extend(checked.degraded_reasons)
@@ -241,12 +241,12 @@ class ChatService:
             verification_chunks = list(generated.selected_evidence) or chunks
             if generated.provider != "template" and not generated.literal_source_answer:
                 generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
-            issues = evidence_issues(generated.text, verification_chunks, query) if not generated.literal_source_answer else []
+            issues = evidence_issues(generated.text_for_verification, verification_chunks, query) if not generated.literal_source_answer else []
             if generated.literal_source_answer:
                 verification_trace.append({'agent': 'source_verification', 'provider': 'exact_source_match',
                     'status': 'accepted', 'fallback': True, 'scope': 'verbatim source text only; no legal application inferred'})
             if not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-                checked = self.generator.check_legal_evidence(query, generated.text, verification_chunks)
+                checked = self.generator.check_legal_evidence(query, generated.text_for_verification, verification_chunks)
                 issues.extend(checked)
                 if hasattr(checked,'trace'):
                     verification_trace.append(checked.trace)
@@ -274,6 +274,18 @@ class ChatService:
             degraded_reasons.extend(issues)
         elif partial:
             generated = partial
+        # Keep full clauses for selection, synthesis and verification, but never
+        # dump them into a long user-facing fallback. No legal unit is sliced.
+        if generated.literal_source_answer and len(generated.text) > 3500 and generated.selected_evidence:
+            from .source_selection import render_source_fallback
+            parts = [dict(document=row.get('title'), heading=row.get('heading'),
+                          rank=row['rank'], text=row['content']) for row in generated.selected_evidence]
+            generated = replace(generated, text=render_source_fallback(
+                parts, generated.evidence_limitations,
+                insufficient=legal_completion_status(generated.text) != 'complete'))
+            generation_trace.append({'agent': 'answer_display', 'provider': 'rules',
+                                     'status': 'compact_source_fallback',
+                                     'full_evidence_retained': True})
         degraded_reasons.extend(generated.degraded_reasons)
         completion = legal_completion_status(generated.text)
         if completion != 'complete' and generated.provider not in {'template', 'legal-insufficient', 'legal-partial-extractive'}:

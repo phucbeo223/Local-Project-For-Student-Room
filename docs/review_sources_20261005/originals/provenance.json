@@ -1,0 +1,24 @@
+[
+  {
+    "tls_verified": true,
+    "sha256": "da1b3752010e23fa085f694f56e8c663675e293a9932372909235331a49f4c43",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-122-2025-qh15-468683/61714.htm",
+    "id": "S15",
+    "state": "pending_review",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwdTmY8lT_ztXn8sjqamdtgK0oZCx4FXKnKkaJRoOXGcPNKOUgUTrnMhnpfM_PNkCT&file_name=2026_41_122%2f2025%2fQH15.docx",
+    "retrieved_at_utc": "2026-10-05T15:08:28.8669939Z",
+    "embedded": false,
+    "path": "originals/Luat-122-2025-QH15.docx"
+  },
+  {
+    "tls_verified": true,
+    "sha256": "7b9fb5accb581974888b7d2b8ef8805cd26d07a6d855d661ede3e56746a48bb7",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-248-2026-nd-cp-469983.htm",
+    "id": "S16",
+    "state": "pending_review",
+    "download_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwcrTDu0YFNB0oewruvuJH6KVHTMKeYzRapStAwH3MHi0RBamD1VWCd-q-VdLHEUCRcnase5X-QdumkWD_9ziEGw~~&file_name=2026_407_248%2f2026%2fN%C4%90-CP.docx",
+    "retrieved_at_utc": "2026-10-05T15:08:29.2628174Z",
+    "embedded": false,
+    "path": "originals/Nghi-dinh-248-2026-ND-CP.docx"
+  }
+]

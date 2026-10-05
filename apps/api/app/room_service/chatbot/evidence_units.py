@@ -5,6 +5,61 @@ from .providers import normalize_text
 
 FACET_LABELS = {'deposit':'tiền cọc', 'rent':'tiền thuê', 'payment':'thanh toán'}
 
+LISTING_CHECK_LABELS = {'account': 'kiểm tra người đăng/tài khoản',
+                        'contact': 'đối chiếu địa chỉ và liên hệ',
+                        'image': 'kiểm tra nguồn hình ảnh', 'price': 'kiểm tra giá bất thường'}
+
+OPERATOR_LABELS = {'identity': 'thông tin định danh và thời điểm xác thực',
+                   'moderation': 'lọc từ khóa, rà soát và gỡ thông tin vi phạm',
+                   'complaints': 'tiếp nhận phản ánh theo quy trình công khai',
+                   'authority_data': 'cung cấp dữ liệu theo yêu cầu cơ quan có thẩm quyền'}
+
+
+def platform_reporting_question(question):
+    q = normalize_text(question)
+    return (any(t in q for t in ('bao cao', 'bao tin', 'phan anh'))
+            and any(t in q for t in ('tin dang', 'thong tin sai', 'tin sai')))
+
+
+def report_proof_row(row):
+    body = normalize_text(row.get('text', row.get('parent_content') or row.get('content', '')))
+    return row.get('category') == 'ecommerce_platform' and any(
+        t in body for t in ('bang chung so bo', 'hinh anh) trao doi', 'hinh anh trao doi'))
+
+
+def operator_facets(row):
+    raw = row.get('text', row.get('parent_content') or row.get('content', ''))
+    body = normalize_text(raw)
+    if row.get('category') != 'ecommerce_platform':
+        return set()
+    facets = set()
+    if 'xac thuc' in body and any(t in body for t in ('danh tinh', 'so dinh danh')):
+        facets.add('identity')
+    if 'tu khoa' in body and 'go bo' in body:
+        facets.add('moderation')
+    if any(t in body for t in ('phan anh', 'khieu nai')) and any(t in body for t in ('cong khai', 'tiep nhan', 'giai quyet', 'duy tri')):
+        facets.add('complaints')
+    # The data deadline must belong to the same point, not a neighbouring
+    # point whose 24 hours concern removing a listing.
+    points = [normalize_text(p) for p in re.split(r'\n\s*\n', raw)]
+    if any('24 gio' in p and any(t in p for t in ('co quan nha nuoc co tham quyen', 'co quan co tham quyen', 'cong an co tham quyen')) and 'cung cap' in p for p in points):
+        facets.add('authority_data')
+    return facets
+
+
+def listing_check_facets(row):
+    text = normalize_text(row.get('text', row.get('content', '')))
+    facets = set()
+    if any(t in text for t in ('xac thuc so dien thoai', 'xac thuc danh tinh', 'tai khoan nguoi', 'thong tin chu nha')):
+        facets.add('account')
+    if any(t in text for t in ('dia chi', 'so dien thoai', 'lien he truc tiep')):
+        facets.add('contact')
+    if any(t in text for t in ('google ong kinh', 'hinh anh tuong tu', 'tim kiem bang hinh anh')):
+        facets.add('image')
+    if any(t in text for t in ('gia re', 'gia thap', 'gia qua re', 'gia chung', 're bat thuong')):
+        facets.add('price')
+    return facets
+
 
 def human_reporting_question(question):
     q=normalize_text(question)

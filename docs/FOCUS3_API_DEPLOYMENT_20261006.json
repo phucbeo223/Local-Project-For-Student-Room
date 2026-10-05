@@ -1,0 +1,23 @@
+{
+  "health": 200,
+  "docs": 200,
+  "legal_schema": "legal_word_v7_20261005",
+  "graph_schema": "graph_rag_word_v6",
+  "housing_schema": "housing_graph_word_v6",
+  "file_sha256": {
+    "agents.py": "82ad7db77f18cd899b110e23abe3254c5824428ddf5f88320c8779a2ad137d61",
+    "agent_workflow.py": "7b5f6750f34c4af83fff41e4259c0a9f0d0f0d77836a0cb96987ff16f9218244",
+    "evidence_units.py": "43e625a9b57a46d0de5c91718f25c71bb7a5a5b348a1190f4268d231216f373a",
+    "legal_retrieval.py": "77417fe6c554c1ddc48022b9a8c4ef0b2af0a079cfa2acd755c8fb47824000c0",
+    "providers.py": "55127203b527be012b8c90b083390002a074b2bc7ef656935423c0c9a6236607",
+    "repo.py": "8e394889bba8d102ce103448cb7ca0dd3063eb3a1e4c006c845818a95874d70b",
+    "service.py": "c8874eb72fea58e6b673ca27dfc53d6a07bba8fada534d12aa7e3ad45d3a0553",
+    "source_selection.py": "6537bc74f6fa837761d44c500a8dfa5ec8a63aff6361b4733504e83e97218bfd",
+    "topics.py": "b7f5abf79684cf0b24f196710ee2a710d8e04b85410572d00c4d9e3bcaa314d2"
+  },
+  "modules_match_workspace": true,
+  "trial_store_activated": false,
+  "tests_passed": 108,
+  "pilot": "graph_rag_focus3_pilot_v14_2026-10-06.json",
+  "previous_api_image": "sha256:b2f57a0576915b897bfbb95b33b91cf4a7d5f1d49851eba52de3732bea1fd375"
+}
