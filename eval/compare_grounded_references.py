@@ -1,4 +1,7 @@
 """Local, quote-audited comparison. References never enter generation or embedding."""
+import os
+os.environ.setdefault('GIT_PYTHON_REFRESH', 'quiet')
+
 import argparse
 from collections import Counter
 from datetime import datetime
@@ -315,11 +318,13 @@ def reusable_cases(legacy, cases, refs):
 
 
 def main():
+    def _default_path(docker_p, host_p):
+        return Path(docker_p) if Path(docker_p).exists() else Path(host_p)
     parser = argparse.ArgumentParser()
     parser.add_argument('--run', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--reference', type=Path, default=Path('/eval/datasets/external_legal_20261004/answers.json'))
-    parser.add_argument('--reference-audit', type=Path, default=Path('/eval/datasets/external_legal_20261004/review_20261006.json'))
+    parser.add_argument('--reference', type=Path, default=_default_path('/workspace/eval/datasets/external_legal_20261004/answers.json', 'eval/datasets/external_legal_20261004/answers.json'))
+    parser.add_argument('--reference-audit', type=Path, default=_default_path('/workspace/eval/datasets/external_legal_20261004/review_20261006.json', 'eval/datasets/external_legal_20261004/review_20261006.json'))
     parser.add_argument('--reuse-review', type=Path)
     parser.add_argument('--ids', help='Comma-separated original question IDs; same rubric for every run')
     args = parser.parse_args()

@@ -433,13 +433,28 @@ class OllamaQwenGenerator:
                 response.raise_for_status();data=response.json()
                 if data.get('done_reason')=='length':raise RuntimeError('Incomplete source selection')
                 return data['message']['content']
+            from dataclasses import replace
+            attempts = []
             raw=select(prompt)
+            try:
+                attempts.append({'attempt': 1, 'selected_ids': json.loads(raw).get('selected_ids', [])})
+            except Exception:
+                pass
             missing=missing_selection_facets(question,candidates,raw)
             if missing:
                 raw=select(prompt+'\nLần chọn trước bỏ sót các ý/chủ đề người dùng đã hỏi: '
                     +json.dumps(missing,ensure_ascii=False)+'. Chọn lại các ID cho toàn bộ câu hỏi. '
                     'Chỉ dùng đoạn có sẵn, đúng phạm vi; nếu vẫn thiếu thì insufficient=true. Không tự viết luật.')
-            return render_selection(question,contexts,candidates,raw,self.provider_name,self.model)
+                try:
+                    attempts.append({'attempt': 2, 'selected_ids': json.loads(raw).get('selected_ids', [])})
+                except Exception:
+                    pass
+            draft = render_selection(question,contexts,candidates,raw,self.provider_name,self.model)
+            decision_trace = {
+                'agent': 'selection_decision', 'provider': 'qwen', 'model': self.model,
+                'attempts': attempts, 'missing_facets': missing
+            }
+            return replace(draft, agent_trace=(*draft.agent_trace, decision_trace))
         system_prompt = (
             LEGAL_SYSTEM_PROMPT if context_kind == "legal" else SYSTEM_PROMPT
         )

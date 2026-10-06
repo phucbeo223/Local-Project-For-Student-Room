@@ -71,18 +71,31 @@ class GeminiEvidenceSelector:
         prompt = selection_prompt(question, candidates)
         prompt += '\nOUTPUT_SCHEMA:\n' + json.dumps(schema, ensure_ascii=False)
         attempts = []
-        for attempt in range(2):
-            raw, usage = self.client.request_json(prompt, schema, max_output_tokens=512)
-            selection = EvidenceSelection.model_validate_json(raw)
+        max_attempts = 2
+        for attempt in range(max_attempts):
+            try:
+                raw, usage = self.client.request_json(prompt, schema, max_output_tokens=512)
+                selection = EvidenceSelection.model_validate_json(raw)
+            except (ValidationError, ValueError, json.JSONDecodeError) as exc:
+                if attempt == 0:
+                    prompt += '\nLỗi cấu trúc: Vui lòng trả về đúng JSON theo OUTPUT_SCHEMA với selected_ids là danh sách integer (tối đa 4 ID) và insufficient là boolean.'
+                    continue
+                raise
+
             draft = source_draft(question, contexts, candidates, selection, self.model)
             attempts.append(dict(attempt=attempt + 1, selected_ids=selection.selected_ids, usage=usage))
-            missing = missing_selection_facets(question, candidates, raw) if selection.selected_ids else []
-            if not missing or attempt:
+            missing = missing_selection_facets(question, candidates, raw)
+            if not missing or attempt == max_attempts - 1:
                 return replace(draft, agent_trace=(*draft.agent_trace, dict(
                     agent='selection_decision', provider='gemini', model=self.model,
                     attempts=attempts, missing_facets=missing)))
-            prompt += ('\nChọn lại để bao phủ các ý còn thiếu nếu có nguồn phù hợp: '
-                       + json.dumps(missing, ensure_ascii=False))
+            if not selection.selected_ids:
+                prompt += ('\nDanh sách EVIDENCE có các đoạn liên quan đến: '
+                           + json.dumps(missing, ensure_ascii=False)
+                           + '. Nếu có căn cứ liên quan dù chỉ một phần, hãy chọn các ID phù hợp và đặt insufficient=true thay vì chọn rỗng [].')
+            else:
+                prompt += ('\nChọn lại để bao phủ các ý còn thiếu nếu có nguồn phù hợp: '
+                           + json.dumps(missing, ensure_ascii=False))
 
 
 class GeminiCombinedWriter(GeminiAnswerSynthesisAgent):

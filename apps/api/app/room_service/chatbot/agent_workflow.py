@@ -104,6 +104,8 @@ class GeminiAnswerSynthesisAgent:
             'coverage=partial nếu nguồn chưa bao phủ một yêu cầu chính hoặc DRAFT_COVERAGE chưa complete. '
             'Chỉ nêu khoảng trống liên quan yêu cầu chính; không đánh partial hoặc thêm giới hạn vì thiếu mức phạt, thành phần hồ sơ hay thủ tục sâu nếu người dùng không hỏi phần đó. '
             'Dự án chỉ hỗ trợ tìm trọ và câu hỏi pháp lý thuê trọ cơ bản; không soạn hợp đồng, điền tờ khai, lập đơn hoặc hướng dẫn thủ tục chuyên sâu. '
+            'Khi có nguồn về vi phạm của môi giới hoặc thông tin sai lệch: nếu nguồn có điều kiện có hiệu lực/tính tự nguyện của giao dịch dân sự (Điều 117 BLDS), phải nêu rõ quyền từ chối ký hợp đồng hoặc không xác lập giao dịch; nếu nguồn có giảm tiền dịch vụ, đơn phương chấm dứt hợp đồng hoặc bồi thường thiệt hại (Điều 519, 520 BLDS), phải nêu các quyền này đầy đủ và tách biệt. '
+            'Khi câu hỏi về tố giác hành vi lừa đảo/cắt liên lạc và nguồn có Điều 145 BLTTHS: nêu rõ nơi tiếp nhận là Cơ quan điều tra, Viện kiểm sát. '
             'Viết tiếng Việt khoảng 100–180 từ: kết luận trước, tối đa 4 bước cần thiết; câu hỏi checklist có thể dùng tối đa 7 ý ngắn. '
             'Không chép toàn điều luật hay phần mua bán/thuê mua không liên quan; không đưa xử phạt hay tố tụng nếu câu hỏi chỉ cần hành động cơ bản. '
             'Nếu nguồn là bản Word/trích tuyển được cung cấp, giữ cảnh báo xuất xứ; không gọi bản trích tuyển là nguyên văn chính thức đã xác minh. '
