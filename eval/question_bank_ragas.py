@@ -108,6 +108,9 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     engine = create_engine(settings.database_url)
     init_chatbot(engine)
     service = get_service()
+    if report.get('legal_only'):
+        from legal_only_boundary import install
+        report['cloud_boundary']=install(service,engine,report['cases'],settings.chatbot_legal_schema)
     analysis_client=getattr(getattr(service,'question_analyzer',None),'client',None)
     if analysis_client is not None:QUOTA.attach(analysis_client)
     verification_client=getattr(service.generator,'verifier',None)

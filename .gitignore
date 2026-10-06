@@ -71,3 +71,6 @@ eval/reports/graph_rag_*.md
 eval/ragas_reports/graph_rag_*.md
 # Superseded local experiment retained; final priority corpus is v13.
 docs/legal_word_priority7_corpus_v12_20261006/
+# Raw downloads and the local audit of private rental ads are not release files.
+eval/provider_sources_20261006/
+eval/reports/local_utility_prices_20261006.json

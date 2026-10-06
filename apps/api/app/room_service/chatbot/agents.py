@@ -114,6 +114,7 @@ class LegalRetrievalAgent:
 
 class QwenAnswerAgent:
     """Keep local generation and verification behind an explicit answering role."""
+    supports_claim_records = True
     def __init__(self, generator, verifier=None):
         self.generator = generator
         self.providers = generator.providers
@@ -125,16 +126,21 @@ class QwenAnswerAgent:
     def check_legal_evidence(self, *args, **kwargs):
         started=time.perf_counter()
         failure={}
+        claim_records = kwargs.pop('claim_records', ())
         if self.verifier is not None:
             try:
+                if claim_records and getattr(self.verifier, 'supports_claim_records', False):
+                    kwargs['claim_records'] = claim_records
                 issues=self.verifier.check_legal_evidence(*args, **kwargs)
                 return AgentEvidenceIssues(issues, {'agent':'source_verification','provider':'gemini',
                     'model':self.verifier.model,'status':'rejected' if issues else 'accepted',
+                    'claim_verdicts':getattr(issues, 'verdicts', []),
                     'duration_ms':round((time.perf_counter()-started)*1000)})
             except Exception as exc:
                 status=re.search(r'HTTP (\d{3})',str(exc))
                 failure={'requested_provider':'gemini','requested_model':self.verifier.model,
                          'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None}
+        kwargs.pop('claim_records', None)
         checked=self.generator.check_legal_evidence(*args, **kwargs)
         return AgentEvidenceIssues(checked, {'agent':'source_verification','provider':'qwen_and_rules',
             'status':'unavailable' if getattr(checked,'unavailable',False) else 'rejected' if checked else 'accepted',
@@ -150,3 +156,4 @@ class AgentEvidenceIssues(list):
         self.trace=trace
         self.unavailable=unavailable
         self.degraded_reasons=list(degraded_reasons)
+        self.verdicts=getattr(issues, 'verdicts', [])

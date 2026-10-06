@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import json
 import time
 from dataclasses import replace
 
@@ -213,13 +214,22 @@ class ChatService:
         verification_trace = generation_trace
         if chunks and generated.provider != "template" and not generated.literal_source_answer:
             generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
-        issues = evidence_issues(generated.text_for_verification, verification_chunks, query) if chunks and not generated.literal_source_answer else []
+        issues = evidence_issues(generated.text_for_verification, verification_chunks, query, claim_records=generated.claim_records) if chunks and not generated.literal_source_answer else []
         if generated.literal_source_answer:
             verification_trace.append({'agent':'source_verification','provider':'exact_source_match',
                 'status':'accepted','scope':'verbatim source text only; no legal application inferred'})
         repairable = bool(issues)
+        deterministic_issues = list(issues)
+        from .claim_verification import identify_rule_issues
+        rule_records = identify_rule_issues(issues, generated, verification_chunks) if generated.claim_records else []
+        if rule_records:
+            issues = [json.dumps(r, ensure_ascii=False) for r in rule_records]
+        checked = None
+        def verify(current):
+            kwargs = {'claim_records': current.claim_records} if getattr(self.generator, 'supports_claim_records', False) else {}
+            return self.generator.check_legal_evidence(query, current.text_for_verification, verification_chunks, **kwargs)
         if chunks and not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-            checked = self.generator.check_legal_evidence(query, generated.text_for_verification, verification_chunks)
+            checked = verify(generated)
             if hasattr(checked,'trace'):
                 verification_trace.append(checked.trace)
                 degraded_reasons.extend(checked.degraded_reasons)
@@ -227,8 +237,10 @@ class ChatService:
             repairable = repairable or (bool(checked) and not getattr(checked, "unavailable", False))
         if issues and repairable and generated.provider not in {"template", "legal-extractive", "legal-insufficient"}:
             if generated.source_fallback is not None and hasattr(self.generator, 'repair_legal_answer'):
+                blocked_ids = {r['claim_id'] for r in rule_records}
+                accepted_ids = [v['claim_id'] for v in getattr(checked, 'verdicts', ()) if v['supported'] and v['claim_id'] not in blocked_ids] if 'answer' not in blocked_ids else []
                 generated = self.generator.repair_legal_answer(query, generated,
-                    question_plan=question_plan, issues=issues)
+                    question_plan=question_plan, issues=issues, accepted_ids=accepted_ids)
             else:
                 generated = self.generator.generate(
                     query + "\nYêu cầu kiểm tra lại: " + " ".join(issues)
@@ -241,17 +253,35 @@ class ChatService:
             verification_chunks = list(generated.selected_evidence) or chunks
             if generated.provider != "template" and not generated.literal_source_answer:
                 generated = replace(generated, text=append_commencement_evidence(generated.text, verification_chunks, query))
-            issues = evidence_issues(generated.text_for_verification, verification_chunks, query) if not generated.literal_source_answer else []
+            issues = evidence_issues(generated.text_for_verification, verification_chunks, query, claim_records=generated.claim_records) if not generated.literal_source_answer else []
+            deterministic_issues = list(issues)
+            rule_records = identify_rule_issues(issues, generated, verification_chunks) if generated.claim_records else []
+            if rule_records:
+                issues = [json.dumps(r, ensure_ascii=False) for r in rule_records]
+            checked = None
             if generated.literal_source_answer:
                 verification_trace.append({'agent': 'source_verification', 'provider': 'exact_source_match',
                     'status': 'accepted', 'fallback': True, 'scope': 'verbatim source text only; no legal application inferred'})
             if not generated.literal_source_answer and generated.provider not in {"template", "legal-extractive", "legal-insufficient"} and hasattr(self.generator, "check_legal_evidence"):
-                checked = self.generator.check_legal_evidence(query, generated.text_for_verification, verification_chunks)
+                checked = verify(generated)
                 issues.extend(checked)
                 if hasattr(checked,'trace'):
                     verification_trace.append(checked.trace)
                     degraded_reasons.extend(checked.degraded_reasons)
         rejected = bool(issues) or _citation_accuracy(generated.text, verification_chunks) < 1
+        if rejected and generated.claim_records and checked is not None and 'answer' not in {r['claim_id'] for r in rule_records}:
+            from .claim_verification import retained_answer, ClaimIssues
+            blocked_ids = {r['claim_id'] for r in rule_records}
+            partial_check = ClaimIssues([dict(v, supported=False) if v['claim_id'] in blocked_ids else v
+                                        for v in getattr(checked, 'verdicts', ())])
+            retained = retained_answer(generated, partial_check)
+            if retained and not evidence_issues(retained.text_for_verification, verification_chunks, query, claim_records=retained.claim_records) and _citation_accuracy(retained.text, verification_chunks) == 1:
+                degraded_reasons.extend(issues)
+                generated = retained
+                rejected = False
+                verification_trace.append(dict(agent='source_verification', provider='gemini', status='partial_retained',
+                    retained_claim_ids=[c['claim_id'] for c in retained.claim_records],
+                    rejected_claim_ids=[v['claim_id'] for v in partial_check.verdicts if not v['supported']]))
         if rejected and generated.source_fallback is not None:
             fallback = generated.source_fallback
             if fallback.literal_source_answer and _citation_accuracy(fallback.text, verification_chunks) == 1:

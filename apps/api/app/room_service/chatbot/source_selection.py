@@ -55,7 +55,13 @@ def selection_candidates(contexts):
         # The model selects complete legal units, including checklist requirements.
         for part in parts:
             part=part.strip()
-            if len(part)<30 or len(part)>5500:continue
+            # A complete publisher warning can be shorter than a legal clause
+            # (for example, a warning against unfamiliar links). Keep its exact
+            # text and provenance instead of dropping the requested evidence.
+            short_guidance = (row.get('source_content_kind') == 'publisher_guidance_word_conversion'
+                              and bool(row.get('source_scope_warning'))
+                              and len(part) >= 10 and len(part.split()) >= 4)
+            if (len(part)<30 and not short_guidance) or len(part)>5500:continue
             if not row.get('context_complete',True):
                 # The original retrieval fragment remains explicitly incomplete.
                 complete=False

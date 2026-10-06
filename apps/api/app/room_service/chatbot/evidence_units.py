@@ -45,6 +45,17 @@ def practical_facets(question, row):
             found.add('phối hợp của chủ hộ, không đồng nhất với mọi chủ trọ')
         if category == 'residence' and 'ho so' in heading and 'cho o hop phap' in body:
             found.add('giấy tờ chỗ ở hợp pháp trong hồ sơ cơ bản')
+        if category == 'residence' and 'van ban cho thue' in body and 'khong phai cong chung' in body:
+            found.add('giấy tờ chỗ ở hợp pháp trong hồ sơ cơ bản')
+        if category == 'residence' and 'khai thac' in body and 'khi co quan dang ky cu tru co yeu cau' in body:
+            found.add('khai thác dữ liệu trước, cung cấp giấy tờ khi có yêu cầu đúng điều kiện')
+    if 'cu tru' in q and any(t in q for t in ('chuyen sang','chuyen phong','thay doi cho o')) and category == 'residence':
+        if 'noi tam tru moi' in body and 'ho so dang ky tam tru' in body:
+            found.add('đăng ký tại nơi dự kiến tạm trú và cập nhật nơi mới')
+        if 'xoa dang ky tam tru' in heading and 'khong dang ky tam tru tai cho o khac' in body:
+            found.add('căn cứ xóa đăng ký cũ theo từng trường hợp')
+        if 'sua doi' in heading and 'dieu 10. ho so, thu tuc xoa dang ky tam tru' in body:
+            found.add('thủ tục xóa hiện hành và thời hạn gắn đúng trường hợp')
     if 'thoat nan' in q and any(t in q for t in ('khoa', 'chan', 'can tro')):
         if category == 'fire_safety' and 'thong thoang' in body and 'chu nha tro' in body:
             found.add('khắc phục lối thoát bị cản trở khi chưa có cháy')
@@ -59,6 +70,18 @@ def practical_facets(question, row):
             found.add('thời gian lưu trữ và biện pháp bảo vệ')
         if category == 'privacy_data' and 'cung cap du lieu ca nhan' in heading and 'dong y' in body:
             found.add('điều kiện cung cấp cho bên khác và ngoại lệ pháp luật')
+    if 'lien ket la' in q and category == 'criminal_law':
+        if any(t in body for t in ('website gia mao','duong link la')):
+            found.add('nhận diện và kiểm tra liên kết giả/lạ')
+        if any(t in body for t in ('mat khau','otp')):
+            found.add('bảo vệ thông tin bảo mật ngân hàng')
+        if any(t in body for t in ('thuc giuc','hoi thuc','nhanh chong')):
+            found.add('cảnh giác thúc ép chuyển tiền')
+    if 'moi gioi' in q and category == 'housing_contract':
+        if 'tra tien dich vu' in heading and 'khong dat' in body and 'giam tien dich vu' in body:
+            found.add('phí dịch vụ và điều kiện giảm phí/bồi thường')
+        if 'cham dut' in heading and 'dich vu' in heading:
+            found.add('điều kiện chấm dứt và phí phần dịch vụ đã thực hiện')
     return found
 
 
@@ -183,8 +206,12 @@ def scope_issues(question, parts):
         if not any(reporting_evidence_row(p) for p in parts):
             issues.append('Thủ tục nội bộ của cơ quan tiếp nhận chưa trả lời các tài liệu, tin nhắn hoặc chứng từ người trình báo cần lưu/cung cấp.')
     if 'moi gioi' in q and any(t in q for t in ('sinh vien','nguoi thue','phi','tra')):
-        if 'doanh nghiep kinh doanh dich vu moi gioi' in body and not any(
-                t in body for t in ('khach hang','nguoi thue','hop dong dich vu')):
+        with_headings=normalize_text(' '.join(str(p.get('heading') or '')+' '+str(p.get('text',p.get('content','')) or '') for p in parts))
+        remuneration=('thu lao' in with_headings and 'ca nhan' in with_headings
+                      and 'doanh nghiep' in with_headings)
+        customer_service=any(t in with_headings for t in (
+            'khach hang','nguoi thue','hop dong dich vu','ben su dung dich vu'))
+        if remuneration and not customer_service:
             issues.append('Nguồn thù lao cá nhân môi giới với doanh nghiệp chưa trả lời phí người thuê trả.')
     if any(t in q for t in ('nhieu phong','nhieu tang')) and 'fire_safety' in {p.get('category') for p in parts}:
         if not any(t in body for t in ('nhieu tang','nhieu can ho','co so','kinh doanh')):

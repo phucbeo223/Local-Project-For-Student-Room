@@ -1,0 +1,2103 @@
+{
+  "original_reference_sha256": "876e38dba5c2faeba797d02503680b82c1eb7d6bd30b148737cf47db84e36983",
+  "manuscript_sha256": "1cd567c698b7989c922ae3f59d29310cfa02bc461c64b3d27cfdeca29c6481e8",
+  "original_answers_unchanged": true,
+  "manuscript_unchanged": true,
+  "policy": "Separate audit register. Citation labels are not proof of entailment or legal validity. Pending/unsupported claims must not become source-supported gold. Original text agreement is reported separately.",
+  "utility_price_policy": "Landlord-supplied variables; missing electricity/water price means unknown, ask later. Do not infer or penalize absent listing prices.",
+  "cases": [
+    {
+      "original_question_id": 19,
+      "question": "Trước khi ký hợp đồng thuê trọ, sinh viên nên kiểm tra những điều khoản nào?",
+      "points": [
+        {
+          "point_id": "1.1",
+          "title": "Thông tin các bên & thẩm quyền",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Họ tên, số CCCD chủ nhà; địa chỉ phòng trọ; nếu người quản lý đứng ký thì phải có văn bản ủy quyền hợp pháp từ chủ sở hữu",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 163 *Luật Nhà ở 79/VBHN-VPQH*",
+          "scope_and_conditions": "Áp dụng mọi hợp đồng thuê nhà ở; không phân biệt phòng trọ hay căn hộ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+        },
+        {
+          "point_id": "1.2",
+          "title": "Giá thuê & phương thức thanh toán",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Mức tiền thuê cố định, ngày thanh toán hàng tháng, hình thức trả (chuyển khoản/tiền mặt)",
+          "source_claimed_in_manuscript": "Khoản 3, 4 Điều 163 *Luật Nhà ở*; Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Giá thuê phải ghi bằng con số; không được để trống hoặc ghi \"theo thỏa thuận\"",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+        },
+        {
+          "point_id": "1.3",
+          "title": "Tiền đặt cọc & điều kiện hoàn cọc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Mức cọc, điều kiện hoàn lại 100%, thời hạn chủ nhà phải hoàn trả",
+          "source_claimed_in_manuscript": "Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Đặt cọc là biện pháp bảo đảm; không có quy định bắt buộc tối đa 1 tháng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+        },
+        {
+          "point_id": "1.4",
+          "title": "Chi phí phát sinh",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Đơn giá điện (VNĐ/kWh), nước (VNĐ/m³ hoặc/người), rác, internet, gửi xe",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*; Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Chi phí điện không được vượt hóa đơn điện lực; nước không được vượt biểu giá UBND",
+          "grading_role": "condition",
+          "source_review_status": "optional_landlord_price_and_legal_scope",
+          "review_note": "Giá điện/nước cụ thể là thông tin chủ trọ cung cấp, có thể chưa có và hỏi sau; không chấm thiếu giá trong listing là sai. Yêu cầu kiểm tra điều khoản phí trước giao kết và căn cứ giới hạn thu là phần rà riêng, không suy ra một giá mặc định."
+        },
+        {
+          "point_id": "1.5",
+          "title": "Hiện trạng tài sản & sửa chữa",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Biên bản bàn giao liệt kê thiết bị; phân định ai chịu chi phí hao mòn tự nhiên; chốt chỉ số điện nước trước khi vào",
+          "source_claimed_in_manuscript": "Điều 477 *BLDS 2015*",
+          "scope_and_conditions": "Không bắt buộc theo luật nhưng rất cần thiết để phòng ngừa tranh chấp cọc",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+        },
+        {
+          "point_id": "1.6",
+          "title": "Điều khoản chấm dứt hợp đồng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Thời gian báo trước khi chuyển đi (thường 15–30 ngày) để không bị mất cọc",
+          "source_claimed_in_manuscript": "Điều 5 *Luật Nhà ở*; Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Nếu không có điều khoản báo trước, áp dụng nguyên tắc chung về chấm dứt hợp đồng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Checklist hữu ích; phân biệt điều luật liệt kê nội dung hợp đồng với khuyến nghị kiểm tra giấy tờ/ủy quyền."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 20,
+      "question": "Hợp đồng thuê phòng có cần ghi rõ tiền cọc, tiền thuê và ngày thanh toán không?",
+      "points": [
+        {
+          "point_id": "2.1",
+          "title": "Khẳng định bắt buộc lập thành văn bản",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hợp đồng về nhà ở bắt buộc phải lập thành văn bản",
+          "source_claimed_in_manuscript": "Điều 163 *Luật Nhà ở 79/VBHN-VPQH*",
+          "scope_and_conditions": "Không phân biệt giá trị hợp đồng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+        },
+        {
+          "point_id": "2.2",
+          "title": "Tiền đặt cọc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Đặt cọc là biện pháp bảo đảm nghĩa vụ; hợp đồng phải ghi rõ mức cọc, mục đích và điều kiện hoàn trả hoặc khấu trừ",
+          "source_claimed_in_manuscript": "Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Áp dụng khi hai bên có giao kết đặt cọc; không bắt buộc phải có cọc",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+        },
+        {
+          "point_id": "2.3",
+          "title": "Tiền thuê",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải ghi rõ con số cụ thể để tránh chủ trọ tăng giá giữa chừng",
+          "source_claimed_in_manuscript": "Khoản 3 Điều 163 *Luật Nhà ở*",
+          "scope_and_conditions": "Giá thuê thỏa thuận; nếu Nhà nước quy định giá thì phải tuân theo",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+        },
+        {
+          "point_id": "2.4",
+          "title": "Ngày thanh toán",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Xác định mốc thời gian trả tiền, tránh bị phạt trễ hạn vô lý",
+          "source_claimed_in_manuscript": "Khoản 4 Điều 163 *Luật Nhà ở*; Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Bắt buộc ghi \"thời hạn và phương thức thanh toán\" theo luật",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+        },
+        {
+          "point_id": "2.5",
+          "title": "Không ký hợp đồng bỏ trống",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Cảnh báo không ký mẫu có ô trống về tiền hoặc thỏa thuận miệng",
+          "source_claimed_in_manuscript": "Nguyên tắc hợp đồng *BLDS 2015*",
+          "scope_and_conditions": "Ký hợp đồng bỏ trống không bảo vệ được quyền lợi người thuê",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi khoản đặt cọc là nội dung bắt buộc của mọi hợp đồng hoặc mọi thỏa thuận cọc phải viết riêng; phân biệt Điều 163 Luật Nhà ở với Điều 328 BLDS và thỏa thuận cụ thể."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 21,
+      "question": "Nếu chủ trọ muốn tăng giá thuê giữa thời hạn hợp đồng thì cần xem xét những gì?",
+      "points": [
+        {
+          "point_id": "3.1",
+          "title": "Nguyên tắc không được tự ý tăng giá",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Trong thời hạn hợp đồng còn hiệu lực, chủ trọ không được đơn phương tăng giá trừ khi hợp đồng đã có điều khoản cho phép",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Áp dụng khi hợp đồng không có điều khoản tăng giá",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+        },
+        {
+          "point_id": "3.2",
+          "title": "Trường hợp cải tạo nhà ở",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chủ trọ được điều chỉnh giá nếu: (1) đã thực hiện cải tạo, (2) được bên thuê đồng ý, (3) thời gian còn lại ≤ 1/3 thời hạn hợp đồng",
+          "source_claimed_in_manuscript": "Khoản 2 Điều 170 *Luật Nhà ở 79/VBHN-VPQH*",
+          "scope_and_conditions": "**Phải đáp ứng đồng thời cả 3 điều kiện** mới được tăng giá",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+        },
+        {
+          "point_id": "3.3",
+          "title": "Quyền của người thuê khi bị ép tăng giá",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Có quyền từ chối mức giá mới và tiếp tục trả giá cũ đến hết hạn hợp đồng",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Áp dụng khi không thuộc trường hợp điều chỉnh hợp pháp",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+        },
+        {
+          "point_id": "3.4",
+          "title": "Quyền đòi bồi thường khi bị đuổi",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nếu chủ trọ đơn phương chấm dứt hợp đồng trái luật để ép tăng giá, phải hoàn toàn bộ cọc và bồi thường thiệt hại",
+          "source_claimed_in_manuscript": "Điều 477 *BLDS 2015*",
+          "scope_and_conditions": "Chỉ áp dụng khi chủ trọ vi phạm hợp đồng; người thuê cần có bằng chứng",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+        },
+        {
+          "point_id": "3.5",
+          "title": "Kiểm tra điều khoản hợp đồng trước",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Cần đọc kỹ điều khoản trong hợp đồng trước khi từ chối hay chấp nhận",
+          "source_claimed_in_manuscript": "Điều 163, 170 *Luật Nhà ở*",
+          "scope_and_conditions": "Nếu hợp đồng đã ghi rõ lộ trình tăng giá thì việc tăng là hợp pháp",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bản Word cung cấp Điều 170 khoản 2 có cụm một phần ba trở xuống như mẫu; chưa chứng nhận bản trích tuyển là nguyên văn chính thức. Giữ điều kiện cải tạo, đồng ý, thỏa thuận giá và bồi thường, không suy ra mọi trường hợp đương nhiên hoàn toàn bộ cọc."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 22,
+      "question": "Khi trả phòng, việc hoàn lại tiền cọc được xác định theo hợp đồng và quy định như thế nào?",
+      "points": [
+        {
+          "point_id": "4.1",
+          "title": "Nguyên tắc hoàn trả cọc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Khi hợp đồng chấm dứt đúng thời hạn, người thuê đã thanh toán đủ và bàn giao phòng đúng hiện trạng thì chủ trọ phải hoàn trả toàn bộ tiền cọc",
+          "source_claimed_in_manuscript": "Khoản 2 Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Điều kiện: (1) Hợp đồng đúng thời hạn; (2) Trả tiền đủ; (3) Bàn giao phòng theo hiện trạng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hoàn/khấu trừ cọc phụ thuộc mục đích bảo đảm, nghĩa vụ và thỏa thuận; Điều 328 không phải danh sách đóng tất cả tình huống khấu trừ. Tách khuyến nghị bàn giao khỏi quy định luật."
+        },
+        {
+          "point_id": "4.2",
+          "title": "Các trường hợp chủ trọ được khấu trừ cọc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chỉ được khấu trừ khi: người thuê làm hư hỏng tài sản do lỗi chủ quan; còn nợ tiền nhà/điện nước; đơn phương dọn đi sớm không báo trước",
+          "source_claimed_in_manuscript": "Khoản 2 Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Hao mòn tự nhiên theo thời gian không thuộc lỗi người thuê",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hoàn/khấu trừ cọc phụ thuộc mục đích bảo đảm, nghĩa vụ và thỏa thuận; Điều 328 không phải danh sách đóng tất cả tình huống khấu trừ. Tách khuyến nghị bàn giao khỏi quy định luật."
+        },
+        {
+          "point_id": "4.3",
+          "title": "Trường hợp người thuê từ chối giao kết",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nếu bên đặt cọc từ chối thực hiện hợp đồng thì mất cọc; nếu bên nhận cọc từ chối thì trả lại cọc và khoản tương đương",
+          "source_claimed_in_manuscript": "Điều 328 *BLDS 2015*",
+          "scope_and_conditions": "Quy định bồi cọc (trả gấp đôi) khi bên nhận cọc vi phạm",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hoàn/khấu trừ cọc phụ thuộc mục đích bảo đảm, nghĩa vụ và thỏa thuận; Điều 328 không phải danh sách đóng tất cả tình huống khấu trừ. Tách khuyến nghị bàn giao khỏi quy định luật."
+        },
+        {
+          "point_id": "4.4",
+          "title": "Lập biên bản bàn giao & chứng cứ ảnh",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Chụp ảnh/quay video phòng khi nhận và trả phòng; lập biên bản bàn giao và chốt chỉ số công tơ điện nước",
+          "source_claimed_in_manuscript": "Nguyên tắc chứng cứ",
+          "scope_and_conditions": "Không bắt buộc theo luật nhưng là căn cứ quan trọng khi xảy ra tranh chấp",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hoàn/khấu trừ cọc phụ thuộc mục đích bảo đảm, nghĩa vụ và thỏa thuận; Điều 328 không phải danh sách đóng tất cả tình huống khấu trừ. Tách khuyến nghị bàn giao khỏi quy định luật."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 23,
+      "question": "Chủ trọ được thu tiền điện của người thuê như thế nào theo quy định?",
+      "points": [
+        {
+          "point_id": "5.1",
+          "title": "Trần thu tiền điện = hóa đơn thực tế",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Khi không ký hợp đồng trực tiếp với Điện lực, tổng tiền điện chủ nhà thu **không được vượt quá** số tiền trên hóa đơn điện lực hằng tháng",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Áp dụng khi người thuê không có hợp đồng trực tiếp với Điện lực",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Mệnh đề không vượt hóa đơn nhưng lại cộng hao hụt có thể tự mâu thuẫn; nguồn Điều 12 khoản 5 TT60 không xác nhận khoản cộng thêm này. Giữ điều kiện chuyển tiếp trước khi áp bậc giá."
+        },
+        {
+          "point_id": "5.2",
+          "title": "Trường hợp ký hợp đồng trực tiếp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Người thuê có hợp đồng ≥ 12 tháng + đăng ký tạm trú được ký hợp đồng mua bán điện trực tiếp với Điện lực hoặc chủ nhà đại diện",
+          "source_claimed_in_manuscript": "Điều 48, 49 *Luật Điện lực 61/2024/QH15*",
+          "scope_and_conditions": "⚠️ Điều kiện: thuê ≥ 12 tháng VÀ có đăng ký cư trú hợp pháp",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Mệnh đề không vượt hóa đơn nhưng lại cộng hao hụt có thể tự mâu thuẫn; nguồn Điều 12 khoản 5 TT60 không xác nhận khoản cộng thêm này. Giữ điều kiện chuyển tiếp trước khi áp bậc giá."
+        },
+        {
+          "point_id": "5.3",
+          "title": "Cấp định mức theo số người",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nếu chủ nhà kê khai đầy đủ thông tin cư trú, cứ 4 người được cấp 1 định mức hộ gia đình theo biểu giá bậc thang",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "⚠️ Điều kiện: chủ nhà phải kê khai với bên bán điện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Mệnh đề không vượt hóa đơn nhưng lại cộng hao hụt có thể tự mâu thuẫn; nguồn Điều 12 khoản 5 TT60 không xác nhận khoản cộng thêm này. Giữ điều kiện chuyển tiếp trước khi áp bậc giá."
+        },
+        {
+          "point_id": "5.4",
+          "title": "Trường hợp không kê khai định mức",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hợp đồng thuê < 12 tháng hoặc không kê khai đủ số người → áp giá bán lẻ điện sinh hoạt theo bậc 2 (TT 60/2025) hoặc bậc 3 (TT 25/2018 cũ) cho toàn bộ sản lượng",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Văn bản áp dụng TT 60/2025; trước đây TT 25/2018 áp bậc 3 — cần lưu ý phiên bản",
+          "grading_role": "condition",
+          "source_review_status": "needs_joint_conditions",
+          "review_note": "Bản Word khoản 5 Điều 12 đang có dùng điều kiện thời hạn thuê dưới 12 tháng VÀ không kê khai đầy đủ số người; không đổi thành HOẶC. Còn phải đọc điều kiện hiệu lực/chuyển tiếp, chưa xác minh sự kiện kích hoạt."
+        },
+        {
+          "point_id": "5.5",
+          "title": "Nghiêm cấm trục lợi",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Cấm chủ trọ tự đặt mức giá điện cao hơn quy định để thu lời bất chính",
+          "source_claimed_in_manuscript": "Khoản 6 Điều 12 *NĐ 134/2013/NĐ-CP* sửa đổi bởi *NĐ 17/2022/NĐ-CP*",
+          "scope_and_conditions": "Chế tài: phạt tiền 20–30 triệu đồng + buộc hoàn trả",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Mệnh đề không vượt hóa đơn nhưng lại cộng hao hụt có thể tự mâu thuẫn; nguồn Điều 12 khoản 5 TT60 không xác nhận khoản cộng thêm này. Giữ điều kiện chuyển tiếp trước khi áp bậc giá."
+        }
+      ],
+      "checked_source_basis": [
+        {
+          "source_url": "https://vanban.chinhphu.vn/?docid=216125&orggroupid=4&pageid=27160",
+          "provision": "Khoản 5 Điều 12 Thông tư 60/2025/TT-BCT trong bản Word được cung cấp",
+          "scope": "Đối chiếu câu chữ điều kiện đồng thời và giới hạn thu theo hóa đơn; bản trích tuyển chưa được xác minh toàn bộ với nguyên bản và sự kiện kích hoạt hiệu lực chưa được xác nhận.",
+          "native_word": "Data/electricity/Thông-tư-60-2025-TT-BCT.docx"
+        }
+      ],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 24,
+      "question": "Ba sinh viên ở chung một phòng được tính tiền điện ra sao?",
+      "points": [
+        {
+          "point_id": "6.1",
+          "title": "Quy tắc 4 người = 1 hộ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Cứ 4 người được tính là 1 hộ sử dụng điện; số người lẻ được tính theo tỷ lệ tương ứng",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "⚠️ Điều kiện: chủ nhà đã kê khai đầy đủ thông tin cư trú",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+        },
+        {
+          "point_id": "6.2",
+          "title": "Định mức cho 3 người",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "3 sinh viên = 3/4 định mức hộ gia đình; Bậc 1 được tính: 50 × 3/4 = 37,5 kWh; Bậc 2 tiếp theo: 37,5 kWh",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Áp dụng khi có kê khai; cần đối chiếu biểu giá *QĐ 1279/QĐ-BCT*",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+        },
+        {
+          "point_id": "6.3",
+          "title": "Trường hợp không kê khai",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nếu không kê khai: áp giá bậc 2 (101–200 kWh) theo TT 60/2025 cho toàn bộ sản lượng",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "⚠️ Khác biệt so với bậc 3 theo TT cũ — ghi rõ văn bản",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+        },
+        {
+          "point_id": "6.4",
+          "title": "Khuyến nghị đăng ký cư trú",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Sinh viên nên cung cấp CCCD và yêu cầu chủ trọ kê khai định mức với Điện lực để hưởng giá bậc thang ưu đãi",
+          "source_claimed_in_manuscript": "TT 60/2025",
+          "scope_and_conditions": "Không bắt buộc nhưng có lợi kinh tế đáng kể",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+        },
+        {
+          "point_id": "6.5",
+          "title": "Kiểm tra hóa đơn hằng tháng",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nếu không ký hợp đồng trực tiếp, kiểm tra để bảo đảm tổng tiền không vượt hóa đơn thực tế",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025*",
+          "scope_and_conditions": "Quyền của người thuê",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Kiểm tra không trộn cấu trúc bậc cũ với TT60 và Quyết định 14; nguồn có điều kiện hiệu lực chưa xác nhận sự kiện kích hoạt. Tỷ lệ ba phần tư và phép tính minh họa không phải xác nhận biểu giá đang dùng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 25,
+      "question": "Nếu tôi nghi tiền điện bị thu cao hơn quy định, nên kiểm tra hóa đơn và căn cứ nào?",
+      "points": [
+        {
+          "point_id": "7.1",
+          "title": "Chốt chỉ số công tơ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Ghi lại chỉ số điện đầu và cuối kỳ trên công tơ phòng để xác định số kWh thực tế đã dùng",
+          "source_claimed_in_manuscript": "Quy trình thực tế",
+          "scope_and_conditions": "Áp dụng khi có công tơ riêng cho từng phòng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+        },
+        {
+          "point_id": "7.2",
+          "title": "Yêu cầu đối chiếu hóa đơn gốc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Đề nghị chủ nhà cho xem hóa đơn tiền điện gốc của Điện lực; hoặc tra cứu qua mã khách hàng trên App EVNSPC",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Tổng tiền thu không được vượt hóa đơn gốc",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+        },
+        {
+          "point_id": "7.3",
+          "title": "Căn cứ pháp lý xử phạt",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hành vi thu tiền điện cao hơn quy định bị phạt 20–30 triệu đồng + buộc hoàn trả",
+          "source_claimed_in_manuscript": "Khoản 6 Điều 12 *NĐ 134/2013/NĐ-CP* sửa đổi bởi *NĐ 17/2022/NĐ-CP*",
+          "scope_and_conditions": "Áp dụng khi có hành vi vi phạm giá điện sinh hoạt",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+        },
+        {
+          "point_id": "7.4",
+          "title": "Kênh phản ánh",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Tổng đài EVNSPC 1900 1006 / 1900 9000; Điện lực địa phương (Ninh Kiều, Cái Răng...); UBND phường/xã",
+          "source_claimed_in_manuscript": "Quy định về tiếp nhận khiếu nại",
+          "scope_and_conditions": "Áp dụng tại TP. Cần Thơ; số điện thoại cần xác minh hiện hành",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+        },
+        {
+          "point_id": "7.5",
+          "title": "Kiểm tra định mức kê khai",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Xem chủ nhà có kê khai đúng số người cư trú để xác định mức giá áp dụng",
+          "source_claimed_in_manuscript": "*TT 60/2025*",
+          "scope_and_conditions": "Nếu không kê khai → áp bậc 2, không phải bậc 3",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần cập nhật căn cứ xử phạt, cơ quan và địa bàn hiện tại; không biến con số phạt theo nghị định cũ thành mức hiện hành nếu chưa xác minh. Phân biệt người thuê có thể yêu cầu đối chiếu với quyền truy cập tài khoản người khác."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 26,
+      "question": "Chủ trọ có phải thông báo cách tính tiền điện và số điện đã sử dụng không?",
+      "points": [
+        {
+          "point_id": "8.1",
+          "title": "Chủ trọ phải minh bạch",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Có — chủ trọ phải minh bạch về cách tính và số điện tiêu thụ vì tổng thu không được vượt hóa đơn gốc",
+          "source_claimed_in_manuscript": "Khoản 5 Điều 12 *TT 60/2025/TT-BCT*",
+          "scope_and_conditions": "Nguyên tắc trần thu tiền = hóa đơn gốc ngầm định nghĩa vụ công khai",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nguồn EVNSPC Cần Thơ hướng dẫn công khai cách tính theo hóa đơn; chưa chứng minh mọi chủ trọ bị luật buộc lập bảng kê đủ bốn trường hoặc cho người thuê cùng chốt công tơ. Tách quyền thông tin trong giao dịch kinh doanh và khuyến nghị đối chiếu."
+        },
+        {
+          "point_id": "8.2",
+          "title": "Nội dung bảng kê thanh toán",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Bảng kê cần ghi: (1) Chỉ số công tơ cũ & mới; (2) Số kWh tiêu thụ; (3) Đơn giá áp dụng; (4) Thành tiền",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*; Nguyên tắc minh bạch hợp đồng",
+          "scope_and_conditions": "Nếu hợp đồng quy định cung cấp bảng kê thì có nghĩa vụ pháp lý",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nguồn EVNSPC Cần Thơ hướng dẫn công khai cách tính theo hóa đơn; chưa chứng minh mọi chủ trọ bị luật buộc lập bảng kê đủ bốn trường hoặc cho người thuê cùng chốt công tơ. Tách quyền thông tin trong giao dịch kinh doanh và khuyến nghị đối chiếu."
+        },
+        {
+          "point_id": "8.3",
+          "title": "Quyền cùng chốt điện",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Người thuê có quyền đề nghị cùng chốt chỉ số công tơ vào ngày thanh toán định kỳ",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Không quy định cụ thể; căn cứ nguyên tắc thực hiện hợp đồng trung thực",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nguồn EVNSPC Cần Thơ hướng dẫn công khai cách tính theo hóa đơn; chưa chứng minh mọi chủ trọ bị luật buộc lập bảng kê đủ bốn trường hoặc cho người thuê cùng chốt công tơ. Tách quyền thông tin trong giao dịch kinh doanh và khuyến nghị đối chiếu."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 27,
+      "question": "Giá nước sinh hoạt áp dụng cho phòng trọ ở Cần Thơ được xác định theo căn cứ nào?",
+      "points": [
+        {
+          "point_id": "9.1",
+          "title": "Khung giá do UBND TP. Cần Thơ ban hành",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Giá nước do UBND TP. Cần Thơ phê duyệt theo từng đơn vị cấp nước và khu vực (đô thị/nông thôn)",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND TP. Cần Thơ*; *TT 44/2021/TT-BTC*",
+          "scope_and_conditions": "Áp dụng trên địa bàn TP. Cần Thơ; năm 2024 — cần xác nhận hiệu lực tại thời điểm áp dụng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần xác minh phạm vi Cần Thơ sau sắp xếp, nhà cung cấp và biểu giá hiện hành. Mức 4 m3/người/tháng và phần trăm phụ phí không được dùng làm mức chung nếu thiếu nguồn."
+        },
+        {
+          "point_id": "9.2",
+          "title": "Phân biệt khu vực đô thị/nông thôn",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Giá nước khác nhau tùy khu vực đô thị (quận Ninh Kiều, Bình Thủy...) và nông thôn",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "⚠️ Phải xác định rõ địa chỉ phòng trọ thuộc khu vực nào",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần xác minh phạm vi Cần Thơ sau sắp xếp, nhà cung cấp và biểu giá hiện hành. Mức 4 m3/người/tháng và phần trăm phụ phí không được dùng làm mức chung nếu thiếu nguồn."
+        },
+        {
+          "point_id": "9.3",
+          "title": "Phân biệt nhóm khách hàng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hộ dân cư sinh hoạt được áp giá bậc thang ưu đãi; kinh doanh dịch vụ áp giá cao hơn",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "Phòng trọ thông thường nếu không kinh doanh áp giá hộ dân cư",
+          "grading_role": "main",
+          "source_review_status": "unsupported_progressive_water_tariff",
+          "review_note": "Bảng trong bản Word QĐ215 đang có phân nhóm khách hàng/khu vực; chưa chứng minh cơ chế bậc thang theo lượng tiêu thụ hoặc tự xác định mọi phòng trọ thuộc nhóm hộ dân cư."
+        },
+        {
+          "point_id": "9.4",
+          "title": "Định mức 4 m³/người/tháng",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Khi có đăng ký tạm trú, chủ trọ có thể đăng ký cấp định mức nước sinh hoạt theo đầu người",
+          "source_claimed_in_manuscript": "Thực tiễn áp dụng",
+          "scope_and_conditions": "**Chưa có điều khoản rõ ràng trong QĐ 215** về định mức; cần ghi rõ đây là thực tiễn phổ biến",
+          "grading_role": "illustration",
+          "source_review_status": "unsupported_water_person_quota",
+          "review_note": "Chưa có căn cứ trong nguồn đang có về định mức nước theo đầu người cho người tạm trú; không gọi là thực tiễn phổ biến khi chưa có dữ liệu có phạm vi và thời điểm."
+        },
+        {
+          "point_id": "9.5",
+          "title": "Cơ cấu hóa đơn tiền nước",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Giá nước chưa bao gồm VAT (5%) và phí bảo vệ môi trường/thoát nước",
+          "source_claimed_in_manuscript": "Luật Thuế GTGT; quy định phí nước thải",
+          "scope_and_conditions": "Cần ghi rõ khi so sánh với mức chủ trọ thu",
+          "grading_role": "condition",
+          "source_review_status": "contradicts_provided_vat_excerpt",
+          "review_note": "Chú thích trong bản Word QĐ215 đang có ghi giá đã bao gồm thuế giá trị gia tăng và chưa bao gồm phí bảo vệ môi trường đối với nước thải sinh hoạt. Điều này trái mệnh đề giá chưa gồm VAT trong bản rà; vẫn cần xác nhận nguồn chính thức và kỳ hóa đơn trước khi áp dụng."
+        }
+      ],
+      "checked_source_basis": [
+        {
+          "source_url": "https://capnuoccantho2.com.vn/View.aspx?wc=63&wp=332",
+          "provision": "Khoản 1 và 2 Điều 1 QĐ215/QĐ-UBND trong bản Word được cung cấp",
+          "scope": "Bảng có nhóm khách hàng, khu vực, nhà cung cấp và chú thích giá đã gồm VAT; không xác nhận biểu giá đang áp dụng cho một phòng trọ/kỳ hóa đơn hoặc một định mức nước theo người.",
+          "native_word": "Data/water_cantho/Quyết-định-215-QĐ-UBND.docx"
+        }
+      ],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 28,
+      "question": "Tôi nên kiểm tra gì khi chủ trọ thu tiền nước theo đầu người thay vì đồng hồ?",
+      "points": [
+        {
+          "point_id": "10.1",
+          "title": "Mức khoán tham khảo phổ biến",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Mức thu khoán nước tại Cần Thơ phổ biến là 30.000–50.000 VNĐ/người/tháng (tương đương 3–5 m³)",
+          "source_claimed_in_manuscript": "Thực tiễn địa phương; *QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "⚠️ **Nguồn không chứa con số này rõ ràng**; là ước tính thực tiễn, cần thừa nhận khi trả lời",
+          "grading_role": "illustration",
+          "source_review_status": "unsupported_empirical_generalization",
+          "review_note": "Không coi 30–50 nghìn hoặc 3–5 m3 là mức phổ biến; thống kê cục bộ chỉ mô tả các bản ghi có giá, đơn vị và thời điểm."
+        },
+        {
+          "point_id": "10.2",
+          "title": "Yêu cầu đối chiếu hóa đơn khi thu quá cao",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Có quyền yêu cầu chủ nhà xuất trình hóa đơn nước thực tế chia đều cho số người đang ở",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND*; Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Mức thu khoán không nên vượt chi phí thực tế bình quân đầu người",
+          "grading_role": "main",
+          "source_review_status": "needs_scope_review",
+          "review_note": "Phân biệt đề nghị đối chiếu và quyền thông tin khi giao dịch với bên kinh doanh; chưa có căn cứ mọi khoản khoán phải bằng hóa đơn chia người."
+        },
+        {
+          "point_id": "10.3",
+          "title": "Ghi vào hợp đồng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Mức khoán phải ghi rõ trong hợp đồng thuê, cam kết không tự ý nâng giá",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Không ghi thì chủ nhà có thể tăng tùy tiện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chưa có khảo sát có phương pháp xác nhận 30–50 nghìn/người là mức phổ biến hoặc 3–5 m3 là tiêu thụ thực tế. Khoán, hóa đơn, số người và điều kiện đổi mức thu là nội dung kiểm tra/thỏa thuận; không tạo ngưỡng đắt trái luật."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 29,
+      "question": "Nếu nhà trọ dùng chung đồng hồ nước, cách phân chia chi phí nên được thỏa thuận ra sao?",
+      "points": [
+        {
+          "point_id": "11.1",
+          "title": "Phương án chia theo đầu người",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Tổng hóa đơn nước chia đều cho số người thực tế đang ở trong kỳ",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*; *QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "Phương án đơn giản, phổ biến; sát thực tế hóa đơn",
+          "grading_role": "recommendation",
+          "source_review_status": "agreement_option",
+          "review_note": "Phương án để các bên thỏa thuận, không phải cách chia bắt buộc hoặc số liệu phổ biến."
+        },
+        {
+          "point_id": "11.2",
+          "title": "Phương án lắp đồng hồ phụ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Lắp đồng hồ nước riêng từng phòng; phần hao hụt/nước chung chia theo tỷ lệ thỏa thuận",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Minh bạch nhất, ít tranh chấp nhất",
+          "grading_role": "recommendation",
+          "source_review_status": "agreement_option",
+          "review_note": "Đồng hồ phụ và phân bổ nước chung là phương án thỏa thuận; không khẳng định tối ưu từ luật."
+        },
+        {
+          "point_id": "11.3",
+          "title": "Ghi thỏa thuận bằng văn bản",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dù chọn phương án nào cũng phải ghi rõ trong hợp đồng",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*",
+          "scope_and_conditions": "Tránh mâu thuẫn khi phát sinh",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hai phương án có thể là khuyến nghị thỏa thuận, không phải hai phương án luật bắt buộc hoặc chứng minh tối ưu. Cần phân biệt hóa đơn nhà cung cấp, đồng hồ phụ và phân bổ hao hụt theo thỏa thuận."
+        },
+        {
+          "point_id": "11.4",
+          "title": "Giới hạn nguồn tài liệu",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nguồn dữ liệu hiện có (QĐ 215) chỉ quy định biểu giá nước, không hướng dẫn cách phân chia giữa các phòng trọ",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "⚠️ Chatbot cần thừa nhận giới hạn này; hai phương án đề xuất là nguyên tắc thực tiễn",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hai phương án có thể là khuyến nghị thỏa thuận, không phải hai phương án luật bắt buộc hoặc chứng minh tối ưu. Cần phân biệt hóa đơn nhà cung cấp, đồng hồ phụ và phân bổ hao hụt theo thỏa thuận."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 30,
+      "question": "Tôi có thể đối chiếu tiền nước trên hóa đơn với đơn vị cấp nước như thế nào?",
+      "points": [
+        {
+          "point_id": "12.1",
+          "title": "Lấy IDKH / Mã khách hàng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Xem trên hóa đơn giấy/phiếu thu của chủ nhà để lấy IDKH và Mã xác nhận",
+          "source_claimed_in_manuscript": "Hướng dẫn tra cứu CANTHOWASSCO",
+          "scope_and_conditions": "Áp dụng khi đơn vị cấp nước là CANTHOWASSCO",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hướng dẫn tra cứu phải gắn đúng nhà cung cấp; không mặc nhiên mọi địa bàn dùng CANTHOWASSCO. Không yêu cầu truy cập thông tin/hóa đơn không được chủ tài khoản cho phép."
+        },
+        {
+          "point_id": "12.2",
+          "title": "Tra cứu qua website",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Truy cập `https://hddt.ctn-cantho.com.vn` → nhập IDKH và Mã xác nhận → xem hóa đơn điện tử chi tiết",
+          "source_claimed_in_manuscript": "Hướng dẫn tra cứu CANTHOWASSCO",
+          "scope_and_conditions": "Website chính thức CANTHOWASSCO; cần kiểm tra tính khả dụng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hướng dẫn tra cứu phải gắn đúng nhà cung cấp; không mặc nhiên mọi địa bàn dùng CANTHOWASSCO. Không yêu cầu truy cập thông tin/hóa đơn không được chủ tài khoản cho phép."
+        },
+        {
+          "point_id": "12.3",
+          "title": "Kênh Zalo OA",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Có thể tra cứu qua Zalo OA \"Cấp thoát nước Cần Thơ\"",
+          "source_claimed_in_manuscript": "Thực tiễn dịch vụ",
+          "scope_and_conditions": "Cần xác minh kênh Zalo vẫn hoạt động tại thời điểm hỏi",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hướng dẫn tra cứu phải gắn đúng nhà cung cấp; không mặc nhiên mọi địa bàn dùng CANTHOWASSCO. Không yêu cầu truy cập thông tin/hóa đơn không được chủ tài khoản cho phép."
+        },
+        {
+          "point_id": "12.4",
+          "title": "Nội dung hóa đơn cần đối chiếu",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Đối chiếu: số m³ tiêu thụ, đơn giá, phí thoát nước, VAT và tổng tiền",
+          "source_claimed_in_manuscript": "*QĐ 215/QĐ-UBND*",
+          "scope_and_conditions": "Mức thu của chủ nhà không được vượt tổng hóa đơn",
+          "grading_role": "recommendation",
+          "source_review_status": "unsupported_internal_water_cap",
+          "review_note": "Hướng dẫn tra cứu hỗ trợ đối chiếu thông tin hóa đơn của đúng nhà cung cấp; chưa chứng minh một trần thu nội bộ nước áp dụng cho mọi chủ trọ hoặc công thức chia bắt buộc."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 31,
+      "question": "Sinh viên thuê trọ tại Cần Thơ cần làm thủ tục cư trú nào?",
+      "points": [
+        {
+          "point_id": "13.1",
+          "title": "Loại thủ tục: Đăng ký tạm trú",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Sinh viên thuê trọ phải thực hiện **đăng ký tạm trú** (không phải thường trú)",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 27 *Luật Cư trú 68/2020/QH14*",
+          "scope_and_conditions": "Áp dụng khi chỗ ở thuê **ngoài phạm vi xã/phường nơi đã thường trú**",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 27 nêu sinh sống từ 30 ngày trở lên là điều kiện đăng ký; không tự đổi thành thời hạn nộp hồ sơ trong 30 ngày nếu không có căn cứ riêng."
+        },
+        {
+          "point_id": "13.2",
+          "title": "Điều kiện bắt buộc",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Sinh sống tại chỗ ở hợp pháp ngoài xã/phường thường trú để học tập từ 30 ngày trở lên",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 27 *Luật Cư trú 2020*",
+          "scope_and_conditions": "⚠️ Nếu thuê trọ trong cùng xã/phường thường trú → không bắt buộc đăng ký tạm trú",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 27 nêu sinh sống từ 30 ngày trở lên là điều kiện đăng ký; không tự đổi thành thời hạn nộp hồ sơ trong 30 ngày nếu không có căn cứ riêng."
+        },
+        {
+          "point_id": "13.3",
+          "title": "Thời hạn nộp hồ sơ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải đăng ký trong vòng **30 ngày** kể từ ngày chuyển đến ở trọ",
+          "source_claimed_in_manuscript": "Điều 27 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Không tuân thủ bị phạt tiền",
+          "grading_role": "condition",
+          "source_review_status": "unsupported_deadline",
+          "review_note": "Điều kiện sinh sống từ 30 ngày không chứng minh thời hạn nộp trong 30 ngày; không nhận cùng con số là matched nếu khác sự kiện."
+        },
+        {
+          "point_id": "13.4",
+          "title": "Thời hạn tạm trú",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Tạm trú tối đa **2 năm**; có thể gia hạn nhiều lần",
+          "source_claimed_in_manuscript": "Điều 27 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Gia hạn phải nộp trước 15 ngày khi hết hạn",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 27 nêu sinh sống từ 30 ngày trở lên là điều kiện đăng ký; không tự đổi thành thời hạn nộp hồ sơ trong 30 ngày nếu không có căn cứ riêng."
+        },
+        {
+          "point_id": "13.5",
+          "title": "Địa điểm tại Cần Thơ",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Áp dụng cho tất cả các quận/huyện của TP. Cần Thơ nơi sinh viên thuê trọ",
+          "source_claimed_in_manuscript": "*Luật Cư trú 2020*",
+          "scope_and_conditions": "Bối cảnh địa phương CTU — thường là quận Ninh Kiều hoặc lân cận",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 27 nêu sinh sống từ 30 ngày trở lên là điều kiện đăng ký; không tự đổi thành thời hạn nộp hồ sơ trong 30 ngày nếu không có căn cứ riêng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 32,
+      "question": "Ai có trách nhiệm cung cấp thông tin, giấy tờ để người thuê đăng ký tạm trú?",
+      "points": [
+        {
+          "point_id": "14.1",
+          "title": "Trách nhiệm của chủ trọ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chủ trọ cung cấp giấy tờ chứng minh chỗ ở hợp pháp (sổ hồng, hợp đồng cho thuê hợp pháp) và ký xác nhận vào Tờ khai CT01",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "⚠️ Nguồn (Điều 28) quy định thành phần hồ sơ của người đăng ký, chưa quy định rõ nghĩa vụ riêng của chủ nhà",
+          "grading_role": "main",
+          "source_review_status": "needs_actor_and_data_exception",
+          "review_note": "Tách nghĩa vụ công dân, hỗ trợ của chủ hộ và chứng minh chỗ ở; chủ hộ không tự đồng nhất chủ trọ; giữ ngoại lệ khai thác dữ liệu."
+        },
+        {
+          "point_id": "14.2",
+          "title": "Trách nhiệm của sinh viên",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Sinh viên kê khai Tờ khai CT01 và cung cấp CCCD; người chưa thành niên cần có ý kiến đồng ý của cha mẹ/người giám hộ",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Người đủ 18 tuổi tự đứng tên đăng ký",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 9: nghĩa vụ công dân; Điều 10: chủ hộ hỗ trợ, không đồng nhất mọi chủ trọ với chủ hộ. Yêu cầu giấy tờ còn phụ thuộc dữ liệu đã có. Căn cứ xử phạt cần đối chiếu NĐ282/2025 có hiệu lực 15/12/2025 thay vì chỉ dẫn NĐ144/2021; không cần thêm phạt trong câu hỏi ai cung cấp."
+        },
+        {
+          "point_id": "14.3",
+          "title": "Chủ trọ có thể tự đăng ký thay",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Chủ cơ sở cho thuê có thể trực tiếp làm thủ tục đăng ký tạm trú cho người thuê theo quy định",
+          "source_claimed_in_manuscript": "*Luật Cư trú 2020*",
+          "scope_and_conditions": "Thực tế phổ biến với nhà trọ nhiều phòng",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 9: nghĩa vụ công dân; Điều 10: chủ hộ hỗ trợ, không đồng nhất mọi chủ trọ với chủ hộ. Yêu cầu giấy tờ còn phụ thuộc dữ liệu đã có. Căn cứ xử phạt cần đối chiếu NĐ282/2025 có hiệu lực 15/12/2025 thay vì chỉ dẫn NĐ144/2021; không cần thêm phạt trong câu hỏi ai cung cấp."
+        },
+        {
+          "point_id": "14.4",
+          "title": "Mức phạt vi phạm",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Không thực hiện đúng quy định đăng ký tạm trú bị phạt 500.000–1.000.000 đồng",
+          "source_claimed_in_manuscript": "Điều 9 *NĐ 144/2021/NĐ-CP*",
+          "scope_and_conditions": "Áp dụng cho cả người thuê và chủ cơ sở vi phạm",
+          "grading_role": "illustration",
+          "source_review_status": "outdated_reference_basis",
+          "review_note": "Rà riêng NĐ282/2025, cá nhân/tổ chức và hiệu lực 15/12/2025; mức phạt không phải trọng tâm câu ai cung cấp giấy tờ."
+        }
+      ],
+      "checked_source_basis": [
+        {
+          "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-154-2024-nd-cp-43275.htm",
+          "provision": "Khoản 1 Điều 5 Nghị định 154/2024/NĐ-CP",
+          "scope": "Công dân cung cấp thông tin; cơ quan khai thác dữ liệu. Khi không khai thác được, giấy tờ được cung cấp khi cơ quan có yêu cầu; không suy ra mọi hồ sơ luôn cần bản sao sổ hồng.",
+          "native_word": "docs/legal_word_repair_corpus_v16_20261006/nd154.doc"
+        },
+        {
+          "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-58-2026-nd-cp-468975/62899.htm",
+          "provision": "Khoản 2 Điều 4 sửa điểm a khoản 3 Điều 5 Nghị định 154/2024/NĐ-CP",
+          "scope": "Đăng ký tạm trú tại chỗ thuê, mượn, ở nhờ dùng văn bản cho thuê, cho mượn, cho ở nhờ; văn bản này không phải công chứng/chứng thực. Điều này không tự xác lập nghĩa vụ mọi chủ trọ phải ký CT01.",
+          "native_word": "docs/legal_word_repair_corpus_v16_20261006/nd58.docx"
+        }
+      ],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 33,
+      "question": "Tôi cần chuẩn bị những giấy tờ gì để đăng ký tạm trú tại phòng trọ?",
+      "points": [
+        {
+          "point_id": "15.1",
+          "title": "Tờ khai CT01",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Tờ khai thay đổi thông tin cư trú (Mẫu CT01) có xác nhận của chủ sở hữu chỗ ở hợp pháp",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Bắt buộc theo luật",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+        },
+        {
+          "point_id": "15.2",
+          "title": "Giấy tờ chứng minh chỗ ở hợp pháp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hợp đồng thuê phòng trọ hợp pháp còn hiệu lực (không bắt buộc công chứng)",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "⚠️ Luật quy định \"giấy tờ chứng minh\" nhưng không liệt kê cụ thể loại giấy tờ nào",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+        },
+        {
+          "point_id": "15.3",
+          "title": "Thẻ Căn cước / CCCD",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Thẻ Căn cước công dân hoặc Thẻ căn cước của người đăng ký",
+          "source_claimed_in_manuscript": "*Luật Cư trú 2020*; *Luật Căn cước 26/2023/QH15*",
+          "scope_and_conditions": "Bắt buộc để xác minh nhân thân",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+        },
+        {
+          "point_id": "15.4",
+          "title": "Nộp trực tuyến qua VNeID",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Có thể nộp qua Cổng Dịch vụ công Quốc gia, Cổng DVC Bộ Công an hoặc App VNeID (định danh mức 2)",
+          "source_claimed_in_manuscript": "Luật Cư trú; quy định dịch vụ công",
+          "scope_and_conditions": "Cần tài khoản VNeID mức 2",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+        },
+        {
+          "point_id": "15.5",
+          "title": "Thời gian xử lý",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Trong **3 ngày làm việc** kể từ ngày nhận đủ hồ sơ hợp lệ",
+          "source_claimed_in_manuscript": "Khoản 2 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Áp dụng cho nộp trực tiếp và trực tuyến",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Chỉ giải thích thành phần hồ sơ cơ bản; không điền CT01. Cần cập nhật thủ tục 2026 và trường hợp khai thác dữ liệu thay xuất trình giấy; không yêu cầu giấy hay chữ ký cho mọi trường hợp."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 34,
+      "question": "Nếu chuyển sang phòng trọ khác, tôi cần cập nhật thông tin cư trú thế nào?",
+      "points": [
+        {
+          "point_id": "16.1",
+          "title": "Chuyển sang phường/xã khác",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải đăng ký tạm trú tại địa chỉ mới trong vòng 30 ngày; hệ thống sẽ **tự động xóa** đăng ký tại nơi cũ",
+          "source_claimed_in_manuscript": "Điều 27, 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Áp dụng khi chuyển sang phường/xã khác ngoài thường trú",
+          "grading_role": "main",
+          "source_review_status": "needs_separate_clauses",
+          "review_note": "Điều 27/28 không đủ chứng minh hạn nộp 30 ngày hoặc tự động xóa; bổ sung Điều 29 và phân biệt căn cứ xóa với thao tác hệ thống."
+        },
+        {
+          "point_id": "16.2",
+          "title": "Chuyển trong cùng phường/xã",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Làm thủ tục điều chỉnh thông tin địa chỉ cư trú trong CSDL quốc gia; nộp CT01 và hợp đồng trọ mới",
+          "source_claimed_in_manuscript": "Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "⚠️ Nguồn chưa quy định rõ; cần xác nhận quy trình cụ thể với công an phường",
+          "grading_role": "condition",
+          "source_review_status": "needs_procedure_confirmation",
+          "review_note": "Không suy ra mọi chuyển phòng cùng phường là điều chỉnh theo Điều 26; phải đọc đúng nhóm thông tin được điều chỉnh."
+        },
+        {
+          "point_id": "16.3",
+          "title": "Gia hạn tạm trú",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Phải gia hạn trước **15 ngày** khi hết hạn 2 năm nếu tiếp tục ở lại cùng địa điểm",
+          "source_claimed_in_manuscript": "Khoản 3 Điều 28 *Luật Cư trú 2020*",
+          "scope_and_conditions": "Không cần chuyển sang nơi mới",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Cần nguồn riêng cho tự động xóa tại nơi cũ, điều chỉnh cùng phường và thời hạn 30 ngày; không suy ra từ điều kiện sinh sống 30 ngày. Không hướng dẫn điền tờ khai."
+        }
+      ],
+      "checked_source_basis": [
+        {
+          "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-58-2026-nd-cp-468975/62899.htm",
+          "provision": "Khoản 7 Điều 4 sửa Điều 10 Nghị định 154/2024/NĐ-CP",
+          "scope": "Thủ tục xóa theo từng trường hợp của Điều 29 Luật Cư trú. Hạn 07 ngày chỉ cho điểm c, e, g, h khoản 1 Điều 29; không suy ra tự động xóa hoặc hạn nộp đăng ký mới 30 ngày.",
+          "native_word": "docs/legal_word_repair_corpus_v16_20261006/nd58.docx"
+        }
+      ],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 35,
+      "question": "Khi xem phòng trọ, tôi nên kiểm tra những điều kiện phòng cháy, chữa cháy nào?",
+      "points": [
+        {
+          "point_id": "17.1",
+          "title": "Lối thoát nạn thứ hai",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Ngoài cửa chính, phòng/dãy trọ có ban công, thang thoát ngoài trời, lối lên mái sang nhà bên không",
+          "source_claimed_in_manuscript": "Điều 20 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng cho mọi loại nhà trọ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        },
+        {
+          "point_id": "17.2",
+          "title": "Cửa mở khẩn cấp trên chuồng cọp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nếu có khung sắt/chuồng cọp bắt buộc phải có cửa thoát hiểm và chìa khóa để gần cửa",
+          "source_claimed_in_manuscript": "Điều 20 *Luật PCCC 55/2024/QH15*; thực tiễn PCCC",
+          "scope_and_conditions": "⚠️ Thuật ngữ \"chuồng cọp\" không có trong văn bản luật; thuộc thực hành an toàn",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        },
+        {
+          "point_id": "17.3",
+          "title": "Bình chữa cháy tại chỗ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Kiểm tra bình chữa cháy (bột ABC/khí CO2): chốt kẹp chì nguyên vẹn, đồng hồ áp suất ở vạch xanh",
+          "source_claimed_in_manuscript": "Điều 20 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Yêu cầu trang bị \"phương tiện phòng cháy phù hợp\"",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        },
+        {
+          "point_id": "17.4",
+          "title": "An toàn hệ thống điện",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dây điện có đi trong ống gen chống cháy; có aptomat (CB) riêng tự ngắt khi quá tải/chập điện",
+          "source_claimed_in_manuscript": "Điều 24 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng cho mọi nhà ở",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        },
+        {
+          "point_id": "17.5",
+          "title": "Khu vực để xe & sạc xe điện",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Bãi xe không bít kín lối thoát nạn; có giải pháp an toàn và bình chữa cháy cho sạc xe điện",
+          "source_claimed_in_manuscript": "Điều 20, 21 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Đặc biệt quan trọng với phòng trọ có nhiều xe điện",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        },
+        {
+          "point_id": "17.6",
+          "title": "Loại nhà trọ cần phân biệt",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nhà trọ đơn thuần khác với nhà ở kết hợp kinh doanh hoặc chung cư mini; có thể chịu tiêu chuẩn kỹ thuật riêng",
+          "source_claimed_in_manuscript": "Điều 21, 23 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "⚠️ Cần hỏi thêm để xác định loại hình nhà trọ",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Danh sách quan sát hữu ích; các từ bắt buộc, cấu hình thiết bị và lối thoát phải giữ phân loại/điều kiện công trình, không tự suy ra mọi nhà trọ có cùng định mức."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 36,
+      "question": "Nhà trọ có nhiều phòng cần đáp ứng những yêu cầu an toàn cháy nổ nào?",
+      "points": [
+        {
+          "point_id": "18.1",
+          "title": "Nội quy & biển chỉ dẫn thoát nạn",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải có nội quy PCCC, tiêu lệnh chữa cháy, biển chỉ dẫn thoát nạn và đèn sự cố/Exit",
+          "source_claimed_in_manuscript": "Điều 20, 21 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng khi nhà trọ có nhiều phòng, nhiều tầng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hai lối thoát và ít nhất hai bình mỗi tầng chưa được chứng minh là yêu cầu chung cho mọi nhà nhiều phòng; cần quy mô, số tầng, diện tích, công năng và quy chuẩn tương ứng."
+        },
+        {
+          "point_id": "18.2",
+          "title": "Tối thiểu 2 lối thoát nạn độc lập",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hai lối thoát nạn luôn thông thoáng; không để xe cộ/đồ đạc chắn hành lang và cầu thang",
+          "source_claimed_in_manuscript": "Điều 20 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Bắt buộc; không có ngoại lệ",
+          "grading_role": "condition",
+          "source_review_status": "needs_building_classification",
+          "review_note": "Số lối thoát phụ thuộc công năng, tầng, quy mô, quy chuẩn; chưa xác nhận hai lối là yêu cầu chung."
+        },
+        {
+          "point_id": "18.3",
+          "title": "Ngăn cháy lan khu vực nguy cơ cao",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Có vách ngăn cháy giữa bãi xe/tầng trệt với khu vực phòng ở và cầu thang bộ",
+          "source_claimed_in_manuscript": "Điều 20, 21 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Đặc biệt với nhà trọ có xe điện/xe máy ở tầng trệt",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hai lối thoát và ít nhất hai bình mỗi tầng chưa được chứng minh là yêu cầu chung cho mọi nhà nhiều phòng; cần quy mô, số tầng, diện tích, công năng và quy chuẩn tương ứng."
+        },
+        {
+          "point_id": "18.4",
+          "title": "Số lượng bình chữa cháy",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Bình quân mỗi tầng ít nhất 2 bình chữa cháy; đặt ở vị trí dễ thấy, dễ lấy",
+          "source_claimed_in_manuscript": "*NĐ 136/2020* sửa đổi bởi *NĐ 50/2024*; *NĐ 105/2025*",
+          "scope_and_conditions": "⚠️ Con số cụ thể phụ thuộc vào diện tích và loại công trình; cần đối chiếu quy chuẩn",
+          "grading_role": "condition",
+          "source_review_status": "needs_equipment_standard",
+          "review_note": "Không nhận ít nhất hai bình mỗi tầng là định mức chung khi chưa có loại công trình và tiêu chuẩn tương ứng."
+        },
+        {
+          "point_id": "18.5",
+          "title": "Tập huấn PCCC cho chủ trọ",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Người quản lý cơ sở trọ phải được bồi dưỡng, tập huấn nghiệp vụ PCCC định kỳ",
+          "source_claimed_in_manuscript": "Điều 23 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng khi nhà trọ thuộc danh mục cơ sở quản lý PCCC",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Hai lối thoát và ít nhất hai bình mỗi tầng chưa được chứng minh là yêu cầu chung cho mọi nhà nhiều phòng; cần quy mô, số tầng, diện tích, công năng và quy chuẩn tương ứng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 37,
+      "question": "Nếu lối thoát nạn bị khóa hoặc bị chặn, người thuê nên làm gì?",
+      "points": [
+        {
+          "point_id": "19.1",
+          "title": "Yêu cầu chủ trọ khắc phục ngay",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Yêu cầu trực tiếp hoặc qua nhóm cư dân: dọn dẹp xe cộ/đồ đạc chắn lối, mở khóa cửa thoát hiểm",
+          "source_claimed_in_manuscript": "Điều 8 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Bước đầu tiên cần thực hiện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Tách lối bị chặn khi chưa cháy với tình huống cháy khẩn cấp. Nguồn có thông thoáng, cầu thang bộ, kẹt phòng và 114; hộp khóa đập kính và kênh xử phạt cụ thể cần nguồn riêng, không tự thêm."
+        },
+        {
+          "point_id": "19.2",
+          "title": "Đề nghị lắp hộp chìa khóa khẩn cấp",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Yêu cầu chủ trọ đặt hộp đập kính chứa chìa khóa thoát hiểm tại cửa thoát nạn",
+          "source_claimed_in_manuscript": "Thực hành PCCC",
+          "scope_and_conditions": "Không có điều khoản cụ thể trong luật",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Tách lối bị chặn khi chưa cháy với tình huống cháy khẩn cấp. Nguồn có thông thoáng, cầu thang bộ, kẹt phòng và 114; hộp khóa đập kính và kênh xử phạt cụ thể cần nguồn riêng, không tự thêm."
+        },
+        {
+          "point_id": "19.3",
+          "title": "Phản ánh cơ quan chức năng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nếu chủ trọ không khắc phục: phản ánh đến Công an phường/xã hoặc Đội Cảnh sát PCCC & CNCH địa phương",
+          "source_claimed_in_manuscript": "Điều 8 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Cơ quan có thẩm quyền kiểm tra, xử phạt vi phạm PCCC",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Tách lối bị chặn khi chưa cháy với tình huống cháy khẩn cấp. Nguồn có thông thoáng, cầu thang bộ, kẹt phòng và 114; hộp khóa đập kính và kênh xử phạt cụ thể cần nguồn riêng, không tự thêm."
+        },
+        {
+          "point_id": "19.4",
+          "title": "Kỹ năng thoát nạn khi xảy ra hỏa hoạn",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Ưu tiên thang bộ; nếu bị kẹt thì đóng cửa, chèn khe cửa bằng khăn ướt; ra ban công dùng đèn/vải sáng cầu cứu; gọi 114; không nhảy từ cao",
+          "source_claimed_in_manuscript": "Hướng dẫn Công an tỉnh Phú Thọ; thực hành thoát nạn",
+          "scope_and_conditions": "Chỉ áp dụng khi đã xảy ra hỏa hoạn thực sự",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Tách lối bị chặn khi chưa cháy với tình huống cháy khẩn cấp. Nguồn có thông thoáng, cầu thang bộ, kẹt phòng và 114; hộp khóa đập kính và kênh xử phạt cụ thể cần nguồn riêng, không tự thêm."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 38,
+      "question": "Chủ trọ và người thuê có trách nhiệm gì đối với thiết bị điện và an toàn cháy nổ?",
+      "points": [
+        {
+          "point_id": "20.1",
+          "title": "Trách nhiệm của chủ trọ: tuyên truyền",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Người cho thuê có trách nhiệm tuyên truyền, đôn đốc người thuê chấp hành quy định PCCC",
+          "source_claimed_in_manuscript": "Điểm a Khoản 8 Điều 8 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng cho mọi nhà cho thuê, mượn",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+        },
+        {
+          "point_id": "20.2",
+          "title": "Trách nhiệm của chủ trọ: hệ thống điện",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Lắp đặt hệ thống điện an toàn, có aptomat bảo vệ; định kỳ kiểm tra sửa chữa; bảo dưỡng phương tiện chữa cháy",
+          "source_claimed_in_manuscript": "Điều 24 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng cho khu vực lắp đặt, sử dụng điện cho sinh hoạt",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+        },
+        {
+          "point_id": "20.3",
+          "title": "Trách nhiệm của người thuê: tuân thủ nội quy",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Người thuê có trách nhiệm theo quy định tại Khoản 6 Điều 8 (không tự ý câu móc điện, tắt thiết bị trước khi ra ngoài...)",
+          "source_claimed_in_manuscript": "Điểm b Khoản 8 Điều 8 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Áp dụng trừ trường hợp có thỏa thuận khác với chủ nhà",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+        },
+        {
+          "point_id": "20.4",
+          "title": "Sạc xe điện an toàn",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Không sạc xe điện qua đêm không có người giám sát; không sạc gần vật dễ cháy",
+          "source_claimed_in_manuscript": "Điều 20, 21 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Rủi ro cháy nổ ngày càng phổ biến",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+        },
+        {
+          "point_id": "20.5",
+          "title": "Trường hợp nhà ở kết hợp kinh doanh",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nếu nhà trọ kết hợp kinh doanh thì người thuê kinh doanh có trách nhiệm bổ sung",
+          "source_claimed_in_manuscript": "Điều 21 *Luật PCCC 55/2024/QH15*",
+          "scope_and_conditions": "Không áp dụng nếu thuần túy sinh hoạt",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ chủ thể người cho thuê/người thuê và ngoại lệ thỏa thuận trong Điều 8; lời khuyên sạc an toàn của công an không đồng nghĩa mọi chủ trọ phải lắp cùng cấu hình."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 43,
+      "question": "Người giới thiệu phòng trọ và thu phí môi giới cần công khai những thông tin gì?",
+      "points": [
+        {
+          "point_id": "21.1",
+          "title": "Thông tin tư cách hành nghề",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Họ tên, số điện thoại, chứng chỉ hành nghề môi giới BĐS (với doanh nghiệp) hoặc thông tin pháp nhân",
+          "source_claimed_in_manuscript": "Điều 61 *Luật KDBĐS 29/2023/QH15*",
+          "scope_and_conditions": "⚠️ Yêu cầu chứng chỉ áp dụng cho cá nhân hành nghề môi giới thành lập DN; chưa rõ cho cá nhân đơn lẻ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phân biệt cá nhân môi giới, doanh nghiệp và quyền khách hàng; thông tin/chứng chỉ và phí phải đọc đúng đối tượng. Không chuyển thù lao cá nhân làm việc với doanh nghiệp thành phí người thuê."
+        },
+        {
+          "point_id": "21.2",
+          "title": "Thông tin phòng trọ trung thực",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải cung cấp đầy đủ, trung thực hồ sơ thông tin bất động sản môi giới và chịu trách nhiệm về thông tin đó",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 65 *Luật KDBĐS 29/2023/QH15*",
+          "scope_and_conditions": "Áp dụng cho doanh nghiệp môi giới BĐS",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phân biệt cá nhân môi giới, doanh nghiệp và quyền khách hàng; thông tin/chứng chỉ và phí phải đọc đúng đối tượng. Không chuyển thù lao cá nhân làm việc với doanh nghiệp thành phí người thuê."
+        },
+        {
+          "point_id": "21.3",
+          "title": "Biểu phí dịch vụ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Mức phí dịch vụ môi giới, điều kiện và thời điểm phát sinh nghĩa vụ thanh toán",
+          "source_claimed_in_manuscript": "Điều 63, Khoản 4 Điều 46 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Thỏa thuận tự do; không có mức trần",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phân biệt cá nhân môi giới, doanh nghiệp và quyền khách hàng; thông tin/chứng chỉ và phí phải đọc đúng đối tượng. Không chuyển thù lao cá nhân làm việc với doanh nghiệp thành phí người thuê."
+        },
+        {
+          "point_id": "21.4",
+          "title": "Phạm vi áp dụng của luật",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Luật KDBĐS 2023 quy định chủ yếu cho doanh nghiệp môi giới; áp dụng cho cá nhân độc lập còn có khoảng trống",
+          "source_claimed_in_manuscript": "Điều 61 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "⚠️ Cần thừa nhận giới hạn này trong câu trả lời",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phân biệt cá nhân môi giới, doanh nghiệp và quyền khách hàng; thông tin/chứng chỉ và phí phải đọc đúng đối tượng. Không chuyển thù lao cá nhân làm việc với doanh nghiệp thành phí người thuê."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 44,
+      "question": "Trước khi chuyển tiền cho người môi giới, tôi nên kiểm tra quyền cho thuê và thông tin phòng như thế nào?",
+      "points": [
+        {
+          "point_id": "22.1",
+          "title": "Không chuyển tiền trước khi xem phòng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Tuyệt đối không chuyển tiền cọc giữ chỗ hay phí xem phòng trước khi đến tận nơi và gặp chủ nhà",
+          "source_claimed_in_manuscript": "Thực tiễn chống lừa đảo; Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Nguyên tắc vàng; áp dụng với mọi giao dịch phòng trọ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Khuyến nghị không trả trước khi xác minh là phù hợp nguồn; chưa có số liệu chứng minh phí thông thường do chủ trọ trả hoặc mọi giao dịch phải trực tiếp, loại trừ ủy quyền."
+        },
+        {
+          "point_id": "22.2",
+          "title": "Xác minh quyền cho thuê",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Yêu cầu chỉ rõ ai là chủ nhà; kiểm tra giấy tờ nhà hoặc văn bản ủy quyền cho thuê hợp pháp",
+          "source_claimed_in_manuscript": "Điều 160, 161 *Luật Nhà ở 79/VBHN-VPQH*",
+          "scope_and_conditions": "Nhà ở tham gia giao dịch phải đáp ứng điều kiện theo Điều 160",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Khuyến nghị không trả trước khi xác minh là phù hợp nguồn; chưa có số liệu chứng minh phí thông thường do chủ trọ trả hoặc mọi giao dịch phải trực tiếp, loại trừ ủy quyền."
+        },
+        {
+          "point_id": "22.3",
+          "title": "Ký & trả tiền trực tiếp với chủ nhà",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hợp đồng và tiền cọc phải giao dịch trực tiếp với chủ nhà thực sự, đối chiếu CCCD với giấy tờ nhà",
+          "source_claimed_in_manuscript": "Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Môi giới không có quyền thu tiền cọc thay chủ nhà",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Khuyến nghị không trả trước khi xác minh là phù hợp nguồn; chưa có số liệu chứng minh phí thông thường do chủ trọ trả hoặc mọi giao dịch phải trực tiếp, loại trừ ủy quyền."
+        },
+        {
+          "point_id": "22.4",
+          "title": "Quy tắc phí môi giới",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Theo thông lệ, phí môi giới do chủ trọ chi trả; người thuê không phải trả trừ khi có văn bản thỏa thuận trước",
+          "source_claimed_in_manuscript": "Điều 63 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Không có quy định bắt buộc bên nào trả phí; tự do thỏa thuận",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Khuyến nghị không trả trước khi xác minh là phù hợp nguồn; chưa có số liệu chứng minh phí thông thường do chủ trọ trả hoặc mọi giao dịch phải trực tiếp, loại trừ ủy quyền."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 45,
+      "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+      "points": [
+        {
+          "point_id": "23.1",
+          "title": "Quyền từ chối thuê & không trả phí",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Có toàn quyền từ chối thuê phòng và không thanh toán phí môi giới khi thông tin sai sự thật",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Áp dụng khi bên môi giới vi phạm nghĩa vụ cung cấp thông tin trung thực",
+          "grading_role": "main",
+          "source_review_status": "conditional_remedy",
+          "review_note": "Phân biệt từ chối thuê và phí dịch vụ đã thực hiện; quyền giảm phí/chấm dứt phụ thuộc vi phạm, thỏa thuận và điều kiện."
+        },
+        {
+          "point_id": "23.2",
+          "title": "Yêu cầu hoàn trả phí đã nộp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nếu đã đóng phí dẫn xem phòng trước, có quyền yêu cầu hoàn trả 100% vì bên môi giới vi phạm",
+          "source_claimed_in_manuscript": "Khoản 1, 2 Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Áp dụng khi có lỗi của bên môi giới",
+          "grading_role": "main",
+          "source_review_status": "unsupported_full_refund",
+          "review_note": "Chưa có căn cứ tự động hoàn 100%; Điều 519/520 BLDS hỗ trợ giảm phí/chấm dứt theo điều kiện; bồi thường cần căn cứ thiệt hại."
+        },
+        {
+          "point_id": "23.3",
+          "title": "Yêu cầu bồi thường thiệt hại",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Yêu cầu bên môi giới bồi thường nếu thông tin sai lệch gây thiệt hại thực tế",
+          "source_claimed_in_manuscript": "Điều 65 *Luật KDBĐS 2023*; BLDS 2015",
+          "scope_and_conditions": "Cần chứng minh thiệt hại cụ thể",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Quyền từ chối, hoàn phí và bồi thường phụ thuộc thỏa thuận, vi phạm và thiệt hại; không coi mọi mô tả sai tự động cho quyền không trả mọi phí và hoàn 100%."
+        },
+        {
+          "point_id": "23.4",
+          "title": "Báo cáo lên nền tảng hoặc công an",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Báo cáo tài khoản vi phạm lên nền tảng đăng tin; nếu có dấu hiệu lừa đảo thì trình báo công an",
+          "source_claimed_in_manuscript": "Điều 174 *BLHS* (nếu có dấu hiệu hình sự)",
+          "scope_and_conditions": "Phụ thuộc vào mức độ vi phạm",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Quyền từ chối, hoàn phí và bồi thường phụ thuộc thỏa thuận, vi phạm và thiệt hại; không coi mọi mô tả sai tự động cho quyền không trả mọi phí và hoàn 100%."
+        },
+        {
+          "point_id": "23.5",
+          "title": "Giới hạn áp dụng",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Điều 65 áp dụng cho doanh nghiệp môi giới; cá nhân độc lập chưa được quy định rõ ràng",
+          "source_claimed_in_manuscript": "Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "⚠️ Cần thừa nhận khoảng trống này",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Quyền từ chối, hoàn phí và bồi thường phụ thuộc thỏa thuận, vi phạm và thiệt hại; không coi mọi mô tả sai tự động cho quyền không trả mọi phí và hoàn 100%."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 46,
+      "question": "Khoản phí môi giới nên được thỏa thuận và thể hiện trong giấy tờ ra sao?",
+      "points": [
+        {
+          "point_id": "24.1",
+          "title": "Phải lập hợp đồng/phiếu thu bằng văn bản",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phí môi giới phải được thể hiện trong Hợp đồng dịch vụ môi giới hoặc phiếu thu có chữ ký hai bên",
+          "source_claimed_in_manuscript": "Khoản 4 Điều 46 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Bắt buộc theo luật đối với hợp đồng kinh doanh dịch vụ BĐS",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phải tách nghĩa vụ ghi nội dung hợp đồng dịch vụ với điều kiện phí sau ký thuê thành công/hoàn tiền: các điều kiện đó cần thỏa thuận hoặc căn cứ cụ thể, không tự thành quy tắc bắt buộc."
+        },
+        {
+          "point_id": "24.2",
+          "title": "Nội dung bắt buộc trong hợp đồng dịch vụ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải ghi: (1) Thông tin hai bên; (2) Nội dung dịch vụ; (3) Mức phí/thù lao cụ thể; (4) Phương thức & thời hạn thanh toán; (5) Quyền, nghĩa vụ các bên",
+          "source_claimed_in_manuscript": "Khoản 4 Điều 46 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Áp dụng cho hợp đồng kinh doanh dịch vụ BĐS nói chung",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phải tách nghĩa vụ ghi nội dung hợp đồng dịch vụ với điều kiện phí sau ký thuê thành công/hoàn tiền: các điều kiện đó cần thỏa thuận hoặc căn cứ cụ thể, không tự thành quy tắc bắt buộc."
+        },
+        {
+          "point_id": "24.3",
+          "title": "Điều kiện phát sinh phí",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phí môi giới chỉ được thanh toán sau khi ký được hợp đồng thuê phòng thành công với chủ trọ",
+          "source_claimed_in_manuscript": "Điều 63 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Thực tiễn tốt; không có quy định cụ thể về thời điểm phát sinh phí",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phải tách nghĩa vụ ghi nội dung hợp đồng dịch vụ với điều kiện phí sau ký thuê thành công/hoàn tiền: các điều kiện đó cần thỏa thuận hoặc căn cứ cụ thể, không tự thành quy tắc bắt buộc."
+        },
+        {
+          "point_id": "24.4",
+          "title": "Cam kết hoàn tiền",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Quy định điều kiện hoàn trả phí nếu giao dịch không thành do lỗi của bên môi giới",
+          "source_claimed_in_manuscript": "Điều 65 *Luật KDBĐS 2023*",
+          "scope_and_conditions": "Tự do thỏa thuận",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Phải tách nghĩa vụ ghi nội dung hợp đồng dịch vụ với điều kiện phí sau ký thuê thành công/hoàn tiền: các điều kiện đó cần thỏa thuận hoặc căn cứ cụ thể, không tự thành quy tắc bắt buộc."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 47,
+      "question": "Khi tìm phòng qua một nền tảng trực tuyến, tôi nên kiểm tra người đăng và nguồn tin như thế nào?",
+      "points": [
+        {
+          "point_id": "25.1",
+          "title": "Kiểm tra xác thực tài khoản",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Xem tài khoản đã được xác thực danh tính/SĐT trên nền tảng, thâm niên hoạt động, đánh giá người dùng",
+          "source_claimed_in_manuscript": "Điều 17 *Luật TMĐT 122/2025/QH15*; Quy chế Chợ Tốt",
+          "scope_and_conditions": "Áp dụng với các nền tảng có hệ thống định danh người bán",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+        },
+        {
+          "point_id": "25.2",
+          "title": "Xác minh nội dung tin đăng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Địa chỉ phải chi tiết (số nhà, tên đường, phường tại Cần Thơ); có số điện thoại liên hệ rõ ràng",
+          "source_claimed_in_manuscript": "Thực tiễn",
+          "scope_and_conditions": "Dấu hiệu địa chỉ mơ hồ là cảnh báo",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+        },
+        {
+          "point_id": "25.3",
+          "title": "Tìm kiếm hình ảnh ngược (Reverse Image Search)",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dùng Google Hình ảnh kiểm tra xem ảnh phòng có bị sao chép từ nơi khác không",
+          "source_claimed_in_manuscript": "Thực tiễn chống lừa đảo",
+          "scope_and_conditions": "Miễn phí, dễ thực hiện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+        },
+        {
+          "point_id": "25.4",
+          "title": "Cảnh giác giá rẻ bất thường",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phòng đầy đủ nội thất, máy lạnh ở trung tâm nhưng giá thấp hơn thị trường nhiều là dấu hiệu lừa đảo",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an",
+          "scope_and_conditions": "Áp dụng đặc biệt với tân sinh viên mùa nhập học",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+        },
+        {
+          "point_id": "25.5",
+          "title": "Cảnh báo link, OTP",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Không nhấp vào link lạ; không cung cấp OTP dù cho bất kỳ ai",
+          "source_claimed_in_manuscript": "Điều 17 *NĐ 248/2026/NĐ-CP*",
+          "scope_and_conditions": "Áp dụng khi người đăng gửi link thanh toán",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Bốn nhóm kiểm tra có nguồn thực hành; tuổi tài khoản và địa danh/ví dụ giá là chi tiết phụ cần nguồn. Tìm ảnh chỉ cung cấp dấu vết, không tự chứng minh gian lận."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 48,
+      "question": "Nếu một tin đăng nhà trọ có thông tin sai, tôi có thể báo cáo cho nền tảng bằng cách nào?",
+      "points": [
+        {
+          "point_id": "26.1",
+          "title": "Dùng nút \"Báo cáo tin đăng\"",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nhấn nút Report → chọn lý do (Lừa đảo/Thông tin sai/Không liên lạc được...) → nhập mô tả + đính kèm ảnh bằng chứng",
+          "source_claimed_in_manuscript": "Hướng dẫn tra cứu Chợ Tốt; *NĐ 248/2026/NĐ-CP*",
+          "scope_and_conditions": "Áp dụng cho sàn Chợ Tốt; nền tảng khác có thể khác giao diện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Các bước báo tin/kênh hỗ trợ phụ thuộc nền tảng. 24 giờ gỡ tin trong nguồn gắn yêu cầu cơ quan có thẩm quyền, không phải cam kết mọi báo cáo người dùng; link tin/điện thoại người báo không đồng nhất ID tin/điện thoại người đăng."
+        },
+        {
+          "point_id": "26.2",
+          "title": "Liên hệ bộ phận CSKH của sàn",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Gửi email/liên hệ tổng đài sàn cung cấp ID tin đăng, SĐT người đăng, mô tả vi phạm",
+          "source_claimed_in_manuscript": "Quy chế Chợ Tốt",
+          "scope_and_conditions": "Thời gian xử lý theo cam kết sàn",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Các bước báo tin/kênh hỗ trợ phụ thuộc nền tảng. 24 giờ gỡ tin trong nguồn gắn yêu cầu cơ quan có thẩm quyền, không phải cam kết mọi báo cáo người dùng; link tin/điện thoại người báo không đồng nhất ID tin/điện thoại người đăng."
+        },
+        {
+          "point_id": "26.3",
+          "title": "Sàn phải xử lý trong 24 giờ",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Sàn có nghĩa vụ tiếp nhận phản ánh; chủ quản nền tảng phải cung cấp thông tin vi phạm cho cơ quan nhà nước trong 24 giờ khi có yêu cầu",
+          "source_claimed_in_manuscript": "Điều 18 *NĐ 248/2026/NĐ-CP*",
+          "scope_and_conditions": "Áp dụng theo NĐ 248/2026 hiệu lực 1/7/2026",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Các bước báo tin/kênh hỗ trợ phụ thuộc nền tảng. 24 giờ gỡ tin trong nguồn gắn yêu cầu cơ quan có thẩm quyền, không phải cam kết mọi báo cáo người dùng; link tin/điện thoại người báo không đồng nhất ID tin/điện thoại người đăng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 49,
+      "question": "Nền tảng đăng tin có trách nhiệm gì đối với thông tin người cho thuê theo tài liệu hiện có?",
+      "points": [
+        {
+          "point_id": "27.1",
+          "title": "Định danh người đăng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nền tảng phải yêu cầu người đăng cung cấp thông tin xác thực danh tính (họ tên, SĐT, địa chỉ)",
+          "source_claimed_in_manuscript": "Điều 17 *Luật TMĐT 122/2025/QH15*",
+          "scope_and_conditions": "Áp dụng với chủ quản nền tảng TMĐT trung gian",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ đúng loại nền tảng. Xác thực điện tử nguồn NĐ248 áp dụng từ 01/01/2027; không trình bày là đã bắt buộc ngày 06/10/2026. 24 giờ cung cấp dữ liệu cần yêu cầu cơ quan và loại nền tảng tương ứng."
+        },
+        {
+          "point_id": "27.2",
+          "title": "Kiểm duyệt và gỡ nội dung vi phạm",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phải thiết lập bộ lọc, cơ chế tiếp nhận phản ánh, gỡ bỏ tin đăng vi phạm và khóa tài khoản",
+          "source_claimed_in_manuscript": "Điều 17, 18 *Luật TMĐT 2025*; Điều 18 *NĐ 248/2026*",
+          "scope_and_conditions": "Bắt buộc đối với nền tảng có chức năng đặt hàng trực tuyến",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ đúng loại nền tảng. Xác thực điện tử nguồn NĐ248 áp dụng từ 01/01/2027; không trình bày là đã bắt buộc ngày 06/10/2026. 24 giờ cung cấp dữ liệu cần yêu cầu cơ quan và loại nền tảng tương ứng."
+        },
+        {
+          "point_id": "27.3",
+          "title": "Cung cấp dữ liệu cho cơ quan điều tra",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Khi cơ quan Công an yêu cầu điều tra vi phạm, nền tảng phải cung cấp thông tin tài khoản người đăng trong vòng 24 giờ",
+          "source_claimed_in_manuscript": "Điều 18 *NĐ 248/2026/NĐ-CP*",
+          "scope_and_conditions": "⚠️ NĐ 248/2026 hiệu lực từ 1/7/2026; điều khoản chuyển tiếp đến 30/6/2027",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ đúng loại nền tảng. Xác thực điện tử nguồn NĐ248 áp dụng từ 01/01/2027; không trình bày là đã bắt buộc ngày 06/10/2026. 24 giờ cung cấp dữ liệu cần yêu cầu cơ quan và loại nền tảng tương ứng."
+        },
+        {
+          "point_id": "27.4",
+          "title": "Văn bản áp dụng cũ/mới",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Trước 1/7/2026 áp dụng NĐ 52/2013 sửa đổi bởi NĐ 85/2021; từ 1/7/2026 áp dụng Luật TMĐT 122/2025 và NĐ 248/2026",
+          "source_claimed_in_manuscript": "*NĐ 248/2026 Điều 53*",
+          "scope_and_conditions": "⚠️ Cần lưu ý thời điểm hiệu lực khi so sánh văn bản",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Giữ đúng loại nền tảng. Xác thực điện tử nguồn NĐ248 áp dụng từ 01/01/2027; không trình bày là đã bắt buộc ngày 06/10/2026. 24 giờ cung cấp dữ liệu cần yêu cầu cơ quan và loại nền tảng tương ứng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 50,
+      "question": "Nếu người đăng yêu cầu chuyển cọc qua liên kết lạ, tôi nên kiểm tra những dấu hiệu nào trước khi trả tiền?",
+      "points": [
+        {
+          "point_id": "28.1",
+          "title": "Đường link giả mạo",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Link rút gọn (bit.ly...) hoặc tên miền lạ mô phỏng ngân hàng/cổng thanh toán",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an; *NĐ 248/2026*",
+          "scope_and_conditions": "Áp dụng khi nhận link qua Messenger/Zalo/SMS",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+        },
+        {
+          "point_id": "28.2",
+          "title": "Yêu cầu nhập OTP",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Bất kỳ yêu cầu nhập OTP/Smart OTP/mật khẩu ngân hàng qua link là dấu hiệu lừa đảo chiếm tài khoản",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an; *Cảnh giác mạo danh Fanpage — Bộ Công an*",
+          "scope_and_conditions": "Tuyệt đối không cung cấp OTP cho bất kỳ ai",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+        },
+        {
+          "point_id": "28.3",
+          "title": "Áp lực thời gian gấp gáp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hối thúc \"chuyển trong 10–15 phút không thì mất phòng\" là chiêu kích động tâm lý để bạn không kịp suy nghĩ",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an",
+          "scope_and_conditions": "Chiêu thức phổ biến",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+        },
+        {
+          "point_id": "28.4",
+          "title": "Quy tắc bảo vệ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Không bấm link lạ; không cung cấp OTP; dừng ngay giao dịch; báo cáo nền tảng",
+          "source_claimed_in_manuscript": "Điều 17 *NĐ 248/2026*",
+          "scope_and_conditions": "Áp dụng ngay lập tức khi phát hiện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+        },
+        {
+          "point_id": "28.5",
+          "title": "Mạo danh Fanpage chính thức",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Cảnh giác Fanpage Facebook giả mạo nhà trọ uy tín: sao chép ảnh, logo, địa chỉ từ trang thật; chạy quảng cáo trả phí",
+          "source_claimed_in_manuscript": "*Cảnh giác mạo danh Fanpage — Bộ Công an tỉnh Tuyên Quang*",
+          "scope_and_conditions": "Thủ đoạn ngày càng tinh vi",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Dấu hiệu rủi ro không tự chứng minh mọi link lạ đã cấu thành lừa đảo. Không nhập bí mật ngân hàng; ví dụ tên miền là minh họa mẫu, không nguồn chứng minh vụ việc thực tế."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 51,
+      "question": "Chủ trọ có thể yêu cầu tôi cung cấp những thông tin cá nhân nào để làm hợp đồng và đăng ký cư trú?",
+      "points": [
+        {
+          "point_id": "29.1",
+          "title": "Danh sách thông tin được phép thu thập",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Hợp pháp: họ tên, số CCCD, ngày sinh, địa chỉ thường trú, số điện thoại (để lập hợp đồng và kê khai CT01)",
+          "source_claimed_in_manuscript": "Điều 163 *Luật Nhà ở*; Điều 28 *Luật Cư trú 2020*; Điều 3 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "Thu thập phải đúng phạm vi mục đích rõ ràng",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi mọi trường ngày/nơi cấp, điện thoại, thông tin cha mẹ là dữ liệu tối thiểu bắt buộc cho mọi giao dịch. Thu thập đúng mục đích và căn cứ; giải thích cơ bản, không điền tờ khai."
+        },
+        {
+          "point_id": "29.2",
+          "title": "Yêu cầu sự đồng ý",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Việc thu thập và xử lý dữ liệu cá nhân phải có sự đồng ý tự nguyện và biết rõ của người thuê",
+          "source_claimed_in_manuscript": "Điều 9 *Luật BVDLCN 91/2025/QH15*",
+          "scope_and_conditions": "Trừ trường hợp pháp luật quy định khác (đăng ký cư trú)",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi mọi trường ngày/nơi cấp, điện thoại, thông tin cha mẹ là dữ liệu tối thiểu bắt buộc cho mọi giao dịch. Thu thập đúng mục đích và căn cứ; giải thích cơ bản, không điền tờ khai."
+        },
+        {
+          "point_id": "29.3",
+          "title": "Thông tin không được phép yêu cầu",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Không được đòi: mật khẩu mạng xã hội, tài khoản ngân hàng, thông tin nhạy cảm không liên quan",
+          "source_claimed_in_manuscript": "Điều 3 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "Nguyên tắc tối thiểu hóa dữ liệu",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi mọi trường ngày/nơi cấp, điện thoại, thông tin cha mẹ là dữ liệu tối thiểu bắt buộc cho mọi giao dịch. Thu thập đúng mục đích và căn cứ; giải thích cơ bản, không điền tờ khai."
+        },
+        {
+          "point_id": "29.4",
+          "title": "Người chưa thành niên",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Nếu sinh viên dưới 18 tuổi, cần có ý kiến đồng ý của cha mẹ/người giám hộ",
+          "source_claimed_in_manuscript": "Khoản 1 Điều 28 *Luật Cư trú 2020*; Điều 9 *Luật BVDLCN 2025*",
+          "scope_and_conditions": "Áp dụng cho sinh viên dưới 18 tuổi",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không coi mọi trường ngày/nơi cấp, điện thoại, thông tin cha mẹ là dữ liệu tối thiểu bắt buộc cho mọi giao dịch. Thu thập đúng mục đích và căn cứ; giải thích cơ bản, không điền tờ khai."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 52,
+      "question": "Ảnh căn cước công dân của người thuê được lưu và sử dụng như thế nào?",
+      "points": [
+        {
+          "point_id": "30.1",
+          "title": "Mục đích sử dụng hợp pháp",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Ảnh CCCD chỉ dùng cho mục đích đã được thông báo: lưu hồ sơ phòng trọ và đăng ký tạm trú",
+          "source_claimed_in_manuscript": "Điều 3 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "Thu thập \"đúng phạm vi, mục đích cụ thể, rõ ràng\"",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 15 khoản 2 và Điều 17 có trường hợp cung cấp/chuyển giao hợp pháp; không cấm tuyệt đối mọi bên thứ ba. Mục đích phải cụ thể, lưu đủ thời gian cần thiết và bảo vệ. Chưa có căn cứ rằng watermark ngăn được việc lạm dụng."
+        },
+        {
+          "point_id": "30.2",
+          "title": "Nghĩa vụ bảo mật của chủ trọ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chủ trọ (bên kiểm soát dữ liệu) không được chuyển giao, bán, phát tán ảnh CCCD cho bên thứ ba",
+          "source_claimed_in_manuscript": "Điều 11 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "Bắt buộc; vi phạm bị xử phạt",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 15 khoản 2 và Điều 17 có trường hợp cung cấp/chuyển giao hợp pháp; không cấm tuyệt đối mọi bên thứ ba. Mục đích phải cụ thể, lưu đủ thời gian cần thiết và bảo vệ. Chưa có căn cứ rằng watermark ngăn được việc lạm dụng."
+        },
+        {
+          "point_id": "30.3",
+          "title": "Mẹo watermark",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Khi gửi ảnh CCCD, chèn dòng chữ chìm: \"Chỉ dùng để đăng ký tạm trú tại [địa chỉ] ngày [dd/mm/yyyy]\"",
+          "source_claimed_in_manuscript": "Thực tiễn bảo vệ dữ liệu",
+          "scope_and_conditions": "Không bắt buộc theo luật nhưng rất hiệu quả ngăn ngừa",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 15 khoản 2 và Điều 17 có trường hợp cung cấp/chuyển giao hợp pháp; không cấm tuyệt đối mọi bên thứ ba. Mục đích phải cụ thể, lưu đủ thời gian cần thiết và bảo vệ. Chưa có căn cứ rằng watermark ngăn được việc lạm dụng."
+        },
+        {
+          "point_id": "30.4",
+          "title": "Căn cứ văn bản",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Câu trả lời dùng Luật BVDLCN 2025 (91/2025/QH15); trước đây là NĐ 13/2023/NĐ-CP",
+          "source_claimed_in_manuscript": "*Luật 91/2025/QH15*; *NĐ 13/2023*",
+          "scope_and_conditions": "⚠️ Cần ghi rõ văn bản áp dụng; NĐ 13/2023 có thể đã được thay thế",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Điều 15 khoản 2 và Điều 17 có trường hợp cung cấp/chuyển giao hợp pháp; không cấm tuyệt đối mọi bên thứ ba. Mục đích phải cụ thể, lưu đủ thời gian cần thiết và bảo vệ. Chưa có căn cứ rằng watermark ngăn được việc lạm dụng."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 53,
+      "question": "Chủ trọ có được đăng công khai ảnh giấy tờ hoặc số điện thoại của tôi không?",
+      "points": [
+        {
+          "point_id": "31.1",
+          "title": "Kết luận: Không được phép",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chủ trọ không được đăng công khai ảnh CCCD, SĐT, ảnh cá nhân của người thuê lên mạng xã hội",
+          "source_claimed_in_manuscript": "Điều 16 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "Công khai dữ liệu cá nhân phải được sự đồng ý của chủ thể dữ liệu",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không được bêu riếu/trái mục đích nhưng luật Điều 16 có các trường hợp công khai hợp pháp; không kết luận mọi công khai đều cấm. Căn cứ/mức phạt cần xác minh hiện hành."
+        },
+        {
+          "point_id": "31.2",
+          "title": "Các trường hợp ngoại lệ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chỉ được công khai khi: (1) Có sự đồng ý; (2) Theo quy định pháp luật (phòng chống tội phạm, an ninh quốc gia...)",
+          "source_claimed_in_manuscript": "Điều 16 *Luật BVDLCN 91/2025*",
+          "scope_and_conditions": "⚠️ Đòi nợ tiền phòng KHÔNG phải ngoại lệ theo luật",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không được bêu riếu/trái mục đích nhưng luật Điều 16 có các trường hợp công khai hợp pháp; không kết luận mọi công khai đều cấm. Căn cứ/mức phạt cần xác minh hiện hành."
+        },
+        {
+          "point_id": "31.3",
+          "title": "Chế tài xử phạt",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Phạt tiền 10–20 triệu đồng theo NĐ 15/2020/NĐ-CP; buộc gỡ bài, xin lỗi và bồi thường thiệt hại",
+          "source_claimed_in_manuscript": "Điều 102 *NĐ 15/2020/NĐ-CP* sửa đổi bởi *NĐ 14/2022*",
+          "scope_and_conditions": "Áp dụng cho hành vi xử lý thông tin cá nhân sai mục đích",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không được bêu riếu/trái mục đích nhưng luật Điều 16 có các trường hợp công khai hợp pháp; không kết luận mọi công khai đều cấm. Căn cứ/mức phạt cần xác minh hiện hành."
+        },
+        {
+          "point_id": "31.4",
+          "title": "Xâm phạm quyền đời tư theo BLDS",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Cũng vi phạm quyền về đời sống riêng tư, bí mật cá nhân theo Điều 38 *BLDS 2015*",
+          "source_claimed_in_manuscript": "Điều 38 *BLDS 2015*",
+          "scope_and_conditions": "Có thể khởi kiện dân sự đòi bồi thường",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Không được bêu riếu/trái mục đích nhưng luật Điều 16 có các trường hợp công khai hợp pháp; không kết luận mọi công khai đều cấm. Căn cứ/mức phạt cần xác minh hiện hành."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 54,
+      "question": "Nếu thông tin cá nhân của tôi bị chia sẻ sai mục đích, tôi nên yêu cầu xử lý như thế nào?",
+      "points": [
+        {
+          "point_id": "32.1",
+          "title": "Bước 1: Yêu cầu gỡ bỏ & rút sự đồng ý",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Gửi văn bản/tin nhắn yêu cầu bên vi phạm rút lại sự đồng ý, xóa dữ liệu và chấm dứt xử lý ngay",
+          "source_claimed_in_manuscript": "Điều 5 *NĐ 356/2025/NĐ-CP*; Điều 10 *Luật BVDLCN 2025*",
+          "scope_and_conditions": "Bên kiểm soát dữ liệu phải phản hồi trong thời hạn quy định",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Ưu tiên quyền yêu cầu chấm dứt, hạn chế/xóa theo điều kiện và lưu chứng cứ. Vi bằng, thủ tục tố cáo chuyên sâu và tên cơ quan cần cập nhật; không mặc định xóa ngay trong mọi trường hợp."
+        },
+        {
+          "point_id": "32.2",
+          "title": "Bước 2: Lưu giữ bằng chứng vi phạm",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chụp ảnh màn hình bài đăng, link, thời gian đăng, tài khoản vi phạm; nhờ Thừa phát lại lập vi bằng",
+          "source_claimed_in_manuscript": "Nguyên tắc chứng cứ",
+          "scope_and_conditions": "Bằng chứng là nền tảng để khiếu nại và khởi kiện",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Ưu tiên quyền yêu cầu chấm dứt, hạn chế/xóa theo điều kiện và lưu chứng cứ. Vi bằng, thủ tục tố cáo chuyên sâu và tên cơ quan cần cập nhật; không mặc định xóa ngay trong mọi trường hợp."
+        },
+        {
+          "point_id": "32.3",
+          "title": "Bước 3: Trình báo cơ quan chức năng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Làm đơn tố cáo gửi đến Thanh tra Sở TTTT TP. Cần Thơ hoặc PA05 Công an TP. Cần Thơ",
+          "source_claimed_in_manuscript": "*NĐ 15/2020/NĐ-CP*; *Luật BVDLCN 2025*",
+          "scope_and_conditions": "Cơ quan có thẩm quyền xử phạt và buộc gỡ bỏ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Ưu tiên quyền yêu cầu chấm dứt, hạn chế/xóa theo điều kiện và lưu chứng cứ. Vi bằng, thủ tục tố cáo chuyên sâu và tên cơ quan cần cập nhật; không mặc định xóa ngay trong mọi trường hợp."
+        },
+        {
+          "point_id": "32.4",
+          "title": "Thời hạn bên vi phạm phải xử lý",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Bên kiểm soát dữ liệu phải phản hồi trong 72 giờ kể từ khi nhận yêu cầu (theo NĐ 356/2025)",
+          "source_claimed_in_manuscript": "Điều 5 *NĐ 356/2025/NĐ-CP*",
+          "scope_and_conditions": "⚠️ Cần xác minh điều khoản thời hạn cụ thể trong NĐ 356",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Ưu tiên quyền yêu cầu chấm dứt, hạn chế/xóa theo điều kiện và lưu chứng cứ. Vi bằng, thủ tục tố cáo chuyên sâu và tên cơ quan cần cập nhật; không mặc định xóa ngay trong mọi trường hợp."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 55,
+      "question": "Người đăng yêu cầu đặt cọc trước nhưng không cho xem phòng: tôi nên kiểm tra những dấu hiệu rủi ro nào?",
+      "points": [
+        {
+          "point_id": "33.1",
+          "title": "Cớ không cho xem phòng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Viện lý do \"chủ nhà ở xa\", \"bận\", \"đang có nhiều người xếp hàng\" → yêu cầu cọc trước để giữ chân",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an; Điều 174 *BLHS*",
+          "scope_and_conditions": "Thủ đoạn phổ biến nhắm vào tân sinh viên",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+        },
+        {
+          "point_id": "33.2",
+          "title": "Hình ảnh/địa chỉ giả mạo",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Ảnh phòng đẹp không trùng thực tế; địa chỉ mơ hồ, đến nơi không tìm được phòng như mô tả",
+          "source_claimed_in_manuscript": "Thực tiễn; khuyến cáo CA",
+          "scope_and_conditions": "Kiểm tra bằng Google Maps và tìm ảnh ngược",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+        },
+        {
+          "point_id": "33.3",
+          "title": "Tài khoản ảo, từ chối gặp mặt",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Tài khoản mạng xã hội mới tạo, không có tương tác thật; từ chối video call xem phòng thực tế; tên tài khoản ngân hàng không khớp",
+          "source_claimed_in_manuscript": "Khuyến cáo Bộ Công an",
+          "scope_and_conditions": "Dấu hiệu mạo danh",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+        },
+        {
+          "point_id": "33.4",
+          "title": "Nguyên tắc tuyệt đối",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "**Không xem phòng tận mắt → Không chuyển bất kỳ đồng nào**",
+          "source_claimed_in_manuscript": "Thực tiễn chống lừa đảo",
+          "scope_and_conditions": "Không có ngoại lệ",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+        },
+        {
+          "point_id": "33.5",
+          "title": "Cơ sở hình sự",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Hành vi dùng thủ đoạn gian dối chiếm đoạt tiền cọc có thể bị truy tố tội Lừa đảo chiếm đoạt tài sản",
+          "source_claimed_in_manuscript": "Điều 174 *BLHS 135/VBHN-VPQH*",
+          "scope_and_conditions": "Khởi tố khi đủ yếu tố cấu thành (gian dối + chiếm đoạt)",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhận diện dấu hiệu, không kết luận tội phạm chỉ từ yêu cầu cọc hoặc giá rẻ. Ví dụ 300–500 nghìn là minh họa của mẫu, không mức cọc pháp luật hoặc số liệu khảo sát."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 56,
+      "question": "Tôi đã chuyển cọc cho một tin trọ có dấu hiệu giả mạo; nên lưu lại bằng chứng gì và trình báo ở đâu?",
+      "points": [
+        {
+          "point_id": "34.1",
+          "title": "Biên lai chuyển tiền ngân hàng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Lưu: số tài khoản người nhận, tên chủ TK, ngân hàng, mã giao dịch, thời gian chuyển",
+          "source_claimed_in_manuscript": "Điều 87, 88 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Bằng chứng giao dịch tài chính quan trọng nhất",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        },
+        {
+          "point_id": "34.2",
+          "title": "Toàn bộ tin nhắn hội thoại",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Chụp ảnh màn hình toàn bộ trao đổi qua Zalo/Messenger/SMS từ đầu đến khi bị chặn",
+          "source_claimed_in_manuscript": "Điều 87, 88 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Lưu ngay trước khi bị xóa",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        },
+        {
+          "point_id": "34.3",
+          "title": "Thông tin nhận diện đối tượng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Lưu: link trang cá nhân, SĐT, ảnh đại diện, ảnh bài đăng phòng trọ giả mạo",
+          "source_claimed_in_manuscript": "Điều 87, 88 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Cần trước khi đối tượng xóa tài khoản",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        },
+        {
+          "point_id": "34.4",
+          "title": "Nơi trình báo tại Cần Thơ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Công an phường/xã nơi chuyển tiền; Đội Cảnh sát hình sự Công an quận/huyện; PA05 Công an TP. Cần Thơ",
+          "source_claimed_in_manuscript": "Điều 145 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Trình báo càng sớm càng tốt",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        },
+        {
+          "point_id": "34.5",
+          "title": "Liên hệ ngân hàng",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Gọi ngay tổng đài ngân hàng của bạn thông báo giao dịch lừa đảo để đề nghị hỗ trợ đánh dấu rủi ro tài khoản nhận",
+          "source_claimed_in_manuscript": "Thực tiễn xử lý",
+          "scope_and_conditions": "Có thể giúp ngăn chặn đối tượng rút tiền nếu còn kịp",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        },
+        {
+          "point_id": "34.6",
+          "title": "Viện kiểm sát / Đơn vị PCTP mạng",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Có thể gửi đơn đến Viện kiểm sát nhân dân nếu Công an chậm xử lý",
+          "source_claimed_in_manuscript": "Điều 144 *BLTTHS*",
+          "scope_and_conditions": "Quyền kiến nghị khởi tố",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nêu chứng cứ và nơi tiếp nhận cơ bản; không lập đơn hoặc điền mẫu. Không hạn chế trình báo duy nhất nơi chuyển tiền nếu nguồn luật cho phép nhiều nơi tiếp nhận."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 57,
+      "question": "Khi nào tranh chấp tiền cọc có thể có dấu hiệu lừa đảo, và khi nào chỉ là tranh chấp hợp đồng?",
+      "points": [
+        {
+          "point_id": "35.1",
+          "title": "Tranh chấp hợp đồng dân sự",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dấu hiệu: phòng có thật; người cho thuê đúng là chủ nhà; tranh chấp về mức khấu trừ cọc, hư hỏng tài sản, thời hạn báo trước",
+          "source_claimed_in_manuscript": "Điều 328, 472 *BLDS 2015*",
+          "scope_and_conditions": "Giải quyết tại **Tòa án nhân dân quận/huyện**",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Thủ đoạn, ý định chiếm đoạt và chứng cứ quyết định phân biệt; không suy ra mọi cắt liên lạc là tội phạm. Tên TAND quận/huyện cần cập nhật theo tổ chức hiện hành; tránh tư vấn tố tụng chuyên sâu."
+        },
+        {
+          "point_id": "35.2",
+          "title": "Dấu hiệu tội phạm hình sự (Lừa đảo)",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dấu hiệu: đối tượng gian dối ngay từ đầu (phòng ảo, giả chủ nhà, không có quyền cho thuê); nhận cọc rồi chặn liên lạc, bỏ trốn để chiếm đoạt tiền",
+          "source_claimed_in_manuscript": "Điều 174 *BLHS 135/VBHN-VPQH*",
+          "scope_and_conditions": "Xử lý bởi **Cơ quan Cảnh sát điều tra (Công an)**",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Thủ đoạn, ý định chiếm đoạt và chứng cứ quyết định phân biệt; không suy ra mọi cắt liên lạc là tội phạm. Tên TAND quận/huyện cần cập nhật theo tổ chức hiện hành; tránh tư vấn tố tụng chuyên sâu."
+        },
+        {
+          "point_id": "35.3",
+          "title": "Cơ quan giải quyết khác nhau",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Dân sự → Tòa án; Hình sự → Công an điều tra",
+          "source_claimed_in_manuscript": "Điều 472 *BLDS 2015*; Điều 174 *BLHS*",
+          "scope_and_conditions": "Cần phân biệt rõ để nộp đơn đúng nơi",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Thủ đoạn, ý định chiếm đoạt và chứng cứ quyết định phân biệt; không suy ra mọi cắt liên lạc là tội phạm. Tên TAND quận/huyện cần cập nhật theo tổ chức hiện hành; tránh tư vấn tố tụng chuyên sâu."
+        },
+        {
+          "point_id": "35.4",
+          "title": "Yếu tố phân biệt chính",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Yếu tố quyết định: có **ý thức gian dối ngay từ đầu** hay không; phòng có thật hay ảo; có quyền cho thuê hay không",
+          "source_claimed_in_manuscript": "Điều 174 *BLHS*",
+          "scope_and_conditions": "Gian dối từ đầu + chiếm đoạt = hình sự",
+          "grading_role": "illustration",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Thủ đoạn, ý định chiếm đoạt và chứng cứ quyết định phân biệt; không suy ra mọi cắt liên lạc là tội phạm. Tên TAND quận/huyện cần cập nhật theo tổ chức hiện hành; tránh tư vấn tố tụng chuyên sâu."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    },
+    {
+      "original_question_id": 58,
+      "question": "Nếu có nhiều sinh viên cùng bị một người nhận cọc rồi cắt liên lạc, chúng tôi nên cung cấp thông tin gì cho cơ quan có thẩm quyền?",
+      "points": [
+        {
+          "point_id": "36.1",
+          "title": "Lập đơn tố giác tập thể",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Đơn tố giác có đủ chữ ký, CCCD, thông tin liên lạc của tất cả nạn nhân; tóm tắt thủ đoạn gian dối có hệ thống",
+          "source_claimed_in_manuscript": "Điều 144, 145 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Nhiều nạn nhân = tính chất chuyên nghiệp = khung hình phạt nặng hơn",
+          "grading_role": "recommendation",
+          "source_review_status": "needs_basic_reporting_scope",
+          "review_note": "Tập hợp thông tin và chứng cứ chung/từng người; không biến mẫu đơn tập thể có chữ ký thành điều kiện bắt buộc tiếp nhận."
+        },
+        {
+          "point_id": "36.2",
+          "title": "Bảng thống kê thiệt hại từng người",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Liệt kê: họ tên nạn nhân, số tiền bị chiếm đoạt, ngày chuyển, số tài khoản thụ hưởng; tổng thiệt hại cộng dồn",
+          "source_claimed_in_manuscript": "Điều 87 *BLTTHS*; Điều 174 *BLHS*",
+          "scope_and_conditions": "Tổng thiệt hại càng lớn, mức độ nghiêm trọng càng cao",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhiều người bị hại không tự chứng minh tính chuyên nghiệp hoặc tự động một khung tăng nặng. Tổng hợp giao dịch/chứng cứ hữu ích; không lập đơn tập thể hoặc kết luận định tội thay cơ quan có thẩm quyền."
+        },
+        {
+          "point_id": "36.3",
+          "title": "Bằng chứng chứng minh cùng kịch bản",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Sao kê ngân hàng tất cả nạn nhân chuyển vào cùng 1 tài khoản; ảnh chụp các cuộc hội thoại thể hiện cùng một kịch bản lừa đảo",
+          "source_claimed_in_manuscript": "Điều 87, 88 *BLTTHS*",
+          "scope_and_conditions": "Chứng minh hành vi có tổ chức, có kế hoạch",
+          "grading_role": "recommendation",
+          "source_review_status": "unsupported_organized_inference",
+          "review_note": "Chứng từ chuyển tiền và tin nhắn theo cùng kịch bản là thông tin để cơ quan có thẩm quyền đối chiếu; chúng không tự chứng minh tính có tổ chức/có kế hoạch để xác lập tình tiết hình sự."
+        },
+        {
+          "point_id": "36.4",
+          "title": "Nơi tiếp nhận tại Cần Thơ",
+          "manuscript_importance": "🔴 Ý chính",
+          "manuscript_content": "Nộp tại Cơ quan Cảnh sát điều tra Công an quận/huyện nơi xảy ra vụ việc hoặc Phòng Cảnh sát hình sự Công an TP. Cần Thơ",
+          "source_claimed_in_manuscript": "Điều 145 *BLTTHS 17/VBHN-VPQH*",
+          "scope_and_conditions": "Cơ quan điều tra sẽ thụ lý và khởi tố theo thẩm quyền",
+          "grading_role": "main",
+          "source_review_status": "pending_per_point_source_verification",
+          "review_note": "Nhiều người bị hại không tự chứng minh tính chuyên nghiệp hoặc tự động một khung tăng nặng. Tổng hợp giao dịch/chứng cứ hữu ích; không lập đơn tập thể hoặc kết luận định tội thay cơ quan có thẩm quyền."
+        },
+        {
+          "point_id": "36.5",
+          "title": "Khung hình phạt tăng nặng",
+          "manuscript_importance": "🟡 Ý phụ",
+          "manuscript_content": "Hành vi có tính chất chuyên nghiệp hoặc gây hậu quả đặc biệt nghiêm trọng → khung hình phạt cao hơn",
+          "source_claimed_in_manuscript": "Khoản 2, 3, 4 Điều 174 *BLHS*",
+          "scope_and_conditions": "⚠️ Ngưỡng giá trị tài sản ảnh hưởng đến khung hình phạt",
+          "grading_role": "illustration",
+          "source_review_status": "unsupported_criminal_inference",
+          "review_note": "Nhiều người bị hại không tự xác lập tính chuyên nghiệp hay khung tăng nặng; giữ chứng cứ từng giao dịch, không kết luận định tội."
+        }
+      ],
+      "checked_source_basis": [],
+      "checked_basis_policy": "Additional source basis and limits, not a certification of every manuscript point."
+    }
+  ]
+}

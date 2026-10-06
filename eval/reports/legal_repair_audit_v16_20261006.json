@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "active_store_unchanged": true,
+  "active_snapshot": {
+    "public.aggregated_listings": {
+      "rows": 789,
+      "digest": "728f11bfe2191a6c4c4d6a6ddbc941d5"
+    },
+    "public.users": {
+      "rows": 84,
+      "digest": "a073437b4640ce15b5b4b05e2eb7cd69"
+    },
+    "legal_word_v7_20261005.legal_documents": {
+      "rows": 16,
+      "digest": "9f5019d413bd49b60c48e8db125dd8e2"
+    },
+    "legal_word_v7_20261005.legal_chunks": {
+      "rows": 325,
+      "digest": "060688c4450d80be759b777cf08126fe"
+    },
+    "graph_rag_word_v6.nodes": {
+      "rows": 1144,
+      "digest": "1502d1a556233a056ef64b7629e9cdd1"
+    },
+    "graph_rag_word_v6.edges": {
+      "rows": 3016,
+      "digest": "709ff300dbb448824c95ed3adf68a346"
+    },
+    "graph_rag_word_v6.release": {
+      "rows": 1,
+      "digest": "128deb5dcde4c4203426e8d1f9ccc967"
+    },
+    "housing_graph_word_v6.aggregated_listings": {
+      "rows": 789,
+      "digest": "728f11bfe2191a6c4c4d6a6ddbc941d5"
+    },
+    "housing_graph_word_v6.release": {
+      "rows": 1,
+      "digest": "93431aa7fdb64943cb0f915347adddae"
+    },
+    "active_release": {
+      "schema_name": "legal_word_v7_20261005",
+      "status": "active",
+      "manifest_sha256": "dc64f0cf38c5dd9e6afef8984c44eb0b03b0197cb76c35d51983dd15a59f6736",
+      "validation": {},
+      "activated_at": "2026-10-05 12:15:00.591065+00:00",
+      "created_at": "2026-10-05 11:57:47.471094+00:00"
+    },
+    "base_manifest_sha256": "dc64f0cf38c5dd9e6afef8984c44eb0b03b0197cb76c35d51983dd15a59f6736"
+  },
+  "new_store_active": false,
+  "legal_schema": "legal_word_repair_v16_20261006",
+  "documents": 40,
+  "counts": {
+    "chunks": 478,
+    "vectors": 478
+  },
+  "embedding_dimensions": 384,
+  "ocr_documents": 0,
+  "pdf_inputs": 0,
+  "reference_answers_embedded": false,
+  "new_housing_identical_to_active": true,
+  "graph_release_matches_corpus": true,
+  "corpus_manifest_sha256": "60041a4989c2991d9067205fce99094ab607da8eb0a27cac8a26c861b44d0a3c",
+  "reference_sha256": "876e38dba5c2faeba797d02503680b82c1eb7d6bd30b148737cf47db84e36983"
+}

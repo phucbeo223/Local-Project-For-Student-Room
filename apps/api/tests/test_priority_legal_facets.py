@@ -31,6 +31,72 @@ def test_water_price_is_not_allocation_evidence():
     assert any('thỏa thuận' in s for s in missing_selection_facets(q, [price, agreement], '{"selected_ids":[1],"insufficient":true}'))
 
 
+def test_broker_dispute_retrieves_general_service_contract_conditions():
+    q='Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?'
+    assert 'housing_contract' in question_categories(q)
+    service=row(1,'Điều 519. Trả tiền dịch vụ','Không đạt như thỏa thuận có quyền giảm tiền dịch vụ.','housing_contract')
+    assert rerank_legal(q,[service])
+
+
+def test_fee_dispute_keeps_quality_remedy_not_unrelated_market_price_clause():
+    q='Người môi giới đưa thông tin khác với phòng thực tế thì làm gì?'
+    price=row(1,'Điều 519. Trả tiền dịch vụ','Nếu không thỏa thuận về giá thì xác định theo giá thị trường.','housing_contract')
+    remedy=row(2,'Điều 519. Trả tiền dịch vụ','Dịch vụ không đạt như thỏa thuận thì có quyền giảm tiền dịch vụ và yêu cầu bồi thường.','housing_contract')
+    assert diversified_legal_rows(q,rerank_legal(q,[price,remedy]),1)[0]['id']==2
+
+
+@pytest.mark.parametrize('company_heading',['Điều 65. Nghĩa vụ môi giới','',None])
+def test_broker_company_obligations_and_customer_service_are_not_individual_remuneration(company_heading):
+    from app.room_service.chatbot.evidence_units import scope_issues
+    q='Người thuê có thể làm gì khi môi giới cung cấp thông tin phòng sai và đã thu phí?'
+    company=row(1,company_heading,
+        'Doanh nghiệp kinh doanh dịch vụ môi giới cung cấp thông tin trung thực và bồi thường thiệt hại do lỗi.', 'real_estate_brokerage')
+    remedy=row(2,'Điều 519. Trả tiền dịch vụ',
+        'Bên sử dụng dịch vụ có quyền giảm tiền dịch vụ khi không đạt như thỏa thuận.', 'housing_contract')
+    assert not any('thù lao cá nhân' in s for s in scope_issues(q,[company,remedy]))
+
+
+def test_individual_remuneration_still_does_not_establish_tenant_fee():
+    from app.room_service.chatbot.evidence_units import scope_issues
+    q='Người thuê phải trả phí môi giới thế nào?'
+    remuneration=row(1,'Điều 63. Thù lao hoa hồng môi giới',
+        'Cá nhân hành nghề được hưởng tiền thù lao từ doanh nghiệp kinh doanh dịch vụ môi giới.', 'real_estate_brokerage')
+    assert any('thù lao cá nhân' in s for s in scope_issues(q,[remuneration]))
+
+
+def test_move_question_keeps_new_registration_and_conditional_old_deletion():
+    q='Chuyển sang phòng trọ khác cần cập nhật thông tin cư trú thế nào?'
+    ban=row(1,'Điều 27. Điều kiện đăng ký tạm trú','Không được đăng ký tạm trú mới tại chỗ ở theo Điều 23.','residence')
+    new=row(2,'Điều 28. Hồ sơ, thủ tục đăng ký tạm trú','Nộp hồ sơ đăng ký tạm trú tại nơi dự kiến; cơ quan cập nhật nơi tạm trú mới.','residence')
+    old=row(3,'Điều 29. Xóa đăng ký tạm trú','Chấm dứt thuê mà không đăng ký tạm trú tại chỗ ở khác thuộc diện xóa.','residence')
+    assert {r['id'] for r in diversified_legal_rows(q,rerank_legal(q,[ban,new,old]),2)}=={2,3}
+
+
+def test_phishing_checklist_covers_link_secrets_and_pressure():
+    q='Chuyển cọc qua liên kết lạ cần kiểm tra dấu hiệu nào?'
+    rows=[row(1,'Link giả','Đường link dẫn đến website giả mạo.','criminal_law'),
+        row(2,'Bảo mật','Không cung cấp mật khẩu, mã OTP.','criminal_law'),
+        row(3,'Thúc ép','Thúc giục người dân thực hiện theo hướng dẫn.','criminal_law')]
+    facets=set().union(*(practical_facets(q,r) for r in rows))
+    assert len(facets)==3
+
+
+def test_short_sourced_link_warning_survives_selection_and_completion():
+    from app.room_service.chatbot.source_selection import selection_candidates, render_selection
+    q='Chuyển cọc qua liên kết lạ cần kiểm tra dấu hiệu nào?'
+    ordinary=row(1,'Cảnh báo','Không cung cấp mật khẩu hoặc mã OTP cho bên chưa xác minh.','criminal_law')
+    warning=row(2,'Liên kết lạ','không truy cập đường link lạ','criminal_law')
+    warning.update(source_content_kind='publisher_guidance_word_conversion',
+                   source_scope_warning='Khuyến cáo mua hàng trực tuyến; không tự kết luận một vụ nhận cọc.')
+    candidates=selection_candidates([ordinary,warning])
+    assert [c['rank'] for c in candidates]==[1,2]
+    result=render_selection(q,[ordinary,warning],candidates,'{"selected_ids":[1],"insufficient":false}','qwen-local','test')
+    assert [r['rank'] for r in result.selected_evidence]==[1,2]
+    assert result.selected_evidence[1]['content']==warning['content']
+    assert not selection_candidates([dict(warning,source_content_kind='provided_word_excerpt')])
+    assert not selection_candidates([dict(warning,content='OTP',text='OTP')])
+
+
 def test_electricity_transparency_keeps_consumer_rights_as_conditional_support():
     q = 'Chủ trọ có phải thông báo cách tính tiền điện không?'
     assert 'housing_contract' in question_categories(q)

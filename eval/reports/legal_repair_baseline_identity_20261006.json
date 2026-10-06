@@ -1,0 +1,9 @@
+{
+  "commit": "c8dba04",
+  "verified": true,
+  "method": "Exact git blob bytes and paths, no newline normalization",
+  "pipeline_files": 23,
+  "git_pipeline_sha256": "de8b30183da45706a7cf5f757c550c097a65da17a2cfa7c4e86e8b8e359f275b",
+  "saved_run_pipeline_sha256": "de8b30183da45706a7cf5f757c550c097a65da17a2cfa7c4e86e8b8e359f275b",
+  "saved_run_sha256": "0c998073f9558ed4aed75c0ded1c61e34b8754f293adf8f2a5973bbd34a31003"
+}

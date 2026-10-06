@@ -1,0 +1,60 @@
+{
+  "id": 45,
+  "question": "Nếu người môi giới đưa thông tin khác với phòng thực tế, người thuê có thể làm gì?",
+  "housing_retrieved": false,
+  "previous_headings": [
+    "Điều 520. Đơn phương chấm dứt thực hiện hợp đồng dịch vụ | Khoản 1",
+    "Điều 520. Đơn phương chấm dứt thực hiện hợp đồng dịch vụ | Khoản 2",
+    "Điều 46. Nội dung chính của hợp đồng trong kinh doanh bất động sản | Khoản 4",
+    "Điều 65. Nghĩa vụ của doanh nghiệp kinh doanh dịch vụ môi giới bất động sản, cá nhân hành nghề môi giới bất động sản | Khoản 1",
+    "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp"
+  ],
+  "repaired_sources": [
+    {
+      "rank": 1,
+      "document_id": 14,
+      "chunk_id": 284,
+      "heading": "Điều 519. Trả tiền dịch vụ | Khoản 4",
+      "source_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/"
+    },
+    {
+      "rank": 2,
+      "document_id": 14,
+      "chunk_id": 285,
+      "heading": "Điều 520. Đơn phương chấm dứt thực hiện hợp đồng dịch vụ | Khoản 1",
+      "source_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/"
+    },
+    {
+      "rank": 3,
+      "document_id": 14,
+      "chunk_id": 286,
+      "heading": "Điều 520. Đơn phương chấm dứt thực hiện hợp đồng dịch vụ | Khoản 2",
+      "source_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/"
+    },
+    {
+      "rank": 4,
+      "document_id": 7,
+      "chunk_id": 122,
+      "heading": "Điều 46. Nội dung chính của hợp đồng trong kinh doanh bất động sản | Khoản 4",
+      "source_url": "https://vanban.chinhphu.vn/?classid=1&docid=209624&pageid=27160&typegroupid=3"
+    },
+    {
+      "rank": 5,
+      "document_id": 14,
+      "chunk_id": 241,
+      "heading": "Hiệu lực, phạm vi mức phạt và điều khoản chuyển tiếp",
+      "source_url": "https://congan.daklak.gov.vn/laws/detail/Bo-luat-Dan-su-163/"
+    }
+  ],
+  "quality_remedy_retrieved": true,
+  "trace": {
+    "agent": "legal_retrieval",
+    "provider": "hybrid",
+    "status": "completed",
+    "corpus_schema": "legal_word_repair_v16_20261006",
+    "sources_found": 5,
+    "duration_ms": 12627
+  },
+  "llm_calls": 0,
+  "local_embedding_calls": 1
+}

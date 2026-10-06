@@ -24,3 +24,9 @@ apps/api/app/room_service/chatbot/*.py -text whitespace=cr-at-eol
 apps/api/app/room_service/legal_knowledge/*.py -text whitespace=cr-at-eol
 eval/compare_grounded_references.py -text whitespace=cr-at-eol
 eval/report_priority7_36.py -text whitespace=cr-at-eol
+eval/quantity_audit.py -text whitespace=cr-at-eol
+eval/reports/legal_repair*.json -text whitespace=cr-at-eol
+# Preserve the supplied review document used by the audit hashes.
+CTU_LEGAL_REVIEW_36.md -text whitespace=cr-at-eol
+# Public legal-only baseline for the reproducible 36-question comparison.
+eval/reports/graph_rag_priority7_36_v20_2026-10-06.json -text whitespace=cr-at-eol

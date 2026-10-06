@@ -20,6 +20,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--ids', type=int, nargs='+', default=list(range(1, 57)))
     parser.add_argument('--baseline', action='store_true')
+    parser.add_argument('--legal-only', action='store_true', help='Block listing retrieval and non-legal cloud inputs')
+    parser.add_argument('--preflight-only', action='store_true', help='Validate routing without calling models or collecting answers')
     args = parser.parse_args()
     if args.baseline:
         settings.chatbot_graph_enabled = False
@@ -29,6 +31,14 @@ def main():
     selected = [case for case in all_cases if case['id'] in args.ids]
     if len(selected) != len(set(args.ids)):
         raise ValueError('Selected question IDs are missing or duplicated')
+    if args.legal_only:
+        from legal_only_boundary import assert_legal_cases
+        assert_legal_cases(selected)
+    if args.preflight_only:
+        if not args.legal_only: raise ValueError('Preflight requires explicit legal-only boundary')
+        print(json.dumps(dict(passed=True,legal_only=True,selected_ids=[c['id'] for c in selected],
+            all_routes='legal_question',model_calls=0,housing_catalog_read=False),ensure_ascii=False))
+        return
     engine = create_engine(settings.database_url)
     with engine.connect() as conn:
         release = dict(conn.execute(text(f'SELECT * FROM {settings.chatbot_graph_schema}.release WHERE id=1')).mappings().one())
@@ -44,6 +54,7 @@ def main():
                 'selected_original_ids': sorted(args.ids), 'graph_enabled': settings.chatbot_graph_enabled,
                 'graph_extractor_version': release['extractor_version'],
                 'housing_catalog_sha256': release['housing_sha256'], 'legal_manifest_sha256': release['legal_sha256']}
+    if args.legal_only: identity['legal_only']=True
     report = json.loads(args.output.read_text(encoding='utf-8')) if args.output.exists() else dict(
         identity, started_at_utc=datetime.now(timezone.utc).isoformat(), cases=selected,
         method='real service regression; E5 + bounded typed graph + grounded generation; no invented accuracy score',

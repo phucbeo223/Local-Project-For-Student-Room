@@ -5,6 +5,7 @@ These rules improve recall; they never supply a legal answer or a tariff.
 from __future__ import annotations
 
 import re
+import unicodedata
 
 from .providers import normalize_text
 from ..legal_knowledge.quality import usable_legal_text
@@ -43,7 +44,7 @@ def expand_legal_query(query: str) -> str:
     if 'tien dien' in value and any(t in value for t in ('thong bao', 'cach tinh', 'so dien')):
         additions.append('công khai cách tính hóa đơn chỉ số đo đếm quyền người tiêu dùng thông tin giao dịch')
     if 'tam tru' in value and 'cung cap' in value and 'trach nhiem' in value:
-        additions.append('chủ hộ tạo điều kiện hướng dẫn thành viên nghĩa vụ công dân cung cấp đầy đủ chính xác thông tin')
+        additions.append('chủ hộ tạo điều kiện hướng dẫn thành viên nghĩa vụ công dân cung cấp đầy đủ chính xác thông tin khai thác cơ sở dữ liệu chỗ ở hợp pháp văn bản cho thuê không phải công chứng')
     if 'thoat nan' in value and any(t in value for t in ('khoa', 'chan')):
         additions.append('chủ nhà trọ lối thoát thông thoáng không cản trở báo cháy 114 kẹt trong phòng')
     if 'can cuoc' in value and any(t in value for t in ('luu', 'su dung')):
@@ -78,8 +79,10 @@ def expand_legal_query(query: str) -> str:
                          else "người thuê nhà")
     if rental_electricity_question(query):
         additions.append("thu tiền điện người thuê nhà giá bán lẻ điện sinh hoạt hóa đơn")
-    if 'moi gioi' in value and any(t in value for t in ('phi','giay to','thoa thuan')):
+    if 'moi gioi' in value and any(t in value for t in ('phi','giay to','thoa thuan','khac voi','thong tin')):
         additions.append('hợp đồng dịch vụ trả tiền dịch vụ giá dịch vụ quyền nghĩa vụ bên sử dụng dịch vụ')
+        if any(t in value for t in ('khac voi','sai','khong dung','khong dat')):
+            additions.append('chất lượng dịch vụ không đạt như thỏa thuận giảm tiền dịch vụ bồi thường thiệt hại chấm dứt dịch vụ')
     if 'nuoc' in value and 'can tho' in value:
         additions.append('Quy định giá nước sạch sinh hoạt trên địa bàn thành phố Cần Thơ giá tiêu thụ nước')
     if water_invoice_lookup_question(query):
@@ -246,9 +249,18 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
                         base += .35
                 if 'trach nhiem' in question and 'cung cap' in question and 'nghia vu' in heading and 'cung cap' in value:
                     base += .65
+                if 'cung cap' in question and 'giay to' in question:
+                    if 'van ban cho thue' in value and 'khong phai cong chung' in value:
+                        base += 1.3
+                    if 'khai thac' in value and 'khi co quan dang ky cu tru co yeu cau' in value:
+                        base += 1.3
             if row['category']=='residence' and 'cu tru' in question and any(term in question for term in ('chuyen sang','chuyen phong','thay doi cho o')):
-                if 'dang ky tam tru' in heading and 'dang ky tam tru moi' in value:
+                if 'ho so dang ky tam tru' in value and 'noi tam tru moi' in value:
                     base += 1.25
+                if 'xoa dang ky tam tru' in heading or ('sua doi' in heading and 'dieu 10. ho so, thu tuc xoa dang ky tam tru' in value):
+                    base += .9
+                if 'dieu chinh thong tin' in heading and 'ho tich' in value:
+                    base -= .6
             if row['category'] == 'fire_safety':
                 if 'nhieu phong' in question and 'phu luc i.' in heading and 'co so dich vu luu tru' in value:
                     base += 1.1
@@ -270,14 +282,21 @@ def rerank_legal(query: str, rows: list[dict], limit: int = 30) -> list[dict]:
             if row['category']=='criminal_law' and any(t in question for t in ('co quan co tham quyen','trinh bao','to giac')):
                 if any(t in heading for t in ('thu tuc tiep nhan to giac','trach nhiem tiep nhan','to giac, tin bao')):
                     base += .85
-            if row['category']=='real_estate_brokerage' and 'moi gioi' in question and any(t in question for t in ('phi','giay to','thoa thuan')):
+            if row['category'] in ('real_estate_brokerage','housing_contract') and 'moi gioi' in question and any(t in question for t in ('phi','giay to','thoa thuan','khac voi','thong tin')):
                 if 'ca nhan moi gioi' in value and 'doanh nghiep' in value and 'khach hang' not in value:
                     base -= .9
                 if any(t in heading for t in ('tra tien dich vu','hop dong dich vu','quyen cua ben su dung dich vu','noi dung cua hop dong')):
                     base += .85
+                if 'tra tien dich vu' in heading:
+                    base += .9 if 'khong dat' in value and 'giam tien dich vu' in value else -.65
+                if 'quyen cua ben su dung dich vu' in heading and 'theo thoa thuan' in value:
+                    base += .8
                 if ('noi dung chinh cua hop dong' in heading and 'hop dong kinh doanh dich vu' in value
                         and all(t in value for t in ('phi dich vu','phuong thuc','thoi han thanh toan'))):
                     base += 1.2
+            if row['category']=='criminal_law' and 'lien ket la' in question:
+                if any(t in value for t in ('mat khau','otp','website gia mao','duong link la','thuc giuc')):
+                    base += 1.1
             if row['category'] in ('criminal_law', 'ecommerce_platform') and 'khuyen cao' in value:
                 if any(term in question for term in ('kiem tra', 'bang chung', 'cung cap thong tin', 'luu lai', 'lien ket la')):
                     base += .45
@@ -412,7 +431,16 @@ def legal_completion_status(answer: str) -> str:
     return 'partial' if supported else 'insufficient'
 
 
-def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
+def _clipped_condition(text):
+    # Stripping accents conflates “trú” (residence) with “trừ” (except).
+    raw=unicodedata.normalize('NFC',' '.join(text.split())).casefold()
+    if re.search(r'\btrừ(?: trường(?: hợp)?)?[ .…]*$',raw): return True
+    norm=normalize_text(text)
+    if re.search(r'\b(?:theo quy|tru truong(?: hop)?)[ .…]*$',norm): return True
+    return bool(re.search(r'\btru[ .…]*$',raw) and not re.search(r'\b(?:tam|cu|thuong|luu) tru[ .…]*$',norm))
+
+
+def _citation_scope_issues(segment: str, cited: list[dict], claim_kind=None) -> list[str]:
     issues = []
     norm = normalize_text(segment)
     heading_articles = {n for row in cited for n in re.findall(r'Điều\s+(\d+)\b', str(row.get('heading') or ''), re.I)}
@@ -431,7 +459,16 @@ def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
                              and 'thuc hien dong bo' in evidence and 'bien phap' in evidence)
     validity_conditions = 'dieu kien co hieu luc' in evidence and 'co hieu luc khi co du cac dieu kien' in evidence
     conditional_consent = ('dong y' in norm and 'khi duoc' in evidence and 'dong y' in evidence)
-    if normative and not (imperative_protection or validity_conditions or conditional_consent) and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam', 'chi duoc')):
+    # Data-entry prerequisites in an identified supplier guide are procedural,
+    # not legal duties. A category label alone never permits a rights claim.
+    guide_input = (claim_kind in ('procedure','source_limit')
+        and 'huong dan' in evidence and re.search(r'\bbuoc [1-9]\b',evidence)
+        and any(t in norm for t in ('tra cuu','quy trinh','huong dan'))
+        and re.search(r'\bphai (?:co|nhap)\b.{0,80}\b(?:idkh|ma xac nhan|ma khach hang)\b',norm)
+        and any(t in evidence for t in ('idkh','ma xac nhan','ma khach hang'))
+        and not re.search(r'\b(?:phap luat|luat|theo quy dinh|bat buoc|nghia vu|trach nhiem|bi phat|chu tro|chu nha)\b',norm)
+        and all(t not in norm or t in evidence for t in ('otp','mat khau','tai khoan ngan hang')))
+    if normative and not (imperative_protection or validity_conditions or conditional_consent or guide_input) and not any(has_phrase(evidence, p) for p in ('phai', 'nghia vu', 'trach nhiem', 'bat buoc', 'khong duoc', 'nghiem cam', 'chi duoc')):
         issues.append('Nguồn mô tả nội dung/công việc chưa xác nhận nghĩa vụ được khẳng định.')
     if any(has_phrase(norm, p) for p in ('co quyen', 'duoc phep')) and not any(has_phrase(evidence, p) for p in ('quyen', 'duoc', 'cho phep')):
         issues.append('Nguồn được trích chưa xác nhận quyền hoặc sự cho phép được khẳng định.')
@@ -440,12 +477,12 @@ def _citation_scope_issues(segment: str, cited: list[dict]) -> list[str]:
     if tenant_obligation:
         if any(has_phrase(evidence, p) for p in ('uy ban nhan dan', 'co quan cong an')) and not any(has_phrase(evidence, p) for p in ('nguoi thue', 'ben thue', 'nguoi su dung')):
             issues.append('Không chuyển trách nhiệm của cơ quan kiểm tra thành nghĩa vụ của người thuê.')
-    if any(re.search(r'(?:\btru(?: truong(?: hop)?)?|\btheo quy|\btru tru[o]?)[ .…]*$', normalize_text(row['content'])) for row in cited):
+    if any(_clipped_condition(row['content']) for row in cited):
         issues.append('Nguồn trích dẫn bị cụt điều kiện hoặc ngoại lệ; chưa đủ để kết luận.')
     return issues
 
 
-def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
+def evidence_issues(answer: str, chunks: list[dict], query: str, *, claim_records=()) -> list[str]:
     """Deterministic guard, not a claim of full semantic entailment verification."""
     issues = []
     normalized = normalize_text(answer)
@@ -478,6 +515,7 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             issues.append("Phải nêu điều kiện hiệu lực gắn với lần điều chỉnh giá điện; chưa xác minh mốc thì không khẳng định đang áp dụng.")
     sources = {int(row["rank"]): normalize_text(row["content"] + " " + str(row.get("heading") or ""))
                for row in chunks}
+    kinds={normalize_text(c['rendered']):c['kind'] for c in claim_records}
     # Each cited sentence must share meaningful vocabulary with its own sources.
     for segment in re.split(r"\n+|(?<=[.!?])\s+", answer):
         refs = [int(ref) for ref in re.findall(r"\[(\d+)\]", segment)]
@@ -504,6 +542,7 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             issues.append("Trích dẫn không có nguồn tương ứng.")
             continue
         segment_normalized = normalize_text(segment)
+        claim_kind=kinds.get(normalize_text(re.sub(r'^\s*-\s*','',segment)))
         for address in re.findall(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', segment):
             cited_text = ' '.join(row['content'] for row in chunks if int(row['rank']) in refs)
             if address.lower() not in cited_text.lower():
@@ -534,6 +573,9 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
                               r'.{0,120}\b(?:chua|khong) (?:neu|cung cap|xac nhan|quy dinh)\b')
         source_classification_pattern = (r'\bkhong phai(?: la)? '
             r'(?:dieu luat|(?:quy dinh|dieu khoan)(?: phap luat| luat)?|van ban quy pham phap luat)\b')
+        if claim_kind=='source_limit':
+            source_classification_pattern=(r'\bkhong phai(?: la)? '
+                r'(?:kenh|duong day|dieu luat|(?:quy dinh|dieu khoan)(?: phap luat| luat)?|van ban quy pham phap luat)\b')
         scoped_absence = (any(term in segment_normalized for term in gap_phrases)
                           or re.search(source_gap_pattern, segment_normalized)
                           or re.search(source_classification_pattern, segment_normalized))
@@ -556,7 +598,7 @@ def evidence_issues(answer: str, chunks: list[dict], query: str) -> list[str]:
             # A statement about missing evidence cannot share vocabulary with the
             # missing rule. General claims that no law exists are rejected above.
             continue
-        issues.extend(_citation_scope_issues(segment, [row for row in chunks if int(row['rank']) in refs]))
+        issues.extend(_citation_scope_issues(segment, [row for row in chunks if int(row['rank']) in refs],claim_kind))
         if ('24 gio' in segment_normalized and '24 gio' in evidence
                 and 'co quan nha nuoc co tham quyen' in evidence
                 and any(t in segment_normalized for t in ('go bo', 'cham dut', 'tam ngung', 'khoa tai khoan', 'cung cap thong tin'))

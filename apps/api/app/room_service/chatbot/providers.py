@@ -144,6 +144,7 @@ class GenerationResult:
     evidence_limitations: tuple[str, ...] = ()
     agent_trace: tuple[dict, ...] = ()
     source_fallback: GenerationResult | None = None
+    claim_records: tuple[dict, ...] = ()
 
     @property
     def text_for_verification(self) -> str:
@@ -476,6 +477,7 @@ class OllamaQwenGenerator:
 
 
 class GeminiGenerator:
+    supports_claim_records = True
     """Generate grounded answers through Gemini generateContent REST API."""
 
     provider_name = "gemini"
@@ -594,7 +596,10 @@ class GeminiGenerator:
             result = fenced.group(1).strip()
         return result, data.get("usageMetadata", {})
 
-    def check_legal_evidence(self, question: str, answer: str, contexts: Sequence[dict]) -> list[str]:
+    def check_legal_evidence(self, question: str, answer: str, contexts: Sequence[dict], *, claim_records=()) -> list[str]:
+        if claim_records:
+            from .claim_verification import check_claims
+            return check_claims(self, question, answer, contexts, claim_records)
         schema = {"type": "object", "properties": {
             "supported": {"type": "boolean"}, "issues": {"type": "array", "items": {"type": "string"}}},
             "required": ["supported", "issues"], "additionalProperties": False}
