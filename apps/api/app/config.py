@@ -42,6 +42,10 @@ class Settings(BaseSettings):
     chatbot_answer_synthesis_enabled: bool = True
     chatbot_answer_synthesis_model: str = ""  # empty: use GEMINI_MODEL
     chatbot_answer_synthesis_timeout_seconds: float = Field(default=60, gt=0, le=180)
+    chatbot_legal_selection_provider: Literal["qwen", "gemini"] = "qwen"
+    chatbot_legal_selection_model: str = ""
+    chatbot_legal_selection_timeout_seconds: float = Field(default=60, gt=0, le=180)
+    chatbot_legal_generation_mode: Literal["separate", "combined"] = "separate"
     chatbot_llm_provider: Literal["auto", "qwen", "gemini", "template"] = "auto"
     chatbot_llm_timeout_seconds: float = 60.0
     chatbot_legal_timeout_seconds: float = Field(default=180.0, gt=0, le=300)

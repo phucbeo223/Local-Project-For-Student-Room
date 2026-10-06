@@ -115,6 +115,10 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     if analysis_client is not None:QUOTA.attach(analysis_client)
     verification_client=getattr(service.generator,'verifier',None)
     if verification_client is not None and verification_client is not analysis_client:QUOTA.attach(verification_client)
+    for provider in getattr(service.generator, 'providers', []):
+        selection_client = getattr(provider, 'client', None)
+        if selection_client is not None and selection_client not in (analysis_client, verification_client):
+            QUOTA.attach(selection_client)
     if settings.chatbot_agents_enabled:
         from sqlalchemy import text
         import app.room_service.chatbot as chatbot_package
@@ -129,12 +133,19 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
             raise ValueError('Corpus changed; use a new evaluation output')
         report['corpus_manifest_sha256'] = manifest_sha
         configuration = {'agents_enabled':True,'legal_schema':settings.chatbot_legal_schema,
-            'question_analysis_model':settings.chatbot_question_analysis_model,'answer_model':settings.ollama_model,
+            'question_analysis_model':settings.chatbot_question_analysis_model,
+            'answer_model':settings.ollama_model if settings.chatbot_legal_selection_provider == 'qwen' else (
+                settings.chatbot_legal_selection_model or
+                (settings.chatbot_answer_synthesis_model if settings.chatbot_legal_generation_mode == 'combined' else '') or settings.gemini_model),
+            'legal_selection_provider':settings.chatbot_legal_selection_provider,
+            'legal_generation_mode':settings.chatbot_legal_generation_mode,
+            'legal_selection_timeout_seconds':settings.chatbot_legal_selection_timeout_seconds,
             'embedding_model':settings.chatbot_embedding_model,
             'analysis_provider_available':'gemini' if settings.configured_gemini_keys else 'rules-local',
-            'legal_answer_mode':'source_select_then_synthesis' if settings.chatbot_answer_synthesis_enabled else 'source_select',
+            'legal_answer_mode':('combined_selection_synthesis' if settings.chatbot_legal_generation_mode == 'combined' else
+                'source_select_then_synthesis' if settings.chatbot_answer_synthesis_enabled else 'source_select'),
             'answer_synthesis_enabled':settings.chatbot_answer_synthesis_enabled,
-            'answer_synthesis_model':(settings.chatbot_answer_synthesis_model or settings.gemini_model) if settings.chatbot_answer_synthesis_enabled else None}
+            'answer_synthesis_model':getattr(getattr(getattr(service.generator, 'writer', None), 'client', None), 'model', None)}
         if report.get('run_configuration') and report['run_configuration'] != configuration:
             raise ValueError('Provider configuration changed; use a new evaluation output')
         report['run_configuration'] = configuration
@@ -175,7 +186,9 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
         original_request = writer_client.request_json
         def traced_request(prompt, schema, **kwargs):
             started = time.perf_counter()
-            stage = 'answer_synthesis' if 'summary' in schema.get('properties', {}) else 'source_verification'
+            properties = schema.get('properties', {})
+            stage = ('selection_and_synthesis' if 'selection' in properties else
+                     'answer_synthesis' if 'summary' in properties else 'source_verification')
             call = {'provider': 'gemini', 'model': writer_client.model, 'method': 'request_json', 'agent': stage}
             try:
                 result = original_request(prompt, schema, **kwargs)

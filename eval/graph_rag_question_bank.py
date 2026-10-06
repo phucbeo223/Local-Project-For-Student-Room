@@ -49,6 +49,12 @@ def main():
     pipeline = Path('/workspace/apps/api/app/room_service/chatbot')
     pipeline_sha = bank.pipeline_sha256(pipeline)
     identity = {'question_bank_sha256': bank_sha, 'pipeline_sha256': pipeline_sha,
+                'legal_selection_provider': settings.chatbot_legal_selection_provider,
+                'legal_selection_model': (settings.ollama_model if settings.chatbot_legal_selection_provider == 'qwen'
+                    else settings.chatbot_legal_selection_model or
+                    (settings.chatbot_answer_synthesis_model if settings.chatbot_legal_generation_mode == 'combined' else '')
+                    or settings.gemini_model),
+                'legal_generation_mode': settings.chatbot_legal_generation_mode,
                 'listing_schema': settings.chatbot_listing_schema, 'legal_schema': settings.chatbot_legal_schema,
                 'graph_schema': settings.chatbot_graph_schema,
                 'selected_original_ids': sorted(args.ids), 'graph_enabled': settings.chatbot_graph_enabled,

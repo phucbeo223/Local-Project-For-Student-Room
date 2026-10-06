@@ -142,11 +142,13 @@ class QwenAnswerAgent:
                          'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None}
         kwargs.pop('claim_records', None)
         checked=self.generator.check_legal_evidence(*args, **kwargs)
-        return AgentEvidenceIssues(checked, {'agent':'source_verification','provider':'qwen_and_rules',
+        fallback_provider = 'qwen_and_rules' if any(getattr(p, 'provider_name', '') == 'qwen-local'
+                                                    for p in self.providers) else 'rules'
+        return AgentEvidenceIssues(checked, {'agent':'source_verification','provider':fallback_provider,
             'status':'unavailable' if getattr(checked,'unavailable',False) else 'rejected' if checked else 'accepted',
             **failure,'duration_ms':round((time.perf_counter()-started)*1000)},
             unavailable=getattr(checked,'unavailable',False),
-            degraded_reasons=['Gemini kiểm tra nguồn chưa khả dụng; dùng Qwen kiểm tra dự phòng.'] if failure else [])
+            degraded_reasons=['Gemini kiểm tra nguồn chưa khả dụng; dùng kiểm tra dự phòng theo cấu hình.'] if failure else [])
 
 
 class AgentEvidenceIssues(list):

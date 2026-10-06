@@ -32,8 +32,12 @@ def init_chatbot(engine: Engine) -> None:
     global _service
     providers = []
     degraded_reasons: list[str] = []
+    gemini_selection = settings.chatbot_agents_enabled and settings.chatbot_legal_selection_provider == 'gemini'
+    combined = settings.chatbot_legal_generation_mode == 'combined'
+    if combined and not (gemini_selection and settings.chatbot_answer_synthesis_enabled):
+        raise ValueError('Combined legal generation requires Gemini selection and synthesis')
 
-    if settings.chatbot_agents_enabled or settings.chatbot_llm_provider in ("auto", "qwen"):
+    if not gemini_selection and (settings.chatbot_agents_enabled or settings.chatbot_llm_provider in ("auto", "qwen")):
         providers.append(
             OllamaQwenGenerator(
                 settings.ollama_base_url,
@@ -46,6 +50,15 @@ def init_chatbot(engine: Engine) -> None:
                 legal_answer_mode='source_select' if settings.chatbot_agents_enabled else 'synthesize',
             )
         )
+
+    if gemini_selection:
+        from .gemini_selection import GeminiEvidenceSelector
+        selection_client = GeminiGenerator('', settings.chatbot_legal_selection_model or settings.gemini_model,
+            base_url=settings.gemini_base_url, api_keys=settings.configured_gemini_keys,
+            legal_timeout_seconds=settings.chatbot_legal_selection_timeout_seconds,
+            per_request_timeout_seconds=settings.chatbot_legal_selection_timeout_seconds,
+            min_request_interval_seconds=settings.gemini_min_request_interval_seconds)
+        providers.append(GeminiEvidenceSelector(selection_client))
 
     if not settings.chatbot_agents_enabled and settings.chatbot_llm_provider in ("auto", "gemini"):
         if settings.configured_gemini_keys:
@@ -80,13 +93,20 @@ def init_chatbot(engine: Engine) -> None:
         analyzer = QuestionAnalysisAgent(analysis_client)
         if settings.chatbot_answer_synthesis_enabled:
             from .agent_workflow import GeminiAnswerSynthesisAgent, LegalAgentWorkflow
+            synthesis_model = settings.chatbot_answer_synthesis_model or settings.gemini_model
+            if combined:
+                synthesis_model = settings.chatbot_legal_selection_model or synthesis_model
             synthesis_client = GeminiGenerator("",
-                settings.chatbot_answer_synthesis_model or settings.gemini_model,
+                synthesis_model,
                 base_url=settings.gemini_base_url, api_keys=settings.configured_gemini_keys,
                 legal_timeout_seconds=settings.chatbot_answer_synthesis_timeout_seconds,
                 per_request_timeout_seconds=settings.chatbot_answer_synthesis_timeout_seconds,
                 min_request_interval_seconds=settings.gemini_min_request_interval_seconds)
-            generator = LegalAgentWorkflow(generator, GeminiAnswerSynthesisAgent(synthesis_client), synthesis_client)
+            if combined:
+                from .gemini_selection import GeminiCombinedWorkflow, GeminiCombinedWriter
+                generator = GeminiCombinedWorkflow(generator, GeminiCombinedWriter(synthesis_client), synthesis_client)
+            else:
+                generator = LegalAgentWorkflow(generator, GeminiAnswerSynthesisAgent(synthesis_client), synthesis_client)
         else:
             generator = QwenAnswerAgent(generator, verifier=analysis_client)
     _service = ChatService(
