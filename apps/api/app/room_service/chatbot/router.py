@@ -13,7 +13,6 @@ from .providers import (
     FallbackResponseGenerator,
     GeminiGenerator,
     GroundedTemplateGenerator,
-    OllamaQwenGenerator,
 )
 from .repo import ChatRepository
 from .schemas import (
@@ -32,24 +31,12 @@ def init_chatbot(engine: Engine) -> None:
     global _service
     providers = []
     degraded_reasons: list[str] = []
+    if settings.chatbot_llm_provider == 'qwen' or (settings.chatbot_agents_enabled and settings.chatbot_legal_selection_provider != 'gemini'):
+        raise ValueError('This chatbot workflow requires Gemini; Qwen/Ollama and local LLM fallback are disabled')
     gemini_selection = settings.chatbot_agents_enabled and settings.chatbot_legal_selection_provider == 'gemini'
     combined = settings.chatbot_legal_generation_mode == 'combined'
     if combined and not (gemini_selection and settings.chatbot_answer_synthesis_enabled):
         raise ValueError('Combined legal generation requires Gemini selection and synthesis')
-
-    if not gemini_selection and (settings.chatbot_agents_enabled or settings.chatbot_llm_provider in ("auto", "qwen")):
-        providers.append(
-            OllamaQwenGenerator(
-                settings.ollama_base_url,
-                settings.ollama_model,
-                settings.chatbot_llm_timeout_seconds,
-                context_length=settings.ollama_context_length,
-                max_output_tokens=settings.chatbot_max_output_tokens,
-                keep_alive=settings.ollama_keep_alive,
-                legal_timeout_seconds=settings.chatbot_legal_timeout_seconds,
-                legal_answer_mode='source_select' if settings.chatbot_agents_enabled else 'synthesize',
-            )
-        )
 
     if gemini_selection:
         from .gemini_selection import GeminiEvidenceSelector
@@ -82,6 +69,8 @@ def init_chatbot(engine: Engine) -> None:
 
     providers.sort(key=lambda provider: 0 if isinstance(provider, GeminiGenerator) else 1)
     generator = FallbackResponseGenerator(providers, GroundedTemplateGenerator(), initial_degraded_reasons=degraded_reasons)
+    if gemini_selection:
+        generator.listing_generator = FallbackResponseGenerator([], GroundedTemplateGenerator())
     analyzer = None
     if settings.chatbot_agents_enabled:
         from .agents import QuestionAnalysisAgent, QwenAnswerAgent
@@ -135,12 +124,6 @@ def get_service() -> ChatService:
 
 def warmup_chatbot() -> None:
     service = get_service()
-    for provider in service.generator.providers:
-        if isinstance(provider, OllamaQwenGenerator):
-            try:
-                provider.warmup(settings.chatbot_warmup_timeout_seconds)
-            except Exception:
-                logging.getLogger(__name__).warning("Chat model warmup unavailable")
     try:
         service.embedder.warmup()
     except Exception:
@@ -149,7 +132,7 @@ def warmup_chatbot() -> None:
 
 def close_chatbot() -> None:
     if _service:
-        for provider in _service.generator.providers:
+        for provider in _all_providers(_service):
             if hasattr(provider, "close"):
                 provider.close()
         clients = [getattr(_service.question_analyzer, 'client', None),
@@ -158,6 +141,13 @@ def close_chatbot() -> None:
         unique_clients = {id(client): client for client in clients if client is not None}
         for client in unique_clients.values():
             client.close()
+
+
+def _all_providers(service):
+    generator = getattr(service.generator, 'generator', service.generator)
+    listing = getattr(generator, 'listing_generator', None)
+    providers = [*service.generator.providers, *getattr(listing, 'providers', [])]
+    return list({id(provider): provider for provider in providers}.values())
 
 
 @router.post("/ask", response_model=ChatAskResponse)

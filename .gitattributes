@@ -14,6 +14,7 @@ docs/provider_excerpts_20261005/** -text
 docs/legal_web_supplement_20261004/** -text
 # Published payload whitespace is evidence, not code formatting to normalize.
 docs/source_grounded_originals_20261004/** -text -whitespace
+docs/ctu_ktx_corpus_20261007/** -text -whitespace
 docs/legal_word_corpus_v7_20261005/** -text
 Data/word_originals/** -text whitespace=cr-at-eol
 # Word release manifests and human references are checked by exact byte hashes.

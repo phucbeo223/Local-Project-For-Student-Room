@@ -3,12 +3,16 @@
 services:
   api:
     environment:
+      CHATBOT_LLM_PROVIDER: gemini
       CHATBOT_AGENTS_ENABLED: "true"
       CHATBOT_ANSWER_SYNTHESIS_ENABLED: "true"
       CHATBOT_LEGAL_SELECTION_PROVIDER: gemini
       CHATBOT_LEGAL_GENERATION_MODE: ${CHATBOT_LEGAL_GENERATION_MODE:-combined}
   ragas-eval:
     environment:
+      CHATBOT_LLM_PROVIDER: gemini
+      RAGAS_JUDGE_PROVIDER: gemini
+      RAGAS_JUDGE_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
       CHATBOT_AGENTS_ENABLED: "true"
       CHATBOT_ANSWER_SYNTHESIS_ENABLED: "true"
       CHATBOT_LEGAL_SELECTION_PROVIDER: gemini

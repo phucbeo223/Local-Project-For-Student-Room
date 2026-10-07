@@ -142,7 +142,7 @@ def test_router_gemini_mode_never_constructs_or_warms_ollama(monkeypatch, mode):
     monkeypatch.setattr(router, '_service', None)
     class Forbidden:
         def __init__(self, *a, **kw): raise AssertionError('Ollama must not be constructed')
-    monkeypatch.setattr(router, 'OllamaQwenGenerator', Forbidden)
+    monkeypatch.setattr(router, 'OllamaQwenGenerator', Forbidden, raising=False)
     monkeypatch.setattr(router, 'E5EmbeddingProvider', lambda *a: DeterministicFakeEmbedder())
     router.init_chatbot(object())
     providers = router.get_service().generator.providers

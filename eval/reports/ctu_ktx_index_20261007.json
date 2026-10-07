@@ -1,0 +1,52 @@
+{
+  "base_schema": "legal_word_v7_20261005",
+  "legal_schema": "legal_ctu_ktx_v1_20261007",
+  "graph_schema": "graph_ctu_ktx_v1_20261007",
+  "listing_schema": "housing_graph_word_v6",
+  "ktx": {
+    "chunks": 52,
+    "vectors": 52,
+    "documents": 4
+  },
+  "indexed": [
+    {
+      "id": "ctu-2026-registration",
+      "chunks": 3
+    },
+    {
+      "id": "ctu-new-students",
+      "chunks": 2
+    },
+    {
+      "id": "ctu-ktx-rules",
+      "chunks": 45
+    },
+    {
+      "id": "ctu-ktx-facilities",
+      "chunks": 2
+    }
+  ],
+  "source_before": {
+    "legal_documents": {
+      "rows": 16,
+      "digest": "a509403f698d4485a9ec0990aee88408"
+    },
+    "legal_chunks": {
+      "rows": 325,
+      "digest": "26d369817202fdcf20a6101521a23766"
+    }
+  },
+  "source_after": {
+    "legal_documents": {
+      "rows": 16,
+      "digest": "a509403f698d4485a9ec0990aee88408"
+    },
+    "legal_chunks": {
+      "rows": 325,
+      "digest": "26d369817202fdcf20a6101521a23766"
+    }
+  },
+  "base_unchanged": true,
+  "manifest_sha256": "9b5760af0d761eec353341d00d2038c71a3a59dc743992084cc245be2d391b73",
+  "activation": "validated; apply docker-compose.ctu-ktx.yml"
+}

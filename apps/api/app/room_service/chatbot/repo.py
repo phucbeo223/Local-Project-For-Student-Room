@@ -14,6 +14,7 @@ from .schemas import ChatFilters
 from .legal_retrieval import expand_legal_query, legal_tokens, rerank_legal, electricity_question, rental_electricity_question
 from ..legal_knowledge.quality import usable_legal_text
 from .topics import question_categories
+from .annex_context import whole_annex_rows
 
 
 STOP_WORDS = {
@@ -394,7 +395,9 @@ class ChatRepository:
         # Preserve each category's relevant candidates until facet reservation.
         rows = rerank_legal(query, rows, limit=max(30, len(categories) * 80))
         from .legal_retrieval import diversified_legal_rows
-        core_limit = min(2, max(1, limit - 1)) if rental_electricity_question(query) else max(1, limit - 2)
+        platform_duties = 'nen tang' in normalize_text(query) and 'trach nhiem' in normalize_text(query)
+        core_limit = (3 if platform_duties else min(2, max(1, limit - 1))
+                      if rental_electricity_question(query) else max(1, limit - 2))
         from .topics import user_listing_check_question
         from .evidence_units import platform_reporting_question
         from .evidence_units import practical_facets
@@ -452,7 +455,11 @@ class ChatRepository:
                     item['context_complete'] = not (item.get('provision_metadata') or {}).get('selected_points_only',False)
                 elif item.get('parent_content'):
                     # Do not represent a bounded fragment as a complete clause.
-                    item['context_complete'] = False
+                    projected = whole_annex_rows(item['parent_content'], query, item['content'])
+                    if projected:
+                        item.update(projected)
+                    else:
+                        item['context_complete'] = False
                 elif item.get("heading"):
                     # A point's meaning often depends on its clause introduction
                     # and other required items in the same dossier/checklist.
@@ -503,14 +510,22 @@ class ChatRepository:
             # Named external law references get their own real document citation.
             external=[]
             for item in selected:
-                for clause,article in re.findall(r'(?:khoản\s+(\d+)\s+)?Điều\s+(\d+)\s+(?:của\s+)?Luật\s+Bảo vệ dữ liệu cá nhân',item['content'],re.I):
+                references = []
+                for law, source_ids in (
+                    ('Bảo vệ dữ liệu cá nhân', ['privacy91-cb', 'privacy91-word']),
+                    ('Thương mại điện tử', ['supplement-s15-word']),
+                ):
+                    references.extend((clause, article, source_ids) for clause, article in re.findall(
+                        r'(?:khoản\s+(\d+)\s+)?Điều\s+(\d+)\s+(?:của\s+)?Luật\s+' + law,
+                        item['content'], re.I))
+                for clause,article,source_ids in references:
                     refs=[dict(r) for r in conn.execute(self._legal_sql(
                         'SELECT c.id AS chunk_id,c.chunk_index,d.id AS document_id,d.title,d.category,d.source_path,'
                         +metadata_sql+provision_sql+'c.page_from,c.page_to,c.heading,c.content FROM legal_chunks c '
                         'JOIN legal_documents d ON d.id=c.document_id WHERE d.status=\'ready\' '
-                        'AND d.source_metadata->>\'id\'=\'privacy91-cb\' AND c.source_metadata->>\'article\'=:article '
+                        'AND d.source_metadata->>\'id\'=ANY(:source_ids) AND c.source_metadata->>\'article\'=:article '
                         'AND (:clause=\'\' OR c.source_metadata->>\'clause\'=:clause) ORDER BY c.chunk_index'),
-                        {'article':article,'clause':clause}).mappings()] if self.legal_schema!='public' else []
+                        {'article':article,'clause':clause,'source_ids':source_ids}).mappings()] if self.legal_schema!='public' else []
                     parts=list({r['provision_id']:r for r in refs}.values())
                     if not parts or all(any(r['parent_content'] in s['content'] for s in selected) for r in parts):continue
                     body='\n\n'.join(r['heading']+'\n'+r['parent_content'] for r in parts)

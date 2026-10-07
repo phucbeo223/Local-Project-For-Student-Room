@@ -1,0 +1,149 @@
+{
+  "schema": "legal_ctu_ktx_v1_20261007",
+  "results": [
+    {
+      "question": "KTX CTU có wifi không và phí gửi xe máy bao nhiêu?",
+      "answer": "Phòng ở ký túc xá Đại học Cần Thơ có wifi riêng từng phòng và mức phí gửi xe máy hoặc xe điện là 25.000 đồng một sinh viên trong một tháng nộp theo học kỳ [1].\n\n- Phòng ở ký túc xá được trang bị hệ thống wifi riêng cho từng phòng phục vụ nhu cầu sinh hoạt và học tập [1].\n- Phí giữ xe máy hoặc xe điện được tính 25.000 đồng cho mỗi sinh viên trong một tháng và phải nộp theo từng học kỳ [1].\n- Sinh viên nội trú tại ký túc xá được áp dụng chính sách miễn phí hoàn toàn đối với việc gửi xe đạp [1].\n\nThông tin về wifi và mức phí gửi xe máy nêu trên được áp dụng theo hướng dẫn đăng ký ký túc xá của Trường Đại học Cần Thơ [1].\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": false,
+      "provider": "gemini-agent",
+      "latency_seconds": 30.72,
+      "sources": [
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        },
+        {
+          "title": "Cơ sở vật chất, loại phòng và mức phí KTX Đại học Cần Thơ",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/hoat/160-cs1.html"
+        },
+        {
+          "title": "Đăng ký ở Ký túc xá học kỳ 1 năm học 2026-2027",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html"
+        }
+      ]
+    },
+    {
+      "question": "Phí ở KTX khu A và khu B của CTU bao nhiêu một tháng?",
+      "answer": "Mức phí Ký túc xá khu A và khu B của Đại học Cần Thơ dao động từ 220.000 đồng đến 475.000 đồng/sinh viên/tháng tùy theo nhu cầu về chỗ ở của sinh viên [1].\n\n- Sinh viên thực hiện nộp khoản phí ký túc xá này theo từng học kỳ [1].\n- Mức phí cụ thể phụ thuộc vào loại phòng không được nấu ăn dành cho 4 hoặc 8 sinh viên mỗi phòng tại cả khu A và khu B [1].\n- Mức phí cụ thể cũng phụ thuộc vào loại phòng được nấu ăn dành cho 3, 4, 5, 6 hoặc 8 sinh viên mỗi phòng tập trung chủ yếu ở khu A [1].\n\nNguồn thông tin không nêu biểu giá chi tiết cho từng loại phòng cụ thể trong khung từ 220.000 đồng đến 475.000 đồng/sinh viên/tháng [1].\n\nĐể áp dụng vào trường hợp của bạn:\n- Bạn dự định đăng ký loại phòng mấy người và có nhu cầu nấu ăn trong phòng hay không?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": false,
+      "provider": "gemini-agent",
+      "latency_seconds": 21.81,
+      "sources": [
+        {
+          "title": "Cơ sở vật chất, loại phòng và mức phí KTX Đại học Cần Thơ",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/hoat/160-cs1.html"
+        },
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        },
+        {
+          "title": "Đăng ký ở Ký túc xá học kỳ 1 năm học 2026-2027",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html"
+        }
+      ]
+    },
+    {
+      "question": "Tân sinh viên đăng ký KTX CTU như thế nào?",
+      "answer": "Tân sinh viên trúng tuyển và xác nhận nhập học tại Trường Đại học Cần Thơ có thể đăng ký nhu cầu ở Ký túc xá qua biểu mẫu trực tuyến hoặc nộp đơn trực tiếp tại Ký túc xá tùy theo tình trạng tài khoản hệ thống [1] [3].\n\n- Trường hợp chưa có tài khoản Hệ thống Quản lý KTX, tân sinh viên thực hiện điền thông tin đăng ký nhu cầu vào mẫu trực tuyến do nhà trường cung cấp [1] [3].\n- Trường hợp đăng ký trực tiếp tại Ký túc xá, sinh viên tải mẫu đơn và thực hiện các thủ tục theo hướng dẫn tại KTX [1].\n- Trường hợp sinh viên đã có tài khoản đăng nhập Hệ thống quản lý của Trường, tiến hành đăng nhập để thực hiện đăng ký ở Ký túc xá theo hệ thống [1].\n- Chờ Trung tâm liên hệ tư vấn chỗ ở sau khi có kết quả sắp xếp phòng ở KTX [3].\n\nTrường Đại học Cần Thơ không hoàn trả phí ở KTX nếu trả chỗ trước hạn, ngoại trừ trường hợp trả chỗ trong vòng 07 ngày kể từ ngày duyệt chỗ qua Hệ thống Quản lý KTX và có lý do chính đáng [1].\nPhí ở KTX được thu theo học kỳ chưa bao gồm tiền điện nước, riêng trường hợp nhận chỗ trước ngày bắt đầu học kỳ theo thông báo thì phải nộp thêm tiền chênh lệch [1].\n\nĐể áp dụng vào trường hợp của bạn:\n- Bạn đã có tài khoản Hệ thống Quản lý KTX của Trường Đại học Cần Thơ chưa?\n- Bạn dự định đăng ký nội trú tại khu ký túc xá nào của trường?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": false,
+      "provider": "gemini-agent",
+      "latency_seconds": 23.62,
+      "sources": [
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        },
+        {
+          "title": "Đăng ký ở Ký túc xá học kỳ 1 năm học 2026-2027",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html"
+        },
+        {
+          "title": "Cơ sở vật chất, loại phòng và mức phí KTX Đại học Cần Thơ",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/hoat/160-cs1.html"
+        }
+      ]
+    },
+    {
+      "question": "KTX CTU thu tiền điện nước như thế nào?",
+      "answer": "Theo thông báo của Ký túc xá Đại học Cần Thơ, tiền điện nước được thu theo từng phòng nộp hàng tháng căn cứ trên lượng thực tế sử dụng [1].\n\n- Phòng ký túc xá thực hiện nộp tiền điện nước định kỳ hàng tháng theo số liệu thực tế sử dụng [1].\n\nChưa đủ căn cứ từ nguồn để xác định đơn giá cụ thể cho từng kWh điện hoặc khối nước, phương thức thanh toán chi tiết và cách chia chi phí giữa các sinh viên trong cùng phòng [1].\n\nChưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng.\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": true,
+      "provider": "gemini-agent",
+      "latency_seconds": 39.51,
+      "sources": [
+        {
+          "title": "Đăng ký ở Ký túc xá học kỳ 1 năm học 2026-2027",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html"
+        },
+        {
+          "title": "Luật Điện lực 61/2024/QH15 — bản Word cung cấp",
+          "category": "electricity",
+          "url": "https://vanban.chinhphu.vn/?docid=212489&pageid=27160"
+        },
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        }
+      ]
+    },
+    {
+      "question": "Trả chỗ KTX CTU trước hạn có được hoàn phí không?",
+      "answer": "Trường Đại học Cần Thơ quy định không hoàn lại phí nội trú nếu sinh viên trả chỗ ở Ký túc xá trước thời hạn, trừ trường hợp trả chỗ trong vòng 07 ngày kể từ ngày duyệt chỗ ở qua Hệ thống Quản lý Ký túc xá và có lý do chính đáng [1] [2].\n\n- Kiểm tra thời điểm duyệt chỗ trên Hệ thống Quản lý Ký túc xá để xác định xem việc trả chỗ có nằm trong thời hạn 07 ngày kể từ ngày được duyệt hay không [1] [2].\n- Xác định rõ lý do chính đáng khi thực hiện trả chỗ trong thời hạn 07 ngày kể từ ngày duyệt chỗ để đáp ứng điều kiện xét hoàn phí [1] [2].\n\nSinh viên trả chỗ khi đã vượt quá 07 ngày kể từ ngày được duyệt chỗ ở qua hệ thống sẽ hoàn toàn không được hoàn trả phí Ký túc xá [1] [2] [3].\n\nĐể áp dụng vào trường hợp của bạn:\n- Bạn đã được duyệt chỗ ở trên Hệ thống Quản lý Ký túc xá cách đây bao nhiêu ngày?\n- Lý do bạn dự kiến trả chỗ ở Ký túc xá trước hạn là gì?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": false,
+      "provider": "gemini-agent",
+      "latency_seconds": 85.18,
+      "sources": [
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        },
+        {
+          "title": "Đăng ký ở Ký túc xá học kỳ 1 năm học 2026-2027",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/thong-bao/226-dang-ky-o-ky-tuc-xa-hoc-ky-1-nam-hoc-2026-2027.html"
+        },
+        {
+          "title": "Nội quy Ký túc xá Đại học Cần Thơ — bản trích công bố 09/2025",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/images/upload/Noiquy_KTX_trich_092025.pdf"
+        }
+      ]
+    },
+    {
+      "question": "KTX CTU có được nấu ăn không?",
+      "answer": "Ký túc xá Đại học Cần Thơ có cho phép nấu ăn nhưng phụ thuộc vào từng loại phòng và khu ký túc xá theo quy định [1] [3].\n\n- Quy định chung cấm nấu ăn trong phòng ở và khu vực ký túc xá, trừ các dãy nhà có thiết kế và lắp đặt trang thiết bị cho phép nấu ăn tại KTX Khu A [3].\n- KTX có bố trí loại phòng được nấu ăn cho từ 3, 4, 5, 6 hoặc 8 sinh viên mỗi phòng và tập trung chủ yếu ở KTX Khu A [1].\n- Đối với loại phòng được nấu ăn, sinh viên tự trang bị dụng cụ nấu ăn trong phòng ở [1].\n- Đối với loại phòng không được nấu ăn loại 4 hoặc 8 người ở Khu A và Khu B, sinh viên được sử dụng ấm đun siêu tốc [1].\n\nNội quy ký túc xá cấm để thức ăn và thực phẩm vào trong tủ đựng đồ cá nhân [3].\n\nĐể áp dụng vào trường hợp của bạn:\n- Bạn dự định đăng ký loại phòng mấy người và thuộc khu KTX nào của Đại học Cần Thơ?\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.",
+      "no_answer": false,
+      "provider": "gemini-agent",
+      "latency_seconds": 51.82,
+      "sources": [
+        {
+          "title": "Cơ sở vật chất, loại phòng và mức phí KTX Đại học Cần Thơ",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/hoat/160-cs1.html"
+        },
+        {
+          "title": "Hướng dẫn Tân sinh viên đăng ký ở Ký túc xá",
+          "category": "student_housing",
+          "url": "https://tansinhvien.ctu.edu.vn/sinh-hoat/huong-dan-tan-sinh-vien-dang-ky-o-ky-tuc-xa"
+        },
+        {
+          "title": "Nội quy Ký túc xá Đại học Cần Thơ — bản trích công bố 09/2025",
+          "category": "student_housing",
+          "url": "https://ssc.ctu.edu.vn/images/upload/Noiquy_KTX_trich_092025.pdf"
+        }
+      ]
+    }
+  ]
+}

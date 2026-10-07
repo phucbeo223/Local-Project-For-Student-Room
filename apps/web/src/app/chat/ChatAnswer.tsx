@@ -24,14 +24,33 @@ function publicSource(value?: string | null): string | null {
   } catch { return null; }
 }
 
+function answerDisplay(content: string) {
+  const answer: string[] = [];
+  for (const line of content.split("\n")) {
+    const text = line.trim();
+    const normalized = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/đ/g, "d");
+    // Hide only Word provenance notices; keep answer gaps, legal conditions
+    // and follow-up questions in their original position.
+    if (/^nguon\b/.test(normalized) && /\bword\b/.test(normalized)
+      && /chua.{0,40}(?:doi chieu|xac minh)/.test(normalized)) {
+      continue;
+    } else {
+      answer.push(line);
+    }
+  }
+  const cleaned = answer.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return cleaned;
+}
+
 export default function ChatAnswer({ content, sources = [] }: { content: string; sources?: Reference[] }) {
   const [expanded, setExpanded] = useState(false);
   const [showSources, setShowSources] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const sourcePanel = useRef<HTMLDetailsElement>(null);
-  const long = content.length > 600;
-  const cut = Math.max(content.lastIndexOf("\n", 420), content.lastIndexOf(" ", 420));
-  const visible = long && !expanded ? `${content.slice(0, cut > 0 ? cut : 420)}…` : content;
+  const answer = answerDisplay(content);
+  const long = answer.length > 600;
+  const cut = Math.max(answer.lastIndexOf("\n", 420), answer.lastIndexOf(" ", 420));
+  const visible = long && !expanded ? `${answer.slice(0, cut > 0 ? cut : 420)}…` : answer;
 
   function inline(text: string): ReactNode[] {
     return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[\d+\])/g).map((part, index): ReactNode => {

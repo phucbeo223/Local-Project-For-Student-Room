@@ -76,13 +76,20 @@ class GeminiEvidenceSelector:
             try:
                 raw, usage = self.client.request_json(prompt, schema, max_output_tokens=512)
                 selection = EvidenceSelection.model_validate_json(raw)
+                draft = source_draft(question, contexts, candidates, selection, self.model)
             except (ValidationError, ValueError, json.JSONDecodeError) as exc:
+                attempts.append(dict(attempt=attempt + 1, status='schema_retry' if attempt == 0 else 'invalid',
+                                     error_type=type(exc).__name__))
                 if attempt == 0:
-                    prompt += '\nLỗi cấu trúc: Vui lòng trả về đúng JSON theo OUTPUT_SCHEMA với selected_ids là danh sách integer (tối đa 4 ID) và insufficient là boolean.'
+                    prompt += '\nLỗi cấu trúc: trả đúng OUTPUT_SCHEMA, selected_ids là tối đa 4 ID integer không trùng và có trong EVIDENCE, insufficient là boolean; nếu chọn rỗng phải đặt insufficient=true.'
                     continue
+                exc.selection_attempts = attempts
+                raise
+            except Exception as exc:
+                attempts.append(dict(attempt=attempt + 1, status='unavailable', error_type=type(exc).__name__))
+                exc.selection_attempts = attempts
                 raise
 
-            draft = source_draft(question, contexts, candidates, selection, self.model)
             attempts.append(dict(attempt=attempt + 1, selected_ids=selection.selected_ids, usage=usage))
             missing = missing_selection_facets(question, candidates, raw)
             if not missing or attempt == max_attempts - 1:

@@ -855,28 +855,9 @@ def generate_full_report(
     gemini_reqs_a = sum(sum(1 for c in r.get('provider_calls', []) if c.get('provider') == 'gemini') for r in results_a)
     gemini_reqs_b = sum(sum(1 for c in r.get('provider_calls', []) if c.get('provider') == 'gemini') for r in results_b)
 
-    # Token usage extractor
-    def _extract_usage(results_list):
-        has_real_usage = False
-        pt, ct, tt = 0, 0, 0
-        for r in results_list:
-            for call in r.get('provider_calls', []):
-                u = call.get('usage')
-                if isinstance(u, dict) and any(u.get(k, 0) > 0 for k in ('prompt_tokens', 'completion_tokens', 'total_tokens')):
-                    has_real_usage = True
-                    pt += u.get('prompt_tokens', 0)
-                    ct += u.get('completion_tokens', 0)
-                    tt += u.get('total_tokens', 0)
-        return {
-            'usage_reported': has_real_usage,
-            'prompt_tokens': pt if has_real_usage else None,
-            'completion_tokens': ct if has_real_usage else None,
-            'total_tokens': tt if has_real_usage else None,
-            'note': 'Token count from proxy headers' if has_real_usage else 'Proxy does not return token usage headers'
-        }
-
-    usage_a = _extract_usage(results_a)
-    usage_b = _extract_usage(results_b)
+    from telemetry_summary import summarize_calls
+    usage_a = summarize_calls(results_a)
+    usage_b = summarize_calls(results_b)
 
     # Counts
     repairs_a = sum(1 for r in results_a if r['repair_performed'])
@@ -895,8 +876,8 @@ def generate_full_report(
         return 'unscored'
 
     # V15 agreement counts
-    v15_dist_a = Counter(_extract_agreement(c) for c in v15_cases_a.values()) if v15_cases_a else Counter()
-    v15_dist_b = Counter(_extract_agreement(c) for c in v15_cases_b.values()) if v15_cases_b else Counter()
+    v15_dist_a = Counter(_extract_agreement(v15_cases_a.get(r['id'])) for r in results_a)
+    v15_dist_b = Counter(_extract_agreement(v15_cases_b.get(r['id'])) for r in results_b)
 
     # Label movements: separate unscored so it is NEVER ranked below low
     movements = {'upgraded': [], 'downgraded': [], 'same': [], 'unscored_or_incomparable': []}

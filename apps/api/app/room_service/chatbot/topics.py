@@ -11,7 +11,7 @@ TOPICS = {
     "water_cantho": ("tien nuoc", "gia nuoc", "dong ho nuoc", "cap nuoc", "chi phi nuoc"),
     "residence": ("cu tru", "tam tru", "luu tru"),
     "fire_safety": ("pccc", "phong chay", "chua chay", "chay no", "thoat nan"),
-    "student_housing": ("ky tuc xa", "ktx", "nha o sinh vien"),
+    "student_housing": ("ky tuc xa", "ki tuc xa", "ktx", "nha o sinh vien"),
     "real_estate_brokerage": ("moi gioi", "nguoi gioi thieu"),
     "ecommerce_platform": ("nen tang", "truc tuyen", "lien ket la"),
     "privacy_data": ("ca nhan", "can cuoc", "so dien thoai", "anh giay to"),
@@ -36,6 +36,10 @@ def user_listing_check_question(query: str) -> bool:
 def question_categories(query: str) -> tuple[str, ...]:
     text = normalize_text(query)
     found = [key for key, phrases in TOPICS.items() if any(has_phrase(text, p) for p in phrases)]
+    if 'student_housing' in found:
+        # Explicit dormitory questions need CTU operational information first,
+        # including electricity/water fees and cooking rules.
+        found = ['student_housing', *(key for key in found if key != 'student_housing')]
     if user_listing_check_question(query):
         # Include published rental/fraud checking advice; do not route a human
         # checklist exclusively to provisions imposing duties on the operator.

@@ -51,13 +51,18 @@ type Turn = {
   listings?: Listing[];
   sources?: Source[];
   degraded?: boolean;
+  contentCompleteness?: string;
+  provenanceStatus?: string;
+  answerCoverageStatus?: string;
   generationProvider?: string;
-  generationModel?: string | null;
   eventId?: number | null;
   feedback?: -1 | 1;
 };
 
 type AskResponse = {
+  content_completeness?: string;
+  provenance_status?: string;
+  answer_coverage_status?: string;
   conversation_state?: ConversationState | null;
   answer: string;
   listings: Listing[];
@@ -84,13 +89,13 @@ const WELCOME: Turn = {
   key: "welcome",
   role: "assistant",
   content:
-    "Chào bạn! Mình là Trợ lý Trọ CTU. Mình có thể tìm phòng hoặc tra cứu văn bản pháp luật về hợp đồng thuê, điện nước, cư trú và PCCC.",
+    "Chào bạn! Mình là Trợ lý Trọ CTU. Mình có thể tìm phòng, hỏi đáp về ký túc xá CTU hoặc tra cứu quy định về hợp đồng thuê, điện nước, cư trú và PCCC.",
 };
 
 const QUICK_PROMPTS = [
   "Phòng dưới 2 triệu gần CTU",
   "Ở Ninh Kiều, có máy lạnh và wifi",
-  "Phòng nữ, cách trường dưới 2 km",
+  "Tân sinh viên đăng ký KTX CTU như thế nào?",
   "Chủ trọ được thu tiền điện như thế nào theo quy định?",
 ];
 
@@ -128,16 +133,6 @@ function money(value: number | null) {
 function distance(value: number | null) {
   if (value == null) return null;
   return value >= 1000 ? `${(value / 1000).toFixed(1)} km đến CTU` : `${Math.round(value)} m đến CTU`;
-}
-
-function providerLabel(provider?: string, model?: string | null) {
-  if (!provider) return null;
-  if (provider === "qwen-local") return `Qwen local${model ? ` · ${model}` : ""}`;
-  if (provider === "gemini") return `Gemini${model ? ` · ${model}` : ""}`;
-  if (provider === "gemini-agent") return "Gemini + Qwen";
-  if (provider === "template") return "Mẫu trả lời an toàn";
-  if (provider === "rule") return "Bộ phân loại yêu cầu";
-  return provider;
 }
 
 function Icon({ name }: { name: "chat" | "expand" | "shrink" | "close" | "send" | "reset" }) {
@@ -220,8 +215,10 @@ export default function ChatClient() {
           listings: result.listings,
           sources: result.sources,
           degraded: result.degraded,
+          contentCompleteness: result.content_completeness,
+          provenanceStatus: result.provenance_status,
+          answerCoverageStatus: result.answer_coverage_status,
           generationProvider: result.generation_provider,
-          generationModel: result.generation_model,
           eventId: result.event_id,
         },
       ]);
@@ -309,7 +306,7 @@ export default function ChatClient() {
               <h2 className="truncate font-bold">Trợ lý Trọ CTU</h2>
               <p className="flex items-center gap-1.5 text-xs text-blue-100">
                 <span className="h-2 w-2 rounded-full bg-emerald-300" />
-                Tìm phòng · Hỏi đáp thuê trọ
+                Tìm phòng · Ký túc xá · Hỏi đáp thuê trọ
               </p>
             </div>
             <button type="button" onClick={resetConversation} title="Cuộc trò chuyện mới" className="rounded-xl p-2 text-blue-100 transition hover:bg-white/15 hover:text-white">
@@ -337,16 +334,15 @@ export default function ChatClient() {
                 >
                   {turn.role === "assistant" ? <ChatAnswer content={turn.content} sources={turn.sources} /> : turn.content}
                 </div>
-                {turn.degraded && (
+                {(turn.degraded || turn.contentCompleteness === 'partial' || turn.provenanceStatus === 'limited') && (
                   <p className="mt-1.5 px-2 text-[11px] text-amber-700">
                     {turn.generationProvider === "template"
                       ? "Chưa có câu trả lời AI đáng tin cậy; đang hiển thị thông tin theo nguồn."
-                      : "Một phần xử lý đang dùng phương án dự phòng. Hãy đối chiếu nguồn."}
-                  </p>
-                )}
-                {turn.role === "assistant" && turn.generationProvider && (
-                  <p className="mt-1.5 px-2 text-[10px] font-medium text-slate-400">
-                    AI: {providerLabel(turn.generationProvider, turn.generationModel)}
+                      : turn.contentCompleteness === 'partial'
+                      ? "Câu trả lời còn thiếu ý hoặc điều kiện áp dụng; hãy đọc phần giới hạn."
+                      : turn.contentCompleteness === 'complete' && turn.provenanceStatus === 'limited'
+                      ? "Đã trả lời các ý được kiểm chứng; nguồn trích tuyển vẫn cần đối chiếu bản chính thức."
+                      : "Câu trả lời còn giới hạn; hãy đọc lưu ý và đối chiếu nguồn."}
                   </p>
                 )}
                 {turn.role === "assistant" && turn.eventId && (

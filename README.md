@@ -2,7 +2,9 @@
 
 Hệ thống hỗ trợ sinh viên Đại học Cần Thơ tìm nhà trọ.
 
-Nhánh hiện tại dùng Datahouse làm kho phòng chính và Graph RAG với nguồn pháp lý từ Word. Chỉ hỗ trợ tìm trọ và pháp lý thuê trọ cơ bản; không soạn hợp đồng hoặc điền tờ khai. Dùng hướng dẫn `WORD_ONLY_TENANT_SUPPORT_20261005.md` cho phiên bản đang chạy.
+- [Bổ sung embedding KTX CTU và cấu hình chatbot local ngày 07/10/2026](docs/CTU_KTX_EMBEDDING_20261007.md)
+
+Nhánh hiện tại dùng Datahouse làm kho phòng chính, Graph RAG với nguồn pháp lý từ Word và nguồn thông tin KTX công bố bởi CTU. Hỗ trợ tìm trọ, hỏi đáp KTX và pháp lý thuê trọ cơ bản; không soạn hợp đồng hoặc điền tờ khai. Dùng hướng dẫn `CTU_KTX_EMBEDDING_20261007.md` cho cấu hình local có KTX; `WORD_ONLY_TENANT_SUPPORT_20261005.md` mô tả phiên bản trước.
 
 - [Hướng dẫn triển khai FR1 / FR2 / FR4 / FR6 / FR7 và bàn giao FR3 / FR8](docs/FR_DELIVERY_GUIDE.md)
 - [Đặc tả yêu cầu](docs/planning/SRS.md)

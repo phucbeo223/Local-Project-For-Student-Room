@@ -1,4 +1,4 @@
-"""Local model selects evidence IDs; only the application copies legal source text."""
+"""Gemini selects evidence IDs; the application copies whole legal source units."""
 from __future__ import annotations
 import json,re
 from .providers import GenerationResult
@@ -11,6 +11,13 @@ from .evidence_units import requested_contract_facets, contract_facets, FACET_LA
 SELECTION_SCHEMA={'type':'object','properties':{
     'selected_ids':{'type':'array','minItems':0,'maxItems':4,'uniqueItems':True,'items':{'type':'integer'}},
     'insufficient':{'type':'boolean'}},'required':['selected_ids','insufficient'],'additionalProperties':False}
+
+
+def coverage_notice(question):
+    q = normalize_text(question)
+    if 'lien ket' in q and any(t in q for t in ('kiem tra', 'dau hieu')):
+        return 'Các dấu hiệu này giúp nhận diện rủi ro; cần kiểm tra liên kết và giao dịch cụ thể để kết luận.'
+    return 'Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng.'
 
 
 def render_source_fallback(parts, limitations, *, insufficient=False):
@@ -41,7 +48,7 @@ def render_source_fallback(parts, limitations, *, insufficient=False):
     if omitted:
         lines.append(gap)
     elif insufficient:
-        lines.append('Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng; cần đối chiếu phần còn thiếu.')
+        lines.append(coverage_notice(question))
     lines.extend(suffix)
     return '\n\n'.join(lines)
 
@@ -173,6 +180,35 @@ def render_selection(question,contexts,candidates,raw,provider,model):
             present.update(practical_facets(question, candidate))
     parts=[indexed[i] for i in selected]
     original={int(c['rank']):c for c in contexts}
+    # Named law dependencies retain their own document/rank citation. The
+    # model's four-ID choice cannot discard a clause explicitly incorporated
+    # by the chosen decree. Add only exact retrieved units, bounded at eight.
+    dependency_ranks = []
+    for part in list(parts):
+        for clause, article in re.findall(r'(?:khoản\s+(\d+)\s+)?Điều\s+(\d+)\s+(?:của\s+)?Luật\s+Thương mại điện tử', part['text'], re.I):
+            for candidate in candidates:
+                row = original[candidate['rank']]
+                metadata = row.get('provision_metadata') or {}
+                if (candidate.get('source_id') == 'supplement-s15-word'
+                        and str(metadata.get('article')) == article
+                        and (not clause or str(metadata.get('clause')) == clause)
+                        and candidate['rank'] not in {p['rank'] for p in parts}
+                        and len(parts) < 8):
+                    parts.append(candidate)
+                    dependency_ranks.append(candidate['rank'])
+    from .answer_coverage import source_facets
+    supported = set().union(*(source_facets(question, r).keys() for r in contexts))
+    expressed = set().union(*(source_facets(question, original[p['rank']]).keys() for p in parts))
+    facet_ranks = []
+    for facet in sorted(supported - expressed):
+        if facet in expressed or len(parts) >= 8:
+            continue
+        candidate = next((c for c in candidates if c['rank'] not in {p['rank'] for p in parts}
+                          and facet in source_facets(question, original[c['rank']])), None)
+        if candidate:
+            parts.append(candidate)
+            facet_ranks.append(candidate['rank'])
+            expressed.update(source_facets(question, original[candidate['rank']]))
     if any(p['text'] not in original[p['rank']]['content'] for p in parts):
         raise ValueError('Selected text is not verbatim evidence')
     required=set(required_evidence_categories(question))
@@ -220,14 +256,27 @@ def render_selection(question,contexts,candidates,raw,provider,model):
     if source_notices:
         lines.extend(dict.fromkeys(source_notices))
     limitations = tuple(dict.fromkeys([
-        *(['Chưa đủ căn cứ từ các đoạn này để kết luận toàn bộ yêu cầu hoặc tình huống riêng.'] if insufficient else []),
+        *([coverage_notice(question)] if insufficient else []),
         *issues,
         *source_notices,
     ]))
     ranks = {p['rank'] for p in parts}
+    trace = []
+    if facet_ranks:
+        trace.append(dict(agent='question_facet_selection_completion', provider='rules',
+                          status='supplemented', added_ranks=facet_ranks, max_sources=8))
+    if dependency_ranks:
+        trace.append({'agent':'evidence_dependency_completion','provider':'rules',
+                      'status':'supplemented','added_ranks':dependency_ranks,
+                      'scope':'exact retrieved named-law clauses, separately cited; maximum eight units'})
+    if added:
+        trace.append({'agent':'evidence_coverage_completion','provider':'rules',
+                      'status':'supplemented','added_ranks':added,
+                      'scope':'whole retrieved source units only; maximum four selected IDs'})
     return GenerationResult('\n\n'.join(lines),provider,model,literal_source_answer=True,
         selected_evidence=tuple(dict(row) for row in contexts if row['rank'] in ranks),
         evidence_limitations=limitations,
-        agent_trace=({'agent':'evidence_coverage_completion','provider':'rules',
-                      'status':'supplemented','added_ranks':added,
-                      'scope':'whole retrieved source units only; maximum four selected IDs'},) if added else ())
+        agent_trace=tuple(trace), content_completeness='partial' if insufficient else 'complete',
+        provenance_status='limited' if source_notices else 'not_evaluated',
+        application_status='unresolved' if issues else 'conditional',
+        completion_reasons=tuple(issues))

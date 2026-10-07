@@ -102,10 +102,13 @@ class LegalRetrievalAgent:
         started = time.perf_counter()
         expanded = question+'\n'+'\n'.join(plan.search_queries) if plan.search_queries else question
         embedding = self.embedder.embed_query(expanded)
-        rows = self.repo.retrieve_legal(question, embedding.vector, limit=self.limit,
+        from .providers import normalize_text
+        q = normalize_text(question)
+        limit = max(self.limit, 8) if 'nen tang' in q and 'trach nhiem' in q else self.limit
+        rows = self.repo.retrieve_legal(question, embedding.vector, limit=limit,
                                        search_queries=plan.search_queries, categories_override=plan.categories)
         if not rows:
-            rows = self.repo.retrieve_legal(question, None, limit=self.limit,
+            rows = self.repo.retrieve_legal(question, None, limit=limit,
                                            search_queries=plan.search_queries, categories_override=plan.categories)
         return rows, embedding, {'agent': 'legal_retrieval', 'provider': 'hybrid',
             'status': 'completed' if rows else 'empty', 'corpus_schema': self.repo.legal_schema,
@@ -135,13 +138,20 @@ class QwenAnswerAgent:
                 return AgentEvidenceIssues(issues, {'agent':'source_verification','provider':'gemini',
                     'model':self.verifier.model,'status':'rejected' if issues else 'accepted',
                     'claim_verdicts':getattr(issues, 'verdicts', []),
+                    'verification_attempts':getattr(issues, 'attempts', []),
                     'duration_ms':round((time.perf_counter()-started)*1000)})
             except Exception as exc:
                 status=re.search(r'HTTP (\d{3})',str(exc))
                 failure={'requested_provider':'gemini','requested_model':self.verifier.model,
-                         'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None}
+                         'error_type':type(exc).__name__,'http_status':int(status[1]) if status else None,
+                         'verification_attempts':getattr(exc, 'verification_attempts', [])}
         kwargs.pop('claim_records', None)
-        checked=self.generator.check_legal_evidence(*args, **kwargs)
+        try:
+            checked=self.generator.check_legal_evidence(*args, **kwargs)
+        except Exception as exc:
+            from .providers import EvidenceIssues
+            checked = EvidenceIssues(['Chưa có mô hình kiểm tra kết luận theo nguồn.'], unavailable=True)
+            failure['fallback_error_type'] = type(exc).__name__
         fallback_provider = 'qwen_and_rules' if any(getattr(p, 'provider_name', '') == 'qwen-local'
                                                     for p in self.providers) else 'rules'
         return AgentEvidenceIssues(checked, {'agent':'source_verification','provider':fallback_provider,

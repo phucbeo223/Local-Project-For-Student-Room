@@ -1,7 +1,7 @@
 """Checkpointed Graph RAG regression: private housing contexts stay local.
 
 Legal analysis/synthesis uses the existing public legal workflow. Housing is
-processed solely by Ollama or grounded templates. No cloud scoring is performed.
+processed by grounded templates. No cloud housing scoring is performed.
 """
 import argparse
 from datetime import datetime, timezone
@@ -25,8 +25,8 @@ def main():
     args = parser.parse_args()
     if args.baseline:
         settings.chatbot_graph_enabled = False
-    if not settings.chatbot_listing_schema.startswith('housing_graph_') or settings.chatbot_llm_provider != 'qwen':
-        raise ValueError('Use isolated graph housing corpus with local Qwen housing provider')
+    if not settings.chatbot_listing_schema.startswith('housing_graph_') or settings.chatbot_llm_provider != 'gemini':
+        raise ValueError('Use isolated graph corpus and Gemini-only legal workflow')
     all_cases = bank.load_questions(args.questions)
     selected = [case for case in all_cases if case['id'] in args.ids]
     if len(selected) != len(set(args.ids)):
@@ -64,7 +64,7 @@ def main():
     report = json.loads(args.output.read_text(encoding='utf-8')) if args.output.exists() else dict(
         identity, started_at_utc=datetime.now(timezone.utc).isoformat(), cases=selected,
         method='real service regression; E5 + bounded typed graph + grounded generation; no invented accuracy score',
-        housing_payload_policy='local Qwen only; full report remains local; no cloud housing judge',
+        housing_payload_policy='grounded templates only; full report remains local; no cloud housing judge',
         follow_up_protocol='Q15 after Q14; Q16 after Q14,Q15; Q17 and Q18 independently after Q14; full conversation state passed',
         total_original_bank=len(all_cases))
     if any(report.get(key) != value for key, value in identity.items()):

@@ -113,6 +113,12 @@ class ChatFeedbackOut(BaseModel):
 
 
 class ChatAskResponse(BaseModel):
+    content_completeness: Literal['complete', 'partial', 'insufficient', 'not_evaluated'] = 'not_evaluated'
+    source_coverage_status: Literal['covered', 'partial', 'not_evaluated'] = 'not_evaluated'
+    answer_coverage_status: Literal['covered', 'partial', 'not_evaluated'] = 'not_evaluated'
+    provenance_status: Literal['limited', 'verified', 'not_evaluated'] = 'not_evaluated'
+    application_status: Literal['conditional', 'unresolved', 'not_evaluated'] = 'not_evaluated'
+    completion_reasons: list[str] = Field(default_factory=list)
     agent_trace: list[dict] = Field(default_factory=list)
     corpus_schema: str | None = None
     partial_answer: bool = False
@@ -123,7 +129,7 @@ class ChatAskResponse(BaseModel):
     intent: str
     confidence: float
     listings: list[ChatListing] = Field(default_factory=list, max_length=5)
-    sources: list[ChatSource] = Field(default_factory=list, max_length=5)
+    sources: list[ChatSource] = Field(default_factory=list, max_length=8)
     no_answer: bool = False
     degraded: bool = False
     degraded_reasons: list[str] = Field(default_factory=list)
