@@ -1,4 +1,4 @@
-"""Run the 58-question CTU corpus through the real retrieval/generation service and Ragas.
+"""Run the CTU question bank through the real retrieval/generation service and Ragas.
 
 This runner is intentionally separate from the public API: evaluation contexts are
 collected internally, and chatbot event recording is disabled. It never invents a
@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import hashlib
+import importlib.metadata
 import json
 import math
 import os
@@ -25,7 +26,8 @@ sys.path.insert(0, str(ROOT / "apps/api"))
 
 QUESTION_RE = re.compile(r"^(\d+)\.\s+(.+)$")
 CATEGORY_RE = re.compile(r"`([a-z_]+)`")
-METRIC_NAMES = ("faithfulness", "answer_relevancy", "context_utilization")
+METRIC_NAMES = ("faithfulness", "answer_relevancy", "context_utilization", "context_recall", "context_precision")
+ID_CONTEXT_METRICS = {"context_recall", "context_precision"}
 from quota_checkpoint import QuotaCoordinator, QuotaPause, bounded_scoring, checkpoint_pause
 QUOTA = QuotaCoordinator()
 
@@ -48,6 +50,7 @@ def load_questions(path: Path) -> list[dict]:
 
 
 def save_report(path: Path, report: dict) -> None:
+    report["updated_at_utc"] = datetime.now(timezone.utc).isoformat()
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -79,8 +82,8 @@ def summarize(report: dict) -> None:
         "latency_p50_ms": round(statistics.median(latencies), 1) if latencies else None,
         "latency_p95_ms": round(sorted(latencies)[math.ceil(.95 * len(latencies)) - 1], 1) if latencies else None,
         "ragas": metrics,
-        "context_recall": "N/A: no independent reference answers",
         "answer_correctness": "N/A: no independent reference answers",
+        "context_metric_granularity": "document-level source IDs; see ground_truth metadata",
     }
     by_category = {}
     for category in dict.fromkeys(case["category"] for case in cases):
@@ -90,8 +93,111 @@ def summarize(report: dict) -> None:
             "completed": len(group),
             "with_contexts": sum(bool(case.get("contexts")) for case in group),
             "no_answer": sum(bool(case.get("no_answer")) for case in group),
+            "ragas": {
+                name: {
+                    "mean": round(statistics.mean(values), 4) if values else None,
+                    "scored": len(values),
+                }
+                for name in METRIC_NAMES
+                for values in [[
+                    float(case["ragas"][name])
+                    for case in group
+                    if isinstance(case.get("ragas", {}).get(name), (int, float))
+                    and math.isfinite(case["ragas"][name])
+                ]]
+            },
         }
     report["by_category"] = by_category
+
+
+def context_id(source: dict) -> str | None:
+    """Stable document/listing key used by the source-ID ground truth."""
+    source_path = source.get("source_path")
+    if source_path:
+        return str(source_path).replace("\\", "/").rsplit("/", 1)[-1]
+    source_url = source.get("source_url")
+    if source_url:
+        return str(source_url).rstrip("/")
+    title = source.get("title")
+    if title and source.get("source") == "ctu_ktx_catalog":
+        return str(title)
+    return None
+
+
+def apply_gold_context_ids(report: dict, gold_path: Path, question_bank_sha256: str) -> None:
+    gold = json.loads(gold_path.read_text(encoding="utf-8"))
+    if gold.get("schema") != "ragas-gold-context-ids-v1":
+        raise ValueError("Unsupported ground-truth schema")
+    entries = gold.get("cases", [])
+    by_id = {int(entry["id"]): entry for entry in entries}
+    if len(by_id) != len(entries):
+        raise ValueError("Ground-truth question IDs must be unique")
+    expected = set(gold.get("question_ids", []))
+    if expected != set(by_id):
+        raise ValueError("Ground-truth question_ids do not match cases")
+    report_ids = {int(case["id"]) for case in report["cases"]}
+    missing = report_ids - set(by_id)
+    if missing:
+        raise ValueError(f"Ground truth missing question IDs: {sorted(missing)}")
+    if report.get("ground_truth", {}).get("sha256") not in (None, hashlib.sha256(gold_path.read_bytes()).hexdigest()):
+        raise ValueError("Ground truth changed; choose a new report")
+    for case in report["cases"]:
+        refs = by_id[int(case["id"])].get("reference_context_ids", [])
+        if not refs or len(refs) != len(set(refs)):
+            raise ValueError(f"Ground-truth IDs must be nonempty and unique for question {case['id']}")
+        case["reference_context_ids"] = list(refs)
+        case["retrieved_context_ids"] = list(dict.fromkeys(
+            key for source in case.get("sources", []) if (key := context_id(source)) is not None
+        ))
+    report["ground_truth"] = {
+        "file": gold_path.name,
+        "sha256": hashlib.sha256(gold_path.read_bytes()).hexdigest(),
+        "schema": gold["schema"],
+        "method": gold.get("annotation_method"),
+        "id_policy": gold.get("id_policy"),
+        "review_status": "single-review source labels; independent review recommended",
+        "metrics": {
+            "context_recall": "Ragas IDBasedContextRecall over retrieved and reference source IDs",
+            "context_precision": "Ragas IDBasedContextPrecision over retrieved and reference source IDs",
+        },
+        "question_bank_sha256": question_bank_sha256,
+    }
+
+
+def score_kwargs(case: dict, name: str, *, user_input: str | None = None) -> dict:
+    if name in ID_CONTEXT_METRICS:
+        return {
+            "retrieved_context_ids": case.get("retrieved_context_ids", []),
+            "reference_context_ids": case.get("reference_context_ids", []),
+        }
+    kwargs = {"user_input": user_input or case["question"], "response": case["answer"]}
+    if name != "answer_relevancy":
+        metadata = case.get("context_metadata", [])
+        retrieved_contexts = []
+        for index, (source, context) in enumerate(zip(case["sources"], case["contexts"])):
+            item = metadata[index] if index < len(metadata) else {}
+            retrieved_contexts.append(json.dumps({
+                "rank": source.get("rank"), "document": source.get("title"),
+                "category": source.get("category"), "heading": source.get("heading"),
+                "page_from": source.get("page_from"), "page_to": source.get("page_to"),
+                "source_id": item.get("source_id"),
+                "source_content_kind": item.get("source_content_kind"),
+                "source_scope_warning": item.get("source_scope_warning"),
+                "context_complete": item.get("context_complete", True),
+                "unresolved_references": item.get("unresolved_references", []),
+                "trigger_verified": item.get("trigger_verified", False),
+                "content": context}, ensure_ascii=False))
+        kwargs["retrieved_contexts"] = retrieved_contexts
+    return kwargs
+
+
+def score_metric(scorer, name: str, kwargs: dict):
+    if name in ID_CONTEXT_METRICS:
+        from ragas import SingleTurnSample
+        result = asyncio.run(scorer.single_turn_ascore(SingleTurnSample(**kwargs)))
+    else:
+        result = scorer.score(**kwargs)
+    return float(getattr(result, "value", result))
 
 
 def pipeline_sha256(pipeline: Path) -> str:
@@ -101,7 +207,8 @@ def pipeline_sha256(pipeline: Path) -> str:
     return hashlib.sha256(b''.join(p.relative_to(app_root).as_posix().encode()+p.read_bytes() for p in files)).hexdigest()
 
 
-def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None = None) -> None:
+def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None = None,
+            require_embeddings: bool = False) -> None:
     from sqlalchemy import create_engine
     from app.config import settings
     from app.room_service.chatbot.router import get_service, init_chatbot
@@ -110,14 +217,28 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
     engine = create_engine(settings.database_url)
     init_chatbot(engine)
     service = get_service()
+    if require_embeddings:
+        probe = service.embedder.embed_query("kiểm tra điều khoản hợp đồng thuê trọ")
+        if probe.vector is None:
+            engine.dispose()
+            raise RuntimeError(f"Vector retrieval required: {probe.degraded_reason}")
+        report["embedding_probe"] = {"model": probe.model, "dimensions": len(probe.vector)}
     from sqlalchemy import text
     import app.room_service.chatbot as chatbot_package
     identity = {"pipeline_sha256": pipeline_sha256(Path(chatbot_package.__file__).parent),
                 "legal_schema": settings.chatbot_legal_schema, "listing_schema": settings.chatbot_listing_schema,
-                "graph_enabled": settings.chatbot_graph_enabled, "agents_enabled": settings.chatbot_agents_enabled,
+                "graph_enabled": settings.chatbot_graph_enabled, "graph_schema": settings.chatbot_graph_schema,
+                "agents_enabled": settings.chatbot_agents_enabled,
                 "answer_provider": settings.chatbot_llm_provider, "answer_model": settings.gemini_model,
                 "fallback_model": settings.gemini_fallback_model, "endpoint": settings.gemini_base_url,
                 "embedding_model": settings.chatbot_embedding_model}
+    runtime_packages = {}
+    for package in ("torch", "sentence-transformers", "transformers", "huggingface-hub", "ragas"):
+        try:
+            runtime_packages[package] = importlib.metadata.version(package)
+        except importlib.metadata.PackageNotFoundError:
+            runtime_packages[package] = None
+    identity["runtime_packages"] = runtime_packages
     with engine.connect() as conn:
         identity["legal_revision"] = conn.execute(text(
             f"SELECT md5(string_agg(id::text || content_sha256 || status || admin_enabled::text, ',' ORDER BY id)) "
@@ -264,7 +385,14 @@ def collect(report: dict, output: Path, limit: int | None, ids: list[int] | None
                     "corpus_schema": data.get("corpus_schema"),
                     "citation_accuracy": data["citation_accuracy"],
                     "contexts": [item["content"] for item in data["evaluation_contexts"]],
+                    "context_metadata": [{key: item.get(key) for key in (
+                        "kind", "rank", "source_id", "source_content_kind", "source_scope_warning",
+                        "context_complete", "unresolved_references", "trigger_verified")}
+                        for item in data["evaluation_contexts"]],
                     "sources": sources,
+                    "retrieved_context_ids": list(dict.fromkeys(
+                        key for source in sources if (key := context_id(source)) is not None
+                    )),
                     "listing_ids": [item["id"] for item in data["listings"]],
                     "listings": data['listings'],
                     "applied_filters": data.get('applied_filters'),
@@ -294,6 +422,7 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
     from ragas.embeddings.base import BaseRagasEmbedding
     from ragas.llms.base import InstructorBaseRagasLLM
     from ragas.metrics.collections import AnswerRelevancy, ContextUtilization, Faithfulness
+    from ragas.metrics import IDBasedContextPrecision, IDBasedContextRecall
     from app.room_service.chatbot.providers import E5EmbeddingProvider
 
     class E5JudgeEmbeddings(BaseRagasEmbedding):
@@ -357,6 +486,8 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
         "faithfulness": Faithfulness(llm=judge),
         "answer_relevancy": AnswerRelevancy(llm=judge, embeddings=embeddings, strictness=1),
         "context_utilization": ContextUtilization(llm=judge),
+        "context_recall": IDBasedContextRecall(),
+        "context_precision": IDBasedContextPrecision(),
     }
     previous_judge = report.get("judge", {})
     metric_models = previous_judge.get("models_by_metric", {
@@ -370,7 +501,7 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
         if existing and not reset_selected_metrics and (
                 metric_models.get(name) != judge_model or previous_provider != judge_provider):
             raise ValueError("Existing scores use a different judge; clone the report or reset selected metrics explicitly")
-    metric_models.update({name: judge_model for name in selected_metrics})
+    metric_models.update({name: judge_model for name in selected_metrics if name not in ID_CONTEXT_METRICS})
     report["judge"] = {"library": "ragas", "version": ragas.__version__, "model": judge_model,
                        "provider": judge_provider,
                        "score_workers": score_workers,
@@ -380,7 +511,9 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
                        "max_output_tokens": judge_max_output_tokens, "temperature": 0,
                        "judge_request_timeout_seconds": 180 if judge_provider == "gemini" else 300,
                        "context_char_limit": None, "score_abstentions": score_abstentions,
-                       "context_policy": "all generation evidence; native model may still truncate its token window"}
+                       "context_policy": "all generation evidence; native model may still truncate its token window",
+                        "missing_context_policy": "answer_relevancy can score without source context; IDBasedContextRecall scores empty retrieval as zero recall; IDBasedContextPrecision is N/A when no source was retrieved",
+                        "context_metric_granularity": "document-level, exact ID match; not claim-level source recall"}
     if reset_selected_metrics:
         for case in report["cases"]:
             if ids is not None and case["id"] not in ids:
@@ -401,20 +534,15 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
                     "faithfulness": Faithfulness(llm=local.judge),
                     "answer_relevancy": AnswerRelevancy(llm=local.judge, embeddings=embeddings, strictness=1),
                     "context_utilization": ContextUtilization(llm=local.judge),
+                    "context_recall": IDBasedContextRecall(),
+                    "context_precision": IDBasedContextPrecision(),
                 }
             usage_start = len(getattr(local.judge, "usage", []))
             judgement_start = len(getattr(local.judge, "judgements", []))
-            kwargs = {"user_input": case["question"], "response": case["answer"]}
-            if name != "answer_relevancy":
-                kwargs["retrieved_contexts"] = [json.dumps({
-                    "rank": source.get("rank"), "document": source.get("title"),
-                    "category": source.get("category"), "heading": source.get("heading"),
-                    "page_from": source.get("page_from"), "page_to": source.get("page_to"),
-                    "content": context}, ensure_ascii=False)
-                    for source, context in zip(case["sources"], case["contexts"])]
+            kwargs = score_kwargs(case, name)
             error, value = None, None
             try:
-                raw_value = float(local.scorers[name].score(**kwargs).value)
+                raw_value = score_metric(local.scorers[name], name, kwargs)
                 value = round(raw_value, 4) if math.isfinite(raw_value) else None
             except Exception as exc:
                 error = f"{type(exc).__name__}: {exc}"[:500]
@@ -427,11 +555,23 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
         for case in report["cases"][:limit]:
                 if ids is not None and case["id"] not in ids:
                     continue
-                if "answer" not in case or (case.get("no_answer") and not score_abstentions) or not case.get("contexts"):
+                if "answer" not in case or (case.get("no_answer") and not score_abstentions):
                     continue
                 case.setdefault("ragas", {})
                 case.setdefault("ragas_errors", {})
                 for name in selected_metrics:
+                    if name in ID_CONTEXT_METRICS and not case.get("reference_context_ids"):
+                        case.setdefault("ragas_unavailable", {})[name] = "No ground-truth source IDs"
+                        continue
+                    if name == "context_precision" and not case.get("retrieved_context_ids"):
+                        case["ragas"].pop(name, None)
+                        case.setdefault("ragas_unavailable", {})[name] = "No retrieved source IDs; precision is undefined"
+                        continue
+                    if name not in ID_CONTEXT_METRICS and name != "answer_relevancy" and not case.get("contexts"):
+                        case["ragas"].pop(name, None)
+                        case.setdefault("ragas_unavailable", {})[name] = "No retrieved contexts"
+                        continue
+                    case.get("ragas_unavailable", {}).pop(name, None)
                     if isinstance(case["ragas"].get(name), (int, float)) and math.isfinite(case["ragas"][name]):
                         continue
                     case['ragas'].pop(name, None)
@@ -458,7 +598,7 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
     for case in report["cases"][:limit]:
         if ids is not None and case["id"] not in ids:
             continue
-        if "answer" not in case or (case.get("no_answer") and not score_abstentions) or not case.get("contexts"):
+        if "answer" not in case or (case.get("no_answer") and not score_abstentions):
             continue
         case.setdefault("ragas", {})
         case.setdefault("ragas_errors", {})
@@ -466,6 +606,18 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
         if case["category"] == "find_listing" and case["id"] in (15, 16):
             user_input = "Sau yêu cầu tìm phòng từ 18 m², có máy lạnh, giá không quá 2,5 triệu đồng/tháng: " + user_input
         for name in selected_metrics:
+            if name in ID_CONTEXT_METRICS and not case.get("reference_context_ids"):
+                case.setdefault("ragas_unavailable", {})[name] = "No ground-truth source IDs"
+                continue
+            if name == "context_precision" and not case.get("retrieved_context_ids"):
+                case["ragas"].pop(name, None)
+                case.setdefault("ragas_unavailable", {})[name] = "No retrieved source IDs; precision is undefined"
+                continue
+            if name not in ID_CONTEXT_METRICS and name != "answer_relevancy" and not case.get("contexts"):
+                case["ragas"].pop(name, None)
+                case.setdefault("ragas_unavailable", {})[name] = "No retrieved contexts"
+                continue
+            case.get("ragas_unavailable", {}).pop(name, None)
             scorer = scorers[name]
             if isinstance(case["ragas"].get(name), (int, float)) and math.isfinite(case["ragas"][name]):
                 continue
@@ -479,15 +631,8 @@ def score(report: dict, output: Path, limit: int | None, judge_url: str, judge_m
             usage_start = len(getattr(judge, "usage", []))
             judgement_start = len(getattr(judge, "judgements", []))
             try:
-                kwargs = {"user_input": user_input, "response": case["answer"]}
-                if name != "answer_relevancy":
-                    kwargs["retrieved_contexts"] = [json.dumps({
-                        "rank": source.get("rank"), "document": source.get("title"),
-                        "category": source.get("category"), "heading": source.get("heading"),
-                        "page_from": source.get("page_from"), "page_to": source.get("page_to"),
-                        "content": context}, ensure_ascii=False)
-                        for source, context in zip(case["sources"], case["contexts"])]
-                value = float(scorer.score(**kwargs).value)
+                kwargs = score_kwargs(case, name, user_input=user_input)
+                value = score_metric(scorer, name, kwargs)
                 case["ragas"][name] = round(value, 4) if math.isfinite(value) else None
                 case["ragas_errors"].pop(name, None)
             except Exception as exc:
@@ -510,6 +655,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--questions", type=Path, default=Path("/question_bank.md"))
     parser.add_argument("--output", type=Path, default=Path("/eval/reports/question_bank_ragas_2026-10-01.json"))
+    parser.add_argument("--ground-truth", type=Path, default=Path("/eval/datasets/chatbot_gold_context_ids_48.json"),
+                        help="RAGAS gold relevant source IDs used by ID-based Context Recall/Precision")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--phase", choices=("collect", "score", "all"), default="all")
     parser.add_argument("--judge-url", default=os.getenv("RAGAS_JUDGE_URL", "http://host.docker.internal:11434"))
@@ -521,11 +668,19 @@ def main() -> None:
     parser.add_argument("--reset-selected-metrics", action="store_true")
     parser.add_argument("--ids", nargs="+", type=int, help="Chỉ chạy lại các câu cần sửa, giữ nguyên checkpoint khác")
     parser.add_argument("--score-abstentions", action="store_true", help="Chấm cả câu từ chối tổng hợp khi vẫn có ngữ cảnh; không giả lập điểm 0")
+    parser.add_argument("--require-embeddings", action="store_true", help="Dừng trước khi thu thập nếu embedding vector không khả dụng")
     parser.add_argument("--exclude-categories", nargs="+", default=[], help="Exclude categories from this run without changing the question bank")
     args = parser.parse_args()
     questions = load_questions(args.questions)
     bank_size = len(questions)
     questions = [case for case in questions if case["category"] not in args.exclude_categories]
+    selected_ids = sorted(set(args.ids)) if args.ids else None
+    if selected_ids is not None:
+        available_ids = {case["id"] for case in questions}
+        unknown = set(selected_ids) - available_ids
+        if unknown:
+            parser.error(f"Unknown IDs: {sorted(unknown)}")
+        questions = [case for case in questions if case["id"] in set(selected_ids)]
     digest = hashlib.sha256(args.questions.read_bytes()).hexdigest()
     if args.output.exists():
         report = json.loads(args.output.read_text(encoding="utf-8"))
@@ -536,18 +691,20 @@ def main() -> None:
     else:
         report = {"started_at_utc": datetime.now(timezone.utc).isoformat(),
                   "question_bank_sha256": digest,
-                  "method": "real DB + configured provider chain + Ragas common judge; no independent references",
-                  "bank_size": bank_size, "excluded_categories": args.exclude_categories,
+                  "method": "real DB + configured provider chain + Ragas; source-ID recall/precision use curated corpus-grounded labels",
+                  "bank_size": bank_size, "selected_ids": selected_ids,
+                  "excluded_categories": args.exclude_categories,
                   "cases": questions}
     if args.ids:
         selected = set(args.ids)
         unknown = selected - {case["id"] for case in report["cases"]}
         if unknown:
             parser.error(f"Unknown IDs: {sorted(unknown)}")
+    apply_gold_context_ids(report, args.ground_truth, digest)
     report.pop('quota_state',None)
     try:
         if args.phase in ("collect", "all"):
-            collect(report, args.output, args.limit, args.ids)
+            collect(report, args.output, args.limit, args.ids, args.require_embeddings)
         if args.phase in ("score", "all"):
             score(report, args.output, args.limit, args.judge_url, args.judge_model, args.metrics,
                   args.reset_selected_metrics, args.ids, args.score_abstentions, args.judge_max_output_tokens,

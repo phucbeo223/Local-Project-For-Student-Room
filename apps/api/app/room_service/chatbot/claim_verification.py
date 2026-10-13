@@ -93,15 +93,11 @@ def retained_answer(generated, checked):
     keep = {r['claim_id'] for r in retained}
     retained = [r for r in generated.claim_records if r['claim_id'] in keep]
     text = '\n'.join(r['rendered'] for r in retained)
-    text += '\n\nChưa đủ căn cứ cho một số ý trong câu hỏi; chỉ giữ các kết luận đã được nguồn hỗ trợ.'
-    # Verifier reasons are diagnostics, not verified legal claims. They can
-    # themselves contain rejected propositions or broad statements that no law
-    # exists. Keep the complete reasons in the verification trace, not the
-    # user-facing answer that is checked again as a set of legal claims.
-    if generated.evidence_limitations: text += '\n' + '\n'.join(generated.evidence_limitations)
-    text += '\n\nThông tin tham khảo từ nguồn, cần đối chiếu điều kiện áp dụng và hiệu lực.'
+    # Coverage and provenance remain in response metadata. Keep this displayed
+    # answer to the claims that passed verification; generic notes can assert
+    # gaps or advice the cited passages do not entail.
     if len(text) > 3500: return None
-    return replace(generated, text=text, claim_records=tuple(retained),
+    return replace(generated, text=text, provider='legal-partial-retained', claim_records=tuple(retained),
         degraded_reasons=(*generated.degraded_reasons, 'Giữ các kết luận đã kiểm chứng; đánh dấu phần chưa có căn cứ.'))
 
 

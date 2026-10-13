@@ -1,4 +1,6 @@
 # Isolated evaluator image; application and indexer dependencies live in the base image.
+# Keep the evaluator compatible with the Transformers embedding runtime in the base image.
+huggingface-hub>=0.34.0,<1.0
 ragas==0.3.9
 langchain==0.3.27
 langchain-community==0.3.31

@@ -102,6 +102,12 @@ class ChatEvaluationContext(BaseModel):
     chunk_id: int | None = None
     rank: int
     content: str
+    source_id: str | None = None
+    source_content_kind: str | None = None
+    source_scope_warning: str | None = None
+    context_complete: bool = True
+    unresolved_references: list[Any] = Field(default_factory=list)
+    trigger_verified: bool = False
 
 
 class ChatFeedbackCreate(BaseModel):

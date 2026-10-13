@@ -1,0 +1,502 @@
+{
+  "generated_at_local": "2026-10-14T02:50:11.1109620+07:00",
+  "timezone": "Asia/Saigon",
+  "database": "nckh_feature",
+  "graph_enabled": true,
+  "graph_schema": "graph_ctu_ktx_v2_20261007",
+  "legal_schema": "legal_ctu_ktx_v2_20261007",
+  "listing_schema": "housing_graph_word_repair_v16",
+  "corpus_manifest_sha256": "4e60a863fb9f9a43404eaa5cc196c39d42cf510da31def31bfed87d509f05d84",
+  "ktx_revision": "862a11a50bb497988c42a9139748b6261cb5086c9f62a41f5efa3984fff136da",
+  "pipeline_sha256": "fe4123ca9525f6ab6ce11f37563a169b776db93149b8e8d2cce504570a50cb08",
+  "selected_ids": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66
+  ],
+  "question_bank_sha256": "1947835833990aa0a0b5a937aaae668dddd29a24b61db789475de7d1a70e75bb",
+  "ground_truth": {
+    "file": "chatbot_gold_context_ids_48.json",
+    "sha256": "9c75524e00e72032085580cc564b49576d50e7fadd1543665a7c29f7e02be331",
+    "schema": "ragas-gold-context-ids-v1",
+    "method": "Per-question relevant source artifacts were selected from the released corpus and the named CTU room table, independently of generated chatbot answers. These are document-level labels for IDBasedContextRecall and IDBasedContextPrecision, not claim-level legal answer references. They are single-review source labels and should be independently checked before external publication.",
+    "id_policy": "For legal corpus contexts, IDs are source-path basenames. For CTU web excerpts, IDs are exact source URLs. For user-supplied CTU room-table excerpts, ID is the exact title `Danh mục phòng KTX năm 2026 · bạn cung cấp`. For a retrieved housing listing, ID is its source URL.",
+    "review_status": "single-review source labels; independent review recommended",
+    "metrics": {
+      "context_recall": "Ragas IDBasedContextRecall over retrieved and reference source IDs",
+      "context_precision": "Ragas IDBasedContextPrecision over retrieved and reference source IDs"
+    },
+    "question_bank_sha256": "1947835833990aa0a0b5a937aaae668dddd29a24b61db789475de7d1a70e75bb"
+  },
+  "judge": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.8-flash-high",
+    "provider": "gemini",
+    "score_workers": 2,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.8-flash-high",
+      "answer_relevancy": "gemini-3.8-flash-high",
+      "context_utilization": "gemini-3.8-flash-high"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "http://host.docker.internal:8317/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 16384,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window",
+    "missing_context_policy": "answer_relevancy can score without source context; IDBasedContextRecall scores empty retrieval as zero recall; IDBasedContextPrecision is N/A when no source was retrieved",
+    "context_metric_granularity": "document-level, exact ID match; not claim-level source recall"
+  },
+  "generation_identity": {
+    "pipeline_sha256": "fe4123ca9525f6ab6ce11f37563a169b776db93149b8e8d2cce504570a50cb08",
+    "legal_schema": "legal_ctu_ktx_v2_20261007",
+    "listing_schema": "housing_graph_word_repair_v16",
+    "graph_enabled": true,
+    "agents_enabled": true,
+    "answer_provider": "gemini",
+    "answer_model": "gemini-3.8-flash-high",
+    "fallback_model": "gemini-3.1-flash-lite",
+    "endpoint": "http://host.docker.internal:8317/v1beta",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "runtime_packages": {
+      "torch": "2.5.1+cpu",
+      "sentence-transformers": "3.3.1",
+      "transformers": "4.57.6",
+      "huggingface-hub": "0.36.2",
+      "ragas": "0.3.9"
+    },
+    "legal_revision": "86845f6886d700943eb6aabea96461ac",
+    "ktx_revision": "862a11a50bb497988c42a9139748b6261cb5086c9f62a41f5efa3984fff136da",
+    "graph_schema": "graph_ctu_ktx_v2_20261007"
+  },
+  "run_configuration": {
+    "agents_enabled": true,
+    "legal_schema": "legal_ctu_ktx_v2_20261007",
+    "question_analysis_model": "gemini-3.1-flash-lite",
+    "answer_model": "qwen3.5:9b",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "analysis_provider_available": "gemini",
+    "legal_answer_mode": "source_select_then_synthesis",
+    "answer_synthesis_enabled": true,
+    "answer_synthesis_model": "gemini-3.8-flash-high"
+  },
+  "retrieval_modes": [
+    {
+      "mode": "ktx_housing_structured",
+      "count": 1
+    },
+    {
+      "mode": "ktx_hybrid",
+      "count": 5
+    },
+    {
+      "mode": "ktx_structured",
+      "count": 6
+    },
+    {
+      "mode": "legal_graph_hybrid",
+      "count": 36
+    }
+  ],
+  "summary": {
+    "questions": 48,
+    "completed": 48,
+    "errors": 0,
+    "with_contexts": 47,
+    "no_answer": 19,
+    "partial_answer": 18,
+    "degraded": 18,
+    "vector_retrieval": 41,
+    "category_source_match": 47,
+    "category_source_evaluated": 48,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 54201.5,
+    "latency_p95_ms": 99334,
+    "ragas": {
+      "faithfulness": {
+        "mean": 0.9116,
+        "scored": 47
+      },
+      "answer_relevancy": {
+        "mean": 0.7655,
+        "scored": 48
+      },
+      "context_utilization": {
+        "mean": 0.9431,
+        "scored": 47
+      },
+      "context_recall": {
+        "mean": 0.7934,
+        "scored": 48
+      },
+      "context_precision": {
+        "mean": 0.8653,
+        "scored": 47
+      }
+    },
+    "answer_correctness": "N/A: no independent reference answers",
+    "context_metric_granularity": "document-level source IDs; see ground_truth metadata"
+  },
+  "by_category": {
+    "housing_contract": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 1,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9472,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.9046,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.9514,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.75,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.75,
+          "scored": 4
+        }
+      }
+    },
+    "electricity": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 4,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.8396,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.6711,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.9792,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.5833,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.9167,
+          "scored": 4
+        }
+      }
+    },
+    "water_cantho": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 3,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.8807,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.4606,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.6906,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.9167,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.8334,
+          "scored": 4
+        }
+      }
+    },
+    "residence": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 2,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9581,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.6697,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.9583,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.75,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "scored": 4
+        }
+      }
+    },
+    "fire_safety": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 1,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.917,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.9136,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 1.0,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.75,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.7917,
+          "scored": 4
+        }
+      }
+    },
+    "student_housing": {
+      "questions": 12,
+      "completed": 12,
+      "with_contexts": 11,
+      "no_answer": 1,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9146,
+          "scored": 11
+        },
+        "answer_relevancy": {
+          "mean": 0.8184,
+          "scored": 12
+        },
+        "context_utilization": {
+          "mean": 0.9848,
+          "scored": 11
+        },
+        "context_recall": {
+          "mean": 0.8472,
+          "scored": 12
+        },
+        "context_precision": {
+          "mean": 0.9394,
+          "scored": 11
+        }
+      }
+    },
+    "real_estate_brokerage": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 3,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9375,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.4202,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.8347,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 1.0,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.7917,
+          "scored": 4
+        }
+      }
+    },
+    "ecommerce_platform": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 3,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9134,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.8829,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 1.0,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.9375,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.875,
+          "scored": 4
+        }
+      }
+    },
+    "privacy_data": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 0,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.851,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.9129,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 0.9583,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.7083,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 1.0,
+          "scored": 4
+        }
+      }
+    },
+    "criminal_law": {
+      "questions": 4,
+      "completed": 4,
+      "with_contexts": 4,
+      "no_answer": 1,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.9513,
+          "scored": 4
+        },
+        "answer_relevancy": {
+          "mean": 0.8949,
+          "scored": 4
+        },
+        "context_utilization": {
+          "mean": 1.0,
+          "scored": 4
+        },
+        "context_recall": {
+          "mean": 0.5834,
+          "scored": 4
+        },
+        "context_precision": {
+          "mean": 0.625,
+          "scored": 4
+        }
+      }
+    }
+  },
+  "comparison_with_20261013": {
+    "baseline_report": "graph_ragas_48_agents_gemini_qwen_20261013.json",
+    "same_48_question_ids": true,
+    "faithfulness": {
+      "baseline": 0.5749,
+      "baseline_scored": 47,
+      "current": 0.9116,
+      "current_scored": 47,
+      "delta": 0.3367
+    },
+    "comparability_note": "Mức tăng mang tính chỉ báo, chưa hoàn toàn đồng điều kiện: lượt này siết hướng dẫn tổng hợp và đưa metadata giới hạn/phạm vi nguồn vào ngữ cảnh chấm Faithfulness; lượt 13/10 chưa dùng cùng metadata."
+  },
+  "files_sha256": {
+    "docker-compose.yml": "1128fbd02e4a1990a5e60382ff3c447d13f67eb3bb5827cc6b3956594f7cc7f2",
+    "docker-compose.ktx-ragas.yml": "bbf93da9f9561378374da34eeb6fdf40f506b05fcacde7cb98e2421a95ede87a",
+    "eval/Dockerfile.ktx-feature": "c994b4ce02ffffe974168157fffff89507579bfce3e5f2fd031cef02f3d0b3e4",
+    "eval/requirements-ragas.txt": "874bd0e51aaaaca38bba5537ad4e2b9a80d85b8281c334bf7860d1aa54de9812",
+    "eval/question_bank_ragas.py": "ae72655653e8cb324d006a78d573272f13164378ddf9fe7efb7c4ac2d2d5141e",
+    "eval/render_legal_ktx_review.py": "8c26d762caf9ccd29851326ce2386a23e294edde837da5517759cd1276b69456",
+    "eval/datasets/chatbot_question_bank.txt": "1947835833990aa0a0b5a937aaae668dddd29a24b61db789475de7d1a70e75bb",
+    "eval/datasets/chatbot_gold_context_ids_48.json": "9c75524e00e72032085580cc564b49576d50e7fadd1543665a7c29f7e02be331",
+    "apps/api/app/room_service/chatbot/agent_workflow.py": "574450229fcff1c202114920d9a7195732622998cf188d038129f5c238c419fc",
+    "apps/api/app/room_service/chatbot/claim_verification.py": "5f172411f50754c134d78e72bf8634e9285224fa3f48f83cd0fcae04eba1bb21",
+    "apps/api/app/room_service/chatbot/schemas.py": "c624780e773a527a5885d0bd8e46652d9fcae481413fb8b83d058d093f5353f1",
+    "apps/api/app/room_service/chatbot/service.py": "6acb8113a84036f7bd7f7fc11042655721bb5ae8faac34bbdd723b8d4fa93be0",
+    "docs/reviews/graph_ragas_48_agents_gemini_qwen_20261013.json": "1b7b3dbbbc6af48849960bfaf90fbd39483d01f33c36939adaf8b4faa13cbd5f",
+    "docs/reviews/graph_ragas_48_faithfulness_gt_20261014.json": "c3627e9e1b2132f2910894694507de2fc3682c135f81f98d3e2ec3bc4a1f7b7f",
+    "docs/reviews/graph_ragas_48_faithfulness_gt_20261014.md": "2bd6f54f78f6dabec5440bc8a476ac2dadb862b7e670472a8cd1e54124f190b3",
+    "docs/reviews/graph_ragas_48_faithfulness_gt_20261014.html": "c6c50168cd3ac46dffe6ea05ca61f8c58b527ceb0d14239968ac211cc1a4d3e7"
+  }
+}

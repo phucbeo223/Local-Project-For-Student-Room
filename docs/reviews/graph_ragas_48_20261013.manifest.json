@@ -1,0 +1,239 @@
+{
+  "database": "nckh_feature",
+  "graph_schema": "graph_ctu_ktx_v2_20261007",
+  "release": {
+    "listing_schema": "housing_graph_word_repair_v16",
+    "legal_schema": "legal_ctu_ktx_v2_20261007",
+    "housing_sha256": "b859bab1dc66808adc897f8f2b0b858d6aa2aa3954e52fc92c8e816e533b5947",
+    "legal_sha256": "4e60a863fb9f9a43404eaa5cc196c39d42cf510da31def31bfed87d509f05d84"
+  },
+  "counts": {
+    "graph_nodes": 1349,
+    "graph_edges": 3264,
+    "listing_nodes": 789,
+    "legal_documents": 44,
+    "legal_chunks": 530
+  },
+  "images": {
+    "scoring": "sha256:6d19e93ceac82e80356d7fa909d1d2be565b8153eaf6f12304c03e2aca02b0a0",
+    "generation": "sha256:24040d6dcb56d76ec8dac7a49c25541bd94b546acad8fa2c69e1817e0993041a",
+    "api": "sha256:ad9a5d7ffb29e157805d3ca791c2034bfe93fc19cfc2825f0bd5f8ee90bdee18"
+  },
+  "prepared_at_utc": "2026-10-13T18:03:35.192917+00:00",
+  "timezone": "Asia/Saigon",
+  "started_at_local": "2026-10-13T09:51:40.819567+07:00",
+  "completed_at_local": "2026-10-14T00:58:52.211143+07:00",
+  "selected_ids": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66
+  ],
+  "pipeline_sha256": "e8e08d9045d954e0904e5109a1e7029181f759c8e3d5ce923be610a2d5be29ac",
+  "corpus_manifest_sha256": "4e60a863fb9f9a43404eaa5cc196c39d42cf510da31def31bfed87d509f05d84",
+  "question_bank_sha256": "1947835833990aa0a0b5a937aaae668dddd29a24b61db789475de7d1a70e75bb",
+  "runtime_packages": {
+    "torch": "2.5.1+cpu",
+    "sentence-transformers": "3.3.1",
+    "transformers": "4.57.6",
+    "huggingface-hub": "0.36.2",
+    "ragas": "0.3.9"
+  },
+  "judge": {
+    "library": "ragas",
+    "version": "0.3.9",
+    "model": "gemini-3.8-flash-high",
+    "provider": "gemini",
+    "score_workers": 2,
+    "models_by_metric": {
+      "faithfulness": "gemini-3.8-flash-high",
+      "answer_relevancy": "gemini-3.8-flash-high",
+      "context_utilization": "gemini-3.8-flash-high"
+    },
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "endpoint": "http://host.docker.internal:8317/v1beta",
+    "answer_relevancy_strictness": 1,
+    "context_limit": 5,
+    "max_output_tokens": 16384,
+    "temperature": 0,
+    "judge_request_timeout_seconds": 180,
+    "context_char_limit": null,
+    "score_abstentions": true,
+    "context_policy": "all generation evidence; native model may still truncate its token window",
+    "missing_context_policy": "answer_relevancy only; source-dependent metrics are N/A"
+  },
+  "summary": {
+    "questions": 48,
+    "completed": 48,
+    "errors": 0,
+    "with_contexts": 47,
+    "no_answer": 26,
+    "partial_answer": 25,
+    "degraded": 25,
+    "vector_retrieval": 41,
+    "category_source_match": 47,
+    "category_source_evaluated": 48,
+    "citation_format_accuracy_mean": 1.0,
+    "latency_p50_ms": 64831.5,
+    "latency_p95_ms": 141736,
+    "ragas": {
+      "faithfulness": {
+        "mean": 0.5749,
+        "scored": 47
+      },
+      "answer_relevancy": {
+        "mean": 0.8578,
+        "scored": 48
+      },
+      "context_utilization": {
+        "mean": 0.9235,
+        "scored": 47
+      }
+    },
+    "context_recall": "N/A: no independent reference answers",
+    "answer_correctness": "N/A: no independent reference answers"
+  },
+  "evaluation_breakdown": {
+    "legal": {
+      "questions": 36,
+      "complete": 11,
+      "partial": 25,
+      "no_context_ids": [],
+      "latency_p50_ms": 73715.0,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.4756,
+          "scored": 36
+        },
+        "answer_relevancy": {
+          "mean": 0.8714,
+          "scored": 36
+        },
+        "context_utilization": {
+          "mean": 0.9048,
+          "scored": 36
+        }
+      }
+    },
+    "ktx": {
+      "questions": 12,
+      "complete": 11,
+      "partial": 0,
+      "no_context_ids": [
+        62
+      ],
+      "latency_p50_ms": 61.0,
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.8999,
+          "scored": 11
+        },
+        "answer_relevancy": {
+          "mean": 0.817,
+          "scored": 12
+        },
+        "context_utilization": {
+          "mean": 0.9848,
+          "scored": 11
+        }
+      }
+    },
+    "graph_edge_case_ids": [
+      31,
+      32,
+      36,
+      38,
+      48,
+      49,
+      50,
+      52,
+      53,
+      54
+    ],
+    "graph_included_provision_case_ids": [
+      36,
+      38,
+      49,
+      53
+    ]
+  },
+  "judge_output_token_limits": [
+    8192,
+    16384
+  ],
+  "source_metrics_unavailable": {
+    "62": {
+      "faithfulness": "No retrieved contexts",
+      "context_utilization": "No retrieved contexts"
+    }
+  },
+  "generation_providers": {
+    "gemini-agent": 36,
+    "structured_ktx": 11,
+    "structured_housing_advice": 1
+  },
+  "stage_case_counts": {
+    "question_analysis": 36,
+    "evidence_selection": 36,
+    "answer_synthesis": 36,
+    "source_verification": 36
+  },
+  "files_sha256": {
+    "docker-compose.yml": "1128fbd02e4a1990a5e60382ff3c447d13f67eb3bb5827cc6b3956594f7cc7f2",
+    "docker-compose.ktx-ragas.yml": "bbf93da9f9561378374da34eeb6fdf40f506b05fcacde7cb98e2421a95ede87a",
+    "eval/Dockerfile.ktx-feature": "c994b4ce02ffffe974168157fffff89507579bfce3e5f2fd031cef02f3d0b3e4",
+    "eval/requirements-ragas.txt": "874bd0e51aaaaca38bba5537ad4e2b9a80d85b8281c334bf7860d1aa54de9812",
+    "eval/question_bank_ragas.py": "8766e1fe7e486f0fd3a1be9068dec408d8ab6c3d3e909df566e2b74c093c6a85",
+    "eval/render_legal_ktx_review.py": "947e1efc65baadfb9b13e2ab15a63cc123cf30023165bc35f2a1e51f70f094ac",
+    "eval/datasets/chatbot_question_bank.txt": "1947835833990aa0a0b5a937aaae668dddd29a24b61db789475de7d1a70e75bb",
+    "eval/reports/graph_ragas_48_agents_gemini_qwen_20261013.json": "1b7b3dbbbc6af48849960bfaf90fbd39483d01f33c36939adaf8b4faa13cbd5f",
+    "eval/reports/graph_ragas_48_gemini_diagnostics_20261014.json": "22b43676957dbdd42d3f0dc5e0171828abcc40ee7a411409d65b4407c563f7c1",
+    "docs/reviews/graph_ragas_48_20261013.html": "4e92d83626bc6be4174cde9d5e5e5f94022d3b15c93f57cd906a3c5ca18af8af",
+    "docs/reviews/graph_ragas_48_20261013.md": "2c3fd76c377b65a0946af6802843dfdfb5df5d17e64c1537b8270843847b0a83",
+    "docs/report/ThuyetMinh_Chatbot_13-10-2026.md": "c6f3defe6f6d18c7c1f6dae6f1021a4ac6f2ae96255591292c649bccc17f1e4d"
+  }
+}

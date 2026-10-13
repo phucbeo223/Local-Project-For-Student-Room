@@ -346,6 +346,12 @@ class ChatService:
                     chunk_id=int(item["chunk_id"]),
                     rank=int(item["rank"]),
                     content=str(item["content"]),
+                    source_id=item.get("source_id"),
+                    source_content_kind=item.get("source_content_kind"),
+                    source_scope_warning=item.get("source_scope_warning"),
+                    context_complete=bool(item.get("context_complete", True)),
+                    unresolved_references=list(item.get("unresolved_references") or []),
+                    trigger_verified=bool(item.get("trigger_verified", False)),
                 )
                 for item in chunks
             ]
@@ -365,8 +371,8 @@ class ChatService:
             confidence=round(confidence, 4),
             listings=[],
             sources=sources,
-            no_answer=not chunks or rejected or completion != 'complete' or generated.provider in {"template", "legal-insufficient", "legal-partial-extractive"},
-            partial_answer=generated.provider == "legal-partial-extractive" or completion == 'partial',
+            no_answer=not chunks or rejected or completion != 'complete' or generated.provider in {"template", "legal-insufficient", "legal-partial-extractive", "legal-partial-retained"},
+            partial_answer=generated.provider in {"legal-partial-extractive", "legal-partial-retained"} or completion == 'partial',
             degraded=bool(degraded_reasons),
             degraded_reasons=degraded_reasons,
             retrieval_mode=retrieval_mode,

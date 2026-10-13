@@ -1,4 +1,8 @@
 FROM nckh-api:latest
 COPY eval/requirements-ragas.txt /tmp/requirements-ragas.txt
 RUN pip install --no-cache-dir -r /tmp/requirements-ragas.txt
+# Ragas imports GitPython during initialization, including metrics-only runs.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["python", "/eval/question_bank_ragas.py"]
